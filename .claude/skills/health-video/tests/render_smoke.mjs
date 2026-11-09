@@ -10,7 +10,7 @@ const root = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-v2-smoke-'));
 const project = path.join(root, 'project');
 const exec = (cmd, args) => {
   const p = spawnSync(cmd, args, { encoding: 'utf8', maxBuffer: 4 * 1024 * 1024 });
-  if (p.status !== 0) throw new Error(cmd + ' failed: ' + (p.stderr || p.stdout));
+  if (p.error || p.status !== 0) throw new Error(cmd + ' failed: ' + (p.error?.message || p.stderr || p.stdout || 'exit=' + p.status));
   return p.stdout;
 };
 const cli = (...args) => exec(process.execPath, [script, ...args]);
