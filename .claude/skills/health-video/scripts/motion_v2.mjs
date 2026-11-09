@@ -18,9 +18,9 @@ import { spawnSync } from 'node:child_process';
 import { pipeline } from 'node:stream/promises';
 import { Readable } from 'node:stream';
 import { fileURLToPath } from 'node:url';
+import { File } from 'node:buffer';
 import { stillPrompt, movingPrompt, NEGATIVE, styleOf } from './motion_style.mjs';
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
 const BATCH_SIZE = 20;
 const FPS = 30;
 const WIDTH = 1920;
@@ -85,7 +85,9 @@ export function buildScenes(cues, style = 'V1', character = '') {
     const text = candidates.map(c => c.text).join(' ').trim();
     scenes.push({
       id, start: round(start), end: round(end), text,
-      mode: 'character', character_id: 'main',
+      // Animate every third scene by default. The rest use genuine artwork and gentle camera motion.
+      // Edit mode to 'character' for any additional actions, or to 'graphic' for diagrams.
+      mode: i % 3 === 0 ? 'character' : 'still', character_id: 'main',
       visual: text || 'The recurring character in a suitable everyday environment',
       action: DEFAULT_ACTION,
       image: 'images/' + id + '.png', end_image: null,
@@ -102,7 +104,7 @@ function argsOf(argv) {
     const a = argv[i];
     if (a.startsWith('--')) {
       const k = a.slice(2);
-      if (['execute', 'draft', 'allow-stills', 'frames'].includes(k)) opt[k] = true;
+      if (['execute', 'draft', 'allow-stills', 'frames', 'dryrun'].includes(k)) opt[k] = true;
       else { if (!argv[i + 1] || argv[i + 1].startsWith('--')) throw new Error('Missing value for --' + k); opt[k] = argv[++i]; }
     } else pos.push(a);
   }
@@ -184,6 +186,9 @@ function batch(f, p, index) {
   const dir = path.join(f.motion, 'batches');
   mkdir(dir);
   const slug = 'batch_' + String(b).padStart(3, '0');
+  const motionInstructions = chosen.filter(s => s.mode === 'character').map(s =>
+    '## ' + s.id + ' — ' + secs(s) + ' seconds\nFirst frame: ' + s.image + '\nResult: ' + s.video + '\n\n' + movingPrompt(s, p.style, p.character) + '\n').join('\n');
+  write(path.join(dir, slug + '_motion_prompts.md'), '# Manual/optional image-to-video prompts\n\n' + motionInstructions);
   const prompt = chosen.map((s, i) => [
     '### ' + s.id + ' (' + (i + 1) + '/' + chosen.length + ')',
     'Vietnamese scene guide: ' + s.text,
@@ -199,6 +204,7 @@ function batch(f, p, index) {
     'Generate exactly ' + chosen.length + ' high-quality 16:9 scene images in the approved ' + p.style + ' style.',
     'Keep character identity, colors, wardrobe and anatomy consistent.',
     'Rename each image exactly ' + chosen.map(s => s.id + '.png').join(', ') + '.',
+    'Then, for approved character scenes, produce natural moving MP4s using the separate motion prompts. Use an image-to-video tool that you choose; NEVER create paid clips without permission.',
     'Move finished images to the video Collection (or images/ folder). Do NOT generate videos yet.',
     'Check hands, legs, faces, Spanish text leakage, backgrounds and decorative external frame.',
     'STOP after this single batch; ask the owner for OK before the next batch.',
