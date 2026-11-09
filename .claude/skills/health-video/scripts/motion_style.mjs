@@ -64,8 +64,8 @@ export function stillPrompt(scene, styleName = 'V1', character = '') {
     (character ? 'IDENTITY LOCK: ' + character + '.' : 'Use the exact approved master character reference, same face, body type and age.');
   const characterRule = graphic ?
     'Use correct anatomy and responsible educational symbolism; no misleading numerical labels or invented improvements.' :
-    'Keep the recurring person recognisable. ' + clean(scene.wardrobe || 'Retain their signature outfit') +
-      '. If the entire body is in frame: exactly one head, two arms, two legs, two hands, two feet, anatomically correct elbows and knees. No default idle standing pose.';
+    'Keep the recurring character recognisable. ' + clean(scene.wardrobe || 'Retain defining colors, clothing and accessories') +
+      '. Respect the MASTER CHARACTER reference anatomy: if human, preserve exactly one head, two arms, two legs and correct hands, elbows and knees; if a mascot or abstract character, preserve its canonical features and proportions. No default idle standing pose.';
   return [
     graphic ? s.graphic : s.image,
     identity,
@@ -90,7 +90,7 @@ export function movingPrompt(scene, styleName = 'V1', character = '') {
     clean(scene.setting) && 'The existing first-frame scene is ' + clean(scene.environment || scene.setting) + '. Maintain this exact scene during the clip; scene changes occur BETWEEN clips.',
     clean(scene.shot) && 'Preserve the existing first-frame ' + clean(scene.shot) + ' composition throughout this shot.',
     'ONE COHERENT PHYSICAL ACTION: ' + action + '.',
-    'Perform the action with natural weight transfer, anticipation, smooth easing and follow-through, physically believable feet contact, shoulders, hips, elbows, knees and hands.',
+    'Perform the action with natural anticipation, smooth easing and follow-through. For human characters preserve believable feet contact, balance and joints; for mascot or nonhuman characters preserve their master proportions and established motion language.',
     'Preserve facial identity, head shape, costume, props, lighting and image palette throughout this single clip. Do not change wardrobe DURING movement.',
     'Use stable fixed camera with NO cuts within the clip; differing camera angles are applied to DIFFERENT scenes in the image storyboard.',
     'Keep the entire animation in the SAME artistic medium and rendering style as the approved first frame and its master reference. Maintain any border/framing established by the chosen master; do not switch to a different art medium.',
