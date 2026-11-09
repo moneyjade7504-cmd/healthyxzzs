@@ -4,16 +4,19 @@ export const STYLE = Object.freeze({
   V1: {
     label: 'HEALTH_CARTOON V1 · pastel editorial',
     image: 'Beautiful hand-drawn 2D educational cartoon, Spanish older adult aged 60-75 with expressive but natural face, recognisable mature proportions, elegant everyday clothing, pleasing pastel colors with moderate saturation, clean dark outlines, subtle cel shading, believable room depth, one clear focal point. Full-bleed 16:9 illustration, a thin decorative picture-frame-style border OVERLAID at the OUTER FOUR EDGES. The picture continues beneath the border. This is NOT a card, NOT a rounded panel and NOT white margins.',
+    graphic: 'Beautiful 2D educational illustration in the V1 pastel editorial palette with slightly saturated muted colors, crisp clean outlines, delicate cel shading and realistic depth of objects. Full-bleed 16:9 infographic, thin decorative picture-frame-style border ON TOP of the four OUTER EDGES, art fills the whole canvas; never a white panel. No foreground people unless explicitly requested.',
     motion: 'Preserve the exact illustrated 2D style, face, outfit, body proportions, border and background. Natural human timing and weight transfer; smooth controlled movement with realistic joint motion, subtle cloth follow-through. Locked camera. The decorative outer picture border remains fixed and visible.',
   },
   V2: {
     label: 'HEALTH_CARTOON V2 · vivid editorial',
     image: 'Beautiful richly detailed 2D cartoon explainer of a Spanish adult aged 60-75, expressive mature face, clearly readable anatomy and everyday clothing, confident saturated colors and stronger contrast, crisp controlled outlines, careful two-tone soft shading and foreground/background depth. Full-bleed 16:9 art with a restrained organic/curved editorial frame at the OUTER EDGES, overlay on the illustration, not a panel. NO photorealism or 3D.',
+    graphic: 'Beautiful vivid V2 medical and object illustration, saturated colors with strong readable contrast, finely controlled dark outlines, gentle two-tone cel shading, layered foreground depth, a curved decorative outer-edge frame overlay, full-bleed 16:9 art, NOT 3D and NOT photorealistic. No human character unless clinically necessary.',
     motion: 'Keep the original vivid 2D illustration, precise clean outlines, same mature character and clothes, stable lighting, curved outer-edge frame and room. Smooth believable weight shifts, body mechanics, natural follow-through; fixed camera. No 3D transformation.',
   },
   LEGACY: {
     label: 'Original blue mannequin',
     image: 'Original channel house style: detailed 2D flat/cel-shaded health explainer illustration, adult blue mannequin with glowing white eyes, consistent proportions, expressive posture, clean bold outlines, cream #F5ECD7 background, 16:9, one focal point.',
+    graphic: 'Original channel 2D medical diagram style, strong dark outlines, soft cel shading, cream #F5ECD7 background, blue/red/amber object palette, flat educational anatomical art, no person unless requested.',
     motion: 'Keep the exact original illustrated blue mannequin, white eyes, contours, anatomy, cream background and scale. Controlled physically plausible exercise movement, fixed camera, natural limb arcs. Never rotate flat cardboard cut-out limbs.',
   },
 });
@@ -58,11 +61,7 @@ export function stillPrompt(scene, styleName = 'V1', character = '') {
     'Keep the recurring person recognisable. ' + clean(scene.wardrobe || 'Retain their signature outfit') +
       '. If the entire body is in frame: exactly one head, two arms, two legs, two hands, two feet, anatomically correct elbows and knees. No default idle standing pose.';
   return [
-    graphic ? [
-      'Full-bleed 2D medical/educational graphic in the same color palette, line quality, modest soft shading, and decorative OUTER EDGE frame as this channel.',
-      s.image,
-      'OVERRIDE for this infographic: depict only the contextually relevant anatomical insert, graph or object; NO main human character.'
-    ].join(' ') : s.image,
+    graphic ? s.graphic : s.image,
     identity,
     sceneDirection(scene),
     'WHAT TO SHOW: ' + (scene.visual || scene.text || 'One clear complete educational concept') + '.',
