@@ -5,14 +5,17 @@ on:
     paths:
       - '.claude/skills/health-video/scripts/motion_v2.mjs'
       - '.claude/skills/health-video/scripts/motion_style.mjs'
+      - '.claude/skills/health-video/scripts/scene_director.mjs'
       - '.claude/skills/health-video/tests/**'
       - '.github/workflows/motion-v2-ci.yml'
   push:
     branches:
       - 'feature/animated-characters-v2'
+      - 'feature/scene-variety-director-v3'
     paths:
       - '.claude/skills/health-video/scripts/motion_v2.mjs'
       - '.claude/skills/health-video/scripts/motion_style.mjs'
+      - '.claude/skills/health-video/scripts/scene_director.mjs'
       - '.claude/skills/health-video/tests/**'
       - '.github/workflows/motion-v2-ci.yml'
   workflow_dispatch:
@@ -33,8 +36,9 @@ jobs:
         run: |
           node --check .claude/skills/health-video/scripts/motion_style.mjs
           node --check .claude/skills/health-video/scripts/motion_v2.mjs
+          node --check .claude/skills/health-video/scripts/scene_director.mjs
       - name: Unit and batch tests (offline; no AI API)
-        run: node --test .claude/skills/health-video/tests/motion_v2.test.mjs
+        run: node --test .claude/skills/health-video/tests/motion_v2.test.mjs .claude/skills/health-video/tests/scene_director.test.mjs
       - name: Install FFmpeg on runner if needed
         run: |
           if ! command -v ffmpeg >/dev/null || ! command -v ffprobe >/dev/null; then

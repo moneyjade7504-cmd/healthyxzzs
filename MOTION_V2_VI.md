@@ -79,3 +79,53 @@ Các file hiện có ở projects/, characters/ và bộ render HTML cũ đượ
 ## Kiểm thử offline
 
     node --test .claude/skills/health-video/tests/motion_v2.test.mjs
+
+
+## Đạo diễn cảnh tự động V3 — KHÔNG còn một nhân vật đứng một chỗ
+
+Từ V3, Motion V2 tích hợp scene director: phân tích từ khóa tiếng Tây Ban Nha trong
+SRT để chọn bối cảnh, góc máy, hành động, đạo cụ và kỹ thuật thể hiện. Đây là
+gợi ý **theo quy tắc**, không phải hiểu kịch bản hoàn toàn bằng AI; hãy duyệt từng
+scene trước khi tạo ảnh.
+
+- **Bối cảnh:** phòng khách, góc tập với ghế chắc chắn, hành lang, công viên,
+  sân vườn, phòng ngủ, nhà bếp, bàn ăn, phòng khám, bàn đọc sách — phù hợp
+  chủ đề chân, tim mạch, tiểu đường, bàng quang, ngủ, ăn uống hoặc tâm lý.
+- **Góc nhìn:** toàn thân, trung cảnh, cận mặt, cận đồ vật, qua vai, góc nhìn từ trên,
+  khung lệch 2/3 và infographic.
+- **Hành động:** đi bộ, đứng lên/ngồi xuống có kiểm soát, tập cạnh ghế, chuẩn bị
+  bữa ăn, cầm sách, ghi chú, nghỉ trên giường, thảo luận ở phòng khám...
+  Không mặc định đứng yên, nhìn camera trong mọi cảnh.
+- **Phong cách trong cảnh:** đời thường có chiều sâu, minh họa động tác,
+  cận cảnh thực phẩm/đồ vật, giải phẫu, so sánh và infographic. Toàn video
+  vẫn giữ **cùng DNA V1/V2**, viền ảnh và kiểu nét; không tự nhảy sang 3D.
+- **Nhân vật:** khóa mặt, tuổi, hình thể và màu trang phục chính từ master reference.
+  Chỉ đổi quần áo khi thật sự có lý do theo kịch bản (ví dụ đồ ngủ).
+- **An toàn:** không tự bịa cải thiện bệnh lý; tư thế và dụng cụ bài tập phải theo
+  tài liệu y khoa; kiểm tra clip bằng mắt.
+
+Khi init, các file được tạo:
+- `motion/scenes.json`: mỗi cảnh có setting, environment, shot, framing, mood,
+  lighting, palette_treatment, wardrobe, treatment, object, action và visual;
+  bạn có thể sửa từng trường để đúng nội dung.
+- `motion/scene_map.md`: bảng đạo diễn toàn bộ cảnh để kiểm tra độ đa dạng trước.
+- `motion/batches/batch_001_prompts.md`: prompt 20 ảnh, **mỗi ảnh một bố cục**.
+- `motion/batches/batch_001_motion_prompts.md`: prompt chuyển động cho những
+  scene có mode=character, cố định camera trong *một clip* nhưng đổi góc ở
+  các clip kế tiếp.
+- `motion/qa/report.json`: thêm thống kê số bối cảnh, góc máy,
+  hành động riêng, cảnh bị lặp cả bối cảnh và góc máy.
+
+Ví dụ khởi tạo giữ mức đa dạng cao:
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs init projects/video_moi --srt /path/voice.srt --voice /path/voice.mp3 --style V1 --variety high --topic legs
+
+Các chủ đề nhận diện tự động nếu bỏ `--topic`: legs, heart, diabetes,
+bladder, sleep, food, mind, general. Nếu tự chọn, dùng đúng một từ khóa này.
+Muốn bố cục nhẹ nhàng hơn, chọn `--variety balanced`.
+
+**Điều chỉnh quan trọng:** tệp SRT chỉ có phụ đề, nên hành động do hệ thống
+đề xuất có thể chưa chính xác nếu lời thoại mơ hồ hoặc có ngữ cảnh đặc biệt.
+Bắt buộc mở `scene_map.md` và `scenes.json`, sửa lại những cảnh diễn
+tập, biểu cảm hoặc y khoa sai ý trước khi tạo hình.
+
