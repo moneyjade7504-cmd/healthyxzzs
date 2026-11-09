@@ -5,6 +5,7 @@
  *
  * CLI:
  *   node scripts/motion_v2.mjs init PROJECT --srt subtitles.srt --voice voice.mp3 [--style V1]
+ *   node scripts/motion_v2.mjs map PROJECT
  *   node scripts/motion_v2.mjs batch PROJECT [--index 1]
  *   node scripts/motion_v2.mjs animate PROJECT [--batch 1] [--max 1] [--execute]
  *   node scripts/motion_v2.mjs qa PROJECT
@@ -202,6 +203,7 @@ function storyboardMarkdown(p) {
   return md.join('\n');
 }
 function batch(f, p, index) {
+  write(path.join(f.motion, 'scene_map.md'), storyboardMarkdown(p));
   const b = Number(index || 1);
   if (!Number.isInteger(b) || b < 1) throw new Error('Batch index must be a positive integer');
   const chosen = p.scenes.slice((b - 1) * BATCH_SIZE, b * BATCH_SIZE);
@@ -428,10 +430,11 @@ function status(f, p) {
 export async function main(argv = process.argv.slice(2)) {
   const { pos, opt } = argsOf(argv);
   const [cmd, project, ...ids] = pos;
-  if (!cmd || !project) throw new Error('Usage: motion_v2.mjs init|batch|animate|qa|approve|render|status PROJECT [options]');
+  if (!cmd || !project) throw new Error('Usage: motion_v2.mjs init|map|batch|animate|qa|approve|render|status PROJECT [options]');
   const f = files(project);
   if (cmd === 'init') return init(f, opt);
   const p = planAt(f);
+  if (cmd === 'map') { write(path.join(f.motion, 'scene_map.md'), storyboardMarkdown(p)); console.log('Updated motion/scene_map.md after scene edits.'); return; }
   if (cmd === 'batch') return batch(f, p, opt.index);
   if (cmd === 'animate') return animate(f, p, opt);
   if (cmd === 'qa') return qa(f, p, !!opt.frames);
