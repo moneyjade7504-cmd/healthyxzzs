@@ -35,5 +35,11 @@ jobs:
           node --check .claude/skills/health-video/scripts/motion_v2.mjs
       - name: Unit and batch tests (offline; no AI API)
         run: node --test .claude/skills/health-video/tests/motion_v2.test.mjs
+      - name: Install FFmpeg on runner if needed
+        run: |
+          if ! command -v ffmpeg >/dev/null || ! command -v ffprobe >/dev/null; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq ffmpeg
+          fi
       - name: End-to-end FFmpeg render smoke test (synthetic assets, offline)
         run: node .claude/skills/health-video/tests/render_smoke.mjs
