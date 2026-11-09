@@ -24,8 +24,14 @@ export const STYLE = Object.freeze({
 export const NEGATIVE = 'morphing, melting, extra limbs, extra hands, missing fingers, deformed legs, broken joints, face swap, outfit change, flicker, shaky camera, rubber anatomy, unnatural bends, inconsistent character, photorealism, 3D render, gibberish text, logos, watermark';
 
 export function styleOf(name = 'V1') {
+  if (name && typeof name === 'object' && !Array.isArray(name)) {
+    if (typeof name.image !== 'string' || !name.image.trim() ||
+        typeof name.motion !== 'string' || !name.motion.trim())
+      throw new Error('Custom Master Style requires image and motion descriptions');
+    return { ...name, graphic: name.graphic || name.image };
+  }
   const s = STYLE[String(name).toUpperCase()];
-  if (!s) throw new Error('Unknown style ' + name + '. Choose V1, V2 or LEGACY.');
+  if (!s) throw new Error('Unknown style ' + name + '. Use V1/V2/LEGACY or provide --master/--master-image.');
   return s;
 }
 
@@ -58,8 +64,8 @@ export function stillPrompt(scene, styleName = 'V1', character = '') {
     (character ? 'IDENTITY LOCK: ' + character + '.' : 'Use the exact approved master character reference, same face, body type and age.');
   const characterRule = graphic ?
     'Use correct anatomy and responsible educational symbolism; no misleading numerical labels or invented improvements.' :
-    'Keep the recurring person recognisable. ' + clean(scene.wardrobe || 'Retain their signature outfit') +
-      '. If the entire body is in frame: exactly one head, two arms, two legs, two hands, two feet, anatomically correct elbows and knees. No default idle standing pose.';
+    'Keep the recurring character recognisable. ' + clean(scene.wardrobe || 'Retain defining colors, clothing and accessories') +
+      '. Respect the MASTER CHARACTER reference anatomy: if human, preserve exactly one head, two arms, two legs and correct hands, elbows and knees; if a mascot or abstract character, preserve its canonical features and proportions. No default idle standing pose.';
   return [
     graphic ? s.graphic : s.image,
     identity,
@@ -67,7 +73,7 @@ export function stillPrompt(scene, styleName = 'V1', character = '') {
     'WHAT TO SHOW: ' + (scene.visual || scene.text || 'One clear complete educational concept') + '.',
     'VOICE MEANING (do not draw these words): ' + clean(scene.text) + '.',
     characterRule,
-    'The overall channel identity and clean 2D illustration method remain uniform across scenes, but staging, setting, shot scale and editorial treatment must NOT repeat monotonously.',
+    'The overall MASTER STYLE artistic medium, palette, texture and character design remain uniform across scenes, but staging, setting, shot scale and editorial treatment must NOT repeat monotonously.',
     'Do NOT repeat the exact environment, outfit pose, prop arrangement, and camera position of the previous shot.',
     'Full-bleed widescreen 16:9, high resolution. NO text or baked captions, NO logos, NO brands, NO watermarks. Text is composited later in the video editor.',
   ].filter(Boolean).join('\n');
@@ -84,11 +90,11 @@ export function movingPrompt(scene, styleName = 'V1', character = '') {
     clean(scene.setting) && 'The existing first-frame scene is ' + clean(scene.environment || scene.setting) + '. Maintain this exact scene during the clip; scene changes occur BETWEEN clips.',
     clean(scene.shot) && 'Preserve the existing first-frame ' + clean(scene.shot) + ' composition throughout this shot.',
     'ONE COHERENT PHYSICAL ACTION: ' + action + '.',
-    'Perform the action with natural weight transfer, anticipation, smooth easing and follow-through, physically believable feet contact, shoulders, hips, elbows, knees and hands.',
+    'Perform the action with natural anticipation, smooth easing and follow-through. For human characters preserve believable feet contact, balance and joints; for mascot or nonhuman characters preserve their master proportions and established motion language.',
     'Preserve facial identity, head shape, costume, props, lighting and image palette throughout this single clip. Do not change wardrobe DURING movement.',
     'Use stable fixed camera with NO cuts within the clip; differing camera angles are applied to DIFFERENT scenes in the image storyboard.',
-    'Keep the entire animation in the approved flat 2D cartoon look, keep the outer picture-frame overlay stationary, no 3D or photorealistic changes.',
+    'Keep the entire animation in the SAME artistic medium and rendering style as the approved first frame and its master reference. Maintain any border/framing established by the chosen master; do not switch to a different art medium.',
     'If demonstrating exercise, follow approved exercise motion research and anatomy references. Do not invent extreme joint angles or unsupported health claims.',
-    'No new characters or objects, no camera shake, no text, captions, logos, medical uniform (unless clinically relevant), or watermarks.',
+    'No new characters or objects, no camera shake, no text, captions, logos, unjustified medical uniform or watermarks.',
   ].filter(Boolean).join(' ');
 }

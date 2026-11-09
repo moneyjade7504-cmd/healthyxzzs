@@ -1,5 +1,5 @@
 /**
- * Deterministic 2D storyboard director for HealthyXZZS.
+ * Deterministic storyboard director for ANY user-selected art direction.
  * Keeps the channel's master art style while varying place, framing, action,
  * lighting and narrative treatment. It never invents medical outcomes or
  * contradicts an explicit action from the supplied subtitles.
@@ -92,8 +92,8 @@ const SHOTS = [
 ];
 
 const TREATMENTS = [
-  ['lifestyle', 'Warm slice-of-life editorial cartoon, visually rich environment'],
-  ['action-demo', 'Clear educational action illustration, accurate weight distribution and natural gesture'],
+  ['lifestyle', 'Warm slice-of-life environmental storytelling, faithfully rendered in the chosen master art medium'],
+  ['action-demo', 'Clear educational movement demonstration, accurate weight distribution and natural gesture, using master art style'],
   ['object-focus', 'A visually arresting everyday object detail and motivated human hands if appropriate'],
   ['story-moment', 'An intimate storytelling moment with natural body language'],
   ['anatomy', 'Clean medically cautious anatomical educational cutaway, correct organ location, restrained annotations added later in the editor'],
@@ -165,44 +165,44 @@ function wardrobeFor(setting, kind) {
 function actionFor(kind, theme, setting, index) {
   const options = {
     night: [
-      'The older adult slowly sets a book on the bedside table and leans back against the pillows',
-      'The older adult sits calmly on the bed edge, places both feet firmly on the floor, and pauses',
-      'The older adult gently draws the curtain closed and turns toward the bedside lamp',
+      'The recurring character slowly sets a book on the bedside table and leans back against the pillows',
+      'The recurring character sits calmly on the bed edge, places both feet firmly on the floor, and pauses',
+      'The recurring character gently draws the curtain closed and turns toward the bedside lamp',
     ],
     clinic: [
-      'The older adult sits opposite the clinician, listens attentively, and gently nods once',
-      'The older adult calmly shows a paper list of questions to a seated clinician',
-      'The older adult carefully points to a notebook on the consultation desk',
+      'The recurring character sits opposite the clinician, listens attentively, and gently nods once',
+      'The recurring character calmly shows a paper list of questions to a seated clinician',
+      'The recurring character carefully points to a notebook on the consultation desk',
     ],
     food: [
-      'The older adult places a small bowl of prepared food on the table, then steadies the plate',
-      'The older adult reaches naturally for an everyday fruit on the counter and lifts it slowly',
-      'The older adult stirs a bowl gently with one hand and pauses to inspect the meal',
+      'The recurring character places a small bowl of prepared food on the table, then steadies the plate',
+      'The recurring character reaches naturally for an everyday fruit on the counter and lifts it slowly',
+      'The recurring character stirs a bowl gently with one hand and pauses to inspect the meal',
     ],
     chair: [
-      'The older adult moves forward on a sturdy chair, plants the feet, and rises slowly with safe control',
-      'The older adult sits down onto a stable chair with a slow controlled hip hinge, using chair support when needed',
-      'The older adult carefully shifts weight forward while seated and straightens the upper body',
+      'The recurring character moves forward on a sturdy chair, plants the feet, and rises slowly with safe control',
+      'The recurring character sits down onto a stable chair with a slow controlled hip hinge, using chair support when needed',
+      'The recurring character carefully shifts weight forward while seated and straightens the upper body',
     ],
     walk: [
-      'The older adult takes three comfortable steady steps along the flat path, with a natural arm swing',
-      'The older adult walks smoothly past a tree and gradually turns the head toward the path ahead',
-      'The older adult starts from standing and walks forward with short balanced steps on even ground',
+      'The recurring character takes three comfortable steady steps along the flat path, with a natural arm swing',
+      'The recurring character walks smoothly past a tree and gradually turns the head toward the path ahead',
+      'The recurring character starts from standing and walks forward with short balanced steps on even ground',
     ],
     exercise: [
-      'The older adult performs one slow supported heel raise near a sturdy chair, then gently lowers the heels',
-      'The older adult slowly marches in place with low knee lifts while keeping balance and a safe support nearby',
-      'The older adult lightly reaches one arm toward the wall for balance and makes a small controlled weight shift',
+      'The recurring character performs one slow supported heel raise near a sturdy chair, then gently lowers the heels',
+      'The recurring character slowly marches in place with low knee lifts while keeping balance and a safe support nearby',
+      'The recurring character lightly reaches one arm toward the wall for balance and makes a small controlled weight shift',
     ],
     anatomy: [
-      'The older adult sits comfortably, places a hand lightly over the relevant body area and looks thoughtfully toward a simple anatomy illustration',
+      'The recurring character sits comfortably, places a hand lightly over the relevant body area and looks thoughtfully toward a simple anatomy illustration',
     ],
     general: [
-      'The older adult reaches for a book, opens it carefully and looks at one page',
-      'The older adult sits by the window and gently turns their head toward the sunlight',
-      'The older adult walks a short distance across the living room with a natural weight shift',
-      'The older adult places a cup gently on the table and sits upright',
-      'The older adult gestures naturally toward an object on the table while explaining a point',
+      'The recurring character reaches for a book, opens it carefully and looks at one page',
+      'The recurring character sits by the window and gently turns their head toward the sunlight',
+      'The recurring character walks a short distance across the living room with a natural weight shift',
+      'The recurring character places a cup gently on the table and sits upright',
+      'The recurring character gestures naturally toward an object on the table while explaining a point',
     ],
   };
   // All motions are explicitly one safe, coherent activity. The storyboard may still require
@@ -221,7 +221,7 @@ function detailsFor(kind, theme, setting, index) {
       theme === 'diabetes' ? 'Clear glucose and pancreas relationship diagram' :
       theme === 'mind' ? 'Simple brain and neural pathway cutaway' :
       theme === 'legs' ? 'Anatomically correct leg muscle close-up' : 'Relevant human organ cutaway',
-    treatment: 'Accurate anatomical cutaway within the channel 2D palette, not photorealistic',
+    treatment: 'Accurate anatomical cutaway in the exact selected master visual medium and style, without inventing anatomical claims',
   };
   if (kind === 'numbers') return {
     object: 'Unlabeled graphical shapes, bar lengths or icons; facts and numbers added later in editing',
@@ -229,7 +229,7 @@ function detailsFor(kind, theme, setting, index) {
   };
   if (kind === 'food') return {
     object: 'Everyday plate, bowl and relevant foods from the script, no invented medicinal claims',
-    treatment: 'Lived-in editorial still life, rich natural food details, clean 2D contours',
+    treatment: 'Lived-in still life, rich food details, preserving master style lines, surface textures, palette and rendering medium',
   };
   if (kind === 'chair' || kind === 'exercise' || kind === 'walk') return {
     object: 'Stable floor, visible limbs and practical physical support',
@@ -265,7 +265,7 @@ function visualFor(scene) {
     'Draw a standalone explanatory visual, appropriate object or anatomy cutaway. NO foreground human character' :
     scene.mode === 'still' && scene.shot === 'detail' ?
     'Emphasize hands/objects/context rather than a person standing still' :
-    'Show the recurring older adult doing a believable activity with meaningful body language';
+    'Show the recurring master character doing a believable activity with meaningful body language';
   return [
     focus + '.',
     scene.treatment + '.',
@@ -291,7 +291,7 @@ export function directScenes(baseScenes, opts = {}) {
     const prev = scenes.at(-1);
     let mode = modeFor(kind, i);
     if (variety === 'balanced' && kind === 'general' && i % 4 === 1 && mode === 'graphic') mode = 'still';
-    const loc = mode === 'graphic' ? ['educational-illustration', 'Clean full-bleed diagram background in the channel palette, no unrelated interior or person'] : locationFor(kind, theme, i, prev);
+    const loc = mode === 'graphic' ? ['educational-illustration', 'Clean full-bleed diagram composition preserving the chosen master art treatment, no unrelated room or person'] : locationFor(kind, theme, i, prev);
     const shot = shotFor(kind, i, prev);
     const specifics = detailsFor(kind, theme, loc[0], i);
     const mood = kind === 'warning' ? 'serious and calm' :
@@ -310,7 +310,7 @@ export function directScenes(baseScenes, opts = {}) {
       lighting: kind === 'night' ? 'soft warm night lamp; no artificial daylight' :
         loc[0] === 'clinic' ? 'neutral balanced diffused lighting' :
         i % 4 === 0 ? 'soft morning window light' : i % 4 === 1 ? 'warm afternoon light' : 'clean natural ambient light',
-      palette_treatment: i % 3 === 0 ? 'warm editorial accent' : i % 3 === 1 ? 'cool calming secondary hues' : 'high readability contrast within the master channel palette',
+      palette_treatment: i % 3 === 0 ? 'warm editorial accent ONLY if compatible with the master style' : i % 3 === 1 ? 'cool calming secondary tones ONLY if compatible with the master style' : 'high readability contrast strictly within the master palette',
       wardrobe: wardrobeFor(loc[0], kind),
       treatment: specifics.treatment,
       object: specifics.object,

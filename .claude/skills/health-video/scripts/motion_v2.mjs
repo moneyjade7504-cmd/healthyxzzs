@@ -22,12 +22,17 @@ import { fileURLToPath } from 'node:url';
 import { File } from 'node:buffer';
 import { stillPrompt, movingPrompt, NEGATIVE, styleOf } from './motion_style.mjs';
 import { directScenes, auditStoryboard } from './scene_director.mjs';
+import { prepareMasterStyle, masterReferenceInstructions } from './master_style.mjs';
 
 const BATCH_SIZE = 20;
 const FPS = 30;
 const WIDTH = 1920;
 const HEIGHT = 1080;
 const MODEL = 'fal-ai/wan/v2.7/image-to-video';
+const COMMON_MOTION_NEGATIVE = 'morphing, melting, deformed body, extra limbs, missing fingers, broken joints, character identity drift, unnatural anatomy, flicker, shaky camera, gibberish text, logos, watermark';
+const styleForPlan = p => p.master_style || p.style;
+const styleLabel = p => p.master_style?.label || p.style;
+const negativeForPlan = p => p.master_style ? [COMMON_MOTION_NEGATIVE, p.master_style.negative].filter(Boolean).join(', ') : NEGATIVE;
 const DEFAULT_ACTION = 'The older adult breathes gently, turns their head a little, makes a small expressive hand gesture, then settles naturally, keeping both feet planted';
 const round = n => Math.round(n * 100) / 100;
 const exists = p => fs.existsSync(p);
@@ -167,10 +172,26 @@ function init(f, o) {
   if (exists(f.plan)) throw new Error('Project already has a motion plan. Back it up before reinitializing: ' + f.plan);
   const srt = path.resolve(o.srt), voice = path.resolve(o.voice);
   if (!exists(srt) || !exists(voice)) throw new Error('SRT or voice file is missing');
+  const usingMaster = Boolean(o.master || o['master-image']);
+  if (o['character-image'] && !usingMaster) throw new Error('--character-image requires --master or --master-image, so the art style is defined');
   const style = (o.style || 'V1').toUpperCase();
-  const identity = o.character || 'An expressive, healthy-looking Spanish adult aged around 68, consistent hair, face and everyday outfit across scenes; do not wear a white medical coat';
-  const p = buildScenes(parseSrt(fs.readFileSync(srt, 'utf8')), style, identity,
+  if (style === 'CUSTOM' && !usingMaster) throw new Error('--style CUSTOM requires --master or --master-image');
+  const fallbackStyle = usingMaster ? 'V1' : style;
+  const identity = o.character || (o['character-image']
+    ? 'Keep the recurring protagonist identical to the supplied approved character identity reference: same facial design, body shape, hair, clothes and defining features.'
+    : usingMaster
+      ? 'Preserve the recurring protagonist in the chosen MASTER STYLE. Choose a consistent design from the first approved scene, then reuse the approved character image as the identity reference for later scenes. No generic stock substitution.'
+      : 'An expressive, healthy-looking Spanish adult aged around 68, consistent hair, face and everyday outfit across scenes; do not wear a white medical coat');
+  const p = buildScenes(parseSrt(fs.readFileSync(srt, 'utf8')), fallbackStyle, identity,
     { topic: o.topic || 'auto', variety: o.variety || 'high' });
+  if (usingMaster) {
+    p.master_style = prepareMasterStyle({
+      master: o.master, masterImage: o['master-image'],
+      characterImage: o['character-image'], project: f.base
+    });
+    p.style = 'CUSTOM';
+    p.style_id = p.master_style.id;
+  }
   p.source_srt = 'transcript/subtitles.srt';
   p.voice = 'audio/voice' + path.extname(voice).toLowerCase();
   mkdir(f.motion);
@@ -186,10 +207,10 @@ function init(f, o) {
 }
 function storyboardMarkdown(p) {
   const md = [
-    '# Scene map — ' + p.style + ' / ' + (p.topic || 'general'),
+    '# Scene map — ' + styleLabel(p) + ' / ' + (p.topic || 'general'),
     '',
     'Suggested contexts and actions are RULE-BASED, not medical advice. Review and adjust each scene before image generation.',
-    'Keep the same master character identity and 2D style across scenes. Change camera, action and lighting, not the identity.',
+    'Keep the same chosen MASTER STYLE and master character identity across scenes. Change camera, action and lighting, not the art medium or the person.',
     '',
     '| Scene | Time | Mode | Setting | Shot | Action / focus |',
     '|---|---:|---|---|---|---|',
@@ -212,7 +233,7 @@ function batch(f, p, index) {
   mkdir(dir);
   const slug = 'batch_' + String(b).padStart(3, '0');
   const motionInstructions = chosen.filter(s => s.mode === 'character').map(s =>
-    '## ' + s.id + ' — ' + secs(s) + ' seconds\nFirst frame: ' + s.image + '\nResult: ' + s.video + '\n\n' + movingPrompt(s, p.style, p.character) + '\n').join('\n');
+    '## ' + s.id + ' — ' + secs(s) + ' seconds\nFirst frame: ' + s.image + '\nResult: ' + s.video + '\n\n' + masterReferenceInstructions(p.master_style, { motion: true }) + '\n\n' + movingPrompt(s, styleForPlan(p), p.character) + '\n').join('\n');
   write(path.join(dir, slug + '_motion_prompts.md'), '# Manual/optional image-to-video prompts\n\n' + motionInstructions);
   const prompt = chosen.map((s, i) => [
     '### ' + s.id + ' (' + (i + 1) + '/' + chosen.length + ')',
@@ -220,22 +241,25 @@ function batch(f, p, index) {
       ' | Setting: ' + (s.setting || '') + ' | Shot: ' + (s.shot || ''),
     'Vietnamese scene guide: ' + s.text,
     'File: ' + s.image,
+    'Required visual reference attachments:',
+    masterReferenceInstructions(p.master_style) || '(Use the channel-approved preset references)',
     'Image prompt (copy and paste):',
-    stillPrompt(s, p.style, p.character),
+    stillPrompt(s, styleForPlan(p), p.character),
     'Action to animate: ' + s.action,
   ].join('\n')).join('\n\n---\n\n');
-  write(path.join(dir, slug + '_prompts.md'), '# ' + slug + ' — ' + p.style + '\n\n' + prompt + '\n');
+  write(path.join(dir, slug + '_prompts.md'), '# ' + slug + ' — ' + styleLabel(p) + '\n\n' + prompt + '\n');
   write(path.join(dir, slug + '_scene_text.txt'), chosen.map((s, i) => String(i + 1) + '. ' + s.text).join('\n') + '\n');
   write(path.join(dir, slug + '_agent.md'), [
     '# Agent instructions — ONE BATCH ONLY',
-    'Generate exactly ' + chosen.length + ' high-quality 16:9 scene images in the approved ' + p.style + ' style.',
-    'Keep character face, age, proportions and channel style consistent throughout; vary SETTINGS, FRAMINGS, ACTIVITIES, lighting, props and compositions according to the scene-specific prompt.',
+    'Generate exactly ' + chosen.length + ' high-quality 16:9 scene images in the approved ' + styleLabel(p) + ' master style.',
+    'If the project has master/style and master/character reference files, ATTACH them to the image generator in EVERY scene. Merely listing filenames in a text prompt does not show the model their pixels.',
+    'Keep character identity and exact master ART MEDIUM, visual techniques, palette and rendering quality consistent throughout; vary SETTINGS, FRAMINGS, ACTIVITIES, lighting, props and compositions according to each scene prompt.',
     'Do NOT depict the protagonist simply standing in the same background repeatedly. The scene map includes indoor/outdoor, seated/walking, prop detail and explanatory visuals.',
     'Use the same MASTER CHARACTER reference, and preserve their signature outfit. Only change clothing if justified by context, e.g., bedtime or an outdoor coat.',
     'Rename each image exactly ' + chosen.map(s => s.id + '.png').join(', ') + '.',
     'Then, for approved character scenes, produce natural moving MP4s using the separate motion prompts. Use an image-to-video tool that you choose; NEVER create paid clips without permission.',
     'Move finished images to the video Collection (or images/ folder). Do NOT generate videos yet.',
-    'Check hands, legs, faces, Spanish text leakage, backgrounds and decorative external frame.',
+    'Check hands, legs, faces, on-image text leakage, backgrounds, and any border required by the selected master style (not every master has a frame).',
     'STOP after this single batch; ask the owner for OK before the next batch.',
   ].join('\n') + '\n');
   console.log('Wrote ' + slug + ' (images ' + chosen[0].id + ' .. ' + chosen.at(-1).id + '). STOP and review.');
@@ -254,7 +278,7 @@ async function animate(f, p, o) {
     .filter(s => s.mode === 'character' && !exists(local(f.base, s.video)) && exists(local(f.base, s.image)))
     .slice(0, max);
   if (!pending.length) { console.log('No pending animated scenes with first-frame images in this batch'); return; }
-  for (const s of pending) console.log(s.id + ' ' + secs(s) + 's: ' + movingPrompt(s, p.style, p.character));
+  for (const s of pending) console.log(s.id + ' ' + secs(s) + 's: ' + movingPrompt(s, styleForPlan(p), p.character));
   if (!o.execute) { console.log('DRY RUN ONLY. To pay for AI generation, set FAL_KEY and explicitly pass --execute. Default max=1 clip.'); return; }
   if (!process.env.FAL_KEY) throw new Error('FAL_KEY is required for paid AI generation; do not put it in Git');
   const { fal } = await import('@fal-ai/client');
@@ -265,10 +289,10 @@ async function animate(f, p, o) {
       const end_image_url = s.end_image && exists(local(f.base, s.end_image))
         ? await uploadImage(fal, local(f.base, s.end_image)) : undefined;
       const input = {
-        image_url, prompt: movingPrompt(s, p.style, p.character),
+        image_url, prompt: movingPrompt(s, styleForPlan(p), p.character),
         duration: Math.max(2, Math.min(15, Math.ceil(secs(s)))),
         resolution: o.resolution === '1080p' ? '1080p' : '720p',
-        negative_prompt: NEGATIVE,
+        negative_prompt: negativeForPlan(p),
         enable_prompt_expansion: false,
         enable_safety_checker: true,
       };
@@ -425,7 +449,9 @@ function status(f, p) {
       if (state.approved[s.id]?.file_bytes === fs.statSync(local(f.base, s.video)).size) counts.approved++;
     }
   }
-  console.log(JSON.stringify({ style: p.style, topic: p.topic, variety: auditStoryboard(p.scenes), counts, image_batches: Math.ceil(p.scenes.length / BATCH_SIZE) }, null, 2));
+  console.log(JSON.stringify({ style: styleLabel(p), style_id: p.style_id, master_references: p.master_style?.reference_images?.length || 0,
+    character_references: p.master_style?.character_references?.length || 0,
+    topic: p.topic, variety: auditStoryboard(p.scenes), counts, image_batches: Math.ceil(p.scenes.length / BATCH_SIZE) }, null, 2));
 }
 export async function main(argv = process.argv.slice(2)) {
   const { pos, opt } = argsOf(argv);
