@@ -20,6 +20,7 @@ import { Readable } from 'node:stream';
 import { fileURLToPath } from 'node:url';
 import { File } from 'node:buffer';
 import { stillPrompt, movingPrompt, NEGATIVE, styleOf } from './motion_style.mjs';
+import { directScenes, auditStoryboard } from './scene_director.mjs';
 
 const BATCH_SIZE = 20;
 const FPS = 30;
@@ -58,7 +59,7 @@ export function parseSrt(input) {
   return out;
 }
 
-export function buildScenes(cues, style = 'V1', character = '') {
+export function buildScenes(cues, style = 'V1', character = '', options = {}) {
   styleOf(style);
   const total = Math.max(...cues.map(c => c.end));
   // Equal target lengths with subtitle-aligned cuts whenever feasibility permits.
@@ -95,7 +96,9 @@ export function buildScenes(cues, style = 'V1', character = '') {
     });
     start = end;
   }
-  return { version: 2, style, character, fps: FPS, width: WIDTH, height: HEIGHT, batch_size: BATCH_SIZE, scenes };
+  const storyboard = directScenes(scenes, options);
+  return { version: 3, style, character, topic: storyboard.topic, variety: storyboard.variety,
+    fps: FPS, width: WIDTH, height: HEIGHT, batch_size: BATCH_SIZE, scenes: storyboard.scenes };
 }
 
 function argsOf(argv) {
@@ -165,7 +168,8 @@ function init(f, o) {
   if (!exists(srt) || !exists(voice)) throw new Error('SRT or voice file is missing');
   const style = (o.style || 'V1').toUpperCase();
   const identity = o.character || 'An expressive, healthy-looking Spanish adult aged around 68, consistent hair, face and everyday outfit across scenes; do not wear a white medical coat';
-  const p = buildScenes(parseSrt(fs.readFileSync(srt, 'utf8')), style, identity);
+  const p = buildScenes(parseSrt(fs.readFileSync(srt, 'utf8')), style, identity,
+    { topic: o.topic || 'auto', variety: o.variety || 'high' });
   p.source_srt = 'transcript/subtitles.srt';
   p.voice = 'audio/voice' + path.extname(voice).toLowerCase();
   mkdir(f.motion);
@@ -175,8 +179,27 @@ function init(f, o) {
   if (path.resolve(voice) !== local(f.base, p.voice)) fs.copyFileSync(voice, local(f.base, p.voice));
   save(f.plan, p);
   save(f.progress, { clips: {}, approved: {} });
+  write(path.join(f.motion, 'scene_map.md'), storyboardMarkdown(p));
   console.log('Created ' + p.scenes.length + ' scenes; ' + Math.ceil(p.scenes.length / BATCH_SIZE) + ' image batches.');
   console.log('Edit visual/action/mode in ' + f.plan + '. Then: batch ' + f.base);
+}
+function storyboardMarkdown(p) {
+  const md = [
+    '# Scene map — ' + p.style + ' / ' + (p.topic || 'general'),
+    '',
+    'Suggested contexts and actions are RULE-BASED, not medical advice. Review and adjust each scene before image generation.',
+    'Keep the same master character identity and 2D style across scenes. Change camera, action and lighting, not the identity.',
+    '',
+    '| Scene | Time | Mode | Setting | Shot | Action / focus |',
+    '|---|---:|---|---|---|---|',
+  ];
+  for (const s of p.scenes) md.push('| ' + s.id + ' | ' + s.start + '–' + s.end +
+    ' | ' + s.mode + ' | ' + (s.setting || '-') + ' | ' + (s.shot || '-') +
+    ' | ' + (s.action || s.object || '-').replaceAll('|', '/') + ' |');
+  const a = auditStoryboard(p.scenes);
+  md.push('', 'Scene variety: ' + a.settings.length + ' places, ' + a.shots.length +
+    ' framings, ' + a.unique_actions + ' distinct character actions.', '');
+  return md.join('\n');
 }
 function batch(f, p, index) {
   const b = Number(index || 1);
@@ -191,6 +214,8 @@ function batch(f, p, index) {
   write(path.join(dir, slug + '_motion_prompts.md'), '# Manual/optional image-to-video prompts\n\n' + motionInstructions);
   const prompt = chosen.map((s, i) => [
     '### ' + s.id + ' (' + (i + 1) + '/' + chosen.length + ')',
+    'Mode: ' + s.mode + ' | Topic: ' + (s.topic || p.topic || '') +
+      ' | Setting: ' + (s.setting || '') + ' | Shot: ' + (s.shot || ''),
     'Vietnamese scene guide: ' + s.text,
     'File: ' + s.image,
     'Image prompt (copy and paste):',
@@ -202,7 +227,9 @@ function batch(f, p, index) {
   write(path.join(dir, slug + '_agent.md'), [
     '# Agent instructions — ONE BATCH ONLY',
     'Generate exactly ' + chosen.length + ' high-quality 16:9 scene images in the approved ' + p.style + ' style.',
-    'Keep character identity, colors, wardrobe and anatomy consistent.',
+    'Keep character face, age, proportions and channel style consistent throughout; vary SETTINGS, FRAMINGS, ACTIVITIES, lighting, props and compositions according to the scene-specific prompt.',
+    'Do NOT depict the protagonist simply standing in the same background repeatedly. The scene map includes indoor/outdoor, seated/walking, prop detail and explanatory visuals.',
+    'Use the same MASTER CHARACTER reference, and preserve their signature outfit. Only change clothing if justified by context, e.g., bedtime or an outdoor coat.',
     'Rename each image exactly ' + chosen.map(s => s.id + '.png').join(', ') + '.',
     'Then, for approved character scenes, produce natural moving MP4s using the separate motion prompts. Use an image-to-video tool that you choose; NEVER create paid clips without permission.',
     'Move finished images to the video Collection (or images/ folder). Do NOT generate videos yet.',
@@ -271,7 +298,7 @@ async function animate(f, p, o) {
 }
 function qa(f, p, makeFrames = false) {
   const state = progressAt(f);
-  const report = { generated_at: new Date().toISOString(), scenes: [], errors: 0, warnings: 0 };
+  const report = { generated_at: new Date().toISOString(), scenes: [], errors: 0, warnings: 0, variety: auditStoryboard(p.scenes) };
   const qadir = path.join(f.motion, 'qa');
   mkdir(qadir);
   for (const s of p.scenes) {
@@ -305,6 +332,11 @@ function qa(f, p, makeFrames = false) {
     report.errors += item.issues.length;
     report.warnings += item.warnings.length;
     report.scenes.push(item);
+  }
+  save(path.join(qadir, 'report.json'), report);
+  if (report.variety.repeat_warnings.length) {
+    report.warnings += report.variety.repeat_warnings.length;
+    console.log('Storyboarding review: repeating setting AND framing over three consecutive scenes: ' + JSON.stringify(report.variety.repeat_warnings));
   }
   save(path.join(qadir, 'report.json'), report);
   console.log('QA: ' + report.errors + ' error(s), ' + report.warnings + ' warning(s). Human review required for every body-motion scene.');
@@ -391,7 +423,7 @@ function status(f, p) {
       if (state.approved[s.id]?.file_bytes === fs.statSync(local(f.base, s.video)).size) counts.approved++;
     }
   }
-  console.log(JSON.stringify({ style: p.style, counts, image_batches: Math.ceil(p.scenes.length / BATCH_SIZE) }, null, 2));
+  console.log(JSON.stringify({ style: p.style, topic: p.topic, variety: auditStoryboard(p.scenes), counts, image_batches: Math.ceil(p.scenes.length / BATCH_SIZE) }, null, 2));
 }
 export async function main(argv = process.argv.slice(2)) {
   const { pos, opt } = argsOf(argv);
