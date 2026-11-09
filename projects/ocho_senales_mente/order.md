@@ -1,70 +1,98 @@
-# Ảnh cần tạo cho "8 señales de que tu mente funciona de forma diferente"
+# Ảnh cần tạo: "8 señales…" theo style "2D Minimalist Brain Character Explainer"
 
-Tạo bằng app miễn phí (Gemini hoặc ChatGPT), **mỗi mục là một ảnh**. Với 6 tấm có nhân vật (S1–S6),
-đính kèm character sheet của ông cụ (`characters/senior_m/sheet_original.webp`) để giữ đúng nhân vật.
-Gửi lại đây với đúng tên file bên dưới (đuôi .png/.webp/.jpg đều được). Tổng cộng **8 ảnh + 1 file giọng đọc**.
+Nhân vật: `characters/brain_mascot/sheet_original.jpg`. **Đính kèm ảnh này vào MỌI prompt.**
+Tạo bằng Gemini hoặc ChatGPT, chọn chất lượng/độ phân giải cao nhất. Mỗi mục là **một ảnh**, gửi lại kèm đúng tên file.
 
-Nhân vật mặc **quần áo thường ngày** (khác video tập luyện). Mô tả này đã có sẵn trong từng prompt.
+Chia video:
+- **Phần 1** = Intro + Señal 1–2 (≈ 6 phút) → 5 ảnh `p1_…`
+- **Phần 2** = Señal 3–4 (≈ 4 phút) → 3 ảnh `p2_…`
+- **Phần 3** = Señal 5–8 + kết (≈ 8 phút) → 4 ảnh `p3_…`
+  (Kịch bản có 8 señales; Señal 7–8 và phần kết mình gộp vào phần 3. Muốn tách thành phần 4 cũng được, ảnh giữ nguyên.)
 
----
+Có 3 kiểu ảnh:
+- **Tấm tư thế** (6 tư thế, 2 hàng × 3): mình cắt rời từng tư thế rồi ghép vào cảnh bằng code.
+- **Tấm cảnh 2×2**: 4 khung có viền đen, dùng cho cảnh có bối cảnh (giường, ghế đá, nhà hàng…).
+- **Tấm đồ vật**: đồ vật rời nhau, mình cắt ra để làm sơ đồ.
 
-## ORDER A: tấm đồ vật 1 (`items_a`)
-*Giải thích: 9 đồ vật cùng phong cách trong một ảnh. Mình sẽ cắt rời từng món để làm sơ đồ.*
-
-> Flat illustration sheet, clean modern health-app style, soft two-tone shading, thin dark outline, consistent style and scale. Nine objects drawn SEPARATELY and evenly spaced in three rows on a flat cream #F5ECD7 background, nothing touching: 1) a human brain, side view, soft pink-grey, 2) a human ear, 3) a round wall clock, 4) a generic TV remote control, no brand, 5) a bright ceiling lamp glowing, 6) a small bunch of house keys on a ring, 7) a steaming cup of tea, 8) a shiny red apple, 9) a small wooden table, front view, empty. Friendly colors. No text, no labels, no numbers, no logos, 16:9, high resolution.
-
-## ORDER B: tấm đồ vật 2 (`items_b`)
-*Giải thích: các đồ vật cho phần trí nhớ và sáng tạo.*
-
-> Flat illustration sheet, clean modern health-app style, soft two-tone shading, thin dark outline, consistent style and scale. Eight objects drawn SEPARATELY and evenly spaced in two rows on a flat cream #F5ECD7 background, nothing touching: 1) a simple generic camera, 2) a cooking pot with steam rising, 3) an old wooden table radio, generic, no brand, 4) a glowing yellow light bulb, 5) an open notebook with simple pencil sketches (no writing), 6) two jigsaw puzzle pieces, 7) an old faded family photograph in a white border showing a blurry house (no faces needed), 8) a pair of headphones. Friendly colors. No text, no labels, no numbers, no logos, 16:9, high resolution.
-
----
-
-Các tấm S1–S6 dùng chung phần mở đầu này (đã chép sẵn trong từng prompt):
-*same senior character as the attached reference (blue skin, grey swept hair and grey beard, glowing white eyes), wearing everyday clothes: a soft beige cardigan over a light shirt and dark trousers.*
-
-## ORDER S1: mở đầu (`scenes_hook`)
-*Giải thích: 4 cảnh mở đầu: thức trắng suy nghĩ, bữa tụ họp, ngồi một mình, nhìn gương.*
-
-> Character illustration sheet, 2x2 grid of four separate panels with thin gaps, same senior character as the attached reference (blue skin, grey swept hair and grey beard, glowing white eyes), wearing everyday clothes: a soft beige cardigan over a light shirt and dark trousers. Same 2D cartoon style with bold outlines and flat shading, simple backgrounds, no text. Panel 1: at night, the man lying in bed on his back with eyes wide open, staring at the ceiling, thoughtful, dark blue bedroom lit by moonlight. Panel 2: a lively family dinner table with several people laughing and talking; the man sits among them smiling politely but looking a little tired, warm light. Panel 3: the man alone at home, sitting in a cosy armchair holding a cup of tea, eyes half closed, relaxed and relieved, quiet living room, soft lamp light. Panel 4: the man looking at himself in a bathroom mirror with a puzzled, thoughtful expression, his reflection visible. 16:9, high resolution.
-
-## ORDER S2: phần 1 (`scenes_p1`)
-*Giải thích: người bạn nói "tôi ổn" nhưng ánh mắt khác; nghĩ lại cuộc trò chuyện; nhà hàng ồn; giảm âm lượng TV.*
-
-> Character illustration sheet, 2x2 grid of four separate panels with thin gaps, same senior character as the attached reference (blue skin, grey swept hair and grey beard, glowing white eyes), wearing everyday clothes: a soft beige cardigan over a light shirt and dark trousers. Same 2D cartoon style with bold outlines and flat shading, simple backgrounds, no text. Panel 1: the man and an older friend (a different senior man with white hair, glasses and a green sweater, drawn in the same style) sitting on a park bench; the friend looks away with a small weak smile and slumped shoulders while the man watches him attentively with concern. Panel 2: the man sitting alone on the same bench later, chin on his hand, deep in thought, a soft faded thought cloud above him showing a small image of the friend looking away. Panel 3: a crowded noisy restaurant with bright lights, many people talking at once and moving waiters; the man sits at a table looking overwhelmed and tired, one hand near his ear. Panel 4: the man in his living room pointing a generic remote control at a TV to lower the volume, a wall clock on the wall, slightly tense expression. 16:9, high resolution.
-
-## ORDER S3: cuối phần 1 + phần 2 (`scenes_p2`)
-*Giải thích: hỏi han bạn; đi bộ và tự nói trong đầu; nằm tập dượt cuộc nói chuyện; nấu ăn mà mải nghĩ.*
-
-> Character illustration sheet, 2x2 grid of four separate panels with thin gaps, same senior character as the attached reference (blue skin, grey swept hair and grey beard, glowing white eyes), wearing everyday clothes: a soft beige cardigan over a light shirt and dark trousers. Same 2D cartoon style with bold outlines and flat shading, simple backgrounds, no text. Panel 1: on a park bench, the man gently puts a hand on the shoulder of his older friend (white hair, glasses, green sweater) and listens kindly as the friend talks, warm afternoon light. Panel 2: the man walking alone along a quiet tree-lined street, mouth closed, eyes thoughtful, as if having a conversation in his head. Panel 3: at night, the man lying in bed on his side, eyes open, three small empty thought bubbles above his head, rehearsing tomorrow, dim bedroom. Panel 4: the man in a bright kitchen stirring a pot on the stove, gaze lost in the distance, deep in thought. 16:9, high resolution.
-
-## ORDER S4: phần 2, trạng thái "flow" (`scenes_flow`)
-*Giải thích: đọc sách say mê từ chiều tới tối (ánh sáng đổi, trà nguội); vẽ tranh; ghép hình. Panel 1 và 2 phải là cùng một góc nhìn.*
-
-> Character illustration sheet, 2x2 grid of four separate panels with thin gaps, same senior character as the attached reference (blue skin, grey swept hair and grey beard, glowing white eyes), wearing everyday clothes: a soft beige cardigan over a light shirt and dark trousers. Same 2D cartoon style with bold outlines and flat shading, simple backgrounds, no text. Panel 1: the man sitting at a desk by a window absorbed in reading a thick book, bright afternoon sunlight, a full steaming cup of tea beside him. Panel 2: exactly the same composition and pose, but now evening: orange sunset light through the window, a desk lamp switched on, the tea cup no longer steaming, the man still completely absorbed in the book. Panel 3: the man painting at an easel with a brush, fully concentrated, small smile. Panel 4: the man at a table doing a large jigsaw puzzle, leaning forward, focused, holding one piece. 16:9, high resolution.
-
-## ORDER S5: phần 3, trí nhớ và sáng tạo (`scenes_p3`)
-*Giải thích: tìm chìa khóa; ký ức căn bếp tuổi thơ (tông màu sepia ấm); nghe radio nhắm mắt; lóe ý tưởng bên bàn.*
-
-> Character illustration sheet, 2x2 grid of four separate panels with thin gaps, same senior character as the attached reference (blue skin, grey swept hair and grey beard, glowing white eyes), wearing everyday clothes: a soft beige cardigan over a light shirt and dark trousers. Same 2D cartoon style with bold outlines and flat shading, simple backgrounds, no text. Panel 1: the man in his hallway searching for his keys, lifting a sofa cushion and looking confused, a coat rack nearby. Panel 2: a warm sepia-toned memory scene: an old-fashioned family kitchen with steam rising from a cooking pot on the stove, a mother cooking and a small boy watching her, soft nostalgic glow (the boy does not need to look like the man). Panel 3: the man sitting in an armchair with eyes closed, smiling, listening to music from an old wooden table radio, a few musical notes floating in the air. Panel 4: the man at a desk with an open notebook and pencil, suddenly looking up with a bright smile of discovery, a glowing light bulb above his head. 16:9, high resolution.
-
-## ORDER S6: phần 4 (`scenes_p4`)
-*Giải thích: về nhà sau buổi tụ họp; đọc sách yên tĩnh một mình; nhắm mắt tưởng tượng quả táo; trò chuyện với bác sĩ.*
-
-> Character illustration sheet, 2x2 grid of four separate panels with thin gaps, same senior character as the attached reference (blue skin, grey swept hair and grey beard, glowing white eyes), wearing everyday clothes: a soft beige cardigan over a light shirt and dark trousers. Same 2D cartoon style with bold outlines and flat shading, simple backgrounds, no text. Panel 1: in the evening, the man coming home and gently closing his front door behind him, eyes closed, a calm tired smile, a coat in his hand. Panel 2: the man alone in a quiet, softly lit living room, sitting in an armchair reading, peaceful, a plant and a lamp beside him. Panel 3: the man sitting with his eyes closed, imagining; above his head a soft thought cloud containing a shiny red apple on a small wooden table. Panel 4: a calm consultation in a simple clinic room: the man sitting across a desk from a friendly doctor in a white coat who is listening and taking notes, no logos, no readable text. 16:9, high resolution.
+Đoạn mô tả style (đã chép sẵn trong từng prompt):
+> 2D minimalist brain character explainer style, the SAME mascot as the attached reference: a simple white cartoon figure with a big round head whose top is an exposed pink brain with simple fold lines, small black dot eyes with short eyebrows, a small open smiling mouth with a pink tongue, round simple body, thin arms and legs, rounded mitten hands, white fill, thick clean black outlines, small yellow accent strokes for emphasis, a soft pale blue oval shadow under the feet. Flat colors, no gradients, plain pure white background.
 
 ---
 
-## Giọng đọc (`voice.mp3` hoặc `voice.wav`)
-- Đọc đúng kịch bản trong `script.md`, tiếng Tây Ban Nha, chậm và rõ (~150 từ/phút), **không nhạc nền**.
-- **Không đọc** các tiêu đề "PARTE 1…", "CONCLUSIÓN…" và dấu ✎; tiêu đề sẽ hiện trên màn hình.
-- Ngừng khoảng 1 giây trước mỗi PARTE và trước câu "Cierra los ojos…" (phần thử nghiệm quả táo, ngừng thêm 2–3 giây sau "mesa de madera").
-- Nếu bạn chọn áp dụng gợi ý chỉnh trong `factcheck.md`, hãy đọc theo câu đã chỉnh.
-- Có thể chia nhiều file (intro, parte1, …), mình sẽ ghép lại.
+## PHẦN 1: Intro + Señal 1–2
 
-## Nhạc nền (không bắt buộc)
-- Nhạc nhẹ, êm, không lời, lặp được → `music.mp3`.
+### `p1_poses_a`: tư thế mở đầu
+*Suy nghĩ, lo lắng, ngồi uống trà thư giãn, nhìn gương, nhún vai bối rối, giới thiệu.*
 
-## Kiểm tra khi nhận ảnh
-Mình sẽ xem: nhân vật đồng nhất giữa các tấm, không có chữ hay logo do AI vẽ, S4 panel 1–2 cùng góc nhìn,
-các đồ vật tách rời (để cắt được). Panel nào lỗi, mình sẽ gửi lại đúng câu sửa cần thêm vào prompt.
+> 2D minimalist brain character explainer style, the SAME mascot as the attached reference: a simple white cartoon figure with a big round head whose top is an exposed pink brain with simple fold lines, small black dot eyes with short eyebrows, a small open smiling mouth with a pink tongue, round simple body, thin arms and legs, rounded mitten hands, white fill, thick clean black outlines, small yellow accent strokes for emphasis, a soft pale blue oval shadow under the feet. Flat colors, no gradients, plain pure white background. Character pose sheet: SIX separate full-body poses of this same mascot, same size, arranged in two rows of three, widely spaced, nothing touching: 1) thinking, hand on chin, eyes looking up, a small grey swirl above the head; 2) worried, both hands clasped, a small sweat drop, eyebrows raised; 3) sitting in a simple armchair holding a steaming cup of tea, eyes closed, relaxed smile; 4) standing in front of a simple oval mirror, looking at its own reflection with a puzzled face; 5) shrugging with both palms up, confused, two small question marks; 6) presenter pose, one hand open toward the side as if explaining, friendly smile. No text, no letters, no numbers, 16:9, high resolution.
+
+### `p1_scenes_a`: 4 cảnh mở đầu
+*Nằm thao thức ban đêm; bữa tối đông người, cười gượng và mệt; ngồi một mình yên tĩnh; rời đám đông, mệt mỏi.*
+
+> 2D minimalist brain character explainer style, the SAME mascot as the attached reference: a simple white cartoon figure with a big round head whose top is an exposed pink brain with simple fold lines, small black dot eyes with short eyebrows, a small open smiling mouth with a pink tongue, round simple body, thin arms and legs, rounded mitten hands, white fill, thick clean black outlines, small yellow accent strokes for emphasis. Flat colors, no gradients, minimal simple line-drawn backgrounds with lots of white space. A 2x2 grid of four separate panels, each panel framed by a thin black rounded border, with white gaps between panels. Panel 1: night, the mascot lying in bed under a blanket with eyes wide open staring at the ceiling, a small moon in the window, a grey swirl above its head. Panel 2: a dinner table with three other simple mascots of the same style (without brains, each with a different colored scarf) laughing; our mascot sits among them with a polite smile and a small sweat drop, looking tired. Panel 3: our mascot alone at home in an armchair with a cup of tea and a floor lamp, eyes closed, calm and relieved. Panel 4: our mascot walking away from a group of chatting mascots, shoulders low, tired but content. No text, no letters, 16:9, high resolution.
+
+### `p1_poses_b`: tư thế Señal 1–2
+*Phân tích bằng kính lúp, nghĩ lại cuộc trò chuyện, mắc kẹt trong vòng suy nghĩ, bịt tai, che mắt vì đèn chói, cầm remote giảm âm lượng.*
+
+> 2D minimalist brain character explainer style, the SAME mascot as the attached reference: a simple white cartoon figure with a big round head whose top is an exposed pink brain with simple fold lines, small black dot eyes with short eyebrows, a small open smiling mouth with a pink tongue, round simple body, thin arms and legs, rounded mitten hands, white fill, thick clean black outlines, small yellow accent strokes for emphasis, a soft pale blue oval shadow under the feet. Flat colors, no gradients, plain pure white background. Character pose sheet: SIX separate full-body poses of this same mascot, same size, arranged in two rows of three, widely spaced, nothing touching: 1) leaning forward examining something closely with a magnifying glass, curious face; 2) sitting on a small stool, chin on hand, replaying a memory, a small circular arrow above the head; 3) holding its head with both hands, stressed, a dark grey scribble cloud spinning above the brain; 4) covering both ears with its hands, wincing, yellow sound lines around; 5) shielding its eyes with one hand from a bright light, squinting; 6) holding a simple TV remote control and pressing a button, slightly tense face. No text, no letters, no numbers, 16:9, high resolution.
+
+### `p1_scenes_b`: 4 cảnh Señal 1–2
+*Bạn nói "tôi ổn" nhưng nhìn đi chỗ khác; nhà hàng ồn ào; hỏi han bạn; phòng khách có TV và đồng hồ tích tắc.*
+
+> 2D minimalist brain character explainer style, the SAME mascot as the attached reference: a simple white cartoon figure with a big round head whose top is an exposed pink brain with simple fold lines, small black dot eyes with short eyebrows, a small open smiling mouth with a pink tongue, round simple body, thin arms and legs, rounded mitten hands, white fill, thick clean black outlines, small yellow accent strokes for emphasis. A friend character: the same kind of mascot but WITHOUT a visible brain, wearing a blue scarf. Flat colors, no gradients, minimal simple line-drawn backgrounds with lots of white space. A 2x2 grid of four separate panels, each framed by a thin black rounded border, with white gaps between panels. Panel 1: our mascot and the friend sit on a park bench; the friend looks away with a small weak smile and slumped shoulders; our mascot watches him closely with concern, tiny yellow attention lines near its eyes. Panel 2: a busy restaurant with bright hanging lamps and many empty speech bubbles in the air; our mascot sits at a table looking overwhelmed with a sweat drop. Panel 3: on the bench, our mascot gently puts a hand on the friend's shoulder and listens kindly, the friend talking. Panel 4: a simple living room with a sofa, a TV and a round wall clock with small yellow tick lines; our mascot on the sofa looking bothered by the clock. No text, no letters, no numbers, 16:9, high resolution.
+
+### `p1_items`: đồ vật phần 1
+*Não, tai, mắt, đồng hồ, remote, đèn sáng, bong bóng thoại, phễu, cục pin.*
+
+> 2D minimalist explainer icon sheet in the same style as the attached reference: thick clean black outlines, white and flat soft colors, small yellow accent strokes, no gradients, plain pure white background. NINE separate objects, same size, arranged in three rows of three, widely spaced, nothing touching: 1) a pink human brain, side view, simple fold lines; 2) a human ear; 3) a human eye, simple; 4) a round wall clock; 5) a simple TV remote control, no brand; 6) a bright hanging ceiling lamp with yellow light rays; 7) an empty white speech bubble; 8) a simple funnel; 9) a battery with three green bars. No text, no letters, no numbers, no logos, 16:9, high resolution.
+
+---
+
+## PHẦN 2: Señal 3–4
+
+### `p2_poses`: tư thế Señal 3–4
+*Đi bộ tự nói thầm, nấu ăn mải nghĩ, đọc sách say mê, vẽ tranh, ghép hình, nhắm mắt thả lỏng cho đầu nghỉ.*
+
+> 2D minimalist brain character explainer style, the SAME mascot as the attached reference: a simple white cartoon figure with a big round head whose top is an exposed pink brain with simple fold lines, small black dot eyes with short eyebrows, a small open smiling mouth with a pink tongue, round simple body, thin arms and legs, rounded mitten hands, white fill, thick clean black outlines, small yellow accent strokes for emphasis, a soft pale blue oval shadow under the feet. Flat colors, no gradients, plain pure white background. Character pose sheet: SIX separate full-body poses of this same mascot, same size, arranged in two rows of three, widely spaced, nothing touching: 1) walking, mouth closed, eyes thoughtful, a small empty thought bubble beside the head; 2) standing at a small stove stirring a pot, eyes looking away, lost in thought; 3) sitting cross-legged reading an open book, fully absorbed, tiny yellow focus lines; 4) painting on a small easel with a brush, concentrated smile; 5) sitting at a small table placing a jigsaw puzzle piece, focused; 6) standing calmly with eyes closed, hands relaxed, peaceful smile, a few soft blue lines around it. No text, no letters, no numbers, 16:9, high resolution.
+
+### `p2_scenes`: 4 cảnh Señal 3–4
+*Nằm tập dượt cuộc nói chuyện ngày mai; đọc sách buổi chiều; CÙNG cảnh đó lúc tối (đèn bật, trà nguội); hai nhân vật: một người nói ra miệng, một người nói trong đầu.*
+
+> 2D minimalist brain character explainer style, the SAME mascot as the attached reference: a simple white cartoon figure with a big round head whose top is an exposed pink brain with simple fold lines, small black dot eyes with short eyebrows, a small open smiling mouth with a pink tongue, round simple body, thin arms and legs, rounded mitten hands, white fill, thick clean black outlines, small yellow accent strokes for emphasis. Flat colors, no gradients, minimal simple line-drawn backgrounds with lots of white space. A 2x2 grid of four separate panels, each framed by a thin black rounded border, with white gaps between panels. Panel 1: night, the mascot lying in bed on its side with eyes open, three small empty thought bubbles above its head with tiny question marks. Panel 2: the mascot sitting at a desk by a window reading a book, bright afternoon sun in the window, a steaming cup of tea on the desk. Panel 3: EXACTLY the same composition as panel 2 but in the evening: an orange sunset and a small moon in the window, a desk lamp switched on, the tea no longer steaming, the mascot still absorbed in the book. Panel 4: two mascots side by side: on the left one talking out loud with a speech bubble coming from its mouth; on the right our mascot with mouth closed and a speech bubble drawn INSIDE a circle above its brain. Speech bubbles are empty. No text, no letters, no numbers, 16:9, high resolution.
+
+### `p2_items`: đồ vật phần 2
+*Sách, sổ phác thảo, cọ và bảng màu, đồng hồ cát, tách trà, 2 mảnh ghép, mặt trời, mặt trăng, nồi trên bếp.*
+
+> 2D minimalist explainer icon sheet in the same style as the attached reference: thick clean black outlines, white and flat soft colors, small yellow accent strokes, no gradients, plain pure white background. NINE separate objects, same size, arranged in three rows of three, widely spaced, nothing touching: 1) an open book; 2) an open sketch notebook with simple doodles (no writing); 3) a paintbrush and a paint palette; 4) an hourglass with sand; 5) a steaming cup of tea; 6) two yellow jigsaw puzzle pieces; 7) a simple sun; 8) a crescent moon with a small star; 9) a cooking pot with steam. No text, no letters, no numbers, no logos, 16:9, high resolution.
+
+---
+
+## PHẦN 3: Señal 5–8 + kết
+
+### `p3_poses_a`: tư thế Señal 5–6
+*Tìm chìa khóa dưới gối sofa, đeo tai nghe nhắm mắt nghe nhạc, lóe ý tưởng (bóng đèn), ghép hai mảnh ghép, nhìn tấm ảnh cũ, lắc đầu nghi ngờ "ý tưởng nào đúng".*
+
+> 2D minimalist brain character explainer style, the SAME mascot as the attached reference: a simple white cartoon figure with a big round head whose top is an exposed pink brain with simple fold lines, small black dot eyes with short eyebrows, a small open smiling mouth with a pink tongue, round simple body, thin arms and legs, rounded mitten hands, white fill, thick clean black outlines, small yellow accent strokes for emphasis, a soft pale blue oval shadow under the feet. Flat colors, no gradients, plain pure white background. Character pose sheet: SIX separate full-body poses of this same mascot, same size, arranged in two rows of three, widely spaced, nothing touching: 1) bending over lifting a sofa cushion, searching, confused face with a question mark; 2) wearing headphones, eyes closed, smiling, swaying, small music notes; 3) pointing one finger up with a big excited smile, a glowing yellow light bulb above its head; 4) joining two yellow jigsaw puzzle pieces together, happy; 5) holding a small old photograph and looking at it with a soft nostalgic smile; 6) holding several small light bulbs, choosing one carefully with a thoughtful face. No text, no letters, no numbers, 16:9, high resolution.
+
+### `p3_poses_b`: tư thế Señal 7–8 + kết
+*Về nhà đóng cửa thở phào, đọc sách một mình, nhắm mắt tưởng tượng quả táo, đặt tay lên ngực bình tĩnh, cầm bong bóng bình luận, đếm ngón tay.*
+
+> 2D minimalist brain character explainer style, the SAME mascot as the attached reference: a simple white cartoon figure with a big round head whose top is an exposed pink brain with simple fold lines, small black dot eyes with short eyebrows, a small open smiling mouth with a pink tongue, round simple body, thin arms and legs, rounded mitten hands, white fill, thick clean black outlines, small yellow accent strokes for emphasis, a soft pale blue oval shadow under the feet. Flat colors, no gradients, plain pure white background. Character pose sheet: SIX separate full-body poses of this same mascot, same size, arranged in two rows of three, widely spaced, nothing touching: 1) leaning back against a closed simple front door, eyes closed, relieved smile, a small sigh puff; 2) sitting in an armchair reading a book alone, peaceful; 3) standing with eyes closed imagining, a soft thought cloud above the head containing a shiny red apple on a small wooden table; 4) calm, one hand on its chest, gentle reassuring smile; 5) holding up a large empty speech bubble like a sign, cheerful; 6) counting on its fingers, holding up four fingers, curious face. No text, no letters, no numbers, 16:9, high resolution.
+
+### `p3_scenes`: 4 cảnh Señal 5–8
+*Ký ức căn bếp tuổi thơ (tông sepia); bữa tiệc đông người; khám với bác sĩ; hai nhân vật nhìn cùng một quả táo nhưng hình trong đầu khác nhau.*
+
+> 2D minimalist brain character explainer style, the SAME mascot as the attached reference: a simple white cartoon figure with a big round head whose top is an exposed pink brain with simple fold lines, small black dot eyes with short eyebrows, a small open smiling mouth with a pink tongue, round simple body, thin arms and legs, rounded mitten hands, white fill, thick clean black outlines, small yellow accent strokes for emphasis. Flat colors, no gradients, minimal simple line-drawn backgrounds with lots of white space. A 2x2 grid of four separate panels, each framed by a thin black rounded border, with white gaps between panels. Panel 1: a warm sepia-toned memory: an old cosy kitchen, a small child mascot watching an adult mascot cook at a stove with steam rising. Panel 2: a lively party with several other mascots (without brains, colorful scarves) chatting; our mascot in the middle smiling, a small battery icon above its head almost empty. Panel 3: a calm doctor's office: our mascot sitting across a desk from a doctor mascot in a white coat who listens and takes notes, no logos, no readable text. Panel 4: two mascots looking at the same red apple on a small table; above the left one a thought cloud with a detailed shiny apple, above our mascot a thought cloud with only a faint dotted outline of an apple. No text, no letters, no numbers, 16:9, high resolution.
+
+### `p3_items`: đồ vật phần 3
+*Chìa khóa, radio cũ, máy ảnh, bóng đèn, ảnh cũ, quả táo đỏ, bàn gỗ nhỏ, cánh cửa, nốt nhạc.*
+
+> 2D minimalist explainer icon sheet in the same style as the attached reference: thick clean black outlines, white and flat soft colors, small yellow accent strokes, no gradients, plain pure white background. NINE separate objects, same size, arranged in three rows of three, widely spaced, nothing touching: 1) a small bunch of keys on a ring; 2) an old wooden table radio, no brand; 3) a simple camera; 4) a glowing yellow light bulb; 5) an old photograph with a white border showing a small house; 6) a shiny red apple; 7) a small wooden table, front view; 8) a simple front door, closed; 9) two music notes. No text, no letters, no numbers, no logos, 16:9, high resolution.
+
+---
+
+## Lưu ý khi tạo
+- **Luôn đính kèm** ảnh nhân vật gốc để giữ đúng nhân vật.
+- Nếu app vẽ dính chữ, hoặc các tư thế/đồ vật chạm vào nhau, tạo lại hoặc thêm vào cuối prompt: *"Make sure every item is clearly separated by white space."*
+- Ảnh cảnh 2×2 phải có **viền đen quanh mỗi khung** để mình cắt được.
+- Gửi ảnh phần nào thì mình dựng phần đó trước.
