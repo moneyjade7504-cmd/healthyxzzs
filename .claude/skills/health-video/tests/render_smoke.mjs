@@ -27,7 +27,7 @@ try {
   exec('ffmpeg', ['-v', 'error', '-y', '-f', 'lavfi', '-i', 'color=c=lightblue:s=640x360', '-frames:v', '1', png]);
   for (const s of plan.scenes) fs.copyFileSync(png, path.join(project, s.image));
   const video = path.join(project, plan.scenes[0].video);
-  exec('ffmpeg', ['-v', 'error', '-y', '-f', 'lavfi', '-i', 'testsrc2=size=640x360:rate=30:duration=4.2',
+  exec('ffmpeg', ['-v', 'error', '-y', '-f', 'lavfi', '-i', 'testsrc2=size=1280x720:rate=30:duration=4.2',
     '-c:v', 'libx264', '-preset', 'ultrafast', '-pix_fmt', 'yuv420p', video]);
   cli('qa', project, '--frames');
   cli('approve', project, plan.scenes[0].id);
