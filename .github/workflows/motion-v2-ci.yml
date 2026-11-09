@@ -35,3 +35,5 @@ jobs:
           node --check .claude/skills/health-video/scripts/motion_v2.mjs
       - name: Unit and batch tests (offline; no AI API)
         run: node --test .claude/skills/health-video/tests/motion_v2.test.mjs
+      - name: End-to-end FFmpeg render smoke test (synthetic assets, offline)
+        run: node .claude/skills/health-video/tests/render_smoke.mjs
