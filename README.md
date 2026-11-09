@@ -1,12 +1,28 @@
-# HealthyXZZS — Video sản xuất sức khỏe bằng minh họa 2D
+# HealthyXZZS — Video giải thích sức khỏe với Master Style linh hoạt
 
-Toolkit dựng video khoa học/sức khỏe bằng tiếng Tây Ban Nha: kịch bản, nhân vật nhất quán, chia cảnh, infographic, đồng bộ giọng đọc, render 1080p và QA.
+Toolkit sản xuất video khoa học/sức khỏe bằng tiếng Tây Ban Nha: đa dạng phong cách và bối cảnh, nhân vật nhất quán, chuyển động từ clip, đồng bộ giọng đọc, dựng MP4 và kiểm tra chất lượng.
+
+## Mới: Universal Master Style V4 — chọn phong cách của riêng bạn
+
+Khi tạo video, bạn có thể dùng preset V1/V2/LEGACY hoặc **bất kỳ phong cách master do bạn cung cấp**: crayon, màu nước, scrapbook, ảnh thật, 3D stylized, anime, cartoon, collage, doodle, minh họa giải phẫu... Có thể nạp một ảnh phong cách, JSON style, hoặc cả hai; thêm ảnh nhân vật riêng nếu muốn khóa nhận diện.
+
+Ví dụ chỉ cần ảnh master, SRT và voice:
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs init projects/video_moi --srt /path/voice.srt --voice /path/voice.mp3 --master-image /path/master.png --character-image /path/character.png
+
+Hoặc profile mẫu:
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs init projects/video_moi --srt /path/voice.srt --voice /path/voice.mp3 --master styles/master_crayon.example.json
+
+Hệ thống lưu profile và sao chép ảnh tham chiếu vào project, thêm hướng dẫn đính kèm đúng ảnh reference trong từng prompt. **Để model thật sự nhìn thấy ảnh master, bạn vẫn phải đưa các file đó vào công cụ tạo ảnh có hỗ trợ reference image.** CLI không tự đọc nét vẽ từ ảnh hoặc bảo đảm model tái tạo mọi phong cách hoàn hảo. Scene Director V3 giữ master nhất quán trong khi đổi bối cảnh, góc máy và hành động.
+
+Xem [MOTION_V2_VI.md](MOTION_V2_VI.md), [styles/master_style.template.json](styles/master_style.template.json) và [styles/master_crayon.example.json](styles/master_crayon.example.json).
 
 ## Mới: Motion V2 — nhân vật chuyển động thực
 
 Đọc hướng dẫn tiếng Việt: [MOTION_V2_VI.md](MOTION_V2_VI.md).
 
-Motion V2 là workflow bổ sung trên nhánh nâng cấp; giữ nguyên mọi dự án và engine trước đây. Ảnh 2D được tạo theo style DNA V1/V2/LEGACY, 20 ảnh mỗi batch; với cảnh có nhân vật chuyển động, sử dụng video MP4 image-to-video thật (thủ công hoặc API tùy chọn), không dùng puppet ghép khớp hoặc morph. Có kiểm tra clip, duyệt thủ công, resume, render tiếng nói một lần và bảo vệ trước việc giả định ảnh tĩnh là chuyển động thật.
+Motion V2 là workflow bổ sung trên nhánh nâng cấp; giữ nguyên mọi dự án và engine trước đây. Ảnh được tạo theo V1/V2/LEGACY hoặc custom Master Style, tối đa 20 ảnh mỗi batch; với cảnh có nhân vật chuyển động, sử dụng video MP4 image-to-video thật (thủ công hoặc API tùy chọn), không dùng puppet ghép khớp hoặc morph. Có kiểm tra clip, duyệt thủ công, resume, render tiếng nói một lần và bảo vệ trước việc giả định ảnh tĩnh là chuyển động thật.
 
 Cách bắt đầu:
 
