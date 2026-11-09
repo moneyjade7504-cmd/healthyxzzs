@@ -3,6 +3,24 @@ name: health-video
 description: Make health and fitness science explainer videos for YouTube (short exercise explainers or 10–20-minute organ/topic videos, often Spanish scripts for seniors) in the channel's approved format: picture-first, key-phrase captions only, a paced hook, never a slide-deck look. Code-rendered infographics (titles, organ maps, mechanism diagrams, charts, count-ups, check/X and stamp verdicts, warnings, CTAs, quiz, on-screen sources) plus real drawings the user generates in free apps (exercise pose sheets shown as step sequences, organ/food item sheets, 2x2 scene panels shown as push-in stills). No puppet animation, no code-drawn people, no paid tools. Workflow: script → research and fact-check → asset order (sheets + voice spec) → the user sends sheets and a voice-over → cut assets, transcribe, map cues to words, build sections, render in parallel, QA → deliver the MP4 (split into parts under 30 MB). Use for any health/fitness video script, topic, asset sheet, voice-over or render request on this channel.
 ---
 
+## Motion V2: nâng cấp theo yêu cầu mới — nhân vật được CHUYỂN ĐỘNG THẬT
+
+The channel owner has now explicitly requested *actual smooth, attractive, animated recurring 2D characters*.
+This section overrides the older "no animated characters" restriction when using the Motion V2 workflow.
+Keep the original HTML infographic workflow working; never run rejected puppet/body-part rotations or image morphing.
+
+- Read repository-root MOTION_V2_VI.md for complete Vietnamese setup and commands.
+- Use scripts/motion_style.mjs to produce matching 2D V1/V2 visual DNA and first-frame motion prompts.
+- Use scripts/motion_v2.mjs to turn SRT plus narration into scene plan (3–6 s where feasible).
+- Generate one batch of at most 20 scene images, name them SC###.png, move to Collection/folder, then STOP for OK.
+- Create an actual MP4 image-to-video clip SC###.mp4 for each scene marked mode=character. Never claim Ken Burns, still-image zoom, crossfade, puppet or flipbook is real human body movement.
+- Prefer user's own free external image/video tools. Optional fal.ai Wan API requires explicit FAL_KEY and --execute (paid, opt-in only).
+- Use QA still frames at beginning, middle and end for every moving scene. Look for facial drift, unnatural joint movement, extra limbs, fused hands, footwear/clothes changes, instability, flicker and border drift. Only approve after visually checking.
+- Final render must use only motion clips marked approved for full output, while --draft --allow-stills remains a clearly labeled fallback.
+- Narration is added once; never include AI clip audio when joining.
+- Older renderer + old section projects remain untouched and usable.
+- Existing medically grounded exercise cards and character QA still apply.
+
 # Health explainer video creator
 
 You make research-backed health and fitness explainer videos for this channel. They are **YouTube
