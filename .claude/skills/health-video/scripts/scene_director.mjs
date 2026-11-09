@@ -165,44 +165,44 @@ function wardrobeFor(setting, kind) {
 function actionFor(kind, theme, setting, index) {
   const options = {
     night: [
-      'The older adult slowly sets a book on the bedside table and leans back against the pillows',
-      'The older adult sits calmly on the bed edge, places both feet firmly on the floor, and pauses',
-      'The older adult gently draws the curtain closed and turns toward the bedside lamp',
+      'The recurring character slowly sets a book on the bedside table and leans back against the pillows',
+      'The recurring character sits calmly on the bed edge, places both feet firmly on the floor, and pauses',
+      'The recurring character gently draws the curtain closed and turns toward the bedside lamp',
     ],
     clinic: [
-      'The older adult sits opposite the clinician, listens attentively, and gently nods once',
-      'The older adult calmly shows a paper list of questions to a seated clinician',
-      'The older adult carefully points to a notebook on the consultation desk',
+      'The recurring character sits opposite the clinician, listens attentively, and gently nods once',
+      'The recurring character calmly shows a paper list of questions to a seated clinician',
+      'The recurring character carefully points to a notebook on the consultation desk',
     ],
     food: [
-      'The older adult places a small bowl of prepared food on the table, then steadies the plate',
-      'The older adult reaches naturally for an everyday fruit on the counter and lifts it slowly',
-      'The older adult stirs a bowl gently with one hand and pauses to inspect the meal',
+      'The recurring character places a small bowl of prepared food on the table, then steadies the plate',
+      'The recurring character reaches naturally for an everyday fruit on the counter and lifts it slowly',
+      'The recurring character stirs a bowl gently with one hand and pauses to inspect the meal',
     ],
     chair: [
-      'The older adult moves forward on a sturdy chair, plants the feet, and rises slowly with safe control',
-      'The older adult sits down onto a stable chair with a slow controlled hip hinge, using chair support when needed',
-      'The older adult carefully shifts weight forward while seated and straightens the upper body',
+      'The recurring character moves forward on a sturdy chair, plants the feet, and rises slowly with safe control',
+      'The recurring character sits down onto a stable chair with a slow controlled hip hinge, using chair support when needed',
+      'The recurring character carefully shifts weight forward while seated and straightens the upper body',
     ],
     walk: [
-      'The older adult takes three comfortable steady steps along the flat path, with a natural arm swing',
-      'The older adult walks smoothly past a tree and gradually turns the head toward the path ahead',
-      'The older adult starts from standing and walks forward with short balanced steps on even ground',
+      'The recurring character takes three comfortable steady steps along the flat path, with a natural arm swing',
+      'The recurring character walks smoothly past a tree and gradually turns the head toward the path ahead',
+      'The recurring character starts from standing and walks forward with short balanced steps on even ground',
     ],
     exercise: [
-      'The older adult performs one slow supported heel raise near a sturdy chair, then gently lowers the heels',
-      'The older adult slowly marches in place with low knee lifts while keeping balance and a safe support nearby',
-      'The older adult lightly reaches one arm toward the wall for balance and makes a small controlled weight shift',
+      'The recurring character performs one slow supported heel raise near a sturdy chair, then gently lowers the heels',
+      'The recurring character slowly marches in place with low knee lifts while keeping balance and a safe support nearby',
+      'The recurring character lightly reaches one arm toward the wall for balance and makes a small controlled weight shift',
     ],
     anatomy: [
-      'The older adult sits comfortably, places a hand lightly over the relevant body area and looks thoughtfully toward a simple anatomy illustration',
+      'The recurring character sits comfortably, places a hand lightly over the relevant body area and looks thoughtfully toward a simple anatomy illustration',
     ],
     general: [
-      'The older adult reaches for a book, opens it carefully and looks at one page',
-      'The older adult sits by the window and gently turns their head toward the sunlight',
-      'The older adult walks a short distance across the living room with a natural weight shift',
-      'The older adult places a cup gently on the table and sits upright',
-      'The older adult gestures naturally toward an object on the table while explaining a point',
+      'The recurring character reaches for a book, opens it carefully and looks at one page',
+      'The recurring character sits by the window and gently turns their head toward the sunlight',
+      'The recurring character walks a short distance across the living room with a natural weight shift',
+      'The recurring character places a cup gently on the table and sits upright',
+      'The recurring character gestures naturally toward an object on the table while explaining a point',
     ],
   };
   // All motions are explicitly one safe, coherent activity. The storyboard may still require
@@ -265,7 +265,7 @@ function visualFor(scene) {
     'Draw a standalone explanatory visual, appropriate object or anatomy cutaway. NO foreground human character' :
     scene.mode === 'still' && scene.shot === 'detail' ?
     'Emphasize hands/objects/context rather than a person standing still' :
-    'Show the recurring older adult doing a believable activity with meaningful body language';
+    'Show the recurring master character doing a believable activity with meaningful body language';
   return [
     focus + '.',
     scene.treatment + '.',
