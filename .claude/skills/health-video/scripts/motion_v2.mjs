@@ -172,13 +172,16 @@ function init(f, o) {
   if (exists(f.plan)) throw new Error('Project already has a motion plan. Back it up before reinitializing: ' + f.plan);
   const srt = path.resolve(o.srt), voice = path.resolve(o.voice);
   if (!exists(srt) || !exists(voice)) throw new Error('SRT or voice file is missing');
-  const usingMaster = Boolean(o.master || o['master-image'] || o['character-image']);
+  const usingMaster = Boolean(o.master || o['master-image']);
+  if (o['character-image'] && !usingMaster) throw new Error('--character-image requires --master or --master-image, so the art style is defined');
   const style = (o.style || 'V1').toUpperCase();
   if (style === 'CUSTOM' && !usingMaster) throw new Error('--style CUSTOM requires --master or --master-image');
   const fallbackStyle = usingMaster ? 'V1' : style;
-  const identity = o.character || (usingMaster
-    ? 'Keep the recurring character identical to the approved character master image: same facial design, body shape, hair, signature clothes and defining features. Do not insert a generic stock person.'
-    : 'An expressive, healthy-looking Spanish adult aged around 68, consistent hair, face and everyday outfit across scenes; do not wear a white medical coat');
+  const identity = o.character || (o['character-image']
+    ? 'Keep the recurring protagonist identical to the supplied approved character identity reference: same facial design, body shape, hair, clothes and defining features.'
+    : usingMaster
+      ? 'Preserve the recurring protagonist in the chosen MASTER STYLE. Choose a consistent design from the first approved scene, then reuse the approved character image as the identity reference for later scenes. No generic stock substitution.'
+      : 'An expressive, healthy-looking Spanish adult aged around 68, consistent hair, face and everyday outfit across scenes; do not wear a white medical coat');
   const p = buildScenes(parseSrt(fs.readFileSync(srt, 'utf8')), fallbackStyle, identity,
     { topic: o.topic || 'auto', variety: o.variety || 'high' });
   if (usingMaster) {
