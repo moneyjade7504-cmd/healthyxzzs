@@ -1,0 +1,37 @@
+name: Motion V2 checks
+
+on:
+  pull_request:
+    paths:
+      - '.claude/skills/health-video/scripts/motion_v2.mjs'
+      - '.claude/skills/health-video/scripts/motion_style.mjs'
+      - '.claude/skills/health-video/tests/**'
+      - '.github/workflows/motion-v2-ci.yml'
+  push:
+    branches:
+      - 'feature/animated-characters-v2'
+    paths:
+      - '.claude/skills/health-video/scripts/motion_v2.mjs'
+      - '.claude/skills/health-video/scripts/motion_style.mjs'
+      - '.claude/skills/health-video/tests/**'
+      - '.github/workflows/motion-v2-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-motion-v2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax checks
+        run: |
+          node --check .claude/skills/health-video/scripts/motion_style.mjs
+          node --check .claude/skills/health-video/scripts/motion_v2.mjs
+      - name: Unit and batch tests (offline; no AI API)
+        run: node --test .claude/skills/health-video/tests/motion_v2.test.mjs
