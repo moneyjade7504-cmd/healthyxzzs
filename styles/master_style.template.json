@@ -1,0 +1,10 @@
+{
+  "id": "MY_CHANNEL_STYLE",
+  "label": "My custom YouTube master style",
+  "image": "Describe the reference style precisely: medium, character design, texture, colors, rendering, backgrounds, framing, 16:9 composition. This is not restricted to 2D.",
+  "graphic": "Describe how anatomy diagrams and object-focused scenes should match the same master style.",
+  "motion": "Explain how the image-to-video model must retain this exact style while a character performs one believable action in a 3–6 second clip.",
+  "negative": "Optional additional things to avoid while keeping the desired medium",
+  "reference_images": [],
+  "character_references": []
+}
