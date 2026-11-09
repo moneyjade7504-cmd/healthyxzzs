@@ -251,7 +251,8 @@ function shotFor(kind, index, last) {
 }
 
 function modeFor(kind, index) {
-  if (['warning', 'anatomy', 'numbers'].includes(kind) && index % 3 !== 0) return 'graphic';
+  if (kind === 'warning' || kind === 'numbers') return 'graphic';
+  if (kind === 'anatomy') return index % 5 === 0 ? 'character' : 'graphic';
   // B-roll, diagrams, performance and expressive character beats, not just talking heads.
   const pattern = ['character', 'still', 'graphic', 'character', 'still', 'character', 'still', 'graphic', 'still', 'character', 'still', 'graphic'];
   if (['chair', 'walk', 'exercise'].includes(kind)) return index % 4 === 2 ? 'still' : 'character';
@@ -288,10 +289,10 @@ export function directScenes(baseScenes, opts = {}) {
     const raw = baseScenes[i];
     const kind = classOf(raw.text);
     const prev = scenes.at(-1);
-    const loc = locationFor(kind, theme, i, prev);
-    const shot = shotFor(kind, i, prev);
     let mode = modeFor(kind, i);
-    if (variety === 'balanced' && i % 4 === 1 && mode === 'graphic') mode = 'still';
+    if (variety === 'balanced' && kind === 'general' && i % 4 === 1 && mode === 'graphic') mode = 'still';
+    const loc = mode === 'graphic' ? ['educational-illustration', 'Clean full-bleed diagram background in the channel palette, no unrelated interior or person'] : locationFor(kind, theme, i, prev);
+    const shot = shotFor(kind, i, prev);
     const specifics = detailsFor(kind, theme, loc[0], i);
     const mood = kind === 'warning' ? 'serious and calm' :
       kind === 'night' ? 'warm quiet nighttime' :
