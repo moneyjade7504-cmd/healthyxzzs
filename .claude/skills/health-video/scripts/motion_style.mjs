@@ -58,7 +58,11 @@ export function stillPrompt(scene, styleName = 'V1', character = '') {
     'Keep the recurring person recognisable. ' + clean(scene.wardrobe || 'Retain their signature outfit') +
       '. If the entire body is in frame: exactly one head, two arms, two legs, two hands, two feet, anatomically correct elbows and knees. No default idle standing pose.';
   return [
-    s.image,
+    graphic ? [
+      'Full-bleed 2D medical/educational graphic in the same color palette, line quality, modest soft shading, and decorative OUTER EDGE frame as this channel.',
+      s.image,
+      'OVERRIDE for this infographic: depict only the contextually relevant anatomical insert, graph or object; NO main human character.'
+    ].join(' ') : s.image,
     identity,
     sceneDirection(scene),
     'WHAT TO SHOW: ' + (scene.visual || scene.text || 'One clear complete educational concept') + '.',
@@ -66,7 +70,7 @@ export function stillPrompt(scene, styleName = 'V1', character = '') {
     characterRule,
     'The overall channel identity and clean 2D illustration method remain uniform across scenes, but staging, setting, shot scale and editorial treatment must NOT repeat monotonously.',
     'Do NOT repeat the exact environment, outfit pose, prop arrangement, and camera position of the previous shot.',
-    'Full-bleed widescreen 16:9, high resolution. NO baked captions, NO logos, NO brands, NO watermarks. Text is composited later in the video editor.',
+    'Full-bleed widescreen 16:9, high resolution. NO text or baked captions, NO logos, NO brands, NO watermarks. Text is composited later in the video editor.',
   ].filter(Boolean).join('\n');
 }
 
