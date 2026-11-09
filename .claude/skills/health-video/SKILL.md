@@ -3,6 +3,20 @@ name: health-video
 description: Make health and fitness science explainer videos for YouTube (short exercise explainers or 10–20-minute organ/topic videos, often Spanish scripts for seniors) in the channel's approved format: picture-first, key-phrase captions only, a paced hook, never a slide-deck look. Code-rendered infographics (titles, organ maps, mechanism diagrams, charts, count-ups, check/X and stamp verdicts, warnings, CTAs, quiz, on-screen sources) plus real drawings the user generates in free apps (exercise pose sheets shown as step sequences, organ/food item sheets, 2x2 scene panels shown as push-in stills). No puppet animation, no code-drawn people, no paid tools. Workflow: script → research and fact-check → asset order (sheets + voice spec) → the user sends sheets and a voice-over → cut assets, transcribe, map cues to words, build sections, render in parallel, QA → deliver the MP4 (split into parts under 30 MB). Use for any health/fitness video script, topic, asset sheet, voice-over or render request on this channel.
 ---
 
+## Scene Variety Director V3 — natural scenes, not an idle talking-head loop
+
+The owner explicitly requests **varied environments and visual storytelling** with the same recurring character, instead of an older adult always standing in one static room. This is the DEFAULT for new videos.
+
+- `scripts/scene_director.mjs` uses the Spanish SRT to construct an initial editable scene story arc. Every scene receives a **narrative kind, setting, framing, camera view, props, lighting, mood, wardrobe constraints, style treatment, and distinct physical action** for moving character scenes.
+- After `motion_v2.mjs init`, open `motion/scene_map.md` and `motion/scenes.json`. These are rule-based suggestions, so rewrite any medically inappropriate setting/action manually.
+- Maintain one DNA art style (V1 or V2) per channel/video; visual diversity means lifestyle illustrations, anatomical closeups, exercises, object-focused shots and infographic compositions, NOT photorealism or a different-looking character in each scene.
+- Prefer a balanced rhythm of wide / medium / over-shoulder / close-up / full-body / flat-lay images. Environments can move between living room, outdoor walking path, exercise corner, kitchen, bedroom and clinic where the script warrants it.
+- Keep character identity consistent: face, hairstyle, age and body proportions must match the master reference. Use appropriate wardrobe changes only when actually necessary.
+- Every character scene must have one contextually meaningful action (walking, sitting, cooking, reaching, exercising safely). Avoid repeating the default standing/pointing/talking pose.
+- In the 20-image batch, prompts must be varied by shot, setting, and treatment; the agent still generates **one batch only and stops for approval**.
+- Use `motion_v2.mjs map PROJECT` to refresh the scene map after manual scene edits. `qa` reports repeated three-scene location+framing combinations and diversity statistics.
+- Different scenes may use different first-frame camera angles, but each short motion clip should keep its own camera stable to reduce image-to-video hallucination.
+
 ## Motion V2: nâng cấp theo yêu cầu mới — nhân vật được CHUYỂN ĐỘNG THẬT
 
 The channel owner has now explicitly requested *actual smooth, attractive, animated recurring 2D characters*.
