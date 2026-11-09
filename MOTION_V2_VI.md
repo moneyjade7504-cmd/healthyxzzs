@@ -129,3 +129,39 @@ Muốn bố cục nhẹ nhàng hơn, chọn `--variety balanced`.
 Bắt buộc mở `scene_map.md` và `scenes.json`, sửa lại những cảnh diễn
 tập, biểu cảm hoặc y khoa sai ý trước khi tạo hình.
 
+
+
+## V4 — Master Style tùy chỉnh: dùng mọi phong cách hình ảnh
+
+**Không giới hạn ở V1/V2/LEGACY.** Bạn có thể chọn crayon, màu nước, đồ họa vector, scrapbook, anime, 3D stylized, minh họa y khoa, collage hoặc phong cách riêng bằng ảnh mẫu. Cấu hình master được dùng nhất quán cho mọi cảnh, trong khi Scene Director tiếp tục đổi địa điểm, góc máy và hành động.
+
+### Cách 1: Chỉ có ảnh Master Style
+
+Chuẩn bị ảnh master trên máy (PNG/JPG/WEBP). Nếu muốn giữ khuôn mặt nhân vật nhất quán, thêm ảnh nhân vật chuẩn.
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs init projects/video_moi --srt /path/voice.srt --voice /path/voice.mp3 --master-image /path/style_master.png --character-image /path/carmen.png --character "Carmen, 68, grey bob hair, teal blouse"
+
+Script sao chép ảnh vào thư mục projects/video_moi/motion/master/, lưu mô tả trong motion/scenes.json và xuất prompt có tên file tham chiếu cho TỪNG SC###. **Bạn phải đính kèm các file ảnh này khi tạo ảnh bằng ứng dụng AI**; chỉ ghi tên file trong prompt không có nghĩa ứng dụng AI đã nhìn thấy file.
+
+### Cách 2: Tạo Master Style từ file JSON
+
+Có sẵn file styles/master_style.template.json. Có thể điền tên, mô tả phong cách, chất liệu, bảng màu, chuyển động, negative prompt, kèm các ảnh tham chiếu. JSON có thể lưu ở GitHub và tái sử dụng cho nhiều video.
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs init projects/video_moi --srt /path/voice.srt --voice /path/voice.mp3 --master styles/master_crayon.example.json
+
+Cũng có thể dùng cả JSON và ảnh:
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs init projects/video_moi --srt /path/voice.srt --voice /path/voice.mp3 --master /path/my_style.json --master-image /path/style.webp --character-image /path/character.png
+
+Các trường JSON: id, label, image (mô tả cảnh), graphic (đồ họa/giải phẫu), motion (cách giữ style khi chuyển động), negative (lỗi riêng cần tránh), reference_images (danh sách ảnh phong cách), character_references (danh sách ảnh nhân vật). Đường dẫn bên trong JSON tương đối với vị trí file JSON.
+
+### Giữ master xuyên suốt video
+
+- Không ép master trở lại 2D, pastel, viền trang trí hoặc phong cách cũ.
+- Không thay đổi danh tính nhân vật, phong cách nét, chất liệu và ánh sáng tùy tiện giữa các cảnh.
+- Tùy chọn master có thể là 3D stylized hoặc ảnh thật. Các cấm đoán riêng của V1/V2 sẽ không áp lên master tùy chỉnh; vẫn ngăn lỗi anatomy, thêm tay/chân, đổi mặt và rung.
+- Đọc motion/scene_map.md để chỉnh bố cục và hành động; đọc motion/batches/batch_001_prompts.md để tạo đúng 20 ảnh và dừng.
+- Với các cảnh nhân vật chuyển động, dùng hình SC### đã duyệt làm first frame cho model image-to-video; model hiện tại không tự nhận thêm ảnh tham chiếu master khác. Duyệt clip bằng mắt.
+- Nếu repository đang công khai, cân nhắc khi commit ảnh người thật, ảnh có bản quyền hoặc tài sản nhạy cảm.
+
+**Giới hạn quan trọng:** hệ thống có thể tiếp nhận và chuyển tiếp mọi cấu hình master hợp lệ, nhưng không tự phân tích phong cách thị giác từ ảnh bằng AI. Độ chính xác còn tùy công cụ tạo hình/video có hỗ trợ ảnh tham chiếu và model của nó hay không. Đây là nâng cấp để không khóa cứng style, không phải lời bảo đảm mọi phong cách đều được mô phỏng hoàn hảo.
