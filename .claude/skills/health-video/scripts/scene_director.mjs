@@ -1,5 +1,5 @@
 /**
- * Deterministic 2D storyboard director for HealthyXZZS.
+ * Deterministic storyboard director for ANY user-selected art direction.
  * Keeps the channel's master art style while varying place, framing, action,
  * lighting and narrative treatment. It never invents medical outcomes or
  * contradicts an explicit action from the supplied subtitles.
@@ -92,8 +92,8 @@ const SHOTS = [
 ];
 
 const TREATMENTS = [
-  ['lifestyle', 'Warm slice-of-life editorial cartoon, visually rich environment'],
-  ['action-demo', 'Clear educational action illustration, accurate weight distribution and natural gesture'],
+  ['lifestyle', 'Warm slice-of-life environmental storytelling, faithfully rendered in the chosen master art medium'],
+  ['action-demo', 'Clear educational movement demonstration, accurate weight distribution and natural gesture, using master art style'],
   ['object-focus', 'A visually arresting everyday object detail and motivated human hands if appropriate'],
   ['story-moment', 'An intimate storytelling moment with natural body language'],
   ['anatomy', 'Clean medically cautious anatomical educational cutaway, correct organ location, restrained annotations added later in the editor'],
@@ -221,7 +221,7 @@ function detailsFor(kind, theme, setting, index) {
       theme === 'diabetes' ? 'Clear glucose and pancreas relationship diagram' :
       theme === 'mind' ? 'Simple brain and neural pathway cutaway' :
       theme === 'legs' ? 'Anatomically correct leg muscle close-up' : 'Relevant human organ cutaway',
-    treatment: 'Accurate anatomical cutaway within the channel 2D palette, not photorealistic',
+    treatment: 'Accurate anatomical cutaway in the exact selected master visual medium and style, without inventing anatomical claims',
   };
   if (kind === 'numbers') return {
     object: 'Unlabeled graphical shapes, bar lengths or icons; facts and numbers added later in editing',
@@ -229,7 +229,7 @@ function detailsFor(kind, theme, setting, index) {
   };
   if (kind === 'food') return {
     object: 'Everyday plate, bowl and relevant foods from the script, no invented medicinal claims',
-    treatment: 'Lived-in editorial still life, rich natural food details, clean 2D contours',
+    treatment: 'Lived-in still life, rich food details, preserving master style lines, surface textures, palette and rendering medium',
   };
   if (kind === 'chair' || kind === 'exercise' || kind === 'walk') return {
     object: 'Stable floor, visible limbs and practical physical support',
@@ -291,7 +291,7 @@ export function directScenes(baseScenes, opts = {}) {
     const prev = scenes.at(-1);
     let mode = modeFor(kind, i);
     if (variety === 'balanced' && kind === 'general' && i % 4 === 1 && mode === 'graphic') mode = 'still';
-    const loc = mode === 'graphic' ? ['educational-illustration', 'Clean full-bleed diagram background in the channel palette, no unrelated interior or person'] : locationFor(kind, theme, i, prev);
+    const loc = mode === 'graphic' ? ['educational-illustration', 'Clean full-bleed diagram composition preserving the chosen master art treatment, no unrelated room or person'] : locationFor(kind, theme, i, prev);
     const shot = shotFor(kind, i, prev);
     const specifics = detailsFor(kind, theme, loc[0], i);
     const mood = kind === 'warning' ? 'serious and calm' :
@@ -310,7 +310,7 @@ export function directScenes(baseScenes, opts = {}) {
       lighting: kind === 'night' ? 'soft warm night lamp; no artificial daylight' :
         loc[0] === 'clinic' ? 'neutral balanced diffused lighting' :
         i % 4 === 0 ? 'soft morning window light' : i % 4 === 1 ? 'warm afternoon light' : 'clean natural ambient light',
-      palette_treatment: i % 3 === 0 ? 'warm editorial accent' : i % 3 === 1 ? 'cool calming secondary hues' : 'high readability contrast within the master channel palette',
+      palette_treatment: i % 3 === 0 ? 'warm editorial accent ONLY if compatible with the master style' : i % 3 === 1 ? 'cool calming secondary tones ONLY if compatible with the master style' : 'high readability contrast strictly within the master palette',
       wardrobe: wardrobeFor(loc[0], kind),
       treatment: specifics.treatment,
       object: specifics.object,
