@@ -25,3 +25,6 @@ projects/*/clips/*.mp4
 *.partial
 .env
 .env.*
+
+# ocho_senales_mente: renders and temp audio stay local
+projects/ocho_senales_mente/out/
