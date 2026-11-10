@@ -1,0 +1,95 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script>
+// VIDEO 3 · CONCLUSIÓN
+let S;
+const END = 1089.6;
+const Full = color => g => { el('rect', { x: -960, y: -540, width: 1920, height: 1080, fill: color }, g); };
+
+// AF · title card (dark)
+S = Scene('ahora', 'analizas2');
+Item(S, Full(K.ink), { x: 960, y: 540, enter: 'fade', dur: 0.4 });
+Item(S, Txt('TU CEREBRO ES MÁS COMPLEJO', { size: 84, color: '#fff' }), { x: 960, y: 220, t: 'ahora+0.2', enter: 'u' });
+Item(S, Txt('DE LO QUE IMAGINAS', { size: 84, color: K.yellow }), { x: 960, y: 330, t: 'ahora+0.5', enter: 'u' });
+Item(S, Img('brain', 300), { x: 960, y: 680, t: 'vida', bob: 6 });
+Item(S, Ico('question', 1.2), { x: 1200, y: 560, t: 'detenido', enter: 'slam' });
+
+// AG · recap: analyse, sounds, focus
+S = Scene('analizas2', 'otras2');
+[['s_bench', 'analizas2', 'SEÑAL 1'], ['s_tv', 'sonidos2', 'SEÑAL 2'], ['s_read_night', 'concentrarte', 'SEÑAL 4']].forEach(([n, t, l], i) => {
+  Item(S, Panel(n, 560), { x: 340 + i * 620, y: 460, t, enter: 'u' });
+  Item(S, Chip(l, { fill: K.yellow, size: 44 }), { x: 340 + i * 620, y: 740, t: `${t}+0.3` });
+});
+
+// AH · others imagine, remember, experience differently
+S = Scene('otras2', 'unica');
+Item(S, Panel('s_apples', 1200), { x: 960, y: 450, zoom: 0.06 });
+Item(S, Pill('NADIE PIENSA EXACTAMENTE COMO TÚ', { hi: 'COMO TÚ', size: 52 }), { y: 975, t: 'otras2+1', enter: 'd' });
+
+// AI · no single right way: 8 around the brain
+S = Scene('unica', 'recuerda2');
+Item(S, Img('brain', 230), { x: 960, y: 480, bob: 5 });
+Item(S, g => {
+  const ks = [];
+  for (let i = 0; i < 8; i++) {
+    const k = el('g', {}, g);
+    el('circle', { cx: 5, cy: 7, r: 52, fill: K.ink }, k);
+    el('circle', { cx: 0, cy: 0, r: 52, fill: [K.pink, K.yellow, K.blue][i % 3], stroke: K.ink, 'stroke-width': 7 }, k);
+    Text(k, String(i + 1), { x: 0, y: 3, size: 54 });
+    ks.push(k);
+  }
+  const t0 = T('unica');
+  return { draw(t) {
+    ks.forEach((k, i) => {
+      const a = (i / 8) * 2 * Math.PI - Math.PI / 2 + (t - t0) * 0.12, u = E.back(prog(t, t0 + i * 0.2, t0 + i * 0.2 + 0.4));
+      k.setAttribute('transform', `translate(${(Math.cos(a) * 360).toFixed(1)} ${(Math.sin(a) * 300).toFixed(1)}) scale(${Math.max(0, u).toFixed(3)})`);
+    });
+  } };
+}, { x: 960, y: 480, enter: 'none' });
+Item(S, Pill('NO HAY UNA ÚNICA MANERA DE PENSAR', { hi: 'ÚNICA', size: 52 }), { y: 975, t: 'unica+0.6', enter: 'd' });
+
+// AJ · not extraordinary, not a disorder: your own story
+S = Scene('recuerda2', 'cambios2');
+Item(S, Img('present', 540), { x: 410, y: 560, bob: 5 });
+Item(S, StampB('NO ES UN DIAGNÓSTICO', { size: 56 }), { x: 1250, y: 220, t: 'reconocer2', enter: 'slam' });
+Item(S, Chip('INTELIGENCIA EXTRAORDINARIA', { icon: 'cross', color: K.red, size: 42 }), { x: 1250, y: 440, t: 'reconocer2+3', enter: 'r' });
+Item(S, Chip('TRASTORNO NEUROLÓGICO', { icon: 'cross', color: K.red, size: 42 }), { x: 1250, y: 600, t: 'neurologico', enter: 'r' });
+Item(S, Pill('TU HISTORIA PERSONAL', { hi: 'HISTORIA' }), { x: 1250, y: 850, t: 'historia', enter: 'd' });
+
+// AK · changes → medical advice; educational content (hold)
+S = Scene('cambios2', 'pregunta2');
+Item(S, Panel('s_doctor', 1000), { x: 600, y: 440, zoom: 0.05 });
+Item(S, Chip('CONTENIDO EDUCATIVO', { color: K.blueD, size: 40 }), { x: 1520, y: 300, t: 'educativo' });
+Item(S, Chip('NO SUSTITUYE UNA CONSULTA', { color: K.blueD, size: 40 }), { x: 1500, y: 460, t: 'educativo+1.5' });
+Item(S, Pill('¿CAMBIOS? BUSCA ORIENTACIÓN MÉDICA', { hi: 'ORIENTACIÓN MÉDICA', size: 52 }), { y: 975, t: 'cambios2+0.4', enter: 'd' });
+
+// AL · how many? comment
+S = Scene('pregunta2', 'subs3');
+Item(S, Img('count_fingers', 540), { x: 400, y: 560, bob: 5 });
+Item(S, Txt('¿CUÁNTAS RECONOCES?', { size: 70 }), { x: 1200, y: 200, t: 'pregunta2+1', enter: 'u' });
+['2', '4', '6', '8'].forEach((n, i) => Item(S, g => {
+  el('circle', { cx: 7, cy: 9, r: 82, fill: K.ink }, g);
+  el('circle', { r: 82, fill: i === 3 ? K.yellow : K.pink, stroke: K.ink, 'stroke-width': 8 }, g);
+  Text(g, n, { x: 0, y: 4, size: 96 });
+}, { x: 860 + i * 230, y: 470, t: i === 3 ? 'ocho2' : `dos+${(i * 0.55).toFixed(2)}` }));
+Item(S, Img('hold_bubble', 300), { x: 1700, y: 790, t: 'escribe', enter: 'r', bob: 4 });
+Item(S, Chip('ESCRÍBELO EN LOS COMENTARIOS', { fill: K.yellow, size: 44 }), { x: 1060, y: 780, t: 'escribe' });
+
+// AM · subscribe + closing line
+S = Scene('subs3', END + 1);
+Item(S, Img('m_cheer', 480), { x: 480, y: 560, bob: 7 });
+Item(S, Txt('Cerebro y Bienestar', { size: 72, color: K.pinkD }), { x: 1260, y: 260, t: 'subs3+0.2', enter: 'u' });
+Item(S, Subscribe(T('subs3+1.8')), { x: 1260, y: 470, t: 'subs3+0.4' });
+Item(S, Txt('NO SE TRATA DE SER DIFERENTE…', { size: 54 }), { x: 1260, y: 700, t: 'porque+1.5', enter: 'fade' });
+Item(S, Txt('SINO DE CONOCERTE MEJOR', { size: 64, color: K.pinkD }), { x: 1260, y: 810, t: 'conocerte-1.2', enter: 'u' });
+
+Strip('ahora+2', END + 1, t => 9);
+Run(T('ahora'), END);
+</script></body></html>

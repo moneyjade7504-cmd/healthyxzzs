@@ -1,0 +1,68 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script>
+// VIDEO 3 · PARTE 4 · SEÑAL 7: necesitas estar a solas
+let S;
+
+// Q · section title
+S = Scene('parte4', 'despues4');
+Item(S, Kicker('PARTE 4', 'TU MANERA DE EXPERIMENTAR\nEL MUNDO PUEDE SER MUY DIFERENTE', { size: 62 }), { x: 960, y: 300, t: 'parte4', enter: 'u' });
+Item(S, Img('hand_heart', 400), { x: 960, y: 790, t: 'p4title', bob: 5 });
+
+// R · two personal questions
+S = Scene('despues4', 'signo7');
+Item(S, Img('armchair_tea', 380), { x: 330, y: 780, t: 'condiciones', enter: 'l', bob: 4 });
+Item(S, Img('imagine_apple', 400), { x: 1600, y: 760, t: 'experimentas', enter: 'r', bob: 4 });
+Item(S, Chip('¿QUÉ NECESITAS PARA ESTAR BIEN?', { icon: 'question', color: K.yellow, size: 48 }), { x: 960, y: 260, t: 'condiciones' });
+Item(S, Chip('¿CÓMO VIVES TUS PENSAMIENTOS?', { icon: 'question', color: K.yellow, size: 48 }), { x: 960, y: 450, t: 'experimentas' });
+
+// S · SEÑAL 7
+S = Scene('signo7', 'amigos');
+Item(S, Img('door_relief', 560), { x: 440, y: 540, t: 'signo7', enter: 'l', bob: 4 });
+Item(S, Kicker('SEÑAL 7', 'NECESITAS\nESTAR A SOLAS', { size: 115 }), { x: 1270, y: 450, t: 'signo7', enter: 'slam' });
+Item(S, Pill('TRAS HORAS CON GENTE', { hi: 'HORAS' }), { x: 1270, y: 880, t: 'rodeado', enter: 'd' });
+punchAt(S, 'asolas');
+
+// T · you enjoy people…
+S = Scene('amigos', 'regresas');
+Item(S, Panel('s_party', 1150), { x: 690, y: 470, zoom: 0.05 });
+Item(S, Chip('AMIGOS', { icon: 'check', color: K.green }), { x: 1610, y: 290, t: 'amigos', enter: 'r' });
+Item(S, Chip('FAMILIA', { icon: 'check', color: K.green }), { x: 1610, y: 460, t: 'reuniones', enter: 'r' });
+Item(S, Chip('GENTE NUEVA', { icon: 'check', color: K.green }), { x: 1610, y: 630, t: 'gente', enter: 'r' });
+
+// U · …and then you need silence
+S = Scene('regresas', 'introversion');
+Item(S, Img('door_relief', 500), { x: 480, y: 560, t: 'regresas', bob: 4 });
+Item(S, Img('read_armchair', 460), { x: 1400, y: 560, t: 'silencio2', enter: 'r', bob: 4 });
+Item(S, Battery(t => lerp(0.2, 1, E.inOut(prog(t, T('silencio2'), T('descansar+2')))), { w: 230, h: 115 }), { x: 1400, y: 190, t: 'silencio2+0.4' });
+Item(S, Chip('NI ENFADADO NI TRISTE', { size: 46 }), { x: 900, y: 150, t: 'enfadado', out: 'descansar-0.2' });
+Item(S, Pill('SOLO NECESITAS DESCANSAR', { hi: 'DESCANSAR' }), { y: 975, t: 'descansar', enter: 'd' });
+
+// V · introversion: social effort drains
+S = Scene('introversion', 'rechazar');
+Item(S, Txt('INTROVERSIÓN', { size: 100, color: K.pinkD }), { x: 860, y: 170, t: 'introversion', enter: 'slam' });
+Item(S, Chip('ATENCIÓN', { color: K.blueD, size: 40 }), { x: 360, y: 440, t: 'requieren+1.2' });
+Item(S, Chip('LEER EXPRESIONES', { color: K.blueD, size: 40 }), { x: 900, y: 440, t: 'interpretacion' });
+Item(S, Chip('REGULAR EMOCIONES', { color: K.blueD, size: 40 }), { x: 1500, y: 440, t: 'regulacion' });
+Item(S, Battery(t => lerp(1, 0.12, E.inOut(prog(t, T('requieren+1'), T('agotador+1')))), { w: 340, h: 170 }), { x: 960, y: 730, t: 'requieren+0.6' });
+Item(S, Txt('AGOTADOR', { size: 60, color: K.red }), { x: 960, y: 920, t: 'agotador', enter: 'slam' });
+
+// W · solitude ≠ rejection; balance
+S = Scene('rechazar', 'signo8');
+Item(S, Pill('SOLEDAD ≠ RECHAZO', { hi: 'RECHAZO', size: 64 }), { x: 960, y: 170, t: 'rechazar', enter: 'u' });
+Item(S, Img('hand_heart', 460), { x: 960, y: 560, bob: 4 });
+Item(S, StampB('NO ES UN DIAGNÓSTICO', { size: 52 }), { x: 960, y: 900, t: 'clinicos', enter: 'slam', out: 'equilibrio2-0.2' });
+Item(S, Chip('COMPAÑÍA', { color: K.blueD }), { x: 420, y: 560, t: 'equilibrio2', enter: 'l' });
+Item(S, Chip('DESCANSO', { color: K.pinkD }), { x: 1500, y: 560, t: 'equilibrio2+0.3', enter: 'r' });
+Item(S, Pill('UN EQUILIBRIO SALUDABLE', { hi: 'EQUILIBRIO' }), { y: 975, t: 'equilibrio2+0.6', enter: 'd' });
+
+Strip('parte4', T('signo8') + 1, t => 7);
+Run(T('parte4'), T('signo8'));
+</script></body></html>

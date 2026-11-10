@@ -1,0 +1,105 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script>
+// VIDEO 3 · SEÑAL 6: conexiones inesperadas
+let S;
+
+// I · SEÑAL 6
+S = Scene('signo6', 'musica');
+Item(S, Img('join_puzzle', 540), { x: 440, y: 540, t: 'signo6', enter: 'l', bob: 5 });
+Item(S, Kicker('SEÑAL 6', 'CONEXIONES\nINESPERADAS', { size: 115 }), { x: 1270, y: 450, t: 'conexiones-0.4', enter: 'slam' });
+Item(S, Txt('UNA CAPACIDAD FASCINANTE', { size: 52, color: K.grey }), { x: 1270, y: 450, t: 'signo6+0.3', out: 'conexiones-0.6', enter: 'fade' });
+
+// J · melody → place → idea
+S = Scene('musica', 'asociativo');
+Item(S, Img('headphones', 440), { x: 330, y: 540, t: 'musica', bob: 5 });
+Item(S, Img('notes', 140), { x: 330, y: 200, t: 'musica+0.5', bob: 6 });
+Item(S, Arrow(260, 0, { color: K.blueD }), { x: 540, y: 520, t: 'lugar-0.2' });
+Item(S, Img('photo', 230), { x: 960, y: 500, t: 'lugar', rot: -5, bob: 4 });
+Item(S, Arrow(260, 0, { color: K.yellow }), { x: 1140, y: 520, t: 'idea-0.2' });
+Item(S, Img('bulb', 250), { x: 1570, y: 480, t: 'idea', bob: 5 });
+Item(S, Chip('MELODÍA', { color: K.blueD }), { x: 330, y: 870, t: 'musica+0.8' });
+Item(S, Chip('UN LUGAR', { color: K.blueD }), { x: 960, y: 760, t: 'lugar+0.3' });
+Item(S, Chip('¡UNA IDEA!', { fill: K.yellow }), { x: 1570, y: 760, t: 'idea+0.3' });
+Item(S, Pill('TU MENTE RELACIONA', { hi: 'RELACIONA' }), { x: 1180, y: 975, t: 'coincidencia+2', enter: 'd' });
+
+// K · associative vs divergent thinking
+S = Scene('asociativo', 'enfoques');
+Item(S, Chip('PENSAMIENTO ASOCIATIVO', { color: K.blueD, size: 44 }), { x: 500, y: 160, t: 'asociativo' });
+Item(S, g => {
+  const P = [[-200, 120], [200, 120], [0, -180]];
+  const lines = [[0, 1], [1, 2], [2, 0]].map(([a, b]) => el('line', { x1: P[a][0], y1: P[a][1], x2: P[b][0], y2: P[b][1], stroke: K.blueD, 'stroke-width': 9, 'stroke-dasharray': '4 18', 'stroke-linecap': 'round', opacity: 0 }, g));
+  [['notes', 120], ['photo', 140], ['bulb', 150]].forEach(([n, h], i) => { const k = el('g', { transform: `translate(${P[i][0]} ${P[i][1]})` }, g); Img(n, h)(k); });
+  return { draw(t, t0) { lines.forEach((l, i) => l.setAttribute('opacity', clamp((t - t0 - 0.5 - i * 0.4) / 0.3))); } };
+}, { x: 500, y: 560, t: 'asociativo+0.2' });
+Item(S, Chip('PENSAMIENTO DIVERGENTE', { color: K.pinkD, size: 44 }), { x: 1420, y: 160, t: 'divergente' });
+Item(S, g => {
+  const arms = [];
+  for (let i = 0; i < 6; i++) {
+    const a = (i / 6) * 2 * Math.PI - Math.PI / 2, x = Math.cos(a) * 270, y = Math.sin(a) * 230;
+    const k = el('g', {}, g);
+    el('line', { x1: Math.cos(a) * 80, y1: Math.sin(a) * 70, x2: x * 0.78, y2: y * 0.78, stroke: K.pinkD, 'stroke-width': 10, 'stroke-linecap': 'round' }, k);
+    const b = el('g', { transform: `translate(${x} ${y})` }, k); Img('bulb', 90)(b);
+    arms.push(k);
+  }
+  Icon.question(g, -60, -60, 1.2, K.yellow);
+  const tp = T('posibilidades');
+  return { draw(t) { arms.forEach((k, i) => k.setAttribute('opacity', clamp((t - tp + 1.2 - i * 0.25) / 0.3))); } };
+}, { x: 1420, y: 580, t: 'divergente+0.2' });
+Item(S, Pill('MUCHAS POSIBILIDADES', { hi: 'POSIBILIDADES' }), { x: 1420, y: 975, t: 'posibilidades', enter: 'd' });
+
+// L · what it gives you
+S = Scene('enfoques', 'acertadas');
+Item(S, Img('idea', 540), { x: 430, y: 540, bob: 5 });
+Item(S, Chip('ENFOQUES ORIGINALES', { icon: 'check', color: K.green }), { x: 1280, y: 300, t: 'enfoques', enter: 'r' });
+Item(S, Chip('PREGUNTAS INESPERADAS', { icon: 'check', color: K.green }), { x: 1280, y: 480, t: 'inesperadas', enter: 'r' });
+Item(S, Chip('SEMEJANZAS OCULTAS', { icon: 'check', color: K.green }), { x: 1280, y: 660, t: 'semejanzas', enter: 'r' });
+
+// M · many ideas ≠ all right: evaluate, select, test
+S = Scene('acertadas', 'conectadas');
+Item(S, Img('choose_bulb', 540), { x: 430, y: 560, bob: 5 });
+Item(S, StampB('MUCHAS IDEAS ≠ TODAS BUENAS', { size: 50 }), { x: 1260, y: 190, t: 'acertadas', enter: 'slam' });
+Item(S, Chip('1 · EVALUAR', { color: K.blueD }), { x: 1260, y: 420, t: 'evaluar' });
+Item(S, Chip('2 · SELECCIONAR', { color: K.blueD }), { x: 1260, y: 590, t: 'seleccionar' });
+Item(S, Chip('3 · COMPROBAR', { icon: 'check', color: K.green }), { x: 1260, y: 760, t: 'comprobar' });
+
+// N · memory ∩ creativity
+S = Scene('conectadas', 'fotografia');
+Item(S, g => {
+  el('circle', { cx: -190, cy: 0, r: 290, fill: K.pink, opacity: 0.35, stroke: K.pinkD, 'stroke-width': 8 }, g);
+  el('circle', { cx: 190, cy: 0, r: 290, fill: K.yellow, opacity: 0.35, stroke: '#D9A300', 'stroke-width': 8 }, g);
+  Text(g, 'MEMORIA', { x: -300, y: 0, size: 50, color: K.pinkD });
+  Text(g, 'CREATIVIDAD', { x: 320, y: 0, size: 50, color: '#B38600' });
+}, { x: 960, y: 480, t: 'conectadas', enter: 'pop' });
+Item(S, Img('puzzle_pieces', 170), { x: 960, y: 480, t: 'combinar', bob: 4 });
+Item(S, Pill('COMBINA LO QUE YA VIVISTE', { hi: 'COMBINA' }), { y: 950, t: 'combinar+0.5', enter: 'd' });
+Item(S, Txt('Schacter y Addis, 2007', { size: 28, color: K.grey, weight: 700 }), { x: 1700, y: 1040, t: 'conectadas+1', enter: 'fade' });
+
+// O · conversation, old photo, small detail → idea
+S = Scene('fotografia', 'quedandos');
+Item(S, Ico('bubble', 1.8), { x: 420, y: 300, t: 'fotografia-0.8' });
+Item(S, Img('photo', 220), { x: 960, y: 300, t: 'fotografia', rot: -5 });
+Item(S, Img('keys', 190), { x: 1500, y: 300, t: 'detalle' });
+Item(S, Arrow(380, 300, { color: K.ink, width: 14 }), { x: 480, y: 440, t: 'comienzo-0.3' });
+Item(S, Arrow(0, 300, { color: K.ink, width: 14 }), { x: 960, y: 440, t: 'comienzo-0.3' });
+Item(S, Arrow(-380, 300, { color: K.ink, width: 14 }), { x: 1440, y: 440, t: 'comienzo-0.3' });
+Item(S, Img('bulb', 230), { x: 960, y: 860, t: 'comienzo', bob: 4 });
+
+// P · two signals left: social noise, inner image
+S = Scene('quedandos', T('parte4'));
+Item(S, Txt('QUEDAN 2 SEÑALES', { size: 70 }), { x: 860, y: 140, t: 'quedandos', enter: 'u' });
+Item(S, Img('door_relief', 440), { x: 560, y: 520, t: 'ruido2', bob: 4 });
+Item(S, Chip('7 · RUIDO SOCIAL', { fill: K.yellow }), { x: 560, y: 850, t: 'ruido2+0.3' });
+Item(S, Img('imagine_apple', 440), { x: 1380, y: 520, t: 'inquietante', bob: 4 });
+Item(S, Chip('8 · ¿VES UNA IMAGEN?', { fill: K.yellow }), { x: 1380, y: 850, t: 'ves' });
+
+Strip('signo6', T('parte4') + 1, t => t < T('quedandos') ? 6 : 7);
+Run(T('signo6'), T('parte4'));
+</script></body></html>

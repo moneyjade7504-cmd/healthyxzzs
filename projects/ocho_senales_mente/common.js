@@ -16,6 +16,10 @@ const SZ = {
   // items (sheet 5)
   brain: [398, 294], ear: [285, 294], eye: [414, 249], clock: [362, 304], remote_icon: [349, 311], lamp: [366, 311],
   bubble: [403, 283], funnel: [361, 272], battery: [426, 252],
+  // part 2–3 (sheets 6–10)
+  walk_think: [453, 459], cook: [432, 458], read_sit: [368, 439], paint: [476, 430], puzzle_table: [462, 426], calm: [365, 446], book: [409, 298], sketchbook: [465, 289], palette: [423, 298], hourglass: [290, 299], tea: [356, 303], puzzle_pieces: [404, 270], sun: [287, 279], moon: [317, 269], pot: [375, 296], search_cushion: [551, 444], headphones: [413, 447], idea: [451, 468], join_puzzle: [396, 448], photo_hold: [373, 437], choose_bulb: [428, 430], door_relief: [449, 471], read_armchair: [483, 436], imagine_apple: [522, 468], hand_heart: [275, 432], hold_bubble: [489, 445], count_fingers: [359, 432], s_bed_rehearse: [822, 458], s_read_day: [823, 457], s_read_night: [823, 458], s_inner_voice: [823, 458],
+  // part 3 (sheets 11–12)
+  keys: [334, 313], radio: [436, 314], camera: [413, 299], bulb: [318, 313], photo: [406, 307], apple: [338, 291], table: [373, 284], door: [289, 290], notes: [354, 260], s_memory: [823, 458], s_party: [825, 458], s_doctor: [823, 457], s_apples: [824, 458],
   // original character sheet
   m_wave: [252, 473], m_point: [252, 417], m_listen: [256, 413], m_magnifier: [280, 408], m_puzzle: [232, 412], m_cheer: [270, 470], m_walk_thumb: [252, 413],
 };

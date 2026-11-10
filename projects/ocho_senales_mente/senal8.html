@@ -1,0 +1,84 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script>
+// VIDEO 3 · SEÑAL 8: la imagen mental (+ medical warning)
+let S;
+const Full = color => g => { el('rect', { x: -960, y: -540, width: 1920, height: 1080, fill: color }, g); };
+
+// X · SEÑAL 8
+S = Scene('signo8', 'cierra');
+Item(S, Img('imagine_apple', 540), { x: 440, y: 540, t: 'signo8', enter: 'l', bob: 4 });
+Item(S, Kicker('SEÑAL 8', 'TU OJO\nINTERIOR', { size: 130 }), { x: 1270, y: 450, t: 'signo8', enter: 'slam' });
+Item(S, Pill('UN PEQUEÑO EXPERIMENTO', { hi: 'EXPERIMENTO' }), { x: 1270, y: 880, t: 'experimento', enter: 'd' });
+
+// Y · close your eyes: the apple (calm, dark)
+S = Scene('cierra', 'extrano');
+Item(S, Full(K.ink), { x: 960, y: 540, enter: 'fade', dur: 0.8 });
+Item(S, Txt('CIERRA LOS OJOS…', { size: 80, color: '#fff' }), { x: 960, y: 520, t: 'cierra+0.3', out: 'manzana-0.3', enter: 'fade', dur: 0.8 });
+Item(S, Img('apple', 280), { x: 960, y: 430, t: 'manzana', out: 'sabes2', enter: 'fade', dur: 1.5 });
+Item(S, Img('table', 300), { x: 960, y: 690, t: 'mesa', enter: 'fade', dur: 1.5 });
+Item(S, g => { const k = el('g', { opacity: 0.18 }, g); Img('apple', 280)(k); el('circle', { cx: 0, cy: 10, r: 130, fill: 'none', stroke: '#fff', 'stroke-width': 6, 'stroke-dasharray': '14 14' }, g); }, { x: 960, y: 430, t: 'sabes2', enter: 'fade', dur: 1 });
+Item(S, Txt('¿FORMA? ¿COLOR? ¿REFLEJOS?', { size: 56, color: K.yellow }), { x: 960, y: 950, t: 'visualizar', out: 'sabes2-0.3', enter: 'fade' });
+Item(S, Txt('¿O SOLO SABES CÓMO ES?', { size: 56, color: K.yellow }), { x: 960, y: 950, t: 'sabes2', enter: 'fade' });
+
+// Z · vividness scale → aphantasia
+S = Scene('extrano', 'nosignifica8');
+Item(S, Txt('NO TODOS «VEMOS» IGUAL', { size: 70 }), { x: 860, y: 140, t: 'extrano', enter: 'u' });
+[1, 0.7, 0.45, 0.22, 0.06].forEach((o, i) => Item(S, g => {
+  const k = el('g', { opacity: o }, g); Img('apple', 200)(k);
+  if (i === 4) el('circle', { cx: 0, cy: 10, r: 92, fill: 'none', stroke: K.grey, 'stroke-width': 6, 'stroke-dasharray': '12 12' }, g);
+}, { x: 300 + i * 330, y: 470, t: `detalladas+${(i * 0.5).toFixed(1)}` }));
+Item(S, Chip('MUY VÍVIDA', { color: K.green, size: 44 }), { x: 300, y: 720, t: 'detalladas' });
+Item(S, Chip('APENAS', { color: K.yellow, size: 44 }), { x: 960, y: 720, t: 'apenas' });
+Item(S, Chip('AFANTASÍA', { color: K.pinkD, size: 44 }), { x: 1620, y: 720, t: 'afantasia', enter: 'slam' });
+Item(S, Pill('POCA O NINGUNA IMAGEN VOLUNTARIA', { hi: 'NINGUNA', size: 52 }), { y: 950, t: 'poca', enter: 'd' });
+Item(S, Txt('Zeman y cols., 2015', { size: 28, color: K.grey, weight: 700 }), { x: 1730, y: 1045, t: 'afantasia+0.5', enter: 'fade' });
+
+// AA · it does not mean…
+S = Scene('nosignifica8', 'reflexion');
+Item(S, Img('present', 540), { x: 410, y: 560, bob: 5 });
+Item(S, Chip('NO ES MALA MEMORIA', { icon: 'check', color: K.green, size: 46 }), { x: 1250, y: 280, t: 'nosignifica8+1', enter: 'r' });
+Item(S, Chip('NO FALTA CREATIVIDAD', { icon: 'check', color: K.green, size: 46 }), { x: 1250, y: 450, t: 'creatividad8', enter: 'r' });
+Item(S, Chip('NO ES MENOS INTELIGENCIA', { icon: 'check', color: K.green, size: 46 }), { x: 1250, y: 620, t: 'inteligencia8', enter: 'r' });
+Item(S, Chip('LA CIENCIA SIGUE ESTUDIÁNDOLO', { color: K.blueD, size: 40 }), { x: 1250, y: 850, t: 'investigacion' });
+
+// AB · same reality, different inner images
+S = Scene('reflexion', 'advertencia');
+Item(S, Panel('s_apples', 1250), { x: 960, y: 450, zoom: 0.06 });
+Item(S, Pill('MISMA REALIDAD, OTRA IMAGEN', { hi: 'OTRA IMAGEN' }), { y: 975, t: 'misma', enter: 'd' });
+
+// AC · medical warning (hold, calm)
+S = Scene('advertencia', 'hablar');
+Item(S, Txt('ADVERTENCIA MÉDICA', { size: 72, color: K.red }), { x: 860, y: 140, t: 'advertencia', enter: 'u' });
+Item(S, StampB('NO ES UNA PRUEBA DIAGNÓSTICA', { size: 54 }), { x: 960, y: 330, t: 'diagnostica', enter: 'slam' });
+Item(S, Txt('SI HAY CAMBIOS REPENTINOS EN…', { size: 44, color: K.grey }), { x: 960, y: 500, t: 'cambios', enter: 'fade' });
+[['MEMORIA', 340], ['PERCEPCIÓN', 690], ['CONDUCTA', 1070], ['PENSAMIENTO', 1450]].forEach(([s, x], i) =>
+  Item(S, Chip(s, { color: K.yellow, size: 42 }), { x, y: 630, t: `cambios+${(0.8 + i * 0.9).toFixed(1)}` }));
+Item(S, Chip('→ CONSULTA A UN PROFESIONAL', { fill: K.yellow, size: 54 }), { x: 960, y: 850, t: 'consulta2', enter: 'slam' });
+
+// AD · emergency (full red, hold)
+S = Scene('hablar', 'fascinante');
+Item(S, Full(K.red), { x: 960, y: 540, enter: 'fade', dur: 0.4 });
+Item(S, Txt('SEÑALES DE ALARMA', { size: 80, color: '#fff' }), { x: 960, y: 160, t: 'hablar' , enter: 'fade' });
+Item(S, Chip('DIFICULTAD SÚBITA PARA HABLAR', { size: 50 }), { x: 960, y: 360, t: 'hablar+0.3' });
+Item(S, Chip('CONFUSIÓN INTENSA', { size: 50 }), { x: 960, y: 530, t: 'confusion' });
+Item(S, Chip('DEBILIDAD DE UN LADO DEL CUERPO', { size: 50 }), { x: 960, y: 700, t: 'debilidad' });
+Item(S, Txt('→ URGENCIAS', { size: 110, color: '#fff' }), { x: 960, y: 900, t: 'urgente', enter: 'slam' });
+
+// AE · protect your brain → how many did you recognise?
+S = Scene('fascinante', T('ahora'));
+Item(S, Panel('s_doctor', 1150), { x: 700, y: 460, zoom: 0.05 });
+Item(S, Pill('PROTEGE SU SALUD', { hi: 'SALUD', size: 62 }), { x: 700, y: 975, t: 'proteger', enter: 'd', out: 'cuantas-0.2' });
+Item(S, Img('count_fingers', 460), { x: 1620, y: 560, t: 'cuantas-1', enter: 'r', bob: 4 });
+Item(S, Pill('¿CUÁNTAS RECONOCES?', { hi: 'CUÁNTAS', size: 62 }), { x: 700, y: 975, t: 'cuantas', enter: 'd' });
+
+Strip('signo8', T('ahora') + 1, t => t < T('cuantas') ? 8 : 9);
+Run(T('signo8'), T('ahora'));
+</script></body></html>

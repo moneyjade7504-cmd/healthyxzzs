@@ -1,0 +1,111 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script>
+// VIDEO 2 · PARTE 2 · SEÑAL 4: flow (ends just before "Parte 3")
+let S;
+const END = T('parte3');
+
+// J · SEÑAL 4
+S = Scene('signo4', 'leer');
+Item(S, Img('read_sit', 520), { x: 430, y: 540, t: 'signo4', enter: 'l', bob: 4 });
+Item(S, Kicker('SEÑAL 4', 'PIERDES LA NOCIÓN\nDEL TIEMPO', { size: 96 }), { x: 1250, y: 450, t: 'apasiona', enter: 'slam' });
+Item(S, Img('hourglass', 200), { x: 1250, y: 840, t: 'nocion', rot: -8, bob: 4 });
+Item(S, Txt('… ¿O TODO LO CONTRARIO?', { size: 60, color: K.grey }), { x: 1250, y: 450, t: 'signo4+0.4', out: 'apasiona-0.3', enter: 'fade' });
+punchAt(S, 'nocion');
+
+// K · reading: two hours fly
+S = Scene('leer', 'resolviendo');
+Item(S, Panel('s_read_day', 1150), { x: 690, y: 470, zoom: 0.04 });
+Item(S, Panel('s_read_night', 1150), { x: 690, y: 470, t: 'doshoras-0.6', enter: 'fade', dur: 0.8 });
+Item(S, g => {
+  const c = Clock(g, { cx: 0, cy: 0, r: 130 });
+  const a = T('leer'), b = T('doshoras+0.8');
+  return { draw(t) { c.draw(16 + 2 * E.inOut(prog(t, a, b))); } };
+}, { x: 1600, y: 400, t: 'leer+0.4' });
+Item(S, Chip('+2 HORAS', { fill: K.yellow, size: 60 }), { x: 1600, y: 690, t: 'doshoras', enter: 'slam' });
+
+// L · solving, drawing, learning
+S = Scene('resolviendo', 'flujo');
+Item(S, Img('puzzle_table', 440), { x: 380, y: 500, t: 'resolviendo', enter: 'l', bob: 3 });
+Item(S, Img('paint', 440), { x: 960, y: 500, t: 'dibujando', bob: 3 });
+Item(S, Img('read_sit', 440), { x: 1540, y: 500, t: 'aprendiendo', enter: 'r', bob: 3 });
+Item(S, Pill('EL MUNDO DESAPARECE', { hi: 'DESAPARECE' }), { y: 920, t: 'aprendiendo+1.2', enter: 'd' });
+
+// M · flow: challenge × skill
+S = Scene('flujo', 'noobstante');
+Item(S, Txt('ESTADO DE FLUJO · «FLOW»', { size: 66 }), { x: 800, y: 110, t: 'flujo', enter: 'u' });
+Item(S, Img('paint', 460), { x: 360, y: 540, bob: 4 });
+Item(S, g => {
+  const W = 680, H = 560;
+  // band along the diagonal
+  el('path', { d: `M${-W / 2} ${H / 2 - 40} L${-W / 2} ${H / 2 - 150} L${W / 2 - 150} ${-H / 2} L${W / 2} ${-H / 2} L${W / 2} ${-H / 2 + 110} L${-W / 2 + 110} ${H / 2} Z`, fill: K.greenL, stroke: K.green, 'stroke-width': 5 }, g);
+  Text(g, 'FLOW', { x: 150, y: -150, size: 72, color: K.green }).setAttribute('transform', 'rotate(-39 150 -150)');
+  el('path', { d: `M${-W / 2} ${-H / 2 - 20} L${-W / 2} ${H / 2} L${W / 2 + 20} ${H / 2}`, fill: 'none', stroke: K.ink, 'stroke-width': 10, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, g);
+  Text(g, 'CAPACIDAD →', { x: 0, y: H / 2 + 55, size: 40 });
+  const yl = Text(g, 'DESAFÍO →', { x: -W / 2 - 50, y: 0, size: 40 });
+  yl.setAttribute('transform', `rotate(-90 ${-W / 2 - 50} 0)`);
+  const dot = el('circle', { r: 30, fill: K.yellow, stroke: K.ink, 'stroke-width': 8 }, g);
+  const a = T('equilibrio');
+  return { draw(t) {
+    const u = E.inOut(prog(t, a, a + 1.6));
+    const x = lerp(-W / 2 + 90, 80, u), y = lerp(-H / 2 + 90, -40, u) + (u >= 1 ? 0 : 0);
+    const k = 1 + 0.12 * Math.sin(t * 3) * (u >= 1 ? 1 : 0);
+    set(dot, { cx: x.toFixed(1), cy: y.toFixed(1), r: (30 * k).toFixed(1) });
+  } };
+}, { x: 1230, y: 500, t: 'flujo+0.3', enter: 'fade' });
+Item(S, Chip('CONCENTRACIÓN ↑', { size: 40, color: K.green }), { x: 700, y: 960, t: 'concentracion' });
+Item(S, Chip('DISTRACCIONES ↓', { size: 40, color: K.green }), { x: 1210, y: 960, t: 'distracciones' });
+Item(S, Chip('TIEMPO ≠', { size: 40, color: K.green }), { x: 1650, y: 960, t: 'tiempo2' });
+Item(S, Txt('Csikszentmihalyi, 1990', { size: 28, color: K.grey, weight: 700 }), { x: 1700, y: 180, t: 'flujo+1', enter: 'fade' });
+
+// N · not extraordinary, not a disorder; context matters
+S = Scene('noobstante', 'contraste');
+Item(S, Img('present', 540), { x: 420, y: 560, bob: 5 });
+Item(S, Chip('CAPACIDAD EXTRAORDINARIA', { icon: 'cross', color: K.red, size: 46 }), { x: 1250, y: 260, t: 'extraordinaria', enter: 'r' });
+Item(S, Chip('UN TRASTORNO', { icon: 'cross', color: K.red, size: 46 }), { x: 1250, y: 430, t: 'trastorno2', enter: 'r' });
+Item(S, Txt('INFLUYEN…', { size: 46, color: K.grey }), { x: 1250, y: 600, t: 'motivacion-0.5', enter: 'fade' });
+Item(S, Chip('MOTIVACIÓN', { color: K.yellow, size: 46 }), { x: 880, y: 740, t: 'motivacion' });
+Item(S, Chip('DESCANSO', { color: K.yellow, size: 46 }), { x: 1290, y: 740, t: 'descanso' });
+Item(S, Chip('CONTEXTO', { color: K.yellow, size: 46 }), { x: 1680, y: 740, t: 'contexto' });
+
+// O · contrast: jumping vs focused
+S = Scene('contraste', 'subs2');
+Item(S, Txt('EL CONTRASTE', { size: 76 }), { x: 960, y: 130, t: 'contraste', enter: 'u' });
+const Dots = focus => g => {
+  Img('brain', 220)(g);
+  const ds = [];
+  for (let i = 0; i < 12; i++) ds.push(el('circle', { r: 16, fill: [K.pink, K.blue, K.yellow][i % 3], stroke: K.ink, 'stroke-width': 5 }, g));
+  const tf = T('centrada');
+  return { draw(t) {
+    ds.forEach((d, i) => {
+      const a = i * 2.1 + t * (1.3 + (i % 4) * 0.4), r = 190 + 50 * Math.sin(t * 2 + i);
+      let x = Math.cos(a) * r, y = Math.sin(a * 1.3) * r * 0.75;
+      if (focus) { const u = E.inOut(prog(t, tf - 0.5, tf + 0.8)); x = lerp(x, 0, u); y = lerp(y, -150, u); }
+      set(d, { cx: x.toFixed(1), cy: y.toFixed(1) });
+    });
+  } };
+};
+Item(S, Dots(false), { x: 520, y: 500, t: 'saltar' });
+Item(S, Dots(true), { x: 1400, y: 500, t: 'saltar+0.6' });
+Item(S, Chip('SALTA ENTRE IDEAS', { color: K.blueD, size: 46 }), { x: 520, y: 820, t: 'saltar+0.3' });
+Item(S, Chip('UNA SOLA COSA', { color: K.pinkD, size: 46 }), { x: 1400, y: 820, t: 'centrada' });
+Item(S, Pill('¿A TU FAVOR… O CON LÍMITES?', { hi: 'LÍMITES' }), { y: 975, t: 'favor', enter: 'd' });
+
+// P · subscribe + 4 signals left
+S = Scene('subs2', END + 1);
+Item(S, Img('m_cheer', 480), { x: 500, y: 560, bob: 7 });
+Item(S, Txt('Cerebro y Bienestar', { size: 72, color: K.pinkD }), { x: 1260, y: 300, t: 'subs2+0.2', enter: 'u' });
+Item(S, Subscribe(T('subs2+2')), { x: 1260, y: 520, t: 'subs2+0.4' });
+Item(S, Chip('SIN MITOS NI PROMESAS', { color: K.blueD, size: 44 }), { x: 1260, y: 740, t: 'mitos', out: 'cuatro-0.2' });
+Item(S, Chip('QUEDAN 4 SEÑALES →', { fill: K.yellow, size: 56 }), { x: 1260, y: 760, t: 'cuatro', enter: 'slam' });
+
+Strip('signo4', END + 1, t => t < T('cuatro') ? 4 : 5);
+Run(T('signo4'), END);
+</script></body></html>

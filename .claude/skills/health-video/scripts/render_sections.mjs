@@ -29,7 +29,7 @@ for (const p of pages) {
 }
 await browser.close();
 const snap = t => Math.round(t * fps) / fps;
-const cuts = [0, ...spans.slice(1).map(s => snap(s[0])), snap(spans.at(-1)[1])];
+const cuts = [snap(spans[0][0]), ...spans.slice(1).map(s => snap(s[0])), snap(spans.at(-1)[1])];
 fs.mkdirSync(path.join(dir, 'out', 'sections'), { recursive: true });
 const tasks = pages.map((p, i) => ({ p, from: cuts[i], to: cuts[i + 1], file: path.join(dir, 'out', 'sections', `${String(i).padStart(2, '0')}_${path.basename(p, '.html')}.mp4`) }));
 for (const t of tasks) console.log(`${t.p}: ${t.from.toFixed(2)} → ${t.to.toFixed(2)} s`);

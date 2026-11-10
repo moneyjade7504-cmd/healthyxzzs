@@ -1,0 +1,85 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script>
+// VIDEO 3 · PARTE 3 · SEÑAL 5: memoria selectiva
+let S;
+const START = T('parte3');
+
+// A · section title
+S = Scene(START, 'despues3');
+Item(S, Kicker('PARTE 3', 'TU MEMORIA Y TU CREATIVIDAD\nFUNCIONAN DE FORMAS SORPRENDENTES', { size: 60 }), { x: 960, y: 300, t: START, enter: 'u' });
+Item(S, Img('idea', 400), { x: 960, y: 790, t: 'p3title', bob: 5 });
+
+// B · memory & creativity, and a contradiction
+S = Scene('despues3', 'veinte');
+Item(S, Img('photo', 260), { x: 600, y: 430, t: 'memoria-0.6', bob: 4, rot: -4 });
+Item(S, Img('bulb', 280), { x: 1320, y: 430, t: 'memoria+0.5', bob: 4 });
+Item(S, Chip('MEMORIA', { color: K.pinkD }), { x: 600, y: 730, t: 'memoria-0.4' });
+Item(S, Chip('CREATIVIDAD', { color: K.yellow }), { x: 1320, y: 730, t: 'memoria+0.7' });
+Item(S, Ico('question', 1.6), { x: 960, y: 430, t: 'contradiccion', enter: 'slam' });
+Item(S, Pill('UNA CONTRADICCIÓN', { hi: 'CONTRADICCIÓN' }), { y: 950, t: 'contradiccion+0.3', enter: 'd' });
+
+// C · 20 years ago vs 5 minutes ago
+S = Scene('veinte', 'signo5');
+Item(S, Panel('s_memory', 820), { x: 500, y: 430, t: 'veinte', enter: 'l', zoom: 0.04 });
+Item(S, Chip('HACE 20 AÑOS ✓', { fill: K.greenL, color: K.green }), { x: 500, y: 810, t: 'veinte+0.8' });
+Item(S, Img('search_cushion', 420), { x: 1420, y: 450, t: 'llaves', enter: 'r', bob: 3 });
+Item(S, Chip('HACE 5 MINUTOS ✗', { fill: K.redL, color: K.red }), { x: 1420, y: 810, t: 'cinco' });
+Item(S, Pill('¿MI MEMORIA FALLA?', { hi: 'FALLA' }), { y: 975, t: 'fallar', enter: 'd', out: 'explicacion5' });
+Item(S, Pill('TIENE EXPLICACIÓN', { hi: 'EXPLICACIÓN' }), { y: 975, t: 'explicacion5+0.2', enter: 'd' });
+
+// D · SEÑAL 5
+S = Scene('signo5', 'camara');
+Item(S, Img('photo_hold', 540), { x: 440, y: 540, t: 'signo5', enter: 'l', bob: 5 });
+Item(S, Kicker('SEÑAL 5', 'MEMORIA\nSELECTIVA', { size: 130 }), { x: 1270, y: 450, t: 'signo5', enter: 'slam' });
+Item(S, Pill('DETALLES SÍ… LLAVES NO', { hi: 'LLAVES NO' }), { x: 1270, y: 880, t: 'cotidiana', enter: 'd' });
+punchAt(S, 'insignificantes');
+
+// E · not a camera: attention, emotion, retrieval
+S = Scene('camara', 'significativa');
+Item(S, Img('camera', 240), { x: 960, y: 290, t: 'camara', bob: 3 });
+Item(S, Ico('cross', 1.3), { x: 1120, y: 200, t: 'camara+0.7', enter: 'slam' });
+Item(S, Txt('NO GRABA TODO', { size: 56, color: K.red }), { x: 960, y: 470, t: 'camara+0.9', enter: 'fade' });
+Item(S, Chip('ATENCIÓN', { color: K.blueD }), { x: 420, y: 700, t: 'atencion5' });
+Item(S, Arrow(170, 0, { color: K.ink, width: 14 }), { x: 625, y: 700, t: 'emocion-0.3' });
+Item(S, Chip('EMOCIÓN', { color: K.pinkD }), { x: 960, y: 700, t: 'emocion' });
+Item(S, Arrow(170, 0, { color: K.ink, width: 14 }), { x: 1140, y: 700, t: 'recuperacion-0.3' });
+Item(S, Chip('RECUPERACIÓN', { color: K.green }), { x: 1520, y: 700, t: 'recuperacion' });
+Item(S, Txt('Schacter, «Los siete pecados de la memoria»', { size: 28, color: K.grey, weight: 700 }), { x: 1500, y: 1035, t: 'camara+1.5', enter: 'fade' });
+
+// F · meaningful memories last
+S = Scene('significativa', 'dejas');
+Item(S, Panel('s_memory', 1000), { x: 600, y: 450, zoom: 0.06 });
+Item(S, Chip('MUCHOS AÑOS', { fill: K.yellow }), { x: 600, y: 105, t: 'anos', enter: 'u' });
+Item(S, Img('pot', 170), { x: 1560, y: 250, t: 'olor', bob: 4 });
+Item(S, Ico('bubble', 1.4), { x: 1560, y: 470, t: 'voz' });
+Item(S, Img('notes', 170), { x: 1560, y: 690, t: 'cancion', bob: 4 });
+Item(S, Pill('UNIDOS A TUS EMOCIONES', { hi: 'EMOCIONES' }), { y: 975, t: 'emociones5', enter: 'd' });
+
+// G · keys: never got attention
+S = Scene('dejas', 'olvidos');
+Item(S, Img('table', 300), { x: 640, y: 720, t: 'dejas', enter: 'fade' });
+Item(S, Img('keys', 170), { x: 640, y: 560, t: 'dejas+0.3', enter: 'u' });
+Item(S, Img('walk_think', 480), { x: 1380, y: 520, t: 'otracosa', enter: 'r', bob: 5 });
+Item(S, Ico('question', 1.3), { x: 640, y: 360, t: 'mastarde', enter: 'slam' });
+Item(S, Pill('NUNCA RECIBIÓ ATENCIÓN', { hi: 'ATENCIÓN' }), { y: 975, t: 'nunca', enter: 'd' });
+
+// H · when forgetting is not normal (hold)
+S = Scene('olvidos', 'signo6');
+Item(S, Img('hand_heart', 460), { x: 330, y: 580, bob: 4 });
+Item(S, Txt('CONSULTA SI LOS OLVIDOS…', { size: 64, color: K.red }), { x: 1080, y: 180, t: 'olvidos', enter: 'u' });
+Item(S, Chip('AUMENTAN', { icon: 'cross', color: K.red }), { x: 1080, y: 370, t: 'aumentan', enter: 'r' });
+Item(S, Chip('DIFICULTAN TU DÍA A DÍA', { icon: 'cross', color: K.red }), { x: 1080, y: 530, t: 'dificultan', enter: 'r' });
+Item(S, Chip('APARECEN DE REPENTE', { icon: 'cross', color: K.red }), { x: 1080, y: 690, t: 'repentinamente', enter: 'r' });
+Item(S, Chip('→ PROFESIONAL SANITARIO', { fill: K.yellow, size: 56 }), { x: 1080, y: 880, t: 'consultar', enter: 'slam' });
+
+Strip(START + 0.5, T('signo6') + 1, t => 5);
+Run(START, T('signo6'));
+</script></body></html>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script>
+// VIDEO 2 · PARTE 2 · SEÑAL 3: diálogo interior
+let S;
+const START = 330.9;
+
+// A · section title
+S = Scene(START, 'mientras');
+Item(S, Kicker('PARTE 2', 'TU MUNDO INTERIOR ES MÁS\nCOMPLEJO DE LO QUE IMAGINAS', { size: 66 }), { x: 960, y: 300, t: START, enter: 'u' });
+Item(S, Img('calm', 400), { x: 960, y: 790, t: 'p2title', bob: 5 });
+
+// B · out loud vs silent
+S = Scene('mientras', 'caminas');
+Item(S, Panel('s_inner_voice', 1250), { x: 960, y: 450, zoom: 0.05 });
+Item(S, Chip('EN VOZ ALTA', { color: K.blueD }), { x: 640, y: 930, t: 'mientras+1' });
+Item(S, Chip('EN SILENCIO', { color: K.pinkD }), { x: 1290, y: 930, t: 'sinpronunciar' });
+
+// C · walking, cooking, trying to sleep
+S = Scene('caminas', 'signo3');
+Item(S, Img('walk_think', 430), { x: 360, y: 470, t: 'caminas', enter: 'l', bob: 5 });
+Item(S, Img('cook', 430), { x: 930, y: 470, t: 'preparas', bob: 4 });
+Item(S, Panel('s_bed_rehearse', 560), { x: 1530, y: 470, t: 'dormir', enter: 'r' });
+Item(S, Pill('TU CABEZA SIGUE HABLANDO', { hi: 'SIGUE HABLANDO' }), { y: 900, t: 'cabeza', enter: 'd' });
+
+// D · SEÑAL 3
+S = Scene('signo3', 'discusion');
+Item(S, Img('walk_think', 560), { x: 440, y: 540, t: 'signo3', enter: 'l', bob: 5 });
+Item(S, Kicker('SEÑAL 3', 'DIÁLOGO\nINTERIOR', { size: 130 }), { x: 1270, y: 450, t: 'signo3', enter: 'slam' });
+Item(S, Pill('MUY ACTIVO', { hi: 'ACTIVO' }), { x: 1270, y: 880, t: 'dialogo+0.8', enter: 'd' });
+punchAt(S, 'dialogo');
+
+// E · yesterday / today / tomorrow
+S = Scene('discusion', 'habla');
+Item(S, g => {
+  el('line', { x1: -720, y1: 0, x2: 720, y2: 0, stroke: K.ink, 'stroke-width': 10, 'stroke-linecap': 'round' }, g);
+  for (const [x, s, c] of [[-560, 'AYER', K.blue], [0, 'HOY', K.yellow], [560, 'MAÑANA', K.pink]]) {
+    el('circle', { cx: x, cy: 0, r: 30, fill: c, stroke: K.ink, 'stroke-width': 8 }, g);
+    Text(g, s, { x, y: 80, size: 52 });
+  }
+}, { x: 960, y: 700, t: 'discusion', enter: 'fade' });
+Item(S, Img('think', 330), { x: 960, y: 420, t: 'discusion', bob: 5 });
+Item(S, Img('bubble', 170), { x: 400, y: 450, t: 'discusion+0.3', rot: -5 });
+Item(S, Ico('question', 1.1), { x: 470, y: 330, t: 'respondido' });
+Item(S, Img('bubble', 170), { x: 1520, y: 450, t: 'ensayar', rot: 5 });
+Item(S, Arrow(-330, 0, { color: K.blueD }), { x: 820, y: 700, t: 'discusion+0.2' });
+Item(S, Arrow(330, 0, { color: K.pinkD }), { x: 1100, y: 700, t: 'ensayar' });
+Item(S, Pill('RESPUESTAS ANTES DE HABLAR', { hi: 'ANTES' }), { y: 975, t: 'preguntas+0.5', enter: 'd' });
+
+// F · inner speech: what it is for
+S = Scene('habla', 'frecuencia');
+Item(S, Txt('HABLA INTERNA', { size: 110, color: K.pinkD }), { x: 960, y: 180, t: 'habla', enter: 'slam' });
+Item(S, Chip('ORGANIZAR IDEAS', { icon: 'check', color: K.green }), { x: 1330, y: 400, t: 'organizar', enter: 'r' });
+Item(S, Chip('PLANIFICAR', { icon: 'check', color: K.green }), { x: 1330, y: 580, t: 'planificar', enter: 'r' });
+Item(S, Chip('REGULAR EMOCIONES', { icon: 'check', color: K.green }), { x: 1330, y: 760, t: 'regular', enter: 'r' });
+Item(S, Img('hold_bubble', 520), { x: 520, y: 620, t: 'habla+0.5', bob: 5 });
+
+// G · words, images, sensations
+S = Scene('frecuencia', 'manana');
+Item(S, Txt('NO TODOS PIENSAN IGUAL', { size: 66 }), { x: 820, y: 140, t: 'frecuencia', enter: 'u' });
+Item(S, g => { Img('bubble', 220)(g); Text(g, 'Aa', { x: 0, y: -10, size: 96, color: K.blueD }); }, { x: 420, y: 470, t: 'palabras', bob: 4 });
+Item(S, Img('sketchbook', 200), { x: 960, y: 470, t: 'imagenes2', bob: 4 });
+Item(S, Img('calm', 340), { x: 1500, y: 470, t: 'sensaciones2', bob: 4 });
+Item(S, Chip('PALABRAS', { color: K.blueD }), { x: 420, y: 760, t: 'palabras+0.2' });
+Item(S, Chip('IMÁGENES', { color: K.blueD }), { x: 960, y: 760, t: 'imagenes2+0.2' });
+Item(S, Chip('SENSACIONES', { color: K.blueD }), { x: 1500, y: 760, t: 'sensaciones2+0.2' });
+Item(S, Txt('Alderson-Day y Fernyhough, 2015', { size: 28, color: K.grey, weight: 700 }), { x: 1620, y: 1035, t: 'frecuencia+1', enter: 'fade' });
+
+// H · rehearsing tomorrow's conversation
+S = Scene('manana', 'util2');
+Item(S, Panel('s_bed_rehearse', 1000), { x: 580, y: 450, zoom: 0.06 });
+Item(S, Chip('¿QUÉ DIRÉ?', { icon: 'question', color: K.yellow, size: 44 }), { x: 1460, y: 280, t: 'primero', enter: 'r' });
+Item(S, Chip('¿CÓMO REACCIONARÁ?', { icon: 'question', color: K.yellow, size: 44 }), { x: 1460, y: 450, t: 'reaccionara', enter: 'r' });
+Item(S, Chip('¿Y SI NO ESTÁ DE ACUERDO?', { icon: 'question', color: K.yellow, size: 42 }), { x: 1460, y: 620, t: 'acuerdo', enter: 'r' });
+Item(S, Pill('TU MENTE ENSAYA', { hi: 'ENSAYA', size: 62 }), { y: 975, t: 'ensayando', enter: 'd' });
+
+// I · useful, unless it becomes worry → let it rest
+S = Scene('util2', 'signo4');
+Item(S, Chip('ÚTIL', { icon: 'check', color: K.green }), { x: 480, y: 260, t: 'util2', enter: 'l' });
+Item(S, Chip('PREOCUPACIÓN CONSTANTE', { icon: 'cross', color: K.red }), { x: 1330, y: 260, t: 'preocupacion2', enter: 'r' });
+Item(S, Img('stressed', 400), { x: 480, y: 620, t: 'preocupacion2', bob: 3 });
+Item(S, StampB('PENSAR MÁS ≠ MEJOR', { size: 60 }), { x: 1330, y: 520, t: 'garantiza', enter: 'slam' });
+Item(S, Img('calm', 420), { x: 1330, y: 790, t: 'descanse', enter: 'r', bob: 5, s: 0.85 });
+Item(S, Pill('DEJA DESCANSAR TU MENTE', { hi: 'DESCANSAR' }), { x: 560, y: 975, t: 'descanse+0.6', enter: 'd', s: 0.9 });
+
+Strip('mientras', T('signo4') + 1, t => 3);
+Run(START, T('signo4'));
+</script></body></html>
