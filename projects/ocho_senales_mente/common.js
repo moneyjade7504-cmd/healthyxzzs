@@ -48,37 +48,90 @@ function Scene(a, b, { cut = false } = {}) {
 const punchAt = (sc, ...ts) => sc.punches.push(...ts.map(T));
 
 // One animated element. build(g) draws it centred on (0, 0) and may return {draw(t, t0)}.
+// Character "acting": every pose cut-out gets life anchored at its feet (breathing squash, sway)
+// plus a personality: hop (happy), shake (stressed), sway (music), walk (steps), tilt (thinking), lean (explaining).
+const ACT = {
+  m_cheer: 'hop', m_wave: 'hop', idea: 'hop', join_puzzle: 'hop', hold_bubble: 'hop', door_relief: 'lean',
+  stressed: 'shake', cover_ears: 'shake', worry: 'shake', shield_light: 'shake', search_cushion: 'search',
+  headphones: 'sway', calm: 'sway', imagine_apple: 'sway', hand_heart: 'sway',
+  walk_think: 'walk', m_walk_thumb: 'walk',
+  think: 'tilt', replay: 'tilt', choose_bulb: 'tilt', photo_hold: 'tilt', count_fingers: 'tilt', m_listen: 'tilt', mirror: 'tilt', shrug: 'tilt',
+  present: 'lean', m_point: 'lean', magnifier: 'lean', m_magnifier: 'lean', remote: 'lean', cook: 'lean',
+};
+const POSES = new Set(['think', 'worry', 'armchair_tea', 'mirror', 'shrug', 'present', 'magnifier', 'replay', 'stressed', 'cover_ears', 'shield_light', 'remote',
+  'walk_think', 'cook', 'read_sit', 'paint', 'puzzle_table', 'calm', 'search_cushion', 'headphones', 'idea', 'join_puzzle', 'photo_hold', 'choose_bulb',
+  'door_relief', 'read_armchair', 'imagine_apple', 'hand_heart', 'hold_bubble', 'count_fingers',
+  'm_wave', 'm_point', 'm_listen', 'm_magnifier', 'm_puzzle', 'm_cheer', 'm_walk_thumb']);
+const W2 = t => 2 * Math.PI * t;
+// returns [dy, rot, sx, sy] for a pose at local time a (s since entrance) and absolute time t
+function acting(kind, a, t, ph) {
+  const br = Math.sin(W2(t / 2.4 + ph));                    // breathing
+  let dy = 0, r = 1.2 * Math.sin(W2(t / 4.3 + ph)), sx = 1 - 0.012 * br, sy = 1 + 0.022 * br;
+  if (kind === 'hop') {                                        // a happy hop every 2.6 s
+    const p = ((a + ph) % 2.6) / 2.6;
+    if (p < 0.08) { const q = p / 0.08; sy *= 1 - 0.1 * Math.sin(Math.PI * q); sx *= 1 + 0.06 * Math.sin(Math.PI * q); }
+    else if (p < 0.3) { const q = (p - 0.08) / 0.22; dy = -55 * Math.sin(Math.PI * q); sy *= 1 + 0.05 * Math.sin(Math.PI * q); }
+    else if (p < 0.38) { const q = (p - 0.3) / 0.08; sy *= 1 - 0.08 * Math.sin(Math.PI * q); sx *= 1 + 0.05 * Math.sin(Math.PI * q); }
+  } else if (kind === 'shake') {                               // nervous shiver in bursts
+    const burst = Math.max(0, Math.sin(W2(t / 3 + ph)));
+    r += 3.2 * burst * Math.sin(W2(t * 7)); dy = -4 * burst * Math.abs(Math.sin(W2(t * 7)));
+  } else if (kind === 'sway') { r = 5 * Math.sin(W2(t / 2.2 + ph)); dy = -6 * Math.abs(Math.sin(W2(t / 2.2 + ph))); }
+  else if (kind === 'walk') {                                  // stepping bounce + rocking
+    const s = Math.sin(W2(t * 1.6 + ph)); dy = -18 * Math.abs(s); r = 3.5 * s; sy *= 1 + 0.03 * Math.abs(s);
+  } else if (kind === 'tilt') { r = 4 * Math.sin(W2(t / 3.4 + ph)); dy = -5 * Math.abs(Math.sin(W2(t / 3.4 + ph))); }
+  else if (kind === 'lean') { r = 3 * Math.sin(W2(t / 2.8 + ph)) + 1.5; dy = -8 * Math.max(0, Math.sin(W2(t / 1.4 + ph))); }
+  else if (kind === 'search') { r = 4 * Math.sin(W2(t / 1.6 + ph)); dy = -6 * Math.abs(Math.sin(W2(t / 0.8 + ph))); }
+  else dy = -6 * Math.max(0, Math.sin(W2(t / 3 + ph)));      // idle
+  return [dy, r, sx, sy];
+}
+
+// One animated element. build(g) draws it centred on (0, 0) and may return {draw(t, t0)}.
 function Item(sc, build, o = {}) {
-  const { x = 960, y = 540, t = sc.a, out = null, enter = 'pop', bob = 0, s = 1, zoom = 0, rot = 0, dur = 0.45 } = o;
+  let { x = 960, y = 540, t = sc.a, out = null, enter = 'pop', bob = 0, s = 1, zoom = 0, rot = 0, dur = 0.45 } = o;
+  const ch = build.pose ? (o.act || ACT[build.n] || 'idle') : null, fy = ch ? build.h / 2 : 0;
   const w = el('g', {}, sc.g), inner = el('g', {}, w);
   const api = build(inner) || {};
   const t0 = typeof t === 'number' && t === sc.a ? t : T(t), t1 = out == null ? 1e9 : T(out);
-  const ph = (x * 7 + y * 3) % 10;
+  const ph = ((x * 7 + y * 3) % 10) / 10;
+  if (ch && (enter === 'pop' || enter === 'none')) enter = 'hopin';
+  if (ch && enter.length === 1) dur = 0.9;
   sc.items.push(tt => {
     if (tt < t0 - 0.001 || tt > t1 + 0.3) { w.style.display = 'none'; return; }
     w.style.display = '';
     const u = prog(tt, t0, t0 + dur);
-    let dx = 0, dy = 0, k = 1, op = 1;
+    let dx = 0, dy = 0, k = 1, op = 1, cdy = 0, cr = 0, csx = 1, csy = 1;
     if (enter === 'pop') { k = E.back(u); op = clamp(u * 3); }
+    else if (enter === 'hopin') {                     // drop in and land with a squash
+      const a = tt - t0;
+      if (a < 0.32) { const q = a / 0.32; cdy = -170 * (1 - q * q); op = clamp(q * 3); csy = 1.06; csx = 0.96; }
+      else if (a < 0.62) { const q = (a - 0.32) / 0.3; csy = 1 - 0.14 * Math.sin(Math.PI * q) * (1 - q * 0.3); csx = 1 + 0.08 * Math.sin(Math.PI * q); }
+    }
     else if (enter === 'slam') { k = u < 1 ? lerp(1.8, 1, E.out(u)) : 1; op = clamp(u * 3); }
     else if ('lrud'.includes(enter) && enter.length === 1) {
-      const d = (1 - E.back(u)) * 700;
+      const d = (1 - (ch ? E.out(u) : E.back(u))) * 700;
       [dx, dy] = { l: [-d, 0], r: [d, 0], u: [0, -d], d: [0, d] }[enter];
       op = clamp(u * 4);
+      if (ch && u < 1) { const st = Math.sin(W2((tt - t0) * 2.6)); cdy = -26 * Math.abs(st) * (1 - u); cr = 6 * st * (1 - u); }
     } else if (enter === 'fade') op = E.inOut(u);
     op *= 1 - E.inOut(prog(tt, t1, t1 + 0.3));
-    const by = bob ? bob * Math.sin((tt / 3.2 + ph) * 2 * Math.PI) : 0;
-    const r = bob ? 0.9 * Math.sin((tt / 4.1 + ph) * 2 * Math.PI) : 0;
+    const by = bob && !ch ? bob * Math.sin((tt / 3.2 + ph * 10) * 2 * Math.PI) : 0;
+    const r = bob && !ch ? 0.9 * Math.sin((tt / 4.1 + ph * 10) * 2 * Math.PI) : 0;
     const z = 1 + zoom * E.inOut(prog(tt, sc.a, sc.b));
     w.setAttribute('transform', `translate(${(x + dx).toFixed(1)} ${(y + dy + by).toFixed(1)}) rotate(${(rot + r).toFixed(2)}) scale(${(s * Math.max(0, k) * z).toFixed(4)})`);
     w.setAttribute('opacity', clamp(op).toFixed(3));
+    if (ch) {
+      const settle = clamp((tt - t0 - (enter === 'hopin' ? 0.62 : dur)) / 0.4);
+      const [ady, ar, asx, asy] = acting(ch, tt - t0, tt, ph);
+      const fdy = cdy + ady * settle, fr = cr + ar * settle, fsx = csx * lerp(1, asx, settle), fsy = csy * lerp(1, asy, settle);
+      inner.setAttribute('transform', `translate(0 ${(fy + fdy).toFixed(1)}) rotate(${fr.toFixed(2)}) scale(${fsx.toFixed(4)} ${fsy.toFixed(4)}) translate(0 ${-fy})`);
+    }
     if (api.draw) api.draw(tt, t0);
   });
   return api;
 }
 
 // ---------------------------------------------------------------- builders (centred on 0,0)
-const Img = (n, h) => g => { const [iw, ih] = SZ[n], w = iw * h / ih; el('image', { href: SRC(n), x: -w / 2, y: -h / 2, width: w, height: h }, g); };
+const Img = (n, h) => { const f = g => { const [iw, ih] = SZ[n], w = iw * h / ih; el('image', { href: SRC(n), x: -w / 2, y: -h / 2, width: w, height: h }, g); }; f.pose = POSES.has(n); f.n = n; f.h = h; return f; };
 const ImgW = (n, w) => g => { const [iw, ih] = SZ[n], h = ih * w / iw; el('image', { href: SRC(n), x: -w / 2, y: -h / 2, width: w, height: h }, g); };
 // panel: framed drawing with a soft blue offset shadow (the drawing already has its own ink border)
 const Panel = (n, w) => g => {
