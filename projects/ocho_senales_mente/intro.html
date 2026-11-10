@@ -1,0 +1,122 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script>
+// INTRO (hook): hard cuts every ~2–4 s until the 8-signal preview.
+let S;
+
+// A · cold open: awake at night
+S = Scene(0, 'analizas', { cut: true });
+Item(S, Panel('s_bed', 1300), { x: 960, y: 470, t: 0, enter: 'fade', dur: 0.3, zoom: 0.06 });
+Item(S, Pill('¿TU MENTE FUNCIONA DIFERENTE?', { hi: 'DIFERENTE' }), { y: 975, t: 'demas', enter: 'd' });
+
+// B · replaying conversations
+S = Scene('analizas', 'detalles', { cut: true });
+Item(S, Img('replay', 560), { x: 680, y: 520, bob: 6 });
+Item(S, Img('bubble', 190), { x: 1200, y: 290, t: 'analizas+0.3' });
+Item(S, Img('bubble', 160), { x: 1480, y: 460, t: 'analizas+0.7', rot: 8 });
+Item(S, Img('bubble', 170), { x: 1220, y: 640, t: 'analizas+1.1', rot: -6 });
+Item(S, Pill('ANALIZAS CONVERSACIONES', { hi: 'CONVERSACIONES' }), { y: 975, t: 'analizas+0.2', enter: 'd' });
+
+// C · small details
+S = Scene('detalles', 'solas', { cut: true });
+Item(S, Img('magnifier', 560), { x: 700, y: 520, bob: 6 });
+Item(S, Img('eye', 170), { x: 1300, y: 430, t: 'detalles+0.3' });
+Item(S, Ring(140), { x: 1300, y: 430, t: 'detalles+0.7' });
+Item(S, Pill('PEQUEÑOS DETALLES', { hi: 'DETALLES' }), { y: 975, t: 'detalles+0.2', enter: 'd' });
+
+// D · need to be alone
+S = Scene('solas', 'desconcertante', { cut: true });
+Item(S, Panel('s_armchair', 1300), { x: 960, y: 470, t: 'solas', enter: 'fade', dur: 0.25, zoom: 0.06 });
+Item(S, Pill('NECESITAS ESTAR A SOLAS', { hi: 'A SOLAS' }), { y: 975, t: 'solas+0.3', enter: 'd' });
+
+// E · "defects": mirror + three labels
+S = Scene('desconcertante', 'ysi', { cut: true });
+Item(S, Img('mirror', 600), { x: 960, y: 560, bob: 4 });
+Item(S, StampB('¿DEFECTOS?', { size: 70 }), { x: 960, y: 140, t: 'defectos', enter: 'slam' });
+Item(S, Chip('PIENSO DEMASIADO', { icon: 'cross', color: K.red }), { x: 420, y: 360, t: 'demasiado', enter: 'l' });
+Item(S, Chip('MUY SENSIBLE', { icon: 'cross', color: K.red }), { x: 1520, y: 470, t: 'sensible', enter: 'r' });
+Item(S, Chip('NO ENCAJO', { icon: 'cross', color: K.red }), { x: 430, y: 760, t: 'encajar', enter: 'l' });
+punchAt(S, 'defectos');
+
+// F · or an explanation?
+S = Scene('ysi', 'neuro', { cut: true });
+Item(S, Img('think', 540), { x: 560, y: 540, bob: 6 });
+Item(S, Img('brain', 300), { x: 1320, y: 450, t: 'cerebro', bob: 5 });
+Item(S, Sparks(1.2), { x: 1530, y: 290, t: 'cerebro+0.3', rot: 30 });
+Item(S, Pill('¿Y SI HAY UNA EXPLICACIÓN?', { hi: 'EXPLICACIÓN' }), { y: 975, t: 'ysi+0.2', enter: 'd' });
+
+// G · we don't all attend / remember / perceive the same way
+S = Scene('neuro', 'existen');
+Item(S, Txt('NO TODOS FUNCIONAMOS IGUAL', { size: 70 }), { x: 960, y: 140, t: 'neuro', enter: 'u' });
+Item(S, Img('m_listen', 430), { x: 480, y: 540, t: 'neuro+0.3', bob: 5 });
+Item(S, Img('m_magnifier', 430), { x: 960, y: 540, t: 'neuro+0.6', bob: 5 });
+Item(S, Img('m_wave', 450), { x: 1440, y: 530, t: 'neuro+0.9', bob: 5 });
+Item(S, Chip('ATENCIÓN', { color: K.blueD }), { x: 480, y: 870, t: 'atencion' });
+Item(S, Chip('MEMORIA', { color: K.blueD }), { x: 960, y: 870, t: 'recordamos' });
+Item(S, Chip('PERCEPCIÓN', { color: K.blueD }), { x: 1440, y: 870, t: 'recordamos+1.2' });
+
+// H · differences that go unnoticed
+S = Scene('existen', 'ocho');
+Item(S, Img('brain', 400), { x: 960, y: 440, bob: 6 });
+Item(S, Sparks(1.3), { x: 1230, y: 250, t: 'existen+0.4', rot: 35 });
+Item(S, Sparks(1.3), { x: 690, y: 250, t: 'existen+0.7', rot: -35 });
+Item(S, Img('m_point', 330), { x: 1530, y: 640, t: 'existen+0.6', enter: 'r', bob: 4 });
+Item(S, Pill('PUEDEN PASAR DESAPERCIBIDAS', { hi: 'DESAPERCIBIDAS' }), { y: 975, t: 'desapercibidas', enter: 'd' });
+
+// I · 8 signals preview
+S = Scene('ocho', 'atencion2');
+Item(S, Txt('8', { size: 330, color: K.pinkD }), { x: 760, y: 310, t: 'ocho', enter: 'slam' });
+Item(S, Txt('SEÑALES', { size: 110 }), { x: 1180, y: 330, t: 'ocho+0.3', enter: 'r' });
+Item(S, g => {
+  const cs = [];
+  for (let i = 0; i < 8; i++) {
+    const x = (i - 3.5) * 190, k = el('g', {}, g);
+    el('circle', { cx: x + 6, cy: 8, r: 70, fill: K.ink }, k);
+    const c = el('circle', { cx: x, cy: 0, r: 70, fill: K.greyL, stroke: K.ink, 'stroke-width': 8 }, k);
+    Text(k, String(i + 1), { x, y: 4, size: 72 });
+    cs.push({ k, c, x });
+  }
+  const tA = T('comprender'), tF = T('familiares'), tU = T('ultimas');
+  return { draw(t) {
+    cs.forEach(({ k, c, x }, i) => {
+      const u = E.back(prog(t, tA + i * 0.18, tA + i * 0.18 + 0.4));
+      const big = i >= 6 && t >= tU ? 1 + 0.25 * E.out(prog(t, tU, tU + 0.4)) : 1;
+      k.setAttribute('transform', `translate(${x} 0) scale(${(Math.max(0, u) * big).toFixed(3)}) translate(${-x} 0)`);
+      const fam = t >= tF + (i < 6 ? i * 0.12 : 99);
+      c.setAttribute('fill', i >= 6 && t >= tU ? K.yellow : fam ? K.pink : K.greyL);
+      k.setAttribute('opacity', t >= tU && i < 6 ? 0.35 : 1);
+    });
+  } };
+}, { x: 960, y: 690, enter: 'none' });
+Item(S, Pill('¿ALGO QUE CREÍAS NORMAL?', { hi: 'NORMAL' }), { y: 975, t: 'cuestionar', enter: 'd' });
+
+// J · it is not superior intelligence nor a disorder
+S = Scene('atencion2', 'subs');
+Item(S, Img('present', 560), { x: 430, y: 560, bob: 5 });
+Item(S, Chip('INTELIGENCIA SUPERIOR', { icon: 'cross', color: K.red }), { x: 1200, y: 300, t: 'inteligencia', enter: 'r' });
+Item(S, Chip('UN TRASTORNO', { icon: 'cross', color: K.red }), { x: 1200, y: 500, t: 'trastorno', enter: 'r' });
+Item(S, StampB('OTRA FORMA DE PENSAR', { size: 64, color: K.green, rot: -4 }), { x: 1200, y: 760, t: 'distintas', enter: 'slam' });
+
+// K · subscribe
+S = Scene('subs', 'primera');
+Item(S, Img('m_cheer', 480), { x: 500, y: 560, bob: 7 });
+Item(S, Txt('Cerebro y Bienestar', { size: 72, color: K.pinkD }), { x: 1260, y: 330, t: 'subs+0.2', enter: 'u' });
+Item(S, Subscribe(T('secretos')), { x: 1260, y: 560, t: 'subs+0.4' });
+Item(S, Chip('CIENCIA CLARA Y SENCILLA', { size: 40, color: K.blueD }), { x: 1260, y: 790, t: 'cientificas' });
+
+// L · your mind keeps working
+S = Scene('primera', 'parte1');
+Item(S, Panel('s_bed', 1200), { x: 960, y: 450, zoom: 0.07 });
+Item(S, Chip('SEÑAL 1', { color: K.ink, fill: K.yellow }), { x: 300, y: 140, t: 'primera+0.4', enter: 'l' });
+Item(S, Pill('TU MENTE SIGUE TRABAJANDO', { hi: 'SIGUE TRABAJANDO' }), { y: 975, t: 'sigue', enter: 'd' });
+punchAt(S, 'sigue');
+
+Run(0, T('parte1'));
+</script></body></html>

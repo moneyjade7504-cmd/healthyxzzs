@@ -1,0 +1,138 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script>
+// PARTE 1 · SEÑAL 2: sensible a los estímulos  (ends just before "Parte 2")
+let S;
+const END = 330.9;
+
+// X · SEÑAL 2
+S = Scene('signo2', 'reloj');
+Item(S, Img('cover_ears', 560), { x: 440, y: 540, t: 'signo2', enter: 'l', bob: 4 });
+Item(S, Kicker('SEÑAL 2', 'SENSIBLE A\nLOS ESTÍMULOS', { size: 110 }), { x: 1260, y: 470, t: 'signo2', enter: 'slam' });
+Item(S, Pill('LO QUE OTROS APENAS NOTAN', { hi: 'APENAS NOTAN' }), { x: 1260, y: 880, t: 'estimulos+0.6', enter: 'd' });
+punchAt(S, 'estimulos');
+
+// Y · ticking clock
+S = Scene('reloj', 'volumen', { cut: true });
+Item(S, Panel('s_tv', 1150), { x: 680, y: 480, zoom: 0.06 });
+Item(S, Img('clock', 260), { x: 1580, y: 420, t: 'reloj+0.5', bob: 3 });
+Item(S, Waves(1), { x: 1740, y: 420, t: 'reloj+0.8' });
+Item(S, Waves(-1), { x: 1420, y: 420, t: 'reloj+0.8' });
+Item(S, Txt('TIC · TAC', { size: 56, color: K.pinkD }), { x: 1580, y: 640, t: 'reloj+1' });
+
+// Z · turning the volume down
+S = Scene('volumen', 'varias', { cut: true });
+Item(S, Img('remote', 580), { x: 620, y: 540, bob: 4 });
+Item(S, Txt('VOLUMEN', { size: 60 }), { x: 1340, y: 400, t: 'volumen+0.2' });
+Item(S, Slider('', t => lerp(0.9, 0.25, E.inOut(prog(t, T('volumen+0.8'), T('volumen+2.2')))), { w: 560 }), { x: 1340, y: 540, t: 'volumen+0.2' });
+
+// AA · many voices at once
+S = Scene('varias', 'luz', { cut: true });
+Item(S, Img('worry', 520), { x: 960, y: 580, bob: 3 });
+[[560, 280, -8], [1360, 260, 6], [440, 560, 4], [1480, 540, -5], [700, 150, 3], [1180, 140, -4]].forEach(([x, y, r], i) =>
+  Item(S, Img('bubble', 150), { x, y, rot: r, t: `varias+${(0.15 + i * 0.3).toFixed(2)}` }));
+Item(S, Pill('VARIAS VOCES A LA VEZ', { hi: 'A LA VEZ' }), { y: 985, t: 'varias+0.3', enter: 'd' });
+
+// AB · intense light drains you
+S = Scene('luz', 'sistema');
+Item(S, Img('shield_light', 580), { x: 600, y: 540, bob: 4 });
+Item(S, Img('lamp', 260), { x: 1380, y: 280, t: 'luz+0.2' });
+Item(S, Battery(t => lerp(1, 0.15, E.inOut(prog(t, T('agotarte'), T('agotarte+2.5'))))), { x: 1380, y: 700, t: 'agotarte-0.4' });
+
+// AC · the nervous system receives everything
+S = Scene('sistema', 'prioridad');
+Item(S, Img('brain', 280), { x: 960, y: 540, bob: 4 });
+Item(S, Img('ear', 200), { x: 420, y: 290, t: 'sonidos' });
+Item(S, Arrow(300, 140, { color: K.blueD }), { x: 560, y: 340, t: 'sonidos+0.2' });
+Item(S, Img('eye', 120), { x: 1500, y: 290, t: 'imagenes' });
+Item(S, Arrow(-300, 140, { color: K.blueD }), { x: 1360, y: 340, t: 'imagenes+0.2' });
+Item(S, Chip('OLORES', { color: K.blueD }), { x: 420, y: 800, t: 'olores' });
+Item(S, Arrow(300, -140, { color: K.blueD }), { x: 560, y: 740, t: 'olores+0.2' });
+Item(S, Chip('SENSACIONES', { color: K.blueD }), { x: 1500, y: 800, t: 'sensaciones' });
+Item(S, Arrow(-300, -140, { color: K.blueD }), { x: 1360, y: 740, t: 'sensaciones+0.2' });
+
+// AD · priority: one channel up, the rest to the background
+S = Scene('prioridad', 'igual');
+Item(S, Img('present', 500), { x: 330, y: 560, bob: 4 });
+const tp = T('prioridad+0.6'), ts = T('segundo');
+['SONIDOS', 'IMÁGENES', 'OLORES', 'SENSACIONES'].forEach((n, i) => {
+  const v = t => i === 0 ? lerp(0.6, 0.95, E.inOut(prog(t, tp, tp + 0.8))) : lerp(0.6, 0.18, E.inOut(prog(t, ts, ts + 1)));
+  Item(S, Slider(n, v, { w: 460, size: 42, color: i === 0 ? K.green : K.blueD }),
+    { x: 1360, y: 230 + i * 170, t: `prioridad+${(i * 0.15).toFixed(2)}`, enter: 'r' });
+});
+Item(S, Pill('LO DEMÁS, EN SEGUNDO PLANO', { hi: 'SEGUNDO PLANO' }), { y: 985, t: 'segundo', enter: 'd' });
+
+// AE · the same noise, two experiences
+S = Scene('igual', 'nodemuestra');
+Item(S, Txt('EL MISMO RUIDO', { size: 72 }), { x: 960, y: 120, t: 'igual', enter: 'u' });
+Item(S, Img('m_listen', 420), { x: 520, y: 450, t: 'igual+0.3', bob: 4 });
+Item(S, Img('cover_ears', 440), { x: 1400, y: 450, t: 'igual+0.6', bob: 3 });
+Item(S, Slider('', t => lerp(0, 0.15, prog(t, T('ruido'), T('ruido+1'))), { w: 440, color: K.green }), { x: 520, y: 760, t: 'ruido' });
+Item(S, Slider('', t => lerp(0, 0.88, E.inOut(prog(t, T('otra'), T('otra+1.2')))), { w: 440, color: K.red }), { x: 1400, y: 760, t: 'otra' });
+Item(S, Chip('SIN IMPORTANCIA', { icon: 'check', color: K.green, size: 46 }), { x: 520, y: 900, t: 'ruido+0.6' });
+Item(S, Chip('DISTRACCIÓN', { icon: 'cross', color: K.red, size: 46 }), { x: 1400, y: 900, t: 'distraccion' });
+
+// AF · not a superpower; it varies
+S = Scene('nodemuestra', 'relevante');
+Item(S, Img('present', 540), { x: 420, y: 560, bob: 5 });
+Item(S, StampB('NO ES UN SUPERPODER', { size: 62 }), { x: 1250, y: 260, t: 'nodemuestra', enter: 'slam' });
+Item(S, Txt('PUEDE VARIAR CON…', { size: 46, color: K.grey }), { x: 1250, y: 500, t: 'cansancio-0.6', enter: 'fade' });
+Item(S, Chip('CANSANCIO', { color: K.yellow, size: 48 }), { x: 960, y: 650, t: 'cansancio' });
+Item(S, Chip('ESTRÉS', { color: K.yellow, size: 48 }), { x: 1300, y: 650, t: 'estres' });
+Item(S, Chip('SALUD', { color: K.yellow, size: 48 }), { x: 1600, y: 650, t: 'salud' });
+
+// AG · what makes you comfortable
+S = Scene('relevante', 'tranquila');
+Item(S, Img('think', 540), { x: 600, y: 530, bob: 5 });
+Item(S, Img('armchair_tea', 460), { x: 1330, y: 540, t: 'comodo-0.4', enter: 'r', bob: 4 });
+Item(S, Pill('¿QUÉ TE HACE SENTIR CÓMODO?', { hi: 'CÓMODO' }), { y: 975, t: 'relevante+0.6', enter: 'd' });
+
+// AH · quiet talk vs noisy restaurant
+S = Scene('tranquila', 'avergonzarte');
+Item(S, Panel('s_ask', 820), { x: 500, y: 440, t: 'tranquila', enter: 'l' });
+Item(S, Chip('TRANQUILA', { icon: 'check', color: K.green }), { x: 500, y: 840, t: 'tranquila+0.6' });
+Item(S, Panel('s_restaurant', 820), { x: 1420, y: 440, t: 'restaurante', enter: 'r' });
+Item(S, Chip('AGOTADO', { icon: 'cross', color: K.red }), { x: 1420, y: 840, t: 'restaurante+0.8' });
+
+// AI · a calmer environment is OK
+S = Scene('avergonzarte', 'recuerda');
+Item(S, Panel('s_armchair', 900), { x: 560, y: 450, zoom: 0.06 });
+Item(S, Pill('UN ENTORNO MÁS SERENO', { hi: 'SERENO' }), { y: 985, t: 'avergonzarte+0.6', enter: 'd' });
+Item(S, Chip('ESPACIOS ADECUADOS', { icon: 'check', color: K.green, size: 46 }), { x: 1440, y: 280, t: 'espacios', enter: 'r' });
+Item(S, Chip('HACER PAUSAS', { icon: 'check', color: K.green, size: 46 }), { x: 1440, y: 460, t: 'pausas', enter: 'r' });
+Item(S, Chip('DECIR LO QUE PREFIERES', { icon: 'check', color: K.green, size: 46 }), { x: 1440, y: 640, t: 'explicar', enter: 'r' });
+
+// AJ · noticing ≠ guessing right
+S = Scene('recuerda', 'pregunta');
+Item(S, Panel('s_bench', 1000), { x: 620, y: 450, zoom: 0.05 });
+Item(S, Pill('NOTAR ≠ ACERTAR', { hi: 'ACERTAR', size: 64 }), { y: 975, t: 'notar', enter: 'd' });
+Item(S, Ring(95), { x: 800, y: 380, t: 'mirada2' });
+Item(S, Chip('¿PREOCUPADO?', { icon: 'question', color: K.yellow }), { x: 1520, y: 330, t: 'preocupacion', enter: 'r' });
+Item(S, Chip('¿CANSADO?', { icon: 'question', color: K.yellow }), { x: 1520, y: 560, t: 'cansancio2', enter: 'r' });
+
+// AK · ask and listen
+S = Scene('pregunta', 'reconocido');
+Item(S, Panel('s_ask', 1200), { x: 960, y: 450, zoom: 0.06 });
+Item(S, Pill('PREGUNTA Y ESCUCHA', { hi: 'PREGUNTA', size: 64 }), { y: 975, t: 'pregunta+0.2', enter: 'd' });
+
+// AL · and inside your own mind? → Parte 2
+S = Scene('reconocido', END + 1);
+Item(S, Img('m_point', 420), { x: 380, y: 560, bob: 5 });
+Item(S, Chip('SEÑALES 1 Y 2', { icon: 'check', color: K.green }), { x: 1200, y: 170, t: 'reconocido+0.3', enter: 'u' });
+Item(S, Img('brain', 320), { x: 1200, y: 520, t: 'reconocido+1', bob: 5 });
+Item(S, Chip('FUERA', { icon: 'cross', color: K.red, size: 46 }), { x: 1640, y: 330, t: 'fuera' });
+Item(S, Ring(230), { x: 1200, y: 520, t: 'dentro' });
+Item(S, Pill('¿Y DENTRO DE TU MENTE?', { hi: 'DENTRO' }), { x: 1200, y: 830, t: 'dentro', enter: 'd' });
+Item(S, Chip('PARTE 2 →', { fill: K.yellow, size: 56 }), { x: 1640, y: 960, t: 'siguiente', enter: 'r' });
+punchAt(S, 'dentro');
+
+Strip('signo2', END + 1, t => t < T('reconocido') ? 2 : 3);
+Run(T('signo2'), END);
+</script></body></html>
