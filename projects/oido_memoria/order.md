@@ -44,6 +44,20 @@ ghế đá hai người, nằm thao thức; tư thế bịt tai, lo lắng, cầ
 2D minimalist explainer icon sheet in the same style as the attached reference: thick clean black outlines, white and flat soft colors, small yellow accent strokes, no gradients, plain pure white background. NINE separate objects, same size, arranged in three rows of three, widely spaced, nothing touching: 1) a simple human ear seen from the side, skin color; 2) a simple cross-section of the ear showing the ear canal, eardrum and a small pink spiral cochlea; 3) a small beige behind-the-ear hearing aid; 4) a pair of yellow foam earplugs; 5) a pair of headphones; 6) a smartphone with sound waves coming out of it, blank screen; 7) a wall calendar page with one square circled in red, no numbers; 8) a generic blood pressure monitor with a cuff, blank screen, no brand; 9) a pair of running shoes. No text, no letters, no numbers, no logos, 16:9, high resolution.
 ```
 
+## Ảnh 6 (`6.png`): cảnh phần 2 (Punto 3–4), 2×2
+*Từ chối lời mời; im lặng trong bữa tối; TV quá to làm người nhà bịt tai; ngã ba "phớt lờ" và "sợ hãi", đi đường giữa.*
+
+```
+2D minimalist brain character explainer style, the SAME mascot as the attached reference: a simple white cartoon figure with a big round head whose top is an exposed pink brain with simple fold lines, small black dot eyes with short eyebrows, a small open smiling mouth with a pink tongue, round simple body, thin arms and legs, rounded mitten hands, white fill, thick clean black outlines, small yellow accent strokes for emphasis. Other family members: simple white figures without a visible brain, each with a colored scarf. Flat colors, no gradients, minimal simple line-drawn backgrounds with lots of white space. A 2x2 grid of four separate panels, each framed by a thin black rounded border, with white gaps between panels. Panel 1: the mascot at home holding a phone, sadly shaking its head to decline an invitation, an envelope with a small heart on the table. Panel 2: a family dinner: everyone talks with speech bubbles above their heads, while the mascot sits silent and small in the corner with a sweat drop. Panel 3: a living room: the mascot sits close to the TV with very loud sound waves, while a family member on the sofa covers their ears with a frowning face. Panel 4: the mascot stands at a fork in a path: on the left sign a mascot covering its eyes (ignoring), on the right sign a mascot panicking with a sweat drop (fear); the mascot calmly walks down the middle path. No text, no letters, no numbers, 16:9, high resolution.
+```
+
+## Ảnh 7 (`7.png`): cảnh phần 3 (Punto 5 + kết), 2×2
+*Bác sĩ soi tai; lắp máy trợ thính; học điều mới; khoảnh khắc ấm áp bên gia đình.*
+
+```
+2D minimalist brain character explainer style, the SAME mascot as the attached reference: a simple white cartoon figure with a big round head whose top is an exposed pink brain with simple fold lines, small black dot eyes with short eyebrows, a small open smiling mouth with a pink tongue, round simple body, thin arms and legs, rounded mitten hands, white fill, thick clean black outlines, small yellow accent strokes for emphasis. Flat colors, no gradients, minimal simple line-drawn backgrounds with lots of white space. A 2x2 grid of four separate panels, each framed by a thin black rounded border, with white gaps between panels. Panel 1: a friendly doctor in a white coat gently looks into the mascot's ear with an otoscope, the mascot sits calmly on an exam chair. Panel 2: a hearing specialist fits a small behind-the-ear hearing aid on the mascot and adjusts it on a simple screen with a wavy line (no numbers); the mascot smiles in surprise with yellow sparkle lines. Panel 3: the mascot at a small group class, learning something new with a book, raising its hand happily. Panel 4: a warm family moment: the mascot laughs with a grandchild and an older woman around a small table with cups, small hearts in the air. No text, no letters, no numbers, no logos, 16:9, high resolution.
+```
+
 ---
 
 ## Giọng đọc (`voice.mp3`)
