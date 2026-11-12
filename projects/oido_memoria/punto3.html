@@ -1,0 +1,117 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script>
+// VIDEO 2 · PUNTO 3 · La relación entre la pérdida auditiva y el riesgo de demencia
+let S;
+const START = 497.1;
+
+// P3A · title
+S = Scene(START, 'inquieta');
+Item(S, Kicker('PUNTO 3', 'LA PÉRDIDA AUDITIVA Y\nEL RIESGO DE DEMENCIA', { size: 84 }), { x: 960, y: 300, t: START, enter: 'u' });
+Item(S, Img('teach_board', 420), { x: 960, y: 800, t: START + 0.6 });
+
+// P3B · families worry: be careful
+S = Scene('inquieta', 'asociacion');
+Item(S, Panel('c_whisper', 1100), { x: 640, y: 460, zoom: 0.05 });
+Item(S, Ico('question', 1.3), { x: 1580, y: 320, t: 'serios', enter: 'slam' });
+Item(S, Chip('ATENCIÓN', { color: K.blueD }), { x: 1580, y: 520, t: 'prudencia-0.8' });
+Item(S, Chip('PRUDENCIA', { fill: K.yellow }), { x: 1580, y: 680, t: 'prudencia' });
+
+// P3C · association ≠ destiny
+S = Scene('asociacion', 'tres');
+Item(S, Txt('UNA ASOCIACIÓN', { size: 90, color: K.pinkD }), { x: 860, y: 170, t: 'asociacion', enter: 'slam' });
+Item(S, Img('ear', 250), { x: 520, y: 500, t: 'asociacion+0.4' });
+Item(S, g => { const l = el('line', { x1: -260, y1: 0, x2: 260, y2: 0, stroke: K.grey, 'stroke-width': 10, 'stroke-dasharray': '6 20', 'stroke-linecap': 'round' }, g); return { draw(t) { l.setAttribute('stroke-dashoffset', (-t * 40).toFixed(1)); } }; }, { x: 960, y: 500, t: 'asociacion+0.8', enter: 'fade' });
+Item(S, Img('brain', 260), { x: 1400, y: 500, t: 'asociacion+1' });
+Item(S, StampB('≠ DESTINO', { size: 70 }), { x: 960, y: 790, t: 'destino', enter: 'slam' });
+Item(S, Chip('NO PRUEBA QUE UNA CAUSE LA OTRA', { size: 40, color: K.red }), { x: 960, y: 960, t: 'cause', enter: 'd' });
+
+// P3D1 · three paths — 1: listening effort
+S = Scene('tres', 'segundo3');
+Item(S, Txt('3 CAMINOS POSIBLES', { size: 70 }), { x: 860, y: 140, t: 'tres', enter: 'u' });
+Item(S, Chip('1 · ESFUERZO DE ESCUCHA', { fill: K.yellow, size: 44 }), { x: 560, y: 330, t: 'primero3' });
+Item(S, Chip('2 · AISLAMIENTO', { size: 44, color: K.grey }), { x: 560, y: 490, t: 'tres+0.6' });
+Item(S, Chip('3 · FACTORES COMUNES', { size: 44, color: K.grey }), { x: 560, y: 650, t: 'tres+1.1' });
+Item(S, Img('cup_ear', 460), { x: 1420, y: 520, t: 'primero3' });
+Item(S, Chip('MEMORIA MÁS DIFÍCIL', { icon: 'check', color: K.yellow, size: 42 }), { x: 1420, y: 860, t: 'dificiles' });
+Item(S, Chip('NO DEMUESTRA DEMENCIA', { icon: 'cross', color: K.red, size: 42 }), { x: 560, y: 860, t: 'todavia' });
+
+// P3D2 · 2: isolation
+S = Scene('segundo3', 'tercer');
+Item(S, Chip('2 · AISLAMIENTO', { fill: K.yellow, size: 44 }), { x: 580, y: 90, t: 'segundo3' });
+Item(S, Panel('s_isolated', 1000), { x: 580, y: 480, t: 'segundo3+0.3', zoom: 0.05 });
+Item(S, Chip('RECHAZA INVITACIONES', { size: 40, color: K.red }), { x: 1520, y: 280, t: 'rechazar', enter: 'r' });
+Item(S, Chip('MENOS TELÉFONO', { size: 40, color: K.red }), { x: 1520, y: 430, t: 'telefono', enter: 'r' });
+Item(S, Chip('CALLADO EN LA MESA', { size: 40, color: K.red }), { x: 1520, y: 580, t: 'callada', enter: 'r' });
+Item(S, Pill('SOLEDAD ↔ SALUD COGNITIVA', { hi: 'SALUD COGNITIVA', size: 52 }), { y: 990, t: 'soledad', enter: 'd' });
+
+// P3D3 · 3: common factors; cause vs consequence
+S = Scene('tercer', 'lancet');
+Item(S, Chip('3 · FACTORES COMUNES', { fill: K.yellow, size: 44 }), { x: 860, y: 130, t: 'tercer' });
+Item(S, Img('ear', 220), { x: 420, y: 470, t: 'comunes' });
+Item(S, Img('brain', 240), { x: 1500, y: 470, t: 'comunes' });
+Item(S, Chip('EDAD', { color: K.blueD }), { x: 960, y: 380, t: 'edad3' });
+Item(S, Chip('PROBLEMAS VASCULARES', { color: K.red, size: 42 }), { x: 960, y: 540, t: 'vasculares' });
+Item(S, Arrow(-260, 0, { color: K.grey, width: 12 }), { x: 820, y: 460, t: 'vasculares+0.4' });
+Item(S, Arrow(260, 0, { color: K.grey, width: 12 }), { x: 1100, y: 460, t: 'vasculares+0.4' });
+Item(S, Chip('¿CAUSA?', { size: 42 }), { x: 480, y: 820, t: 'causa' });
+Item(S, Chip('¿CONSECUENCIA?', { size: 42 }), { x: 960, y: 820, t: 'consecuencia' });
+Item(S, Chip('¿VAN JUNTAS?', { size: 42 }), { x: 1440, y: 820, t: 'juntas' });
+
+// P3E · Lancet Commission 2024
+S = Scene('lancet', 'achieve');
+Item(S, Img('teach_board', 480), { x: 420, y: 580 });
+Item(S, Txt('COMISIÓN LANCET', { size: 72 }), { x: 1260, y: 200, t: 'lancet', enter: 'u' });
+Item(S, Txt('informe 2024', { size: 44, color: K.grey, weight: 700 }), { x: 1260, y: 275, t: 'lancet+0.4', enter: 'fade' });
+Item(S, Chip('FACTOR DE RIESGO MODIFICABLE', { icon: 'check', color: K.green, size: 42 }), { x: 1260, y: 440, t: 'modificables' });
+Item(S, StampB('NO ELIMINA EL RIESGO', { size: 50 }), { x: 1260, y: 640, t: 'elimine', enter: 'slam' });
+Item(S, Chip('PARTE DE UNA ESTRATEGIA', { color: K.blueD, size: 44 }), { x: 1260, y: 830, t: 'estrategia' });
+Item(S, Txt('Livingston y cols., The Lancet 2024', { size: 28, color: K.grey, weight: 700 }), { x: 1620, y: 1040, t: 'lancet+1', enter: 'fade' });
+
+// P3F · ACHIEVE trial 2023
+S = Scene('achieve', 'extremos');
+Item(S, Txt('ENSAYO ACHIEVE · 2023', { size: 70 }), { x: 860, y: 140, t: 'achieve', enter: 'u' });
+Item(S, Img('hearing_ok', 460), { x: 300, y: 600 });
+Item(S, Chip('3 AÑOS', { fill: K.yellow, size: 52 }), { x: 1180, y: 290, t: 'tresanos' });
+Item(S, Chip('TODOS: SIN EFECTO SIGNIFICATIVO', { icon: 'cross', color: K.red, size: 38 }), { x: 1150, y: 450, t: 'conjunto-1', enter: 'r' });
+Item(S, Chip('MAYOR RIESGO: EVOLUCIÓN MÁS FAVORABLE', { icon: 'check', color: K.green, size: 36 }), { x: 1150, y: 620, t: 'favorable-1', enter: 'r' });
+Item(S, Pill('ESPERANZADOR, NO GARANTIZADO', { hi: 'NO GARANTIZADO', size: 52 }), { x: 1180, y: 850, t: 'garantia-1.5', enter: 'd' });
+Item(S, Txt('Lin y cols., The Lancet 2023', { size: 28, color: K.grey, weight: 700 }), { x: 1660, y: 1040, t: 'achieve+1', enter: 'fade' });
+
+// P3G · avoid two extremes
+S = Scene('extremos', 'valoracion3');
+Item(S, Txt('EVITA DOS EXTREMOS', { size: 70 }), { x: 860, y: 140, t: 'extremos', enter: 'u' });
+Item(S, Img('fake_nod', 380), { x: 360, y: 520, t: 'ignorar' });
+Item(S, Chip('«ES LA EDAD»', { icon: 'cross', color: K.red, size: 44 }), { x: 360, y: 800, t: 'ignorar+0.6' });
+Item(S, Img('overwhelmed', 380), { x: 1560, y: 520, t: 'alzheimer-1' });
+Item(S, Chip('«ES ALZHEIMER»', { icon: 'cross', color: K.red, size: 44 }), { x: 1560, y: 800, t: 'alzheimer' });
+Item(S, Img('calm', 400), { x: 960, y: 540, t: 'ninguna' });
+Item(S, Chip('NI LO UNO NI LO OTRO', { icon: 'check', color: K.green, size: 44 }), { x: 960, y: 900, t: 'ninguna+0.3' });
+
+// P3H · get evaluated
+S = Scene('valoracion3', 'miedo');
+Item(S, Panel('s_test', 1000), { x: 580, y: 450, zoom: 0.05 });
+Item(S, Chip('MEJOR COMUNICACIÓN', { icon: 'check', color: K.green, size: 42 }), { x: 1500, y: 260, t: 'valoracion3+2', enter: 'r' });
+Item(S, Chip('PROBLEMAS TRATABLES', { icon: 'check', color: K.green, size: 42 }), { x: 1500, y: 410, t: 'tratables', enter: 'r' });
+Item(S, Chip('+ EVALUACIÓN DE MEMORIA', { fill: K.yellow, size: 42 }), { x: 1500, y: 600, t: 'especifica-1', enter: 'slam' });
+Item(S, Pill('CADA HISTORIA ES ÚNICA', { hi: 'ÚNICA' }), { y: 975, t: 'individual', enter: 'd' });
+
+// P3I · no fear: early signs → punto 4
+S = Scene('miedo', T('punto4'));
+Item(S, Img('hand_heart', 520), { x: 460, y: 560 });
+Item(S, Chip('SIN MIEDO', { icon: 'check', color: K.green }), { x: 1300, y: 260, t: 'miedo' });
+Item(S, Chip('SEÑALES A TIEMPO', { icon: 'check', color: K.green }), { x: 1300, y: 420, t: 'tiempo3' });
+Item(S, Img('family_table', 300), { x: 1300, y: 660, t: 'familiar3' });
+Item(S, Pill('¿SEÑALES… O DESPISTES?', { hi: 'SEÑALES', size: 56 }), { x: 1300, y: 940, t: 'despistes', enter: 'd' });
+
+Strip(START + 1, T('punto4') + 1, t => 3);
+Run(START, T('punto4'));
+</script></body></html>

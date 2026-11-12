@@ -1,0 +1,62 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script>
+// VIDEO 3 · CONCLUSIÓN
+let S;
+const END = 1254;
+const Full = color => g => { el('rect', { x: -960, y: -540, width: 1920, height: 1080, fill: color }, g); };
+
+// C1 · title + the question (dark)
+S = Scene('proxima', 'descubierto');
+Item(S, Full(K.ink), { x: 960, y: 540, enter: 'fade', dur: 0.4 });
+Item(S, Txt('CUIDAR TUS OÍDOS', { size: 84, color: '#fff' }), { x: 960, y: 190, t: 'proxima+0.2', enter: 'u' });
+Item(S, Txt('TAMBIÉN ES CUIDAR TU CEREBRO', { size: 70, color: K.yellow }), { x: 960, y: 300, t: 'proxima+0.6', enter: 'u' });
+Item(S, Img('think', 400), { x: 960, y: 650, t: 'pregunta6' });
+Item(S, Txt('¿LO ESCUCHASTE TODO?', { size: 60, color: K.yellow }), { x: 960, y: 960, t: 'toda6', enter: 'fade' });
+
+// C2 · recap
+S = Scene('descubierto', 'fundamental6');
+Item(S, Img('overwhelmed', 500), { x: 420, y: 560 });
+Item(S, Chip('+ ESFUERZO MENTAL', { color: K.red }), { x: 1250, y: 250, t: 'esfuerzo6', enter: 'r' });
+Item(S, Chip('− CONCENTRACIÓN', { color: K.red }), { x: 1250, y: 410, t: 'concentracion', enter: 'r' });
+Item(S, Chip('CHARLAS AGOTADORAS', { color: K.red }), { x: 1250, y: 570, t: 'agotadoras', enter: 'r' });
+Item(S, Chip('RELACIÓN CON EL RIESGO COGNITIVO', { size: 38, color: K.blueD }), { x: 1250, y: 730, t: 'relacion6', enter: 'r' });
+
+// C3 · not destiny; what to do
+S = Scene('fundamental6', 'quiz');
+Item(S, Pill('OÍR PEOR ≠ DEMENCIA SEGURA', { hi: '≠ DEMENCIA', size: 56 }), { x: 960, y: 160, t: 'demencia6-1', enter: 'u' });
+Item(S, Chip('NO TODO OLVIDO VIENE DEL OÍDO', { size: 42, color: K.blueD }), { x: 960, y: 320, t: 'origen' });
+Item(S, Chip('¿CUESTA ENTENDER? → EVALUACIÓN AUDITIVA', { size: 40, color: K.green }), { x: 960, y: 500, t: 'evaluacion6-1' });
+Item(S, Chip('¿MÁS OLVIDOS? → PROFESIONAL SANITARIO', { size: 40, color: K.green }), { x: 960, y: 660, t: 'profesional6' });
+Item(S, Chip('PÉRDIDA REPENTINA → URGENCIAS', { size: 46, color: K.red, fill: K.redL }), { x: 960, y: 840, t: 'repentinamente', enter: 'slam' });
+
+// C4 · quiz (answer not revealed)
+S = Scene('quiz', 'compartelo');
+Item(S, Img('whats_said', 480), { x: 360, y: 600 });
+Item(S, Txt('SI NO LO OÍSTE BIEN…', { size: 56 }), { x: 1180, y: 160, t: 'quiz+1.5', enter: 'u' });
+Item(S, Txt('¿PODRÁS RECORDARLO CON PRECISIÓN?', { size: 46, color: K.pinkD }), { x: 1180, y: 240, t: 'precision6-1', enter: 'fade' });
+Item(S, Chip('A · SIEMPRE', { size: 52 }), { x: 1180, y: 400, t: 'opa' });
+Item(S, Chip('B · NO NECESARIAMENTE', { size: 52 }), { x: 1180, y: 550, t: 'opb' });
+Item(S, Chip('C · DEPENDE DE LA EDAD', { size: 52 }), { x: 1180, y: 700, t: 'opc' });
+Item(S, Chip('ESCRÍBELO EN LOS COMENTARIOS', { fill: K.yellow, size: 44 }), { x: 1180, y: 880, t: 'escribe' });
+
+// C5 · share, subscribe, closing line
+S = Scene('compartelo', END + 1);
+Item(S, Img('m_cheer', 480), { x: 480, y: 560 });
+Item(S, Txt('Cerebro y Bienestar', { size: 72, color: K.pinkD }), { x: 1260, y: 260, t: 'compartelo+0.2', enter: 'u' });
+Item(S, Chip('COMPÁRTELO', { fill: K.yellow, size: 56 }), { x: 1260, y: 470, t: 'compartelo+0.4', out: 'subs3-0.3', enter: 'slam' });
+Item(S, Subscribe(T('subs3+1.6')), { x: 1260, y: 470, t: 'subs3' });
+Item(S, Txt('ENVEJECER NO SIGNIFICA DEJAR', { size: 50 }), { x: 1260, y: 720, t: 'envejecer', enter: 'fade' });
+Item(S, Txt('DE APRENDER A CUIDARNOS', { size: 62, color: K.pinkD }), { x: 1260, y: 810, t: 'envejecer+1', enter: 'u' });
+
+Strip('proxima+2', END + 1, t => 6);
+Run(T('proxima'), END);
+</script></body></html>

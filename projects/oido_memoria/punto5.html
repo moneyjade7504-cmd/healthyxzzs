@@ -1,0 +1,102 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script>
+// VIDEO 3 · PUNTO 5 · Cinco formas de cuidar tu audición
+let S;
+const START = 917.8;
+const Tag = (S, n, t) => Item(S, Chip(`MEDIDA ${n} / 5`, { fill: K.yellow, size: 40 }), { x: 240, y: 90, t, enter: 'l' });
+
+// Q1 · title
+S = Scene(START, 'importante5');
+Item(S, Kicker('PUNTO 5', '5 FORMAS DE CUIDAR TU AUDICIÓN\nY PROTEGER TU SALUD CEREBRAL', { size: 64 }), { x: 960, y: 300, t: START, enter: 'u' });
+Item(S, Img('earmuffs', 420), { x: 960, y: 790, t: START + 0.8 });
+
+// Q2 · the good news
+S = Scene('importante5', 'm1');
+Item(S, Img('hearing_ok', 520), { x: 440, y: 560 });
+Item(S, Txt('LA BUENA NOTICIA', { size: 76, color: K.green }), { x: 1250, y: 220, t: 'buena', enter: 'u' });
+Item(S, Chip('MEDIDAS SENCILLAS', { icon: 'check', color: K.green }), { x: 1250, y: 400, t: 'buena+1.2' });
+Item(S, Chip('MEJOR COMUNICACIÓN', { icon: 'check', color: K.green }), { x: 1250, y: 560, t: 'buena+3' });
+Item(S, Chip('MÁS INDEPENDENCIA', { icon: 'check', color: K.green }), { x: 1250, y: 720, t: 'independencia' });
+
+// Q3 · 1: check your hearing
+S = Scene('m1', 'm2');
+Tag(S, 1, 'm1');
+Item(S, Panel('s_test', 1000), { x: 600, y: 470, zoom: 0.05 });
+Item(S, Chip('NO ESPERES', { icon: 'cross', color: K.red, size: 44 }), { x: 1520, y: 260, t: 'especialista', enter: 'r' });
+Item(S, Chip('CERUMEN', { size: 44, color: K.blueD }), { x: 1520, y: 410, t: 'cerumen', enter: 'r' });
+Item(S, Chip('CAUSAS TRATABLES', { icon: 'check', color: K.green, size: 44 }), { x: 1520, y: 560, t: 'tratamiento', enter: 'r' });
+Item(S, Pill('SOLICITA UNA VALORACIÓN AUDITIVA', { hi: 'VALORACIÓN', size: 50 }), { y: 990, t: 'solicita', enter: 'd' });
+
+// Q4 · 2: hearing aids when needed
+S = Scene('m2', 'm3');
+Tag(S, 2, 'm2');
+Item(S, Panel('c_hearing_aid', 900), { x: 530, y: 470, zoom: 0.05 });
+Item(S, Chip('AUDÍFONOS', { fill: K.yellow, size: 52 }), { x: 1450, y: 230, t: 'm2+0.5' });
+Item(S, Chip('ENTENDER MEJOR', { icon: 'check', color: K.green, size: 44 }), { x: 1450, y: 380, t: 'audifonos', enter: 'r' });
+Item(S, Chip('ADAPTACIÓN Y APRENDIZAJE', { size: 40, color: K.blueD }), { x: 1450, y: 530, t: 'adaptacion', enter: 'r' });
+Item(S, StampB('NO SON MILAGROSOS', { size: 50 }), { x: 1450, y: 710, t: 'milagrosos', enter: 'slam' });
+Item(S, Pill('ESCUCHAR MEJOR, PARTICIPAR MÁS', { hi: 'PARTICIPAR MÁS', size: 50 }), { y: 990, t: 'beneficio', enter: 'd' });
+
+// Q5 · 3: keep social ties
+S = Scene('m3', 'm4');
+Tag(S, 3, 'm3');
+Item(S, Panel('s_isolated', 1000), { x: 600, y: 470, t: 'm3', out: 'cara-0.2', zoom: 0.04 });
+Item(S, Panel('s_cafe', 1000), { x: 600, y: 470, t: 'cara-0.4', enter: 'fade', zoom: 0.04 });
+Item(S, Chip('QUEDARSE EN CASA', { icon: 'cross', color: K.red, size: 42 }), { x: 1500, y: 300, t: 'casa', out: 'cara-0.4', enter: 'r' });
+Item(S, Chip('MENOS ESTÍMULO', { icon: 'cross', color: K.red, size: 42 }), { x: 1500, y: 450, t: 'abandonar', out: 'cara-0.4', enter: 'r' });
+Item(S, Chip('AMBIENTES TRANQUILOS', { icon: 'check', color: K.green, size: 42 }), { x: 1500, y: 260, t: 'cara-0.2', enter: 'r' });
+Item(S, Chip('CARA A CARA', { icon: 'check', color: K.green, size: 42 }), { x: 1500, y: 410, t: 'cara', enter: 'r' });
+Item(S, Chip('SIN VERGÜENZA', { icon: 'check', color: K.green, size: 42 }), { x: 1500, y: 560, t: 'verguenza', enter: 'r' });
+Item(S, Pill('NO HACE FALTA OÍR PERFECTO', { hi: 'PERFECTO', size: 52 }), { y: 990, t: 'perfectamente', enter: 'd' });
+
+// Q6 · 4: protect from noise
+S = Scene('m4', 'm5');
+Tag(S, 4, 'm4');
+Item(S, Panel('s_loud', 1000), { x: 600, y: 470, zoom: 0.04 });
+Item(S, Chip('MÚSICA MUY ALTA', { icon: 'cross', color: K.red, size: 40 }), { x: 1500, y: 300, t: 'musica', out: 'reduce-0.3', enter: 'r' });
+Item(S, Chip('AURICULARES MUCHO RATO', { icon: 'cross', color: K.red, size: 38 }), { x: 1500, y: 450, t: 'auriculares', out: 'reduce-0.3', enter: 'r' });
+Item(S, Chip('RUIDOS INTENSOS', { icon: 'cross', color: K.red, size: 40 }), { x: 1500, y: 600, t: 'intensos', out: 'reduce-0.3', enter: 'r' });
+Item(S, Chip('BAJA EL VOLUMEN', { icon: 'check', color: K.green, size: 42 }), { x: 1500, y: 240, t: 'reduce', enter: 'r' });
+Item(S, Chip('HAZ DESCANSOS', { icon: 'check', color: K.green, size: 42 }), { x: 1500, y: 380, t: 'descansos', enter: 'r' });
+Item(S, Chip('PROTECCIÓN AUDITIVA', { icon: 'check', color: K.green, size: 42 }), { x: 1500, y: 520, t: 'proteccion', enter: 'r' });
+Item(S, Img('earmuffs', 300), { x: 1500, y: 790, t: 'proteccion+0.3' });
+Item(S, Pill('PEQUEÑAS DECISIONES, GRANDES DIFERENCIAS', { hi: 'GRANDES', size: 44 }), { x: 640, y: 990, t: 'pequenas', enter: 'd' });
+
+// Q7 · 5: care for the whole brain
+S = Scene('m5', 'detalle5');
+Tag(S, 5, 'm5');
+Item(S, Txt('CUIDA TU CEREBRO ENTERO', { size: 64 }), { x: 960, y: 150, t: 'm5', enter: 'u' });
+Item(S, Img('brain', 250), { x: 960, y: 560, t: 'm5+0.5' });
+[['walk_fast', 'ACTIVIDAD FÍSICA', 'fisica', 420, 370], ['sleep', 'DORMIR BIEN', 'dormir', 1500, 370],
+ ['blood_pressure', 'PRESIÓN ARTERIAL', 'presion', 420, 760], ['read_sit', 'APRENDER Y LEER', 'intelectuales', 1500, 760]].forEach(([n, l, t, x, y]) => {
+  Item(S, Img(n, 280), { x, y, t });
+  Item(S, Chip(l, { size: 36, color: K.green }), { x, y: y + 175, t: `${t}+0.2` });
+});
+Item(S, Chip('CONVERSAR', { size: 36, color: K.green }), { x: 960, y: 800, t: 'nuevo+1.2' });
+
+// Q8 · no substitute for medical evaluation
+S = Scene('detalle5', 'voz');
+Item(S, Img('present', 520), { x: 420, y: 560 });
+Item(S, StampB('NO SUSTITUYE UNA EVALUACIÓN MÉDICA', { size: 42 }), { x: 1250, y: 330, t: 'sustituye', enter: 'slam' });
+Item(S, Chip('LA MEMORIA TIENE MUCHAS CAUSAS', { size: 40, color: K.blueD }), { x: 1250, y: 580, t: 'causas6' });
+
+// Q9 · preserve the moments
+S = Scene('voz', 'proxima');
+Item(S, Img('family_table', 520), { x: 960, y: 480 });
+Item(S, Pill('PRESERVA ESOS MOMENTOS', { hi: 'MOMENTOS', size: 60 }), { y: 930, t: 'momentos', out: 'proteger-0.2', enter: 'd' });
+Item(S, Chip('CONFIANZA', { size: 46, color: K.pinkD }), { x: 560, y: 930, t: 'confianza' });
+Item(S, Chip('AUTONOMÍA', { size: 46, color: K.pinkD }), { x: 960, y: 930, t: 'confianza+0.8' });
+Item(S, Chip('TRANQUILIDAD', { size: 46, color: K.pinkD }), { x: 1380, y: 930, t: 'confianza+1.6' });
+
+Strip(START + 1, T('proxima') + 1, t => 5);
+Run(START, T('proxima'));
+</script></body></html>

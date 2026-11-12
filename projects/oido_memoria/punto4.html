@@ -1,0 +1,114 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script>
+// VIDEO 2 · PUNTO 4 · Cinco señales de pérdida auditiva (ends before "Punto 5")
+let S;
+const END = 917.8;
+const Full = color => g => { el('rect', { x: -960, y: -540, width: 1920, height: 1080, fill: color }, g); };
+const Tag = (S, n, t) => Item(S, Chip(`SEÑAL ${n} / 5`, { fill: K.yellow, size: 40 }), { x: 230, y: 90, t, enter: 'l' });
+
+// P4A · title
+S = Scene('punto4', 'como4');
+Item(S, Kicker('PUNTO 4', '5 SEÑALES QUE PUEDES CONFUNDIR\nCON PROBLEMAS DE MEMORIA', { size: 64 }), { x: 960, y: 300, enter: 'u' });
+Item(S, Img('whats_said', 420), { x: 960, y: 790, t: 'p4title' });
+
+// P4B · how to know
+S = Scene('como4', 's1');
+Item(S, Img('think_calendar', 540), { x: 480, y: 540 });
+Item(S, Txt('5', { size: 260, color: K.pinkD }), { x: 1250, y: 360, t: 'como4+1', enter: 'slam' });
+Item(S, Txt('SEÑALES COTIDIANAS', { size: 64 }), { x: 1250, y: 560, t: 'como4+1.4', enter: 'fade' });
+Item(S, Chip('SOBRE TODO +60 AÑOS', { fill: K.yellow }), { x: 1250, y: 740, t: 'sesenta' });
+
+// P4C · 1: asking to repeat
+S = Scene('s1', 's2');
+Tag(S, 1, 's1');
+Item(S, Img('whats_said', 540), { x: 480, y: 560 });
+Item(S, Pill('«¿QUÉ HAS DICHO?»', { fill: '#fff', color: K.ink, stroke: K.ink, size: 60 }), { x: 1260, y: 290, t: 'quehasdicho' });
+Item(S, Ico('question', 1), { x: 1260, y: 470, t: 'distingues' });
+Item(S, Chip('«ESTÁ DISTRAÍDO»', { icon: 'cross', color: K.red }), { x: 1260, y: 640, t: 'distraido' });
+Item(S, Chip('LE CUESTA ENTENDER', { icon: 'check', color: K.green }), { x: 1260, y: 800, t: 'distraido+3' });
+
+// P4D · 2: TV volume
+S = Scene('s2', 's3');
+Tag(S, 2, 's2');
+Item(S, Img('tv_loud', 520), { x: 520, y: 560 });
+Item(S, Txt('VOLUMEN', { size: 54 }), { x: 1360, y: 280, t: 's2+0.5' });
+Item(S, Slider('', t => lerp(0.45, 0.95, E.inOut(prog(t, T('subir'), T('subir+2')))), { w: 520, color: K.red }), { x: 1360, y: 380, t: 's2+0.5' });
+Item(S, Chip('«¡ESTÁ MUY ALTO!»', { color: K.red }), { x: 1360, y: 560, t: 'alto' });
+Item(S, Chip('¿GUSTO… O AUDICIÓN?', { icon: 'question', color: K.yellow }), { x: 1360, y: 730, t: 'preferencia' });
+
+// P4E · 3: losing the thread at the table
+S = Scene('s3', 's4');
+Tag(S, 3, 's3');
+Item(S, Panel('s_dinner', 1100), { x: 680, y: 480, zoom: 0.05 });
+Item(S, Chip('PIERDES EL HILO', { icon: 'cross', color: K.red, size: 44 }), { x: 1590, y: 360, t: 's3+1.5', enter: 'r' });
+Item(S, Chip('VOCES A LA VEZ', { size: 44 }), { x: 1590, y: 520, t: 'voces', enter: 'r' });
+Item(S, Chip('FALTAN DETALLES', { size: 44 }), { x: 1590, y: 680, t: 'detalles4', enter: 'r' });
+
+// P4F · 4: confusing appointments, addresses, times
+S = Scene('s4', 's5');
+Tag(S, 4, 's4');
+Item(S, Img('think_calendar', 540), { x: 440, y: 560 });
+Item(S, Chip('CITA MÉDICA', { size: 48 }), { x: 1280, y: 250, t: 'cita4', enter: 'r' });
+Item(S, Chip('DIRECCIÓN', { size: 48 }), { x: 1280, y: 400, t: 'direccion', enter: 'r' });
+Item(S, Chip('HORA', { size: 48 }), { x: 1280, y: 550, t: 'hora', enter: 'r' });
+Item(S, Ico('question', 1.1), { x: 1620, y: 400, t: 'diferente', enter: 'slam' });
+Item(S, Pill('NO LLEGÓ CLARO DESDE EL PRINCIPIO', { hi: 'NO LLEGÓ CLARO', size: 48 }), { x: 1160, y: 860, t: 'claros', enter: 'd' });
+
+// P4G · 5: avoiding social gatherings
+S = Scene('s5', 'diagnosticar4');
+Tag(S, 5, 's5');
+Item(S, Panel('s_isolated', 1000), { x: 600, y: 480, zoom: 0.05 });
+Item(S, Chip('EVITAS REUNIONES', { size: 44, color: K.red }), { x: 1520, y: 300, t: 's5+0.6', enter: 'r' });
+Item(S, Chip('CANSANCIO · FRUSTRACIÓN', { size: 38, color: K.red }), { x: 1520, y: 460, t: 'cansado', enter: 'r' });
+Item(S, Chip('SILENCIO', { size: 44, color: K.red }), { x: 1520, y: 620, t: 'silencio4', enter: 'r' });
+
+// P4H · not a diagnosis
+S = Scene('diagnosticar4', 'advertencia');
+Item(S, Img('present', 520), { x: 420, y: 560 });
+Item(S, StampB('NO ES UN DIAGNÓSTICO', { size: 58 }), { x: 1250, y: 320, t: 'diagnosticar4', enter: 'slam' });
+Item(S, Chip('HAY OTRAS CAUSAS', { color: K.blueD }), { x: 1250, y: 560, t: 'otras4' });
+Item(S, Chip('VALORACIÓN PROFESIONAL', { fill: K.yellow, size: 46 }), { x: 1250, y: 730, t: 'otras4+1.5' });
+
+// P4I · emergency: sudden hearing loss (full red, hold)
+S = Scene('advertencia', 'mismo');
+Item(S, Full(K.red), { x: 960, y: 540, enter: 'fade', dur: 0.4 });
+Item(S, Txt('ADVERTENCIA MÉDICA', { size: 76, color: '#fff' }), { x: 960, y: 160, t: 'advertencia', enter: 'fade' });
+Item(S, Chip('PÉRDIDA REPENTINA DE AUDICIÓN', { size: 50 }), { x: 960, y: 360, t: 'repentina' });
+Item(S, Chip('SOBRE TODO EN UN OÍDO', { size: 50 }), { x: 960, y: 530, t: 'unoido' });
+Item(S, Txt('→ URGENCIAS', { size: 110, color: '#fff' }), { x: 960, y: 720, t: 'urgente', enter: 'slam' });
+Item(S, Txt('NO ESPERES VARIOS DÍAS', { size: 54, color: K.yellow }), { x: 960, y: 890, t: 'noesperes', enter: 'fade' });
+
+// P4J · memory warning signs → health professional
+S = Scene('mismo', 'comparte');
+Item(S, Img('hand_heart', 460), { x: 330, y: 580 });
+Item(S, Txt('CONSULTA SI HAY…', { size: 66, color: K.red }), { x: 1120, y: 180, t: 'mismo', enter: 'u' });
+Item(S, Chip('DESORIENTACIÓN', { icon: 'cross', color: K.red, size: 44 }), { x: 1120, y: 360, t: 'mismo+1.5' });
+Item(S, Chip('MÁS PROBLEMAS DE MEMORIA', { icon: 'cross', color: K.red, size: 44 }), { x: 1120, y: 510, t: 'mismo+3' });
+Item(S, Chip('MENOS AUTONOMÍA', { icon: 'cross', color: K.red, size: 44 }), { x: 1120, y: 660, t: 'autonomia' });
+Item(S, Chip('→ PROFESIONAL SANITARIO', { fill: K.yellow, size: 52 }), { x: 1120, y: 850, t: 'profesional4', enter: 'slam' });
+
+// P4K · share
+S = Scene('comparte', 'fundamental4');
+Item(S, Img('phone', 520), { x: 480, y: 560 });
+Item(S, Chip('COMPARTE ESTE VÍDEO', { fill: K.yellow, size: 56 }), { x: 1260, y: 350, t: 'comparte', enter: 'slam' });
+Item(S, Chip('EL PRIMER PASO PARA BUSCAR AYUDA', { icon: 'check', color: K.green, size: 38 }), { x: 1260, y: 600, t: 'ayuda' });
+
+// P4L · don't resign yourself → punto 5
+S = Scene('fundamental4', END + 1);
+Item(S, Img('hearing_ok', 520), { x: 480, y: 560 });
+Item(S, Pill('NO TE RESIGNES', { hi: 'RESIGNES', size: 66 }), { x: 1260, y: 300, t: 'resignarte', enter: 'd' });
+Item(S, Chip('EVALUACIONES Y SOLUCIONES', { icon: 'check', color: K.green, size: 44 }), { x: 1260, y: 500, t: 'soluciones' });
+Item(S, Chip('PRÓXIMO: 5 FORMAS DE CUIDARTE →', { fill: K.yellow, size: 44 }), { x: 1260, y: 740, t: 'siguiente4', enter: 'slam' });
+
+Strip('punto4+1', END + 1, t => 4);
+Run(T('punto4'), END);
+</script></body></html>

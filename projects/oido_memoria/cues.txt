@@ -137,3 +137,158 @@ alarmismos | sin alarmismos
 otra | hay otra cuestión importante
 sabemos | Qué sabemos sobre la relación
 punto3 | La relación entre la pérdida auditiva y el riesgo
+# VIDEO 2 = punto 3 + punto 4
+inquieta | pregunta que inquieta a muchas familias
+serios | problemas cognitivos más serios
+prudencia | mucha prudencia
+asociacion | ha encontrado una asociación
+destino | Asociación no significa destino
+cause | una cosa cause la otra
+tres | piensa en tres caminos
+primero3 | El primero es el esfuerzo
+dificiles | pueden resultar más difíciles
+todavia | todavía no demuestra
+segundo3 | El segundo camino
+rechazar | rechazar invitaciones
+telefono | hablar menos por teléfono
+callada | permanecer callada
+aislamiento | ese aislamiento puede reducir
+soledad | La soledad y el aislamiento
+tercer | El tercer camino
+comunes | factores comunes
+edad3 | como la edad
+vasculares | problemas vasculares
+distinguir | deben distinguir
+causa | una posible causa
+consecuencia | una consecuencia
+juntas | aparecen juntas
+lancet | la Comisión Lancet
+modificables | potencialmente modificables
+elimine | elimine el riesgo
+estrategia | estrategia amplia de salud
+achieve | un ensayo llamado
+tresanos | Durante tres años
+noredujo | no redujo significativamente
+conjunto | en el conjunto de participantes
+grupo | en un grupo previamente definido
+favorable | más favorable
+garantia | no una garantía universal
+extremos | evitar dos extremos
+ignorar | El primero es ignorar
+alzheimer | anuncia Alzheimer
+ninguna | Ninguna de esas ideas
+valoracion3 | buscar una valoración profesional
+tratables | problemas tratables
+desorientacion | aparecen desorientación
+especifica | una evaluación específica de la memoria
+individual | valoración individual cuidadosa
+miedo | no es vivir con miedo
+tiempo3 | reconocer señales a tiempo
+familiar3 | en una conversación familiar
+despistes | simples despistes
+punto4 | Punto 4
+p4title | Cinco señales de pérdida auditiva
+como4 | Cómo saber si esos pequeños olvidos
+sesenta | después de los 60 años
+s1 | La primera es pedir
+distingues | no distingues determinadas palabras
+quehasdicho | qué has dicho
+distraido | estás distraído
+s2 | La segunda señal aparece
+subir | subir el volumen
+alto | demasiado alto
+preferencia | una simple preferencia
+s3 | La tercera señal es perder el hilo
+voces | escuchas diferentes voces
+detalles4 | no recuerdas determinados detalles
+s4 | La cuarta señal consiste
+cita4 | una cita médica
+direccion | una dirección
+hora | una hora concreta
+diferente | una información diferente
+claros | no llegaron suficientemente claros
+s5 | La quinta señal es comenzar a evitar
+cansado | terminas cansado
+silencio4 | permanecer en silencio
+diagnosticar4 | estas señales no permiten diagnosticar
+otras4 | otras causas
+advertencia | una advertencia médica
+repentina | una pérdida repentina de audición
+unoido | especialmente en un oído
+urgente | busca atención médica urgente
+noesperes | No esperes varios días
+mismo | Del mismo modo
+autonomia | afectan a tu autonomía
+profesional4 | consulta con un profesional sanitario
+comparte | Comparte este video
+ayuda | el primer paso para buscar ayuda
+fundamental4 | Y recuerda algo fundamental
+resignarte | resignarte a escuchar peor
+soluciones | evaluaciones y soluciones
+siguiente4 | En el siguiente apartado
+punto5 | 5 formas de cuidar tu audición
+# VIDEO 3 = punto 5 + conclusión
+importante5 | llega la parte más importante
+buena | La buena noticia
+independencia | conservar tu independencia
+m1 | La primera medida es revisar
+especialista | acudir al especialista
+cerumen | acumulaciones de
+tratamiento | requieren tratamiento
+solicita | solicita una valoración auditiva
+edad5 | consecuencia inevitable de la edad
+m2 | La segunda medida consiste
+audifonos | Los audífonos pueden facilitar
+adaptacion | una adaptación adecuada
+milagrosos | No son dispositivos milagrosos
+beneficio | Su principal beneficio
+m3 | La tercera medida es mantener
+casa | quedarse en casa
+abandonar | abandonar las conversaciones
+cara | habla cara a cara
+verguenza | sin vergüenza
+perfectamente | escuchar perfectamente
+m4 | La cuarta medida es proteger
+musica | Escuchar música demasiado alta
+auriculares | utilizar auriculares
+intensos | sonidos intensos
+reduce | Reduce el volumen
+descansos | realiza descansos
+proteccion | utiliza protección auditiva
+pequenas | Son decisiones pequeñas
+m5 | La quinta medida es cuidar
+fisica | actividad física
+dormir | dormir adecuadamente
+presion | controlar la presión arterial
+intelectuales | actividades intelectuales
+nuevo | aprender algo nuevo
+detalle5 | un detalle que no debes olvidar
+sustituye | sustituye una evaluación médica
+causas6 | pueden tener diferentes causas
+voz | escuchar una voz querida
+momentos | preservar esos momentos
+proteger | Porque proteger tu cerebro
+confianza | con confianza
+proxima | La próxima vez que olvides
+pregunta6 | Hazte primero una pregunta
+toda6 | Realmente escuchaste y comprendiste
+descubierto | Como hemos descubierto
+esfuerzo6 | aumentar el esfuerzo mental
+concentracion | dificultar la concentración
+agotadoras | resulten agotadoras
+relacion6 | han encontrado una relación
+fundamental6 | Pero recuerda algo fundamental
+demencia6 | necesariamente desarrollarás demencia
+origen | tienen su origen en los oídos
+evaluacion6 | pide una evaluación auditiva
+profesional6 | consulta también con un profesional
+repentinamente | pierdes audición repentinamente
+quiz | proponerte una pequeña pregunta
+precision6 | recordarlo con precisión
+escribe | Escribe tu respuesta
+opa | Siempre
+opb | No necesariamente
+opc | Depende de la edad
+compartelo | compártelo con alguien
+subs3 | Suscríbete a Cerebro y Bienestar
+envejecer | Porque envejecer no significa
