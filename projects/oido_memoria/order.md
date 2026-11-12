@@ -2,6 +2,7 @@
 
 Video này **dùng lại khoảng 80 hình có sẵn** từ video "8 señales" (tư thế, cảnh, đồ vật), nên chỉ cần tạo **5 ảnh mới**.
 Đặt tên `1.png` … `5.png`. Mỗi lần tạo đều **đính kèm ảnh nhân vật gốc** (`characters/brain_mascot/sheet_original.jpg`).
+Tấm 7 tư thế "tai" bạn gửi (vẫy tay, lịch ?, bịt tai, bảng tai→não, TV to, máy trợ thính, bàn trà gia đình) = `0.png`.
 
 **Dùng lại, không cần tạo:** cảnh bữa tối đông người, nhà hàng ồn, xem TV, ngồi một mình uống trà, khám bác sĩ,
 ghế đá hai người, nằm thao thức; tư thế bịt tai, lo lắng, cầm remote, đọc sách, nghe nhạc, ý tưởng, nhún vai…;
@@ -10,10 +11,10 @@ ghế đá hai người, nằm thao thức; tư thế bịt tai, lo lắng, cầ
 ---
 
 ## Ảnh 1 (`1.png`): tư thế "nghe" (6 tư thế)
-*Khum tay sau tai cố nghe; nghe điện thoại bối rối; gật đầu cười giả vờ hiểu; hỏi "nói gì cơ?"; khoe máy trợ thính; đeo chụp tai chống ồn.*
+*Khum tay sau tai cố nghe; nghe điện thoại bối rối; gật đầu cười giả vờ hiểu; hỏi "nói gì cơ?"; lịch sự xin nhắc lại; đeo chụp tai chống ồn.*
 
 ```
-2D minimalist brain character explainer style, the SAME mascot as the attached reference: a simple white cartoon figure with a big round head whose top is an exposed pink brain with simple fold lines, small black dot eyes with short eyebrows, a small open smiling mouth with a pink tongue, round simple body, thin arms and legs, rounded mitten hands, white fill, thick clean black outlines, small yellow accent strokes for emphasis, a soft pale blue oval shadow under the feet. Flat colors, no gradients, plain pure white background. Character pose sheet: SIX separate full-body poses of this same mascot, same size, arranged in two rows of three, widely spaced, nothing touching: 1) cupping one hand behind its ear, leaning sideways, straining to hear, squinting; 2) holding a simple smartphone to its ear, confused face, small question mark; 3) nodding and smiling politely while clearly not understanding, a sweat drop and a tiny question mark; 4) both palms up, puzzled, a speech bubble containing only a big question mark; 5) happily pointing at a small beige behind-the-ear hearing aid on its ear, big smile, yellow sparkle lines; 6) wearing big protective ear muffs, giving a thumbs up. No text, no letters, no numbers, 16:9, high resolution.
+2D minimalist brain character explainer style, the SAME mascot as the attached reference: a simple white cartoon figure with a big round head whose top is an exposed pink brain with simple fold lines, small black dot eyes with short eyebrows, a small open smiling mouth with a pink tongue, round simple body, thin arms and legs, rounded mitten hands, white fill, thick clean black outlines, small yellow accent strokes for emphasis, a soft pale blue oval shadow under the feet. Flat colors, no gradients, plain pure white background. Character pose sheet: SIX separate full-body poses of this same mascot, same size, arranged in two rows of three, widely spaced, nothing touching: 1) cupping one hand behind its ear, leaning sideways, straining to hear, squinting; 2) holding a simple smartphone to its ear, confused face, small question mark; 3) nodding and smiling politely while clearly not understanding, a sweat drop and a tiny question mark; 4) both palms up, puzzled, a speech bubble containing only a big question mark; 5) politely raising one finger with a friendly smile, as if asking someone to repeat, a small speech bubble with a circular arrow inside; 6) wearing big protective ear muffs, giving a thumbs up. No text, no letters, no numbers, 16:9, high resolution.
 ```
 
 ## Ảnh 2 (`2.png`): tư thế "cuộc sống" (6 tư thế)
