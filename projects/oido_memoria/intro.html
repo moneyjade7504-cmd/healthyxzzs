@@ -1,0 +1,94 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script>
+// INTRO (hook)
+let S;
+
+// A1 · forgetting…?
+S = Scene(0, 'oidos', { cut: true });
+Item(S, Img('think_calendar', 560), { x: 560, y: 520 });
+Item(S, Img('brain', 280), { x: 1330, y: 460, t: 'memoria0' });
+Item(S, Ico('question', 1.3), { x: 1500, y: 300, t: 'memoria0+0.4', enter: 'slam' });
+Item(S, Pill('¿OLVIDOS…?', { hi: 'OLVIDOS', size: 64 }), { y: 975, t: 'olvidos', enter: 'd' });
+
+// A2 · …or your ears
+S = Scene('oidos', 'imagina0', { cut: true });
+Item(S, Img('ear', 380), { x: 960, y: 460, enter: 'slam' });
+Item(S, Waves(1), { x: 1180, y: 460, t: 'oidos+0.2' });
+Item(S, Waves(-1), { x: 740, y: 460, t: 'oidos+0.2' });
+Item(S, Pill('¿O TUS OÍDOS?', { hi: 'OÍDOS', size: 70 }), { y: 950, t: 'oidos+0.1', enter: 'd' });
+punchAt(S, 'oidos');
+
+// B · someone tells you something important
+S = Scene('imagina0', 'familia', { cut: true });
+Item(S, Panel('s_ask', 1200), { x: 960, y: 450, zoom: 0.06 });
+Item(S, Ico('question', 1.4), { x: 1420, y: 170, t: 'norecuerdas', enter: 'slam' });
+Item(S, Pill('NO RECUERDAS QUÉ TE DIJO', { hi: 'NO RECUERDAS' }), { y: 975, t: 'norecuerdas', enter: 'd' });
+
+// C · family comments
+S = Scene('familia', 'sorprendente', { cut: true });
+Item(S, Panel('c_whisper', 1100), { x: 640, y: 460, zoom: 0.05 });
+Item(S, Chip('«SE TE OLVIDA TODO»', { size: 44, color: K.red }), { x: 1540, y: 330, t: 'olvida', enter: 'r' });
+Item(S, Chip('«ANTES RECORDABAS MÁS»', { size: 42, color: K.red }), { x: 1520, y: 500, t: 'antes', enter: 'r' });
+Item(S, Pill('¿MI CEREBRO ENVEJECE?', { hi: 'ENVEJECE' }), { y: 975, t: 'envejeciendo', enter: 'd' });
+
+// D · not remembering — hearing
+S = Scene('sorprendente', 'perder');
+Item(S, Txt('¿Y SI EL PROBLEMA ES OTRO?', { size: 66 }), { x: 960, y: 150, t: 'sorprendente', enter: 'u' });
+Item(S, Img('brain', 260), { x: 560, y: 470, t: 'recordar0' });
+Item(S, Chip('RECORDAR', { icon: 'cross', color: K.red }), { x: 560, y: 760, t: 'recordar0+0.2' });
+Item(S, Img('ear', 260), { x: 1360, y: 470, t: 'escuchar0' });
+Item(S, Chip('ESCUCHAR', { icon: 'check', color: K.green }), { x: 1360, y: 760, t: 'escuchar0+0.2', enter: 'slam' });
+punchAt(S, 'escuchar0');
+
+// E · effort
+S = Scene('perder', 'preocupante');
+Item(S, Img('cup_ear', 540), { x: 500, y: 540 });
+Item(S, Img('brain', 240), { x: 1350, y: 400, t: 'esforzarse' });
+Item(S, Sparks(1.1), { x: 1530, y: 270, t: 'esforzarse+0.3', rot: 30 });
+Item(S, Chip('+ ESFUERZO', { fill: K.yellow, size: 56 }), { x: 1350, y: 650, t: 'esforzarse+0.4', enter: 'slam' });
+Item(S, Pill('MENOS ATENCIÓN, MENOS DETALLES', { hi: 'MENOS DETALLES', size: 52 }), { x: 1180, y: 975, t: 'esfuerzo0+1', enter: 'd' });
+
+// F · research link (with caution)
+S = Scene('preocupante', 'cinco');
+Item(S, Img('teach_board', 520), { x: 520, y: 560 });
+Item(S, Chip('UNA RELACIÓN', { color: K.blueD }), { x: 1350, y: 280, t: 'relacion0' });
+Item(S, Chip('+ RIESGO DE DETERIORO COGNITIVO', { size: 40, color: K.red }), { x: 1350, y: 440, t: 'riesgo0' });
+Item(S, StampB('NO ES INEVITABLE', { size: 60, color: K.green, rot: -5 }), { x: 1350, y: 700, t: 'nosignifica0+1.5', enter: 'slam' });
+
+// G · 5 aspects
+S = Scene('cinco', 'pregunta0');
+Item(S, Txt('5', { size: 320, color: K.pinkD }), { x: 760, y: 300, t: 'cinco', enter: 'slam' });
+Item(S, Txt('ASPECTOS', { size: 110 }), { x: 1180, y: 320, t: 'cinco+0.3', enter: 'r' });
+for (let i = 0; i < 5; i++) Item(S, g => {
+  el('circle', { cx: 7, cy: 9, r: 74, fill: K.ink }, g);
+  el('circle', { r: 74, fill: [K.pink, K.yellow, K.blue, K.pink, K.yellow][i], stroke: K.ink, 'stroke-width': 8 }, g);
+  Text(g, String(i + 1), { x: 0, y: 4, size: 76 });
+}, { x: 560 + i * 200, y: 640, t: `cinco+${(0.8 + i * 0.25).toFixed(2)}` });
+Item(S, Pill('CUIDA TUS OÍDOS Y TU MEMORIA', { hi: 'OÍDOS', size: 54 }), { y: 940, t: 'cuidar0', enter: 'd' });
+
+// H · did you forget, or not hear?
+S = Scene('pregunta0', 'quedate');
+Item(S, Img('whats_said', 540), { x: 500, y: 540 });
+Item(S, Txt('¿LO OLVIDASTE…', { size: 76 }), { x: 1280, y: 420, t: 'olvidado0', enter: 'r' });
+Item(S, Txt('…O NO LO OÍSTE BIEN?', { size: 76, color: K.pinkD }), { x: 1280, y: 560, t: 'noescuchaste', enter: 'r' });
+punchAt(S, 'noescuchaste');
+
+// I · stay: decisions for your brain health
+S = Scene('quedate', T('punto1'));
+Item(S, Img('m_point', 440), { x: 400, y: 560 });
+Item(S, Img('ear', 220), { x: 1000, y: 440, t: 'quedate+0.5' });
+Item(S, Arrow(200, 0, { color: K.yellow }), { x: 1140, y: 440, t: 'quedate+1.2' });
+Item(S, Img('brain', 240), { x: 1520, y: 440, t: 'quedate+1.6' });
+Item(S, Pill('TU SALUD CEREBRAL', { hi: 'CEREBRAL', size: 62 }), { x: 1260, y: 760, t: 'decisiones', enter: 'd' });
+
+Run(0, T('punto1'));
+</script></body></html>

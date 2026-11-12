@@ -1,0 +1,139 @@
+# VIDEO 1 = intro + punto 1 + punto 2
+q1 | Y si te dijera
+olvidos | algunos de tus olvidos
+memoria0 | no deberse a tu memoria
+oidos | tus oídos
+imagina0 | Imagina esta situación
+cuenta | Alguien te cuenta algo importante
+norecuerdas | no recuerdas exactamente
+familia | Tu familia empieza a repetir
+olvida | se te olvida todo
+antes | antes tenías mejor memoria
+envejeciendo | envejeciendo demasiado rápido
+sorprendente | aquí viene algo sorprendente
+recordar0 | no está en recordar
+escuchar0 | sino en escuchar
+perder | Cuando empiezas a perder audición
+esforzarse | necesita esforzarse más
+esfuerzo0 | ese esfuerzo adicional
+preocupante | Lo más preocupante
+relacion0 | han encontrado una relación
+riesgo0 | mayor riesgo de deterioro cognitivo
+nosignifica0 | Esto no significa que escuchar mal
+merece | merece mucha más atención
+cinco | descubrirás cinco aspectos
+senales0 | qué señales deberías reconocer
+cuidar0 | qué puedes hacer para cuidar
+pregunta0 | déjame preguntarte algo
+olvidado0 | has olvidado una conversación
+noescuchaste | realmente no escuchaste bien
+quedate | Quédate porque entender
+decisiones | tomar decisiones importantes
+punto1 | Punto 1
+p1title | Por qué oír mal puede parecer
+contado | ya te lo había contado
+asentiste | Quizá sentiste sonreíste
+duda | apareció una duda incómoda
+reciente | algo tan reciente
+culpar | Antes de culpar a tu memoria
+toda | Escuchaste realmente toda la conversación
+recibirla | primero necesitamos recibirla
+comprenderla | comprenderla
+atencion1 | prestarle atención
+distorsionada | llega distorsionada
+ruidos | se pierde entre los ruidos
+dispone | no dispone de todos los detalles
+precision | recordarse con precisión
+desaparecido | No es que el recuerdo haya desaparecido
+formarse | llegó a formarse
+carmen | Imagina a Carmen
+hija | Su hija le comenta desde la cocina
+jueves | el jueves
+diez | a las 10
+salon | Carmen está en el salón
+television | con la televisión encendida
+oye | Oye cita médica
+confunde | confunde el día
+dosdias | Dos días después
+inseguridad | responde con inseguridad
+olvidadiza | está olvidadiza
+entero | no había recibido el mensaje entero
+varias | varias personas hablan a la vez
+espaldas | se encuentra de espaldas
+fondo | ruido de fondo
+gradual | suele avanzar gradualmente
+perciben | no perciben cuánto han cambiado
+consonantes | determinadas consonantes
+teoigo | te oigo pero no te entiendo
+retire | se retire de las conversaciones
+equivocarse | teme equivocarse
+diferencia | Aquí aparece una diferencia fundamental
+claramente | Olvidar algo que se escuchó claramente
+incompleta | de forma incompleta
+fuera | Desde fuera
+dentro | Desde dentro
+coexistir | pueden coexistir
+apresuradas | conclusiones apresuradas
+pista | Hay una pista útil
+conversaciones2 | durante conversaciones
+llamadas | llamadas telefónicas
+reuniones | reuniones familiares
+frente | te mira de frente
+apaga | apaga la televisión
+escrita | la tienes escrita
+diagnosticar | no permiten diagnosticar
+profesional1 | un profesional sanitario
+importante1 | hay algo importante que quiero
+debilidad | no es señal de debilidad
+fingir | Fingir que has comprendido
+malentendidos | malentendidos
+evaluacion | una evaluación auditiva
+todos1 | todos los olvidos
+ambas | examinar ambas posibilidades
+siguiente1 | el siguiente paso
+menos1 | menos atención disponible
+p2title | El esfuerzo invisible que agota
+mesa | estás sentado en una mesa familiar
+platos | los platos hacen ruido
+domingo | tus planes del domingo
+confunden | algunas palabras se confunden
+labios | mirar sus labios
+gestos | observar sus gestos
+reconstruir | reconstruir mentalmente
+avanzado | la conversación ya ha avanzado
+nombre | Eso tiene un nombre
+esfuerzo2 | esfuerzo de escucha
+claridad2 | llegan con poca claridad
+descifrarlos | descifrarlos
+recursos | exigir más recursos
+pagina | leer una página con varias letras borradas
+contexto | gracias al contexto
+hilo | pierdes el hilo
+trabajo | la memoria de trabajo
+segundos | durante unos segundos
+explicacion | seguir una explicación
+comparar | comparar dos ideas
+principio | recordar el principio de una frase
+ocupada | está ocupada intentando
+organizar | organizar los detalles
+agotadas | terminan agotadas
+silencio | guardar silencio
+interes | perdido interés
+continuo | un esfuerzo continuo
+equivocada | una conclusión equivocada
+dano | no demuestra que exista un daño cerebral
+inevitable | sea inevitable
+ruido2 | El ruido
+sueno | la falta de sueño
+estres | el estrés
+hoy | Qué puedes hacer desde hoy
+tranquilo | en un lugar tranquilo
+volumen | reduce el volumen
+hablen | te hablen de frente
+gritar | sin gritar
+valorar | consulta para valorar tu audición
+subs | suscríbete a Cerebro y Bienestar
+alarmismos | sin alarmismos
+otra | hay otra cuestión importante
+sabemos | Qué sabemos sobre la relación
+punto3 | La relación entre la pérdida auditiva y el riesgo

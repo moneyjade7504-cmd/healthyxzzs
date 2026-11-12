@@ -1,0 +1,154 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script>
+// PUNTO 1 · ¿Por qué oír mal puede parecer un problema de memoria?
+let S;
+
+// P · title
+S = Scene('punto1', 'contado');
+Item(S, Kicker('PUNTO 1', '¿POR QUÉ OÍR MAL PUEDE PARECER\nUN PROBLEMA DE MEMORIA?', { size: 64 }), { x: 960, y: 300, enter: 'u' });
+Item(S, Img('think_calendar', 420), { x: 960, y: 790, t: 'p1title' });
+
+// Q · "I already told you"
+S = Scene('contado', 'recibirla');
+Item(S, Img('fake_nod', 540), { x: 470, y: 560 });
+Item(S, Pill('«¡YA TE LO HABÍA CONTADO!»', { fill: '#fff', color: K.ink, stroke: K.ink, size: 52 }), { x: 1260, y: 230, t: 'contado' });
+Item(S, Txt('¿CÓMO NO LO RECUERDO?', { size: 56, color: K.grey }), { x: 1260, y: 480, t: 'duda', enter: 'fade' });
+Item(S, Ico('question', 1.2), { x: 1260, y: 620, t: 'reciente' });
+Item(S, Pill('¿ESCUCHASTE TODO?', { hi: 'TODO', size: 64 }), { x: 1260, y: 900, t: 'toda', enter: 'd' });
+punchAt(S, 'toda');
+
+// R · receive → understand → attend → remember
+S = Scene('recibirla', 'carmen');
+{ const L = [['RECIBIR', 'recibirla'], ['COMPRENDER', 'comprenderla'], ['ATENDER', 'atencion1'], ['RECORDAR', 'atencion1+0.9']];
+  const W = L.map(([s]) => tw(s, 44) + 80), gap = 150, tot = W.reduce((a, b) => a + b) + gap * 3;
+  let x = 960 - tot / 2;
+  L.forEach(([s, t], i) => {
+    if (i) Item(S, Arrow(gap - 40, 0, { color: K.ink, width: 12 }), { x: x - gap + 20, y: 250, t });
+    Item(S, Chip(s, { size: 44, color: i === 3 ? K.pinkD : K.blueD }), { x: x + W[i] / 2, y: 250, t });
+    x += W[i] + gap;
+  });
+}
+Item(S, Img('overwhelmed', 420), { x: 700, y: 650, t: 'distorsionada' });
+Item(S, Ico('cross', 0.9), { x: 960 - 816 + 30, y: 205, t: 'distorsionada+0.4', enter: 'slam' });
+Item(S, Waves(1, K.grey), { x: 960, y: 560, t: 'ruidos' });
+Item(S, Ico('cross', 0.9), { x: 960 + 816 - 30, y: 205, t: 'precision', enter: 'slam' });
+Item(S, Img('paper_gaps', 380), { x: 1400, y: 650, t: 'dispone' });
+Item(S, Pill('EL RECUERDO NUNCA SE FORMÓ', { hi: 'NUNCA', size: 52 }), { y: 975, t: 'formarse', enter: 'd' });
+
+// S · Carmen (dramatisation)
+S = Scene('carmen', 'varias');
+Item(S, Panel('c_tv_call', 1150), { x: 690, y: 470, t: 'carmen', out: 'dosdias', zoom: 0.03 });
+Item(S, Panel('c_unsure', 1150), { x: 690, y: 470, t: 'dosdias', out: 'olvidadiza', enter: 'fade' });
+Item(S, Panel('c_whisper', 1150), { x: 690, y: 470, t: 'olvidadiza', enter: 'fade' });
+Item(S, Chip('DRAMATIZACIÓN', { size: 30, color: K.grey }), { x: 1600, y: 1010, t: 'carmen+0.3' });
+Item(S, Chip('CARMEN · 70', { fill: K.yellow, size: 44 }), { x: 1590, y: 170, t: 'carmen+0.4', enter: 'r' });
+Item(S, Chip('JUEVES', { size: 48 }), { x: 1590, y: 360, t: 'jueves', enter: 'r', out: 'dosdias' });
+Item(S, Chip('10:00', { size: 48 }), { x: 1590, y: 520, t: 'diez', enter: 'r', out: 'dosdias' });
+Item(S, Ico('question', 0.8), { x: 1730, y: 340, t: 'confunde', out: 'dosdias' });
+Item(S, Ico('question', 0.8), { x: 1700, y: 500, t: 'confunde+0.8', out: 'dosdias' });
+Item(S, Chip('«OLVIDADIZA»', { size: 48, color: K.red }), { x: 1590, y: 450, t: 'olvidadiza', enter: 'r' });
+Item(S, Pill('NO RECIBIÓ EL MENSAJE ENTERO', { hi: 'ENTERO', size: 52 }), { y: 990, t: 'entero', enter: 'd' });
+
+// T · when it happens
+S = Scene('varias', 'gradual');
+Item(S, Img('overwhelmed', 420), { x: 380, y: 480, t: 'varias' });
+Item(S, Chip('VARIAS VOCES', { size: 46 }), { x: 380, y: 820, t: 'varias+0.3' });
+Item(S, Img('lip_read', 400), { x: 960, y: 490, t: 'espaldas' });
+Item(S, Chip('DE ESPALDAS', { size: 46 }), { x: 960, y: 820, t: 'espaldas+0.3' });
+Item(S, Img('tv_loud', 400), { x: 1540, y: 490, t: 'fondo' });
+Item(S, Chip('RUIDO DE FONDO', { size: 46 }), { x: 1540, y: 820, t: 'fondo+0.3' });
+
+// U1 · age-related loss is gradual
+S = Scene('gradual', 'consonantes');
+Item(S, Txt('AUDICIÓN Y EDAD', { size: 66 }), { x: 860, y: 140, t: 'gradual', enter: 'u' });
+Item(S, g => {
+  const W = 1100, H = 520;
+  el('path', { d: `M${-W / 2} ${-H / 2} L${-W / 2} ${H / 2} L${W / 2} ${H / 2}`, fill: 'none', stroke: K.ink, 'stroke-width': 10, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, g);
+  Text(g, 'AÑOS →', { x: W / 2 - 80, y: H / 2 + 50, size: 40 });
+  Text(g, 'AUDICIÓN', { x: -W / 2 + 120, y: -H / 2 - 30, size: 40, color: K.blueD });
+  const pts = []; for (let i = 0; i <= 40; i++) { const u = i / 40; pts.push([-W / 2 + u * W, -H / 2 + 60 + Math.pow(u, 1.6) * (H - 140)]); }
+  const d = 'M' + pts.map(p => p.map(v => v.toFixed(1)).join(' ')).join(' L');
+  const path = el('path', { d, fill: 'none', stroke: K.blueD, 'stroke-width': 14, 'stroke-linecap': 'round' }, g);
+  const L = 1300; path.setAttribute('stroke-dasharray', L);
+  return { draw(t, t0) { path.setAttribute('stroke-dashoffset', (L * (1 - E.inOut(prog(t, t0 + 0.3, t0 + 5)))).toFixed(1)); } };
+}, { x: 900, y: 560, t: 'gradual+0.2', enter: 'fade' });
+Item(S, Chip('POCO A POCO', { fill: K.yellow }), { x: 1560, y: 330, t: 'gradual+1.5' });
+Item(S, Chip('NO SE NOTA', { icon: 'question', color: K.yellow }), { x: 1560, y: 500, t: 'perciben' });
+
+// U2 · consonants: "I hear you but I don't understand"
+S = Scene('consonantes', 'retire');
+Item(S, Img('cup_ear', 520), { x: 470, y: 540 });
+['S', 'F', 'T', 'CH', 'P'].forEach((c, i) => Item(S, g => {
+  const tx = Text(g, c, { x: 0, y: 0, size: 150, color: K.ink });
+  return { draw(t) { tx.setAttribute('opacity', (i % 2 ? 0.15 + 0.1 * Math.sin(t * 3 + i) : 0.9).toFixed(2)); } };
+}, { x: 1000 + i * 190, y: 400, t: `consonantes+${(i * 0.2).toFixed(1)}` }));
+Item(S, Txt('CONSONANTES', { size: 50, color: K.grey }), { x: 1380, y: 560, t: 'consonantes+0.5', enter: 'fade' });
+Item(S, Pill('«TE OIGO, PERO NO TE ENTIENDO»', { hi: 'NO TE ENTIENDO', size: 50 }), { x: 1180, y: 900, t: 'teoigo', enter: 'd' });
+
+// V · withdrawal
+S = Scene('retire', 'diferencia');
+Item(S, Panel('s_isolated', 1150), { x: 680, y: 470, zoom: 0.05 });
+Item(S, Chip('SE RETIRA', { color: K.red }), { x: 1590, y: 330, t: 'retire+1', enter: 'r' });
+Item(S, Chip('MIEDO A EQUIVOCARSE', { size: 42, color: K.red }), { x: 1560, y: 500, t: 'equivocarse', enter: 'r' });
+
+// W · a key difference
+S = Scene('diferencia', 'pista');
+Item(S, Txt('UNA DIFERENCIA CLAVE', { size: 66 }), { x: 860, y: 130, t: 'diferencia', enter: 'u' });
+Item(S, Img('brain', 220), { x: 520, y: 400, t: 'claramente' });
+Item(S, Chip('LO OÍSTE… Y LO OLVIDASTE', { size: 40, color: K.pinkD }), { x: 520, y: 620, t: 'claramente+0.5' });
+Item(S, Img('paper_gaps', 380), { x: 1400, y: 430, t: 'incompleta' });
+Item(S, Chip('NUNCA LLEGÓ COMPLETO', { size: 40, color: K.blueD }), { x: 1400, y: 680, t: 'incompleta+0.4' });
+Item(S, Txt('DESDE FUERA: IGUAL', { size: 52 }), { x: 960, y: 830, t: 'fuera', out: 'dentro-0.2', enter: 'fade' });
+Item(S, Txt('DESDE DENTRO: DISTINTO', { size: 52, color: K.pinkD }), { x: 960, y: 830, t: 'dentro', out: 'coexistir-0.2', enter: 'fade' });
+Item(S, Chip('PUEDEN COEXISTIR', { fill: K.yellow, size: 52 }), { x: 960, y: 830, t: 'coexistir', out: 'apresuradas-0.2', enter: 'slam' });
+Item(S, Pill('SIN CONCLUSIONES RÁPIDAS', { hi: 'RÁPIDAS' }), { y: 830, t: 'apresuradas', enter: 'd' });
+
+// X · a useful clue: when do the "lapses" happen?
+S = Scene('pista', 'frente');
+Item(S, Txt('UNA PISTA ÚTIL', { size: 70 }), { x: 860, y: 130, t: 'pista', enter: 'u' });
+Item(S, Img('m_listen', 330), { x: 420, y: 520, t: 'conversaciones2' });
+Item(S, Chip('CONVERSACIONES', { size: 44 }), { x: 420, y: 800, t: 'conversaciones2+0.2' });
+Item(S, Img('phone', 360), { x: 960, y: 510, t: 'llamadas' });
+Item(S, Chip('LLAMADAS', { size: 44 }), { x: 960, y: 800, t: 'llamadas+0.2' });
+Item(S, Img('family_table', 340), { x: 1500, y: 520, t: 'reuniones' });
+Item(S, Chip('REUNIONES', { size: 44 }), { x: 1500, y: 800, t: 'reuniones+0.2' });
+
+// Y · what helps you remember better?
+S = Scene('frente', 'importante1');
+Item(S, Img('lip_read', 500), { x: 460, y: 540 });
+Item(S, Chip('DE FRENTE', { icon: 'check', color: K.green }), { x: 1300, y: 230, t: 'frente', enter: 'r' });
+Item(S, Chip('CON CLARIDAD', { icon: 'check', color: K.green }), { x: 1300, y: 390, t: 'frente+1.6', enter: 'r' });
+Item(S, Chip('TV APAGADA', { icon: 'check', color: K.green }), { x: 1300, y: 550, t: 'apaga', enter: 'r' });
+Item(S, Chip('POR ESCRITO', { icon: 'check', color: K.green }), { x: 1300, y: 710, t: 'escrita', enter: 'r' });
+Item(S, StampB('NO ES UN DIAGNÓSTICO', { size: 48 }), { x: 1300, y: 900, t: 'diagnosticar', enter: 'slam' });
+
+// Z · asking to repeat is not weakness; pretending is costly
+S = Scene('importante1', 'evaluacion');
+Item(S, Img('repeat_please', 540), { x: 450, y: 560 });
+Item(S, Pill('PEDIR QUE REPITAN ≠ DEBILIDAD', { hi: '≠ DEBILIDAD', size: 48 }), { x: 1260, y: 220, t: 'debilidad', enter: 'd' });
+Item(S, Img('fake_nod', 330), { x: 1000, y: 620, t: 'fingir' });
+Item(S, Txt('FINGIR QUE ENTIENDES…', { size: 44, color: K.grey }), { x: 1460, y: 440, t: 'fingir+0.3', enter: 'fade' });
+Item(S, Chip('MALENTENDIDOS', { icon: 'cross', color: K.red, size: 44 }), { x: 1470, y: 570, t: 'malentendidos' });
+Item(S, Chip('FRUSTRACIÓN', { icon: 'cross', color: K.red, size: 44 }), { x: 1470, y: 710, t: 'malentendidos+1' });
+Item(S, Chip('INSEGURIDAD', { icon: 'cross', color: K.red, size: 44 }), { x: 1470, y: 850, t: 'malentendidos+2.2' });
+
+// AA · a hearing evaluation helps clarify
+S = Scene('evaluacion', T('p2title'));
+Item(S, Panel('s_test', 1150), { x: 690, y: 460, zoom: 0.05 });
+Item(S, Chip('EVALUACIÓN AUDITIVA', { fill: K.yellow, size: 44 }), { x: 690, y: 92, t: 'evaluacion+0.5', enter: 'u' });
+Item(S, Chip('NO TODO ES EL OÍDO', { size: 40 }), { x: 1590, y: 330, t: 'todos1', enter: 'r' });
+Item(S, Chip('REVISA AMBAS COSAS', { icon: 'check', color: K.green, size: 40 }), { x: 1580, y: 500, t: 'ambas', enter: 'r' });
+Item(S, Pill('ESCUCHAR TAMBIÉN GASTA ATENCIÓN', { hi: 'ATENCIÓN', size: 50 }), { y: 990, t: 'menos1-1', enter: 'd' });
+
+Strip('punto1+1', T('p2title') + 1, t => 1);
+Run(T('punto1'), T('p2title'));
+</script></body></html>

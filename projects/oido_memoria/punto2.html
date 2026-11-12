@@ -1,0 +1,118 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script>
+// PUNTO 2 · El esfuerzo invisible que agota tu cerebro (video 1 ends before "Punto 3")
+let S;
+const END = 497.1;
+
+// BA · title
+S = Scene('p2title', 'mesa');
+Item(S, Kicker('PUNTO 2', 'EL ESFUERZO INVISIBLE\nQUE AGOTA TU CEREBRO', { size: 84 }), { x: 960, y: 300, enter: 'u' });
+Item(S, Img('overwhelmed', 420), { x: 960, y: 800, t: 'p2title+0.6' });
+
+// BB · noisy family table
+S = Scene('mesa', 'nombre');
+Item(S, Panel('s_dinner', 1150), { x: 690, y: 460, zoom: 0.05 });
+Item(S, Waves(1, K.grey), { x: 1080, y: 720, t: 'platos' });
+Item(S, Ico('question', 1), { x: 1060, y: 200, t: 'confunden' });
+Item(S, Img('lip_read', 420), { x: 1620, y: 560, t: 'labios', enter: 'r' });
+Item(S, Chip('LABIOS · GESTOS', { size: 40 }), { x: 1620, y: 860, t: 'gestos' });
+Item(S, Pill('LA CHARLA YA AVANZÓ', { hi: 'AVANZÓ', size: 56 }), { x: 690, y: 990, t: 'avanzado', enter: 'd' });
+
+// BC · listening effort drains resources
+S = Scene('nombre', 'pagina');
+Item(S, Txt('ESFUERZO DE ESCUCHA', { size: 96, color: K.pinkD }), { x: 900, y: 160, t: 'esfuerzo2', enter: 'slam' });
+Item(S, Img('cup_ear', 480), { x: 470, y: 600 });
+Item(S, Img('brain', 240), { x: 1350, y: 470, t: 'claridad2' });
+Item(S, Battery(t => lerp(1, 0.2, E.inOut(prog(t, T('claridad2'), T('recursos+1'))))), { x: 1350, y: 760, t: 'claridad2+0.3' });
+Item(S, Chip('+ RECURSOS', { fill: K.yellow }), { x: 1650, y: 330, t: 'recursos', enter: 'slam' });
+punchAt(S, 'esfuerzo2');
+
+// BD · a page with missing letters
+S = Scene('pagina', 'trabajo');
+Item(S, Img('paper_gaps', 540), { x: 450, y: 560 });
+Item(S, g => {
+  el('rect', { x: -320 + 10, y: -230 + 12, width: 640, height: 460, rx: 22, fill: K.ink }, g);
+  el('rect', { x: -320, y: -230, width: 640, height: 460, rx: 22, fill: '#fff', stroke: K.ink, 'stroke-width': 7 }, g);
+  const gaps = [];
+  for (let r = 0; r < 7; r++) {
+    let x = -270;
+    for (let k = 0; k < 4; k++) {
+      const w = 60 + ((r * 7 + k * 13) % 5) * 22, y = -180 + r * 58;
+      if ((r + k) % 3 === 1) gaps.push(el('rect', { x, y: y - 9, width: w, height: 18, rx: 9, fill: K.yellow, opacity: 0 }, g));
+      else el('rect', { x, y: y - 9, width: w, height: 18, rx: 9, fill: K.grey }, g);
+      x += w + 22; if (x > 250) break;
+    }
+  }
+  const tc = T('contexto');
+  return { draw(t) { gaps.forEach((r, i) => r.setAttribute('opacity', clamp((t - tc - i * 0.25) / 0.3).toFixed(2))); } };
+}, { x: 1280, y: 450, t: 'pagina+0.3' });
+Item(S, Chip('PIERDES EL HILO', { icon: 'cross', color: K.red }), { x: 1280, y: 850, t: 'hilo', enter: 'slam' });
+
+// BE · working memory: attention split
+S = Scene('trabajo', 'agotadas');
+Item(S, Txt('MEMORIA DE TRABAJO', { size: 84 }), { x: 860, y: 150, t: 'trabajo', enter: 'u' });
+Item(S, Img('think', 460), { x: 300, y: 600 });
+Item(S, Chip('SEGUIR', { size: 40 }), { x: 760, y: 330, t: 'explicacion' });
+Item(S, Chip('COMPARAR', { size: 40 }), { x: 1100, y: 330, t: 'comparar' });
+Item(S, Chip('RECORDAR EL INICIO', { size: 40 }), { x: 1540, y: 330, t: 'principio' });
+Item(S, g => {
+  const N = 10, w = 84, segs = [];
+  for (let i = 0; i < N; i++) segs.push(el('rect', { x: -N * w / 2 + i * w + 4, y: -50, width: w - 8, height: 100, rx: 14, stroke: K.ink, 'stroke-width': 6 }, g));
+  const l1 = Text(g, 'ENTENDER PALABRAS', { x: -N * w / 2, y: 100, size: 38, color: K.blueD, anchor: 'start' });
+  const l2 = Text(g, 'RECORDAR', { x: N * w / 2, y: 100, size: 38, color: K.green, anchor: 'end' });
+  const a = T('ocupada'), b = T('organizar');
+  return { draw(t) {
+    const n = Math.round(lerp(3, 8, E.inOut(prog(t, a, b))));
+    segs.forEach((s, i) => s.setAttribute('fill', i < n ? K.blue : K.greenL));
+  } };
+}, { x: 1150, y: 600, t: 'trabajo+0.6', enter: 'fade' });
+Item(S, Txt('ATENCIÓN DISPONIBLE', { size: 40, color: K.grey }), { x: 1150, y: 490, t: 'trabajo+0.8', enter: 'fade' });
+Item(S, Pill('MENOS ESPACIO PARA DETALLES', { hi: 'MENOS', size: 50 }), { x: 1150, y: 900, t: 'organizar', enter: 'd' });
+
+// BF · exhausted after family meals
+S = Scene('agotadas', 'equivocada');
+Item(S, Img('exhausted', 520), { x: 480, y: 560 });
+Item(S, Chip('AGOTAMIENTO', { color: K.red }), { x: 1330, y: 280, t: 'agotadas+0.5' });
+Item(S, Chip('EN SILENCIO', { color: K.blueD }), { x: 1330, y: 440, t: 'silencio' });
+Item(S, Chip('NO ES DESINTERÉS', { icon: 'check', color: K.green }), { x: 1330, y: 600, t: 'interes' });
+Item(S, Pill('UN ESFUERZO QUE NADIE VE', { hi: 'NADIE VE', size: 54 }), { x: 1200, y: 900, t: 'continuo', enter: 'd' });
+
+// BG · not brain damage, not inevitable; other factors
+S = Scene('equivocada', 'hoy');
+Item(S, Img('present', 520), { x: 420, y: 560 });
+Item(S, StampB('NO ES DAÑO CEREBRAL', { size: 54 }), { x: 1250, y: 230, t: 'dano', enter: 'slam' });
+Item(S, Chip('DEMENCIA: NO ES INEVITABLE', { icon: 'check', color: K.green, size: 40 }), { x: 1250, y: 410, t: 'inevitable' });
+Item(S, Txt('TAMBIÉN INFLUYEN…', { size: 44, color: K.grey }), { x: 1250, y: 570, t: 'ruido2-0.4', enter: 'fade' });
+Item(S, Chip('RUIDO', { color: K.yellow, size: 46 }), { x: 960, y: 710, t: 'ruido2' });
+Item(S, Chip('SUEÑO', { color: K.yellow, size: 46 }), { x: 1250, y: 710, t: 'sueno' });
+Item(S, Chip('ESTRÉS', { color: K.yellow, size: 46 }), { x: 1550, y: 710, t: 'estres' });
+
+// BH · what to do from today
+S = Scene('hoy', 'subs');
+Item(S, Txt('DESDE HOY', { size: 90, color: K.green }), { x: 860, y: 140, t: 'hoy', enter: 'slam' });
+Item(S, Panel('s_cafe', 880), { x: 540, y: 540, t: 'tranquilo' });
+Item(S, Chip('LUGAR TRANQUILO', { icon: 'check', color: K.green, size: 44 }), { x: 1450, y: 330, t: 'tranquilo', enter: 'r' });
+Item(S, Chip('TV MÁS BAJA', { icon: 'check', color: K.green, size: 44 }), { x: 1450, y: 480, t: 'volumen', enter: 'r' });
+Item(S, Chip('DE FRENTE, SIN GRITAR', { icon: 'check', color: K.green, size: 44 }), { x: 1450, y: 630, t: 'hablen', enter: 'r' });
+Item(S, Chip('VALORA TU AUDICIÓN', { fill: K.yellow, size: 48 }), { x: 1450, y: 820, t: 'valorar', enter: 'slam' });
+
+// BI · subscribe → next: hearing & dementia
+S = Scene('subs', END + 1);
+Item(S, Img('m_cheer', 480), { x: 500, y: 560 });
+Item(S, Txt('Cerebro y Bienestar', { size: 72, color: K.pinkD }), { x: 1260, y: 280, t: 'subs+0.2', enter: 'u' });
+Item(S, Subscribe(T('subs+1.8')), { x: 1260, y: 500, t: 'subs+0.4' });
+Item(S, Chip('SIN ALARMISMOS', { color: K.blueD }), { x: 1260, y: 730, t: 'alarmismos', out: 'otra' });
+Item(S, Chip('PRÓXIMO: OÍDO Y DEMENCIA →', { fill: K.yellow, size: 46 }), { x: 1260, y: 740, t: 'otra+0.3', enter: 'slam' });
+
+Strip('p2title+1', END + 1, t => 2);
+Run(T('p2title'), END);
+</script></body></html>

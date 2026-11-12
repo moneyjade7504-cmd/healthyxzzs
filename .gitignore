@@ -28,3 +28,5 @@ projects/*/clips/*.mp4
 
 # ocho_senales_mente: renders and temp audio stay local
 projects/ocho_senales_mente/out/
+projects/oido_memoria/out/
+projects/oido_memoria/qa/
