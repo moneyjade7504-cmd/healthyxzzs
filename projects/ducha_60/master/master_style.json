@@ -1,0 +1,14 @@
+{
+  "id": "WHITEBOARD_CARTOON",
+  "label": "Hand-Drawn Whiteboard Cartoon Explainer (Claves de la Longevidad)",
+  "image": "Hand-drawn whiteboard cartoon explainer style: clean pure white background, confident slightly sketchy dark grey marker outlines with natural line-weight variation, soft marker and light watercolor color fills with gentle hand shading, pastel palette of lilac, soft blue, warm skin tones, pale yellow and fresh green, small yellow emphasis tick strokes around heads and objects, friendly expressive older-adult faces with soft wrinkles and rosy cheeks, simple suggested backgrounds with lots of white space, 16:9.",
+  "graphic": "Same hand-drawn whiteboard marker style for objects and simple anatomy: sketchy dark grey outlines, soft marker/watercolor fills, pastel palette, plain white background, simplified but anatomically correct shapes.",
+  "motion": "Preserve the exact hand-drawn marker lines, soft color fills, white background and the same character face, hair bun, glasses and clothes. One gentle natural action, locked camera, no change of art medium.",
+  "negative": "photorealism, 3D, glossy vector, cream background, baked-in text, letters, numbers, panel numbers, logos",
+  "reference_images": ["projects/ducha_60/master/style_ref.webp"],
+  "character_references": ["projects/ducha_60/master/style_ref.webp"],
+  "characters": {
+    "CARMEN": "72-year-old Spanish woman, grey hair pulled back in a low bun with a few loose strands, round kind face with soft wrinkles and rosy cheeks, lilac knitted cardigan over a light pink top",
+    "ANTONIO": "68-year-old Spanish man, short grey hair, round thin-rimmed glasses, friendly smile, blue sweater over a light collared shirt; outdoors a straw sun hat, light blue shirt and dark gardening gloves"
+  }
+}

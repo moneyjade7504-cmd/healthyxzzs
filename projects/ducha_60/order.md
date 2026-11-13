@@ -1,3 +1,5 @@
+> ⚠ Style đổi sang **Hand-Drawn Whiteboard Cartoon** (master: `master/style_ref.webp`). Prompt phần 1 mới ở `order_phan1.md`; prompt phần 2–4 dưới đây sẽ được viết lại theo style mới trước khi làm.
+
 # Ảnh cần tạo: "7 verdades sobre la higiene después de los 60" (kênh Claves de la Longevidad)
 
 Video dài **~22 phút** → cần khoảng **64 hình**: 1 tấm thiết kế nhân vật + 2 tấm tư thế (12 tư thế) + 8 tấm cảnh 2×2
