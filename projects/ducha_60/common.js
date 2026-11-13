@@ -34,10 +34,7 @@ const NS='http://www.w3.org/2000/svg';
 const sv=(tag,attrs,parent)=>{const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);parent.appendChild(e);return e;};
 const rnd=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x);};
 const C=k=>{if(!(k in CUE))throw new Error('missing cue '+k);return CUE[k]-0.15;};   // beat lands 0.15 s before the word
-const IMG={ // natural sizes of the cut-outs
- think:[216,460],scratch_shin:[327,452],tight_arm:[275,457],cream_jar_hold:[280,467],antonio_walk:[332,473],wave:[295,469],
- s_shower:[808,457],s_dry_leg:[819,457],s_dawn:[808,439],s_mirror:[819,439],s_tea:[816,458],s_garden:[828,458],s_shower_soft:[816,441],s_nurse:[828,441],
- skin_block:[331,369],dry_circle:[361,379],shower_head:[315,384],tap:[301,384],cream_jar:[330,378],gel:[285,412],sponge:[337,392],thermo:[227,411],calendar:[377,387],body:[361,455]};
+const IMG={"antonio_walk":[307,466],"bandage":[320,348],"barrier":[354,390],"basin":[373,387],"bathtub":[488,360],"body":[243,466],"bubble_bath":[326,390],"calendar":[377,370],"cane":[207,425],"clean_clothes":[351,335],"cleanser":[240,405],"cream_jar":[341,327],"cream_jar_hold":[289,454],"cream_tube":[235,389],"cream_tube2":[274,367],"dry_circle":[316,330],"foot":[359,421],"gel":[285,429],"grab_bar":[150,429],"handshower":[274,412],"hat_gloves":[403,382],"lemon_vinegar":[346,394],"lotion":[233,386],"mat":[387,264],"notebook":[360,403],"phone":[297,411],"rough_towel":[309,358],"s_dawn":[808,439],"s_dry_leg":[819,457],"s_garden":[828,458],"s_mirror":[819,439],"s_nurse":[828,441],"s_shower":[808,457],"s_shower_soft":[816,441],"s_tea":[816,458],"sandtimer":[245,356],"scratch_shin":[374,462],"shower_chair":[335,432],"shower_head":[315,379],"skin_block":[331,320],"soap":[302,304],"soft_towel":[371,355],"sponge":[377,405],"stethoscope":[283,410],"sweaty_shirt":[383,364],"tap":[365,295],"tea":[325,380],"thermo":[169,426],"think":[249,464],"tight_arm":[306,468],"timer":[318,323],"vaseline":[343,355],"washcloth":[348,271],"wave":[340,455]};
 
 // ---------- beats (layers) ----------
 const beats=[];
