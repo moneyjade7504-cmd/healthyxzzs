@@ -1,0 +1,84 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="common.js"></script>
+<script>
+window.START=C('verdad3'); window.END=C('verdad4'); window.DURATION=window.END;
+const hotWater=(c,t)=>{water(c,t,{x0:1180,y0:170,x1:980,y1:700,spread:360,n:40,col:'rgba(120,170,235,0.8)'}); steam(c,t,{x:500,y:900,w:900,n:10,r:60,rise:300});};
+
+Title(C('verdad3'),C('agradable'),3,'El agua <span class="hl">muy caliente</span>','puede perjudicar tu piel',['thermo','shower_head']);
+
+// ducha caliente cuando hace frío
+Scene(C('agradable'),C('placer'),'S2_5','Una ducha <span class="hl">caliente</span> cuando hace frío…',{from:[.4,.45,1.0],to:[.5,.35,1.15],draw:(c,t)=>{hotWater(c,t); snow(c,t,{x:40,y:20,w:330,h:360});}});
+// el placer esconde un problema
+{const B=Side(C('placer'),C('ocurrido'),'thermo',[['…pero ese placer',null,72,'#6a6f86'],['puede esconder <span class="red">un problema</span>',C('placer')+1.4,80]],{h:720,shake:1.2});
+ Canvas(B,(c,t)=>steam(c,t,{x:600,y:330,w:200,n:6,r:26,rise:140}));}
+
+// media hora después: picor
+Scene(C('ocurrido'),C('aspera'),'S2_6','Media hora después: <span class="hl">picor</span>',{capT:2.5,from:[.5,.5,1.0],to:[.4,.75,1.2],
+ draw:(c,t)=>{sparks(c,t,{x:560,y:720,s:2}); sparks(c,t+0.4,{x:1010,y:640,s:2});}});
+// piel áspera
+{const B=Side(C('aspera'),C('otrojabon'),'dry_circle',[['La piel parece',null,70,'#6a6f86'],['<span class="hl">áspera</span>',C('aspera')+0.8,120]],{h:520,cy:820});}
+// otro jabón? crema más cara? más duchas?
+{const B=Beat(C('otrojabon'),C('grifo'),{enter:'zoom'});
+ Cap(B,'¿La solución sería…?',{cx:960,cy:120,size:70,t0:B.a+0.1});
+ Row(B,[['gel','¿Otro jabón?',B.a+0.2,null],['cream_jar','¿Crema más cara?',B.a+1.4,null],['calendar','¿Más duchas?',B.a+3.2,null]],{y:570});}
+// el responsable: el grifo
+{const B=Beat(C('grifo'),C('lipidos'),{enter:'zoom'}); Cut(B,'tap',{cx:700,cy:860,h:560,amp:3});
+ const s=Svg(B); Draw(B,s,scribble(560,640,120,100),{t0:B.a+1.3,dur:0.6,stroke:'#e23b2e',w:10});
+ Canvas(B,(c,t)=>steam(c,t,{x:700,y:760,w:300,n:7,r:30,rise:200}));
+ Cap(B,'El responsable…',{cx:1400,cy:420,size:72,t0:B.a+0.2,color:'#6a6f86'}); Cap(B,'¿está <span class="hl">en el grifo</span>?',{cx:1400,cy:570,size:92,t0:B.a+1.6});}
+// arrastra los lípidos
+{const B=Beat(C('lipidos'),C('agresion')); Cut(B,'barrier',{cx:640,cy:880,h:620,amp:2,tilt:.3});
+ Canvas(B,(c,t)=>{water(c,t,{x0:640,y0:120,x1:640,y1:420,spread:500,n:30,col:'rgba(230,80,60,0.75)',lw:3.5});
+   const f=prog(t,C('lipidos')+1.5,C('lipidos')+5); for(let i=0;i<8;i++){c.globalAlpha=f*Math.sin(prog(t,C('lipidos')+1.5+i*0.3,C('lipidos')+4+i*0.3)*Math.PI);
+     drop(c,450+i*55,520-f*260+Math.sin(t*3+i)*8,0.8,'#f7c948','#c99a1c');} c.globalAlpha=1;});
+ Cap(B,'Agua muy caliente',{cx:1400,cy:380,size:72,t0:B.a+0.3,color:'#e23b2e'});
+ Cap(B,'arrastra los <span class="hl">lípidos protectores</span>',{cx:1400,cy:530,size:66,t0:B.a+2.5});
+ Src(B,'Fuente: AAD (Academia Americana de Dermatología) · NIA');}
+// sequedad, tirantez, picor
+{const B=Beat(C('agresion'),C('enfermedad'));
+ Cap(B,'Si se repite, puede aumentar:',{cx:960,cy:120,size:66,t0:B.a+0.2});
+ Row(B,[['dry_circle','Sequedad',B.a+1.4,'no'],['tight_arm','Tirantez',B.a+2.4,'no'],['scratch_shin','Picor',B.a+3.4,'no']],{y:570,h:380});}
+// no es una enfermedad
+{const B=Beat(C('enfermedad'),C('senal'),{enter:'zoom'});
+ Cap(B,'No provoca <span class="hl">una enfermedad</span>…',{cx:960,cy:400,size:84,t0:B.a+0.3});
+ Cap(B,'pero si notas molestias, <span class="blue">evita el exceso</span>',{cx:960,cy:580,size:70,t0:B.a+3.5});
+ Cut(B,'thermo',{cx:960,cy:1010,h:330,t0:B.a+0.6,amp:4});}
+// señal: piel muy roja
+{const B=Beat(C('senal'),C('templada3'),{enter:'up'}); Cut(B,'dizzy',{cx:560,cy:1010,h:820,amp:3});
+ const s=Svg(B); Draw(B,s,scribble(560,420,200,190),{t0:C('senal')+3.4,dur:0.6,stroke:'#e23b2e',w:9});
+ Cap(B,'Una señal sencilla:',{cx:1350,cy:360,size:68,t0:B.a+0.2,color:'#6a6f86'});
+ Cap(B,'Piel <span class="red">muy roja</span> al salir',{cx:1350,cy:510,size:80,t0:C('senal')+2.8});
+ Cap(B,'= agua <span class="hl">demasiado caliente</span>',{cx:1350,cy:650,size:72,t0:C('senal')+5.5});}
+// templada y agradable
+Scene(C('templada3'),C('reloj'),'S2_7','Templada y <span class="hl">agradable</span>',{from:[.45,.45,1.0],to:[.6,.4,1.18],capT:1.5,
+ draw:(c,t)=>water(c,t,{x0:1050,y0:150,x1:930,y1:440,spread:120,n:22})});
+{const B=beats[beats.length-1]; Cap(B,'Ni fría ni ardiendo: <span class="hl">cómoda</span>',{cx:960,cy:90,size:56,t0:C('fria3'),pill:true});}
+// el reloj: 20–30 vs 5–10
+{const B=Beat(C('reloj'),C('frotar3'),{enter:'zoom'});
+ Cap(B,'También importa <span class="hl">el reloj</span>',{cx:960,cy:130,size:80,t0:B.a+0.2});
+ const s=Svg(B);
+ Card(B,{cx:560,cy:580,w:620,h:560,t0:B.a+1.5,border:'#e23b2e'}); Cut(B,'timer',{cx:560,cy:720,h:300,t0:B.a+1.6,amp:3});
+ Cap(B,'20–30 min',{cx:560,cy:400,size:86,t0:B.a+1.7,color:'#e23b2e'}); Draw(B,s,cross(800,360,0.9),{t0:B.a+6.5,dur:0.3,stroke:'#e23b2e',w:13});
+ Card(B,{cx:1360,cy:580,w:620,h:560,t0:C('cinco')-0.3,border:'#22a35a'}); clockIcon(B,s,{cx:1360,cy:690,r:110,t0:C('cinco')});
+ Cap(B,'5–10 min',{cx:1360,cy:400,size:86,t0:C('cinco'),color:'#1f9d55'}); Draw(B,s,tick(1600,360,1),{t0:C('cinco')+0.8,dur:0.3,stroke:'#22a35a',w:13});}
+// no frotar
+{const B=Side(C('frotar3'),C('mareo'),'sponge',[['Y sin <span class="red">frotar con fuerza</span>',null,80]],{h:460,cy:820});
+ const s=Svg(B); Draw(B,s,cross(600,600,2.2),{t0:B.a+1.2,dur:0.4,stroke:'#e23b2e',w:15});}
+// mareo
+Scene(C('mareo'),C('alfombrilla'),'S2_8','El calor intenso puede causar <span class="hl">mareo</span>',{capT:2.5,from:[.55,.4,1.0],to:[.6,.3,1.15],
+ draw:(c,t)=>steam(c,t,{x:840,y:900,w:1400,n:9,r:60,rise:300})});
+// alfombrilla, silla, barras
+{const B=Beat(C('alfombrilla'),C('doscosas'));
+ Cap(B,'La <span class="hl">seguridad</span> también es higiene',{cx:960,cy:120,size:76,t0:C('seguridad3')});
+ Row(B,[['mat','Alfombrilla antideslizante',B.a+0.3,'ok'],['shower_chair','Silla de ducha',B.a+2.6,'ok'],['grab_bar','Barras de apoyo',B.a+3.6,'ok']],{y:580});}
+// dos cambios
+{const B=Beat(C('doscosas'),C('persisten3'),{enter:'zoom'});
+ Cap(B,'Antes de ducharte menos, prueba <span class="hl">2 cambios</span>:',{cx:960,cy:130,size:66,t0:B.a+0.2});
+ Row(B,[['thermo','Agua más templada',C('doscosas')+2.4,'ok'],['timer','Menos tiempo',C('doscosas')+3.6,'ok']],{y:590,cardW:520});}
+// persisten → profesional, sin remedios caseros
+{const B=Warn(C('persisten3'),C('sorpresa3'),'¿Las molestias persisten?',['Consulta con un <b>profesional</b>','<span class="red">Sin remedios caseros irritantes</span>'],{panel:'s_nurse',keys:[C('persisten3')+0.8,C('persisten3')+3.2]});
+ Cut(B,'lemon_vinegar',{cx:1500,cy:1050,h:220,t0:C('persisten3')+3.4,amp:3}); const s=Svg(B); Draw(B,s,cross(1500,950,1.2),{t0:C('persisten3')+3.8,dur:0.3,stroke:'#e23b2e',w:12});}
+// otra sorpresa: el gel
+{const B=Side(C('sorpresa3'),C('verdad4'),'gel_think',[['Otra <span class="hl">sorpresa</span>…',null,84],['¿Cuánto jabón necesitas',C('cantidad')-0.2,64,'#2f6fd6'],['de verdad?',C('cantidad')+0.6,64,'#2f6fd6']],{enter:'right'});
+ B.exit='fade';}
+</script></body></html>

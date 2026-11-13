@@ -1,0 +1,43 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="common.js"></script>
+<script>
+window.START=C('concl'); window.END=1391.25; window.DURATION=window.END;
+function Ink(B){const d=mk('div','',B.L);Object.assign(d.style,{position:'absolute',inset:'0',background:'#24263a'});}
+
+// dark title card
+{const B=Beat(C('concl'),C('concl')+3.5,{enter:'zoom'}); Ink(B);
+ Cap(B,'Cuidar tu piel después de los 60',{cx:960,cy:450,size:82,t0:B.a+0.2,color:'#fff'});
+ Cap(B,'empieza con <span class="hl" style="color:#24263a">pequeños cambios</span>',{cx:960,cy:600,size:82,t0:B.a+1,color:'#fff'});}
+{const B=Beat(C('concl')+3.5,C('adaptar')); Cut(B,'calendar',{cx:620,cy:880,h:560,amp:3});
+ const s=Svg(B); Draw(B,s,tick(1000,430,1.2),{t0:B.a+0.5,dur:0.3,stroke:'#22a35a',w:13}); Draw(B,s,cross(1000,600,0.9),{t0:B.a+3.3,dur:0.3,stroke:'#e23b2e',w:13});
+ Cap(B,'A diario: <span class="hl">no siempre mejor</span>',{cx:1400,cy:430,size:66,t0:B.a+0.5});
+ Cap(B,'…ni tienes que dejarlo',{cx:1380,cy:600,size:62,t0:B.a+3.3,color:'#6a6f86'});}
+Scene(C('adaptar'),C('rutina'),'S4_7','<span class="hl">Adapta</span> tu higiene: piel · actividad · salud',{capT:1.5,from:[.4,.45,1.0],to:[.45,.4,1.12]});
+Scene(C('rutina'),C('tresconsejos'),'S4_8','Escuchar al cuerpo = <span class="hl">envejecer sano</span>',{capT:6,from:[.5,.5,1.0],to:[.5,.4,1.12],draw:(c,t)=>leaves(c,t,{w:1672,h:941,n:16})});
+{const B=Beat(C('tresconsejos'),C('advertencia'),{enter:'zoom'});
+ Cap(B,'<span class="hl">3 consejos</span> clave',{cx:960,cy:120,size:80,t0:B.a+0.2});
+ Row(B,[['thermo','Agua templada',C('tresconsejos')+2.7,'ok'],['cleanser','Jabón suave',C('tresconsejos')+4.4,'ok'],['cream_jar','Crema después',C('tresconsejos')+6.6,'ok']],{y:590});}
+Warn(C('advertencia'),C('despedirnos'),'Consulta con tu médico si hay…',['Picor persistente · heridas','Enrojecimiento intenso','Cambios preocupantes en la piel','No lo atribuyas solo a la edad','<span style="color:#2f6fd6">Contenido educativo, no una consulta</span>'],
+ {color:'#e23b2e',bg:'#fff5f4',keys:[C('advertencia')+2.2,C('advertencia')+4.9,C('advertencia')+6.6,C('educativo')-3.6,C('educativo')]});
+// quiz
+Side(C('despedirnos'),C('reseque'),'point_viewer',[['Una pequeña',null,74],['<span class="hl">pregunta</span>…',C('despedirnos')+2.2,96]]);
+{const B=Beat(C('reseque'),C('comenta'),{enter:'zoom'});
+ Cap(B,'¿Qué puede <span class="hl">resecar tu piel</span> tras la ducha?',{cx:960,cy:120,size:66,t0:B.a+0.2});
+ const O=[['A','thermo','Agua demasiado caliente','opA'],['B','bubble_bath','Jabones agresivos','opB'],['C','gel','Ambas cosas','opC']];
+ O.forEach(([L,cut,txt,k],i)=>{const x=440+i*520, t0=C(k)-0.2; Card(B,{cx:x,cy:600,w:460,h:620,t0});
+   Num(B,L,{cx:x,cy:350,r:56,t0:t0+0.1}); Cut(B,cut,{cx:x,cy:760,h:300,t0:t0+0.2,amp:4,phase:i});
+   if(L==='C')Cut(B,'thermo',{cx:x-110,cy:760,h:220,t0:t0+0.3,amp:4});
+   Cap(B,txt,{cx:x,cy:850,size:Math.min(52,400/(txt.length*0.48)),t0:t0+0.2});});}
+{const B=Beat(C('comenta'),C('like')); Cut(B,'phone',{cx:600,cy:880,h:560,amp:4});
+ Cap(B,'Responde en <span class="hl">los comentarios</span>',{cx:1350,cy:400,size:70,t0:B.a+0.3});
+ Cap(B,'¿Cuántas veces te duchas',{cx:1350,cy:560,size:62,t0:B.a+3.5,color:'#2f6fd6'}); Cap(B,'a la semana?',{cx:1350,cy:650,size:62,t0:B.a+4.3,color:'#2f6fd6'});}
+{const B=Beat(C('like'),C('vivir')); Panel(B,'S4_8',{x:960,y:460,w:1300,from:[.5,.5,1],to:[.5,.45,1.08]}).draw=(c,t)=>leaves(c,t,{w:1672,h:941,n:14});
+ const items=[['👍 ME GUSTA','#2f6fd6',0.6],['↗ COMPARTE','#2f6fd6',1.8],['▶ SUSCRÍBETE','#e23b2e',2.6]];
+ items.forEach(([txt,col,d],i)=>{const p=mk('div','pill',B.L,txt); Object.assign(p.style,{left:(520+i*440)+'px',top:'960px',fontSize:'52px',background:col,color:'#fff',borderColor:col}); Pop(B,p,{t0:B.a+d});});}
+{const B=Beat(C('vivir'),C('hasta')-0.2,{enter:'zoom'}); Ink(B);
+ Cap(B,'Vivir más años es importante…',{cx:960,cy:420,size:70,t0:B.a+0.2,color:'#fff'});
+ Cap(B,'vivirlos con <span class="hl" style="color:#24263a">bienestar y autonomía</span>',{cx:960,cy:580,size:70,t0:B.a+2.5,color:'#fff'});
+ Cap(B,'lo es todavía más',{cx:960,cy:720,size:62,t0:B.a+5,color:'#ffe14d'});}
+{const B=Beat(C('hasta')-0.2,1391.25,{enter:'zoom',exit:'fade'}); Cut(B,'wave_both',{cx:960,cy:1010,h:780,amp:5,period:1.4});
+ Cap(B,'¡Hasta el próximo vídeo!',{cx:960,cy:140,size:84,t0:B.a+0.1});}
+</script></body></html>

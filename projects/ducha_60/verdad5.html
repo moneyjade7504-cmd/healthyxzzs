@@ -1,0 +1,67 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="common.js"></script>
+<script>
+window.START=C('verdad5'); window.END=C('verdad6'); window.DURATION=window.END;
+const Z={axilas:[[95,118],[150,118]],ingles:[[122,232]],pliegues:[[122,80],[80,190],[165,190]],pies:[[100,452],[145,452]]};
+
+Title(C('verdad5'),C('imagina5'),5,'Buena higiene','<span class="hl">no significa</span> ducharse todos los días',['basin','washcloth']);
+
+Scene(C('imagina5'),C('sientes'),'S3_5','75 años: entrar en la bañera <span class="hl">cuesta más</span>',{capT:2.5,from:[.3,.5,1.0],to:[.55,.55,1.14],
+ draw:(c,t)=>sparks(c,t,{x:650,y:610,s:1.6})});
+{const B=Beat(C('sientes'),C('tranquilidad')); Cut(B,'tired_pj',{cx:520,cy:1010,h:820,amp:3,shake:0.8});
+ Cut(B,'calendar',{cx:1350,cy:820,h:460,amp:3}); const s=Svg(B);
+ for(let i=0;i<7;i++)Draw(B,s,tick(1215+(i%6)*55,620+Math.floor(i/6)*48,0.55),{t0:B.a+0.6+i*0.2,dur:0.15,stroke:'#e23b2e',w:8});
+ Cap(B,'¿Una <span class="hl">obligación</span>?',{cx:1350,cy:250,size:84,t0:C('sientes')+5.3});}
+{const B=Beat(C('tranquilidad'),C('sencillas'),{enter:'zoom'});
+ Canvas(B,(c,t)=>rays(c,t,{x:960,y:430,r0:250,r1:320,lw:8,col:'rgba(120,200,140,.8)'}));
+ Cap(B,'Una verdad que <span class="hl">tranquiliza</span>',{cx:960,cy:380,size:86,t0:B.a+0.2});
+ Cap(B,'Buena higiene ≠ lavar todo el cuerpo',{cx:960,cy:540,size:62,t0:C('tranquilidad')+3.3});
+ Cap(B,'bajo la ducha cada mañana',{cx:960,cy:630,size:62,t0:C('tranquilidad')+5.5,color:'#6a6f86'});}
+{const B=Beat(C('sencillas'),C('distinguir'));
+ Cap(B,'Formas <span class="hl">más sencillas</span>, sobre todo con…',{cx:960,cy:120,size:66,t0:B.a+0.2});
+ Row(B,[['dry_circle','Piel sensible',C('sencillas')+3,null],['cane','Poca movilidad',C('sencillas')+5.2,null],['grab_bar','Problemas de equilibrio',C('sencillas')+6.5,null]],{y:580});}
+// ducha completa vs higiene diaria
+{const B=Beat(C('distinguir'),C('manos5'),{enter:'zoom'});
+ Card(B,{cx:540,cy:540,w:700,h:620,t0:B.a+0.3}); Card(B,{cx:1380,cy:540,w:700,h:620,t0:B.a+2.3,border:'#22a35a'});
+ Cut(B,'shower_head',{cx:540,cy:760,h:380,t0:B.a+0.4,amp:4}); Cut(B,'basin',{cx:1380,cy:760,h:320,t0:B.a+2.4,amp:4});
+ Cap(B,'Ducha completa',{cx:540,cy:320,size:66,t0:B.a+0.5}); Cap(B,'Higiene <span class="hl">diaria</span>',{cx:1380,cy:320,size:66,t0:B.a+2.5});
+ Cap(B,'≠',{cx:960,cy:540,size:120,t0:B.a+1.6,color:'#e23b2e'});}
+// manos
+{const B=Side(C('manos5'),C('axilas5'),'wash_hands',[['Manos: <span class="hl">a menudo</span>',null,80],['antes de comer',C('manos5')+3,62,'#2f6fd6'],['después del baño',C('manos5')+4.5,62,'#2f6fd6']]);}
+// axilas, ingles, pliegues, íntima, pies
+{const B=Beat(C('axilas5'),C('todo5'));
+ Cap(B,'<span class="hl">Limpios y secos</span>',{cx:1450,cy:150,size:74,t0:B.a+0.2});
+ const k=C('axilas5'); BodyMap(B,[[Z.axilas,'Axilas',k],[Z.ingles,'Ingles',k+0.9],[Z.pliegues,'Pliegues de la piel',k+1.7],[Z.ingles,'Zona íntima: suave',C('axilas5')+5.9,'#58a9e4'],[Z.pies,'Pies, entre los dedos',C('pies5'),'#22a35a']],{lx:1180});}
+{const B=Beat(C('todo5'),C('toallita')); Cut(B,'timer',{cx:620,cy:850,h:500,amp:4});
+ const s=Svg(B); Draw(B,s,cross(620,620,2.4),{t0:B.a+1.2,dur:0.4,stroke:'#e23b2e',w:14});
+ Cap(B,'Sin pasar <span class="hl">minutos bajo el agua</span>',{cx:1350,cy:520,size:66,t0:B.a+0.3});}
+Scene(C('toallita'),C('seca5'),'S3_6','Toallita suave + <span class="hl">agua templada</span>',{capT:2.5,from:[.4,.45,1.0],to:[.5,.4,1.14],
+ draw:(c,t)=>steam(c,t,{x:1200,y:560,w:200,n:5,r:26,rise:180})});
+{const B=Side(C('seca5'),C('productos5'),'wipe_arm',[['Seca la piel',null,80],['<span class="hl">sin frotar</span>',C('seca5')+1.2,100]]);}
+{const B=Beat(C('productos5'),C('ropa5'));
+ Cap(B,'Si usas limpiador:',{cx:960,cy:120,size:66,t0:B.a+0.2});
+ Row(B,[['cleanser','Fórmula suave',C('productos5')+2.2,'ok'],['bubble_bath','Productos irritantes',C('productos5')+4,'no']],{y:580,cardW:520});}
+{const B=Beat(C('ropa5'),C('silla5')); Cut(B,'clothes_hold',{cx:520,cy:1010,h:820,amp:4});
+ Cut(B,'clean_clothes',{cx:1180,cy:760,h:300,t0:C('ropa5')+1,amp:3}); Cut(B,'sweaty_shirt',{cx:1600,cy:760,h:300,t0:C('ropa5')+8.5,amp:3,phase:1});
+ const s=Svg(B); Draw(B,s,tick(1180,370,1.1),{t0:C('ropa5')+1.6,dur:0.3,stroke:'#22a35a',w:13}); Draw(B,s,cross(1600,370,1),{t0:C('ropa5')+9,dur:0.3,stroke:'#e23b2e',w:13});
+ Cap(B,'Ropa interior <span class="hl">limpia cada día</span>',{cx:1380,cy:200,size:66,t0:B.a+0.3});
+ Cap(B,'nada de ropa con sudor',{cx:1600,cy:900,size:50,t0:C('ropa5')+9,color:'#e23b2e'});}
+Scene(C('silla5'),C('independencia'),'S3_7','Silla de ducha, barras, <span class="hl">pedir ayuda</span>',{capT:1.0,from:[.45,.55,1.0],to:[.5,.65,1.15],
+ draw:(c,t)=>water(c,t,{x0:930,y0:440,x1:930,y1:820,spread:100,n:20})});
+Scene(C('independencia'),C('orina'),'S3_8','Independencia = <span class="hl">cuidarte con seguridad</span>',{capT:2.5,from:[.6,.45,1.0],to:[.55,.45,1.12]});
+Warn(C('orina'),C('dosopciones'),'Adapta la limpieza si hay…',['Pérdidas de orina','Sudoración abundante','Alguna herida'],{panel:'s_nurse',keys:[C('orina')+1.5,C('orina')+3,C('orina')+4.3]});
+// two false options
+{const B=Beat(C('dosopciones'),C('gesto5'),{enter:'zoom'});
+ const s=Svg(B);
+ Card(B,{cx:420,cy:470,w:560,h:300,t0:B.a+1.8,border:'#e23b2e'}); Cap(B,'Ducha completa',{cx:420,cy:470,size:60,t0:B.a+1.9});
+ Card(B,{cx:1500,cy:470,w:560,h:300,t0:B.a+3.2,border:'#e23b2e'}); Cap(B,'Descuidar la higiene',{cx:1500,cy:470,size:56,t0:B.a+3.3});
+ Cap(B,'¿Solo dos opciones?',{cx:960,cy:170,size:76,t0:B.a+0.2});
+ Draw(B,s,cross(420,470,2.2),{t0:C('dosopciones')+4.5,dur:0.4,stroke:'#e23b2e',w:10}); Draw(B,s,cross(1500,470,2.2),{t0:C('dosopciones')+4.8,dur:0.4,stroke:'#e23b2e',w:10});
+ Card(B,{cx:960,cy:800,w:900,h:220,t0:C('dosopciones')+7,border:'#22a35a'}); Cap(B,'✓ <span class="hl">Soluciones prácticas</span>',{cx:960,cy:800,size:72,t0:C('dosopciones')+7.1});}
+// teaser: gesto al salir
+{const B=Beat(C('gesto5'),C('verdad6'),{exit:'fade'}); Cut(B,'cream_jar',{cx:620,cy:860,h:520,amp:5,period:2.4});
+ Canvas(B,(c,t)=>rays(c,t,{x:620,y:600,r0:290,r1:340,lw:6}));
+ Cap(B,'Un gesto que muchos <span class="hl">olvidan</span>',{cx:1350,cy:400,size:66,t0:B.a+3.5});
+ Cap(B,'al salir de la ducha…',{cx:1350,cy:530,size:62,t0:B.a+6,color:'#2f6fd6'});
+ Cap(B,'barato y sencillo',{cx:1350,cy:700,size:62,t0:C('caros')+1.2,color:'#1f9d55'});}
+</script></body></html>

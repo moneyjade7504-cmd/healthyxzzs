@@ -34,7 +34,7 @@ const NS='http://www.w3.org/2000/svg';
 const sv=(tag,attrs,parent)=>{const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);parent.appendChild(e);return e;};
 const rnd=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x);};
 const C=k=>{if(!(k in CUE))throw new Error('missing cue '+k);return CUE[k]-0.15;};   // beat lands 0.15 s before the word
-const IMG={"antonio_walk":[307,466],"bandage":[320,348],"barrier":[354,390],"basin":[373,387],"bathtub":[488,360],"body":[243,466],"bubble_bath":[326,390],"calendar":[377,370],"cane":[207,425],"clean_clothes":[351,335],"cleanser":[240,405],"cream_jar":[341,327],"cream_jar_hold":[289,454],"cream_tube":[235,389],"cream_tube2":[274,367],"dry_circle":[316,330],"foot":[359,421],"gel":[285,429],"grab_bar":[150,429],"handshower":[274,412],"hat_gloves":[403,382],"lemon_vinegar":[346,394],"lotion":[233,386],"mat":[387,264],"notebook":[360,403],"phone":[297,411],"rough_towel":[309,358],"s_dawn":[829,467],"s_dry_leg":[828,460],"s_garden":[832,467],"s_mirror":[828,467],"s_nurse":[832,465],"s_shower":[829,460],"s_shower_soft":[831,465],"s_tea":[831,467],"sandtimer":[245,356],"scratch_shin":[374,462],"shower_chair":[335,432],"shower_head":[315,379],"skin_block":[331,320],"soap":[302,304],"soft_towel":[371,355],"sponge":[377,405],"stethoscope":[283,410],"sweaty_shirt":[383,364],"tap":[365,295],"tea":[325,380],"thermo":[169,426],"think":[249,464],"tight_arm":[306,468],"timer":[318,323],"vaseline":[343,355],"washcloth":[348,271],"wave":[340,455]};
+const IMG={"S2_1":[1672,941],"S2_2":[1672,941],"S2_3":[1671,941],"S2_4":[1671,941],"S2_5":[1672,941],"S2_6":[1671,941],"S2_7":[1671,941],"S2_8":[1672,941],"S3_1":[1672,941],"S3_2":[1672,941],"S3_3":[1672,941],"S3_4":[1672,941],"S3_5":[1672,941],"S3_6":[1672,941],"S3_7":[1672,941],"S3_8":[1672,941],"S4_1":[1672,941],"S4_2":[1672,941],"S4_3":[1671,941],"S4_4":[1672,941],"S4_5":[1672,941],"S4_6":[1671,941],"S4_7":[1671,941],"S4_8":[1672,941],"antonio_towel":[279,448],"antonio_walk":[307,466],"antonio_wipe":[445,476],"bandage":[320,348],"barrier":[354,390],"basin":[373,387],"bathtub":[488,360],"body":[243,466],"bubble_bath":[326,390],"calendar":[377,370],"cane":[207,425],"cane_proud":[273,467],"clean_clothes":[351,335],"cleanser":[240,405],"clothes_hold":[371,466],"cream_jar":[341,327],"cream_jar_hold":[289,454],"cream_leg":[341,454],"cream_tube":[235,389],"cream_tube2":[274,367],"dizzy":[420,447],"dry_circle":[316,330],"dry_toes":[400,469],"fan_hot":[422,453],"foot":[359,421],"gel":[285,429],"gel_think":[344,449],"grab_bar":[150,429],"handshower":[274,412],"hat_gloves":[403,382],"lemon_vinegar":[346,394],"lotion":[233,386],"mat":[387,264],"notebook":[360,403],"pat_dry":[331,474],"phone":[297,411],"point_viewer":[214,469],"rough_towel":[309,358],"s_dawn":[829,467],"s_dry_leg":[828,460],"s_garden":[832,467],"s_mirror":[828,467],"s_nurse":[832,465],"s_shower":[829,460],"s_shower_soft":[831,465],"s_tea":[831,467],"sandtimer":[245,356],"scarf_cream":[372,455],"scratch_shin":[374,462],"shower_chair":[335,432],"shower_head":[315,379],"skin_block":[331,320],"soap":[302,304],"soft_towel":[371,355],"sponge":[377,405],"stethoscope":[283,410],"sweaty_shirt":[383,364],"tap":[365,295],"tea":[325,380],"thermo":[169,426],"think":[249,464],"thumbs_up":[231,464],"tight_arm":[306,468],"timer":[318,323],"tired_pj":[305,467],"vaseline":[343,355],"wash_hands":[330,473],"washcloth":[348,271],"wave":[340,455],"wave_both":[382,479],"wipe_arm":[442,466],"write_note":[297,456]};
 
 // ---------- beats (layers) ----------
 const beats=[];
@@ -156,3 +156,84 @@ function bellIcon(B,svg,{cx,cy,s=1,t0}){const d=`M${cx-40*s} ${cy+30*s} Q${cx-40
 
 // ---------- frame ----------
 window.draw=function(t){for(const B of beats){if(!layerT(B,t))continue;for(const f of B.fx)f(t);}};
+
+// ---------- section templates (parts 2–4) ----------
+const PW=1560;
+// full-width scene with a pill caption; cam = [from,to]
+function Scene(a,b,name,cap,{enter='right',exit='left',from=[.5,.5,1],to=[.5,.45,1.12],draw=null,capT=0.35,size=72,y=520,w=PW}={}){
+  const B=Beat(a,b,{enter,exit}); const p=Panel(B,name,{y,w,from,to}); if(draw)p.draw=draw;
+  if(cap)Cap(B,cap,{cx:960,cy:965,size,t0:a+capT,pill:true}); return B;
+}
+// section opener: big number + title lines + two props
+function Title(a,b,n,l1,l2,props=[]){
+  const B=Beat(a,b,{enter:'zoom'}); Num(B,n,{cx:960,cy:250,r:110,t0:a+0.1});
+  Cap(B,'VERDAD '+n,{cx:960,cy:440,size:66,t0:a+0.3,color:'#2f6fd6'});
+  Cap(B,l1,{cx:960,cy:590,size:92,t0:a+0.7}); if(l2)Cap(B,l2,{cx:960,cy:730,size:62,t0:a+1.6});
+  props.forEach((n2,i)=>Cut(B,n2,{cx:i?1700:220,cy:1060,h:300,t0:a+1.2+i*0.3,amp:5,phase:i}));
+  return B;
+}
+// cut-out on the left, caption lines on the right ([html,t0,size,color])
+function Side(a,b,cut,lines,{h=840,cx=600,cy=1010,tx=1330,enter='up',shake=0,y0=null,gap=150}={}){
+  const B=Beat(a,b,{enter}); Cut(B,cut,{cx,cy,h,amp:4,tilt:1,shake});
+  const n=lines.length, top=y0??(540-(n-1)*gap/2);
+  lines.forEach(([html,t0,size,color],i)=>Cap(B,html,{cx:tx,cy:top+i*gap,size:size||80,t0:t0??a+0.2+i*0.6,color}));
+  return B;
+}
+// row of item cards with labels; items [cut,label,t0,mark('ok'|'no'|null)]
+function Row(B,items,{y=520,h=330,cardW=400,cardH=520,border='#2f6fd6'}={}){
+  const n=items.length, step=Math.min(470,1720/n), x0=960-(n-1)*step/2; const s=Svg(B);
+  items.forEach(([cut,label,t0,mark],i)=>{const x=x0+i*step;
+    Card(B,{cx:x,cy:y,w:Math.min(cardW,step-30),h:cardH,t0,border:mark==='no'?'#e23b2e':mark==='ok'?'#22a35a':border});
+    Cut(B,cut,{cx:x,cy:y+cardH/2-110,h:Math.min(h,cardH-150),t0:t0+0.1,amp:3,phase:i});
+    const cw=Math.min(cardW,step-30); Cap(B,label,{cx:x,cy:y+cardH/2-55,size:Math.min(54,0.9*cw/(label.length*0.48)),t0:t0+0.15});
+    if(mark==='ok')Draw(B,s,tick(x+Math.min(cardW,step-30)/2-40,y-cardH/2+40,0.9),{t0:t0+0.4,dur:0.3,stroke:'#22a35a',w:12});
+    if(mark==='no')Draw(B,s,cross(x+Math.min(cardW,step-30)/2-40,y-cardH/2+40,0.8),{t0:t0+0.4,dur:0.3,stroke:'#e23b2e',w:12});});
+  return s;
+}
+// warning card (hold)
+function Warn(a,b,head,lines,{color='#f7ad36',bg='#fffaf0',panel=null,keys=[]}={}){
+  const B=Beat(a,b,{enter:'zoom'}); let cx=960,w=1100;
+  if(panel){Panel(B,panel,{x:600,y:520,w:1000,from:[.5,.5,1],to:[.55,.55,1.08]}); cx=1500; w=680;}
+  const h=180+lines.length*95; Card(B,{cx,cy:540,w,h,t0:a+0.2,border:color,bg});
+  Cap(B,'⚠ '+head,{cx,cy:540-h/2+80,size:Math.min(62,0.9*w/((head.length+2)*0.48)),t0:a+0.3,color:color==='#e23b2e'?'#e23b2e':'#b97a00'});
+  lines.forEach((l,i)=>Cap(B,l,{cx,cy:540-h/2+190+i*95,size:Math.min(panel?50:58,0.9*w/(l.replace(/<[^>]+>/g,'').length*0.48)),t0:keys[i]!=null?keys[i]:a+0.8+i*0.5}));
+  return B;
+}
+function Subscribe(a,b,{pose='wave',share=false,line=''}={}){
+  const B=Beat(a,b); Cut(B,pose,{cx:430,cy:1010,h:840,amp:5,tilt:2,period:1.6});
+  const pill=mk('div','pill',B.L,'▶ SUSCRÍBETE'); Object.assign(pill.style,{left:'1260px',top:'470px',fontSize:'84px',background:'#e23b2e',color:'#fff',borderColor:'#b8231a'}); Pop(B,pill,{t0:a+0.6,rot:-2});
+  const s=Svg(B); bellIcon(B,s,{cx:1640,cy:460,s:1.3,t0:a+1.0});
+  Cap(B,'Claves de la Longevidad',{cx:1260,cy:650,size:76,t0:a+1.2,color:'#2f6fd6'});
+  if(share){const sp=mk('div','pill',B.L,'↗ COMPARTE'); Object.assign(sp.style,{left:'1260px',top:'800px',fontSize:'60px'}); Pop(B,sp,{t0:a+2.2});}
+  if(line)Cap(B,line,{cx:1260,cy:290,size:52,t0:a+0.3});
+  return B;
+}
+// body map with zone dots: zones [[x,y]... in body.png px, label, t0, color]
+function BodyMap(B,zones,{cx=700,cy=1000,h=780,lx=1250}={}){
+  const [iw,ih]=IMG.body; const sc=h/ih, L=cx-iw*sc/2, T=cy-h; Cut(B,'body',{cx,cy,h,amp:2,tilt:.2}); const s=Svg(B);
+  zones.forEach(([pts,label,t0,col],i)=>{ col=col||'#f95c00';
+    pts.forEach(([x,y])=>{const c=sv('circle',{cx:L+x*sc,cy:T+y*sc,r:0,fill:col,stroke:'#fff','stroke-width':5},s);
+      B.fx.push(t=>{const p=prog(t,t0,t0+0.3); c.style.opacity=p>0?1:0; c.setAttribute('r',p<=0?0:(16+6*Math.sin(t*5))*back(p));});});
+    if(label){const y=300+i*130; const dot=sv('circle',{cx:lx-40,cy:y,r:16,fill:col},s); B.fx.push(t=>{dot.style.opacity=t>=t0?1:0;}); const fs=Math.min(62,560/(label.length*0.48)); Cap(B,label,{cx:lx+10+label.length*fs*0.24,cy:y,size:fs,t0});}});
+  return s;
+}
+function leaves(ctx,t,{w,h,n=12}){for(let i=0;i<n;i++){const ph=(t*0.12+rnd(i+31))%1,x=rnd(i+3)*w+Math.sin(t*1.2+i)*40,y=ph*h;
+  ctx.save();ctx.translate(x,y);ctx.rotate(t*2+i);ctx.globalAlpha=Math.sin(ph*Math.PI);ctx.fillStyle=i%2?'#f0a33a':'#e2762c';
+  ctx.beginPath();ctx.ellipse(0,0,14,7,0,0,Math.PI*2);ctx.fill();ctx.restore();} ctx.globalAlpha=1;}
+function snow(ctx,t,{x,y,w,h,n=18}){for(let i=0;i<n;i++){const ph=(t*0.18+rnd(i+7))%1;ctx.globalAlpha=0.9;ctx.fillStyle='#fff';
+  ctx.beginPath();ctx.arc(x+rnd(i)*w+Math.sin(t+i)*8,y+ph*h,3+rnd(i+2)*3,0,Math.PI*2);ctx.fill();} ctx.globalAlpha=1;}
+// pie of 4 factors (SVG) – returns setter for the active slice
+function Pie(B,{cx=600,cy=540,r=300,labels,keys,cols=['#58a9e4','#f7ad36','#22a35a','#e23b2e']}){
+  const s=Svg(B); const segs=[];
+  for(let i=0;i<4;i++){const a0=-Math.PI/2+i*Math.PI/2,a1=a0+Math.PI/2;
+    const d=`M${cx} ${cy} L${cx+r*Math.cos(a0)} ${cy+r*Math.sin(a0)} A${r} ${r} 0 0 1 ${cx+r*Math.cos(a1)} ${cy+r*Math.sin(a1)} Z`;
+    const p=sv('path',{d,fill:cols[i],stroke:'#fff','stroke-width':8},s); const am=(a0+a1)/2;
+    const tx=sv('text',{x:cx+r*0.58*Math.cos(am),y:cy+r*0.58*Math.sin(am),'text-anchor':'middle','dominant-baseline':'middle','font-family':'Kalam','font-weight':700,'font-size':46,fill:'#fff'},s); tx.textContent=labels[i];
+    segs.push([p,tx,am]);}
+  B.fx.push(t=>{let act=-1; keys.forEach((k,i)=>{if(t>=k)act=i;});
+    segs.forEach(([p,tx,am],i)=>{const on=t>=keys[i]-0.2+(i===0?-1.5:0)||t>=keys[0]-1.5+i*0.25; const pp=prog(t,B.a+0.2+i*0.25,B.a+0.5+i*0.25);
+      const k=i===act?1:0; const off=k*30; p.style.opacity=tx.style.opacity=pp;
+      p.style.transform=`translate(${Math.cos(am)*off}px,${Math.sin(am)*off}px)`; tx.style.transform=p.style.transform;
+      p.style.filter=act>=0&&i!==act?'saturate(.35) opacity(.6)':'none';});});
+  return s;
+}

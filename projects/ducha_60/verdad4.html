@@ -1,0 +1,65 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="common.js"></script>
+<script>
+window.START=C('verdad4'); window.END=C('verdad5'); window.DURATION=window.END;
+// body.png zone points (px in body.png 243x466)
+const Z={axilas:[[95,118],[150,118]],pies:[[100,452],[145,452]],ingles:[[122,232]],pliegues:[[122,80],[80,190],[165,190]],brazos:[[45,200],[200,200]],piernas:[[100,340],[145,340]]};
+
+Title(C('verdad4'),C('alguna'),4,'No necesitas jabón','<span class="hl">en todo el cuerpo</span> cada vez',['gel','cleanser']);
+
+Scene(C('alguna'),C('interpretan'),'S3_1','¿Piel <span class="hl">limpia… y tirante</span>?',{capT:2.5,from:[.4,.45,1.0],to:[.45,.4,1.14],
+ draw:(c,t)=>{water(c,t,{x0:1080,y0:150,x1:820,y1:650,spread:300,n:30}); foam(c,t,{x:250,y:700,w:900,h:220,n:30,t0:C('alguna'),grow:2});}});
+{const B=Side(C('interpretan'),C('proteccion'),'tight_arm',[['Muchos creen:',null,66,'#6a6f86'],['tirante = <span class="hl">bien limpia</span>',C('interpretan')+1.5,82]]);}
+{const B=Beat(C('proteccion'),C('decadas'),{enter:'zoom'}); Cut(B,'barrier',{cx:640,cy:880,h:620,amp:2});
+ Canvas(B,(c,t)=>{const f=prog(t,B.a+0.8,B.a+3.5); for(let i=0;i<8;i++){c.globalAlpha=f*Math.sin(prog(t,B.a+0.8+i*0.25,B.a+3.6+i*0.25)*Math.PI); drop(c,450+i*55,520-f*260,0.8,'#f7c948','#c99a1c');} c.globalAlpha=1;});
+ Cap(B,'Después de los 60…',{cx:1400,cy:400,size:68,t0:B.a+0.2,color:'#6a6f86'});
+ Cap(B,'demasiada <span class="red">protección eliminada</span>',{cx:1400,cy:550,size:66,t0:B.a+1.5});}
+{const B=Beat(C('decadas'),C('agresivo'));
+ Cap(B,'Durante décadas asociamos limpieza con…',{cx:960,cy:120,size:62,t0:B.a+0.2});
+ Row(B,[['bubble_bath','Mucha espuma',C('decadas')+3.2,null],['gel','Perfumes intensos',C('decadas')+4.5,null],['sponge','Esponja que frota',C('decadas')+5.8,null]],{y:580});}
+Scene(C('agresivo'),C('explicacion'),'S3_2','Limpiar <span class="hl">sin castigar</span> la piel',{capT:1.0,from:[.55,.5,1.0],to:[.65,.65,1.2],
+ draw:(c,t)=>sparks(c,t,{x:1200,y:500,s:2.2})});
+// barrier explanation
+{const B=Beat(C('explicacion'),C('fuertes'),{enter:'zoom'}); Cut(B,'barrier',{cx:640,cy:880,h:620,amp:2});
+ const s=Svg(B); Draw(B,s,arrow(980,420,830,520,-0.1),{t0:C('explicacion')+3.5,dur:0.4,stroke:'#2f6fd6',w:7}); Draw(B,s,arrow(980,680,820,640,0.1),{t0:C('explicacion')+5,dur:0.4,stroke:'#c99a1c',w:7});
+ Cap(B,'Barrera <span class="hl">protectora</span>',{cx:1380,cy:250,size:84,t0:B.a+1.5});
+ Cap(B,'células',{cx:1130,cy:420,size:62,t0:C('explicacion')+3.5,color:'#2f6fd6'});
+ Cap(B,'+ grasas',{cx:1130,cy:680,size:62,t0:C('explicacion')+5,color:'#c99a1c'});
+ Cap(B,'= conserva la humedad',{cx:1450,cy:870,size:60,t0:C('explicacion')+7});}
+// harsh soaps alter it
+{const B=Beat(C('fuertes'),C('abandonar')); Cut(B,'barrier',{cx:560,cy:880,h:600,amp:2,shake:1});
+ Canvas(B,(c,t)=>foam(c,t,{x:300,y:250,w:520,h:180,n:22,t0:C('fuertes')+0.5,grow:2}));
+ Cap(B,'Jabones fuertes,<br>una y otra vez…',{cx:1380,cy:300,size:66,t0:B.a+0.2});
+ const s=Svg(B); ['Sequedad','Picor','Irritación'].forEach((w,i)=>{const y=520+i*130; const t0=C('fuertes')+6+i*0.8; Draw(B,s,cross(1180,y,0.7),{t0,dur:0.3,stroke:'#e23b2e',w:10}); Cap(B,w,{cx:1390,cy:y,size:66,t0});});}
+// ¿abandonar el jabón? En absoluto
+{const B=Side(C('abandonar'),C('zonas4'),'gel_think',[['¿Abandonar el jabón?',null,78],['<span class="hl">¡En absoluto!</span>',C('absoluto'),100],['Úsalo <span class="blue">donde hace falta</span>',C('absoluto')+1.2,64]]);}
+// zones map
+{const B=Beat(C('zonas4'),C('suave4'),{enter:'zoom'});
+ Cap(B,'Más <span class="hl">jabón aquí</span>',{cx:1450,cy:150,size:74,t0:B.a+0.2});
+ const k=C('zonas4'); BodyMap(B,[[Z.axilas,'Axilas',k],[Z.pies,'Pies',k+0.9],[Z.ingles,'Ingles',k+1.9],[Z.pliegues,'Pliegues',k+3.2],
+   [Z.brazos.concat(Z.piernas),'Brazos y piernas: menos',C('encambio')+1.2,'#22a35a']]);}
+Scene(C('suave4'),C('intima4'),'S3_3','Limpiador <span class="hl">suave</span>, sin perfume, con la mano',{from:[.45,.5,1.0],to:[.55,.65,1.18]});
+{const B=Beat(C('intima4'),C('atencion4')); Cut(B,'cleanser',{cx:620,cy:900,h:560,amp:4});
+ Cap(B,'Zona íntima:',{cx:1350,cy:420,size:74,t0:B.a+0.2}); Cap(B,'<span class="hl">suave</span>, solo por fuera',{cx:1350,cy:570,size:74,t0:B.a+1.5});
+ Cap(B,'sin productos agresivos',{cx:1350,cy:710,size:56,t0:B.a+3.5,color:'#6a6f86'});}
+// red warning
+{const k=C('atencion4')+2.5; Warn(C('atencion4'),C('diabetes'),'No todo picor es sequedad',['Heridas · grietas profundas','Secreciones · dolor','Enrojecimiento que no se va','Erupción que empeora','→ <b>consulta con tu médico</b>'],{color:'#e23b2e',bg:'#fff5f4',keys:[k+3,k+4.2,k+5.5,k+7,C('diabetes')-1.5]});}
+{const B=Warn(C('diabetes'),C('educativa'),'Especial precaución',['Diabetes','Problemas circulatorios','Enfermedades de la piel'],{panel:'S3_4',keys:[C('diabetes')+1.5,C('diabetes')+2.8,C('diabetes')+4.5]});}
+// educational disclaimer (hold)
+{const B=Beat(C('educativa'),C('proxima'),{enter:'zoom'}); Card(B,{cx:960,cy:520,w:1300,h:520,t0:B.a+0.1});
+ Cap(B,'ℹ Información educativa',{cx:960,cy:370,size:80,t0:B.a+0.3,color:'#2f6fd6'});
+ Cap(B,'No sustituye una <span class="hl">valoración médica</span>',{cx:960,cy:510,size:66,t0:B.a+1.5});
+ Cap(B,'No suspendas tratamientos ni cambies',{cx:960,cy:630,size:54,t0:C('educativa')+5});
+ Cap(B,'las indicaciones de tu profesional',{cx:960,cy:710,size:54,t0:C('educativa')+6.5});}
+// next shower: two colours
+{const B=Beat(C('proxima'),C('pregunta4'));
+ Cap(B,'Tu próxima ducha:',{cx:1450,cy:150,size:74,t0:B.a+0.2});
+ const k=C('proxima')+2; BodyMap(B,[[Z.axilas.concat(Z.pies,Z.ingles),'Limpieza a fondo',k+5,'#f95c00'],[Z.brazos.concat(Z.piernas),'Delicadeza',k+7.5,'#22a35a']]);
+ Cap(B,'Un cambio pequeño, <span class="hl">gran diferencia</span>',{cx:1400,cy:800,size:56,t0:k+10});}
+// teaser: higiene sin ducha
+{const B=Beat(C('pregunta4'),C('verdad5'),{exit:'fade'}); Cut(B,'basin',{cx:600,cy:820,h:440,amp:4});
+ Canvas(B,(c,t)=>steam(c,t,{x:600,y:460,w:200,n:5,r:22,rise:120}));
+ Cap(B,'Días sin ducha completa:',{cx:1350,cy:380,size:66,t0:B.a+1.0});
+ Cap(B,'¿cómo mantener <span class="hl">la higiene</span>?',{cx:1350,cy:530,size:72,t0:B.a+3});
+ Cap(B,'Sin luchar contra tu cuerpo',{cx:1350,cy:720,size:58,t0:C('siguiente4')+8,color:'#2f6fd6'});}
+</script></body></html>

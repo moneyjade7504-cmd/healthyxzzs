@@ -1,0 +1,91 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="common.js"></script>
+<script>
+window.START=C('verdad2'); window.END=C('verdad3'); window.DURATION=window.END;
+
+Title(C('verdad2'),C('receta')-3.6,2,'Dos o tres veces <span class="hl">por semana</span>','puede ser suficiente',['calendar','shower_head']);
+
+// 2–3 por semana (calendar circles)
+{const B=Beat(C('receta')-3.6,C('receta')); Cut(B,'calendar',{cx:640,cy:900,h:620,amp:3,tilt:.6});
+ const s=Svg(B); [[468,610],[630,610],[792,610]].forEach(([x,y],i)=>Draw(B,s,scribble(x,y,48,40),{t0:B.a+0.4+i*0.35,dur:0.35,stroke:'#22a35a',w:8}));
+ Cap(B,'<span class="hl">2–3</span> veces / semana',{cx:1380,cy:430,size:86,t0:B.a+0.3});
+ Cap(B,'para algunas personas',{cx:1380,cy:580,size:62,t0:B.a+1.0,color:'#6a6f86'});}
+
+// no es una receta
+{const B=Side(C('receta'),C('importa'),'gel_think',[['Ese número…',null,72,'#6a6f86'],['<span class="red">no es una receta</span>',C('receta')+0.4,96]]);}
+
+// limpia · cómoda · protegida
+{const B=Beat(C('importa'),C('dospersonas')); Cut(B,'skin_block',{cx:560,cy:860,h:560,amp:3,tilt:.4});
+ const s=Svg(B); ['Limpia','Cómoda','Protegida'].forEach((w,i)=>{const y=330+i*170; Draw(B,s,tick(1110,y,1),{t0:B.a+1.2+i*0.7,dur:0.3,stroke:'#22a35a',w:13}); Cap(B,w,{cx:1350,cy:y,size:84,t0:B.a+1.2+i*0.7});});
+ Cap(B,'según <span class="hl">tu vida diaria</span>',{cx:1300,cy:870,size:64,t0:B.a+3.5});}
+
+// dos personas de 70 años (split)
+{const B=Beat(C('dospersonas'),C('iguales'));
+ const L=Panel(B,'s_tea',{x:500,y:450,w:860,from:[.5,.5,1],to:[.45,.45,1.1]}); L.draw=(c,t)=>steam(c,t,{x:300,y:125,w:30,n:3,r:8,rise:60});
+ const R=Panel(B,'S2_1',{x:1420,y:450,w:860,from:[.5,.5,1],to:[.55,.4,1.12],t0:C('segunda')-0.2}); R.draw=(c,t)=>drops(c,t,{x:700,y:150,w:300,h:200,n:5,t0:C('segunda'),s:1.4,speed:0.6});
+ Cap(B,'Dos personas de <span class="hl">70 años</span>',{cx:960,cy:90,size:70,t0:B.a+0.3});
+ Cap(B,'En casa · apenas suda<br><span class="hl">piel muy seca</span>',{cx:500,cy:870,size:52,t0:C('primera')+2.5,pill:true});
+ Cap(B,'Camina, huerto<br><span class="hl">suda más</span>',{cx:1420,cy:870,size:52,t0:C('segunda')+1.5,pill:true});}
+
+// misma edad ≠ mismas necesidades
+{const B=Beat(C('iguales'),C('primercaso'),{enter:'zoom'}); Cut(B,'think',{cx:330,cy:1030,h:760,amp:4}); Cut(B,'antonio_wipe',{cx:1600,cy:1030,h:760,t0:B.a+0.3,amp:4,phase:1});
+ Cap(B,'Misma edad',{cx:960,cy:330,size:80,t0:B.a+0.2}); Cap(B,'<span class="red">≠</span>',{cx:960,cy:470,size:120,t0:B.a+1.2}); Cap(B,'mismas <span class="hl">necesidades</span>',{cx:960,cy:610,size:80,t0:B.a+1.8});}
+
+// primer caso: espaciar duchas
+Scene(C('primercaso'),C('segundocaso'),'s_tea','Piel seca: <span class="hl">espaciar duchas</span> puede ayudar',{capT:1.5,draw:(c,t)=>steam(c,t,{x:300,y:125,w:30,n:3,r:8,rise:60})});
+
+// segundo caso: ducharse tras sudar
+Scene(C('segundocaso'),C('competir'),'S2_1','Si sudas: <span class="hl">ducharte</span> es más cómodo',{from:[.55,.4,1],to:[.55,.3,1.15],draw:(c,t)=>drops(c,t,{x:700,y:150,w:300,h:200,n:5,t0:C('segundocaso'),s:1.4,speed:0.6})});
+
+// no es una competición
+{const B=Beat(C('competir'),C('error2'),{enter:'up'}); Cut(B,'thumbs_up',{cx:560,cy:1010,h:800,amp:4}); Cut(B,'antonio_towel',{cx:1380,cy:1010,h:800,t0:B.a+0.2,amp:4,phase:1});
+ Cap(B,'<span class="hl">No es una competición</span>',{cx:960,cy:180,size:84,t0:B.a+0.3});}
+
+// error frecuente
+{const B=Beat(C('error2'),C('manos2'),{enter:'zoom'});
+ Cap(B,'Error frecuente:',{cx:960,cy:300,size:66,t0:B.a+0.2,color:'#e23b2e'});
+ Cap(B,'No ducharse',{cx:620,cy:500,size:90,t0:B.a+1.3}); Cap(B,'<span class="red">≠</span>',{cx:960,cy:500,size:110,t0:B.a+2.3}); Cap(B,'<span class="hl">no asearse</span>',{cx:1300,cy:500,size:90,t0:B.a+2.6});
+ Cut(B,'basin',{cx:960,cy:1000,h:320,t0:B.a+3.2,amp:4});}
+
+// lavarte las manos (scene)
+Scene(C('manos2'),C('manos2')+4,'S2_2','Manos, <span class="hl">siempre</span> que haga falta',{from:[.45,.5,1],to:[.55,.65,1.18],draw:(c,t)=>water(c,t,{x0:1085,y0:690,x1:1070,y1:880,spread:30,n:12})});
+
+// daily hygiene checklist
+{const B=Beat(C('manos2')+4,C('clima2'));
+ Cap(B,'Aunque no haya <span class="hl">ducha completa</span>',{cx:960,cy:120,size:70,t0:B.a+0.2});
+ Row(B,[['soap','Higiene íntima',B.a+0.5,'ok'],['washcloth','Axilas y pliegues',B.a+2.5,'ok'],['clean_clothes','Ropa interior limpia',C('ropa2'),'ok'],['soft_towel','Secado cuidadoso',C('ropa2')+2.5,'ok']],{y:560});}
+
+// el clima cambia las reglas
+Scene(C('clima2'),C('movilidad2'),'S2_4','El <span class="hl">clima</span> cambia las reglas',{from:[.75,.5,1.05],to:[.25,.5,1.12],
+ draw:(c,t)=>{snow(c,t,{x:1290,y:30,w:330,h:380}); if(t>C('verano2'))rays(c,t,{x:680,y:95,r0:70,r1:100,lw:5});}});
+{const B=beats[beats.length-1];
+ Cap(B,'Frío y tranquilo: <span class="blue">sudas poco</span>',{cx:1380,cy:110,size:48,t0:C('clima2')+2.2,pill:true,t1:C('verano2')-0.3});
+ Cap(B,'Verano: quizá <span class="hl">más a menudo</span>',{cx:560,cy:110,size:48,t0:C('verano2'),pill:true});}
+
+// movilidad / ayuda
+Scene(C('movilidad2'),C('preguntate')-4.4,'S2_3','Con <span class="hl">orientación profesional</span>',{capT:5.5,from:[.5,.5,1],to:[.45,.55,1.12]});
+
+// 4 preguntas
+{const B=Beat(C('preguntate')-4.4,C('calendario2'));
+ Cap(B,'No cuentes días: <span class="hl">pregúntate</span>',{cx:960,cy:110,size:72,t0:B.a+0.3});
+ const k=C('preguntate');
+ Row(B,[['sweaty_shirt','¿Has sudado?',k,null],['dry_circle','¿Piel irritada?',k+1.6,null],['hat_gloves','¿Te has ensuciado?',k+3.3,null],['shower_chair','¿Con seguridad?',k+5.4,null]],{y:570});}
+
+// más útil que el calendario
+{const B=Beat(C('calendario2'),C('detalle2')); Cut(B,'calendar',{cx:620,cy:900,h:600,amp:3});
+ const s=Svg(B); Draw(B,s,cross(640,560,3),{t0:B.a+0.6,dur:0.5,stroke:'#e23b2e',w:14});
+ Cap(B,'Más útil que <span class="hl">cualquier calendario</span>',{cx:1380,cy:500,size:66,t0:B.a+0.2});}
+
+// teaser temperatura
+{const B=Beat(C('detalle2'),C('suscribete2'),{enter:'zoom'}); Cut(B,'thermo',{cx:640,cy:960,h:720,amp:4,shake:1});
+ Canvas(B,(c,t)=>steam(c,t,{x:640,y:300,w:200,n:6,r:26,rise:140}));
+ Cap(B,'Un detalle que muchos <span class="hl">pasan por alto</span>…',{cx:1300,cy:420,size:62,t0:B.a+0.3});
+ Cap(B,'la <span class="red">temperatura</span> del agua',{cx:1300,cy:580,size:80,t0:B.a+4.0});}
+
+// suscríbete
+Subscribe(C('suscribete2'),C('compartimos'),{line:'¿Te ayuda? <span class="hl">Suscríbete</span>'});
+{const B=Beat(C('compartimos'),C('verdad3'),{exit:'fade'}); Cut(B,'wave',{cx:430,cy:1010,h:840,amp:5,tilt:2,period:1.6});
+ Cap(B,'Consejos <span class="hl">claros y prácticos</span>',{cx:1250,cy:260,size:70,t0:B.a+0.3});
+ const s=Svg(B); ['Sin alarmismos','Sin promesas milagrosas','Respetando tus necesidades'].forEach((w,i)=>{const y=450+i*150;
+   Draw(B,s,tick(820,y,1),{t0:B.a+3.5+i*1.4,dur:0.3,stroke:'#22a35a',w:13}); Cap(B,w,{cx:1250,cy:y,size:64,t0:B.a+3.5+i*1.4});});}
+</script></body></html>

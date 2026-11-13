@@ -1,0 +1,59 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="common.js"></script>
+<script>
+window.START=C('verdad6'); window.END=C('verdad7'); window.DURATION=window.END;
+
+Title(C('verdad6'),C('momento'),6,'Lo que haces <span class="hl">después</span>','de ducharte importa mucho',['soft_towel','cream_jar']);
+
+Scene(C('momento'),C('diferencia6'),'S4_1','Grifo, toalla, <span class="red">secado rápido</span> y a vestirse',{capT:4.3,from:[.45,.5,1.0],to:[.6,.55,1.15],
+ draw:(c,t)=>sparks(c,t,{x:1080,y:440,s:2})});
+{const B=Beat(C('diferencia6'),C('recuerdas'),{enter:'zoom'}); Cut(B,'sandtimer',{cx:620,cy:860,h:540,amp:4,tilt:3});
+ Cap(B,'Después de los 60,',{cx:1350,cy:420,size:70,t0:B.a+0.2,color:'#6a6f86'}); Cap(B,'esos minutos <span class="hl">importan</span>',{cx:1350,cy:570,size:84,t0:B.a+2.5});}
+{const B=Side(C('recuerdas'),C('crema6'),'tight_arm',[['¿Esa <span class="hl">tirantez</span>?',null,86],['¿Solución: ducharse menos?',C('recuerdas')+4.3,58,'#6a6f86'],['Hay otro hábito…',C('recuerdas')+8.5,62,'#2f6fd6']],{shake:1.5});}
+{const B=Side(C('crema6'),C('porque6'),'cream_leg',[['Crema hidratante',null,84],['con la piel <span class="hl">aún húmeda</span>',C('crema6')+2.5,74]]);}
+// why: water enters then evaporates, weak barrier loses more
+{const B=Beat(C('porque6'),C('gesto6'),{enter:'zoom'}); Cut(B,'skin_block',{cx:640,cy:880,h:620,amp:2,tilt:.3});
+ Canvas(B,(c,t)=>{ if(t<C('evaporarse'))water(c,t,{x0:640,y0:60,x1:640,y1:300,spread:420,n:26});
+   else drops(c,t,{x:430,y:120,w:420,h:260,n:t>C('debilitada')?18:9,t0:C('evaporarse'),speed:t>C('debilitada')?0.75:0.45});});
+ Cap(B,'Te explico por qué',{cx:1400,cy:220,size:70,t0:B.a+0.2,color:'#6a6f86'});
+ Cap(B,'En la ducha: <span class="blue">entra agua</span>',{cx:1400,cy:400,size:66,t0:C('porque6')+1.8});
+ Cap(B,'Al salir: <span class="hl">se evapora</span>',{cx:1400,cy:550,size:66,t0:C('evaporarse')});
+ Cap(B,'Barrera débil = <span class="red">más pérdida</span>',{cx:1400,cy:700,size:66,t0:C('debilitada')+1});}
+{const B=Beat(C('gesto6'),C('toques'),{enter:'zoom'}); Canvas(B,(c,t)=>rays(c,t,{x:960,y:500,r0:260,r1:330,lw:8}));
+ Cap(B,'Un <span class="hl">gesto sencillo</span>',{cx:960,cy:450,size:110,t0:B.a+0.3}); Cap(B,'desde hoy',{cx:960,cy:600,size:66,t0:B.a+2,color:'#2f6fd6'});}
+// steps 1 & 2
+Scene(C('toques'),C('humeda'),'S4_2','<span class="hl">1 ·</span> Seca a <span class="hl">toquecitos</span>, sin frotar',{capT:0.8,from:[.5,.45,1.0],to:[.5,.5,1.14]});
+Scene(C('humeda'),C('fortuna'),'S4_3','<span class="hl">2 ·</span> Crema con la piel <span class="hl">ligeramente húmeda</span>',{capT:0.8,from:[.45,.5,1.0],to:[.45,.65,1.16],
+ draw:(c,t)=>{for(let i=0;i<4;i++){const ph=(t*0.5+i*0.25)%1;c.globalAlpha=1-ph;drop(c,380+i*14,720+ph*160,0.7);}c.globalAlpha=1;}});
+{const B=Beat(C('fortuna'),C('toleres'));
+ Cap(B,'No necesitas <span class="hl">gastar una fortuna</span>',{cx:960,cy:120,size:70,t0:B.a+0.2});
+ Row(B,[['lotion','Glicerina',C('fortuna')+3.3,null],['cream_tube2','Ceramidas',C('fortuna')+4.4,null],['vaseline','Vaselina',C('fortuna')+5.4,null]],{y:580});
+ Cap(B,'conservan la humedad · protegen la barrera',{cx:960,cy:950,size:52,t0:C('fortuna')+7,color:'#2f6fd6'});
+ Src(B,'Fuente: AAD (Academia Americana de Dermatología)');}
+{const B=Beat(C('toleres'),C('tres')); Cut(B,'cream_jar',{cx:620,cy:860,h:520,amp:4});
+ const s=Svg(B);
+ Draw(B,s,tick(870,440,1),{t0:B.a+1.5,dur:0.3,stroke:'#22a35a',w:13}); Cap(B,'Que <span class="hl">toleres bien</span>',{cx:1320,cy:440,size:78,t0:B.a+1.5});
+ Draw(B,s,tick(870,600,1),{t0:B.a+3.5,dur:0.3,stroke:'#22a35a',w:13}); Cap(B,'Sin perfumes intensos',{cx:1340,cy:600,size:70,t0:B.a+3.5});}
+// 3 minutes myth
+{const B=Beat(C('tres'),C('parcial'),{enter:'zoom'}); Cut(B,'sandtimer',{cx:560,cy:860,h:540,amp:4,tilt:3});
+ Cap(B,'¿“Los 3 primeros minutos”?',{cx:1340,cy:360,size:72,t0:B.a+1.5});
+ Cap(B,'Un recordatorio: <span class="hl">hidrátate pronto</span>',{cx:1340,cy:520,size:62,t0:C('tres')+7});
+ Cap(B,'después la crema <span class="blue">sigue funcionando</span>',{cx:1340,cy:660,size:58,t0:C('tres')+11});}
+Scene(C('parcial'),C('dosmaneras'),'S4_4','Días sin ducha: <span class="hl">la crema también ayuda</span>',{capT:3.5,from:[.5,.45,1.0],to:[.55,.55,1.14]});
+// two ways to finish
+{const B=Beat(C('dosmaneras'),C('dedos'));
+ Panel(B,'S4_1',{x:500,y:470,w:860,from:[.5,.5,1],to:[.55,.5,1.08]}); Panel(B,'S4_3',{x:1420,y:470,w:860,from:[.5,.5,1],to:[.45,.6,1.1],t0:C('dosmaneras')+5.2});
+ const s=Svg(B); Draw(B,s,cross(500,470,2.4),{t0:C('dosmaneras')+4,dur:0.4,stroke:'#e23b2e',w:12}); Draw(B,s,tick(1720,250,1.5),{t0:C('dosmaneras')+7.5,dur:0.4,stroke:'#22a35a',w:16});
+ Cap(B,'Áspera y con prisa',{cx:500,cy:880,size:54,t0:B.a+0.5,pill:true}); Cap(B,'Un minuto de <span class="hl">cuidado</span>',{cx:1420,cy:880,size:54,t0:C('dosmaneras')+5.5,pill:true});}
+// not between toes
+{const B=Beat(C('dedos'),C('conoces')); Cut(B,'foot',{cx:620,cy:900,h:640,amp:3});
+ const s=Svg(B); Draw(B,s,cross(620,420,1.6),{t0:B.a+1.8,dur:0.35,stroke:'#e23b2e',w:13});
+ Cap(B,'Crema <span class="red">no entre los dedos</span>',{cx:1350,cy:420,size:72,t0:B.a+1.5});
+ Cap(B,'si hay humedad persistente',{cx:1350,cy:560,size:58,t0:B.a+3,color:'#6a6f86'});
+ Cap(B,'¿Lesiones o irritación? <span class="hl">Consulta</span>',{cx:1350,cy:720,size:58,t0:B.a+5.5});}
+// recap
+{const B=Beat(C('conoces'),C('decisiva'),{enter:'zoom'});
+ Cap(B,'Duchas <span class="hl">más amables</span> con tu piel',{cx:960,cy:120,size:72,t0:B.a+0.2});
+ Row(B,[['thermo','Templada',B.a+0.6,'ok'],['timer','Breve',B.a+1.2,'ok'],['cleanser','Suave',B.a+1.8,'ok'],['soft_towel','A toques',B.a+2.4,'ok'],['cream_jar','Crema',B.a+3,'ok']],{y:580,h:260,cardH:440});}
+{const B=Side(C('decisiva'),C('verdad7'),'think',[['La pregunta <span class="hl">decisiva</span>:',null,74],['¿qué frecuencia',C('decisiva')+3,64,'#2f6fd6'],['es la adecuada para ti?',C('decisiva')+4,64,'#2f6fd6']],{enter:'right'}); B.exit='fade';}
+</script></body></html>

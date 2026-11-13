@@ -1,0 +1,54 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="common.js"></script>
+<script>
+window.START=C('verdad7'); window.END=C('concl'); window.DURATION=window.END;
+
+Title(C('verdad7'),C('definitiva'),7,'La frecuencia ideal','depende de <span class="hl">4 factores</span>',['calendar','body']);
+{const B=Beat(C('definitiva'),C('noexiste'),{enter:'zoom'});
+ Cap(B,'¿La respuesta definitiva?',{cx:960,cy:200,size:76,t0:B.a+0.3});
+ Num(B,'2',{cx:560,cy:520,r:120,t0:C('definitiva')+5.3}); Num(B,'3',{cx:960,cy:520,r:120,t0:C('definitiva')+6.3}); Num(B,'7',{cx:1360,cy:520,r:120,t0:C('definitiva')+7.3});
+ Cap(B,'veces',{cx:560,cy:720,size:56,t0:C('definitiva')+5.4,color:'#6a6f86'}); Cap(B,'veces',{cx:960,cy:720,size:56,t0:C('definitiva')+6.4,color:'#6a6f86'}); Cap(B,'¿todos los días?',{cx:1360,cy:720,size:56,t0:C('definitiva')+7.4,color:'#6a6f86'});}
+{const B=Beat(C('noexiste'),C('carmen'),{enter:'zoom'}); Cut(B,'calendar',{cx:960,cy:880,h:560,amp:3});
+ const s=Svg(B); Draw(B,s,'M640 420 L1280 420',{t0:B.a+1,dur:0.01,stroke:'transparent',w:1});
+ const st=mk('div','pill',B.L,'NO HAY UNA REGLA ÚNICA'); Object.assign(st.style,{left:'960px',top:'560px',fontSize:'86px',color:'#e23b2e',borderColor:'#e23b2e',borderWidth:'8px'}); Pop(B,st,{t0:B.a+2.5,rot:-7});
+ Cap(B,'Menos <span class="hl">preocupaciones innecesarias</span>',{cx:960,cy:170,size:66,t0:C('noexiste')+7});}
+// Carmen
+Scene(C('carmen'),C('antonio'),'s_tea','Carmen, 72: piel seca → <span class="hl">2–3 duchas/semana</span> + higiene diaria',{capT:3,size:56,draw:(c,t)=>steam(c,t,{x:300,y:125,w:30,n:3,r:8,rise:60})});
+{const B=beats[beats.length-1]; Cap(B,'Dramatización',{cx:1600,cy:110,size:40,t0:C('carmen')+0.3,pill:true,color:'#6a6f86'});}
+// Antonio
+Scene(C('antonio'),C('ambos'),'S4_5','Antonio, 68: camina y suda → <span class="hl">más a menudo</span>',{capT:3,size:58,from:[.4,.5,1.0],to:[.5,.45,1.14],
+ draw:(c,t)=>rays(c,t,{x:1290,y:320,r0:110,r1:160,lw:6})});
+{const B=beats[beats.length-1]; Cap(B,'Dramatización',{cx:1600,cy:110,size:40,t0:C('antonio')+0.3,pill:true,color:'#6a6f86'});}
+{const B=Beat(C('ambos'),C('cuatro'),{enter:'up'}); Cut(B,'thumbs_up',{cx:520,cy:1010,h:780,amp:4}); Cut(B,'antonio_towel',{cx:1400,cy:1010,h:780,t0:B.a+0.2,amp:4,phase:1});
+ const s=Svg(B); Draw(B,s,tick(700,330,1.4),{t0:B.a+1,dur:0.3,stroke:'#22a35a',w:15}); Draw(B,s,tick(1580,330,1.4),{t0:B.a+1.3,dur:0.3,stroke:'#22a35a',w:15});
+ Cap(B,'Rutinas distintas, <span class="hl">ambos bien</span>',{cx:960,cy:130,size:72,t0:B.a+0.4});}
+// 4 factors pie
+{const B=Beat(C('cuatro'),C('fundamental7'),{enter:'zoom'});
+ Pie(B,{cx:560,cy:560,r:330,labels:['Piel','Actividad','Clima','Seguridad'],keys:[C('piel7'),C('actividad'),C('clima7'),C('seguridad7')]});
+ Cap(B,'4 factores',{cx:560,cy:120,size:76,t0:B.a+0.2});
+ const P=[['piel7','dry_circle','¿Sequedad, picor, irritación?','Revisa temperatura, productos y frecuencia'],
+          ['actividad','antonio_towel','Más sudor o suciedad','= más necesidad de limpieza'],
+          ['clima7','fan_hot','Verano: quizá más duchas','Invierno: ojo al agua caliente e hidratación'],
+          ['seguridad7','shower_chair','¿Te cuesta estar de pie?','Silla, barras, suelo antideslizante, ayuda']];
+ P.forEach(([k,cut,l1,l2],i)=>{const a=C(k), b=i<3?C(P[i+1][0]):C('fundamental7');
+   Cut(B,cut,{cx:1380,cy:640,h:360,t0:a,t1:b-0.3,amp:4});
+   Cap(B,l1,{cx:1380,cy:760,size:52,t0:a+0.6,t1:b-0.3}); Cap(B,l2,{cx:1380,cy:850,size:42,t0:a+2.5,t1:b-0.3,color:'#2f6fd6'});});
+ Cap(B,'Si tu piel está cómoda, <span class="hl">no cambies</span> solo por la edad',{cx:960,cy:1010,size:48,t0:C('piel7')+10.6,t1:C('actividad')-0.3});}
+Warn(C('fundamental7'),C('proponer'),'Recuerda',['Heridas · infecciones de la piel','Cuidados especiales','→ sigue a tu <b>profesional sanitario</b>'],{panel:'S3_4',keys:[C('fundamental7')+2.3,C('fundamental7')+4.5,C('fundamental7')+6.5]});
+// weekly observation notebook
+{const B=Beat(C('proponer'),C('cambiantes')); const p=Panel(B,'S4_6',{x:540,y:500,w:960,from:[.5,.5,1],to:[.45,.7,1.15]});
+ p.draw=(c,t)=>{ // fill the 7 boxes on the notebook page
+   const xs=[652,712,772,832,892,952,1012]; xs.forEach((x,i)=>{const t0=C('proponer')+3+i*0.8; if(t<t0)return; const k=prog(t,t0,t0+0.3);
+     c.strokeStyle=i===2||i===5?'#e23b2e':'#22a35a'; c.lineWidth=4; c.beginPath();
+     if(i===2||i===5){c.moveTo(x+8,836);c.lineTo(x+8+22*k,858);} else {c.moveTo(x+6,848);c.lineTo(x+16,858);c.lineTo(x+16+18*k,836-6*k);} c.stroke();});
+   steam(c,t,{x:1390,y:660,w:40,n:3,r:10,rise:80});};
+ Cap(B,'Esta semana, <span class="hl">observa</span>:',{cx:1490,cy:240,size:58,t0:B.a+0.4});
+ [['¿Se mantiene cómoda?','comoda7',0],['¿Aparece picor?','comoda7',1.4],['¿Sudas más?','comoda7',2.8]].forEach(([q,k,d],i)=>Cap(B,q,{cx:1480,cy:420+i*130,size:56,t0:C(k)+d}));
+ Cap(B,'te ayuda a <span class="hl">elegir mejor</span>',{cx:1480,cy:820,size:56,t0:C('comoda7')+5.3});}
+{const B=Beat(C('cambiantes'),C('suscribete7'),{enter:'zoom'});
+ Cap(B,'No reglas rígidas:',{cx:960,cy:420,size:80,t0:B.a+1.5,color:'#6a6f86'}); Cap(B,'escucha <span class="hl">a tu cuerpo</span>',{cx:960,cy:580,size:100,t0:B.a+4});}
+Subscribe(C('suscribete7'),C('aprendemos'),{pose:'thumbs_up',share:true,line:'¿Te ha sido útil?'});
+{const B=Beat(C('aprendemos'),C('concl'),{exit:'fade'}); Cut(B,'wave_both',{cx:520,cy:1010,h:800,amp:4,period:1.8});
+ Cap(B,'Aprendemos <span class="hl">juntos</span>',{cx:1300,cy:330,size:84,t0:B.a+0.3});
+ ['Decisiones sencillas','Información fiable','Hábitos para vivir mejor'].forEach((w,i)=>Cap(B,'✓ '+w,{cx:1300,cy:500+i*120,size:58,t0:B.a+3+i*1.6,color:'#1f9d55'}));}
+</script></body></html>
