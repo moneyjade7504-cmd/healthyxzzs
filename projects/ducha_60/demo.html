@@ -1,0 +1,222 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Kalam;font-weight:700;src:url(fonts/kalam-latin-700-normal.woff2) format('woff2');}
+@font-face{font-family:Kalam;font-weight:700;src:url(fonts/kalam-latin-ext-700-normal.woff2) format('woff2');unicode-range:U+0100-024F;}
+@font-face{font-family:Kalam;font-weight:400;src:url(fonts/kalam-latin-400-normal.woff2) format('woff2');}
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#fff;}
+#stage{position:absolute;inset:0;overflow:hidden;
+  background:#fdfdfb radial-gradient(circle at 1px 1px,#e9ecf2 1.2px,transparent 1.4px) 0 0/34px 34px;}
+.layer{position:absolute;inset:0;opacity:0;will-change:transform,opacity;}
+.panel{position:absolute;border-radius:30px;overflow:hidden;background:#fff;
+  box-shadow:0 18px 40px rgba(40,60,110,.18);border:6px solid #2f6fd6;}
+.panel img,.panel canvas{position:absolute;left:0;top:0;width:100%;height:100%;}
+.panel .cam{position:absolute;inset:0;transform-origin:50% 50%;}
+.cut{position:absolute;transform-origin:50% 100%;}
+.cut img{display:block;width:100%;}
+.cap{position:absolute;font-family:Kalam;font-weight:700;color:#24263a;white-space:nowrap;
+  transform:translate(-50%,-50%);line-height:1.05;letter-spacing:.5px;}
+.cap .hl{position:relative;z-index:0;}
+.cap .hl::before{content:'';position:absolute;left:-10px;right:-10px;top:52%;height:44%;z-index:-1;
+  background:#ffe14d;border-radius:10px 4px 12px 6px;transform:scaleX(var(--hl,0));transform-origin:0 50%;}
+.pill{position:absolute;transform:translate(-50%,-50%);background:#fff;border:5px solid #2f6fd6;border-radius:26px;
+  padding:10px 34px 14px;font-family:Kalam;font-weight:700;color:#24263a;white-space:nowrap;
+  box-shadow:0 10px 24px rgba(40,60,110,.15);}
+svg.ov{position:absolute;inset:0;width:1920px;height:1080px;overflow:visible;}
+</style></head>
+<body><div id="stage"></div>
+<script>
+window.DURATION = 33.2;
+const S = document.getElementById('stage');
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const prog=(t,a,b)=>clamp((t-a)/(b-a));
+const eo=x=>1-Math.pow(1-x,3);                       // ease out
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;     // ease in-out
+const back=x=>{const c=1.6;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2);};
+const mk=(tag,cls,parent,html)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;parent.appendChild(e);return e;};
+const NS='http://www.w3.org/2000/svg';
+const sv=(tag,attrs,parent)=>{const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);parent.appendChild(e);return e;};
+const rnd=(i)=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x);};
+
+// ---------- building blocks ----------
+const beats=[];
+function Beat(a,b,{enter='right',exit='left'}={}){
+  const L=mk('div','layer',S); const B={L,a,b,enter,exit,fx:[]}; beats.push(B); return B;
+}
+// layer transition: whip-pan in / out (0.4 s) with a little blur
+function layerT(B,t){
+  const {L,a,b}=B; const ti=0.42,to=0.38;
+  if(t<a-0.01||t>b+to){L.style.opacity=0;return false;}
+  let x=0,op=1,bl=0,sc=1;
+  if(t<a+ti){const p=eo(prog(t,a,a+ti));
+    const d={right:1,left:-1,up:0,zoom:0}[B.enter];
+    if(B.enter==='zoom'){sc=0.9+0.1*p;}else x=d*(1-p)*520; op=p; bl=(1-p)*10;}
+  if(t>b){const p=eio(prog(t,b,b+to)); const d={left:-1,right:1,fade:0}[B.exit]; x+=d*p*520; op*=1-p; bl+=p*8;}
+  L.style.opacity=op; L.style.transform=`translateX(${x}px) scale(${sc})`; L.style.filter=bl>0.3?`blur(${bl}px)`:'none';
+  return true;
+}
+// framed scene panel with camera move and a canvas overlay in panel coords
+function Panel(B,src,{x,y,w,iw,ih,from=[.5,.5,1],to=[.5,.5,1.1]}){
+  const h=w*ih/iw; const P=mk('div','panel',B.L); Object.assign(P.style,{left:x-w/2+'px',top:y-h/2+'px',width:w+'px',height:h+'px'});
+  const cam=mk('div','cam',P); const img=mk('img','',cam); img.src=src;
+  const cv=mk('canvas','',cam); cv.width=iw*2; cv.height=ih*2; const ctx=cv.getContext('2d'); ctx.scale(2,2);
+  const o={P,cam,ctx,iw,ih,draw:null};
+  B.fx.push(t=>{const p=eio(prog(t,B.a,B.b+0.4));
+    const fx=from[0]+(to[0]-from[0])*p, fy=from[1]+(to[1]-from[1])*p, z=from[2]+(to[2]-from[2])*p;
+    cam.style.transformOrigin=`${fx*100}% ${fy*100}%`; cam.style.transform=`scale(${z})`;
+    ctx.clearRect(0,0,iw,ih); if(o.draw)o.draw(ctx,t);
+    // reveal: diagonal wipe like a marker sweep
+    const r=eo(prog(t,B.a,B.a+0.55)); P.style.clipPath=`polygon(0 0, ${r*180}% 0, ${r*180-60}% 100%, 0 100%)`;
+  });
+  return o;
+}
+// cut-out character / object: pop in with overshoot, then idle life
+function Cut(B,src,{cx,cy,h,t0,iw,ih,amp=5,period=3,tilt=1.5,phase=0,dir=null,shake=0}){
+  const w=h*iw/ih; const C=mk('div','cut',B.L); Object.assign(C.style,{left:cx-w/2+'px',top:cy-h+'px',width:w+'px',height:h+'px'});
+  const img=mk('img','',C); img.src=src;
+  B.fx.push(t=>{
+    const p=prog(t,t0,t0+0.5); let s=p<=0?0:back(p), dx=0;
+    if(dir){dx=(1-eo(p))*(dir==='l'?-600:600); s=p<=0?0:1;}
+    const k=(t-t0)/period*2*Math.PI+phase; const bob=Math.sin(k)*amp, rot=Math.sin(k*0.5)*tilt;
+    const sh=shake?Math.sin(t*38)*shake*Math.max(0,Math.sin((t-t0)*2.2)):0;
+    C.style.opacity=p>0?Math.min(1,p*3):0;
+    C.style.transform=`translate(${dx+sh}px,${bob}px) rotate(${rot}deg) scale(${s},${s*(1+0.012*Math.sin(k*2))})`;
+  });
+  return C;
+}
+// handwritten caption: written left→right, keyword highlighted after
+function Cap(B,html,{cx,cy,size=84,t0,pill=false,color}){
+  const C=mk('div',pill?'pill':'cap',B.L,html); C.style.left=cx+'px'; C.style.top=cy+'px'; C.style.fontSize=size+'px'; if(color)C.style.color=color;
+  const hl=C.querySelector('.hl');
+  B.fx.push(t=>{const p=prog(t,t0,t0+0.6);
+    C.style.opacity=p>0?1:0;
+    C.style.clipPath=`inset(-20% ${(1-eo(p))*100}% -20% -5%)`;
+    C.style.transform=`translate(-50%,-50%) rotate(${-1.2+Math.sin(t*1.3)*0.4}deg)`;
+    if(hl)hl.style.setProperty('--hl',eo(prog(t,t0+0.55,t0+0.9)));
+  });
+  return C;
+}
+// SVG overlay for hand-drawn marks (circles, arrows, ticks), stroke drawn on
+function Svg(B){return sv('svg',{class:'ov',viewBox:'0 0 1920 1080'},B.L);}
+function Draw(svg,d,{t0,dur=0.5,stroke='#e23b2e',w=9,B}){
+  const p=sv('path',{d,fill:'none',stroke,'stroke-width':w,'stroke-linecap':'round','stroke-linejoin':'round'},svg);
+  const len=p.getTotalLength(); p.style.strokeDasharray=len;
+  B.fx.push(t=>{p.style.strokeDashoffset=len*(1-eo(prog(t,t0,t0+dur))); p.style.opacity=t>=t0?1:0;});
+  return p;
+}
+const scribbleCircle=(cx,cy,rx,ry,turns=1.15)=>{let d='';for(let i=0;i<=60;i++){const a=-1.9+i/60*turns*2*Math.PI;const k=1+0.05*Math.sin(i*0.7);d+=(i?'L':'M')+(cx+Math.cos(a)*rx*k).toFixed(1)+' '+(cy+Math.sin(a)*ry*k).toFixed(1);}return d;};
+
+// ---------- particle painters (panel coordinates) ----------
+function water(ctx,t,{x0,y0,x1,y1,spread=120,n=26,col='rgba(70,150,235,0.85)'}){
+  for(let i=0;i<n;i++){const ph=(t*1.6+rnd(i))%1; const off=(rnd(i+50)-0.5)*spread;
+    const sx=x0+off*0.25, sy=y0, ex=x1+off, ey=y1; const x=sx+(ex-sx)*ph, y=sy+(ey-sy)*ph;
+    const dx=(ex-sx)*0.06, dy=(ey-sy)*0.06; ctx.strokeStyle=col; ctx.lineWidth=2.6; ctx.lineCap='round';
+    ctx.globalAlpha=Math.sin(ph*Math.PI); ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(x+dx,y+dy); ctx.stroke();}
+  ctx.globalAlpha=1;
+}
+function steam(ctx,t,{x,y,w=200,n=7,r=26}){
+  for(let i=0;i<n;i++){const ph=(t*0.22+rnd(i+9))%1; const px=x+(rnd(i+3)-0.5)*w+Math.sin(t*0.9+i)*14, py=y-ph*150;
+    ctx.globalAlpha=0.55*Math.sin(ph*Math.PI); ctx.fillStyle='#ffffff'; ctx.strokeStyle='rgba(160,195,230,.55)'; ctx.lineWidth=1.4;
+    ctx.beginPath(); ctx.arc(px,py,r*(0.7+ph*0.8),0,Math.PI*2); ctx.fill(); ctx.stroke();}
+  ctx.globalAlpha=1;
+}
+function sparks(ctx,t,{x,y,s=1}){
+  const k=0.6+0.4*Math.sin(t*9); ctx.strokeStyle='#e62a2a'; ctx.lineWidth=4*s; ctx.lineJoin='round';
+  [[0,0],[14,26],[-6,48]].forEach(([dx,dy],i)=>{const o=Math.sin(t*9+i)*4; ctx.globalAlpha=k;
+    ctx.beginPath(); ctx.moveTo(x+dx+o,y+dy); ctx.lineTo(x+dx+12*s+o,y+dy+6*s); ctx.lineTo(x+dx+4*s+o,y+dy+10*s); ctx.lineTo(x+dx+18*s+o,y+dy+16*s); ctx.stroke();});
+  ctx.globalAlpha=1;
+}
+function rays(ctx,t,{x,y,r0=34,r1=58}){
+  ctx.strokeStyle='rgba(255,200,40,.9)'; ctx.lineWidth=3; ctx.lineCap='round';
+  for(let i=0;i<12;i++){const a=i/12*Math.PI*2+t*0.25; const pulse=4*Math.sin(t*3+i);
+    ctx.beginPath(); ctx.moveTo(x+Math.cos(a)*r0,y+Math.sin(a)*r0); ctx.lineTo(x+Math.cos(a)*(r1+pulse),y+Math.sin(a)*(r1+pulse)); ctx.stroke();}
+}
+function drops(ctx,t,{x,y,w,h,n=8,t0}){       // evaporation: drops float up and vanish
+  for(let i=0;i<n;i++){const ph=((t-t0)*0.45+rnd(i+20))%1; if(t<t0)return; const px=x+rnd(i)*w+Math.sin(t*2+i)*6, py=y+h-ph*h*1.5;
+    ctx.globalAlpha=Math.sin(ph*Math.PI)*0.95; ctx.fillStyle='#5aaee8'; ctx.strokeStyle='#2c6db8'; ctx.lineWidth=1.5;
+    ctx.beginPath(); ctx.moveTo(px,py-26); ctx.quadraticCurveTo(px+19,py,px,py+15); ctx.quadraticCurveTo(px-19,py,px,py-26); ctx.fill(); ctx.stroke();}
+  ctx.globalAlpha=1;
+}
+
+// ---------- the 32 s hook (times = voice words − 0.15 s) ----------
+const PW=1560; // panel width on screen
+
+// 1 · 0.0 cold open: Carmen under the shower
+{const B=Beat(0,2.45,{enter:'zoom'}); const p=Panel(B,'cut/s_shower.png',{x:960,y:540,w:PW,iw:808,ih:457,from:[.55,.4,1.0],to:[.45,.35,1.12]});
+ p.draw=(c,t)=>{water(c,t,{x0:570,y0:85,x1:470,y1:430,spread:260,n:34}); steam(c,t,{x:120,y:430,w:200}); steam(c,t,{x:700,y:440,w:150,n:5});};
+ Cap(B,'¿Más de <span class="hl">60 años</span>?',{cx:960,cy:965,size:76,t0:0.35,pill:true});}
+
+// 2 · 2.45 "todos los días" → calendar fills with 7 ticks
+{const B=Beat(2.45,5.15); Cut(B,'cut/calendar.png',{cx:700,cy:900,h:640,t0:2.45,iw:377,ih:387,amp:3,tilt:.6});
+ const s=Svg(B); const gx=[496,577,658,739,820,901], gy=[562,633];
+ for(let i=0;i<7;i++){const x=gx[i%6]+8, y=gy[Math.floor(i/6)]+4; Draw(s,`M${x-28} ${y} l22 24 l42 -50`,{t0:2.75+i*0.17,dur:0.22,stroke:'#22a35a',w:12,B});}
+ Cap(B,'Ducha <span class="hl">todos los días</span>',{cx:1420,cy:430,size:86,t0:2.6});
+ Cap(B,'¿lo más saludable?',{cx:1420,cy:600,size:70,t0:4.9,color:'#2f6fd6'});}
+
+// 3 · 5.15 doubt: thinking Carmen + thought cloud with the shower
+{const B=Beat(5.15,8.85,{enter:'up'}); Cut(B,'cut/think.png',{cx:700,cy:1010,h:880,t0:5.15,iw:216,ih:460,amp:4,tilt:1});
+ const sh=Cut(B,'cut/shower_head.png',{cx:1330,cy:560,h:360,t0:6.0,iw:315,ih:384,amp:8,period:2.4});
+ const s=Svg(B); Draw(s,'M1000 360 C1040 160 1300 110 1420 190 C1600 170 1650 360 1560 450 C1600 600 1380 650 1300 600 C1200 660 1040 620 1050 520 C960 500 950 400 1000 360 Z',{t0:5.6,dur:0.6,stroke:'#7a8db8',w:6,B});
+ Draw(s,'M930 600 a14 14 0 1 0 1 0 M880 660 a9 9 0 1 0 1 0',{t0:5.5,dur:0.3,stroke:'#7a8db8',w:5,B});
+ Draw(s,'M1560 250 q40 -60 80 0 q0 40 -40 60 v30 M1600 395 v4',{t0:7.0,dur:0.45,stroke:'#e23b2e',w:14,B});
+ Cap(B,'Algo que <span class="hl">deberías saber</span>',{cx:1300,cy:860,size:80,t0:7.0});}
+
+// 4 · 8.85 "costumbre de décadas": dawn walk to the bathroom
+{const B=Beat(8.85,11.9); const p=Panel(B,'cut/s_dawn.png',{x:960,y:520,w:PW,iw:808,ih:439,from:[.3,.5,1.0],to:[.6,.5,1.12]});
+ p.draw=(c,t)=>{rays(c,t,{x:140,y:120}); };
+ Cap(B,'Una costumbre <span class="hl">de décadas</span>',{cx:960,cy:965,size:76,t0:9.3,pill:true});}
+
+// 5 · 11.9 "podría estar perjudicando tu piel": skin block, water escapes
+{const B=Beat(11.9,15.35,{enter:'zoom'}); const sk=Cut(B,'cut/skin_block.png',{cx:760,cy:880,h:600,t0:11.9,iw:331,ih:369,amp:3,tilt:.4});
+ const cv=mk('canvas','',B.L); cv.width=1920;cv.height=1080; Object.assign(cv.style,{position:'absolute',left:0,top:0}); const c=cv.getContext('2d');
+ B.fx.push(t=>{c.clearRect(0,0,1920,1080); drops(c,t,{x:560,y:200,w:400,h:300,n:10,t0:12.6});});
+ const s=Svg(B); Draw(s,'M1010 470 C1090 380 1150 330 1230 300',{t0:12.9,dur:0.4,stroke:'#2f6fd6',w:8,B}); Draw(s,'M1205 285 l30 12 l-14 28',{t0:13.25,dur:0.2,stroke:'#2f6fd6',w:8,B});
+ Cap(B,'¿Perjudica tu <span class="hl">piel</span>?',{cx:1450,cy:520,size:96,t0:13.3});
+ Cap(B,'sin que te des cuenta',{cx:1450,cy:670,size:56,t0:14.2,color:'#6a6f86'});}
+
+// 6 · 15.35 after the shower: dry legs (zoom bubble)
+{const B=Beat(15.35,20.65); const p=Panel(B,'cut/s_dry_leg.png',{x:960,y:520,w:PW,iw:819,ih:457,from:[.5,.5,1.0],to:[.75,.72,1.22]});
+ p.draw=(c,t)=>{if(t>17.0)sparks(c,t,{x:650,y:300,s:1.1});};
+ const z=Cut(B,'cut/dry_circle.png',{cx:1540,cy:560,h:430,t0:19.0,iw:361,ih:379,amp:5,tilt:.8});
+ const s=Svg(B); Draw(s,'M1330 470 C1250 520 1210 560 1180 620',{t0:19.3,dur:0.35,stroke:'#e23b2e',w:10,B});Draw(s,'M1170 585 l8 40 l35 -18',{t0:19.6,dur:0.2,stroke:'#e23b2e',w:10,B});
+ Cap(B,'Piernas <span class="hl">más secas</span>',{cx:820,cy:965,size:76,t0:18.4,pill:true});}
+
+// 7 · 20.65 itchy arms (mirror panel)
+{const B=Beat(20.65,22.7); const p=Panel(B,'cut/s_mirror.png',{x:960,y:520,w:PW,iw:819,ih:439,from:[.4,.6,1.05],to:[.3,.7,1.25]});
+ p.draw=(c,t)=>{sparks(c,t,{x:345,y:300,s:1.1}); sparks(c,t+0.3,{x:410,y:380,s:.9});};
+ Cap(B,'Te <span class="hl">pican</span> los brazos',{cx:960,cy:965,size:76,t0:20.85,pill:true});}
+
+// 8 · 22.7 tightness
+{const B=Beat(22.7,24.85,{enter:'up'}); Cut(B,'cut/tight_arm.png',{cx:760,cy:1010,h:860,t0:22.7,iw:275,ih:457,amp:3,tilt:.5,shake:2.2});
+ const s=Svg(B); Draw(s,scribbleCircle(870,470,120,95),{t0:23.1,dur:0.55,stroke:'#e23b2e',w:8,B});
+ Draw(s,'M995 440 l60 -20 M1000 480 l70 0 M995 520 l60 20',{t0:23.4,dur:0.3,stroke:'#e23b2e',w:7,B});
+ Cap(B,'<span class="hl">Tirantez</span>',{cx:1400,cy:470,size:120,t0:23.05});
+ Cap(B,'que antes no tenías',{cx:1400,cy:620,size:60,t0:23.8,color:'#6a6f86'});}
+
+// 9 · 24.85 "¿cosa de la edad?"
+{const B=Beat(24.85,28.05,{enter:'right'}); Cut(B,'cut/scratch_shin.png',{cx:650,cy:990,h:800,t0:24.85,iw:327,ih:452,amp:3,tilt:.6,shake:1.4});
+ // hourglass, drawn on, with falling sand
+ const s=Svg(B); const hx=1430,hy=330;
+ Draw(s,`M${hx-90} ${hy} h180 M${hx-90} ${hy+300} h180 M${hx-70} ${hy} C${hx-70} ${hy+110} ${hx-8} ${hy+130} ${hx-8} ${hy+150} C${hx-8} ${hy+170} ${hx-70} ${hy+190} ${hx-70} ${hy+300} M${hx+70} ${hy} C${hx+70} ${hy+110} ${hx+8} ${hy+130} ${hx+8} ${hy+150} C${hx+8} ${hy+170} ${hx+70} ${hy+190} ${hx+70} ${hy+300}`,{t0:25.2,dur:0.7,stroke:'#3a3c52',w:8,B});
+ const top=sv('path',{fill:'#f7ad36'},s), bot=sv('path',{fill:'#f7ad36'},s), fall=sv('line',{x1:hx,x2:hx,stroke:'#f7ad36','stroke-width':5},s);
+ B.fx.push(t=>{const u=prog(t,25.8,28.0); const on=t>25.8?1:0; top.style.opacity=bot.style.opacity=fall.style.opacity=on;
+   const ht=110*(1-u)+6, hb=20+100*u;
+   top.setAttribute('d',`M${hx-55+ (110-ht)*0.4} ${hy+140-ht} L${hx+55-(110-ht)*0.4} ${hy+140-ht} L${hx} ${hy+145} Z`);
+   bot.setAttribute('d',`M${hx-62} ${hy+292} L${hx+62} ${hy+292} L${hx} ${hy+292-hb} Z`);
+   fall.setAttribute('y1',hy+150); fall.setAttribute('y2',hy+290-hb*0.6);});
+ Cap(B,'¿Cosa de la <span class="hl">edad</span>?',{cx:1430,cy:790,size:96,t0:26.0});}
+
+// 10 · 28.05 "¿y si la manera en que te duchas…?" shower head + tap, circled
+{const B=Beat(28.05,33.2,{enter:'zoom',exit:'fade'}); const sh=Cut(B,'cut/shower_head.png',{cx:700,cy:640,h:470,t0:28.05,iw:315,ih:384,amp:6,period:2.6});
+ Cut(B,'cut/tap.png',{cx:1180,cy:700,h:400,t0:28.6,iw:301,ih:384,amp:4,period:3.1,phase:1});
+ const cv=mk('canvas','',B.L); cv.width=1920;cv.height=1080; Object.assign(cv.style,{position:'absolute',left:0,top:0}); const c=cv.getContext('2d');
+ B.fx.push(t=>{c.clearRect(0,0,1920,1080); if(t>28.4){water(c,t,{x0:620,y0:430,x1:600,y1:760,spread:300,n:30});} steam(c,t,{x:950,y:780,w:900,n:9,r:34});});
+ const s=Svg(B); Draw(s,scribbleCircle(900,520,520,300,1.08),{t0:30.2,dur:0.8,stroke:'#e23b2e',w:10,B});
+ Cap(B,'¿Y si el problema es <span class="hl">cómo te duchas</span>?',{cx:960,cy:930,size:78,t0:29.3,pill:true});}
+
+// ---------- frame ----------
+window.draw=function(t){
+  for(const B of beats){ if(!layerT(B,t))continue; for(const f of B.fx)f(t); }
+};
+window.draw(0);
+</script></body></html>
