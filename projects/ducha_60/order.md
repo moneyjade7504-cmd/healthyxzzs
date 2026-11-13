@@ -4,6 +4,9 @@ Video dài **~22 phút** → cần khoảng **64 hình**: 1 tấm thiết kế n
 (32 cảnh) + 2 tấm đồ vật (20 món). Đặt tên đúng như dưới (`0.png`, `P1.png`, `S1.png`…, `B.png`, `C.png`),
 gửi vào `projects/ducha_60/assets/`.
 
+**Chia 4 video:** Phần 1 = Intro + Verdad 1 (ảnh `0`, `P1`, `S1`, `B`) · Phần 2 = Verdad 2–3 (`S2`, `S3`, `C`)
+· Phần 3 = Verdad 4–5 (`P2`, `S4`, `S5`) · Phần 4 = Verdad 6–7 + kết (`S6`, `S7`, `S8`). Phần sau dùng lại cut-out của phần trước.
+
 **Thứ tự làm:**
 1. Tạo **`0.png` trước** (thiết kế Carmen + Antonio) và gửi mình duyệt.
 2. Sau khi duyệt, mỗi lần tạo tấm có nhân vật đều **đính kèm `0.png`** làm ảnh tham chiếu (chỉ ghi tên file trong
@@ -16,7 +19,7 @@ riêng cho kênh này, gửi mình trước, mình sẽ viết lại toàn bộ 
 
 ---
 
-## Ảnh 0 (`0.png`): thiết kế nhân vật — DUYỆT TRƯỚC
+## Ảnh 0 (`0.png`): thiết kế nhân vật — DUYỆT TRƯỚC — PHẦN 1
 *Carmen (72 tuổi, tóc bạc ngắn, áo len xanh mòng két) và Antonio (68 tuổi, hói nhẹ, râu bạc ngắn, áo sơ mi kẻ ô xanh lá);
 mỗi người 3 góc: trước, nghiêng 3/4, nghiêng.*
 
@@ -26,18 +29,18 @@ Character design reference sheet, clean modern 2D cartoon health-explainer style
 
 ---
 
-## Ảnh P1 (`P1.png`): tư thế Carmen (6 tư thế, sẽ cắt rời)
-*Đọc sách trên ghế bành; tay chống cằm suy nghĩ; ngồi gãi ống chân; sờ cẳng tay nhíu mày (căng da); cầm hũ kem mỉm cười; quấn áo choàng tắm, cầm khăn.*
+## Ảnh P1 (`P1.png`): tư thế Carmen + Antonio (6 tư thế, sẽ cắt rời) — PHẦN 1
+*Carmen đọc sách trên ghế bành; tay chống cằm suy nghĩ; ngồi gãi ống chân; sờ cẳng tay nhíu mày (căng da); cầm hũ kem mỉm cười; Antonio đi bộ nhanh.*
 
 ```
-Character pose sheet, clean modern 2D cartoon health-explainer style, bold clean dark outlines, flat colors with soft two-tone cel shading, plain flat cream #F5ECD7 background. The SAME character CARMEN as the attached reference: 72-year-old Spanish woman, short wavy silver-grey bob, small gold earrings, teal knitted cardigan over a cream blouse, beige trousers. SIX separate full-body poses, same scale, arranged in two rows of three, widely spaced, nothing touching, no floor or furniture except where stated: 1) sitting in a simple armchair reading a book, calm; 2) standing, hand on chin, thinking, slightly puzzled; 3) sitting on a simple stool, trouser leg rolled up, scratching her shin with an uncomfortable face; 4) standing, sleeve pushed up, touching her forearm with a slight frown as if the skin feels tight; 5) standing, holding a plain white cream jar (no label), smiling; 6) standing in a soft white bathrobe, holding a folded towel, relaxed. Correct anatomy: one head, two arms, two legs, five fingers per hand. No text, no letters, no numbers, no logos, 16:9, high resolution.
+Character pose sheet, clean modern 2D cartoon health-explainer style, bold clean dark outlines, flat colors with soft two-tone cel shading, plain flat cream #F5ECD7 background. The SAME characters as the attached reference: CARMEN (72-year-old Spanish woman, short wavy silver-grey bob, small gold earrings, teal knitted cardigan over a cream blouse, beige trousers) and ANTONIO (68-year-old Spanish man, receding grey hair, short neat grey beard, green checked short-sleeve shirt, dark brown trousers, walking shoes). SIX separate full-body poses, same scale, arranged in two rows of three, widely spaced, nothing touching, no floor or furniture except where stated: 1) Carmen sitting in a simple armchair reading a book, calm; 2) Carmen standing, hand on chin, thinking, slightly puzzled; 3) Carmen sitting on a simple stool, trouser leg rolled up, scratching her shin with an uncomfortable face; 4) Carmen standing, sleeve pushed up, touching her forearm with a slight frown as if the skin feels tight; 5) Carmen standing, holding a plain white cream jar (no label), smiling; 6) Antonio walking briskly, arms swinging, happy, light sweat on his forehead, small motion lines. Correct anatomy: one head, two arms, two legs, five fingers per hand. No text, no letters, no numbers, no logos, 16:9, high resolution.
 ```
 
 ## Ảnh P2 (`P2.png`): tư thế Antonio + Carmen (6 tư thế)
-*Antonio cuốc vườn đổ mồ hôi; Antonio đi bộ nhanh; Carmen rửa tay; Carmen viết sổ; Carmen thấm khô cánh tay bằng khăn; Carmen ngồi lau khô kẽ ngón chân.*
+*Antonio cuốc vườn đổ mồ hôi; Carmen mặc áo choàng tắm cầm khăn; Carmen rửa tay; Carmen viết sổ; Carmen thấm khô cánh tay bằng khăn; Carmen ngồi lau khô kẽ ngón chân.*
 
 ```
-Character pose sheet, clean modern 2D cartoon health-explainer style, bold clean dark outlines, flat colors with soft two-tone cel shading, plain flat cream #F5ECD7 background. The SAME characters as the attached reference: ANTONIO (68-year-old Spanish man, receding grey hair, short grey beard, green checked short-sleeve shirt, dark brown trousers) and CARMEN (72-year-old Spanish woman, short wavy silver-grey bob, teal cardigan, beige trousers). SIX separate full-body poses, same scale, two rows of three, widely spaced, nothing touching: 1) Antonio working with a garden hoe, sweat drops on his forehead, damp patches on his shirt; 2) Antonio walking briskly, arms swinging, happy, small motion lines; 3) Carmen washing her hands with soap foam, hands only slightly raised, no sink; 4) Carmen sitting on a simple chair writing in a small notebook, thoughtful; 5) Carmen in a white bathrobe gently patting her forearm dry with a soft towel; 6) Carmen sitting on a stool, one bare foot raised on a small stool, gently drying between her toes with a small towel. Correct anatomy: one head, two arms, two legs, five fingers per hand, five toes. No text, no letters, no numbers, no logos, 16:9, high resolution.
+Character pose sheet, clean modern 2D cartoon health-explainer style, bold clean dark outlines, flat colors with soft two-tone cel shading, plain flat cream #F5ECD7 background. The SAME characters as the attached reference: ANTONIO (68-year-old Spanish man, receding grey hair, short grey beard, green checked short-sleeve shirt, dark brown trousers) and CARMEN (72-year-old Spanish woman, short wavy silver-grey bob, teal cardigan, beige trousers). SIX separate full-body poses, same scale, two rows of three, widely spaced, nothing touching: 1) Antonio working with a garden hoe, sweat drops on his forehead, damp patches on his shirt; 2) Carmen standing in a soft white bathrobe, holding a folded towel, relaxed; 3) Carmen washing her hands with soap foam, hands only slightly raised, no sink; 4) Carmen sitting on a simple chair writing in a small notebook, thoughtful; 5) Carmen in a white bathrobe gently patting her forearm dry with a soft towel; 6) Carmen sitting on a stool, one bare foot raised on a small stool, gently drying between her toes with a small towel. Correct anatomy: one head, two arms, two legs, five fingers per hand, five toes. No text, no letters, no numbers, no logos, 16:9, high resolution.
 ```
 
 ---
@@ -45,7 +48,7 @@ Character pose sheet, clean modern 2D cartoon health-explainer style, bold clean
 **Phần đầu chung cho mọi tấm cảnh S1–S8** (đã có sẵn trong từng prompt dưới đây):
 nhân vật giống ảnh đính kèm; trong cảnh tắm **chỉ thấy từ vai trở lên hoặc được che bởi rèm/hơi nước/áo choàng**, không khỏa thân.
 
-## Ảnh S1 (`S1.png`): mở đầu — 4 cảnh 2×2
+## Ảnh S1 (`S1.png`): mở đầu — 4 cảnh 2×2 — PHẦN 1
 *Carmen dưới vòi sen (từ vai trở lên); lau chân nhíu mày; sáng sớm cầm khăn đi vào phòng tắm; đứng trước gương nhìn cẳng tay.*
 
 ```
@@ -103,7 +106,7 @@ Character illustration sheet, clean modern 2D cartoon health-explainer style, bo
 
 ---
 
-## Ảnh B (`B.png`): đồ vật 1 (10 món)
+## Ảnh B (`B.png`): đồ vật 1 (10 món) — PHẦN 1
 *Mặt cắt da; da ống chân khô bong vảy; vòi sen nóng bốc hơi; vòi trộn nóng/lạnh; hũ kem; chai sữa tắm; bọt biển thô; nhiệt kế; thảm chống trượt; hình bóng cơ thể người.*
 
 ```

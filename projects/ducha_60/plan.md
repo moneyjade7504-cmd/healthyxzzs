@@ -45,7 +45,7 @@ Files: `intro.html`, `verdad1.html` … `verdad7.html`, `conclusion.html`, share
 | menos grasa natural… retener humedad | B1 + barrier wall; mortar thins; caption "MENOS GRASA NATURAL" |
 | agua muy caliente, gel, esponja áspera | 3 cut-outs slide in (B3 hot shower, B6 gel bottle, B7 rough sponge) with red ✗ |
 | no es malo… ni obligación universal | Stamp "NO ES OBLIGATORIO" |
-| apenas suda vs. caminar / jardín | Split: P1-1 reading armchair | P2-2 walking briskly |
+| apenas suda vs. caminar / jardín | Split: P1-1 reading armchair | P1-6 Antonio walking briskly |
 | manos, axilas, zona íntima, pliegues | Body silhouette (B10) with 4 dots lighting up |
 | si disfrutas… duchas breves, templada, suave, crema | 4 green chips with icons: clock 5–10, thermometer, soft bottle, cream |
 | ¿cómo se siente mi piel? | S1-d: Carmen touching her forearm thoughtfully, "?" |
