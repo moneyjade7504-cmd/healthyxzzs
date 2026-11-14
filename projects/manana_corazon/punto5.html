@@ -1,0 +1,39 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="common.js"></script>
+<script>
+window.START=C('punto5'); window.END=C('punto6'); window.DURATION=window.END;
+
+PTitle(C('punto5'),C('prisas'),5,'Empezar el día','<span class="hl">discutiendo o corriendo</span>',['alarm_red','keys']);
+// chaos
+{const B=Beat(C('prisas'),C('alto')); const p=Panel(B,'S7_4',{from:[.5,.5,1.0],to:[.55,.45,1.12]});
+ p.draw=(c,t)=>{const k=Math.sin(t*40)*3;c.strokeStyle='#e23b2e';c.lineWidth=4;for(let i=0;i<2;i++){c.beginPath();c.arc(205,370,110+i*20+k,-.7,.7);c.stroke();c.beginPath();c.arc(205,370,110+i*20+k,Math.PI-.7,Math.PI+.7);c.stroke();}};
+ Cap(B,'Despertador',{cx:420,cy:90,size:50,t0:C('despertador5'),pill:true});
+ Cap(B,'¿Las llaves?',{cx:960,cy:90,size:50,t0:C('llaves'),pill:true});
+ Cap(B,'Una llamada…',{cx:1500,cy:90,size:50,t0:C('llama'),pill:true});}
+Scene(C('alto'),C('alerta'),'S7_5','Más alto, más deprisa…',{capT:0.4,from:[.45,.5,1.0],to:[.45,.35,1.18],draw:(c,t)=>sparks(c,t,{x:1150,y:120,s:2.2})});
+// alerta: heart + pressure
+{const B=Beat(C('alerta'),C('infarto5'),{enter:'zoom'});
+ Cut(B,'heart',{cx:560,cy:820,h:460,amp:8,period:0.45}); Cut(B,'bp_monitor',{cx:1360,cy:820,h:360,t0:C('estres5')+3,amp:3});
+ Cap(B,'Estrés = <span class="hl">alerta normal</span>',{cx:960,cy:150,size:72,t0:B.a+0.2});
+ Cap(B,'Pulso más rápido',{cx:560,cy:920,size:54,t0:C('estres5')+1}); Cap(B,'Tensión sube un rato',{cx:1360,cy:920,size:54,t0:C('estres5')+3.5});}
+{const B=Beat(C('infarto5'),C('matiz'),{enter:'zoom'});
+ const st=mk('div','pill',B.L,'NO PROVOCA UN INFARTO'); Object.assign(st.style,{left:'960px',top:'330px',fontSize:'76px',color:'#e23b2e',borderColor:'#e23b2e',borderWidth:'8px'}); Pop(B,st,{t0:B.a+0.3,rot:-4});
+ Cap(B,'una discusión, por sí sola',{cx:960,cy:500,size:58,t0:B.a+1.5,color:'#6a6f86'});
+ Cap(B,'pero <span class="hl">gestionar el estrés</span> cuida el corazón',{cx:960,cy:680,size:62,t0:B.a+4});}
+// matiz
+{const B=Side(C('matiz'),C('esperar5'),'phone_angry',[['Un matiz:',null,66,'#2f6fd6'],['no reprimas emociones',C('reprimir'),58],['los problemas <span class="hl">hay que resolverlos</span>',C('resolverse'),56],['cambia <span class="hl">el momento y la manera</span>',C('momento5'),56]],{gap:130});}
+Scene(C('esperar5'),C('noche5'),'S7_7','¿Puede esperar? <span class="hl">Después de desayunar</span>',{capT:2.5,from:[.5,.5,1.0],to:[.5,.45,1.12],draw:(c,t)=>{steam(c,t,{x:570,y:590,w:30,n:3,r:10,rise:70});steam(c,t,{x:1150,y:600,w:30,n:3,r:10,rise:70});}});
+// noche anterior
+Scene(C('noche5'),C('preocupado'),'S7_6','Prepáralo <span class="hl">la noche anterior</span>',{capT:0.4,from:[.55,.5,1.0],to:[.65,.6,1.15]});
+{const B=beats[beats.length-1]; Cap(B,'Ropa · documentos · lista · medicación',{cx:960,cy:90,size:48,t0:C('noche5')+3.5,t1:C('margen')-0.3,pill:true});
+ Cap(B,'Deja <span class="hl">margen</span> para no correr',{cx:960,cy:90,size:52,t0:C('margen'),pill:true});}
+{const B=Beat(C('preocupado'),C('sinestres')); const p=Panel(B,'S7_8',{from:[.45,.45,1.0],to:[.45,.4,1.12]});
+ p.draw=(c,t)=>{const k=(Math.sin(t*1.2)+1)/2; c.globalAlpha=0.5+0.5*k; c.strokeStyle='#58a9e4'; c.lineWidth=5; c.beginPath(); c.arc(760,420,40+30*k,0,7); c.stroke(); c.globalAlpha=1;};
+ Cap(B,'Respiraciones <span class="hl">lentas y cómodas</span>, sin forzar',{cx:960,cy:965,size:60,t0:B.a+3,pill:true});}
+{const B=Beat(C('sinestres'),C('frase'),{enter:'zoom'}); Cut(B,'calm_chair',{cx:560,cy:1000,h:680,amp:3});
+ Cap(B,'¿Vida sin estrés? <span class="red">Imposible</span>',{cx:1350,cy:380,size:64,t0:B.a+0.3});
+ Cap(B,'Mañanas <span class="hl">sin prisas innecesarias</span>',{cx:1350,cy:540,size:62,t0:B.a+3.8});}
+{const B=Beat(C('frase'),C('punto6'),{exit:'fade'}); Cut(B,'alarm',{cx:960,cy:520,h:360,t0:B.a+0.3,amp:4,tilt:3});
+ Cap(B,'Cuidar el corazón empieza por…',{cx:960,cy:130,size:60,t0:B.a+0.2,color:'#6a6f86'});
+ Cap(B,'«Esto puede esperar <span class="hl">diez minutos</span>»',{cx:960,cy:760,size:86,t0:C('diez')-0.2});}
+</script></body></html>

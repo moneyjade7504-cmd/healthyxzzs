@@ -94,3 +94,43 @@ farmaceutico | pregunta al médico o al farmacéutico
 pastillero | Un pastillero semanal
 proteccion3 | La protección cardiovascular no depende
 punto4 | Punto 4
+# PARTE 3 = punto 4 + punto 5
+verguenza | De este tema se habla poco
+estrenimiento | El estreñimiento es frecuente
+evacuar | Cuando intentas evacuar
+valsalva | una maniobra conocida como
+torax | cambian temporalmente las presiones
+sana | En una persona sana
+objetivo4 | El objetivo no es asustarte
+fibra | revisa la cantidad de fibra
+muevete | muévete según tus posibilidades
+insuficiencia | Si padeces insuficiencia cardíaca
+taburete | apoyar los pies en un pequeño taburete
+tiempo4 | Date tiempo y evita aguantar
+nosale | Si no sale
+repite4 | Cuando el estreñimiento se repite
+medicamentos4 | Algunos medicamentos pueden contribuir
+sangre | dolor abdominal intenso
+detalles | Cuidar el corazón también significa
+oido | Habías oído hablar
+punto5 | Punto 5
+prisas | Piensa en una mañana llena de prisas
+despertador5 | Suena el despertador
+llaves | no encuentras las llaves
+llama | alguien te llama
+alto | De repente estás hablando más alto
+alerta | La tensión emocional activa
+estres5 | Durante una situación de estrés
+infarto5 | Eso no significa que una discusión
+matiz | Y aquí hay un matiz importante
+reprimir | Tampoco tienes que reprimir
+resolverse | Los problemas necesitan resolverse
+momento5 | Lo que puedes cambiar es el momento
+esperar5 | Si una conversación puede esperar
+noche5 | Prepara la noche anterior
+margen | Deja algo de margen
+preocupado | si te despiertas preocupado
+sinestres | No buscamos una vida sin estrés
+frase | A veces cuidar el corazón empieza
+diez | Esto puede esperar
+punto6 | Punto 6

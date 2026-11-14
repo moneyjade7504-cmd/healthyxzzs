@@ -1,0 +1,48 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="common.js"></script>
+<script>
+window.START=C('punto4'); window.END=C('punto5'); window.DURATION=window.END;
+
+PTitle(C('punto4'),C('verguenza')+3.5,4,'Hacer <span class="hl">demasiada fuerza</span>','en el baño',['stool','water_glass']);
+{const B=Side(C('verguenza')+3.5,C('estrenimiento'),'shy',[['Se habla poco…',null,72,'#6a6f86'],['pero <span class="hl">merece atención</span>',C('verguenza')+5,74]]);}
+// causas del estreñimiento
+{const B=Beat(C('estrenimiento'),C('evacuar'));
+ Cap(B,'Estreñimiento: <span class="hl">frecuente con la edad</span>',{cx:960,cy:110,size:64,t0:B.a+0.2});
+ Row(B,[['pastries','Alimentación',C('estrenimiento')+3.5,null],['m_dizzy_chair','Poca actividad',C('estrenimiento')+5.2,null],['water_glass','Poca hidratación',C('estrenimiento')+7,null],['blister_water','Algunos medicamentos',C('estrenimiento')+8.5,null]],{y:580,cardH:500});}
+// Valsalva
+{const B=Beat(C('evacuar'),C('sana')); Cut(B,'m_toilet',{cx:470,cy:960,h:620,amp:2,shake:1.2});
+ Cap(B,'Fuerza + aguantar la respiración',{cx:1300,cy:200,size:56,t0:B.a+0.3});
+ Cap(B,'= maniobra de <span class="hl">Valsalva</span>',{cx:1300,cy:300,size:72,t0:C('valsalva')});
+ Cut(B,'torso',{cx:1300,cy:1000,h:600,t0:C('torax')-0.8,amp:2});
+ const s=Svg(B);
+ B.fx.push(t=>{});
+ [[1180,640,1240,620],[1420,640,1360,620],[1300,560,1300,600]].forEach(([x0,y0,x1,y1],i)=>Draw(B,s,arrow(x0,y0,x1,y1,0),{t0:C('torax')+i*0.4,dur:0.3,stroke:'#e23b2e',w:8}));
+ Canvas(B,(c,t)=>{if(t<C('torax'))return; const k=1+0.08*Math.sin(t*6); c.save();c.translate(1300,690);c.scale(k,k);c.strokeStyle='rgba(226,59,46,.6)';c.lineWidth=5;c.beginPath();c.arc(0,0,60,0,7);c.stroke();c.restore();});
+ Cap(B,'presión en el tórax · retorno al corazón · tensión',{cx:1300,cy:420,size:42,t0:C('torax')+1,color:'#6a6f86'});}
+{const B=Beat(C('sana'),C('objetivo4'),{enter:'zoom'});
+ Card(B,{cx:560,cy:540,w:660,h:460,t0:B.a+0.2,border:'#22a35a'}); Cut(B,'walk_brisk',{cx:560,cy:720,h:300,t0:B.a+0.3,amp:4});
+ Cap(B,'Persona sana:',{cx:560,cy:360,size:56,t0:B.a+0.3}); Cap(B,'quizá sin consecuencias',{cx:560,cy:430,size:46,t0:B.a+1,color:'#1f9d55'});
+ Card(B,{cx:1360,cy:540,w:660,h:460,t0:B.a+3,border:'#f7ad36'}); Cut(B,'heart',{cx:1260,cy:730,h:240,t0:B.a+3.1,amp:4}); Cut(B,'m_dizzy_chair',{cx:1480,cy:740,h:260,t0:B.a+4.5,amp:3});
+ Cap(B,'Enfermedad cardiaca o mareos:',{cx:1360,cy:360,size:46,t0:B.a+3.1}); Cap(B,'<span class="hl">notan más el efecto</span>',{cx:1360,cy:430,size:50,t0:B.a+5});}
+// soluciones
+{const B=Beat(C('objetivo4'),C('muevete')-0.3,{enter:'zoom'});
+ Cap(B,'No es asustarte: es <span class="hl">no tener que pujar</span>',{cx:960,cy:110,size:62,t0:B.a+0.2});
+ Row(B,[['fruit_basket','Más fibra',C('fibra'),'ok'],['lentils','Legumbres y verdura',C('fibra')+1.2,'ok']],{y:580,cardW:520});}
+Scene(C('muevete')-0.3,C('insuficiencia'),'S7_3','<span class="hl">Muévete</span> e hidrátate como te indiquen',{capT:0.4,size:60,from:[.5,.5,1.0],to:[.6,.45,1.12],draw:(c,t)=>sunrise(c,t,1490,110)});
+Warn(C('insuficiencia'),C('taburete'),'¿Insuficiencia cardiaca o renal?',['Si te han limitado los líquidos,','<b>no aumentes el agua</b> por tu cuenta'],{panel:'S7_1',keys:[C('insuficiencia')+2.5,C('insuficiencia')+4.5]});
+// taburete
+Scene(C('taburete'),C('nosale'),'S7_2','Pies en un <span class="hl">taburete</span>, sin aguantar la respiración',{capT:0.8,size:60,from:[.45,.55,1.0],to:[.5,.65,1.14]});
+{const B=beats[beats.length-1]; Cap(B,'Date tiempo',{cx:1500,cy:110,size:56,t0:C('tiempo4'),pill:true});}
+{const B=Beat(C('nosale'),C('repite4')); Cut(B,'calm_chair',{cx:560,cy:1000,h:700,amp:3});
+ Canvas(B,(c,t)=>{c.strokeStyle='#58a9e4';c.lineWidth=4;for(let i=0;i<3;i++){const ph=(t*0.5+i/3)%1;c.globalAlpha=1-ph;c.beginPath();c.arc(720+ph*120,420,20+ph*40,-1,1);c.stroke();}c.globalAlpha=1;});
+ Cap(B,'¿No sale?',{cx:1350,cy:420,size:76,t0:B.a+0.2}); Cap(B,'<span class="red">No es una competición</span> de fuerza',{cx:1350,cy:560,size:58,t0:B.a+1.2});}
+// consulta
+{const B=Beat(C('repite4'),C('sangre'));
+ Mini(B,'S6_8',{cx:620,cy:500,w:980,t0:B.a+0.1});
+ Cap(B,'¿Se repite?',{cx:1500,cy:360,size:70,t0:B.a+0.2}); Cap(B,'<span class="hl">Coméntalo</span> en consulta',{cx:1500,cy:470,size:58,t0:B.a+1});
+ Cap(B,'algunos fármacos contribuyen',{cx:1500,cy:620,size:46,t0:C('medicamentos4'),color:'#6a6f86'}); Cap(B,'y hay tratamientos según la causa',{cx:1500,cy:690,size:46,t0:C('medicamentos4')+2.5,color:'#6a6f86'});}
+Warn(C('sangre'),C('detalles'),'Pide valoración médica si hay…',['Dolor abdominal intenso','Sangre en las heces','Cambio persistente del ritmo intestinal'],{color:'#e23b2e',bg:'#fff5f4',keys:[C('sangre')+1.2,C('sangre')+3.2,C('sangre')+5]});
+{const B=Beat(C('detalles'),C('punto5'),{exit:'fade'}); Cut(B,'heart',{cx:560,cy:860,h:440,amp:5,period:0.9});
+ Cap(B,'Cuidar el corazón',{cx:1350,cy:300,size:70,t0:B.a+0.2}); Cap(B,'también es cuidar <span class="hl">los detalles</span>',{cx:1350,cy:420,size:64,t0:B.a+1.8});
+ Cap(B,'¿Conocías la maniobra de Valsalva?',{cx:1350,cy:620,size:52,t0:C('oido'),color:'#2f6fd6'}); Cap(B,'💬 Cuéntamelo en los comentarios',{cx:1350,cy:720,size:50,t0:C('oido')+2.5});}
+</script></body></html>
