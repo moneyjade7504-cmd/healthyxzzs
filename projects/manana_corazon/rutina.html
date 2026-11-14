@@ -55,8 +55,6 @@ window.START=C('manana7'); window.END=C('reto'); window.DURATION=window.END;
    Draw(B,s,i===3?cross(940,y,0.5):tick(940,y,0.7),{t0,dur:0.2,stroke:i===3?'#e23b2e':'#22a35a',w:10}); Cap(B,w,{cx:1380,cy:y,size:Math.min(52,760/(w.length*0.48)),t0});});}
 {const B=Beat(C('espalda')-0.2,C('reto'));
  const p=Panel(B,'S8_7',{x:640,y:540,w:1180,from:[.45,.55,1.0],to:[.45,.55,1.05]});
-   // back against chair, arm on table at heart level, feet flat
-   ar(380,330,450,430,C('espalda')); ar(1000,520,860,430,C('brazo')); ar(620,930,700,870,C('espalda')+0.6);};
  const s=Svg(B);
  const pts=[['Espalda apoyada',C('espalda'),[1640,200]],['5 min de reposo',C('cinco7'),[1640,330]],['Brazo a la altura del corazón',C('brazo'),[1640,460]],['2 lecturas, 1 min entre ellas',C('lecturas'),[1640,590]],['30 min antes: sin café, tabaco ni ejercicio',C('cafe'),[1640,720]]];
  pts.forEach(([w,t0,[x,y]],i)=>{Card(B,{cx:x-20,cy:y,w:540,h:110,t0,border:i===4?'#e23b2e':'#22a35a'}); Cap(B,w,{cx:x-20,cy:y,size:Math.min(44,480/(w.length*0.48)),t0:t0+0.1});});
