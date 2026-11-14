@@ -64,7 +64,7 @@ function Curve(B,{x0=260,x1=1660,y0=820,t0}){const s=Svg(B);
 // ---- QUÉ PASA AL DESPERTAR ----
 {const B=Beat(C('sueno'),C('frecuencia0'),{enter:'zoom'});
  Cap(B,'Al <span class="hl">despertar</span>…',{cx:960,cy:140,size:80,t0:B.a+0.2});
- Cut(B,'brain',{cx:560,cy:720,h:400,t0:C('nervioso'),amp:4,shake:0.6});
+ Cut(B,'brain',{cx:560,cy:720,h:400,t0:B.a+0.5,amp:4,shake:0.6}); Cut(B,'lamp',{cx:1600,cy:1000,h:250,t0:B.a+1,amp:3});
  Canvas(B,(c,t)=>{if(t>C('nervioso'))for(let i=0;i<5;i++){const a=t*2+i*1.25;c.strokeStyle='#f7c948';c.lineWidth=5;c.beginPath();c.moveTo(560+Math.cos(a)*230,520+Math.sin(a)*170);c.lineTo(560+Math.cos(a)*270,520+Math.sin(a)*200);c.stroke();}});
  Cap(B,'Sistema nervioso de alerta <span class="red">↑</span>',{cx:1350,cy:440,size:58,t0:C('nervioso')+0.5});
  Cap(B,'Cortisol <span class="red">↑</span>',{cx:1350,cy:600,size:70,t0:C('cortisol')});}

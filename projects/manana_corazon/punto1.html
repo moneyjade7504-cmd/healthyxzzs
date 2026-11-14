@@ -15,7 +15,7 @@ PTitle(C('punto1'),C('escena1'),1,'Abrir el <span class="hl">móvil</span>','y l
  Cap(B,'Tu cabeza <span class="hl">corre más que tú</span>',{cx:960,cy:965,size:70,t0:C('cabeza1'),pill:true});}
 // no daña automáticamente
 {const B=Beat(C('nodana'),C('discusion1'),{enter:'zoom'}); Cut(B,'phone_notif',{cx:560,cy:880,h:520,amp:4});
- const s=Svg(B); Draw(B,s,tick(1000,360,1.2),{t0:B.a+0.6,dur:0.3,stroke:'#22a35a',w:13});
+ const s=Svg(B); Draw(B,s,tick(940,360,1.2),{t0:B.a+0.6,dur:0.3,stroke:'#22a35a',w:13});
  Cap(B,'El móvil <span class="hl">no daña</span> por sí solo',{cx:1380,cy:360,size:64,t0:B.a+0.3});
  Cap(B,'el problema: una descarga',{cx:1380,cy:520,size:58,t0:C('descarga')-1.5,color:'#6a6f86'});
  Cap(B,'diaria de <span class="red">tensión emocional</span>',{cx:1380,cy:610,size:58,t0:C('descarga')});}
@@ -29,11 +29,12 @@ PTitle(C('punto1'),C('escena1'),1,'Abrir el <span class="hl">móvil</span>','y l
 // cambia el orden
 {const B=Beat(C('prohibir'),C('veinte'),{enter:'zoom'});
  Cap(B,'No prohíbas la tecnología: <span class="hl">cambia el orden</span>',{cx:960,cy:120,size:62,t0:B.a+0.2});
- const steps=[['breathe','Despierta y respira',C('primero1')],['m_toilet','Baño sin prisas',C('primero1')+1.8],['S5_7','Empieza tu rutina',C('primero1')+3.3],['phone_notif','Después, mensajes',C('despues1')]];
+ Cut(B,'phone_away',{cx:960,cy:860,h:560,t0:B.a+0.5,t1:C('primero1')-0.4,amp:3});
+ const steps=[['breathe','Despierta y respira',C('primero1')],['S5_6','Baño sin prisas',C('primero1')+1.8],['S5_7','Empieza tu rutina',C('primero1')+3.3],['phone_notif','Después, mensajes',C('despues1')]];
  const s=Svg(B);
  steps.forEach(([n,txt,t0],i)=>{const x=290+i*450; Num(B,i+1,{cx:x,cy:290,r:46,t0});
-   if(n==='S5_7'){Card(B,{cx:x,cy:600,w:380,h:300,t0,border:'#2f6fd6'}); const P=mk('div','panel',B.L); Object.assign(P.style,{left:(x-180)+'px',top:'460px',width:'360px',height:'203px',border:'none',boxShadow:'none'}); mk('img','',P).src='cut/S5_7.png'; B.fx.push(t=>{P.style.opacity=t>=t0+0.1?1:0;});}
-   else Cut(B,n,{cx:x,cy:760,h:n==='m_toilet'?330:300,t0:t0+0.1,amp:3,phase:i});
+   if(n.startsWith('S5_')){Card(B,{cx:x,cy:600,w:380,h:300,t0,border:'#2f6fd6'}); const P=mk('div','panel',B.L); Object.assign(P.style,{left:(x-180)+'px',top:'460px',width:'360px',height:'203px',border:'none',boxShadow:'none'}); mk('img','',P).src='cut/'+n+'.png'; B.fx.push(t=>{P.style.opacity=t>=t0+0.1?1:0;});}
+   else Cut(B,n,{cx:x,cy:760,h:300,t0:t0+0.1,amp:3,phase:i});
    Cap(B,txt,{cx:x,cy:860,size:50,t0}); if(i<3)Draw(B,s,arrow(x+90,290,x+360,290,0),{t0:t0+0.5,dur:0.3,stroke:'#2f6fd6',w:6});});}
 // 20 minutos
 {const B=Beat(C('veinte'),C('solo1')); const p=Panel(B,'S5_5',{from:[.5,.45,1.0],to:[.7,.55,1.15]});

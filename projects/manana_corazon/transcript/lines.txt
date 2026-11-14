@@ -1,0 +1,209 @@
+[0.30 - 2.62] (w0-7) Imagina que son las siete de la mañana.
+[2.82 - 9.62] (w8-28) Abres los ojos, buscas el móvil, te levantas de prisa y empiezas a pensar en todo lo que tienes que hacer.
+[10.00 - 11.68] (w29-32) Parece una mañana cualquiera.
+[11.96 - 18.30] (w33-46) Sin embargo, mientras tú sigues tu rutina, tu organismo está realizando una transición importante.
+[18.50 - 27.44] (w47-71) Pasa de las horas de descanso a un estado de actividad en el que el corazón, los vasos sanguíneos y el sistema nervioso deben adaptarse.
+[27.78 - 37.72] (w72-92) Después de los 60, especialmente si tienes hipertensión, diabetes o alguna enfermedad cardiovascular, merece la pena prestar atención a esa transición.
+[37.96 - 49.08] (w93-118) No porque despertarse sea peligroso en sí mismo, sino porque algunos hábitos pueden añadir tensión, provocar mareos o dificultar el control de problemas que ya existen.
+[49.30 - 52.92] (w119-127) Hoy vamos a hablar de seis costumbres muy habituales.
+[53.14 - 60.92] (w128-148) Algunas parecen inofensivas, otras tienen que ver con el desayuno, la medicación o incluso con lo que hacemos en el baño.
+[61.06 - 64.12] (w149-154) Y la sexta es especialmente importante.
+[64.32 - 68.80] (w155-165) Confundir ciertas señales del cuerpo con simples molestias de la edad.
+[68.88 - 81.04] (w166-200) Quédate hasta el final, porque también te enseñaré una rutina sencilla de 5 pasos para empezar el día con más calma y una forma práctica de observar tu tensión arterial sin obsesionarte con cada cifra.
+[81.40 - 83.44] (w201-205) Antes, cuéntame en los comentarios.
+[83.56 - 85.64] (w206-214) ¿Qué es lo primero que haces cuando te despiertas?
+[86.84 - 90.84] (w215-224) Durante el sueño, el organismo funciona con un ritmo distinto.
+[90.96 - 96.54] (w225-237) Al despertar, aumenta gradualmente la actividad del sistema nervioso que nos mantiene alerta.
+[96.88 - 103.48] (w238-257) También cambia la secreción de hormonas como el cortisol, que participa en la preparación del cuerpo para afrontar el día.
+[103.64 - 108.80] (w258-272) La frecuencia cardíaca y la tensión arterial pueden subir respecto a las horas de descanso.
+[108.96 - 115.78] (w273-291) Al mismo tiempo, se producen variaciones naturales en la actividad de las plaquetas y en los mecanismos de coagulación.
+[116.00 - 128.88] (w292-323) Este conjunto de cambios ayuda a explicar por qué diferentes estudios han observado que ciertos eventos cardiovasculares, como el infarto y elictus, aparecen con más frecuencia durante determinadas horas de la mañana.
+[129.14 - 135.24] (w324-340) Eso no significa que todos ocurran entonces ni que una rutina tranquila pueda prevenirlos por sí sola.
+[135.42 - 146.40] (w341-357) El riesgo real depende de muchos factores, tabaquismo, colesterol, presión arterial, antecedentes, diabetes, actividad física y tratamientos.
+[146.58 - 149.34] (w358-364) Pero existe algo que sí puedes controlar.
+[149.48 - 153.16] (w365-374) La forma en que organizas tus primeros minutos del día.
+[153.26 - 156.56] (w375-385) Piensa en ello como arrancar un coche en una mañana fría.
+[156.74 - 158.82] (w386-391) No necesitas tener miedo al motor.
+[159.04 - 163.82] (w392-402) Simplemente conviene conducir con suavidad mientras todo se pone en marcha.
+[164.14 - 165.20] (w403-404) Punto 1.
+[165.46 - 168.62] (w405-411) Abrir el móvil y llenarte de preocupaciones.
+[168.74 - 170.28] (w412-415) ¿Te suena esta escena?
+[170.46 - 179.26] (w416-438) Todavía estás en la cama, pero ya has leído tres titulares alarmantes, dos mensajes familiares y una noticia que te ha dejado intransquilo.
+[179.44 - 184.54] (w439-453) Ni siquiera has desayunado y notas que tu cabeza está corriendo más deprisa que tú.
+[184.74 - 187.80] (w454-461) Mirar el móvil no daña automáticamente el corazón.
+[188.04 - 194.76] (w462-479) El problema aparece cuando ese primer contacto del día se convierte en una descarga habitual de tensión emocional.
+[195.06 - 202.40] (w480-496) Una discusión por mensajes, una preocupación económica o una noticia impactante pueden activar la respuesta de estrés.
+[202.74 - 209.66] (w497-512) Respiramos más rápido, aumenta la frecuencia cardíaca y la presión arterial puede elevarse de forma transitoria.
+[209.84 - 217.56] (w513-529) Si tienes hipertensión, palpitaciones frecuentes o ansiedad, quizá hayas comprobado que esos minutos no te sientan bien.
+[217.76 - 224.16] (w530-546) No hace falta prohibir la tecnología ni vivir desconectado, basta con cambiar el orden de las cosas.
+[224.38 - 230.24] (w547-558) Primero despierta, respira, ve al baño sin prisas y comienza tu rutina.
+[230.68 - 233.06] (w559-562) Después consulta los mensajes.
+[233.14 - 237.80] (w563-576) Prueba a dejar el teléfono fuera de tu alcance durante los primeros 20 minutos.
+[238.02 - 242.64] (w577-586) Si lo necesitas como despertador, utiliza el modo sin notificaciones.
+[242.80 - 253.26] (w587-609) Y si vives solo y debes tenerlo cerca por seguridad, manténlo disponible para llamadas importantes, pero evita abrir noticias y redes sociales inmediatamente.
+[253.44 - 256.74] (w610-619) Lo esencial no es cumplir un número exacto de minutos.
+[257.02 - 260.66] (w620-628) Es recuperar el control sobre cómo empieza tu mañana.
+[260.78 - 268.60] (w629-652) Tu corazón no necesita que todos los problemas del mundo entren en la habitación antes de que hayas puesto los pies en el suelo.
+[269.08 - 270.24] (w653-654) Punto 2.
+[270.28 - 274.74] (w655-664) Desayunar a base de azúcar o saltarte comida sin planificarlo.
+[274.98 - 281.92] (w665-681) Una taza de café acompañada de bollería, unas galletas o un sumo pueden parecer una solución rápida.
+[282.16 - 292.26] (w682-705) Y sin embargo, cuando ese desayuno se repite día tras día, deja poco espacio para alimentos que aporten proteína, fibra y nutrientes de calidad.
+[292.40 - 297.54] (w706-720) Al despertar, las hormonas influyen en la manera en que el cuerpo utiliza la glucosa.
+[297.70 - 304.00] (w721-735) En quienes tienen diabetes o resistencia a la insulina, la glucemia puede ser especialmente variable.
+[304.18 - 313.86] (w736-758) Si a eso se añaden grandes cantidades de bebidas azucaradas o productos refinados, algunas personas experimentan sus vidas importantes de azúcar en sangre.
+[314.14 - 325.46] (w759-785) Pero conviene aclarar algo, saltarse el desayuno no provoca necesariamente un daño cardiovascular inmediato, y no todo el mundo necesita comer antes de que transcurra una hora.
+[325.66 - 331.36] (w786-800) Los horarios deben adaptarse al apetito, a la salud y sobre todo a la medicación.
+[331.58 - 340.76] (w801-822) Para alguien que usa insulina o determinados fármacos para la diabetes, retrasar una comida sin orientación puede aumentar el riesgo de hipoglucemia.
+[340.88 - 342.28] (w823-825) ¿Qué puedes hacer?
+[342.50 - 346.02] (w826-833) Si desayunas, procura que sea una comida equilibrada.
+[346.14 - 357.56] (w834-868) Por ejemplo, una tostada integral con tomate y aceite de oliva, un huevo y una pieza de fruta, o yogur natural sin azúcar con avena y nueces, si estos alimentos se encajan en tu dieta.
+[358.38 - 364.94] (w869-885) Si prefieres desayunar más tarde, consulta el horario adecuado cuando tomes medicación que dependa de las comidas.
+[365.18 - 369.84] (w886-897) No busques el desayuno perfecto, ni te asustes por una tostada ocasional.
+[369.92 - 373.86] (w898-910) Lo importante es el patrón de alimentación a lo largo de la semana.
+[373.94 - 383.14] (w911-931) Menos ultraprocesados, más alimentos frescos y una relación razonable entre lo que comes, lo que necesitas y los tratamientos que sigues.
+[383.34 - 392.50] (w932-954) Si esta información te resulta útil, suscríbete para seguir aprendiendo a cuidar tu salud después de los 60, sin mitos ni promesas milagrosas.
+[392.78 - 393.90] (w955-956) Punto 3.
+[394.02 - 396.88] (w957-962) Tomar la medicación de cualquier manera.
+[397.06 - 405.72] (w963-984) Este hábito es probablemente uno de los más importantes, porque tiene una solución muy concreta, seguir bien las instrucciones de cada medicamento.
+[406.44 - 414.58] (w985-1010) Hay personas que se toman una pastilla un día con el desayuno, otro después de salir a caminar y otro cuando se acuerdan, casi al mediodía.
+[414.78 - 425.14] (w1011-1043) Otras reducen la dosis y una mañana ven una cifra de tensión normal, y algunas cambian la hora por su cuenta porque han oído que todos los antihipertencivos funcionan mejor por la noche.
+[425.96 - 429.46] (w1044-1051) Ninguna de esas decisiones debe hacerse sin consultar.
+[429.58 - 436.98] (w1052-1070) El horario depende del medicamento, de su duración de acción, de posibles efectos secundarios y de tu situación personal.
+[437.10 - 445.16] (w1071-1096) La evidencia actual no demuestra que tomar de forma rutinaria todos los fármacos para la atención por la noche proteja más que tomarlos por la mañana.
+[445.86 - 450.36] (w1097-1108) Lo decisivo suele ser encontrar una pauta adecuada y mantenerla con constancia.
+[451.28 - 454.68] (w1109-1116) Revisa también con qué debes tomar cada comprimido.
+[454.82 - 460.50] (w1117-1130) Muchos se ingieren con agua, pero algunos tienen indicaciones especiales respecto a los alimentos.
+[460.72 - 464.76] (w1131-1141) No los tritures ni los dividas sin comprobar que está permitido.
+[464.92 - 467.96] (w1142-1150) Y nunca suspendas un tratamiento porque te encuentras mejor.
+[468.66 - 472.80] (w1151-1159) En ocasiones, precisamente te encuentras mejor porque está funcionando.
+[473.54 - 475.04] (w1160-1164) Te propongo un gesto sencillo.
+[475.78 - 483.96] (w1165-1190) Busca tu lista de medicación y compruebas y sabes para qué sirve cada fármaco, a qué hora debes tomarlo y qué hacer si olvidas una dosis.
+[484.74 - 488.72] (w1191-1201) Si algo no está claro, pregunta al médico o al farmacéutico.
+[488.84 - 492.94] (w1202-1210) Un pastillero semanal o una alarma discreta pueden ayudarte.
+[493.08 - 502.48] (w1211-1233) La protección cardiovascular no depende de improvisar un horario supuestamente perfecto, sino de cumplir de forma segura el tratamiento que te han prescrito.
+[502.66 - 503.90] (w1234-1235) Punto 4.
+[504.00 - 511.92] (w1236-1254) Hacer demasiada fuerza en el baño De este tema se habla poco, quizá por vergüenza, pero merece mucha atención.
+[512.04 - 522.14] (w1255-1277) El estreñimiento es frecuente con la edad y puede relacionarse con cambios en la alimentación, escasa actividad física, poca hidratación o medicamentos concretos.
+[522.34 - 530.00] (w1278-1293) Cuando intentas evacuar haciendo mucha fuerza y conteniendo la respiración, realizas una maniobra conocida como balsalva.
+[530.12 - 537.52] (w1294-1313) En ese momento cambian temporalmente las presiones dentro del tórax, el retorno de sangre al corazón y la tensión arterial.
+[537.64 - 546.36] (w1314-1335) En una persona sana pueden no tener consecuencias, pero quienes padecen determinadas enfermedades cardíacas o sufren mareos pueden notar más sus efectos.
+[547.16 - 554.34] (w1336-1356) El objetivo no es asustarte cada vez que vas al baño, es evitar que tengas que pujar intensamente de forma habitual.
+[554.52 - 563.04] (w1357-1378) Para ello, revisa la cantidad de fibra de tu alimentación, muévete según tus posibilidades y mantén la hidratación que te hayan recomendado.
+[563.22 - 570.78] (w1379-1397) Si padeces insuficiencia cardíaca o enfermedad renal y tienes restringidos los líquidos, no aumentes el agua por tu cuenta.
+[571.32 - 578.80] (w1398-1417) También puede ayudar a apoyar los pies en un pequeño taburete estable y adoptar una postura cómoda, sin encorvarte excesivamente.
+[579.28 - 582.30] (w1418-1424) Date tiempo y evita aguantar la respiración.
+[582.64 - 586.60] (w1425-1436) Si no sale, no conviertas el intento en una competición de fuerza.
+[586.92 - 590.34] (w1437-1444) Cuando el estreñimiento se repite, coméntalo en consulta.
+[590.72 - 595.78] (w1445-1455) Algunos medicamentos pueden contribuir y existen tratamientos apropiados según la causa.
+[596.16 - 605.24] (w1456-1478) Y si aparece en dolor abdominal intenso, sangre en las eses o un cambio persistente e inexplicado del ritmo intestinal, solicita valoración médica.
+[605.88 - 613.68] (w1479-1496) Cuidar el corazón también significa prestar atención a detalles cotidianos que nunca habrías relacionado con la salud cardiovascular.
+[613.74 - 615.80] (w1497-1503) ¿Habías oído hablar antes de esta maniobra?
+[616.42 - 617.48] (w1504-1508) Te leo en los comentarios.
+[618.34 - 619.46] (w1509-1510) Punto 5.
+[619.64 - 622.64] (w1511-1516) Empezar el día discutiendo o corriendo.
+[622.84 - 624.76] (w1517-1523) Piensa en una mañana llena de prisas.
+[625.46 - 632.30] (w1524-1543) Suena el despertador, no encuentras las llaves, tienes una cita y alguien te llama para hablar de un problema familiar.
+[632.46 - 639.26] (w1544-1562) De repente estás hablando más alto, respirando de prisa y caminando por casa como si llegara tarde a todo.
+[639.38 - 643.30] (w1563-1570) La tensión emocional activa mecanismos normales de alerta.
+[643.50 - 650.56] (w1571-1588) Durante una situación de estrés, el corazón puede latir más rápido y la presión arterial puede subir temporalmente.
+[650.82 - 660.44] (w1589-1614) Eso no significa que una discusión vaya a provocar un infarto, pero gestionar mejor el estrés forma parte de los cuidados generales de la salud cardiovascular.
+[660.62 - 662.92] (w1615-1620) Y aquí hay un matiz importante.
+[662.98 - 668.34] (w1621-1631) Tampoco tienes que reprimir emociones ni evitar conversaciones difíciles para siempre.
+[668.50 - 671.24] (w1632-1635) Los problemas necesitan resolverse.
+[671.32 - 675.50] (w1636-1647) Lo que puedes cambiar es el momento y la manera de abordarlos.
+[675.64 - 683.92] (w1648-1666) Si una conversación puede esperar, quizás sea más sensato tenerla después de desayunar, cuando ambos estéis preparados para escucharos.
+[684.18 - 687.48] (w1667-1676) Prepara la noche anterior lo que necesites para la mañana.
+[687.62 - 692.56] (w1677-1689) La ropa, los documentos, la lista de la compra o la medicación organizada.
+[692.76 - 695.64] (w1690-1698) Deja algo de margen para no tener que correr.
+[695.98 - 705.50] (w1699-1718) Y si te despiertas preocupado, prueba a sentarte un instante y realizar varias respiraciones lentas, cómodas, sin forzar el aire.
+[705.66 - 709.20] (w1719-1726) No buscamos una vida sin estrés, algo imposible.
+[709.38 - 715.24] (w1727-1738) Buscamos que las primeras decisiones del día no multipliquen innecesariamente las prisas.
+[715.36 - 719.66] (w1739-1749) A veces, cuidar el corazón empieza por una frase muy sencilla.
+[719.96 - 722.30] (w1750-1754) Esto puede esperar 10 minutos.
+[722.44 - 730.74] (w1755-1773) Punto 6, restar importancia a los síntomas que se repiten Llegamos al hábito que más me interesa que recuerdes.
+[731.04 - 742.38] (w1774-1802) Después de los 60, es fácil pensar, me canso porque tengo una edad, me mareo porque me he levantado rápido, o estas palpitaciones ya las he tenido otras veces.
+[742.56 - 746.36] (w1803-1813) Pero que un síntoma sea frecuente no significa que debamos ignorarlo.
+[747.24 - 751.54] (w1814-1825) Presta atención, por ejemplo, a los mareos al levantarte de la cama.
+[751.74 - 759.66] (w1826-1845) Algunas personas experimentan una caída de la atención arterial al ponerse de pie, lo que se conoce como hipotensión ortostática.
+[759.88 - 766.28] (w1846-1861) Puede favorecer caídas y a veces está relacionado con medicamentos o con otros problemas de salud.
+[766.40 - 769.62] (w1862-1870) Si te sucede a menudo, cuéntaselo a tu médico.
+[769.78 - 782.30] (w1871-1900) Las palpitaciones repetidas, la sensación de latidos irregulares, una fatiga muy distinta a la habitual o una falta de aire que aparece con esfuerzos cada vez menores también merece envaloración.
+[782.48 - 788.24] (w1901-1911) No indican necesariamente una enfermedad grave, pero pueden aportar pistas importantes.
+[788.32 - 794.30] (w1912-1928) Lo mismo ocurre con los dolores de cabeza al despertar, sobre todo si son nuevos o persistentes.
+[794.50 - 798.30] (w1929-1937) No permiten diagnosticar por sí solos y pertención nocturna.
+[798.44 - 805.66] (w1938-1954) Pueden tener muchas causas, incluida una mala calidad del sueño, y deben interpretarse junto con otros datos.
+[805.94 - 817.00] (w1955-1979) Si roncas intensamente, te despiertas con sensación de ahogo o tienes mucha somnolencia diurna, coméntalo, porque podría ser útil estudiar una posible apnea del sueño.
+[817.26 - 822.24] (w1980-1991) Hay una diferencia fundamental entre pedir una cita y afrontar una urgencia.
+[822.50 - 836.70] (w1992-2027) Si aparece dolor o opresión en el pecho, falta de aire intensa y repentina, desmayo, debilidad de un lado del cuerpo, dificultad para hablar o una alteración brusca de la visión, llama al 112 en España.
+[837.42 - 841.20] (w2028-2039) No esperes a terminar el desayuno ni a comprobar si se pasa.
+[841.36 - 845.86] (w2040-2050) Para los síntomas menos urgentes pero repetidos, lleva un registro breve.
+[846.06 - 852.62] (w2051-2066) Cuando aparecen, cuando duran, qué estabas haciendo y si tienes alguna medición de tensión o pulso.
+[852.80 - 858.76] (w2067-2078) Esa información ayuda mucho más que decir simplemente Últimamente me encuentro raro.
+[859.04 - 864.56] (w2079-2092) Después de hablar de seis hábitos, quizá te preguntes ¿Qué hago mañana al despertarme?
+[865.02 - 867.12] (w2093-2097) necesitas cambiar toda tu vida.
+[867.28 - 871.26] (w2098-2106) Te propongo una secuencia sencilla, adaptable a tu situación.
+[871.70 - 872.88] (w2107-2108) Paso 1.
+[873.14 - 876.72] (w2109-2115) Antes de incorporarte, quédate unos instantes tranquilo.
+[876.92 - 884.80] (w2116-2134) Respira con naturalidad y haz tres o cuatro respiraciones lentas, sin aguantar el aire ni intentar batir ningún record.
+[884.98 - 888.72] (w2135-2142) Si te mareas con los ejercicios respiratorios, detente.
+[888.84 - 895.48] (w2143-2159) La intención es despertar con calma, no conseguir una reducción concreta de la tensión en dos minutos.
+[895.72 - 896.76] (w2160-2161) Paso 2.
+[897.00 - 898.78] (w2162-2163) Incorpórate despacio.
+[898.82 - 902.30] (w2164-2175) Pasa de estar tumbado a sentarte en el borde de la cama.
+[902.42 - 908.00] (w2176-2190) Mueve suavemente los tobillos, flexionando las puntas de los pies hacia arriba y hacia abajo.
+[908.22 - 913.00] (w2191-2203) Si sueles marearte, espera hasta sentirte estable y ten un apoyo firme cerca.
+[913.50 - 917.00] (w2204-2210) Si los mareos persisten, pide consejo profesional.
+[917.44 - 918.00] (w2211-2212) Paso 3.
+[918.76 - 920.00] (w2213-2215) Levántate sin prisas.
+[920.74 - 921.92] (w2216-2218) Apoya los pies.
+[922.06 - 928.08] (w2219-2236) Utiliza las manos o un punto de sujeción si lo necesitas y da los primeros pasos con tranquilidad.
+[928.24 - 936.00] (w2237-2257) Una vez estable, puedes mover los hombros, caminar unos minutos por casa o hacer una actividad suave adecuada a tu capacidad.
+[936.18 - 941.92] (w2258-2270) No es necesario forzar estiramientos del cuello ni realizar movimientos que provoquen dolor.
+[942.22 - 943.48] (w2271-2272) Paso 4.
+[943.48 - 945.98] (w2273-2276) Hidrátate según tus necesidades.
+[946.10 - 951.62] (w2277-2295) Si tu médico no te ha restringido los líquidos, un vaso de agua puede formar parte de tu mañana.
+[951.76 - 956.50] (w2296-2308) No necesitas beber una cantidad enorme ni pensar que el agua disuelve cuáguulos.
+[956.76 - 957.72] (w2309-2311) No lo hace.
+[957.90 - 963.16] (w2312-2320) Si tomas medicación, respeta exactamente las instrucciones de administración.
+[963.38 - 964.64] (w2321-2322) Paso 5.
+[964.76 - 966.92] (w2323-2326) Reserva un comienzo tranquilo.
+[967.02 - 976.62] (w2327-2351) Evita las noticias que te alteran, organiza un desayuno equilibrado si acostumbras a desayunar y deja para más tarde los asuntos que no sean urgentes.
+[976.80 - 982.28] (w2352-2362) Son pequeñas decisiones, pero facilitan una rutina más agradable y sostenible.
+[982.52 - 990.34] (w2363-2378) Si tienes hipertensión o una enfermedad cardiovascular, puedes aprovechar la siguiente revisión para plantear cinco dudas.
+[990.48 - 1007.08] (w2379-2422) Mi tensión está bien controlada durante todo el día, necesito medirla en casa o hacer un registro de 24 horas, estoy tomando cada medicamento a la hora indicada y de la forma correcta, debo adaptar el desayuno a mi diabetes o a otros tratamientos?
+[1007.26 - 1012.98] (w2423-2436) ¿Qué síntomas y qué nivel de actividad física requieren especial atención en mi caso?
+[1013.30 - 1015.58] (w2437-2442) No hace falta memorizar estas preguntas.
+[1015.84 - 1018.02] (w2443-2446) Apúntalas y llévalas contigo.
+[1018.30 - 1026.68] (w2447-2471) Una consulta se aprovecha mejor cuando no te limitas a decir que todo va bien por costumbre, sino que explicas cómo te encuentras de verdad.
+[1026.88 - 1032.58] (w2472-2488) Y si te han recomendado medir la tensión en casa, hazlo con un tensiómetro validado de brazo.
+[1032.82 - 1044.36] (w2489-2520) Para obtener cifras comparables, normalmente se mide por la mañana, después de ir al baño, antes del desayuno y de los antihipertencibos, pero no en el mismo instante de abrir los ojos.
+[1044.58 - 1046.62] (w2521-2525) Siéntate con la espalda apoyada.
+[1046.82 - 1054.12] (w2526-2544) descansa cinco minutos, coloca el brazo a la altura del corazón y realiza dos lecturas separadas por un minuto.
+[1054.28 - 1059.06] (w2545-2557) Evita el café, el tabaco y el ejercicio durante la media hora anterior.
+[1059.16 - 1062.44] (w2558-2564) Tu profesional sanitario puede adaptar el horario.
+[1062.64 - 1065.16] (w2565-2571) Te propongo un reto sin exigencias imposibles.
+[1066.14 - 1069.42] (w2572-2579) Durante la primera semana cambia sólo dos cosas.
+[1069.62 - 1074.08] (w2580-2590) No abras las noticias nada más despertar y levántate con calma.
+[1074.22 - 1079.90] (w2591-2602) La segunda semana revisa cómo desayunas y si cumples correctamente tu medicación.
+[1080.04 - 1086.10] (w2603-2621) En la tercera, observa si haces demasiada fuerza en el baño o si las prisas las dominan tus mañanas.
+[1086.38 - 1093.30] (w2622-2639) Y en la cuarta, anota cualquier síntoma que se repita y prepara las preguntas para tu próxima consulta.
+[1093.50 - 1099.50] (w2640-2654) Si tu médico te ha pedido controlar la atención, registra las mediciones siguiendo sus indicaciones.
+[1099.70 - 1106.02] (w2655-2672) No interpretes una cifra aislada como un éxito o un fracaso, ni cambies las dosis por tu cuenta.
+[1106.18 - 1111.92] (w2673-2684) Lo que interesa es identificar patrones y tomar decisiones con información fiable.
+[1112.14 - 1122.76] (w2685-2711) La meta del día 30 no es presumir de una atención perfecta, es haber construido una mañana más ordenada, más segura y con hábitos que puedas mantener.
+[1122.90 - 1127.00] (w2712-2721) El corazón no envejece de golpe cuando cumplimos 60 años.
+[1127.28 - 1133.20] (w2722-2736) Sigue adaptándose a cada momento del día, y necesita que lo cuidemos con decisiones constantes.
+[1133.50 - 1141.10] (w2737-2750) Controlar la atención, seguir los tratamientos, movernos, alimentarnos bien y reconocer las señales importantes.
+[1141.40 - 1144.40] (w2751-2758) Hoy hemos visto seis errores que conviene revisar.
+[1144.68 - 1147.18] (w2759-2764) Empezar el día con noticias estresantes.
+[1147.60 - 1157.00] (w2765-2786) improvisar el desayuno, tomar mal la medicación, hacer mucha fuerza en el baño, vivir las mañanas con prisas e ignorar síntomas repetidos.
+[1157.98 - 1168.36] (w2787-2814) No todos tienen el mismo nivel de evidencia ni representan el mismo riesgo para cada persona, pero todos son una oportunidad para mirar tu rutina con más atención.
+[1168.68 - 1171.04] (w2815-2819) Antes de despedirnos, una pregunta.
+[1171.14 - 1175.20] (w2820-2829) Si al levantarte notas mareos frecuentes, ¿qué es más sensato?
+[1175.28 - 1176.72] (w2830-2833) ¿A costumbrarte a ellos?
+[1176.84 - 1179.54] (w2834-2839) O comentarlos con un profesional sanitario.
+[1179.74 - 1184.00] (w2840-2852) Escríbeme tu respuesta y dime cuál de estos hábitos te gustaría cambiar primero.
+[1184.68 - 1189.08] (w2853-2864) Recuerda que este video es educativo y no sustituye una valoración individual.
+[1189.66 - 1193.20] (w2865-2874) Ante síntomas graves o repentinos, llama al 1 -1 -2.
+[1193.80 - 1200.56] (w2875-2895) Si te ha resultado útil, suscríbete y compártelo con alguien a quien quieras ayudar a empezar el día con más tranquilidad.
+[1200.94 - 1206.88] (w2896-2914) Porque cuidar el corazón no consiste en tener miedo a la mañana, sino en aprender a vivir la mejor.
