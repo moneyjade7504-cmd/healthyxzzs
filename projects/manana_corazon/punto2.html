@@ -1,0 +1,44 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="common.js"></script>
+<script>
+window.START=C('punto2'); window.END=C('punto3'); window.DURATION=window.END;
+
+PTitle(C('punto2'),C('bolleria'),2,'Desayunar <span class="hl">a base de azúcar</span>','o saltarte comidas sin planificarlo',['pastries','soda']);
+Scene(C('bolleria'),C('repite'),'S6_1','Café, bollería, galletas, zumo…',{capT:0.5,from:[.45,.5,1.0],to:[.55,.4,1.14],draw:(c,t)=>steam(c,t,{x:700,y:560,w:40,n:3,r:12,rise:80})});
+{const B=beats[beats.length-1]; Cap(B,'¿solución <span class="hl">rápida</span>?',{cx:960,cy:90,size:56,t0:C('bolleria')+4.5,pill:true});}
+{const B=Beat(C('repite'),C('hormonas2')); Cut(B,'pastries',{cx:560,cy:860,h:420,amp:3});
+ const s=Svg(B); Draw(B,s,'M300 620 l520 0',{t0:B.a+1,dur:0.01,stroke:'transparent',w:1});
+ Cap(B,'Día tras día…',{cx:1350,cy:300,size:70,t0:B.a+0.2,color:'#6a6f86'});
+ Cap(B,'poco espacio para:',{cx:1350,cy:420,size:62,t0:B.a+2});
+ ['Proteína','Fibra','Nutrientes de calidad'].forEach((w,i)=>{const t0=C('proteina')+i*0.7; Draw(B,s,tick(1100,540+i*100,0.7),{t0,dur:0.25,stroke:'#22a35a',w:10}); Cap(B,w,{cx:1360,cy:540+i*100,size:58,t0});});}
+// glucosa
+{const B=Beat(C('hormonas2'),C('aclarar'),{enter:'zoom'}); Cut(B,'antonio_glucose',{cx:520,cy:1010,h:760,amp:3});
+ Cap(B,'Al despertar, las hormonas',{cx:1350,cy:250,size:60,t0:B.a+0.2}); Cap(B,'influyen en la <span class="hl">glucosa</span>',{cx:1350,cy:340,size:64,t0:B.a+1.6});
+ Cap(B,'Diabetes: glucemia <span class="hl">más variable</span>',{cx:1350,cy:520,size:58,t0:C('diabetes2')+1});
+ Cut(B,'soda',{cx:1180,cy:900,h:230,t0:C('azucaradas')+1,amp:3}); Cut(B,'orange_juice',{cx:1400,cy:900,h:230,t0:C('azucaradas')+1.4,amp:3,phase:1});
+ const s=Svg(B); Draw(B,s,arrow(1600,900,1660,700,0),{t0:C('azucaradas')+4,dur:0.4,stroke:'#e23b2e',w:9});
+ Cap(B,'azúcar <span class="red">↑↑</span>',{cx:1700,cy:640,size:58,t0:C('azucaradas')+4.4});}
+// aclarar: saltarse el desayuno
+{const B=Beat(C('aclarar'),C('insulina'),{enter:'zoom'});
+ Cap(B,'Conviene aclarar:',{cx:960,cy:150,size:70,t0:B.a+0.2,color:'#2f6fd6'});
+ Card(B,{cx:960,cy:520,w:1400,h:460,t0:B.a+1});
+ Cap(B,'Saltarse el desayuno <span class="hl">no daña</span> el corazón al instante',{cx:960,cy:380,size:54,t0:B.a+1.5});
+ Cap(B,'No todos necesitan comer en la primera hora',{cx:960,cy:500,size:50,t0:C('nonecesita')});
+ Cap(B,'Horario según apetito, salud y <span class="hl">medicación</span>',{cx:960,cy:630,size:52,t0:C('horarios2')});}
+Warn(C('insulina'),C('quehacer2'),'Insulina o fármacos para la diabetes',['Retrasar una comida sin orientación','puede causar <b>hipoglucemia</b>'],{panel:'S6_3',keys:[C('insulina')+3,C('insulina')+6]});
+// qué hacer: desayuno equilibrado
+Scene(C('quehacer2'),C('tostada'),'S6_2','Un desayuno <span class="hl">equilibrado</span>',{capT:1.5,from:[.45,.5,1.0],to:[.5,.45,1.14]});
+{const B=Beat(C('tostada'),C('tarde2'));
+ Cap(B,'Ejemplos de desayuno',{cx:960,cy:110,size:66,t0:B.a+0.1});
+ Row(B,[['toast_oil','Tostada integral, tomate y aceite',C('tostada'),'ok'],['egg','Un huevo',C('tostada')+3,'ok'],['apple_orange','Una fruta',C('tostada')+4.3,'ok'],['yogurt_oats','Yogur sin azúcar, avena y nueces',C('yogur'),'ok']],{y:560,cardH:520});
+ Cap(B,'si encajan en tu dieta',{cx:960,cy:960,size:50,t0:C('yogur')+4,color:'#6a6f86'});}
+{const B=Side(C('tarde2'),C('perfecto'),'antonio_reminder',[['¿Desayunas más tarde?',null,66],['Consulta el horario',C('tarde2')+2,60,'#2f6fd6'],['si tu medicación depende de las comidas',C('tarde2')+4,46]]);}
+// patrón semanal
+{const B=Beat(C('perfecto'),C('suscribete2'),{enter:'zoom'}); Cut(B,'croissant_coffee',{cx:470,cy:1010,h:700,amp:3});
+ Cap(B,'¿Una tostada ocasional? <span class="hl">Tranquilo</span>',{cx:1300,cy:220,size:60,t0:B.a+1.5});
+ Cap(B,'Importa el <span class="hl">patrón semanal</span>',{cx:1300,cy:380,size:70,t0:C('patron')});
+ const s=Svg(B);
+ [['Menos ultraprocesados','no',C('ultra')],['Más alimentos frescos','ok',C('ultra')+1.8],['Acorde a tus tratamientos','ok',C('ultra')+4]].forEach(([w,m,t0],i)=>{const y=540+i*110;
+   Draw(B,s,m==='ok'?tick(940,y,0.7):cross(940,y,0.5),{t0,dur:0.25,stroke:m==='ok'?'#22a35a':'#e23b2e',w:10}); Cap(B,w,{cx:1300,cy:y,size:56,t0});});}
+Subscribe(C('suscribete2'),C('punto3'),{pose:'yogurt_bowl',line:'Sin mitos ni <span class="hl">promesas milagrosas</span>'});
+</script></body></html>

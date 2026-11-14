@@ -1,0 +1,62 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="common.js"></script>
+<script>
+window.START=C('punto3'); window.END=C('punto4'); window.DURATION=window.END;
+
+PTitle(C('punto3'),C('importante3'),3,'Tomar la medicación','<span class="hl">de cualquier manera</span>',['blister_water','pill_organizer']);
+{const B=Side(C('importante3'),C('personas3'),'leaflet_puzzled',[['Uno de los <span class="hl">más importantes</span>',null,62],['Solución concreta:',C('importante3')+4.5,58,'#6a6f86'],['seguir bien las instrucciones',C('importante3')+5.8,58,'#2f6fd6']]);}
+// pastilla a horas distintas
+{const B=Beat(C('personas3'),C('reducen'));
+ Cap(B,'Una pastilla… ¿a qué hora?',{cx:960,cy:110,size:66,t0:B.a+0.2});
+ Mini(B,'S6_4',{cx:340,cy:500,w:520,t0:C('personas3')+1.2}); Cap(B,'Con el desayuno',{cx:340,cy:820,size:50,t0:C('personas3')+1.2});
+ Cut(B,'m_rush',{cx:960,cy:760,h:420,t0:C('caminar3'),amp:4}); Cap(B,'Después de caminar',{cx:960,cy:820,size:50,t0:C('caminar3')});
+ Mini(B,'S6_5',{cx:1580,cy:500,w:520,t0:C('mediodia')-1}); Cap(B,'Casi al mediodía',{cx:1580,cy:820,size:50,t0:C('mediodia')-1});
+ const s=Svg(B); Draw(B,s,'M200 900 Q960 980 1720 900',{t0:C('mediodia'),dur:0.6,stroke:'#e23b2e',w:7});
+ Cap(B,'<span class="red">Horario improvisado</span>',{cx:960,cy:990,size:56,t0:C('mediodia')+0.4});}
+// reducir dosis / cambiar a la noche
+{const B=Beat(C('reducen'),C('ninguna'));
+ Card(B,{cx:560,cy:540,w:720,h:600,t0:B.a+0.2,border:'#e23b2e'}); Cut(B,'bp_monitor',{cx:560,cy:790,h:260,t0:B.a+0.3,amp:3});
+ Cap(B,'Tensión normal →',{cx:560,cy:320,size:56,t0:B.a+0.4}); Cap(B,'<span class="red">bajo la dosis</span>',{cx:560,cy:410,size:62,t0:B.a+2.5});
+ Card(B,{cx:1360,cy:540,w:720,h:600,t0:C('noche3')-0.3,border:'#e23b2e'}); Cut(B,'pill_organizer',{cx:1360,cy:800,h:200,t0:C('noche3'),amp:3});
+ const s=Svg(B); const moon=Draw(B,s,'M1340 470 a60 60 0 1 0 50 90 a48 48 0 1 1 -50 -90 Z',{t0:C('noche3')+0.5,dur:0.6,stroke:'#2f6fd6',w:6}); moon.setAttribute('fill','#ffe9a8');
+ Cap(B,'“Mejor por la noche”',{cx:1360,cy:320,size:56,t0:C('noche3')+0.2}); Cap(B,'<span class="red">cambio por mi cuenta</span>',{cx:1360,cy:410,size:56,t0:C('noche3')+1.5});}
+// ninguna sin consultar
+{const B=Beat(C('ninguna'),C('evidencia'),{enter:'zoom'});
+ const st=mk('div','pill',B.L,'NUNCA SIN CONSULTAR'); Object.assign(st.style,{left:'960px',top:'260px',fontSize:'84px',color:'#e23b2e',borderColor:'#e23b2e',borderWidth:'8px'}); Pop(B,st,{t0:B.a+0.2,rot:-5});
+ Cap(B,'El horario depende de:',{cx:960,cy:450,size:60,t0:C('depende3')});
+ ['El medicamento','Su duración de acción','Efectos secundarios','Tu situación personal'].forEach((w,i)=>{const p=mk('div','pill',B.L,w);Object.assign(p.style,{left:(560+(i%2)*800)+'px',top:(600+Math.floor(i/2)*150)+'px',fontSize:'50px'});Pop(B,p,{t0:C('depende3')+1.5+i*1.1});});}
+// evidencia: mañana = noche
+{const B=Beat(C('evidencia'),C('comprimido'),{enter:'zoom'});
+ Cap(B,'¿Por la noche protege más?',{cx:960,cy:130,size:70,t0:B.a+0.2});
+ Card(B,{cx:560,cy:540,w:620,h:520,t0:B.a+1}); Card(B,{cx:1360,cy:540,w:620,h:520,t0:B.a+1.4});
+ Canvas(B,(c,t)=>{if(t>B.a+1.2){rays(c,t,{x:560,y:470,r0:70,r1:110,lw:6}); c.fillStyle='#ffd34d';c.beginPath();c.arc(560,470,60,0,7);c.fill();}});
+ const s=Svg(B); const moon=Draw(B,s,'M1340 400 a70 70 0 1 0 60 110 a56 56 0 1 1 -60 -110 Z',{t0:B.a+1.6,dur:0.6,stroke:'#2f6fd6',w:6}); moon.setAttribute('fill','#ffe9a8');
+ Cap(B,'Mañana',{cx:560,cy:680,size:66,t0:B.a+1.2}); Cap(B,'Noche',{cx:1360,cy:680,size:66,t0:B.a+1.6});
+ Cap(B,'=',{cx:960,cy:540,size:140,t0:B.a+3.5,color:'#1f9d55'});
+ Cap(B,'Lo decisivo: <span class="hl">una pauta constante</span>',{cx:960,cy:930,size:64,t0:C('pauta')});
+ Src(B,'Fuente: Ensayo TIME, The Lancet 2022 · BedMed, JAMA 2024');}
+// instrucciones de cada comprimido
+{const B=Beat(C('comprimido'),C('suspendas'));
+ Cap(B,'Revisa cada comprimido',{cx:960,cy:110,size:66,t0:B.a+0.2});
+ Row(B,[['blister_water','¿Con agua?',B.a+1.2,'ok'],['toast_oil','¿Con o sin comida?',C('alimentos3'),null],['pill_organizer','¿Triturar o partir?',C('tritures'),'no']],{y:570});
+ Cap(B,'solo si está permitido',{cx:1440,cy:940,size:46,t0:C('tritures')+1.5,color:'#6a6f86'});}
+// nunca suspendas
+{const B=Beat(C('suspendas'),C('gesto3'),{enter:'zoom'}); Cut(B,'pillbox_hold',{cx:520,cy:1010,h:760,amp:3});
+ Cap(B,'¿Te encuentras mejor?',{cx:1350,cy:360,size:66,t0:B.a+0.4});
+ Cap(B,'<span class="red">No lo suspendas</span>',{cx:1350,cy:500,size:80,t0:B.a+1.5});
+ Cap(B,'quizá es porque <span class="hl">está funcionando</span>',{cx:1350,cy:660,size:56,t0:C('funcionando')-1});}
+// gesto: 3 preguntas
+{const B=Beat(C('gesto3'),C('farmaceutico'),{enter:'zoom'}); Cut(B,'leaflet_puzzled',{cx:420,cy:1010,h:720,amp:3});
+ Cap(B,'Revisa tu <span class="hl">lista de medicación</span>',{cx:1250,cy:200,size:64,t0:C('lista3')});
+ const s=Svg(B);
+ [['¿Para qué sirve cada uno?',C('lista3')+2.5],['¿A qué hora lo tomo?',C('lista3')+4.6],['¿Qué hago si olvido una dosis?',C('olvidas')]].forEach(([q,t0],i)=>{const y=380+i*150;
+   Draw(B,s,`M800 ${y-32} h64 v64 h-64 Z`,{t0,dur:0.25,stroke:'#3a3c52',w:5}); Draw(B,s,tick(838,y,0.8),{t0:t0+0.4,dur:0.25,stroke:'#22a35a',w:11});
+   Cap(B,q,{cx:1270,cy:y,size:56,t0});});}
+Scene(C('farmaceutico'),C('pastillero'),'S6_6','¿Dudas? <span class="hl">Médico o farmacéutico</span>',{capT:0.6,from:[.4,.5,1.0],to:[.5,.45,1.12]});
+// pastillero + alarma
+{const B=Beat(C('pastillero'),C('proteccion3'));
+ Mini(B,'S6_7',{cx:640,cy:480,w:980,t0:B.a+0.1}); Cut(B,'antonio_reminder',{cx:1600,cy:1000,h:600,t0:B.a+1.6,amp:3});
+ Cap(B,'Pastillero semanal + <span class="hl">alarma</span>',{cx:700,cy:950,size:64,t0:B.a+0.4});}
+{const B=Beat(C('proteccion3'),C('punto4'),{exit:'fade'}); Mini(B,'S6_8',{cx:960,cy:450,w:1300,t0:B.a+0.1});
+ Cap(B,'No un horario “perfecto”: <span class="hl">cumplir con seguridad</span>',{cx:960,cy:960,size:60,t0:B.a+3});}
+</script></body></html>

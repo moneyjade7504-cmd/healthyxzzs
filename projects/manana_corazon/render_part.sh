@@ -24,5 +24,5 @@ wait
 T0=$(echo "$spans" | head -1 | awk '{print $2}'); T1=$(echo "$spans" | tail -1 | awk '{print $3}')
 ffmpeg -v error -y -f concat -safe 0 -i $list -ss $T0 -t $(echo "$T1 - $T0" | bc) -i audio/voice.mp3 -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -af loudnorm=I=-14:TP=-1.5 -shortest -movflags +faststart out/parte$N.mp4
 rm -f out/parte${N}_*.mp4
-ffmpeg -v error -y -i out/parte$N.mp4 -c copy -map 0 -f segment -segment_time 70 -reset_timestamps 1 -movflags +faststart out/parte${N}_%d.mp4
+ffmpeg -v error -y -i out/parte$N.mp4 -c copy -map 0 -f segment -segment_time 55 -reset_timestamps 1 -movflags +faststart out/parte${N}_%d.mp4
 ls -la out/parte$N*

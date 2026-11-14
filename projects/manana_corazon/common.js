@@ -237,3 +237,13 @@ function Pie(B,{cx=600,cy=540,r=300,labels,keys,cols=['#58a9e4','#f7ad36','#22a3
       p.style.filter=act>=0&&i!==act?'saturate(.35) opacity(.6)':'none';});});
   return s;
 }
+
+// ---- manana_corazon helpers ----
+const sunrise=(c,t,x,y)=>rays(c,t,{x,y,r0:60,r1:95,lw:5});
+function PTitle(a,b,n,l1,l2,props){const B=Beat(a,b,{enter:'zoom'}); Num(B,n,{cx:960,cy:250,r:110,t0:a+0.1});
+  Cap(B,'PUNTO '+n,{cx:960,cy:440,size:66,t0:a+0.3,color:'#2f6fd6'}); Cap(B,l1,{cx:960,cy:590,size:84,t0:a+0.7}); if(l2)Cap(B,l2,{cx:960,cy:730,size:60,t0:a+1.6});
+  (props||[]).forEach((p,i)=>Cut(B,p,{cx:i?1700:220,cy:1060,h:300,t0:a+1.2+i*0.3,amp:5,phase:i})); return B;}
+// small framed still inside a beat (for step rows)
+function Mini(B,name,{cx,cy,w=380,t0}){const [iw,ih]=IMG[name];const h=w*ih/iw;const P=mk('div','panel',B.L);
+  Object.assign(P.style,{left:(cx-w/2)+'px',top:(cy-h/2)+'px',width:w+'px',height:h+'px',borderWidth:'4px'}); mk('img','',P).src='cut/'+name+'.png';
+  B.fx.push(t=>{const p=prog(t,t0,t0+0.4);P.style.opacity=p;P.style.transform=`scale(${0.85+0.15*eo(p)})`;});return P;}
