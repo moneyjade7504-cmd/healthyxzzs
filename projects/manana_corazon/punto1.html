@@ -1,0 +1,54 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="common.js"></script>
+<script>
+window.START=C('punto1'); window.END=C('punto2'); window.DURATION=window.END;
+const sunrise=(c,t,x,y)=>rays(c,t,{x,y,r0:60,r1:95,lw:5});
+function PTitle(a,b,n,l1,l2,props){const B=Beat(a,b,{enter:'zoom'}); Num(B,n,{cx:960,cy:250,r:110,t0:a+0.1});
+  Cap(B,'PUNTO '+n,{cx:960,cy:440,size:66,t0:a+0.3,color:'#2f6fd6'}); Cap(B,l1,{cx:960,cy:590,size:88,t0:a+0.7}); if(l2)Cap(B,l2,{cx:960,cy:730,size:62,t0:a+1.6});
+  (props||[]).forEach((p,i)=>Cut(B,p,{cx:i?1700:220,cy:1060,h:300,t0:a+1.2+i*0.3,amp:5,phase:i})); return B;}
+
+PTitle(C('punto1'),C('escena1'),1,'Abrir el <span class="hl">móvil</span>','y llenarte de preocupaciones',['phone_notif','newspaper']);
+// la escena
+{const B=Beat(C('escena1'),C('nodana')); const p=Panel(B,'S5_2',{from:[.5,.45,1.0],to:[.6,.35,1.2]});
+ p.draw=(c,t)=>{sunrise(c,t,1440,230); for(let i=0;i<3;i++){const k=prog(t,C('titulares')+i*0.5,C('titulares')+i*0.5+0.3);c.globalAlpha=k;c.fillStyle='#e23b2e';c.beginPath();c.arc(960+i*70,220+Math.sin(t*3+i)*6,22*back(Math.max(k,0.01)),0,7);c.fill();}c.globalAlpha=1;};
+ Cap(B,'3 titulares · 2 mensajes · 1 noticia',{cx:960,cy:90,size:52,t0:C('titulares'),pill:true});
+ Cap(B,'Tu cabeza <span class="hl">corre más que tú</span>',{cx:960,cy:965,size:70,t0:C('cabeza1'),pill:true});}
+// no daña automáticamente
+{const B=Beat(C('nodana'),C('discusion1'),{enter:'zoom'}); Cut(B,'phone_notif',{cx:560,cy:880,h:520,amp:4});
+ const s=Svg(B); Draw(B,s,tick(1000,360,1.2),{t0:B.a+0.6,dur:0.3,stroke:'#22a35a',w:13});
+ Cap(B,'El móvil <span class="hl">no daña</span> por sí solo',{cx:1380,cy:360,size:64,t0:B.a+0.3});
+ Cap(B,'el problema: una descarga',{cx:1380,cy:520,size:58,t0:C('descarga')-1.5,color:'#6a6f86'});
+ Cap(B,'diaria de <span class="red">tensión emocional</span>',{cx:1380,cy:610,size:58,t0:C('descarga')});}
+// estrés: respiración, pulso, presión
+{const B=Beat(C('discusion1'),C('palpitaciones1'));
+ Cap(B,'Mensajes · dinero · noticias',{cx:960,cy:110,size:62,t0:B.a+0.2});
+ Cap(B,'→ respuesta de <span class="hl">estrés</span>',{cx:960,cy:220,size:70,t0:C('estres1')});
+ Row(B,[['breathe','Respiras más rápido',C('respiramos'),null],['heart','Pulso más alto',C('respiramos')+1.3,null],['bp_monitor','Tensión: sube un rato',C('presion1'),null]],{y:620,cardH:500});}
+// si tienes HTA, palpitaciones, ansiedad
+{const B=Side(C('palpitaciones1'),C('prohibir'),'heart_fast',[['Hipertensión · palpitaciones',null,58],['ansiedad',null,58],['¿esos minutos <span class="hl">no te sientan bien</span>?',C('palpitaciones1')+3.5,58,'#2f6fd6']],{shake:1});}
+// cambia el orden
+{const B=Beat(C('prohibir'),C('veinte'),{enter:'zoom'});
+ Cap(B,'No prohíbas la tecnología: <span class="hl">cambia el orden</span>',{cx:960,cy:120,size:62,t0:B.a+0.2});
+ const steps=[['breathe','Despierta y respira',C('primero1')],['m_toilet','Baño sin prisas',C('primero1')+1.8],['S5_7','Empieza tu rutina',C('primero1')+3.3],['phone_notif','Después, mensajes',C('despues1')]];
+ const s=Svg(B);
+ steps.forEach(([n,txt,t0],i)=>{const x=290+i*450; Num(B,i+1,{cx:x,cy:290,r:46,t0});
+   if(n==='S5_7'){Card(B,{cx:x,cy:600,w:380,h:300,t0,border:'#2f6fd6'}); const P=mk('div','panel',B.L); Object.assign(P.style,{left:(x-180)+'px',top:'460px',width:'360px',height:'203px',border:'none',boxShadow:'none'}); mk('img','',P).src='cut/S5_7.png'; B.fx.push(t=>{P.style.opacity=t>=t0+0.1?1:0;});}
+   else Cut(B,n,{cx:x,cy:760,h:n==='m_toilet'?330:300,t0:t0+0.1,amp:3,phase:i});
+   Cap(B,txt,{cx:x,cy:860,size:50,t0}); if(i<3)Draw(B,s,arrow(x+90,290,x+360,290,0),{t0:t0+0.5,dur:0.3,stroke:'#2f6fd6',w:6});});}
+// 20 minutos
+{const B=Beat(C('veinte'),C('solo1')); const p=Panel(B,'S5_5',{from:[.5,.45,1.0],to:[.7,.55,1.15]});
+ p.draw=(c,t)=>sunrise(c,t,1330,230);
+ Cap(B,'Móvil lejos los primeros <span class="hl">20 minutos</span>',{cx:960,cy:965,size:66,t0:B.a+0.4,pill:true});
+ Cap(B,'¿Despertador? <span class="hl">Modo sin notificaciones</span>',{cx:960,cy:90,size:52,t0:C('despertador'),pill:true});}
+// vives solo
+{const B=Side(C('solo1'),C('esencial'),'phone_away',[['¿Vives solo?',null,74],['Teléfono cerca <span class="green">para llamadas</span>',C('solo1')+2.5,58],['<span class="red">sin noticias ni redes</span> al despertar',C('solo1')+6,54]]);}
+// recupera el control
+{const B=Beat(C('esencial'),C('pies1'),{enter:'zoom'}); Cut(B,'alarm',{cx:540,cy:880,h:480,amp:3});
+ Cap(B,'No se trata de minutos exactos',{cx:1350,cy:380,size:58,t0:B.a+0.3,color:'#6a6f86'});
+ Cap(B,'<span class="hl">Recupera el control</span>',{cx:1350,cy:520,size:80,t0:C('control1')});
+ Cap(B,'de tu mañana',{cx:1350,cy:640,size:66,t0:C('control1')+1});}
+// pies en el suelo
+{const B=Beat(C('pies1'),C('punto2'),{exit:'fade'}); const p=Panel(B,'S5_8',{from:[.4,.5,1.0],to:[.45,.75,1.18]});
+ p.draw=(c,t)=>sunrise(c,t,1440,230);
+ Cap(B,'Primero, <span class="hl">los pies en el suelo</span>',{cx:960,cy:965,size:70,t0:B.a+3,pill:true});}
+</script></body></html>

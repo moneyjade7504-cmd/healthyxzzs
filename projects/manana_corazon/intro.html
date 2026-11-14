@@ -1,0 +1,96 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="common.js"></script>
+<script>
+window.START=0; window.END=C('punto1'); window.DURATION=window.END;
+const sunrise=(c,t,x,y)=>rays(c,t,{x,y,r0:60,r1:95,lw:5});
+// morning BP / heart-rate curve (no numbers)
+function Curve(B,{x0=260,x1=1660,y0=820,t0}){const s=Svg(B);
+  Draw(B,s,`M${x0} ${y0} H${x1} M${x0} ${y0} V260`,{t0,dur:0.5,stroke:'#3a3c52',w:6});
+  const d=`M${x0} 700 C 450 720, 600 735, 760 720 S 900 600, 1000 470 S 1200 380, ${x1} 400`;
+  Draw(B,s,d,{t0:t0+0.6,dur:2.2,stroke:'#e23b2e',w:10});
+  const sun=sv('circle',{cx:960,cy:880,r:0,fill:'#ffd34d'},s); B.fx.push(t=>{sun.setAttribute('r',36*eo(prog(t,t0+0.8,t0+1.4)));});
+  return s;}
+
+// 1 · 7:00 alarm
+{const B=Beat(0,C('movil0'),{enter:'none'}); const p=Panel(B,'S5_1',{from:[.7,.6,1.15],to:[.6,.5,1.0]});
+ p.draw=(c,t)=>{sunrise(c,t,1360,210); const k=Math.sin(t*40)*3; c.strokeStyle='#e23b2e';c.lineWidth=4;
+   for(let i=0;i<3;i++){c.globalAlpha=0.5+0.5*Math.sin(t*12+i);c.beginPath();c.arc(1380,600,60+i*18+k,-.6,.6);c.stroke();c.beginPath();c.arc(1380,600,60+i*18+k,Math.PI-.6,Math.PI+.6);c.stroke();}c.globalAlpha=1;};
+ Cap(B,'Las <span class="hl">7:00</span> de la mañana',{cx:960,cy:965,size:76,t0:0.3,pill:true});}
+// 2 · móvil
+{const B=Beat(C('movil0'),C('deprisa0')); const p=Panel(B,'S5_2',{from:[.5,.45,1.0],to:[.55,.4,1.15]});
+ p.draw=(c,t)=>sunrise(c,t,1440,230);}
+// 3 · deprisa
+{const B=Beat(C('deprisa0'),C('cualquiera')); Panel(B,'S5_3',{from:[.45,.5,1.05],to:[.55,.45,1.18]});
+ Cap(B,'Deprisa…',{cx:960,cy:965,size:76,t0:B.a+0.2,pill:true});}
+// 4 · mañana cualquiera → transición
+{const B=Beat(C('cualquiera'),C('corazon0'),{enter:'zoom'});
+ Cap(B,'Una mañana cualquiera…',{cx:960,cy:300,size:80,t0:B.a+0.2,color:'#6a6f86'});
+ Cut(B,'lamp',{cx:520,cy:900,h:420,t0:B.a+0.3,amp:3}); Cut(B,'alarm',{cx:1400,cy:900,h:420,t0:B.a+0.5,amp:3,shake:1});
+ Cap(B,'del <span class="blue">descanso</span> a la <span class="hl">actividad</span>',{cx:960,cy:460,size:84,t0:C('transicion')+1.5});}
+// 5 · corazón, vasos, nervios
+{const B=Beat(C('corazon0'),C('sesenta0'));
+ Row(B,[['heart','Corazón',C('corazon0')+0.1,null],['vessel','Vasos sanguíneos',C('corazon0')+0.8,null],['brain','Sistema nervioso',C('corazon0')+1.9,null]],{y:540});
+ Cap(B,'Todos deben <span class="hl">adaptarse</span>',{cx:960,cy:960,size:70,t0:C('corazon0')+3.2});}
+// 6 · después de los 60: hipertensión, diabetes, ECV
+{const B=Beat(C('sesenta0'),C('peligroso')); Cut(B,'phone_bed',{cx:520,cy:900,h:600,amp:3});
+ Cap(B,'Después de los 60',{cx:1350,cy:260,size:74,t0:B.a+0.2,color:'#2f6fd6'});
+ ['Hipertensión','Diabetes','Enfermedad cardiovascular'].forEach((w,i)=>Cap(B,'• '+w,{cx:1350,cy:420+i*110,size:60,t0:C('hipertension0')+0.6+i*0.9}));
+ Cap(B,'presta atención a la <span class="hl">transición</span>',{cx:1350,cy:820,size:58,t0:C('hipertension0')+4});}
+// 7 · no es peligroso, pero hábitos…
+{const B=Beat(C('peligroso'),C('seis'),{enter:'zoom'}); Cut(B,'breathe',{cx:520,cy:960,h:620,amp:3});
+ const s=Svg(B); Draw(B,s,tick(1000,330,1.2),{t0:B.a+0.5,dur:0.3,stroke:'#22a35a',w:13});
+ Cap(B,'Despertar <span class="hl">no es peligroso</span>',{cx:1400,cy:330,size:66,t0:B.a+0.3});
+ Cap(B,'pero algunos hábitos pueden…',{cx:1400,cy:480,size:58,t0:C('habitos0'),color:'#6a6f86'});
+ ['añadir tensión','provocar mareos','dificultar el control'].forEach((w,i)=>{const t0=C('habitos0')+1.2+i*1.1; Draw(B,s,cross(1060,610+i*110,0.55),{t0,dur:0.25,stroke:'#e23b2e',w:9}); Cap(B,w,{cx:1400,cy:610+i*110,size:58,t0});});}
+// 8 · seis costumbres
+{const B=Beat(C('seis'),C('quedate'),{enter:'zoom'});
+ Cap(B,'<span class="hl">6 costumbres</span> muy habituales',{cx:960,cy:170,size:84,t0:B.a+0.1});
+ const ic=['phone_notif','coffee','m_pills','m_toilet','m_rush','m_dizzy_chair'];
+ ic.forEach((n,i)=>{const x=260+i*280, t0=B.a+0.8+i*0.35; Num(B,i+1,{cx:x,cy:380,r:52,t0,t1:i===5?1e9:C('sexta')}); Cut(B,n,{cx:x,cy:740,h:n.startsWith('m_')?270:230,t0:t0+0.1,amp:3,phase:i});});
+ const s=Svg(B); Draw(B,s,scribble(1660,600,170,240),{t0:C('sexta')+0.3,dur:0.6,stroke:'#f95c00',w:9});
+ Cap(B,'la 6ª: <span class="red">señales del cuerpo</span>',{cx:1300,cy:960,size:60,t0:C('sexta')+1.2});}
+// 9 · quédate: rutina 5 pasos + tensión
+{const B=Beat(C('quedate'),C('comenta0'));
+ Cap(B,'Quédate hasta el final:',{cx:960,cy:150,size:70,t0:B.a+0.2});
+ Card(B,{cx:560,cy:560,w:700,h:560,t0:C('rutina0')-0.3,border:'#22a35a'}); Cut(B,'breathe',{cx:560,cy:760,h:340,t0:C('rutina0'),amp:3});
+ Cap(B,'Rutina de <span class="hl">5 pasos</span>',{cx:560,cy:380,size:62,t0:C('rutina0')});
+ Card(B,{cx:1360,cy:560,w:700,h:560,t0:C('tension0')-0.3}); Cut(B,'bp_monitor',{cx:1360,cy:760,h:300,t0:C('tension0'),amp:3});
+ Cap(B,'Mide tu <span class="hl">tensión</span> sin obsesión',{cx:1360,cy:380,size:56,t0:C('tension0')});}
+// 10 · comenta
+{const B=Beat(C('comenta0'),C('sueno')); Cut(B,'phone_bed',{cx:560,cy:900,h:600,amp:3});
+ Cap(B,'Cuéntame en los <span class="hl">comentarios</span>:',{cx:1330,cy:400,size:64,t0:B.a+0.3});
+ Cap(B,'¿qué es lo primero que haces',{cx:1330,cy:560,size:60,t0:B.a+1.4,color:'#2f6fd6'}); Cap(B,'al despertar?',{cx:1330,cy:650,size:60,t0:B.a+2.2,color:'#2f6fd6'});}
+
+// ---- QUÉ PASA AL DESPERTAR ----
+{const B=Beat(C('sueno'),C('frecuencia0'),{enter:'zoom'});
+ Cap(B,'Al <span class="hl">despertar</span>…',{cx:960,cy:140,size:80,t0:B.a+0.2});
+ Cut(B,'brain',{cx:560,cy:720,h:400,t0:C('nervioso'),amp:4,shake:0.6});
+ Canvas(B,(c,t)=>{if(t>C('nervioso'))for(let i=0;i<5;i++){const a=t*2+i*1.25;c.strokeStyle='#f7c948';c.lineWidth=5;c.beginPath();c.moveTo(560+Math.cos(a)*230,520+Math.sin(a)*170);c.lineTo(560+Math.cos(a)*270,520+Math.sin(a)*200);c.stroke();}});
+ Cap(B,'Sistema nervioso de alerta <span class="red">↑</span>',{cx:1350,cy:440,size:58,t0:C('nervioso')+0.5});
+ Cap(B,'Cortisol <span class="red">↑</span>',{cx:1350,cy:600,size:70,t0:C('cortisol')});}
+{const B=Beat(C('frecuencia0'),C('plaquetas'));
+ Curve(B,{t0:B.a+0.2}); Cut(B,'heart',{cx:1700,cy:330,h:220,t0:B.a+0.8,amp:6,period:0.7});
+ Cap(B,'Pulso y tensión <span class="hl">suben</span> al despertar',{cx:900,cy:160,size:66,t0:B.a+0.3});
+ Cap(B,'noche',{cx:450,cy:870,size:48,t0:B.a+0.5,color:'#6a6f86'}); Cap(B,'mañana',{cx:1150,cy:870,size:48,t0:B.a+1,color:'#6a6f86'});}
+{const B=Beat(C('plaquetas'),C('nosignifica0')); Cut(B,'vessel',{cx:580,cy:840,h:460,amp:3});
+ Canvas(B,(c,t)=>{for(let i=0;i<6;i++){const ph=(t*0.3+i/6)%1;c.globalAlpha=0.8;c.fillStyle='#f3f3f3';c.strokeStyle='#999';c.beginPath();c.arc(380+ph*400,520+Math.sin(i*2+t)*40,9,0,7);c.fill();c.stroke();}c.globalAlpha=1;});
+ Cap(B,'Plaquetas y coagulación',{cx:1350,cy:300,size:62,t0:B.a+0.3});
+ Cap(B,'Infarto e ictus: <span class="hl">más frecuentes</span>',{cx:1350,cy:480,size:58,t0:C('infarto')-0.5});
+ Cap(B,'en ciertas horas de la mañana',{cx:1350,cy:570,size:52,t0:C('infarto')+0.5,color:'#6a6f86'});
+ Src(B,'Fuente: Muller y cols., NEJM 1985 · Elliott, Stroke 1998');}
+{const B=Beat(C('nosignifica0'),C('riesgo'),{enter:'zoom'});
+ const st=mk('div','pill',B.L,'NO SIGNIFICA QUE…'); Object.assign(st.style,{left:'960px',top:'330px',fontSize:'80px',color:'#e23b2e',borderColor:'#e23b2e',borderWidth:'8px'}); Pop(B,st,{t0:B.a+0.2,rot:-5});
+ Cap(B,'…todos ocurran por la mañana',{cx:960,cy:540,size:62,t0:B.a+1.5});
+ Cap(B,'…ni que una rutina tranquila baste',{cx:960,cy:660,size:62,t0:B.a+3.6});}
+{const B=Beat(C('riesgo'),C('controlar0'));
+ Cap(B,'El riesgo depende de <span class="hl">muchos factores</span>',{cx:960,cy:140,size:66,t0:B.a+0.2});
+ const F=['Tabaco','Colesterol','Tensión','Antecedentes','Diabetes','Actividad','Tratamientos'];
+ F.forEach((w,i)=>{const x=330+(i%4)*420, y=i<4?420:640; const p=mk('div','pill',B.L,w); Object.assign(p.style,{left:(x+(i>=4?210:0))+'px',top:y+'px',fontSize:'54px'}); Pop(B,p,{t0:B.a+1.5+i*0.7});});}
+{const B=Beat(C('controlar0'),C('coche'),{enter:'up'}); Cut(B,'alarm',{cx:600,cy:900,h:560,amp:3});
+ Cap(B,'Lo que <span class="hl">sí</span> puedes controlar:',{cx:1350,cy:420,size:66,t0:B.a+0.2});
+ Cap(B,'tus primeros minutos del día',{cx:1350,cy:570,size:66,t0:B.a+1.5,color:'#2f6fd6'});}
+{const B=Beat(C('coche'),C('punto1'),{exit:'fade'}); const p=Panel(B,'S5_4',{from:[.6,.5,1.0],to:[.65,.45,1.15]});
+ p.draw=(c,t)=>{sunrise(c,t,1490,230); steam(c,t,{x:1600,y:820,w:60,n:4,r:28,rise:120});};
+ Cap(B,'Como un coche en mañana fría:',{cx:960,cy:90,size:56,t0:B.a+0.4,pill:true});
+ Cap(B,'arranca <span class="hl">con suavidad</span>',{cx:960,cy:965,size:72,t0:C('motor')+1.2,pill:true});}
+</script></body></html>
