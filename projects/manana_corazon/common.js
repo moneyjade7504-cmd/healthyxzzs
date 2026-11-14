@@ -65,8 +65,16 @@ function Panel(B,name,{x=960,y=520,w=1560,from=[.5,.5,1],to=[.5,.5,1.1],t0}={}){
   const o={P,ctx,iw,ih,draw:null};
   B.fx.push(t=>{const p=eio(prog(t,t0,B.b+0.4));
     cam.style.transformOrigin=`${(from[0]+(to[0]-from[0])*p)*100}% ${(from[1]+(to[1]-from[1])*p)*100}%`;
-    cam.style.transform=`scale(${from[2]+(to[2]-from[2])*p})`;
+    // livelier camera: eased push + slow handheld drift + a gentle "breath" in the zoom
+    const dz=0.018*Math.sin((t-t0)*0.9), dx=Math.sin((t-t0)*0.55)*9, dy=Math.cos((t-t0)*0.43)*6;
+    cam.style.transform=`translate(${dx}px,${dy}px) scale(${(from[2]+(to[2]-from[2])*p)*1.04+dz})`;
     ctx.clearRect(0,0,iw,ih); if(o.draw)o.draw(ctx,t);
+    // ambient life on every scene: drifting light motes + a soft light sweep
+    for(let i=0;i<14;i++){const ph=((t-t0)*0.08+rnd(i+71))%1, mx=rnd(i+3)*iw+Math.sin(t*0.7+i)*20, my=ih*(1-ph);
+      ctx.globalAlpha=0.55*Math.sin(ph*Math.PI); ctx.fillStyle='#fff6c8'; ctx.beginPath(); ctx.arc(mx,my,2+rnd(i)*3,0,7); ctx.fill();}
+    const sw=((t-t0)*0.12)%1.6-0.3, g=ctx.createLinearGradient(iw*sw-200,0,iw*sw+200,ih);
+    g.addColorStop(0,'rgba(255,255,255,0)'); g.addColorStop(0.5,'rgba(255,250,220,0.16)'); g.addColorStop(1,'rgba(255,255,255,0)');
+    ctx.globalAlpha=1; ctx.fillStyle=g; ctx.fillRect(0,0,iw,ih);
     const r=eo(prog(t,t0,t0+0.55)); P.style.opacity=t>=t0?1:0;
     P.style.clipPath=`polygon(0 0, ${r*180}% 0, ${r*180-60}% 100%, 0 100%)`;});
   return o;
@@ -75,12 +83,15 @@ function Panel(B,name,{x=960,y=520,w=1560,from=[.5,.5,1],to=[.5,.5,1.1],t0}={}){
 function Cut(B,name,{cx,cy,h,t0,amp=5,period=3,tilt=1.5,phase=0,dir=null,shake=0,t1=1e9}){
   const [iw,ih]=IMG[name]; const w=h*iw/ih; t0=t0??B.a;
   const E=mk('div','cut',B.L); Object.assign(E.style,{left:cx-w/2+'px',top:cy-h+'px',width:w+'px',height:h+'px'}); mk('img','',E).src='cut/'+name+'.png';
-  B.fx.push(t=>{const p=prog(t,t0,t0+0.5), q=prog(t,t1,t1+0.3); let s=p<=0?0:back(p), dx=0;
-    if(dir){dx=(1-eo(p))*(dir==='l'?-700:700); s=p<=0?0:1;}
-    const k=(t-t0)/period*2*Math.PI+phase, bob=Math.sin(k)*amp, rot=Math.sin(k*0.5)*tilt;
+  const side=dir||(rnd(cx*0.13+cy)>0.5?'l':'r'), person=!/^(alarm|lamp|coffee|heart|vessel|brain|car_frost|bp|bp2|newspaper|phone_notif|calendar|pastries|orange_juice|soda|toast_oil|egg|apple_orange|yogurt_oats|pill_organizer|blister_water|glucometer|stool|lentils|fruit_basket|water_glass|water2|keys|alarm_red|chair_prepared|torso|calendar_red|calendar4|phone_ring|ambulance|phone_sos|notebook|stethoscope|clipboard|bed_handle|slippers|skin_block|dry_circle|shower_head|tap|cream_jar|gel|sponge|thermo|body)/.test(name);
+  B.fx.push(t=>{const ent=person?0.75:0.5, p=prog(t,t0,t0+ent), q=prog(t,t1,t1+0.3); let s=p<=0?0:back(p), dx=0, gait=0;
+    if(person||dir){dx=(1-eo(p))*(side==='l'?-520:520); s=p<=0?0:1; gait=-Math.abs(Math.sin((t-t0)*11))*16*(1-p);}   // walk-in with steps
+    const k=(t-t0)/period*2*Math.PI+phase, bob=Math.sin(k)*Math.max(amp,person?7:5), rot=Math.sin(k*0.5)*Math.max(tilt,person?2.2:1.5);
+    const hopT=((t-t0-1.2)%4.2), hop=person&&t-t0>1.2&&hopT<0.45?-Math.sin(hopT/0.45*Math.PI)*14:0;   // small lively hop every few seconds
+    const breath=person?0.025*Math.sin((t-t0)*2.1):0.012*Math.sin(k*2);
     const sh=shake?Math.sin(t*38)*shake*Math.max(0,Math.sin((t-t0)*2.2)):0;
     E.style.opacity=(p>0?Math.min(1,p*3):0)*(1-q);
-    E.style.transform=`translate(${dx+sh}px,${bob}px) rotate(${rot}deg) scale(${s*(1-q*0.3)},${s*(1-q*0.3)*(1+0.012*Math.sin(k*2))})`;});
+    E.style.transform=`translate(${dx+sh}px,${bob+gait+hop}px) rotate(${rot}deg) scale(${s*(1-q*0.3)*(1-breath*0.4)},${s*(1-q*0.3)*(1+breath)})`;});
   return E;
 }
 // handwritten caption, written left→right, then the .hl word gets a highlighter stroke
