@@ -23,6 +23,7 @@ html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#fff;}
 .src{position:absolute;left:40px;bottom:22px;font-family:Kalam;font-weight:400;font-size:28px;color:#7a7f95;}
 svg.ov{position:absolute;inset:0;width:1920px;height:1080px;overflow:visible;}
 </style>`);
+window.__loads=[]; window.READY=new Promise(r=>setTimeout(()=>Promise.all(window.__loads).then(r),0));
 const S = document.createElement('div'); S.id = 'stage'; document.body.appendChild(S);
 const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
 const prog=(t,a,b)=>clamp((t-a)/(b-a));
@@ -54,7 +55,12 @@ function layerT(B,t){
 function Panel(B,name,{x=960,y=520,w=1560,from=[.5,.5,1],to=[.5,.5,1.1],t0}={}){
   const [iw,ih]=IMG[name]; const h=w*ih/iw; t0=t0??B.a;
   const P=mk('div','panel',B.L); Object.assign(P.style,{left:x-w/2+'px',top:y-h/2+'px',width:w+'px',height:h+'px'});
-  const cam=mk('div','cam',P); mk('img','',cam).src='cut/'+name+'.png';
+  const cam=mk('div','cam',P); const still=mk('img','',cam); still.src='cut/'+name+'.png';
+  const nClip=(typeof CLIPS!=='undefined'&&CLIPS[name])||0, frames=[];
+  if(nClip){ for(let i=1;i<=nClip;i++){const im=new Image(); im.src=`clips/${name}/${String(i).padStart(3,'0')}.jpg`; frames.push(im); window.__loads.push(im.decode().catch(()=>{}));}
+    const fc=mk('canvas','',cam); fc.width=1280; fc.height=Math.round(1280*ih/iw); const fx=fc.getContext('2d'); still.style.visibility='hidden';
+    B.fx.push(t=>{ // play the real motion clip from the beat start; hold the last frame if the beat is longer
+      const k=Math.max(0,Math.min(nClip-1,Math.floor((t-t0)*24))); const im=frames[k]; if(im.complete)fx.drawImage(im,0,0,fc.width,fc.height);});}
   const cv=mk('canvas','',cam); cv.width=iw*2; cv.height=ih*2; const ctx=cv.getContext('2d'); ctx.scale(2,2);
   const o={P,ctx,iw,ih,draw:null};
   B.fx.push(t=>{const p=eio(prog(t,t0,B.b+0.4));

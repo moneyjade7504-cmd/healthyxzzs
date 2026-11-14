@@ -19,6 +19,7 @@ const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, de
 page.on('pageerror', e => { console.error('page error:', e.message); process.exit(1); });
 await page.goto('file://' + path.resolve(scene));
 await page.evaluate(() => document.fonts.ready);
+await page.evaluate(() => window.READY);   // optional promise set by the page (e.g. preloading clip frames)
 const dur = await page.evaluate(() => window.DURATION);
 
 if (frames) {
