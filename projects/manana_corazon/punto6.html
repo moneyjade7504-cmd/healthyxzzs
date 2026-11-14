@@ -1,0 +1,52 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="common.js"></script>
+<script>
+window.START=C('punto6'); window.END=C('manana7'); window.DURATION=window.END;
+
+PTitle(C('punto6'),C('canso'),6,'Restar importancia','a los <span class="hl">síntomas que se repiten</span>',['stethoscope','notebook']);
+// excusas
+{const B=Beat(C('canso'),C('frecuente6'));
+ Cap(B,'Después de los 60 es fácil pensar…',{cx:960,cy:110,size:60,t0:B.a+0.1,color:'#6a6f86'});
+ [['stairs_breath','«Me canso por la edad»',C('canso')],['dizzy_bed','«Me he levantado rápido»',C('canso')+3],['palpitations','«Ya me ha pasado otras veces»',C('canso')+5.5]].forEach(([n,q,t0],i)=>{const x=360+i*600;
+   Cut(B,n,{cx:x,cy:800,h:520,t0,amp:3,phase:i}); Cap(B,q,{cx:x,cy:880,size:46,t0:t0+0.2,pill:true});});}
+{const B=Beat(C('frecuente6'),C('mareos6'),{enter:'zoom'});
+ Cap(B,'Frecuente',{cx:640,cy:480,size:110,t0:B.a+0.2}); Cap(B,'≠',{cx:960,cy:480,size:140,t0:B.a+1.2,color:'#e23b2e'}); Cap(B,'<span class="hl">normal</span>',{cx:1290,cy:480,size:110,t0:B.a+1.6});
+ Cap(B,'no lo ignores',{cx:960,cy:660,size:64,t0:B.a+2.5,color:'#e23b2e'});}
+// mareo al levantarse → hipotensión ortostática
+Scene(C('mareos6'),C('cuentaselo'),'S8_1','Mareo al levantarte de la cama',{capT:0.2,from:[.45,.4,1.0],to:[.45,.3,1.15],
+ draw:(c,t)=>{c.save();c.translate(1100,170);c.rotate(t*3);c.strokeStyle='#3a3c52';c.lineWidth=4;c.beginPath();c.arc(0,0,40,0,5);c.stroke();c.restore();}});
+{const B=beats[beats.length-1];
+ Cap(B,'Hipotensión <span class="hl">ortostática</span>: la tensión cae al ponerte de pie',{cx:960,cy:90,size:46,t0:C('ortostatica')+3,pill:true,t1:C('caidas')-0.3});
+ Cap(B,'Riesgo de <span class="red">caídas</span> · a veces por medicamentos',{cx:960,cy:90,size:50,t0:C('caidas'),pill:true});}
+{const B=Side(C('cuentaselo'),C('palpitaciones6'),'notes',[['¿Te pasa a menudo?',null,70],['<span class="hl">Cuéntaselo a tu médico</span>',C('cuentaselo')+1.2,70]]);}
+// palpitaciones, fatiga, falta de aire
+{const B=Beat(C('palpitaciones6'),C('cabeza6'));
+ Cap(B,'También merecen valoración',{cx:960,cy:110,size:64,t0:B.a+0.2});
+ Row(B,[['palpitations','Palpitaciones repetidas',C('palpitaciones6'),null],['heart','Latidos irregulares',C('palpitaciones6')+2.3,null],['m_dizzy_chair','Fatiga muy distinta',C('palpitaciones6')+4.8,null],['stairs_breath','Falta de aire con menos esfuerzo',C('palpitaciones6')+7.5,null]],{y:560,cardH:500});
+ Cap(B,'No siempre algo grave, pero <span class="hl">dan pistas</span>',{cx:960,cy:960,size:56,t0:C('pistas')});
+ Canvas(B,(c,t)=>{if(t<C('palpitaciones6')+2.3)return;const x0=470,y=360;c.strokeStyle='#e23b2e';c.lineWidth=4;c.beginPath();for(let i=0;i<=60;i++){const x=x0+i*4,ph=(i/60*4+t*1.5)%1;const yy=y-(ph<0.1?Math.sin(ph*31)*40*(i%13<7?1:0.4):0);i?c.lineTo(x,yy):c.moveTo(x,yy);}c.stroke();});}
+// dolor de cabeza / apnea
+{const B=Beat(C('cabeza6'),C('roncas'),{enter:'up'}); Cut(B,'headache',{cx:560,cy:960,h:620,amp:3,shake:0.8});
+ Cap(B,'Dolor de cabeza al despertar',{cx:1350,cy:300,size:60,t0:B.a+0.2});
+ Cap(B,'nuevo o persistente → <span class="hl">coméntalo</span>',{cx:1350,cy:420,size:56,t0:B.a+2.5});
+ Cap(B,'Por sí solo <span class="red">no diagnostica</span>',{cx:1350,cy:580,size:56,t0:C('nocturna')});
+ Cap(B,'hipertensión nocturna',{cx:1350,cy:660,size:50,t0:C('nocturna')+0.8,color:'#6a6f86'});
+ Cap(B,'muchas causas, p. ej. mal sueño',{cx:1350,cy:780,size:50,t0:C('causas6')});}
+Scene(C('roncas'),C('urgencia'),'S8_2','Ronquidos, ahogo, sueño de día → ¿<span class="hl">apnea del sueño</span>?',{capT:0.5,size:54,from:[.45,.5,1.0],to:[.5,.45,1.12]});
+// URGENCIA 112
+{const B=Beat(C('urgencia'),C('registro'),{enter:'zoom'}); const bg=mk('div','',B.L); Object.assign(bg.style,{position:'absolute',inset:'0',background:'#fff1ef'});
+ Cap(B,'Cita médica ≠ <span class="red">URGENCIA</span>',{cx:960,cy:90,size:70,t0:B.a+0.2});
+ const L=[['Dolor u opresión en el pecho',C('pecho')],['Falta de aire intensa y repentina',C('pecho')+2.4],['Desmayo',C('pecho')+5],['Debilidad de un lado del cuerpo',C('pecho')+6],['Dificultad para hablar',C('pecho')+8.5],['Pérdida brusca de visión',C('pecho')+10.5]];
+ const s=Svg(B);
+ L.forEach(([w,t0],i)=>{const x=i<3?140:1000; const _=0, y=260+(i%3)*130; Draw(B,s,cross(x,y,0.5),{t0,dur:0.2,stroke:'#e23b2e',w:9}); const fs=44; Cap(B,w,{cx:x+50+w.length*fs*0.235,cy:y,size:fs,t0});});
+ Cut(B,'ambulance',{cx:420,cy:1000,h:250,t0:C('pecho')+11.5,amp:3,dir:'l'});
+ const p=mk('div','pill',B.L,'📞 112 (España) · o tu número de emergencias'); Object.assign(p.style,{left:'1150px',top:'830px',fontSize:'52px',background:'#e23b2e',color:'#fff',borderColor:'#b8231a'}); Pop(B,p,{t0:C('pecho')+12.5});
+ Cap(B,'No esperes a ver si se pasa',{cx:1150,cy:960,size:54,t0:C('noesperes'),color:'#e23b2e'});}
+// registro
+{const B=Beat(C('registro'),C('manana7'),{exit:'fade'}); Cut(B,'notes',{cx:520,cy:1000,h:700,amp:3});
+ Cap(B,'Síntomas repetidos: <span class="hl">anótalos</span>',{cx:1300,cy:170,size:62,t0:B.a+0.3});
+ const s=Svg(B);
+ [['¿Cuándo aparecen?',C('cuando6')],['¿Cuánto duran?',C('cuando6')+1.3],['¿Qué estabas haciendo?',C('cuando6')+2.4],['¿Tensión o pulso?',C('cuando6')+4]].forEach(([q,t0],i)=>{const y=330+i*120;
+   Draw(B,s,`M920 ${y-28} h56 v56 h-56 Z`,{t0,dur:0.2,stroke:'#3a3c52',w:5}); Draw(B,s,tick(953,y,0.7),{t0:t0+0.3,dur:0.2,stroke:'#22a35a',w:10}); Cap(B,q,{cx:1300,cy:y,size:54,t0});});
+ Cap(B,'mejor que «me encuentro raro»',{cx:1300,cy:850,size:52,t0:C('raro')+2.5,color:'#2f6fd6'});}
+</script></body></html>

@@ -1,0 +1,56 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="common.js"></script>
+<script>
+window.START=C('reto'); window.END=1207.0; window.DURATION=window.END;
+function Ink(B){const d=mk('div','',B.L);Object.assign(d.style,{position:'absolute',inset:'0',background:'#24263a'});}
+
+// reto 30 días: 4-week calendar
+{const B=Beat(C('reto'),C('registra'),{enter:'zoom'});
+ Cap(B,'Reto de <span class="hl">30 días</span>',{cx:960,cy:100,size:76,t0:B.a+0.2});
+ const W=[['semana1','Semana 1','Sin noticias al despertar · levántate con calma','phone_away'],['semana2','Semana 2','Revisa el desayuno y la medicación','pill_organizer'],['semana3','Semana 3','Fuerza en el baño · prisas','stool'],['semana4','Semana 4','Anota síntomas y prepara preguntas','notes']];
+ const s=Svg(B);
+ W.forEach(([k,h,txt,cut],i)=>{const y=270+i*190, t0=C(k)-0.2;
+   Card(B,{cx:960,cy:y,w:1500,h:160,t0,border:'#2f6fd6'}); Cut(B,cut,{cx:340,cy:y+70,h:140,t0:t0+0.1,amp:2,phase:i});
+   Cap(B,h,{cx:560,cy:y,size:52,t0:t0+0.1,color:'#2f6fd6'}); Cap(B,txt,{cx:1150,cy:y,size:Math.min(48,900/(txt.length*0.48)),t0:t0+0.2});
+   Draw(B,s,tick(1660,y,0.9),{t0:(i<3?C(W[i+1][0]):C('registra'))-0.6,dur:0.3,stroke:'#22a35a',w:12});});}
+{const B=Beat(C('registra'),C('meta')); Mini(B,'S8_7',{cx:560,cy:460,w:900,t0:B.a+0.1});
+ Cap(B,'Registra según te indiquen',{cx:1420,cy:300,size:56,t0:B.a+0.3});
+ Cap(B,'Una cifra aislada <span class="red">no es</span> éxito ni fracaso',{cx:1420,cy:450,size:50,t0:C('aislada')});
+ Cap(B,'<span class="red">No cambies las dosis</span> por tu cuenta',{cx:1420,cy:570,size:50,t0:C('aislada')+3});
+ Cap(B,'Busca <span class="hl">patrones</span>',{cx:1420,cy:720,size:66,t0:C('patrones')});}
+{const B=Beat(C('meta'),C('concl'),{enter:'zoom'}); Cut(B,'calendar4',{cx:560,cy:860,h:440,amp:3});
+ Cap(B,'Día 30: no una tensión “perfecta”…',{cx:1300,cy:360,size:56,t0:B.a+0.3,color:'#6a6f86'});
+ Cap(B,'una mañana <span class="hl">ordenada y segura</span>',{cx:1300,cy:500,size:66,t0:C('meta')+5});
+ Cap(B,'con hábitos que puedas mantener',{cx:1300,cy:620,size:54,t0:C('meta')+8});}
+// conclusión
+{const B=Beat(C('concl'),C('decisiones'),{enter:'zoom'}); Ink(B);
+ Cap(B,'El corazón no envejece <span class="hl" style="color:#24263a">de golpe</span>',{cx:960,cy:470,size:76,t0:B.a+0.2,color:'#fff'});
+ Cap(B,'a los 60',{cx:960,cy:600,size:62,t0:B.a+1.6,color:'#ffe14d'});}
+{const B=Beat(C('decisiones'),C('seiserrores'));
+ Cut(B,'heart',{cx:960,cy:600,h:380,amp:6,period:1});
+ const L=['Controlar la tensión','Seguir los tratamientos','Moverse','Comer bien','Reconocer señales'];
+ L.forEach((w,i)=>{const a=-Math.PI/2+i*2*Math.PI/5, x=960+Math.cos(a)*560, y=560+Math.sin(a)*330; const p=mk('div','pill',B.L,w); Object.assign(p.style,{left:x+'px',top:y+'px',fontSize:'46px'}); Pop(B,p,{t0:C('decisiones')+6.2+i*1.3});});}
+{const B=Beat(C('seiserrores'),C('evidencia7'));
+ Cap(B,'Los <span class="hl">6 errores</span> a revisar',{cx:960,cy:110,size:70,t0:B.a+0.2});
+ const E=[['phone_notif','Noticias al despertar'],['pastries','Desayuno improvisado'],['m_pills','Medicación mal tomada'],['m_toilet','Fuerza en el baño'],['m_rush','Mañanas con prisas'],['m_dizzy_chair','Ignorar síntomas']];
+ const s=Svg(B);
+ E.forEach(([n,w],i)=>{const x=360+(i%3)*600, y=i<3?480:900, t0=B.a+2.5+i*1.6; Num(B,i+1,{cx:x-160,cy:y-230,r:40,t0}); Cut(B,n,{cx:x,cy:y,h:250,t0,amp:3,phase:i}); Cap(B,w,{cx:x,cy:y+45,size:44,t0});});}
+{const B=Beat(C('evidencia7'),C('pregunta7'),{enter:'zoom'}); Cut(B,'leaflet_puzzled',{cx:520,cy:1000,h:640,amp:3});
+ Cap(B,'No todos tienen la misma evidencia',{cx:1300,cy:380,size:54,t0:B.a+0.3,color:'#6a6f86'});
+ Cap(B,'ni el mismo riesgo para cada persona',{cx:1300,cy:470,size:54,t0:B.a+2,color:'#6a6f86'});
+ Cap(B,'pero sí una <span class="hl">oportunidad</span> de mirar tu rutina',{cx:1300,cy:620,size:56,t0:B.a+5.5});}
+// pregunta final
+{const B=Beat(C('pregunta7'),C('educativo7'),{enter:'zoom'});
+ Cap(B,'Si te mareas al levantarte, ¿qué es más sensato?',{cx:960,cy:120,size:58,t0:B.a+0.3});
+ Card(B,{cx:560,cy:560,w:640,h:560,t0:C('acostumbrarte')-0.2}); Num(B,'A',{cx:560,cy:340,r:52,t0:C('acostumbrarte')}); Cut(B,'dizzy_bed',{cx:560,cy:820,h:300,t0:C('acostumbrarte'),amp:3});
+ Cap(B,'Acostumbrarme',{cx:560,cy:450,size:56,t0:C('acostumbrarte')});
+ Card(B,{cx:1360,cy:560,w:640,h:560,t0:C('comentarlos')-0.2}); Num(B,'B',{cx:1360,cy:340,r:52,t0:C('comentarlos')}); Cut(B,'stethoscope',{cx:1360,cy:820,h:280,t0:C('comentarlos'),amp:3});
+ Cap(B,'Comentarlo con un profesional',{cx:1360,cy:450,size:44,t0:C('comentarlos')});
+ Cap(B,'💬 Escríbelo en los comentarios',{cx:960,cy:960,size:56,t0:C('escribeme')});}
+// educativo + 112 (hold)
+Warn(C('educativo7'),C('suscribete7'),'Contenido educativo',['No sustituye una valoración individual','<span style="color:#e23b2e">Síntomas graves o repentinos → 112</span>','(o el número de emergencias de tu país)'],{keys:[C('educativo7')+0.8,C('llama112'),C('llama112')+1]});
+Subscribe(C('suscribete7'),C('miedo'),{pose:'wave',share:true,line:'¿Te ha sido útil?'});
+{const B=Beat(C('miedo'),1207.0,{enter:'zoom',exit:'fade'}); Ink(B);
+ Cap(B,'Cuidar el corazón no es <span class="hl" style="color:#24263a">tener miedo</span> a la mañana…',{cx:960,cy:430,size:58,t0:B.a+0.2,color:'#fff'});
+ Cap(B,'es aprender a <span style="color:#ffe14d">vivirla mejor</span>',{cx:960,cy:580,size:70,t0:B.a+2.6,color:'#fff'});}
+</script></body></html>

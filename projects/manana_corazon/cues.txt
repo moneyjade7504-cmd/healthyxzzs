@@ -134,3 +134,81 @@ sinestres | No buscamos una vida sin estrés
 frase | A veces cuidar el corazón empieza
 diez | Esto puede esperar
 punto6 | Punto 6
+# PARTE 4 = punto 6 + rutina + preguntas + medir + reto + conclusión
+llegamos6 | Llegamos al hábito
+canso | me canso porque tengo una edad
+frecuente6 | Pero que un síntoma sea frecuente
+mareos6 | a los mareos al levantarte
+ortostatica | Algunas personas experimentan una caída
+caidas | Puede favorecer caídas
+cuentaselo | Si te sucede a menudo
+palpitaciones6 | Las palpitaciones repetidas
+pistas | No indican necesariamente
+cabeza6 | dolores de cabeza al despertar
+nocturna | No permiten diagnosticar
+causas6 | Pueden tener muchas causas
+roncas | Si roncas intensamente
+urgencia | Hay una diferencia fundamental
+pecho | Si aparece dolor o opresión
+noesperes | No esperes a terminar el desayuno
+registro | Para los síntomas menos urgentes
+cuando6 | Cuándo aparecen
+raro | Esa información ayuda
+manana7 | Después de hablar de seis hábitos
+secuencia | Te propongo una secuencia
+paso1 | Paso 1
+respira7 | Respira con naturalidad
+detente | Si te mareas con los ejercicios
+intencion | La intención es despertar con calma
+paso2 | Paso 2
+borde | Pasa de estar tumbado
+tobillos | Mueve suavemente los tobillos
+apoyo | Si sueles marearte
+paso3 | Paso 3
+apoyapies | Apoya los pies
+estable | Una vez estable
+cuello | No es necesario forzar
+paso4 | Paso 4
+vaso | Si tu médico no te ha restringido
+coagulos | No necesitas beber una cantidad enorme
+nolohace | No lo hace
+paso5 | Paso 5
+noticias7 | Evita las noticias que te alteran
+pequenas | Son pequeñas decisiones
+revision | Si tienes hipertensión o una enfermedad
+q1 | Mi tensión está bien controlada
+q2 | necesito medirla en casa
+q3 | Estoy tomando cada medicamento
+q4 | Debo adaptar el desayuno
+q5 | Qué síntomas y qué nivel
+apuntalas | No hace falta memorizar
+verdad7 | Una consulta se aprovecha mejor
+medir | Y si te han recomendado medir
+comparables | Para obtener cifras comparables
+espalda | Siéntate con la espalda apoyada
+cinco7 | descansa cinco minutos
+brazo | coloca el brazo a la altura
+lecturas | realiza dos lecturas
+cafe | Evita el café
+adaptar7 | Tu profesional sanitario puede adaptar
+reto | Te propongo un reto
+semana1 | Durante la primera semana
+semana2 | La segunda semana
+semana3 | En la tercera
+semana4 | Y en la cuarta
+registra | Si tu médico te ha pedido controlar
+aislada | No interpretes una cifra aislada
+patrones | Lo que interesa es identificar
+meta | La meta del día 30
+concl | El corazón no envejece de golpe
+decisiones | Sigue adaptándose a cada momento
+seiserrores | Hoy hemos visto seis errores
+evidencia7 | No todos tienen el mismo nivel
+pregunta7 | Antes de despedirnos una pregunta
+acostumbrarte | Acostumbrarte a ellos
+comentarlos | O comentarlos con un profesional
+escribeme | Escríbeme tu respuesta
+educativo7 | Recuerda que este video es educativo
+llama112 | Ante síntomas graves o repentinos
+suscribete7 | suscríbete y compártelo
+miedo | Porque cuidar el corazón no consiste

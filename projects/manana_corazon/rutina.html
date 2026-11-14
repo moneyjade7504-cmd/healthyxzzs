@@ -1,0 +1,65 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="common.js"></script>
+<script>
+window.START=C('manana7'); window.END=C('reto'); window.DURATION=window.END;
+// step badge (top-left) over a scene
+
+{const B=Beat(C('manana7'),C('paso1'),{enter:'zoom'}); Cut(B,'leaflet_puzzled',{cx:520,cy:1000,h:640,amp:3});
+ Cap(B,'¿Qué hago <span class="hl">mañana</span> al despertar?',{cx:1300,cy:330,size:64,t0:B.a+1.5});
+ Cap(B,'No hace falta cambiar toda tu vida',{cx:1300,cy:470,size:54,t0:C('manana7')+6,color:'#6a6f86'});
+ Cap(B,'Rutina de <span class="hl">5 pasos</span>',{cx:1300,cy:640,size:84,t0:C('secuencia')});
+ for(let i=0;i<5;i++)Num(B,i+1,{cx:1000+i*150,cy:820,r:52,t0:C('secuencia')+0.6+i*0.25});}
+// paso 1
+{const B=Beat(C('paso1'),C('paso2')); const p=Panel(B,'S8_3',{y:560,from:[.45,.45,1.0],to:[.4,.4,1.14]});
+ p.draw=(c,t)=>{const k=(Math.sin(t*1.1)+1)/2; c.globalAlpha=0.4+0.6*k; c.strokeStyle='#58a9e4'; c.lineWidth=5; c.beginPath(); c.arc(1000,320,30+40*k,0,7); c.stroke(); c.globalAlpha=1; sunrise(c,t,1530,200);};
+ Num(B,1,{cx:140,cy:90,r:56,t0:B.a+0.1}); Cap(B,'Quédate tranquilo un momento',{cx:620,cy:90,size:56,t0:B.a+0.3,pill:true});
+ Cap(B,'3–4 respiraciones <span class="hl">lentas</span>, sin aguantar el aire',{cx:960,cy:1010,size:54,t0:C('respira7'),pill:true,t1:C('detente')-0.3});
+ Cap(B,'¿Te mareas? <span class="red">Detente</span>',{cx:960,cy:1010,size:56,t0:C('detente'),pill:true,t1:C('intencion')-0.3});
+ Cap(B,'Objetivo: <span class="hl">despertar con calma</span>',{cx:960,cy:1010,size:56,t0:C('intencion'),pill:true});}
+// paso 2
+{const B=Beat(C('paso2'),C('paso3')); const p=Panel(B,'S8_4',{y:560,from:[.5,.5,1.0],to:[.6,.75,1.2]});
+ p.draw=(c,t)=>{const a=Math.sin(t*3)*12; c.strokeStyle='#e23b2e'; c.lineWidth=6; c.beginPath(); c.arc(1150,770+a,30,Math.PI*1.1,Math.PI*1.9); c.stroke();};
+ Num(B,2,{cx:140,cy:90,r:56,t0:B.a+0.1}); Cap(B,'Incorpórate <span class="hl">despacio</span>',{cx:560,cy:90,size:56,t0:B.a+0.3,pill:true});
+ Cap(B,'Siéntate en el borde · mueve los tobillos',{cx:960,cy:1010,size:54,t0:C('tobillos'),pill:true,t1:C('apoyo')-0.3});
+ Cap(B,'Espera a sentirte estable · apoyo firme cerca',{cx:960,cy:1010,size:52,t0:C('apoyo'),pill:true});}
+// paso 3
+{const B=Beat(C('paso3'),C('paso4')); Panel(B,'S8_5',{y:560,from:[.5,.5,1.0],to:[.55,.45,1.14]});
+ Num(B,3,{cx:140,cy:90,r:56,t0:B.a+0.1}); Cap(B,'Levántate <span class="hl">sin prisas</span>',{cx:560,cy:90,size:56,t0:B.a+0.3,pill:true});
+ Cap(B,'Apóyate si lo necesitas · primeros pasos tranquilos',{cx:960,cy:1010,size:50,t0:C('apoyapies'),pill:true,t1:C('estable')-0.3});
+ Cap(B,'Luego: hombros, caminar por casa, actividad suave',{cx:960,cy:1010,size:50,t0:C('estable'),pill:true,t1:C('cuello')-0.3});
+ Cap(B,'<span class="red">Sin forzar el cuello</span> ni movimientos con dolor',{cx:960,cy:1010,size:50,t0:C('cuello'),pill:true});}
+// paso 4
+{const B=Beat(C('paso4'),C('paso5')); Panel(B,'S8_6',{y:560,from:[.5,.45,1.0],to:[.45,.4,1.14]});
+ Num(B,4,{cx:140,cy:90,r:56,t0:B.a+0.1}); Cap(B,'Hidrátate <span class="hl">según tus necesidades</span>',{cx:700,cy:90,size:54,t0:B.a+0.3,pill:true});
+ Cap(B,'Un vaso de agua, si no te han limitado los líquidos',{cx:960,cy:1010,size:50,t0:C('vaso'),pill:true,t1:C('coagulos')-0.3});
+ Cap(B,'El agua <span class="red">no disuelve coágulos</span>',{cx:960,cy:1010,size:56,t0:C('nolohace')-0.8,pill:true});}
+// paso 5
+{const B=Beat(C('paso5'),C('revision'));
+ Num(B,5,{cx:140,cy:90,r:56,t0:B.a+0.1}); Cap(B,'Un comienzo <span class="hl">tranquilo</span>',{cx:560,cy:90,size:56,t0:B.a+0.3,pill:true});
+ Row(B,[['newspaper','Sin noticias que alteran',C('noticias7'),'no'],['toast_oil','Desayuno equilibrado',C('noticias7')+2.5,'ok'],['alarm','Lo no urgente, después',C('noticias7')+5.8,'ok']],{y:560});
+ Cap(B,'Pequeñas decisiones, <span class="hl">rutina sostenible</span>',{cx:960,cy:960,size:56,t0:C('pequenas')});}
+// 5 preguntas
+{const B=Beat(C('revision'),C('apuntalas'));
+ Cut(B,'clipboard',{cx:330,cy:900,h:600,amp:3});
+ Cap(B,'5 preguntas para tu <span class="hl">próxima consulta</span>',{cx:1150,cy:110,size:62,t0:B.a+0.3});
+ const Q=[['¿Mi tensión está bien controlada todo el día?','q1'],['¿Debo medirla en casa o un registro de 24 h?','q2'],['¿Tomo cada fármaco a la hora y forma correctas?','q3'],['¿Adapto el desayuno a mi diabetes o tratamiento?','q4'],['¿Qué síntomas y qué actividad vigilar?','q5']];
+ Q.forEach(([q,k],i)=>{const y=270+i*140; Num(B,i+1,{cx:720,cy:y,r:40,t0:C(k)}); Cap(B,q,{cx:1260,cy:y,size:Math.min(48,900/(q.length*0.48)),t0:C(k)});});}
+{const B=Beat(C('apuntalas'),C('medir')); Mini(B,'S8_8',{cx:960,cy:450,w:1300,t0:B.a+0.1});
+ Cap(B,'<span class="hl">Apúntalas</span> y llévalas contigo',{cx:960,cy:960,size:60,t0:B.a+0.3,t1:C('verdad7')+1.7});
+ Cap(B,'Cuenta cómo te encuentras <span class="hl">de verdad</span>',{cx:960,cy:960,size:58,t0:C('verdad7')+2});}
+// medir la tensión
+{const B=Beat(C('medir'),C('espalda')-0.2,{enter:'zoom'}); Cut(B,'bp2',{cx:560,cy:860,h:460,amp:3});
+ Cap(B,'Medir la tensión en casa',{cx:1350,cy:220,size:64,t0:B.a+0.2});
+ Cap(B,'Tensiómetro <span class="hl">validado de brazo</span>',{cx:1350,cy:350,size:56,t0:B.a+2});
+ const s=Svg(B); [['Por la mañana',C('comparables')+2.5],['Después de ir al baño',C('comparables')+4],['Antes del desayuno y de las pastillas',C('comparables')+5.5],['No nada más abrir los ojos',C('comparables')+8.5]].forEach(([w,t0],i)=>{const y=500+i*100;
+   Draw(B,s,i===3?cross(940,y,0.5):tick(940,y,0.7),{t0,dur:0.2,stroke:i===3?'#e23b2e':'#22a35a',w:10}); Cap(B,w,{cx:1380,cy:y,size:Math.min(52,760/(w.length*0.48)),t0});});}
+{const B=Beat(C('espalda')-0.2,C('reto'));
+ const p=Panel(B,'S8_7',{x:640,y:540,w:1180,from:[.45,.55,1.0],to:[.45,.55,1.05]});
+   // back against chair, arm on table at heart level, feet flat
+   ar(380,330,450,430,C('espalda')); ar(1000,520,860,430,C('brazo')); ar(620,930,700,870,C('espalda')+0.6);};
+ const s=Svg(B);
+ const pts=[['Espalda apoyada',C('espalda'),[1640,200]],['5 min de reposo',C('cinco7'),[1640,330]],['Brazo a la altura del corazón',C('brazo'),[1640,460]],['2 lecturas, 1 min entre ellas',C('lecturas'),[1640,590]],['30 min antes: sin café, tabaco ni ejercicio',C('cafe'),[1640,720]]];
+ pts.forEach(([w,t0,[x,y]],i)=>{Card(B,{cx:x-20,cy:y,w:540,h:110,t0,border:i===4?'#e23b2e':'#22a35a'}); Cap(B,w,{cx:x-20,cy:y,size:Math.min(44,480/(w.length*0.48)),t0:t0+0.1});});
+ Cap(B,'Tu profesional puede <span class="hl">adaptar el horario</span>',{cx:640,cy:1010,size:50,t0:C('adaptar7'),pill:true});
+ Src(B,'Fuente: Sociedad Europea de Hipertensión 2023');}
+</script></body></html>
