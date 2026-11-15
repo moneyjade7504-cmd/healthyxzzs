@@ -5,6 +5,7 @@
  *
  * CLI:
  *   node scripts/motion_v2.mjs init PROJECT --srt subtitles.srt --voice voice.mp3 [--style V1]
+ *   node scripts/motion_v2.mjs frame-mode PROJECT --mode fullbleed
  *   node scripts/motion_v2.mjs map PROJECT
  *   node scripts/motion_v2.mjs batch PROJECT [--index 1]
  *   node scripts/motion_v2.mjs animate PROJECT [--batch 1] [--max 1] [--execute]
@@ -21,7 +22,7 @@ import { pipeline } from 'node:stream/promises';
 import { Readable } from 'node:stream';
 import { fileURLToPath } from 'node:url';
 import { File } from 'node:buffer';
-import { stillPrompt, movingPrompt, NEGATIVE, styleOf } from './motion_style.mjs';
+import { stillPrompt, movingPrompt, NEGATIVE, styleOf, frameInstruction } from './motion_style.mjs';
 import { directScenes, auditStoryboard } from './scene_director.mjs';
 import { prepareMasterStyle, masterReferenceInstructions } from './master_style.mjs';
 import { livingScenePrompt, liveEligible } from './living_scene.mjs';
@@ -33,6 +34,7 @@ const HEIGHT = 1080;
 const MODEL = 'fal-ai/wan/v2.7/image-to-video';
 const COMMON_MOTION_NEGATIVE = 'morphing, melting, deformed body, extra limbs, missing fingers, broken joints, character identity drift, unnatural anatomy, flicker, shaky camera, gibberish text, logos, watermark';
 const styleForPlan = p => p.master_style || p.style;
+const frameForPlan = p => p.frame_mode || 'fullbleed';
 const styleLabel = p => p.master_style?.label || p.style;
 const negativeForPlan = p => p.master_style ? [COMMON_MOTION_NEGATIVE, p.master_style.negative].filter(Boolean).join(', ') : NEGATIVE;
 const DEFAULT_ACTION = 'The older adult breathes gently, turns their head a little, makes a small expressive hand gesture, then settles naturally, keeping both feet planted';
@@ -133,6 +135,7 @@ function local(base, rel) {
 }
 function planAt(f) {
   const p = json(f.plan);
+  frameInstruction(frameForPlan(p));
   if (!Array.isArray(p.scenes) || !p.scenes.length) throw new Error('Missing scenes in ' + f.plan);
   const ids = new Set();
   let prev = 0;
@@ -194,6 +197,8 @@ function init(f, o) {
     p.style = 'CUSTOM';
     p.style_id = p.master_style.id;
   }
+  p.frame_mode = (o['frame-mode'] || 'fullbleed').toLowerCase();
+  frameInstruction(p.frame_mode);
   p.source_srt = 'transcript/subtitles.srt';
   p.voice = 'audio/voice' + path.extname(voice).toLowerCase();
   mkdir(f.motion);
@@ -207,9 +212,31 @@ function init(f, o) {
   console.log('Created ' + p.scenes.length + ' scenes; ' + Math.ceil(p.scenes.length / BATCH_SIZE) + ' image batches.');
   console.log('Edit visual/action/mode in ' + f.plan + '. Then: batch ' + f.base);
 }
+function setFrameMode(f, p, o) {
+  if (!o.mode) throw new Error('frame-mode requires --mode fullbleed | framed | soft-frame');
+  const mode = String(o.mode).toLowerCase();
+  frameInstruction(mode); // validate before changing files
+  if (p.frame_mode === mode) {
+    console.log('Frame mode already set to ' + mode + '. No changes made.');
+    return;
+  }
+  const previous = p.frame_mode || '(legacy project with no explicit frame mode)';
+  p.frame_mode = mode;
+  p.frame_revision = (Number(p.frame_revision) || 0) + 1;
+  save(f.plan, p);
+  const state = progressAt(f);
+  state.approved = {}; // previews and older animated MP4s must not silently pass approval
+  state.frame_mode_last_changed = new Date().toISOString();
+  save(f.progress, state);
+  write(path.join(f.motion, 'scene_map.md'), storyboardMarkdown(p));
+  console.log('Frame mode changed: ' + previous + ' -> ' + mode + '.');
+  console.log('IMPORTANT: This updates FUTURE prompts only. Existing PNG/MP4 files are untouched, so regenerate old framed images AND clips and review/approve again before final export.');
+  console.log('Regenerate a batch prompt: node scripts/motion_v2.mjs batch ' + f.base + ' --index 1');
+}
 function storyboardMarkdown(p) {
   const md = [
     '# Scene map — ' + styleLabel(p) + ' / ' + (p.topic || 'general'),
+    'Frame mode: ' + frameForPlan(p) + ' (fullbleed = scene extends edge to edge, no border)',
     '',
     'Suggested contexts and actions are RULE-BASED, not medical advice. Review and adjust each scene before image generation.',
     'Keep the same chosen MASTER STYLE and master character identity across scenes. Change camera, action and lighting, not the art medium or the person.',
@@ -236,7 +263,7 @@ function batch(f, p, index) {
   mkdir(dir);
   const slug = 'batch_' + String(b).padStart(3, '0');
   const motionInstructions = chosen.filter(s => s.mode === 'character').map(s =>
-    '## ' + s.id + ' — ' + secs(s) + ' seconds\nFirst frame: ' + s.image + '\nResult: ' + s.video + '\n\n' + masterReferenceInstructions(p.master_style, { motion: true }) + '\n\n' + movingPrompt(s, styleForPlan(p), p.character) + '\n').join('\n');
+    '## ' + s.id + ' — ' + secs(s) + ' seconds\nFirst frame: ' + s.image + '\nResult: ' + s.video + '\n\n' + masterReferenceInstructions(p.master_style, { motion: true }) + '\n\n' + movingPrompt(s, styleForPlan(p), p.character, frameForPlan(p)) + '\n').join('\n');
   write(path.join(dir, slug + '_motion_prompts.md'), '# Manual/optional image-to-video prompts\n\n' + motionInstructions);
   const liveInstructions = chosen.filter(liveEligible).map(s => [
     '## ' + s.id + ' — ' + secs(s) + ' seconds',
@@ -244,7 +271,7 @@ function batch(f, p, index) {
     'Result: ' + s.video,
     'Shot type: ' + (s.mode === 'character' ? 'character AND ambient environment' : 'ambient-only B-roll'),
     masterReferenceInstructions(p.master_style, { motion: true }),
-    livingScenePrompt(s, styleForPlan(p), p.character),
+    livingScenePrompt(s, styleForPlan(p), p.character, 'subtle', frameForPlan(p)),
   ].filter(Boolean).join('\n')).join('\n\n---\n\n');
   write(path.join(dir, slug + '_live_prompts.md'),
     '# Living Scenes V5 — animate people AND existing environments\n' +
@@ -259,7 +286,7 @@ function batch(f, p, index) {
     'Required visual reference attachments:',
     masterReferenceInstructions(p.master_style) || '(Use the channel-approved preset references)',
     'Image prompt (copy and paste):',
-    stillPrompt(s, styleForPlan(p), p.character),
+    stillPrompt(s, styleForPlan(p), p.character, frameForPlan(p)),
     'Action to animate: ' + s.action,
   ].join('\n')).join('\n\n---\n\n');
   write(path.join(dir, slug + '_prompts.md'), '# ' + slug + ' — ' + styleLabel(p) + '\n\n' + prompt + '\n');
@@ -267,6 +294,7 @@ function batch(f, p, index) {
   write(path.join(dir, slug + '_agent.md'), [
     '# Agent instructions — ONE BATCH ONLY',
     'Generate exactly ' + chosen.length + ' high-quality 16:9 scene images in the approved ' + styleLabel(p) + ' master style.',
+    'MANDATORY FRAME MODE: ' + frameForPlan(p) + '. Default fullbleed means NO visible frame, NO rounded card, NO border, NO inset white canvas: artwork reaches all four edges. Obey the prompt\'s frame-mode instruction over any legacy preset styling.',
     'If the project has master/style and master/character reference files, ATTACH them to the image generator in EVERY scene. Merely listing filenames in a text prompt does not show the model their pixels.',
     'Keep character identity and exact master ART MEDIUM, visual techniques, palette and rendering quality consistent throughout; vary SETTINGS, FRAMINGS, ACTIVITIES, lighting, props and compositions according to each scene prompt.',
     'Do NOT depict the protagonist simply standing in the same background repeatedly. The scene map includes indoor/outdoor, seated/walking, prop detail and explanatory visuals.',
@@ -275,7 +303,7 @@ function batch(f, p, index) {
     'For moving shots use batch_*_live_prompts.md: animate primary character AND subtle pre-existing environmental elements. Optional still B-roll requires animate_environment=true in scenes.json.',
     'Then, for approved character scenes, produce natural moving MP4s using the separate motion prompts. Use an image-to-video tool that you choose; NEVER create paid clips without permission.',
     'Move finished images to the video Collection (or images/ folder). Do NOT generate videos yet.',
-    'Check hands, legs, faces, on-image text leakage, backgrounds, and any border required by the selected master style (not every master has a frame).',
+    'Check hands, legs, faces, on-image text leakage and backgrounds; for fullbleed, reject ALL picture-frame borders, white inset margins and rounded cards, even if they appear in a master reference.',
     'STOP after this single batch; ask the owner for OK before the next batch.',
   ].join('\n') + '\n');
   console.log('Wrote ' + slug + ' (images ' + chosen[0].id + ' .. ' + chosen.at(-1).id + '). STOP and review.');
@@ -295,7 +323,7 @@ async function animate(f, p, o, live = false) {
       !exists(local(f.base, s.video)) && exists(local(f.base, s.image)))
     .slice(0, max);
   if (!pending.length) { console.log('No pending animated scenes with first-frame images in this batch'); return; }
-  const promptFor = s => live ? livingScenePrompt(s, styleForPlan(p), p.character) : movingPrompt(s, styleForPlan(p), p.character);
+  const promptFor = s => live ? livingScenePrompt(s, styleForPlan(p), p.character, 'subtle', frameForPlan(p)) : movingPrompt(s, styleForPlan(p), p.character, frameForPlan(p));
   for (const s of pending) console.log(s.id + ' ' + secs(s) + 's: ' + promptFor(s));
   if (!o.execute) { console.log('DRY RUN ONLY. To pay for AI generation, set FAL_KEY and explicitly pass --execute. Default max=1 clip.'); return; }
   if (!process.env.FAL_KEY) throw new Error('FAL_KEY is required for paid AI generation; do not put it in Git');
@@ -469,17 +497,18 @@ function status(f, p) {
       if (state.approved[s.id]?.file_bytes === fs.statSync(local(f.base, s.video)).size) counts.approved++;
     }
   }
-  console.log(JSON.stringify({ style: styleLabel(p), style_id: p.style_id, master_references: p.master_style?.reference_images?.length || 0,
+  console.log(JSON.stringify({ style: styleLabel(p), frame_mode: frameForPlan(p), style_id: p.style_id, master_references: p.master_style?.reference_images?.length || 0,
     character_references: p.master_style?.character_references?.length || 0,
     topic: p.topic, variety: auditStoryboard(p.scenes), counts, image_batches: Math.ceil(p.scenes.length / BATCH_SIZE) }, null, 2));
 }
 export async function main(argv = process.argv.slice(2)) {
   const { pos, opt } = argsOf(argv);
   const [cmd, project, ...ids] = pos;
-  if (!cmd || !project) throw new Error('Usage: motion_v2.mjs init|map|batch|animate|animate-live|qa|approve|render|status PROJECT [options]');
+  if (!cmd || !project) throw new Error('Usage: motion_v2.mjs init|frame-mode|map|batch|animate|animate-live|qa|approve|render|status PROJECT [options]');
   const f = files(project);
   if (cmd === 'init') return init(f, opt);
   const p = planAt(f);
+  if (cmd === 'frame-mode') return setFrameMode(f, p, opt);
   if (cmd === 'map') { write(path.join(f.motion, 'scene_map.md'), storyboardMarkdown(p)); console.log('Updated motion/scene_map.md after scene edits.'); return; }
   if (cmd === 'batch') return batch(f, p, opt.index);
   if (cmd === 'animate') return animate(f, p, opt);
