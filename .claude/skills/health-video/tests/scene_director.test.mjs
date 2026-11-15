@@ -50,7 +50,7 @@ test('outdoor, seated, anatomy and food beats have contextual staging', () => {
   assert.match(p.scenes[3].action, /bowl|fruit|meal|food/);
 });
 
-test('scene prompts vary shot and lighting but preserve the master identity and outer frame', () => {
+test('scene prompts vary shot and lighting but preserve master identity and fullbleed canvas', () => {
   const p = directScenes([
     { id: 'SC001', start: 0, end: 4, text: 'Caminar ayuda a mantener la movilidad.' },
     { id: 'SC002', start: 4, end: 8, text: 'Una silla estable puede ser útil.' },
@@ -60,7 +60,8 @@ test('scene prompts vary shot and lighting but preserve the master identity and 
   assert.notEqual(first, second);
   assert.match(first, /LOCATION:/);
   assert.match(first, /SHOT TYPE:/);
-  assert.match(first, /picture-frame-style border/);
+  assert.match(first, /NO decorative picture border/);
+  assert.match(first, /EDGE TO EDGE/);
   assert.match(first, /IDENTITY LOCK: Carmen/);
   assert.match(movingPrompt(p.scenes[0], 'V1', 'Carmen'), /ONE COHERENT PHYSICAL ACTION/);
   assert.match(movingPrompt(p.scenes[0], 'V1', 'Carmen'), /fixed camera/i);
