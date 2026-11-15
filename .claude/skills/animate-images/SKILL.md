@@ -6,6 +6,20 @@ argument-hint: "[project path] [image folder or single image file path]"
 
 # Claude Code: turn owner-supplied scene pictures into animated video clips
 
+# IMPORTANT V8 UPDATE: local-only animation requested
+
+The owner explicitly refuses third-party image-to-video apps. The new DEFAULT path for this user's supplied pictures is the /local-animation skill at .claude/skills/local-animation/SKILL.md — NOT the cloud fal.ai backend below.
+
+From repo root:
+    node .claude/skills/health-video/scripts/motion_v2.mjs animate-from-images PROJECT --from UPLOADED_PICTURES --batch 1 --max 3 --local
+
+Then inspect/edit motion/local/SC###.json; render with:
+    node .claude/skills/health-video/scripts/motion_v2.mjs animate-local PROJECT --batch 1 --max 3
+
+Offline Pillow+FFmpeg only, no FAL_KEY and no --execute. One flat image allows minor motion deformation, NOT correct articulated walking/exercise. For articulated limbs need rig sprites, background-only image and keyframes. If required materials are missing say NEEDS SETUP, never claim a finished animation. The older paid API steps below are LEGACY, not selected unless user explicitly changes their restriction.
+
+
+
 Invocation arguments (project path and supplied image source): $ARGUMENTS
 
 
