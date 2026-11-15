@@ -86,14 +86,15 @@ export function importSceneImages({ project, plan, source, batch = 1, sceneId = 
     const hash = checksum(pair.src);
     const oldExists = fs.existsSync(oldTarget);
     const targetExists = fs.existsSync(target);
-    const existingSame = (oldExists && checksum(oldTarget) === hash) || (targetExists && checksum(target) === hash);
+    const sameAsCurrent = oldExists && checksum(oldTarget) === hash;
+    const existingSame = sameAsCurrent || (targetExists && checksum(target) === hash);
     if (oldExists && !existingSame && !replace) {
       throw new Error(pair.id + ' already has a DIFFERENT image (' + scene.image + '). Use --replace-images only after reviewing the replacement.');
     }
     if (targetExists && !existingSame && !replace) {
       throw new Error(pair.id + ': destination image exists and differs; use --replace-images after reviewing.');
     }
-    if (fs.existsSync(video) && !existingSame) {
+    if (fs.existsSync(video) && !sameAsCurrent) {
       throw new Error(pair.id + ' already has a generated video at ' + scene.video +
         '. Back up/remove that clip and explicitly re-import; never reuse a video from an outdated first frame.');
     }
@@ -132,7 +133,7 @@ export function importSceneImages({ project, plan, source, batch = 1, sceneId = 
     fs.writeFileSync(progressFile, JSON.stringify(state, null, 2) + '\n');
   }
   const report = {
-    version: 1, batch: b, source: sourcePath,
+    version: 1, batch: b, source_name: path.basename(sourcePath),
     items: changes.map(({ id, rel, bytes, sha256, alreadyPresent }) =>
       ({ id, image: rel, bytes, sha256, status: alreadyPresent ? 'unchanged' : 'imported' })),
   };
