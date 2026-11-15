@@ -16,6 +16,7 @@ on:
       - 'feature/scene-variety-director-v3'
       - 'feature/universal-master-styles-v4'
       - 'feature/living-scenes-v5'
+      - 'feature/fullbleed-frame-mode-v6'
     paths:
       - '.claude/skills/health-video/scripts/motion_v2.mjs'
       - '.claude/skills/health-video/scripts/motion_style.mjs'
@@ -46,7 +47,7 @@ jobs:
           node --check .claude/skills/health-video/scripts/scene_director.mjs
           node --check .claude/skills/health-video/scripts/master_style.mjs
       - name: Unit and batch tests (offline; no AI API)
-        run: node --test .claude/skills/health-video/tests/motion_v2.test.mjs .claude/skills/health-video/tests/scene_director.test.mjs .claude/skills/health-video/tests/master_style.test.mjs .claude/skills/health-video/tests/living_scene.test.mjs
+        run: node --test .claude/skills/health-video/tests/motion_v2.test.mjs .claude/skills/health-video/tests/scene_director.test.mjs .claude/skills/health-video/tests/master_style.test.mjs .claude/skills/health-video/tests/living_scene.test.mjs .claude/skills/health-video/tests/frame_mode.test.mjs
       - name: Install FFmpeg on runner if needed
         run: |
           if ! command -v ffmpeg >/dev/null || ! command -v ffprobe >/dev/null; then
