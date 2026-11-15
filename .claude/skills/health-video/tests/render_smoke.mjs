@@ -38,7 +38,24 @@ try {
   assert.ok(info.streams.some(s => s.codec_type === 'video'));
   assert.ok(info.streams.some(s => s.codec_type === 'audio'));
   assert.ok(Math.abs(+info.format.duration - 8) < 0.25, 'output duration must follow SRT');
-  process.stdout.write('Motion V2 smoke PASS: moving MP4 + still + narrator combined into 8-second video\n');
+  // V5: a still B-roll scene can be promoted to a gently animated background.
+  plan.scenes[1].animate_environment = true;
+  plan.scenes[1].environment_motion = 'Existing curtain shifts gently; the room remains stable';
+  fs.writeFileSync(path.join(project, 'motion/scenes.json'), JSON.stringify(plan, null, 2));
+  const ambient = path.join(project, plan.scenes[1].video);
+  exec('ffmpeg', ['-v', 'error', '-y', '-f', 'lavfi', '-i', 'testsrc2=size=1280x720:rate=30:duration=4.2',
+    '-c:v', 'libx264', '-preset', 'ultrafast', '-pix_fmt', 'yuv420p', ambient]);
+  cli('qa', project, '--frames');
+  cli('approve', project, plan.scenes[1].id);
+  cli('render', project);
+  const livingFinal = path.join(project, 'out/final_v2.mp4');
+  const livingInfo = JSON.parse(exec('ffprobe', ['-v', 'error', '-show_entries', 'format=duration:stream=codec_type',
+    '-of', 'json', livingFinal]));
+  assert.ok(fs.statSync(livingFinal).size > 10000, 'final MP4 with environmental B-roll is nonempty');
+  assert.ok(livingInfo.streams.some(s => s.codec_type === 'video'));
+  assert.ok(livingInfo.streams.some(s => s.codec_type === 'audio'));
+  assert.ok(Math.abs(Number(livingInfo.format.duration) - 8) < 0.25);
+  process.stdout.write('Motion V5 smoke PASS: moving person + animated environment + narrator combined into 8-second video\n');
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

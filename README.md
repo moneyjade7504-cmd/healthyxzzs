@@ -2,6 +2,20 @@
 
 Toolkit sản xuất video khoa học/sức khỏe bằng tiếng Tây Ban Nha: đa dạng phong cách và bối cảnh, nhân vật nhất quán, chuyển động từ clip, đồng bộ giọng đọc, dựng MP4 và kiểm tra chất lượng.
 
+## Mới: Living Scenes V5 — nhân vật và cảnh vật cùng chuyển động
+
+Đã thêm lệnh `animate-live` để tạo prompt image-to-video cho các hành động nhân vật **và** chuyển động nhẹ của môi trường (lá cây, rèm cửa, hơi nước... **chỉ khi đã có trong ảnh đầu tiên**). Hỗ trợ Master Style tự chọn từ V4, bối cảnh đa dạng từ V3.
+
+Chạy ở thư mục gốc repository (mặc định chỉ XEM prompt, **không tính phí**):
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs animate-live projects/video_moi --batch 1 --max 3
+
+Nếu scene có `mode=still` và bạn muốn nó thành clip phong cảnh sống động, bật `"animate_environment": true` trong `motion/scenes.json`. Có thể chỉnh `environment_motion` cho từng scene; `motion_intensity` mặc định `subtle`. Lệnh `batch` giờ xuất thêm `batch_001_live_prompts.md` để bạn tạo clip thủ công trong công cụ AI đã chọn.
+
+**Chỉ khi bạn tự cấu hình FAL_KEY và thêm --execute**, script mới thử gọi dịch vụ video AI trả phí. Phải đưa ảnh đầu vào SC###.png vào mô hình và kiểm tra clip bằng mắt: không có công cụ nào bảo đảm tuyệt đối chuyển động tự nhiên hoặc nền không bị méo. Với clip đã duyệt, `qa`, `approve` và `render` hỗ trợ cả cảnh nhân vật và cảnh vật.
+
+Hướng dẫn chi tiết: [MOTION_V2_VI.md](MOTION_V2_VI.md#v5--animate-live-nhân-vật-và-cảnh-vật-cùng-chuyển-động).
+
 ## Mới: Universal Master Style V4 — chọn phong cách của riêng bạn
 
 Khi tạo video, bạn có thể dùng preset V1/V2/LEGACY hoặc **bất kỳ phong cách master do bạn cung cấp**: crayon, màu nước, scrapbook, ảnh thật, 3D stylized, anime, cartoon, collage, doodle, minh họa giải phẫu... Có thể nạp một ảnh phong cách, JSON style, hoặc cả hai; thêm ảnh nhân vật riêng nếu muốn khóa nhận diện.

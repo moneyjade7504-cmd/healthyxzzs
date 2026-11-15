@@ -3,6 +3,21 @@ name: health-video
 description: Make health and fitness science explainer videos for YouTube (short exercise explainers or 10–20-minute organ/topic videos, often Spanish scripts for seniors) in the channel's approved format: picture-first, key-phrase captions only, a paced hook, never a slide-deck look. Code-rendered infographics (titles, organ maps, mechanism diagrams, charts, count-ups, check/X and stamp verdicts, warnings, CTAs, quiz, on-screen sources) plus real drawings the user generates in free apps (exercise pose sheets shown as step sequences, organ/food item sheets, 2x2 scene panels shown as push-in stills). No puppet animation, no code-drawn people, no paid tools. Workflow: script → research and fact-check → asset order (sheets + voice spec) → the user sends sheets and a voice-over → cut assets, transcribe, map cues to words, build sections, render in parallel, QA → deliver the MP4 (split into parts under 30 MB). Use for any health/fitness video script, topic, asset sheet, voice-over or render request on this channel.
 ---
 
+## Living Scenes V5 — actual character motion AND subtle environmental motion
+
+The owner has now requested to add a code command so that **both recurring characters and their environments can move naturally** rather than remaining in a static frame. Implement this with the new `animate-live` command, which overrides the older static-background advice for V5 clips without disabling the existing `animate` workflow.
+
+- Run `node scripts/motion_v2.mjs animate-live PROJECT --batch 1 --max 1` (from the skill folder) to PREVIEW motion prompts. With no `--execute` there is no paid API or video generation.
+- A chosen batch's `motion/batches/batch_001_live_prompts.md` includes scene-by-scene instructions for character action **and** existing environment secondary motion.
+- For an ordinary scene `mode: "character"`, define `action` in `motion/scenes.json` describing a single physically coherent movement. Use `environment_motion` to control visible curtains/leaves/cloth/shadows, never introduce unseen objects.
+- For an environment-only living shot, set `mode: "still", "animate_environment": true` with a specific `environment_motion`; the resulting video is a real animated B-roll scene. Unflagged stills remain ordinary stills; `graphic` is unchanged.
+- Optional `motion_intensity` accepts `subtle` (default) or `balanced`; minimize overstated wind, camera motion, perspective drift, AI limb-morphing and flicker. Fixed camera inside each clip, diverse angles BETWEEN clips.
+- `scripts/living_scene.mjs` infers optional surroundings from locations, but **explicit scene motion wins**. Only elements present in the approved first frame may move. Keep the approved user Master Style and character identity from V4.
+- For actual clip generation use the chosen external image-to-video tool and save `SC###.mp4`, or ONLY with explicit consent and configuration, `FAL_KEY` plus `--execute` for the pre-existing optional API; max defaults to 1 clip. Never charge/trigger API by default.
+- `qa --frames` must inspect image/video assets, but human review of movement, limbs, face, props and surroundings remains mandatory; `approve` also supports environment-only motion B-roll. Final `render` requires missing flagged motion clips unless `--draft --allow-stills` is used.
+- This does NOT mean Python/FFmpeg can automatically turn static figures into anatomically correct human animations. Actual body/environment motions are produced by a video model or supplied clip.
+- Do not delete/replace original project artifacts or break V2, V3, V4 legacy commands.
+
 ## Universal Master Style V4 — priority over V1/V2 and old 2D-only rules
 
 The owner wants **ANY custom user-selected Master Style**, not just V1/V2/LEGACY. For each new video, first check whether the user supplied an image master, a JSON master style, or both.
