@@ -48,6 +48,10 @@ test('from user-uploaded numbered images: import, scene match, live prompt, no p
   assert.deepEqual(report.items.map(x=>x.id),['SC001','SC002']);
   assert.ok(report.items.every(x=>x.sha256.length === 64));
   assert.match(fs.readFileSync(path.join(project,'motion/batches/batch_001_live_prompts.md'),'utf8'),/FRAME MODE/);
+  const claudeAgent = fs.readFileSync(path.join(project,'motion/batches/batch_001_agent.md'),'utf8');
+  assert.match(claudeAgent,/DO NOT GENERATE NEW IMAGES/);
+  assert.doesNotMatch(claudeAgent,/Generate exactly 20 high-quality/);
+  assert.match(claudeAgent,/SC001/);
 }));
 test('accept a single arbitrary named Claude-uploaded image with explicit --scene',()=>withProject(({project,root})=>{
   const file=path.join(root,'uploaded_picture.png');fs.writeFileSync(file,png);
