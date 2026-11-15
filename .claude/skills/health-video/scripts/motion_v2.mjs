@@ -255,19 +255,22 @@ function storyboardMarkdown(p) {
     ' framings, ' + a.unique_actions + ' distinct character actions.', '');
   return md.join('\n');
 }
-function batch(f, p, index) {
+function batch(f, p, index, importedIds = null) {
   write(path.join(f.motion, 'scene_map.md'), storyboardMarkdown(p));
   const b = Number(index || 1);
   if (!Number.isInteger(b) || b < 1) throw new Error('Batch index must be a positive integer');
   const chosen = p.scenes.slice((b - 1) * BATCH_SIZE, b * BATCH_SIZE);
   if (!chosen.length) throw new Error('Batch ' + b + ' does not exist');
+  // When images are already supplied, work ONLY on those scenes.
+  const working = importedIds ? chosen.filter(s => importedIds.has(s.id)) : chosen;
+  if (!working.length) throw new Error('No imported scene images in selected batch');
   const dir = path.join(f.motion, 'batches');
   mkdir(dir);
   const slug = 'batch_' + String(b).padStart(3, '0');
-  const motionInstructions = chosen.filter(s => s.mode === 'character').map(s =>
+  const motionInstructions = working.filter(s => s.mode === 'character').map(s =>
     '## ' + s.id + ' — ' + secs(s) + ' seconds\nFirst frame: ' + s.image + '\nResult: ' + s.video + '\n\n' + masterReferenceInstructions(p.master_style, { motion: true }) + '\n\n' + movingPrompt(s, styleForPlan(p), p.character, frameForPlan(p)) + '\n').join('\n');
   write(path.join(dir, slug + '_motion_prompts.md'), '# Manual/optional image-to-video prompts\n\n' + motionInstructions);
-  const liveInstructions = chosen.filter(liveEligible).map(s => [
+  const liveInstructions = working.filter(liveEligible).map(s => [
     '## ' + s.id + ' — ' + secs(s) + ' seconds',
     'First frame: ' + s.image,
     'Result: ' + s.video,
@@ -279,8 +282,8 @@ function batch(f, p, index) {
     '# Living Scenes V5 — animate people AND existing environments\n' +
     '# Use a real image-to-video tool. No paid generation occurs from creating this text file.\n\n' +
     liveInstructions + '\n');
-  const prompt = chosen.map((s, i) => [
-    '### ' + s.id + ' (' + (i + 1) + '/' + chosen.length + ')',
+  const prompt = working.map((s, i) => [
+    '### ' + s.id + ' (' + (i + 1) + '/' + working.length + ')',
     'Mode: ' + s.mode + ' | Topic: ' + (s.topic || p.topic || '') +
       ' | Setting: ' + (s.setting || '') + ' | Shot: ' + (s.shot || ''),
     'Vietnamese scene guide: ' + s.text,
@@ -292,23 +295,34 @@ function batch(f, p, index) {
     'Action to animate: ' + s.action,
   ].join('\n')).join('\n\n---\n\n');
   write(path.join(dir, slug + '_prompts.md'), '# ' + slug + ' — ' + styleLabel(p) + '\n\n' + prompt + '\n');
-  write(path.join(dir, slug + '_scene_text.txt'), chosen.map((s, i) => String(i + 1) + '. ' + s.text).join('\n') + '\n');
-  write(path.join(dir, slug + '_agent.md'), [
+  write(path.join(dir, slug + '_scene_text.txt'), working.map((s, i) => String(i + 1) + '. ' + s.text).join('\n') + '\n');
+  const agent = importedIds ? [
+    '# FROM USER-APPROVED SCENE IMAGES — DO NOT GENERATE NEW IMAGES',
+    'The owner has already supplied exactly these first frames: ' + working.map(s => s.image).join(', ') + '.',
+    'Do not start the image-creation batch, recreate characters, or discard the supplied files.',
+    'Read the corresponding SC### scene actions in scenes.json and compare each imported image with the narration.',
+    'Use batch_*_live_prompts.md to create moving MP4s, preserving the EXACT supplied image as the first frame.',
+    'Never call a paid image-to-video model unless the owner explicitly approves and configures the backend.',
+    'Review real clip playback and QA keyframes before approving. STOP after this batch.',
+  ] : [
     '# Agent instructions — ONE BATCH ONLY',
-    'Generate exactly ' + chosen.length + ' high-quality 16:9 scene images in the approved ' + styleLabel(p) + ' master style.',
+    'Generate exactly ' + working.length + ' high-quality 16:9 scene images in the approved ' + styleLabel(p) + ' master style.',
     'MANDATORY FRAME MODE: ' + frameForPlan(p) + '. Default fullbleed means NO visible frame, NO rounded card, NO border, NO inset white canvas: artwork reaches all four edges. Obey the prompt\'s frame-mode instruction over any legacy preset styling.',
     'If the project has master/style and master/character reference files, ATTACH them to the image generator in EVERY scene. Merely listing filenames in a text prompt does not show the model their pixels.',
     'Keep character identity and exact master ART MEDIUM, visual techniques, palette and rendering quality consistent throughout; vary SETTINGS, FRAMINGS, ACTIVITIES, lighting, props and compositions according to each scene prompt.',
     'Do NOT depict the protagonist simply standing in the same background repeatedly. The scene map includes indoor/outdoor, seated/walking, prop detail and explanatory visuals.',
     'Use the same MASTER CHARACTER reference, and preserve their signature outfit. Only change clothing if justified by context, e.g., bedtime or an outdoor coat.',
-    'Rename each image exactly ' + chosen.map(s => s.id + '.png').join(', ') + '.',
+    'Rename each image exactly ' + working.map(s => s.id + '.png').join(', ') + '.',
     'For moving shots use batch_*_live_prompts.md: animate primary character AND subtle pre-existing environmental elements. Optional still B-roll requires animate_environment=true in scenes.json.',
     'Then, for approved character scenes, produce natural moving MP4s using the separate motion prompts. Use an image-to-video tool that you choose; NEVER create paid clips without permission.',
     'Move finished images to the video Collection (or images/ folder). Do NOT generate videos yet.',
     'Check hands, legs, faces, on-image text leakage and backgrounds; for fullbleed, reject ALL picture-frame borders, white inset margins and rounded cards, even if they appear in a master reference.',
     'STOP after this single batch; ask the owner for OK before the next batch.',
-  ].join('\n') + '\n');
-  console.log('Wrote ' + slug + ' (images ' + chosen[0].id + ' .. ' + chosen.at(-1).id + '). STOP and review.');
+  ];
+  write(path.join(dir, slug + '_agent.md'), agent.join('\n') + '\n');
+  console.log('Wrote ' + slug + ' (' + working.map(s => s.id).join(', ') + '). ' +
+    (importedIds ? 'Using only supplied images; no new images requested.' : 'STOP and review.'));
+
 }
 async function uploadImage(fal, filename) {
   const data = fs.readFileSync(filename);
@@ -391,8 +405,8 @@ async function animateFromImages(f, p, o) {
   console.log('Scene identity was mapped by SC### filenames or explicit --scene; no automatic guessing or reordering.');
   if (frameForPlan(p) === 'fullbleed')
     console.log('NOTE: fullbleed is a prompt/layout setting; if any source image already contains a baked-in picture frame, replace that source image first.');
-  batch(f, p, batchIndex);
   const chosen = new Set(report.items.map(x => x.id));
+  batch(f, p, batchIndex, chosen);
   const eligible = p.scenes.filter(s => chosen.has(s.id) && liveEligible(s));
   if (!eligible.length) {
     console.log('Images imported but none of the selected scenes are eligible for body/ambient motion. Set mode=character or mode=still with animate_environment=true, then rerun.');
