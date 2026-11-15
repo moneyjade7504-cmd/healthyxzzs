@@ -3,6 +3,24 @@ name: health-video
 description: Make health and fitness science explainer videos for YouTube (short exercise explainers or 10–20-minute organ/topic videos, often Spanish scripts for seniors) in the channel's approved format: picture-first, key-phrase captions only, a paced hook, never a slide-deck look. Code-rendered infographics (titles, organ maps, mechanism diagrams, charts, count-ups, check/X and stamp verdicts, warnings, CTAs, quiz, on-screen sources) plus real drawings the user generates in free apps (exercise pose sheets shown as step sequences, organ/food item sheets, 2x2 scene panels shown as push-in stills). No puppet animation, no code-drawn people, no paid tools. Workflow: script → research and fact-check → asset order (sheets + voice spec) → the user sends sheets and a voice-over → cut assets, transcribe, map cues to words, build sections, render in parallel, QA → deliver the MP4 (split into parts under 30 MB). Use for any health/fitness video script, topic, asset sheet, voice-over or render request on this channel.
 ---
 
+## LOCAL Claude Animation V8 — OVERRIDES paid cloud model advice on owner's new request
+
+The owner now explicitly says: "I want Claude to animate my generated pictures itself, without ANY external app or paid image-to-video service." Treat this as a hard production constraint for new local-animation workflows.
+
+- Use the Claude Code skill at .claude/skills/local-animation/SKILL.md (slash command /local-animation).
+- From repo root, to import user pictures and prepare/run offline motion:
+  node .claude/skills/health-video/scripts/motion_v2.mjs animate-from-images PROJECT --from UPLOADED_IMAGES_DIR --batch 1 --max 3 --local
+- Already imported pictures:
+  node .claude/skills/health-video/scripts/motion_v2.mjs local-init PROJECT --batch 1 --max 3
+  node .claude/skills/health-video/scripts/motion_v2.mjs animate-local PROJECT --batch 1 --max 3
+- Python 3 + Pillow and FFmpeg run entirely locally; no FAL_KEY, no external generative model API, no automatic payment or upload. These local software dependencies are different from a third-party image-to-video app.
+- The local script supports mode=micro (single opaque picture: only subtle, feathered breathing deformation), mode=ambient (selected local natural background movement), and mode=rig (supplied transparent full-canvas layers + explicitly authored joint pivots/keyframes).
+- **Never promise realistic walking, full-body action, accurate exercise mechanics or scene completion from ONE opaque image alone.** A user-supplied flat PNG does not encode joints, occluded body surfaces or muscle movement. For true 2D articulated character movements, provide isolated layers and rig keyframes or enough separate pose art; transparent cutout animation can still look rigid, and must be visually QA'd.
+- local-init leaves region=null until Claude Code actually inspects a photo, chooses the character torso bounding box, and edits the JSON. Without a reviewed region/layer, animate-local will say NEEDS SETUP rather than synthesize a fake human action.
+- Keep approved fullbleed V6 / Master Style V4 / scene diversity V3 / one 20-scene batch V2 behavior. Never silently substitute paid fal.ai, even though V7's older commands still exist as optional legacy.
+- Output MP4s via code are marked local_mode=micro/ambient/rig in progress, NOT automatically approved. Run qa --frames, watch the clips and require explicit approval before final render.
+- Read LOCAL_ANIMATION_V8_VI.md for the exact configuration formats and limitations.
+
 ## Images-to-Video V7 — the owner sends finished images to Claude
 
 When the owner has already created scene illustrations and uploads them to Claude, **DO NOT create another image-order or assume the goal is only still pictures**. Use the installed project skill at .claude/skills/animate-images/SKILL.md (invocable in Claude Code as /animate-images) to import exactly those images as first frames and prepare/create actual animated scene MP4s.
