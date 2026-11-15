@@ -231,3 +231,97 @@ Sau khi chỉnh JSON, chạy lại lệnh `batch` để cập nhật prompt và 
 - Nếu bật `animate_environment:true` cho scene still nhưng chưa có video, bản cuối sẽ chặn xuất để tránh đánh tráo ảnh tĩnh thành video động. Bản nháp có thể dùng `render PROJECT --draft --allow-stills`.
 
 **Giới hạn:** Đây là nâng cấp pipeline, prompt và kết xuất video. Việc tạo ra cơ thể chuyển động thật vẫn do mô hình video hoặc clip thực hiện. Các công cụ kiểm tra tự động không chứng minh được con người chuyển động tự nhiên hoặc cảnh vật không méo; cần xem và duyệt clip thật. V5 vẫn giữ mọi Master Style của V4, Scene Director V3 và cơ chế một batch 20 cảnh rồi dừng.
+
+
+## V6 — Full-bleed: bỏ hoàn toàn khung tranh, hình tràn toàn cảnh 16:9
+
+Từ V6, **mọi video mới dùng fullbleed làm mặc định** — toàn bộ hình ảnh trải kín khung 16:9, KHÔNG còn khung viền xanh, khung tranh trang trí, bo góc, nền trắng xung quanh hoặc cảnh trong hộp nhỏ. Nhân vật và bối cảnh là cùng một khung cảnh lớn; vẫn giữ đúng Master Style riêng của bạn và Living Scenes V5.
+
+### Lệnh chính: thay đổi kiểu khung cho một video đã tạo
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs frame-mode projects/video_moi --mode fullbleed
+
+Lệnh thay đổi `frame_mode` trong `motion/scenes.json` và cập nhật `motion/scene_map.md`, không gọi API, không tạo lại video, không phát sinh chi phí. Nếu bạn chọn lại kiểu khung một lần nữa, ba chế độ hỗ trợ là:
+- `fullbleed`: **mặc định**, không viền/khung/bo góc, ảnh trải từ mép trái đến mép phải và từ trên xuống dưới.
+- `framed`: cố tình thêm khung tranh trang trí ngoài cùng, chỉ dùng nếu bạn chủ động chọn lại.
+- `soft-frame`: một chút hiệu ứng viền rất nhẹ, không phải khung cứng.
+
+Cách tạo dự án mới mặc định fullbleed:
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs init projects/video_moi --srt /path/voice.srt --voice /path/voice.mp3 --style V1
+
+Nếu cần chỉ định ngay trong lúc init:
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs init projects/video_moi --srt /path/voice.srt --voice /path/voice.mp3 --master-image /path/style.png --frame-mode fullbleed
+
+Sau khi đổi chế độ cho dự án cũ, **bắt buộc tạo lại prompt và ảnh**:
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs batch projects/video_moi --index 1
+
+Prompt ảnh, prompt chuyển động và prompt Living Scenes đều sẽ ưu tiên không khung. V1/V2 đã bỏ hẳn chỉ dẫn mặc định tạo khung tranh; với Master Style tùy chỉnh có ảnh tham chiếu chứa khung, lệnh sẽ yêu cầu **bỏ khung nhưng giữ nét vẽ/màu sắc của master**.
+
+**Lưu ý cực kỳ quan trọng:** lệnh `frame-mode` **không thể xóa viền đang được vẽ sẵn trong các PNG hay MP4 cũ**; nó chỉ đổi cấu hình và prompt cho cảnh tạo mới. Đổi mode cũng làm mất trạng thái `approve` của clip cũ, nhưng không xóa file; vì vậy hãy tạo lại SC###.png và các SC###.mp4 cần chuyển động, rồi chạy `qa --frames`, xem/duyệt và `approve` lại trước khi render. Nếu chỉ dùng ảnh đã có khung, video dựng mới vẫn có thể còn viền.
+
+Các lệnh V2–V5, batch 20 cảnh, khóa nhận diện nhân vật, tạo cảnh vật chuyển động và đồng bộ giọng đọc vẫn giữ nguyên.
+
+
+## V7 — Từ ảnh đã tạo sang video chuyển động bằng Claude Code
+
+**Mục tiêu:** Bạn vẽ/tạo ảnh trước. Sau đó gửi ảnh cho Claude Code (hoặc đặt ảnh trong thư mục mà Claude Code có thể truy cập). Claude tự ghép ảnh vào đúng scene, viết prompt chuyển động từ nội dung kịch bản, và khi có backend video AI được cấu hình + bạn chủ động bật, tạo ra clip MP4 chuyển động thực. Bạn không cần mở app image-to-video thủ công nếu đã cấu hình backend.
+
+**Phân biệt:** Claude Code là người điều phối workflow và chạy lệnh, **không phải chính mô hình tạo video**. Để nhân vật thực sự cử động từ ảnh tĩnh, cần image-to-video model (ví dụ Wan qua fal.ai), hoặc model chạy cục bộ tương thích. Chưa cấu hình thì chỉ có thể chuẩn bị ảnh và prompt, chưa có MP4.
+
+### 1. Chuẩn bị ảnh gửi Claude
+
+- Mỗi ảnh hoàn thiện là một cảnh, giữ Master Style và gương mặt như đã duyệt.
+- Khuyên đặt tên `SC001.png`, `SC002.png`, `SC003.png`… hoặc `SC001.jpg`/`SC001.webp`.
+- Đặt các ảnh của cùng một batch vào một thư mục trên máy, ví dụ `uploads/batch01/`. Claude Code phải có đường dẫn **truy cập được** đến file; ảnh chỉ hiện trong giao diện chat nhưng không được lưu vào workspace thì không thể tự động tạo clip bằng CLI.
+- Nếu gửi *một* ảnh với tên bất kỳ, dùng `--scene SC001` để chỉ định chính xác. Không tự đoán ảnh nào thuộc cảnh nào.
+
+### 2. Lệnh mới — nhập ảnh và chuẩn bị chuyển động
+
+Chạy từ gốc repository:
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs animate-from-images projects/video_moi --from uploads/batch01 --batch 1 --max 3
+
+Lệnh kiểm tra PNG/JPG/WEBP và mã SC###; sao chép ảnh vào `projects/video_moi/images/`; cập nhật ảnh của scene trong `motion/scenes.json`; tạo `motion/imports/batch_001.json` và `motion/batches/batch_001_live_prompts.md`. Nếu scene thuộc loại `character`, prompt yêu cầu chuyển động cơ thể thật; nếu `still` có `animate_environment:true`, prompt yêu cầu nền chuyển động nhẹ. Scene `graphic` chỉ nhập ảnh, không tự biến thành người cử động.
+
+- `--batch 1`: chỉ xử lý ảnh thuộc batch đầu, tối đa 20 scene. Không tự chuyển sang batch tiếp theo.
+- `--max 3`: tối đa 3 clip chuyển động trong batch được xem xét cho một lần chạy.
+- `--from`: đường dẫn **thư mục ảnh** hoặc đường dẫn một ảnh.
+- `--scene SC007`: chỉ dùng khi `--from` là *một file* và cần chỉ định scene.
+- `--replace-images`: chỉ dùng khi bạn cố ý thay ảnh cũ và đã xác nhận; sẽ từ chối ghi đè ảnh khác một cách âm thầm.
+- Không có `--execute`: chỉ nhập ảnh và xem prompt, **không tạo MP4 và không tốn tiền**.
+
+Ví dụ chỉ gửi một ảnh có tên tùy ý:
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs animate-from-images projects/video_moi --from uploads/anh_moi.png --scene SC007 --batch 1 --max 1
+
+### 3. Để Claude tự tạo video MP4 từ ảnh
+
+Phải có môi trường chạy Node và bộ thư viện video. Với backend fal.ai được hỗ trợ sẵn, hãy cài client:
+
+    cd .claude/skills/health-video
+    npm install --no-save @fal-ai/client
+
+Trở về gốc repository và tự cấu hình biến môi trường `FAL_KEY` trong terminal (không gửi khóa lên chat hoặc đẩy GitHub). Sau khi đồng ý sử dụng dịch vụ trả phí và xem giá của model, **chủ động** chạy:
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs animate-from-images projects/video_moi --from uploads/batch01 --batch 1 --max 3 --execute
+
+Mỗi SC### được chọn sẽ dùng ảnh đó làm first frame, sử dụng action và environment_motion trong scene plan, và lưu kết quả tại `clips/SC###.mp4` để ghép video. Mặc định video giữ nguyên Master Style, fullbleed 16:9, không khung tranh; không được tự ý đổi mặt/trang phục hoặc cảnh vật.
+
+Nếu bạn muốn Claude Code thao tác theo cách nói tự nhiên, dùng skill mới trong repo:
+
+    /animate-images projects/video_moi uploads/batch01
+
+Claude Code sẽ nhập ảnh, kiểm tra scene, tạo prompt và đề xuất bước tiếp theo. Chỉ bật gọi backend có phí khi đã được cho phép.
+
+### 4. Kiểm tra và ghép video
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs qa projects/video_moi --frames
+    node .claude/skills/health-video/scripts/motion_v2.mjs approve projects/video_moi SC001 SC002
+    node .claude/skills/health-video/scripts/motion_v2.mjs render projects/video_moi
+
+**Bắt buộc tự xem clip trước khi approve:** tay/chân hợp lý, chân tiếp đất, nhân vật không méo, khung hình tràn mép, không khung viền cũ, cảnh vật không tan chảy. QA tự động không chứng minh được độ tự nhiên như người thật. Không tạo MP4 nếu thiếu backend và không tuyên bố hoàn thành khi chỉ mới sinh prompt.
+
+Hệ thống không thay đổi các video/project cũ và giữ nguyên V2–V6; ảnh gốc trong thư mục bạn gửi không bị xóa.

@@ -3,6 +3,31 @@ name: health-video
 description: Make health and fitness science explainer videos for YouTube (short exercise explainers or 10–20-minute organ/topic videos, often Spanish scripts for seniors) in the channel's approved format: picture-first, key-phrase captions only, a paced hook, never a slide-deck look. Code-rendered infographics (titles, organ maps, mechanism diagrams, charts, count-ups, check/X and stamp verdicts, warnings, CTAs, quiz, on-screen sources) plus real drawings the user generates in free apps (exercise pose sheets shown as step sequences, organ/food item sheets, 2x2 scene panels shown as push-in stills). No puppet animation, no code-drawn people, no paid tools. Workflow: script → research and fact-check → asset order (sheets + voice spec) → the user sends sheets and a voice-over → cut assets, transcribe, map cues to words, build sections, render in parallel, QA → deliver the MP4 (split into parts under 30 MB). Use for any health/fitness video script, topic, asset sheet, voice-over or render request on this channel.
 ---
 
+## Images-to-Video V7 — the owner sends finished images to Claude
+
+When the owner has already created scene illustrations and uploads them to Claude, **DO NOT create another image-order or assume the goal is only still pictures**. Use the installed project skill at .claude/skills/animate-images/SKILL.md (invocable in Claude Code as /animate-images) to import exactly those images as first frames and prepare/create actual animated scene MP4s.
+
+- From repository root: node .claude/skills/health-video/scripts/motion_v2.mjs animate-from-images PROJECT --from /path/uploaded_images --batch 1 --max 3
+- A single arbitrary filename: add --scene SC007. For folders require SC### filenames or user-verified mapping; never guess order based solely on file appearance.
+- The CLI copies validated PNG/JPG/WEBP to PROJECT/images/, updates scenes.json, writes motion/imports/batch_001.json, refreshes first-frame and motion prompts, and safely selects only imported scene IDs for image-to-video.
+- **If the owner wants people in all supplied illustrations to MOVE**, inspect each image alongside the scene narration and explicitly choose mode=character for scenes depicting a moving person; do not blindly keep the heuristically assigned still/graphic mode. Reserve mode=still + animate_environment=true for environmental motion without an acting person. A true medical diagram can remain graphic.
+- Claude Code can coordinate this workflow, **but a video model generates the actual human/body motion**. Without a configured backend, import and prompt preview work, but no actual MP4 exists. With an explicitly approved paid model setup, installed @fal-ai/client, FAL_KEY and --execute, the current Wan image-to-video endpoint generates real MP4s into PROJECT/clips/SC###.mp4.
+- Never use the paid API by default or claim that Claude itself has image-to-video inference built in. An alternative local GPU model requires a separately set up backend; this particular command currently uses fal.ai for --execute.
+- For visually complex requests, avoid inventing prompts based on filenames; check the image's depicted pose, equipment, character and scene first, then correct actions/environment_motion to match user intent before any charged generation.
+- Keep custom Master Style V4, Living Scenes V5, fullbleed V6 and one batch at a time. The source images stay unmodified; replaced scene photos require explicit --replace-images and may not silently reuse old video.
+- Finish with qa --frames, inspect actual clips, approve only after manual QA, render with narration. Never pretend an image zoom is meaningful movement.
+
+## Full-bleed V6 — PRIMARY output layout rule: NO decorative outer frame
+
+The owner has explicitly rejected the picture-frame border and rounded/inset card look in videos. **Fullbleed is now the DEFAULT for new and newly generated scenes**, even with V1/V2 presets or a user-defined Master Style. This newer rule supersedes the V1/V2 frame requirement anywhere in older documents.
+
+- Use \`node scripts/motion_v2.mjs frame-mode PROJECT --mode fullbleed\` (when running within the skill folder) or the same command from repo root with full script path, to set \`motion/scenes.json.frame_mode\`.
+- Output: true edge-to-edge 16:9 composition; the character, surroundings and scenery fill the entire canvas. No blue picture outline, no rounded corners, no decorative frame, no white inset margin and no boxed panel.
+- \`init\` defaults to \`frame_mode: fullbleed\`. \`batch\`, \`animate\`, and \`animate-live\` consistently pass it to still, motion and living scene prompts. This frame layout overrides old decoration words inside a custom master, but does NOT override its art medium, character identity or palette.
+- Alternate \`framed\` or \`soft-frame\` options are only for a deliberate user request.
+- The new frame-mode CLI changes **plans and future prompts**, never retroactively edits already generated SC### PNG or MP4. You must regenerate any older image/video with a baked-in border and review it. Switches clear past motion approvals to guard against silently reusing old framed video.
+- Keep existing Master Style V4, Scene Director V3, Living Scenes V5 and 20-image batch pause behavior. This change concerns **layout**, not stylistic consistency or actual movement quality.
+
 ## Living Scenes V5 — actual character motion AND subtle environmental motion
 
 The owner has now requested to add a code command so that **both recurring characters and their environments can move naturally** rather than remaining in a static frame. Implement this with the new `animate-live` command, which overrides the older static-background advice for V5 clips without disabling the existing `animate` workflow.
@@ -25,7 +50,7 @@ The owner wants **ANY custom user-selected Master Style**, not just V1/V2/LEGACY
 - Default presets V1/V2/LEGACY still work **only when no custom master is supplied**.
 - With a user master, use `motion_v2.mjs init PROJECT --srt ... --voice ... --master-image /path/style.png`, or `--master /path/style.json`, optionally `--character-image /path/character.png`. Read `MOTION_V2_VI.md` and template `styles/master_style.template.json` first.
 - `scripts/master_style.mjs` stores custom master style descriptors and copies approved visual references into `PROJECT/motion/master/`; `scripts/motion_style.mjs` accepts a custom style object for scene images and motion.
-- The style may use crayon, watercolor, scrapbook, doodle, flat vector, stop motion, 3D stylized, realistic photography, or any other coherent aesthetic. **Do NOT add 2D-only, pastel-only, white-border-only or anti-3D constraints to a custom master**. If the master is V1/V2, retain its previous mandatory frame, contrast and palette requirements.
+- The style may use crayon, watercolor, scrapbook, doodle, flat vector, stop motion, 3D stylized, realistic photography, or any other coherent aesthetic. **Do NOT add 2D-only, pastel-only, white-border-only or anti-3D constraints to a custom master**. If the master is V1/V2, retain its contrast, palette and drawing identity, but do not add a picture frame unless the user explicitly requests framed mode.
 - Keep the same chosen art medium and character identity across shots. Scene Director V3 varies setting, shot, action and lighting, NOT the identity or master style. Both older adults and user-supplied mascots are supported.
 - Every 20-image agent batch must explicitly mention the master reference files and require the image generation app to ATTACH them. A filename in a text prompt is NOT the actual image. The CLI cannot infer detailed style properties from unseen pixels, and does not automatically generate images from reference pictures.
 - If a master has no character identity reference, approve an initial character design before subsequent scenes and reuse it consistently.

@@ -2,6 +2,38 @@
 
 Toolkit sản xuất video khoa học/sức khỏe bằng tiếng Tây Ban Nha: đa dạng phong cách và bối cảnh, nhân vật nhất quán, chuyển động từ clip, đồng bộ giọng đọc, dựng MP4 và kiểm tra chất lượng.
 
+## Mới: V7 — Tạo clip video chuyển động từ ảnh gửi cho Claude Code
+
+Khi đã có ảnh SC001.png, SC002.png… do bạn tạo (bằng ChatGPT, Gemini, vẽ tay...), bạn có thể đưa chúng cho Claude Code qua một thư mục ảnh mà Claude Code truy cập được. Claude Code tự đưa các ảnh vào đúng scene của dự án, tạo prompt chuyển động cho nhân vật và môi trường, và có thể gọi model image-to-video để nhận clip MP4 thật nếu model/API đã được cấu hình và chủ động bật.
+
+Lệnh mới (nhập ảnh + kiểm tra prompt, không phí):
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs animate-from-images projects/video_moi --from uploads/batch01 --batch 1 --max 3
+
+Một ảnh có tên chưa chuẩn:
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs animate-from-images projects/video_moi --from uploads/my_image.png --scene SC001 --max 1
+
+Trong Claude Code cũng có skill /animate-images để trợ lý tự kiểm tra ảnh, đối chiếu scene và chạy quy trình phù hợp. Tên file ảnh trong folder cần xác định chính xác SC###; không tự đoán thứ tự.
+
+**Quan trọng:** Claude Code điều phối quy trình, nhưng không trực tiếp có sẵn khả năng sinh video từ pixel. Nếu bạn muốn tự động tạo MP4 thật bằng backend fal.ai đã có trong project, cần @fal-ai/client + FAL_KEY, chấp thuận chi phí, và thêm --execute. Không có backend thì chỉ nhập ảnh và chuẩn bị prompt, không phải video thật.
+
+Bài hướng dẫn đầy đủ: [MOTION_V2_VI.md](MOTION_V2_VI.md) và [skill animate-images](.claude/skills/animate-images/SKILL.md).
+
+## Mới: Full-bleed V6 — không còn khung tranh
+
+Video mới **mặc định là 16:9 tràn toàn cảnh**: không khung viền, không bo góc, không khoảng trắng bao quanh. Các preset V1/V2 không còn yêu cầu khung tranh. Nếu dự án trước đây đã tạo cảnh có khung, đổi bố cục bằng lệnh:
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs frame-mode projects/video_moi --mode fullbleed
+
+Sau đó tạo lại prompt và **ảnh/clip có viền cũ** (viền đã vẽ trong PNG/MP4 không thể biến mất chỉ vì đổi config):
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs batch projects/video_moi --index 1
+
+Lệnh không gọi API trả phí. Ngoài `fullbleed` mặc định, vẫn có `framed` hoặc `soft-frame` nếu bạn tự chủ động chọn. Việc đổi mode làm mất trạng thái approve cũ để bạn kiểm tra và duyệt lại.
+
+Hướng dẫn: [MOTION_V2_VI.md](MOTION_V2_VI.md).
+
 ## Mới: Living Scenes V5 — nhân vật và cảnh vật cùng chuyển động
 
 Đã thêm lệnh `animate-live` để tạo prompt image-to-video cho các hành động nhân vật **và** chuyển động nhẹ của môi trường (lá cây, rèm cửa, hơi nước... **chỉ khi đã có trong ảnh đầu tiên**). Hỗ trợ Master Style tự chọn từ V4, bối cảnh đa dạng từ V3.

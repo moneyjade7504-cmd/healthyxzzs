@@ -6,7 +6,7 @@
  * secondary motion. No character rigging, scene cuts, hallucinated props or
  * paid calls in this module: it only generates instructions.
  */
-import { styleOf } from './motion_style.mjs';
+import { styleOf, frameInstruction } from './motion_style.mjs';
 
 const settings = Object.freeze([
   { match: /park|garden|terrace|outdoor|market|street|path|balcony|exterior|jardin|parque/,
@@ -45,7 +45,7 @@ export function inferEnvironmentMotion(scene) {
     'Maintain a living but restrained atmosphere: only secondary motion in background features already visible in the first frame, without inventing objects or moving rigid furniture';
 }
 
-export function livingScenePrompt(scene, styleName = 'V1', character = '', intensity = 'subtle') {
+export function livingScenePrompt(scene, styleName = 'V1', character = '', intensity = 'subtle', frameMode = 'fullbleed') {
   if (!scene || !liveEligible(scene))
     throw new Error((scene?.id || 'Scene') + ': animate-live requires mode=character or mode=still with animate_environment=true');
   const style = styleOf(styleName);
@@ -75,5 +75,6 @@ export function livingScenePrompt(scene, styleName = 'V1', character = '', inten
     'Keep the camera FIXED and continuous throughout this clip. A new camera angle or location belongs to a DIFFERENT shot, not a mid-clip morph. No camera shake, cuts, sudden zooms, or drifting perspective.',
     'If this scene demonstrates exercise or symptoms, follow the approved medical and movement guidance; do not exaggerate a medical effect or invent claims.',
     'A single coherent action across the clip, stable temporal identity, coherent hands and face. No rubber limbs, extra fingers, flicker, ghosting, melting, background warping, random object motion, garbled text, labels, logos or watermarks.',
+    frameInstruction(frameMode),
   ].filter(Boolean).join(' ');
 }
