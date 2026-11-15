@@ -48,7 +48,7 @@ test('plans contiguous, human-sized scenes with unique SC IDs', () => {
 });
 
 test('V1 and V2 honor the outer-frame and 2D requirements', () => {
-  assert.match(styleOf('V1').image, /picture-frame-style border/);
+  assert.doesNotMatch(styleOf('V1').image, /picture-frame-style border/);
   assert.match(styleOf('V2').image, /NO photorealism or 3D/);
   assert.match(stillPrompt({ visual: 'standing from a chair' }), /no text/i);
   assert.match(movingPrompt({ id: 'SC001', action: 'stands up' }), /stands up/);

@@ -3,15 +3,15 @@
 export const STYLE = Object.freeze({
   V1: {
     label: 'HEALTH_CARTOON V1 · pastel editorial',
-    image: 'Beautiful hand-drawn 2D educational cartoon, Spanish older adult aged 60-75 with expressive but natural face, recognisable mature proportions, elegant everyday clothing, pleasing pastel colors with moderate saturation, clean dark outlines, subtle cel shading, believable room depth, one clear focal point. Full-bleed 16:9 illustration, a thin decorative picture-frame-style border OVERLAID at the OUTER FOUR EDGES. The picture continues beneath the border. This is NOT a card, NOT a rounded panel and NOT white margins.',
-    graphic: 'Beautiful 2D educational illustration in the V1 pastel editorial palette with slightly saturated muted colors, crisp clean outlines, delicate cel shading and realistic depth of objects. Full-bleed 16:9 infographic, thin decorative picture-frame-style border ON TOP of the four OUTER EDGES, art fills the whole canvas; never a white panel. No foreground people unless explicitly requested.',
-    motion: 'Preserve the exact illustrated 2D style, face, outfit, body proportions, border and background. Natural human timing and weight transfer; smooth controlled movement with realistic joint motion, subtle cloth follow-through. Locked camera. The decorative outer picture border remains fixed and visible.',
+    image: 'Beautiful hand-drawn 2D educational cartoon, Spanish older adult aged 60-75 with expressive but natural face, recognisable mature proportions, elegant everyday clothing, pleasing pastel colors with moderate saturation, clean dark outlines, subtle cel shading, believable room depth, one clear focal point. Edge-to-edge 16:9 illustration of one continuous environment with real spatial depth; never depict a centered card.',
+    graphic: 'Beautiful 2D educational illustration in the V1 pastel editorial palette with slightly saturated muted colors, crisp clean outlines, delicate cel shading and realistic depth of objects. Full-bleed 16:9 infographic with content flowing to the edges, no default decorative outer border or white panel. No foreground people unless explicitly requested.',
+    motion: 'Preserve the exact illustrated 2D style, face, outfit, body proportions, border and background. Natural human timing and weight transfer; smooth controlled movement with realistic joint motion, subtle cloth follow-through. Locked camera. Maintain a continuous scene composition across the entire clip.',
   },
   V2: {
     label: 'HEALTH_CARTOON V2 · vivid editorial',
-    image: 'Beautiful richly detailed 2D cartoon explainer of a Spanish adult aged 60-75, expressive mature face, clearly readable anatomy and everyday clothing, confident saturated colors and stronger contrast, crisp controlled outlines, careful two-tone soft shading and foreground/background depth. Full-bleed 16:9 art with a restrained organic/curved editorial frame at the OUTER EDGES, overlay on the illustration, not a panel. NO photorealism or 3D.',
-    graphic: 'Beautiful vivid V2 medical and object illustration, saturated colors with strong readable contrast, finely controlled dark outlines, gentle two-tone cel shading, layered foreground depth, a curved decorative outer-edge frame overlay, full-bleed 16:9 art, NOT 3D and NOT photorealistic. No human character unless clinically necessary.',
-    motion: 'Keep the original vivid 2D illustration, precise clean outlines, same mature character and clothes, stable lighting, curved outer-edge frame and room. Smooth believable weight shifts, body mechanics, natural follow-through; fixed camera. No 3D transformation.',
+    image: 'Beautiful richly detailed 2D cartoon explainer of a Spanish adult aged 60-75, expressive mature face, clearly readable anatomy and everyday clothing, confident saturated colors and stronger contrast, crisp controlled outlines, careful two-tone soft shading and foreground/background depth. Full-bleed 16:9 art with an edge-to-edge environment and clearly separated foreground and background. NO photorealism or 3D.',
+    graphic: 'Beautiful vivid V2 medical and object illustration, saturated colors with strong readable contrast, finely controlled dark outlines, gentle two-tone cel shading, layered foreground depth, a full-bleed 16:9 edge-to-edge editorial composition, NOT 3D and NOT photorealistic. No human character unless clinically necessary.',
+    motion: 'Keep the original vivid 2D illustration, precise clean outlines, same mature character and clothes, stable lighting, scene background and room. Smooth believable weight shifts, body mechanics, natural follow-through; fixed camera. No 3D transformation.',
   },
   LEGACY: {
     label: 'Original blue mannequin',
@@ -35,6 +35,23 @@ export function styleOf(name = 'V1') {
   return s;
 }
 
+export const FRAME_MODES = Object.freeze(['fullbleed', 'framed', 'soft-frame']);
+
+/**
+ * Frame mode is chosen at project level and overrides decorative borders
+ * from any style preset or user master. Fullbleed is the default.
+ */
+export function frameInstruction(mode = 'fullbleed') {
+  const key = String(mode || 'fullbleed').toLowerCase();
+  if (!FRAME_MODES.includes(key))
+    throw new Error('Invalid frame mode "' + mode + '". Use fullbleed | framed | soft-frame.');
+  if (key === 'framed')
+    return 'FRAME MODE (explicit user override): Add a visible decorative picture-frame border over the outer edge of the 16:9 canvas; fill the canvas beneath the border.';
+  if (key === 'soft-frame')
+    return 'FRAME MODE (explicit user override): Use only a barely visible, subtle vignette or edge treatment. No thick or hard-edged frame and no inset card.';
+  return 'FRAME MODE (HIGHEST PRIORITY — overrides any older master-style frame wording): Full-bleed continuous 16:9 environment, artwork and background extend EDGE TO EDGE to all four canvas sides. NO decorative picture border, NO curved or rounded frame, NO card, NO boxed composition, NO inset illustration, NO white margins, NO letterboxing. The subject lives inside the full environment, never inside a framed panel.';
+}
+
 const clean = x => typeof x === 'string' ? x.trim() : '';
 
 /**
@@ -56,7 +73,7 @@ function sceneDirection(scene) {
   return parts.filter(Boolean).join('\n');
 }
 
-export function stillPrompt(scene, styleName = 'V1', character = '') {
+export function stillPrompt(scene, styleName = 'V1', character = '', frameMode = 'fullbleed') {
   const s = styleOf(styleName);
   const graphic = scene.mode === 'graphic';
   const identity = graphic ?
@@ -76,10 +93,11 @@ export function stillPrompt(scene, styleName = 'V1', character = '') {
     'The overall MASTER STYLE artistic medium, palette, texture and character design remain uniform across scenes, but staging, setting, shot scale and editorial treatment must NOT repeat monotonously.',
     'Do NOT repeat the exact environment, outfit pose, prop arrangement, and camera position of the previous shot.',
     'Full-bleed widescreen 16:9, high resolution. NO text or baked captions, NO logos, NO brands, NO watermarks. Text is composited later in the video editor.',
+    frameInstruction(frameMode),
   ].filter(Boolean).join('\n');
 }
 
-export function movingPrompt(scene, styleName = 'V1', character = '') {
+export function movingPrompt(scene, styleName = 'V1', character = '', frameMode = 'fullbleed') {
   const s = styleOf(styleName);
   const action = clean(scene.action);
   if (!action) throw new Error(scene.id + ': add an explicit action before animating.');
@@ -93,8 +111,9 @@ export function movingPrompt(scene, styleName = 'V1', character = '') {
     'Perform the action with natural anticipation, smooth easing and follow-through. For human characters preserve believable feet contact, balance and joints; for mascot or nonhuman characters preserve their master proportions and established motion language.',
     'Preserve facial identity, head shape, costume, props, lighting and image palette throughout this single clip. Do not change wardrobe DURING movement.',
     'Use stable fixed camera with NO cuts within the clip; differing camera angles are applied to DIFFERENT scenes in the image storyboard.',
-    'Keep the entire animation in the SAME artistic medium and rendering style as the approved first frame and its master reference. Maintain any border/framing established by the chosen master; do not switch to a different art medium.',
+    'Keep the entire animation in the SAME artistic medium and rendering style as the approved first frame and its master reference. Do not switch to a different art medium.',
     'If demonstrating exercise, follow approved exercise motion research and anatomy references. Do not invent extreme joint angles or unsupported health claims.',
     'No new characters or objects, no camera shake, no text, captions, logos, unjustified medical uniform or watermarks.',
+    frameInstruction(frameMode),
   ].filter(Boolean).join(' ');
 }

@@ -2,6 +2,20 @@
 
 Toolkit sản xuất video khoa học/sức khỏe bằng tiếng Tây Ban Nha: đa dạng phong cách và bối cảnh, nhân vật nhất quán, chuyển động từ clip, đồng bộ giọng đọc, dựng MP4 và kiểm tra chất lượng.
 
+## Mới: Full-bleed V6 — không còn khung tranh
+
+Video mới **mặc định là 16:9 tràn toàn cảnh**: không khung viền, không bo góc, không khoảng trắng bao quanh. Các preset V1/V2 không còn yêu cầu khung tranh. Nếu dự án trước đây đã tạo cảnh có khung, đổi bố cục bằng lệnh:
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs frame-mode projects/video_moi --mode fullbleed
+
+Sau đó tạo lại prompt và **ảnh/clip có viền cũ** (viền đã vẽ trong PNG/MP4 không thể biến mất chỉ vì đổi config):
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs batch projects/video_moi --index 1
+
+Lệnh không gọi API trả phí. Ngoài `fullbleed` mặc định, vẫn có `framed` hoặc `soft-frame` nếu bạn tự chủ động chọn. Việc đổi mode làm mất trạng thái approve cũ để bạn kiểm tra và duyệt lại.
+
+Hướng dẫn: [MOTION_V2_VI.md](MOTION_V2_VI.md).
+
 ## Mới: Living Scenes V5 — nhân vật và cảnh vật cùng chuyển động
 
 Đã thêm lệnh `animate-live` để tạo prompt image-to-video cho các hành động nhân vật **và** chuyển động nhẹ của môi trường (lá cây, rèm cửa, hơi nước... **chỉ khi đã có trong ảnh đầu tiên**). Hỗ trợ Master Style tự chọn từ V4, bối cảnh đa dạng từ V3.
