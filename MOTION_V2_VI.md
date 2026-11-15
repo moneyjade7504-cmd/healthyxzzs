@@ -1,5 +1,23 @@
 
-# HealthyXZZS Motion V2 — Hướng dẫn tạo nhân vật có chuyển động
+# HealthyXZZS Motion V2–V8 — Hướng dẫn tạo nhân vật có chuyển động
+
+## V8 — Claude Local Animation: không dùng dịch vụ AI tạo video
+
+**Lệnh mới để nhận ảnh đã hoàn thiện và tạo hoạt ảnh CỤC BỘ, không cần FAL_KEY và không chạy bất cứ nhà cung cấp video AI bên ngoài nào:**
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs animate-from-images projects/video_moi --from uploads/batch01 --batch 1 --max 3 --local
+
+Hoặc nếu ảnh đã có trong dự án:
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs local-init projects/video_moi --batch 1 --max 3
+    node .claude/skills/health-video/scripts/motion_v2.mjs animate-local projects/video_moi --batch 1 --max 3
+
+Claude Code dùng Python/Pillow + FFmpeg chạy trên máy, tạo MP4 từ chuyển động được code. Một ảnh phẳng chỉ cho phép các **micro-animation** như nhịp thở/vùng cây hoặc rèm dao động nhẹ, KHÔNG thể tự suy ra các cử động chân tay như video AI. Cảnh tập thể dục/đi bộ cần các sprite PNG trong suốt tách bộ phận, nền riêng và keyframe. Thiếu dữ liệu thì engine báo NEEDS SETUP chứ không nói dối rằng clip có hành động người tự nhiên. Sau khi có clip phải kiểm tra QA và duyệt thủ công.
+
+**Xem tài liệu hoàn chỉnh có các JSON mẫu:** [LOCAL_ANIMATION_V8_VI.md](LOCAL_ANIMATION_V8_VI.md).
+
+---
+
 
 Motion V2 là pipeline mới, không xóa các dự án và renderer hiện tại. Video đẹp và có chuyển động cơ thể khi bạn cung cấp clip MP4 từ công cụ image-to-video hoặc tự quay. Không dùng xoay tay chân giả hay morph hình để giả chuyển động.
 

@@ -2,6 +2,23 @@
 
 Toolkit sản xuất video khoa học/sức khỏe bằng tiếng Tây Ban Nha: đa dạng phong cách và bối cảnh, nhân vật nhất quán, chuyển động từ clip, đồng bộ giọng đọc, dựng MP4 và kiểm tra chất lượng.
 
+## Mới: V8 — Claude tự dựng hoạt ảnh trên máy, KHÔNG dùng app AI bên ngoài
+
+Theo yêu cầu mới, Claude Code có thể xử lý các ảnh do bạn tạo để **xuất clip MP4 ngay trong dự án** bằng code Python/Pillow + FFmpeg cục bộ. KHÔNG dùng fal.ai, FAL_KEY, dịch vụ bên thứ ba hay API tạo video.
+
+Lệnh khi đã có một thư mục ảnh (SC001.png, SC002.png…):
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs animate-from-images projects/video_moi --from uploads/batch01 --batch 1 --max 3 --local
+
+Khi đã có ảnh trong project:
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs local-init projects/video_moi --batch 1 --max 3
+    node .claude/skills/health-video/scripts/motion_v2.mjs animate-local projects/video_moi --batch 1 --max 3
+
+**Giới hạn bắt buộc cần biết:** Từ một ảnh phẳng, code chỉ có thể làm các chuyển động minh họa nhẹ (nhịp thở, rèm/cây lay có vùng được chỉ định), KHÔNG tạo được bước đi/động tác thể dục tự nhiên chuẩn giải phẫu. Để tay/chân cử động độc lập cần các lớp PNG tách rời và keyframe (rig). Claude không được tự ý tuyên bố đã làm hoạt hình toàn thân nếu chỉ có một ảnh. Cấu hình V8 yêu cầu Claude nhìn và chọn đúng vùng; nếu thiếu ảnh/lớp/region, lệnh thông báo NEEDS SETUP thay vì tạo kết quả giả. Clip phải được duyệt QA trước khi ghép video cuối.
+
+Tài liệu chi tiết: [LOCAL_ANIMATION_V8_VI.md](LOCAL_ANIMATION_V8_VI.md) và skill Claude Code [local-animation](.claude/skills/local-animation/SKILL.md).
+
 ## Mới: V7 — Tạo clip video chuyển động từ ảnh gửi cho Claude Code
 
 Khi đã có ảnh SC001.png, SC002.png… do bạn tạo (bằng ChatGPT, Gemini, vẽ tay...), bạn có thể đưa chúng cho Claude Code qua một thư mục ảnh mà Claude Code truy cập được. Claude Code tự đưa các ảnh vào đúng scene của dự án, tạo prompt chuyển động cho nhân vật và môi trường, và có thể gọi model image-to-video để nhận clip MP4 thật nếu model/API đã được cấu hình và chủ động bật.
