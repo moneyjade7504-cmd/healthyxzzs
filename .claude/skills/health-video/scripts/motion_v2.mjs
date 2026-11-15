@@ -463,7 +463,7 @@ function animateLocal(f, p, opt, ids = null) {
         backend: 'offline Pillow + FFmpeg', frames: info.frames,
         limitation: info.claim, generated_at: new Date().toISOString() };
       save(f.progress, state);
-      console.log('CREATED ' + s.id + ' -> ' + s.video + ' (' + info.local_mode +
+      console.log('CREATED ' + s.id + ' -> ' + s.video + ' (' + info.mode +
         ', offline, no external AI API).');
       made++;
     } catch (error) {
@@ -524,6 +524,8 @@ function qa(f, p, makeFrames = false) {
     const img = local(f.base, s.image);
     const vid = local(f.base, s.video);
     if (liveEligible(s)) {
+      if (s.mode === 'character' && state.clips?.[s.id]?.local_mode === 'micro')
+        item.warnings.push('V8 local single-image MICRO-MOTION only, not walking or articulated human exercise; inspect full playback.');
       if (!exists(vid)) item.issues.push(s.mode === 'character' ? 'Missing moving-character MP4' : 'Missing environment-motion B-roll MP4');
       else {
         try {
