@@ -8,6 +8,7 @@
  *   node scripts/motion_v2.mjs map PROJECT
  *   node scripts/motion_v2.mjs batch PROJECT [--index 1]
  *   node scripts/motion_v2.mjs animate PROJECT [--batch 1] [--max 1] [--execute]
+ *   node scripts/motion_v2.mjs animate-live PROJECT [--batch 1] [--max 1] [--execute]
  *   node scripts/motion_v2.mjs qa PROJECT
  *   node scripts/motion_v2.mjs approve PROJECT SC001 SC002 ...
  *   node scripts/motion_v2.mjs render PROJECT [--draft] [--allow-stills]
@@ -23,6 +24,7 @@ import { File } from 'node:buffer';
 import { stillPrompt, movingPrompt, NEGATIVE, styleOf } from './motion_style.mjs';
 import { directScenes, auditStoryboard } from './scene_director.mjs';
 import { prepareMasterStyle, masterReferenceInstructions } from './master_style.mjs';
+import { livingScenePrompt, liveEligible } from './living_scene.mjs';
 
 const BATCH_SIZE = 20;
 const FPS = 30;
@@ -212,12 +214,13 @@ function storyboardMarkdown(p) {
     'Suggested contexts and actions are RULE-BASED, not medical advice. Review and adjust each scene before image generation.',
     'Keep the same chosen MASTER STYLE and master character identity across scenes. Change camera, action and lighting, not the art medium or the person.',
     '',
-    '| Scene | Time | Mode | Setting | Shot | Action / focus |',
-    '|---|---:|---|---|---|---|',
+    '| Scene | Time | Mode | Setting | Shot | Action / focus | Ambient movement |',
+    '|---|---:|---|---|---|---|---|',
   ];
   for (const s of p.scenes) md.push('| ' + s.id + ' | ' + s.start + '–' + s.end +
     ' | ' + s.mode + ' | ' + (s.setting || '-') + ' | ' + (s.shot || '-') +
-    ' | ' + (s.action || s.object || '-').replaceAll('|', '/') + ' |');
+    ' | ' + (s.action || s.object || '-').replaceAll('|', '/') +
+    ' | ' + (s.environment_motion || '-').replaceAll('|', '/') + (s.animate_environment ? ' (animate B-roll)' : '') + ' |');
   const a = auditStoryboard(p.scenes);
   md.push('', 'Scene variety: ' + a.settings.length + ' places, ' + a.shots.length +
     ' framings, ' + a.unique_actions + ' distinct character actions.', '');
@@ -235,6 +238,18 @@ function batch(f, p, index) {
   const motionInstructions = chosen.filter(s => s.mode === 'character').map(s =>
     '## ' + s.id + ' — ' + secs(s) + ' seconds\nFirst frame: ' + s.image + '\nResult: ' + s.video + '\n\n' + masterReferenceInstructions(p.master_style, { motion: true }) + '\n\n' + movingPrompt(s, styleForPlan(p), p.character) + '\n').join('\n');
   write(path.join(dir, slug + '_motion_prompts.md'), '# Manual/optional image-to-video prompts\n\n' + motionInstructions);
+  const liveInstructions = chosen.filter(liveEligible).map(s => [
+    '## ' + s.id + ' — ' + secs(s) + ' seconds',
+    'First frame: ' + s.image,
+    'Result: ' + s.video,
+    'Shot type: ' + (s.mode === 'character' ? 'character AND ambient environment' : 'ambient-only B-roll'),
+    masterReferenceInstructions(p.master_style, { motion: true }),
+    livingScenePrompt(s, styleForPlan(p), p.character),
+  ].filter(Boolean).join('\n')).join('\n\n---\n\n');
+  write(path.join(dir, slug + '_live_prompts.md'),
+    '# Living Scenes V5 — animate people AND existing environments\n' +
+    '# Use a real image-to-video tool. No paid generation occurs from creating this text file.\n\n' +
+    liveInstructions + '\n');
   const prompt = chosen.map((s, i) => [
     '### ' + s.id + ' (' + (i + 1) + '/' + chosen.length + ')',
     'Mode: ' + s.mode + ' | Topic: ' + (s.topic || p.topic || '') +
@@ -257,6 +272,7 @@ function batch(f, p, index) {
     'Do NOT depict the protagonist simply standing in the same background repeatedly. The scene map includes indoor/outdoor, seated/walking, prop detail and explanatory visuals.',
     'Use the same MASTER CHARACTER reference, and preserve their signature outfit. Only change clothing if justified by context, e.g., bedtime or an outdoor coat.',
     'Rename each image exactly ' + chosen.map(s => s.id + '.png').join(', ') + '.',
+    'For moving shots use batch_*_live_prompts.md: animate primary character AND subtle pre-existing environmental elements. Optional still B-roll requires animate_environment=true in scenes.json.',
     'Then, for approved character scenes, produce natural moving MP4s using the separate motion prompts. Use an image-to-video tool that you choose; NEVER create paid clips without permission.',
     'Move finished images to the video Collection (or images/ folder). Do NOT generate videos yet.',
     'Check hands, legs, faces, on-image text leakage, backgrounds, and any border required by the selected master style (not every master has a frame).',
@@ -269,16 +285,18 @@ async function uploadImage(fal, filename) {
   if (data.length > 20 * 1024 * 1024) throw new Error('Image exceeds model input size 20 MB');
   return fal.storage.upload(new File([data], path.basename(filename), { type: imageType(filename) }));
 }
-async function animate(f, p, o) {
+async function animate(f, p, o, live = false) {
   const batchIndex = Number(o.batch || 1);
   const max = Number(o.max || 1);
   if (!Number.isInteger(batchIndex) || batchIndex < 1 || !Number.isInteger(max) || max < 1 || max > BATCH_SIZE)
     throw new Error('Use --batch N and --max 1..20');
   const pending = p.scenes.slice((batchIndex - 1) * BATCH_SIZE, batchIndex * BATCH_SIZE)
-    .filter(s => s.mode === 'character' && !exists(local(f.base, s.video)) && exists(local(f.base, s.image)))
+    .filter(s => (live ? liveEligible(s) : s.mode === 'character') &&
+      !exists(local(f.base, s.video)) && exists(local(f.base, s.image)))
     .slice(0, max);
   if (!pending.length) { console.log('No pending animated scenes with first-frame images in this batch'); return; }
-  for (const s of pending) console.log(s.id + ' ' + secs(s) + 's: ' + movingPrompt(s, styleForPlan(p), p.character));
+  const promptFor = s => live ? livingScenePrompt(s, styleForPlan(p), p.character) : movingPrompt(s, styleForPlan(p), p.character);
+  for (const s of pending) console.log(s.id + ' ' + secs(s) + 's: ' + promptFor(s));
   if (!o.execute) { console.log('DRY RUN ONLY. To pay for AI generation, set FAL_KEY and explicitly pass --execute. Default max=1 clip.'); return; }
   if (!process.env.FAL_KEY) throw new Error('FAL_KEY is required for paid AI generation; do not put it in Git');
   const { fal } = await import('@fal-ai/client');
@@ -289,15 +307,15 @@ async function animate(f, p, o) {
       const end_image_url = s.end_image && exists(local(f.base, s.end_image))
         ? await uploadImage(fal, local(f.base, s.end_image)) : undefined;
       const input = {
-        image_url, prompt: movingPrompt(s, styleForPlan(p), p.character),
+        image_url, prompt: promptFor(s),
         duration: Math.max(2, Math.min(15, Math.ceil(secs(s)))),
         resolution: o.resolution === '1080p' ? '1080p' : '720p',
-        negative_prompt: negativeForPlan(p),
+        negative_prompt: live ? negativeForPlan(p) + ', chaotic environment motion, warping floor, floating furniture, flickering background' : negativeForPlan(p),
         enable_prompt_expansion: false,
         enable_safety_checker: true,
       };
       if (end_image_url) input.end_image_url = end_image_url;
-      console.log('Generating ' + s.id + ' using ' + MODEL);
+      console.log('Generating ' + (live ? 'LIVING scene ' : '') + s.id + ' using ' + MODEL);
       const result = await fal.subscribe(MODEL, { input, logs: true });
       const url = result.data?.video?.url;
       if (!url || !url.startsWith('https://')) throw new Error('No secure MP4 URL in model response');
@@ -310,12 +328,12 @@ async function animate(f, p, o) {
         await pipeline(Readable.fromWeb(response.body), fs.createWriteStream(tmp));
         fs.renameSync(tmp, destination);
       } finally { if (exists(tmp)) fs.unlinkSync(tmp); }
-      state.clips[s.id] = { status: 'generated', model: MODEL, request_id: result.requestId || '', generated_at: new Date().toISOString() };
+      state.clips[s.id] = { status: 'generated', mode: live ? 'animate-live' : 'animate', model: MODEL, request_id: result.requestId || '', generated_at: new Date().toISOString() };
       delete state.approved[s.id];
       save(f.progress, state);
       console.log('Saved ' + destination + '; now run qa then manually approve.');
     } catch (err) {
-      state.clips[s.id] = { status: 'error', reason: String(err.message || err).slice(0,500) };
+      state.clips[s.id] = { status: 'error', mode: live ? 'animate-live' : 'animate', reason: String(err.message || err).slice(0,500) };
       save(f.progress, state);
       console.error(s.id + ' ERROR: ' + state.clips[s.id].reason);
       process.exitCode = 1;
@@ -331,8 +349,8 @@ function qa(f, p, makeFrames = false) {
     const item = { id: s.id, mode: s.mode, issues: [], warnings: [], approved: !!state.approved[s.id] };
     const img = local(f.base, s.image);
     const vid = local(f.base, s.video);
-    if (s.mode === 'character') {
-      if (!exists(vid)) item.issues.push('Missing moving-character MP4');
+    if (liveEligible(s)) {
+      if (!exists(vid)) item.issues.push(s.mode === 'character' ? 'Missing moving-character MP4' : 'Missing environment-motion B-roll MP4');
       else {
         try {
           const x = probe(vid);
@@ -376,7 +394,7 @@ function approve(f, p, ids) {
   const state = progressAt(f);
   for (const id of ids) {
     const s = scenes.get(id);
-    if (!s || s.mode !== 'character' || !exists(local(f.base, s.video))) throw new Error('No character motion clip for ' + id);
+    if (!s || !liveEligible(s) || !exists(local(f.base, s.video))) throw new Error('No eligible character/ambient motion clip for ' + id);
     state.approved[id] = { at: new Date().toISOString(), file_bytes: fs.statSync(local(f.base, s.video)).size };
   }
   save(f.progress, state);
@@ -391,9 +409,9 @@ function render(f, p, o) {
   const issues = [];
   for (const s of scenes) {
     const vid = local(f.base, s.video), img = local(f.base, s.image);
-    if (s.mode === 'character' && !exists(vid) && !o['allow-stills']) issues.push(s.id + ': moving clip missing');
-    if ((s.mode !== 'character' || !exists(vid)) && !exists(img)) issues.push(s.id + ': image missing');
-    if (s.mode === 'character' && exists(vid) && !o.draft) {
+    if (liveEligible(s) && !exists(vid) && !o['allow-stills']) issues.push(s.id + ': moving clip missing');
+    if ((!liveEligible(s) || !exists(vid)) && !exists(img)) issues.push(s.id + ': image missing');
+    if (liveEligible(s) && exists(vid) && !o.draft) {
       const approval = state.approved[s.id];
       if (!approval || approval.file_bytes !== fs.statSync(vid).size) issues.push(s.id + ': manual motion QA approval missing/stale');
     }
@@ -405,7 +423,7 @@ function render(f, p, o) {
   const entries = [];
   for (const s of scenes) {
     const clip = local(f.base, s.video);
-    const animated = s.mode === 'character' && exists(clip);
+    const animated = liveEligible(s) && exists(clip);
     const source = animated ? clip : local(f.base, s.image);
     const target = path.join(dir, s.id + '.mp4');
     const frames = Math.max(1, Math.round(secs(s) * FPS));
@@ -440,11 +458,13 @@ function render(f, p, o) {
 }
 function status(f, p) {
   const state = progressAt(f);
-  const counts = { scenes: p.scenes.length, image: 0, animated: 0, approved: 0, still: 0 };
+  const counts = { scenes: p.scenes.length, image: 0, animated: 0, approved: 0, still: 0, ambient_requested: 0, ambient_generated: 0 };
   for (const s of p.scenes) {
     if (exists(local(f.base, s.image))) counts.image++;
     if (s.mode !== 'character') counts.still++;
-    if (s.mode === 'character' && exists(local(f.base, s.video))) {
+    if (s.mode === 'still' && s.animate_environment === true) counts.ambient_requested++;
+    if (s.mode === 'still' && s.animate_environment === true && exists(local(f.base, s.video))) counts.ambient_generated++;
+    if (liveEligible(s) && exists(local(f.base, s.video))) {
       counts.animated++;
       if (state.approved[s.id]?.file_bytes === fs.statSync(local(f.base, s.video)).size) counts.approved++;
     }
@@ -456,13 +476,14 @@ function status(f, p) {
 export async function main(argv = process.argv.slice(2)) {
   const { pos, opt } = argsOf(argv);
   const [cmd, project, ...ids] = pos;
-  if (!cmd || !project) throw new Error('Usage: motion_v2.mjs init|map|batch|animate|qa|approve|render|status PROJECT [options]');
+  if (!cmd || !project) throw new Error('Usage: motion_v2.mjs init|map|batch|animate|animate-live|qa|approve|render|status PROJECT [options]');
   const f = files(project);
   if (cmd === 'init') return init(f, opt);
   const p = planAt(f);
   if (cmd === 'map') { write(path.join(f.motion, 'scene_map.md'), storyboardMarkdown(p)); console.log('Updated motion/scene_map.md after scene edits.'); return; }
   if (cmd === 'batch') return batch(f, p, opt.index);
   if (cmd === 'animate') return animate(f, p, opt);
+  if (cmd === 'animate-live') return animate(f, p, opt, true);
   if (cmd === 'qa') return qa(f, p, !!opt.frames);
   if (cmd === 'approve') return approve(f, p, ids);
   if (cmd === 'render') return render(f, p, opt);

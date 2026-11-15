@@ -7,6 +7,7 @@
  * This is a rule-based first pass, not semantic AI script understanding.
  * Review the resulting scenes.json before generating any assets.
  */
+import { inferEnvironmentMotion } from './living_scene.mjs';
 
 const fold = v => String(v ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 const has = (v, re) => re.test(fold(v));
@@ -315,7 +316,10 @@ export function directScenes(baseScenes, opts = {}) {
       treatment: specifics.treatment,
       object: specifics.object,
       action: mode === 'character' ? actionFor(kind, theme, loc[0], i) : '',
+      animate_environment: false, // opt in for still B-roll scenes; character scenes are already eligible
+      motion_intensity: 'subtle',
     };
+    scene.environment_motion = inferEnvironmentMotion(scene);
     scene.visual = visualFor(scene);
     scenes.push(scene);
   }

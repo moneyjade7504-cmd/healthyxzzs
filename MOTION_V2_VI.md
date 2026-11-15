@@ -165,3 +165,69 @@ Các trường JSON: id, label, image (mô tả cảnh), graphic (đồ họa/gi
 - Nếu repository đang công khai, cân nhắc khi commit ảnh người thật, ảnh có bản quyền hoặc tài sản nhạy cảm.
 
 **Giới hạn quan trọng:** hệ thống có thể tiếp nhận và chuyển tiếp mọi cấu hình master hợp lệ, nhưng không tự phân tích phong cách thị giác từ ảnh bằng AI. Độ chính xác còn tùy công cụ tạo hình/video có hỗ trợ ảnh tham chiếu và model của nó hay không. Đây là nâng cấp để không khóa cứng style, không phải lời bảo đảm mọi phong cách đều được mô phỏng hoàn hảo.
+
+
+## V5 — Animate Live: nhân vật và cảnh vật cùng chuyển động
+
+Sau khi tạo ảnh SC###.png và duyệt hình đầu tiên, bạn có thể dùng lệnh mới **animate-live**. Mục tiêu của lệnh là tạo một video có hành động cơ thể tự nhiên *và* những chuyển động môi trường nhẹ trong cùng một shot. Không chỉ zoom ảnh tĩnh hoặc ghép tay chân giả.
+
+### Cách sử dụng nhanh (không mất tiền)
+
+Xem prompt trước, chưa tạo clip và CHƯA gọi API:
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs animate-live projects/video_moi --batch 1 --max 3
+
+Hoặc xuất prompt cho toàn bộ batch 20 ảnh:
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs batch projects/video_moi --index 1
+
+Đọc file mới `motion/batches/batch_001_live_prompts.md`. Dùng ảnh SC### làm first frame và prompt của scene đó trong công cụ image-to-video mà bạn lựa chọn. Clip đã tạo phải được đặt tại `clips/SC###.mp4`, đủ thời lượng cảnh. Mặc định, `animate-live` chỉ in prompt khi không có `--execute`; nếu ảnh đầu vào chưa được tạo, scene đó sẽ chưa được chọn để chạy lệnh.
+
+### Tạo clip tự động (chỉ khi bạn chủ động bật API trả phí)
+
+Nếu bạn đã cài @fal-ai/client, đã xem bảng giá và có khóa API riêng:
+
+    export FAL_KEY='YOUR_KEY'
+    node .claude/skills/health-video/scripts/motion_v2.mjs animate-live projects/video_moi --batch 1 --max 1 --execute
+
+Lệnh mặc định tối đa 1 clip mỗi lần để dễ kiểm soát chi phí, `--max` chỉ chấp nhận từ 1 đến 20 và không tự chuyển sang batch kế tiếp. Không commit `FAL_KEY`, không chia sẻ khóa trong chat. API sử dụng model đã cấu hình trong dự án; kết quả thật phụ thuộc khả năng của nhà cung cấp, không có bảo đảm chuyển động luôn hoàn hảo.
+
+### Điều khiển riêng từng cảnh
+
+Mở `projects/video_moi/motion/scenes.json` và chỉnh, ví dụ một cảnh nhân vật:
+
+    {
+      "id": "SC001",
+      "mode": "character",
+      "setting": "park-path",
+      "action": "The woman takes three steady steps with natural arm swing",
+      "environment_motion": "Only the leaves and grass visible in the first frame sway gently",
+      "motion_intensity": "subtle"
+    }
+
+Nếu scene chỉ là phong cảnh, không cần nhân vật:
+
+    {
+      "id": "SC002",
+      "mode": "still",
+      "animate_environment": true,
+      "environment_motion": "The curtain already visible beside the window moves very gently",
+      "motion_intensity": "subtle"
+    }
+
+`animate_environment: true` chỉ có tác dụng cho scene `mode=still` khi bạn muốn tạo clip phong cảnh chuyển động; scene `mode=character` luôn đủ điều kiện để tạo clip sống động. Scene `mode=graphic` vẫn là infographic tĩnh trong pipeline này. `motion_intensity` nhận `subtle` (khuyên dùng) hoặc `balanced`. Trong trường hợp không khai báo `environment_motion`, hệ thống tự gợi ý theo bối cảnh như công viên, phòng ngủ, nhà bếp, sân vườn, phòng khám; chỉ chuyển động những thứ đã hiện diện trong hình.
+
+Sau khi chỉnh JSON, chạy lại lệnh `batch` để cập nhật prompt và `map` để làm mới scene map:
+
+    node .claude/skills/health-video/scripts/motion_v2.mjs map projects/video_moi
+    node .claude/skills/health-video/scripts/motion_v2.mjs batch projects/video_moi --index 1
+
+### Duyệt và dựng video cuối
+
+- Chạy `qa PROJECT --frames` để kiểm tra độ phân giải, thời lượng, đóng băng và ảnh đầu/giữa/cuối clip.
+- **Phải xem bằng mắt**: bước chân, gập gối, bàn tay, gương mặt, tỉ lệ cơ thể, cây lá/rèm cửa, vật thể, ánh sáng; không được để đồ đạc biến dạng hoặc nền chảy.
+- Chạy `approve PROJECT SC001 SC002` sau khi clip character và ambient-only đều đạt. Không tự duyệt.
+- Chạy `render PROJECT`; bản cuối sẽ sử dụng cả clip nhân vật lẫn clip B-roll chuyển động khi đã có và được duyệt.
+- Nếu bật `animate_environment:true` cho scene still nhưng chưa có video, bản cuối sẽ chặn xuất để tránh đánh tráo ảnh tĩnh thành video động. Bản nháp có thể dùng `render PROJECT --draft --allow-stills`.
+
+**Giới hạn:** Đây là nâng cấp pipeline, prompt và kết xuất video. Việc tạo ra cơ thể chuyển động thật vẫn do mô hình video hoặc clip thực hiện. Các công cụ kiểm tra tự động không chứng minh được con người chuyển động tự nhiên hoặc cảnh vật không méo; cần xem và duyệt clip thật. V5 vẫn giữ mọi Master Style của V4, Scene Director V3 và cơ chế một batch 20 cảnh rồi dừng.
