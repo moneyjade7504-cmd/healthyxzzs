@@ -222,7 +222,7 @@ def render(args: argparse.Namespace) -> dict:
         source = rgb_frame(safe_path(root, args.image), width, height)
         # Validate now, before starting FFmpeg and writing any MP4.
         micro_frame(source, cfg, 0)
-    target = pathlib.Path(args.output).resolve()
+    target = (root / args.output).resolve()
     if not target.is_relative_to(root):
         raise ValueError("Output video must stay within project folder")
     if target.exists() and not args.force:
