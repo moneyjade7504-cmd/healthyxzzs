@@ -10,7 +10,9 @@
  *   node scripts/motion_v2.mjs batch PROJECT [--index 1]
  *   node scripts/motion_v2.mjs animate PROJECT [--batch 1] [--max 1] [--execute]
  *   node scripts/motion_v2.mjs animate-live PROJECT [--batch 1] [--max 1] [--execute]
- *   node scripts/motion_v2.mjs animate-from-images PROJECT --from SCENE_IMAGES_FOLDER [--batch 1] [--max 3] [--execute]
+ *   node scripts/motion_v2.mjs animate-from-images PROJECT --from SCENE_IMAGES_FOLDER [--batch 1] [--max 3] [--local]
+ *   node scripts/motion_v2.mjs local-init PROJECT [--batch 1] [--max 3] [--mode micro|rig]
+ *   node scripts/motion_v2.mjs animate-local PROJECT [--batch 1] [--max 3] [--force]
  *   node scripts/motion_v2.mjs qa PROJECT
  *   node scripts/motion_v2.mjs approve PROJECT SC001 SC002 ...
  *   node scripts/motion_v2.mjs render PROJECT [--draft] [--allow-stills]
@@ -119,7 +121,7 @@ function argsOf(argv) {
     const a = argv[i];
     if (a.startsWith('--')) {
       const k = a.slice(2);
-      if (['execute', 'draft', 'allow-stills', 'frames', 'dryrun', 'replace-images'].includes(k)) opt[k] = true;
+      if (['execute', 'draft', 'allow-stills', 'frames', 'dryrun', 'replace-images', 'local', 'force'].includes(k)) opt[k] = true;
       else { if (!argv[i + 1] || argv[i + 1].startsWith('--')) throw new Error('Missing value for --' + k); opt[k] = argv[++i]; }
     } else pos.push(a);
   }
@@ -387,6 +389,92 @@ async function animate(f, p, o, live = false, onlyIds = null) {
     }
   }
 }
+function localCandidates(f, p, opt, ids = null) {
+  const b = Number(opt.batch || 1), limit = Number(opt.max || 3);
+  if (!Number.isInteger(b) || b < 1 || !Number.isInteger(limit) || limit < 1 || limit > BATCH_SIZE)
+    throw new Error('Use --batch positive integer --max 1..20');
+  const matched = p.scenes.slice((b - 1) * BATCH_SIZE, b * BATCH_SIZE);
+  if (!matched.length) throw new Error('Batch ' + b + ' does not exist');
+  return matched.filter(s => liveEligible(s) && (!ids || ids.has(s.id)) &&
+    (!opt.scene || s.id === String(opt.scene).toUpperCase())).slice(0, limit);
+}
+function localSpecPath(f, scene) {
+  return path.join(f.motion, 'local', scene.id + '.json');
+}
+function prepareLocal(f, p, opt, ids = null) {
+  const selected = localCandidates(f, p, opt, ids);
+  let created = 0;
+  for (const scene of selected) {
+    const fp = localSpecPath(f, scene);
+    if (exists(fp)) continue;
+    mkdir(path.dirname(fp));
+    const mode = opt.mode || (scene.mode === 'still' ? 'ambient' : 'micro');
+    if (!['micro', 'ambient', 'rig'].includes(mode)) throw new Error('--mode accepts micro | ambient | rig');
+    const template = mode === 'rig'
+      ? {
+        version: 1, mode: 'rig',
+        note: 'Create a BACKGROUND-ONLY image and separate transparent PNG sprites (one per body part, same full canvas size). Claude may design keyframes but a single opaque portrait does NOT contain those body-part layers.',
+        background: 'motion/local/' + scene.id + '/background.png',
+        layers: [],
+        sample_layer: { image: 'motion/local/' + scene.id + '/arm.png', pivot: [0.5, 0.5],
+          keyframes: [{ t: 0, rotate: 0, dx: 0, dy: 0 }, { t: 0.5, rotate: 8, dx: 3, dy: 0 },
+            { t: 1, rotate: 0, dx: 0, dy: 0 }] }
+      }
+      : {
+        version: 1, mode,
+        note: mode === 'micro'
+          ? 'One flat picture: ONLY a feathered, subtle breathing approximation. This CANNOT make legs walk or arms reach independently. Claude MUST visually inspect image and fill the torso region; for true limb motion choose rig with isolated transparent parts.'
+          : 'One flat image: very subtle local sway for selected EXISTING curtains/leaves. Claude MUST visually inspect and fill ambient_regions; do not fake full-body action.',
+        ...(mode === 'micro' ? { region: null, breath_strength: 0.012 } : {}),
+        ambient_regions: [],
+      };
+    save(fp, template);
+    created++;
+    console.log('Created LOCAL spec ' + fp + ' (' + mode + ') — REVIEW/COMPLETE before rendering.');
+  }
+  console.log('Local spec files: ' + selected.length + ' scene(s), ' + created +
+    ' new. No MP4 automatically created by preparing templates. NO cloud API used.');
+  return selected;
+}
+function animateLocal(f, p, opt, ids = null) {
+  if (opt.execute) throw new Error('animate-local NEVER uses cloud --execute; remove --execute. Local animation runs on your machine.');
+  const selected = prepareLocal(f, p, opt, ids);
+  if (!selected.length) { console.log('No eligible local animation scenes in selected batch.'); return; }
+  const state = progressAt(f);
+  let made = 0, blocked = 0;
+  for (const s of selected) {
+    const img = local(f.base, s.image), video = local(f.base, s.video);
+    if (!exists(img)) { blocked++; console.log('NEEDS IMAGE ' + s.id + ': ' + s.image); continue; }
+    if (exists(video) && !opt.force) { console.log('SKIP ' + s.id + ': video exists; use --force only after making a backup.'); continue; }
+    const spec = path.relative(f.base, localSpecPath(f, s));
+    const argv = [
+      path.join(path.dirname(fileURLToPath(import.meta.url)), 'local_animation.py'),
+      '--project', f.base, '--spec', spec, '--image', s.image, '--output', s.video,
+      '--duration', String(secs(s)),
+      '--fps', String(opt.fps || 24),
+      '--width', String(opt.width || 960), '--height', String(opt.height || 540),
+    ];
+    if (opt.force) argv.push('--force');
+    try {
+      const result = run(process.env.PYTHON || 'python3', argv);
+      const info = JSON.parse(result.stdout.trim().split('\n').at(-1));
+      delete state.approved[s.id]; // Human review must follow any local regeneration.
+      state.clips[s.id] = { status: 'generated', mode: 'animate-local', local_mode: info.mode,
+        backend: 'offline Pillow + FFmpeg', frames: info.frames,
+        limitation: info.claim, generated_at: new Date().toISOString() };
+      save(f.progress, state);
+      console.log('CREATED ' + s.id + ' -> ' + s.video + ' (' + info.local_mode +
+        ', offline, no external AI API).');
+      made++;
+    } catch (error) {
+      blocked++;
+      console.log('NEEDS SETUP ' + s.id + ': ' + String(error.message).slice(0, 700));
+    }
+  }
+  console.log('LOCAL V8 SUMMARY: ' + made + ' MP4 created, ' + blocked +
+    ' scenes need image/region/layers or dependency setup. No paid service was called.');
+  if (blocked) console.log('Inspect motion/local/SC###.json. A single opaque image only supports small micro-motion; true limb animation requires rig sprites/keyframes.');
+}
 async function animateFromImages(f, p, o) {
   if (!o.from) throw new Error('animate-from-images requires --from IMAGE_FOLDER or --from single.png --scene SC001');
   const batchIndex = Number(o.batch || 1);
@@ -394,6 +482,7 @@ async function animateFromImages(f, p, o) {
   if (!Number.isInteger(batchIndex) || batchIndex < 1 || !Number.isInteger(max) || max < 1 || max > BATCH_SIZE)
     throw new Error('--batch must be a positive integer and --max must be 1..20');
   // Fail before importing anything when the user requested a paid run without credentials.
+  if (o.execute && o.local) throw new Error('Choose EITHER --execute (paid backend) OR --local (offline code renderer), not both');
   if (o.execute && !process.env.FAL_KEY)
     throw new Error('Real image-to-video requires FAL_KEY and @fal-ai/client. Import-only/preview: omit --execute.');
   const report = importSceneImages({
@@ -407,6 +496,11 @@ async function animateFromImages(f, p, o) {
     console.log('NOTE: fullbleed is a prompt/layout setting; if any source image already contains a baked-in picture frame, replace that source image first.');
   const chosen = new Set(report.items.map(x => x.id));
   batch(f, p, batchIndex, chosen);
+  if (o.local) {
+    console.log('LOCAL PATH V8: running only built-in Python/Pillow/FFmpeg; FAL_KEY and other AI apps are NOT used.');
+    animateLocal(f, p, { ...o, batch: batchIndex, max }, chosen);
+    return;
+  }
   const eligible = p.scenes.filter(s => chosen.has(s.id) && liveEligible(s));
   if (!eligible.length) {
     console.log('Images imported but none of the selected scenes are eligible for body/ambient motion. Set mode=character or mode=still with animate_environment=true, then rerun.');
@@ -556,7 +650,7 @@ function status(f, p) {
 export async function main(argv = process.argv.slice(2)) {
   const { pos, opt } = argsOf(argv);
   const [cmd, project, ...ids] = pos;
-  if (!cmd || !project) throw new Error('Usage: motion_v2.mjs init|frame-mode|map|batch|animate|animate-live|animate-from-images|qa|approve|render|status PROJECT [options]');
+  if (!cmd || !project) throw new Error('Usage: motion_v2.mjs init|frame-mode|map|batch|animate|animate-live|animate-from-images|local-init|animate-local|qa|approve|render|status PROJECT [options]');
   const f = files(project);
   if (cmd === 'init') return init(f, opt);
   const p = planAt(f);
@@ -566,6 +660,8 @@ export async function main(argv = process.argv.slice(2)) {
   if (cmd === 'animate') return animate(f, p, opt);
   if (cmd === 'animate-live') return animate(f, p, opt, true);
   if (cmd === 'animate-from-images') return animateFromImages(f, p, opt);
+  if (cmd === 'local-init') return prepareLocal(f, p, opt);
+  if (cmd === 'animate-local') return animateLocal(f, p, opt);
   if (cmd === 'qa') return qa(f, p, !!opt.frames);
   if (cmd === 'approve') return approve(f, p, ids);
   if (cmd === 'render') return render(f, p, opt);
