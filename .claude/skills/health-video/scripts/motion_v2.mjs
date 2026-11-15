@@ -10,6 +10,7 @@
  *   node scripts/motion_v2.mjs batch PROJECT [--index 1]
  *   node scripts/motion_v2.mjs animate PROJECT [--batch 1] [--max 1] [--execute]
  *   node scripts/motion_v2.mjs animate-live PROJECT [--batch 1] [--max 1] [--execute]
+ *   node scripts/motion_v2.mjs animate-from-images PROJECT --from SCENE_IMAGES_FOLDER [--batch 1] [--max 3] [--execute]
  *   node scripts/motion_v2.mjs qa PROJECT
  *   node scripts/motion_v2.mjs approve PROJECT SC001 SC002 ...
  *   node scripts/motion_v2.mjs render PROJECT [--draft] [--allow-stills]
@@ -26,6 +27,7 @@ import { stillPrompt, movingPrompt, NEGATIVE, styleOf, frameInstruction } from '
 import { directScenes, auditStoryboard } from './scene_director.mjs';
 import { prepareMasterStyle, masterReferenceInstructions } from './master_style.mjs';
 import { livingScenePrompt, liveEligible } from './living_scene.mjs';
+import { importSceneImages } from './image_intake.mjs';
 
 const BATCH_SIZE = 20;
 const FPS = 30;
@@ -117,7 +119,7 @@ function argsOf(argv) {
     const a = argv[i];
     if (a.startsWith('--')) {
       const k = a.slice(2);
-      if (['execute', 'draft', 'allow-stills', 'frames', 'dryrun'].includes(k)) opt[k] = true;
+      if (['execute', 'draft', 'allow-stills', 'frames', 'dryrun', 'replace-images'].includes(k)) opt[k] = true;
       else { if (!argv[i + 1] || argv[i + 1].startsWith('--')) throw new Error('Missing value for --' + k); opt[k] = argv[++i]; }
     } else pos.push(a);
   }
@@ -313,13 +315,14 @@ async function uploadImage(fal, filename) {
   if (data.length > 20 * 1024 * 1024) throw new Error('Image exceeds model input size 20 MB');
   return fal.storage.upload(new File([data], path.basename(filename), { type: imageType(filename) }));
 }
-async function animate(f, p, o, live = false) {
+async function animate(f, p, o, live = false, onlyIds = null) {
   const batchIndex = Number(o.batch || 1);
   const max = Number(o.max || 1);
   if (!Number.isInteger(batchIndex) || batchIndex < 1 || !Number.isInteger(max) || max < 1 || max > BATCH_SIZE)
     throw new Error('Use --batch N and --max 1..20');
   const pending = p.scenes.slice((batchIndex - 1) * BATCH_SIZE, batchIndex * BATCH_SIZE)
     .filter(s => (live ? liveEligible(s) : s.mode === 'character') &&
+      (!onlyIds || onlyIds.has(s.id)) &&
       !exists(local(f.base, s.video)) && exists(local(f.base, s.image)))
     .slice(0, max);
   if (!pending.length) { console.log('No pending animated scenes with first-frame images in this batch'); return; }
@@ -343,6 +346,8 @@ async function animate(f, p, o, live = false) {
         enable_safety_checker: true,
       };
       if (end_image_url) input.end_image_url = end_image_url;
+      if (input.prompt.length > 5000) throw new Error(s.id + ': image-to-video prompt exceeds model max 5000 characters');
+      if (input.negative_prompt.length > 500) throw new Error(s.id + ': negative prompt exceeds 500 characters');
       console.log('Generating ' + (live ? 'LIVING scene ' : '') + s.id + ' using ' + MODEL);
       const result = await fal.subscribe(MODEL, { input, logs: true });
       const url = result.data?.video?.url;
@@ -367,6 +372,39 @@ async function animate(f, p, o, live = false) {
       process.exitCode = 1;
     }
   }
+}
+async function animateFromImages(f, p, o) {
+  if (!o.from) throw new Error('animate-from-images requires --from IMAGE_FOLDER or --from single.png --scene SC001');
+  const batchIndex = Number(o.batch || 1);
+  const max = Number(o.max || 3);
+  if (!Number.isInteger(batchIndex) || batchIndex < 1 || !Number.isInteger(max) || max < 1 || max > BATCH_SIZE)
+    throw new Error('--batch must be a positive integer and --max must be 1..20');
+  // Fail before importing anything when the user requested a paid run without credentials.
+  if (o.execute && !process.env.FAL_KEY)
+    throw new Error('Real image-to-video requires FAL_KEY and @fal-ai/client. Import-only/preview: omit --execute.');
+  const report = importSceneImages({
+    project: f.base, plan: p, source: o.from, batch: batchIndex,
+    sceneId: o.scene || null, replace: !!o['replace-images'],
+  });
+  console.log('Imported ' + report.items.length + ' uploaded first-frame image(s) for batch ' + batchIndex + ': ' +
+    report.items.map(x => x.id + ' (' + x.status + ')').join(', '));
+  console.log('Scene identity was mapped by SC### filenames or explicit --scene; no automatic guessing or reordering.');
+  if (frameForPlan(p) === 'fullbleed')
+    console.log('NOTE: fullbleed is a prompt/layout setting; if any source image already contains a baked-in picture frame, replace that source image first.');
+  batch(f, p, batchIndex);
+  const chosen = new Set(report.items.map(x => x.id));
+  const eligible = p.scenes.filter(s => chosen.has(s.id) && liveEligible(s));
+  if (!eligible.length) {
+    console.log('Images imported but none of the selected scenes are eligible for body/ambient motion. Set mode=character or mode=still with animate_environment=true, then rerun.');
+    return;
+  }
+  console.log('Ready for image-to-video: ' + eligible.map(s => s.id).join(', ') +
+    '. Other still/graphic images were imported without unnecessary animation.');
+  if (!o.execute) {
+    console.log('CLAUDE PREVIEW: no video model was called and no MP4 was generated. The uploaded image IS the first frame for the scene.');
+    console.log('To make actual animated MP4s: configure FAL_KEY, install @fal-ai/client, then explicitly rerun this command with --execute.');
+  }
+  await animate(f, p, { ...o, batch: batchIndex, max }, true, chosen);
 }
 function qa(f, p, makeFrames = false) {
   const state = progressAt(f);
@@ -504,7 +542,7 @@ function status(f, p) {
 export async function main(argv = process.argv.slice(2)) {
   const { pos, opt } = argsOf(argv);
   const [cmd, project, ...ids] = pos;
-  if (!cmd || !project) throw new Error('Usage: motion_v2.mjs init|frame-mode|map|batch|animate|animate-live|qa|approve|render|status PROJECT [options]');
+  if (!cmd || !project) throw new Error('Usage: motion_v2.mjs init|frame-mode|map|batch|animate|animate-live|animate-from-images|qa|approve|render|status PROJECT [options]');
   const f = files(project);
   if (cmd === 'init') return init(f, opt);
   const p = planAt(f);
@@ -513,6 +551,7 @@ export async function main(argv = process.argv.slice(2)) {
   if (cmd === 'batch') return batch(f, p, opt.index);
   if (cmd === 'animate') return animate(f, p, opt);
   if (cmd === 'animate-live') return animate(f, p, opt, true);
+  if (cmd === 'animate-from-images') return animateFromImages(f, p, opt);
   if (cmd === 'qa') return qa(f, p, !!opt.frames);
   if (cmd === 'approve') return approve(f, p, ids);
   if (cmd === 'render') return render(f, p, opt);
