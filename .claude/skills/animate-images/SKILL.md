@@ -6,6 +6,9 @@ argument-hint: "[project path] [image folder or single image file path]"
 
 # Claude Code: turn owner-supplied scene pictures into animated video clips
 
+Invocation arguments (project path and supplied image source): $ARGUMENTS
+
+
 When the user sends pictures to Claude, they want REAL body and environment motion based on these approved pictures, not just a pan/zoom of a still image. This skill orchestrates image intake, matching, model-based generation, QA, and eventual narrated rendering.
 
 1. Find exact image files that are tool-readable in the Claude Code working environment. If photos only appear in a web chat and have not been saved to a local file or accessible attachment path, do not invent file paths or assert that Claude Code has their bytes. Ask the user to upload files into the project workspace. A group of uploaded pictures can be staged in a temporary folder with verified file paths.
