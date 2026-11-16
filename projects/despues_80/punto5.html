@@ -1,0 +1,52 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('punto5'); window.END=C('cinco_c'); window.DURATION=window.END;
+const glow=(c,t,x,y)=>{const k=0.5+0.5*Math.sin(t*3);c.globalAlpha=0.25+0.25*k;c.fillStyle='#ff9a3c';c.beginPath();c.arc(x,y,90+20*k,0,7);c.fill();c.globalAlpha=1;};
+
+PTitle(C('punto5'),C('quinta'),5,'El <span class="hl">inflamaging</span>','el fuego silencioso que acelera todo',['ember2','immune']);
+FB(C('quinta'),C('palabra'),'S12_1','El hilo que <span class="hl">une todo</span>',{capT:C('hilo')-C('quinta'),draw:(c,t)=>glow(c,t,1440,700)});
+{const B=beats[beats.length-1]; Cap(B,'Inflamación asociada al envejecimiento',{cx:960,cy:90,size:48,t0:C('llama5'),pill:true});}
+{const B=Beat(C('palabra'),C('adecuada'),{enter:'zoom'}); Cut(B,'ember2',{cx:600,cy:860,h:460,amp:3,shake:0.6});
+ Cap(B,'Inflamación <span class="hl">crónica de bajo grado</span>',{cx:1350,cy:380,size:58,t0:C('cronica')});
+ Cap(B,'arde despacio… y <span class="red">no se apaga</span>',{cx:1350,cy:520,size:58,t0:C('cronica')+6});}
+// normal inflammation: cut → repair → off
+{const B=Beat(C('adecuada'),C('afectado'));
+ Cap(B,'Inflamación normal',{cx:960,cy:110,size:66,t0:B.a+0.2,color:'#1f9d55'});
+ [['cut_bandage','Herida',C('corte')],['immune','El sistema inmune repara',C('corte')+3],['switch','…y se apaga',C('corte')+7]].forEach(([n,w,t0],i)=>{const x=360+i*600; Cut(B,n,{cx:x,cy:640,h:320,t0,amp:3,phase:i}); Cap(B,w,{cx:x,cy:730,size:50,t0});});
+ const s=Svg(B); Draw(B,s,arrow(540,520,780,520,0),{t0:C('corte')+2.5,dur:0.3,stroke:'#22a35a',w:8}); Draw(B,s,arrow(1140,520,1380,520,0),{t0:C('corte')+6.5,dur:0.3,stroke:'#22a35a',w:8});}
+// after 80: switch fails
+{const B=Beat(C('afectado'),C('fuego'),{enter:'zoom'}); Cut(B,'switch',{cx:600,cy:860,h:460,amp:2,shake:1.2});
+ const s=Svg(B); Draw(B,s,cross(600,620,1.6),{t0:C('interruptor')+0.5,dur:0.4,stroke:'#e23b2e',w:12});
+ Cap(B,'Después de los 80…',{cx:1350,cy:330,size:60,t0:B.a+0.3,color:'#6a6f86'}); Cap(B,'el interruptor <span class="red">falla</span>',{cx:1350,cy:460,size:72,t0:C('interruptor')});
+ Cap(B,'señal inflamatoria constante',{cx:1350,cy:610,size:52,t0:C('senal5')});}
+// amplifies everything
+{const B=Beat(C('fuego'),C('enciende'));
+ Cut(B,'ember2',{cx:960,cy:600,h:300,amp:3});
+ const L=[['gut','Intestino',300,280],['brain','Memoria',300,780],['muscle','Músculo',1620,280],['bone_lattice','Huesos',1620,780]];
+ const s=Svg(B);
+ L.forEach(([n,w,x,y],i)=>{const t0=C('fuego')+4+i*1.5; Cut(B,n in IMG?n:'brain',{cx:x,cy:y+120,h:220,t0,amp:3,phase:i}); Cap(B,w,{cx:x,cy:y+160,size:46,t0}); Draw(B,s,arrow(960,520,x<960?x+150:x-150,y,0.1),{t0:t0-0.2,dur:0.3,stroke:'#f95c00',w:7});});
+ Cap(B,'No es la única causa: es un <span class="hl">amplificador</span>',{cx:960,cy:980,size:56,t0:C('amplificador')});}
+// what lights it
+{const B=Beat(C('enciende'),C('quehacer5'));
+ Cap(B,'¿Qué lo alimenta?',{cx:960,cy:110,size:66,t0:B.a+0.2});
+ Row(B,[['gut','Barrera intestinal',C('permeab'),null],['belly','Grasa abdominal profunda',C('visceral'),null],['immune','Células envejecidas',C('senescencia'),null]],{y:570});}
+// mediterranean
+FB(C('quehacer5'),C('meta33'),'S12_3','1 · Alimentación <span class="hl">mediterránea</span>',{capT:2,draw:(c,t)=>steam(c,t,{x:620,y:640,w:60,n:4,r:16,rise:110})});
+{const B=beats[beats.length-1]; Cap(B,'aceite de oliva · pescado · verduras · legumbres · frutos secos',{cx:960,cy:90,size:42,t0:C('mediterraneo')+2,pill:true});}
+{const B=Beat(C('meta33'),C('omega'),{enter:'zoom'});
+ Row(B,[['olive_oil','Aceite de oliva',B.a,'ok'],['fish3','Pescado',B.a+0.4,'ok'],['chickpeas','Legumbres',B.a+0.8,'ok'],['nuts','Frutos secos',B.a+1.2,'ok'],['processed','Ultraprocesados',B.a+1.6,'no']],{y:450,h:240,cardH:420});
+ Cap(B,'33 ensayos · más de 3.400 personas',{cx:960,cy:790,size:58,t0:B.a+3,color:'#2f6fd6'});
+ Cap(B,'menos <span class="hl">PCR</span> e <span class="hl">IL-6</span> (marcadores de inflamación)',{cx:960,cy:900,size:50,t0:B.a+6});
+ Src(B,'Fuente: metaanálisis de 33 ensayos aleatorizados, 2025');}
+// omega-3
+FB(C('omega'),C('confirmado'),'S12_4','2 · <span class="hl">Omega-3</span>: salmón, sardinas, caballa',{capT:1.5,size:58});
+{const B=beats[beats.length-1]; Cap(B,'ayudan a “apagar” la inflamación (resolvinas)',{cx:960,cy:90,size:46,t0:C('resolverla'),pill:true});}
+{const B=Beat(C('confirmado'),C('tercero5'),{enter:'zoom'}); Cut(B,'omega3',{cx:600,cy:860,h:420,amp:3}); Cut(B,'switch',{cx:900,cy:780,h:260,t0:B.a+1,amp:3});
+ Cap(B,'Ayudan a activar',{cx:1400,cy:360,size:58,t0:B.a+0.3}); Cap(B,'el <span class="hl">interruptor de apagado</span>',{cx:1400,cy:470,size:62,t0:B.a+1});
+ Cap(B,'⚠ ¿Anticoagulantes? Consulte antes',{cx:1400,cy:640,size:48,t0:C('ventaja'),color:'#e23b2e'});}
+// movement
+FB(C('tercero5'),C('sentadilla'),'S12_6','3 · El <span class="hl">movimiento</span> reduce el inflamaging',{capT:1,size:58});
+{const B=beats[beats.length-1]; Cap(B,'40 estudios: menos IL-6, TNF-α y PCR',{cx:960,cy:90,size:46,t0:C('meta40'),pill:true}); Src(B,'Fuente: Cytokine 2023 (metaanálisis)');}
+FB(C('sentadilla'),C('cinco_c'),'S12_5','Cada paso es <span class="hl">medicina antiinflamatoria</span>',{capT:2,size:58,exit:'fade'});
+</script></body></html>

@@ -1,0 +1,32 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('cinco_c'); window.END=1786.1; window.DURATION=window.END;
+function Ink(B){const d=mk('div','',B.L);Object.assign(d.style,{position:'absolute',inset:'0',background:'#24263a'});}
+
+{const B=Beat(C('cinco_c'),C('castigo'),{enter:'zoom'});
+ Cap(B,'Las <span class="hl">5 cosas</span> de hoy',{cx:960,cy:130,size:76,t0:B.a+0.2});
+ const ic=[['muscle','Proteína'],['brain_wash','Sueño profundo'],['bone_lattice','Huesos'],['heel_toe','Equilibrio'],['ember2','Inflamaging']];
+ ic.forEach(([n,w],i)=>{const x=260+i*350,t0=B.a+1.5+i*1.5; Num(B,i+1,{cx:x,cy:330,r:50,t0}); Cut(B,n,{cx:x,cy:700,h:270,t0:t0+0.1,amp:3,phase:i}); Cap(B,w,{cx:x,cy:780,size:46,t0:t0+0.1});});}
+{const B=Beat(C('castigo'),C('tambien'),{enter:'zoom'}); Ink(B);
+ Cap(B,'No son un castigo ni un fracaso',{cx:960,cy:420,size:70,t0:B.a+0.2,color:'#fff'});
+ Cap(B,'son la biología de una <span style="color:#ffe14d">vida larga</span>',{cx:960,cy:560,size:70,t0:C('biologia'),color:'#fff'});
+ Cap(B,'respeto, no pánico',{cx:960,cy:690,size:60,t0:C('biologia')+4,color:'#ffe14d'});}
+FB(C('tambien'),C('conductas'),'S12_7','La investigación es <span class="hl">alentadora</span>',{capT:1,size:62});
+{const B=Beat(C('conductas'),C('negociacion'));
+ Cap(B,'Lo que dice la investigación:',{cx:960,cy:110,size:62,t0:B.a+0.2});
+ Row(B,[['stride','Moverse',C('mueva'),'ok'],['eat_sardine','Comer bien',C('mueva')+1.5,'ok'],['sleep_man','Dormir profundo',C('mueva')+2.8,'ok'],['hands_wave','Conectar',C('mueva')+4.2,'ok'],['m_point','Ver al médico',C('mueva')+6.5,'ok']],{y:560,h:250,cardH:440});}
+FB(C('negociacion'),C('comparta'),'S12_8','No está a merced de estos cambios: <span class="hl">está negociando</span>',{capT:3,size:52});
+{const B=Beat(C('comparta'),C('suscribase')); Cut(B,'hands_wave',{cx:520,cy:1010,h:720,amp:5,period:1.6});
+ const sp=mk('div','pill',B.L,'↗ COMPÁRTALO'); Object.assign(sp.style,{left:'1300px',top:'420px',fontSize:'76px'}); Pop(B,sp,{t0:B.a+0.5});
+ Cap(B,'con un amigo, un hermano, un padre',{cx:1300,cy:600,size:52,t0:C('envie'),color:'#2f6fd6'});}
+Subscribe(C('suscribase'),C('comente'),{pose:'thumbs',line:'Información clara, para mayores y sus familias'});
+{const B=Beat(C('comente'),C('final')); Cut(B,'m_think',{cx:520,cy:960,h:560,amp:4});
+ Cap(B,'💬 ¿Cuál de las 5 le sorprendió más?',{cx:1300,cy:420,size:58,t0:B.a+0.3}); Cap(B,'Cuéntelo en los comentarios',{cx:1300,cy:560,size:52,t0:B.a+1.5,color:'#2f6fd6'});
+ Cap(B,'Contenido educativo · no sustituye a su médico',{cx:1300,cy:760,size:42,t0:B.a+2,color:'#6a6f86'});}
+{const B=Beat(C('final'),1786.1,{enter:'zoom',exit:'fade'}); Ink(B);
+ Cap(B,'Los 80 no son el final de la historia',{cx:960,cy:380,size:66,t0:B.a+0.2,color:'#fff'});
+ Cap(B,'son el punto en que <span style="color:#ffe14d">se complica</span>',{cx:960,cy:520,size:66,t0:B.a+3,color:'#fff'});
+ Cap(B,'y vale la pena contarla',{cx:960,cy:650,size:58,t0:B.a+6,color:'#ffe14d'});
+ Cap(B,'Cuídese mucho · Claves de la Longevidad',{cx:960,cy:860,size:50,t0:C('cuidese'),color:'#fff'});}
+</script></body></html>
