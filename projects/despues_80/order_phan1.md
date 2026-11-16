@@ -2,59 +2,59 @@
 
 Style **2D Hand-Drawn Whiteboard Cartoon Illustration** theo ảnh master mới của bạn (`projects/despues_80/master/style_ref.webp` = 7 tư thế bà tóc xoăn trắng, áo len tím, sơ mi trắng). **Mỗi lần tạo, đính kèm ảnh master này.**
 Carmen 80 tuổi tóc xoăn trắng bồng, không kính; Antonio 82 tuổi cùng style, tóc trắng thưa, kính tròn, không râu.
-Ảnh **tràn khung (full-bleed), không viền**, không chữ, không số. Tên file đúng như dưới → gửi theo từng phần, mỗi tin ~5 ảnh.
+Ảnh **tràn khung (full-bleed), không viền**, không chữ, không số. **Đặt tên ảnh theo số: `1.png`, `2.png`, … `40.png`** (đúng số ghi trước mỗi prompt) → gửi theo từng phần, mỗi tin ~5 ảnh.
 
 Chia **4 phần** theo giọng đọc (30:08): Phần 1 = Intro + Punto 1 (0:00–7:08) · Phần 2 = Punto 2 + 3 (7:08–16:11) · Phần 3 = Punto 4 (16:11–22:36) · Phần 4 = Punto 5 + Kết (22:36–30:08).
 Mỗi phần 10 ảnh (1 tấm tư thế + 1 tấm đồ vật + 8 cảnh). 7 tư thế trong ảnh master đã được cắt rời để dùng luôn (suy nghĩ, giơ ngón tay, ăn đạm, nâng chân trên ghế, sữa + đồ ăn giàu đạm, ngủ, đi bộ).
 
 # PHẦN 1 · Intro + Punto 1 (proteína)
 
-**`P9.png`**: 6 tư thế: Carmen chống cằm suy nghĩ; Antonio đứng hơi còng, tay đỡ lưng (cứng người buổi sáng); Carmen cầm đĩa nhỏ ăn ít, không ngon miệng; Antonio nâng tạ tay nhẹ ngồi trên ghế; Carmen giơ cốc sữa lắc protein; Carmen vẫy tay chào.
+**Ảnh 1** (`1.png`): 6 tư thế: Carmen chống cằm suy nghĩ; Antonio đứng hơi còng, tay đỡ lưng (cứng người buổi sáng); Carmen cầm đĩa nhỏ ăn ít, không ngon miệng; Antonio nâng tạ tay nhẹ ngồi trên ghế; Carmen giơ cốc sữa lắc protein; Carmen vẫy tay chào.
 ```
 2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, plain pure white background. Characters: CARMEN (exactly as the woman in the attached reference: 80-year-old woman, fluffy curly white-grey hair, no glasses, round friendly face, simple dot-like eyes, lilac cardigan over a white collared shirt, dark grey trousers, white sneakers) and ANTONIO (same simple 2D style as the woman in the attached reference: 82-year-old man, thin white hair receding on top, round dark-rimmed glasses, clean-shaven, friendly face, blue sweater over a light collared shirt, dark trousers). Pose sheet: SIX separate full-body poses, same scale, two rows of three, widely spaced, nothing touching, no floor, no background: 1) Carmen standing, hand on chin, thoughtful; 2) Antonio standing slightly stooped with one hand on his lower back, stiff in the morning; 3) Carmen sitting at a small table pushing a tiny plate of food away, no appetite; 4) Antonio sitting on a sturdy chair lifting a light dumbbell with one arm, proud smile; 5) Carmen holding a glass of milky protein shake, smiling; 6) Carmen smiling warmly and waving at the viewer. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, 16:9, high resolution.
 ```
 
-**`J.png`**: 10 đồ vật: đùi gà nướng; 2 quả trứng; hũ sữa chua Hy Lạp; cá hồi nướng; ly sữa; hộp bột whey (không chữ); bắp tay cơ bắp hoạt hình; tai có dấu ? (cơ 'lãng tai'); cân đĩa thăng bằng; tạ tay nhỏ.
+**Ảnh 2** (`2.png`): 10 đồ vật: đùi gà nướng; 2 quả trứng; hũ sữa chua Hy Lạp; cá hồi nướng; ly sữa; hộp bột whey (không chữ); bắp tay cơ bắp hoạt hình; tai có dấu ? (cơ 'lãng tai'); cân đĩa thăng bằng; tạ tay nhỏ.
 ```
 2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, plain pure white background. Object sheet: TEN items drawn SEPARATELY, same scale, evenly spaced in two rows of five, nothing touching: 1) a grilled chicken breast on a plate; 2) two eggs, one cracked open; 3) a bowl of thick Greek yogurt; 4) a grilled salmon fillet; 5) a glass of milk; 6) a plain protein powder tub with a scoop, no label; 7) a friendly cartoon flexed arm showing a muscle; 8) a cartoon ear with a small question mark (hard of hearing); 9) a balance scale; 10) a small light dumbbell. No text, no labels, no letters, no numbers, no logos, 16:9, high resolution.
 ```
 
-**`S9_1.png`**: Bà Carmen 80 tuổi ngồi trong phòng khách nhìn album ảnh, suy tư
+**Ảnh 3** (`3.png`): Bà Carmen 80 tuổi ngồi trong phòng khách nhìn album ảnh, suy tư
 ```
 2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A cosy living room: CARMEN (exactly as the woman in the attached reference: 80-year-old woman, fluffy curly white-grey hair, no glasses, round friendly face, simple dot-like eyes, lilac cardigan over a white collared shirt, dark grey trousers, white sneakers) sitting on a sofa looking at an old photo album, thoughtful nostalgic smile, a cup of tea. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
 ```
 
-**`S9_2.png`**: Ẩn dụ 'vực dốc': Antonio đi trên con đường mòn, phía trước con đường dốc xuống
+**Ảnh 4** (`4.png`): Ẩn dụ 'vực dốc': Antonio đi trên con đường mòn, phía trước con đường dốc xuống
 ```
 2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A gentle countryside path: ANTONIO (same simple 2D style as the woman in the attached reference: 82-year-old man, thin white hair receding on top, round dark-rimmed glasses, clean-shaven, friendly face, blue sweater over a light collared shirt, dark trousers), with a walking cane) walking along a path that suddenly slopes steeply downward ahead like a cliff edge, he pauses and looks at it with surprise; soft morning light. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
 ```
 
-**`S9_3.png`**: Antonio buổi sáng ngồi mép giường, người cứng, xoa lưng
+**Ảnh 5** (`5.png`): Antonio buổi sáng ngồi mép giường, người cứng, xoa lưng
 ```
 2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A bedroom in the morning: ANTONIO (same simple 2D style as the woman in the attached reference: 82-year-old man, thin white hair receding on top, round dark-rimmed glasses, clean-shaven, friendly face, in blue striped pyjamas) sitting on the edge of his bed rubbing his stiff lower back, a little tired, sunrise through the window. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
 ```
 
-**`S9_4.png`**: Bữa trưa giàu đạm: gà nướng, trứng, sữa chua; Carmen ăn vui
+**Ảnh 6** (`6.png`): Bữa trưa giàu đạm: gà nướng, trứng, sữa chua; Carmen ăn vui
 ```
 2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A sunny kitchen table: CARMEN (exactly as the woman in the attached reference: 80-year-old woman, fluffy curly white-grey hair, no glasses, round friendly face, simple dot-like eyes, lilac cardigan over a white collared shirt, dark grey trousers, white sneakers) happily eating a protein-rich lunch: grilled chicken, a boiled egg and a bowl of Greek yogurt, a glass of water. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
 ```
 
-**`S9_5.png`**: Carmen ngồi trước đĩa ăn đầy, không muốn ăn, đẩy đĩa ra
+**Ảnh 7** (`7.png`): Carmen ngồi trước đĩa ăn đầy, không muốn ăn, đẩy đĩa ra
 ```
 2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A dining table: CARMEN (exactly as the woman in the attached reference: 80-year-old woman, fluffy curly white-grey hair, no glasses, round friendly face, simple dot-like eyes, lilac cardigan over a white collared shirt, dark grey trousers, white sneakers) sitting in front of a full plate of food, pushing it slightly away with a small sigh, no appetite. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
 ```
 
-**`S9_6.png`**: Antonio đứng lên ngồi xuống ghế (chair squat) có tay vịn, trong phòng khách
+**Ảnh 8** (`8.png`): Antonio đứng lên ngồi xuống ghế (chair squat) có tay vịn, trong phòng khách
 ```
 2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A bright living room: ANTONIO (same simple 2D style as the woman in the attached reference: 82-year-old man, thin white hair receding on top, round dark-rimmed glasses, clean-shaven, friendly face, blue sweater over a light collared shirt, dark trousers), comfortable trousers and sneakers) doing a safe chair squat, rising from a sturdy armchair with arms crossed over his chest, a stable table nearby, focused calm face. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
 ```
 
-**`S9_7.png`**: Antonio tập tạ tay nhẹ khi ngồi, Carmen đứng cạnh cổ vũ
+**Ảnh 9** (`9.png`): Antonio tập tạ tay nhẹ khi ngồi, Carmen đứng cạnh cổ vũ
 ```
 2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A living room: ANTONIO (same simple 2D style as the woman in the attached reference: 82-year-old man, thin white hair receding on top, round dark-rimmed glasses, clean-shaven, friendly face, blue sweater over a light collared shirt, dark trousers), sitting on a sturdy chair) lifting a light dumbbell in a bicep curl, CARMEN (exactly as the woman in the attached reference: 80-year-old woman, fluffy curly white-grey hair, no glasses, round friendly face, simple dot-like eyes, lilac cardigan over a white collared shirt, dark grey trousers, white sneakers)) standing beside him cheering with a smile. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
 ```
 
-**`S9_8.png`**: Carmen pha ly sữa lắc protein trong bếp
+**Ảnh 10** (`10.png`): Carmen pha ly sữa lắc protein trong bếp
 ```
 2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A kitchen: CARMEN (exactly as the woman in the attached reference: 80-year-old woman, fluffy curly white-grey hair, no glasses, round friendly face, simple dot-like eyes, lilac cardigan over a white collared shirt, dark grey trousers, white sneakers) pouring milk into a shaker with a scoop of plain protein powder, a banana on the counter, cheerful. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
 ```

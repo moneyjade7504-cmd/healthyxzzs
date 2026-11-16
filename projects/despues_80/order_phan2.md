@@ -2,59 +2,59 @@
 
 Style **2D Hand-Drawn Whiteboard Cartoon Illustration** theo ảnh master mới của bạn (`projects/despues_80/master/style_ref.webp` = 7 tư thế bà tóc xoăn trắng, áo len tím, sơ mi trắng). **Mỗi lần tạo, đính kèm ảnh master này.**
 Carmen 80 tuổi tóc xoăn trắng bồng, không kính; Antonio 82 tuổi cùng style, tóc trắng thưa, kính tròn, không râu.
-Ảnh **tràn khung (full-bleed), không viền**, không chữ, không số. Tên file đúng như dưới → gửi theo từng phần, mỗi tin ~5 ảnh.
+Ảnh **tràn khung (full-bleed), không viền**, không chữ, không số. **Đặt tên ảnh theo số: `1.png`, `2.png`, … `40.png`** (đúng số ghi trước mỗi prompt) → gửi theo từng phần, mỗi tin ~5 ảnh.
 
 Chia **4 phần** theo giọng đọc (30:08): Phần 1 = Intro + Punto 1 (0:00–7:08) · Phần 2 = Punto 2 + 3 (7:08–16:11) · Phần 3 = Punto 4 (16:11–22:36) · Phần 4 = Punto 5 + Kết (22:36–30:08).
 Mỗi phần 10 ảnh (1 tấm tư thế + 1 tấm đồ vật + 8 cảnh). 7 tư thế trong ảnh master đã được cắt rời để dùng luôn (suy nghĩ, giơ ngón tay, ăn đạm, nâng chân trên ghế, sữa + đồ ăn giàu đạm, ngủ, đi bộ).
 
 # PHẦN 2 · Punto 2 (sueño y cerebro) + Punto 3 (huesos)
 
-**`P10.png`**: 6 tư thế: Carmen ngáp buồn ngủ; Antonio ngủ say; Carmen trở mình mất ngủ nhìn đồng hồ; Antonio đi bộ nhanh; Carmen uống sữa chua kefir; Antonio ngồi cầm điện thoại bị bà nhắc tắt màn hình.
+**Ảnh 11** (`11.png`): 6 tư thế: Carmen ngáp buồn ngủ; Antonio ngủ say; Carmen trở mình mất ngủ nhìn đồng hồ; Antonio đi bộ nhanh; Carmen uống sữa chua kefir; Antonio ngồi cầm điện thoại bị bà nhắc tắt màn hình.
 ```
 2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, plain pure white background. Characters: CARMEN (exactly as the woman in the attached reference: 80-year-old woman, fluffy curly white-grey hair, no glasses, round friendly face, simple dot-like eyes, lilac cardigan over a white collared shirt, dark grey trousers, white sneakers) and ANTONIO (same simple 2D style as the woman in the attached reference: 82-year-old man, thin white hair receding on top, round dark-rimmed glasses, clean-shaven, friendly face, blue sweater over a light collared shirt, dark trousers). Pose sheet: SIX separate full-body poses, same scale, two rows of three, widely spaced, nothing touching, no floor, no background: 1) Carmen in lilac pyjamas yawning, sleepy; 2) Antonio in blue striped pyjamas sleeping peacefully lying on his side on a pillow; 3) Carmen in pyjamas sitting up in bed awake at night looking at a clock, tired; 4) Antonio walking briskly with a cane-free confident stride in sneakers; 5) Carmen drinking a small glass of kefir, smiling; 6) Antonio sitting and putting his phone face down, nodding. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, 16:9, high resolution.
 ```
 
-**`K.png`**: 10 đồ vật: não hồng; não với dòng nước xanh rửa sạch; mảng bám (đốm vàng) quanh tế bào thần kinh; mặt trăng + sao; khối xương cắt ngang thấy mạng lưới bè xương; tòa nhà có khung dầm; viên nang vitamin D (mặt trời nhỏ); hũ sữa chua + chai kefir; ruột cách điệu; giày đi bộ.
+**Ảnh 12** (`12.png`): 10 đồ vật: não hồng; não với dòng nước xanh rửa sạch; mảng bám (đốm vàng) quanh tế bào thần kinh; mặt trăng + sao; khối xương cắt ngang thấy mạng lưới bè xương; tòa nhà có khung dầm; viên nang vitamin D (mặt trời nhỏ); hũ sữa chua + chai kefir; ruột cách điệu; giày đi bộ.
 ```
 2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, plain pure white background. Object sheet: TEN items drawn SEPARATELY, same scale, evenly spaced in two rows of five, nothing touching: 1) a pink human brain; 2) a brain with gentle blue water streams washing through it; 3) a few neurons with small yellow sticky plaques between them; 4) a crescent moon with stars; 5) a cross-section of bone showing a lattice of tiny struts (trabeculae); 6) a simple building under construction showing its steel beam frame; 7) a small sun with a vitamin capsule; 8) a jar of yogurt and a bottle of kefir, no labels; 9) a friendly stylized intestine; 10) a pair of walking shoes. No text, no labels, no letters, no numbers, no logos, 16:9, high resolution.
 ```
 
-**`S10_1.png`**: Phòng ngủ ban đêm: hai ông bà ngủ say, ánh trăng
+**Ảnh 13** (`13.png`): Phòng ngủ ban đêm: hai ông bà ngủ say, ánh trăng
 ```
 2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A calm night bedroom with moonlight: ANTONIO (same simple 2D style as the woman in the attached reference: 82-year-old man, thin white hair receding on top, round dark-rimmed glasses, clean-shaven, friendly face, blue striped pyjamas) and CARMEN (exactly as the woman in the attached reference: 80-year-old woman, fluffy curly white-grey hair, no glasses, round friendly face, simple dot-like eyes, lilac cardigan over a white collared shirt, lilac pyjamas) sleeping peacefully in bed, dark cosy room. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
 ```
 
-**`S10_2.png`**: Carmen nằm thao thức nhìn trần nhà, đồng hồ 3 giờ sáng
+**Ảnh 14** (`14.png`): Carmen nằm thao thức nhìn trần nhà, đồng hồ 3 giờ sáng
 ```
 2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A dark bedroom at night: CARMEN (exactly as the woman in the attached reference: 80-year-old woman, fluffy curly white-grey hair, no glasses, round friendly face, simple dot-like eyes, lilac cardigan over a white collared shirt, lilac pyjamas) lying awake in bed staring at the ceiling, a bedside clock with hands at three o'clock, tick marks only, no numbers. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
 ```
 
-**`S10_3.png`**: Bác sĩ nói chuyện với Carmen về giấc ngủ
+**Ảnh 15** (`15.png`): Bác sĩ nói chuyện với Carmen về giấc ngủ
 ```
 2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A bright doctor's office: a friendly female doctor explaining something with a simple sleep diagram poster without text to CARMEN (exactly as the woman in the attached reference: 80-year-old woman, fluffy curly white-grey hair, no glasses, round friendly face, simple dot-like eyes, lilac cardigan over a white collared shirt, dark grey trousers, white sneakers), who listens attentively. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
 ```
 
-**`S10_4.png`**: Phòng ngủ chuẩn bị ngủ: tối, mát, Antonio tắt điện thoại đặt xa
+**Ảnh 16** (`16.png`): Phòng ngủ chuẩn bị ngủ: tối, mát, Antonio tắt điện thoại đặt xa
 ```
 2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. An evening bedroom with dim warm lamp: ANTONIO (same simple 2D style as the woman in the attached reference: 82-year-old man, thin white hair receding on top, round dark-rimmed glasses, clean-shaven, friendly face, blue striped pyjamas) placing his phone on a dresser far from the bed before sleeping, curtains closed, calm. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
 ```
 
-**`S10_5.png`**: Hai ông bà đi bộ buổi chiều trong công viên
+**Ảnh 17** (`17.png`): Hai ông bà đi bộ buổi chiều trong công viên
 ```
 2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. An afternoon park: CARMEN (exactly as the woman in the attached reference: 80-year-old woman, fluffy curly white-grey hair, no glasses, round friendly face, simple dot-like eyes, lilac cardigan over a white collared shirt, dark grey trousers, white sneakers) and ANTONIO (same simple 2D style as the woman in the attached reference: 82-year-old man, thin white hair receding on top, round dark-rimmed glasses, clean-shaven, friendly face, blue sweater over a light collared shirt, dark trousers) walking together at a brisk pace, smiling, trees and benches. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
 ```
 
-**`S10_6.png`**: Carmen ăn sữa chua với hoa quả cạnh cửa sổ nắng
+**Ảnh 18** (`18.png`): Carmen ăn sữa chua với hoa quả cạnh cửa sổ nắng
 ```
 2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A sunny kitchen: CARMEN (exactly as the woman in the attached reference: 80-year-old woman, fluffy curly white-grey hair, no glasses, round friendly face, simple dot-like eyes, lilac cardigan over a white collared shirt, dark grey trousers, white sneakers) eating a bowl of yogurt with fruit, a glass of kefir and a small vitamin bottle without label on the table, a sunny window. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
 ```
 
-**`S10_7.png`**: Antonio đứng ngoài nắng sáng tưới cây (vitamin D)
+**Ảnh 19** (`19.png`): Antonio đứng ngoài nắng sáng tưới cây (vitamin D)
 ```
 2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A small garden in the morning sun: ANTONIO (same simple 2D style as the woman in the attached reference: 82-year-old man, thin white hair receding on top, round dark-rimmed glasses, clean-shaven, friendly face, light blue shirt, straw hat) watering flowers with a watering can, enjoying the sunshine. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
 ```
 
-**`S10_8.png`**: Bác sĩ cho Carmen xem phim chụp mật độ xương
+**Ảnh 20** (`20.png`): Bác sĩ cho Carmen xem phim chụp mật độ xương
 ```
 2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A clinic: a friendly doctor showing CARMEN (exactly as the woman in the attached reference: 80-year-old woman, fluffy curly white-grey hair, no glasses, round friendly face, simple dot-like eyes, lilac cardigan over a white collared shirt, dark grey trousers, white sneakers) a bone density scan image of a hip on a screen (no text, no numbers), Carmen listening attentively. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
 ```
