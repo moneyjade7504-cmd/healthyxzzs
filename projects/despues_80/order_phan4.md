@@ -1,0 +1,60 @@
+# Ảnh cần tạo: "5 cosas que le pasan al cuerpo después de los 80" (Claves de la Longevidad)
+
+Style **Hand-Drawn Whiteboard Cartoon Illustration** (bút chì màu) như video trước. **Mỗi lần tạo, đính kèm ảnh master**
+(`projects/despues_80/master/style_ref.webp` = ảnh 7 cảnh ông bà bạn đã dùng). Carmen 80 tuổi tóc xoăn bạc, không kính; Antonio 82 tuổi kính tròn đậm, không râu.
+Ảnh **tràn khung (full-bleed), không viền**, không chữ, không số. Tên file đúng như dưới → gửi theo từng phần, mỗi tin ~5 ảnh.
+
+Chia **4 phần** theo giọng đọc (30:08): Phần 1 = Intro + Punto 1 (0:00–7:08) · Phần 2 = Punto 2 + 3 (7:08–16:11) · Phần 3 = Punto 4 (16:11–22:36) · Phần 4 = Punto 5 + Kết (22:36–30:08).
+Mỗi phần 10 ảnh (1 tấm tư thế + 1 tấm đồ vật + 8 cảnh). Dùng lại nhiều hình của video trước (giường, bếp, bác sĩ, ly nước…).
+
+# PHẦN 4 · Punto 5 (inflamaging) + Kết
+
+**`P12.png`**: 6 tư thế: Carmen có vết xước nhỏ trên tay được dán băng; Antonio xoa bụng (mỡ bụng); Carmen nấu ăn với dầu ô liu; Antonio ăn cá mòi; Carmen đi bộ sải bước; hai ông bà nắm tay vẫy chào tạm biệt.
+```
+Hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: loose sketchy dark grey pencil-and-ink outlines, soft colored-pencil hatching fills, gentle pastel colors, small hand-drawn yellow emphasis lines, plain pure white background. Characters: CARMEN (exactly as the woman in the attached reference: 80-year-old woman, short curly grey hair, no glasses, round kind face, rosy cheeks, small gold earrings, lilac knitted cardigan over a light pink top, light grey trousers) and ANTONIO (exactly as the man in the attached reference: 82-year-old man, thin grey hair receding on top, round dark-rimmed glasses, clean-shaven, slim build, blue sweater over a light collared shirt, dark trousers). Pose sheet: SIX separate full-body poses, same scale, two rows of three, widely spaced, nothing touching, no floor, no background: 1) Carmen looking at a small adhesive bandage on her finger, calm; 2) Antonio patting his round belly, thoughtful; 3) Carmen cooking, drizzling olive oil into a pan, smiling; 4) Antonio eating grilled sardines with a fork, happy; 5) Carmen walking with a long confident stride in sneakers; 6) Carmen and Antonio holding hands and waving goodbye together. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, 16:9, high resolution.
+```
+
+**`M.png`**: 10 đồ vật: ngọn lửa nhỏ âm ỉ; công tắc bật/tắt; tế bào miễn dịch hoạt hình; vết xước có băng dán; cá hồi + cá mòi + cá thu; viên nang omega-3 (không chữ); chai dầu ô liu; bát đậu gà và rau; hạt óc chó, hạnh nhân; đĩa thức ăn chế biến sẵn (xúc xích, bánh ngọt) bị gạch.
+```
+Hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: loose sketchy dark grey pencil-and-ink outlines, soft colored-pencil hatching fills, gentle pastel colors, small hand-drawn yellow emphasis lines, plain pure white background. Object sheet: TEN items drawn SEPARATELY, same scale, evenly spaced in two rows of five, nothing touching: 1) a small smouldering ember flame; 2) a simple light switch; 3) a friendly cartoon immune cell; 4) a small cut on skin with an adhesive bandage; 5) a salmon fillet, sardines and a mackerel; 6) golden fish-oil capsules without label; 7) a bottle of olive oil without label; 8) a bowl of chickpeas with vegetables; 9) a handful of walnuts and almonds; 10) a plate of processed food (sausages, pastries) with a small red cross mark. No text, no labels, no letters, no numbers, no logos, 16:9, high resolution.
+```
+
+**`S12_1.png`**: Ngọn lửa âm ỉ trong lò sưởi, Antonio ngồi cạnh trầm ngâm (ẩn dụ viêm âm thầm)
+```
+Hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: loose sketchy dark grey pencil-and-ink outlines, soft colored-pencil hatching fills, gentle pastel colors, small hand-drawn yellow emphasis lines, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A dim cosy living room: ANTONIO (exactly as the man in the attached reference: 82-year-old man, thin grey hair receding on top, round dark-rimmed glasses, clean-shaven, slim build, blue sweater over a light collared shirt, dark trousers), in a cardigan) sitting thoughtfully beside a fireplace where a small fire smoulders quietly, soft glow. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
+```
+
+**`S12_2.png`**: Carmen đi chợ chọn cá và rau tươi
+```
+Hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: loose sketchy dark grey pencil-and-ink outlines, soft colored-pencil hatching fills, gentle pastel colors, small hand-drawn yellow emphasis lines, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A bright market stall: CARMEN (exactly as the woman in the attached reference: 80-year-old woman, short curly grey hair, no glasses, round kind face, rosy cheeks, small gold earrings, lilac knitted cardigan over a light pink top, light grey trousers), with a shopping basket) choosing fresh fish and vegetables, smiling at the seller. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
+```
+
+**`S12_3.png`**: Carmen nấu bữa Địa Trung Hải trong bếp, Antonio phụ
+```
+Hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: loose sketchy dark grey pencil-and-ink outlines, soft colored-pencil hatching fills, gentle pastel colors, small hand-drawn yellow emphasis lines, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A sunny kitchen: CARMEN (exactly as the woman in the attached reference: 80-year-old woman, short curly grey hair, no glasses, round kind face, rosy cheeks, small gold earrings, lilac knitted cardigan over a light pink top, light grey trousers) cooking vegetables with olive oil in a pan while ANTONIO (exactly as the man in the attached reference: 82-year-old man, thin grey hair receding on top, round dark-rimmed glasses, clean-shaven, slim build, blue sweater over a light collared shirt, dark trousers) chops tomatoes beside her, both cheerful. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
+```
+
+**`S12_4.png`**: Bữa tối cá hồi nướng, hai ông bà ăn cùng nhau
+```
+Hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: loose sketchy dark grey pencil-and-ink outlines, soft colored-pencil hatching fills, gentle pastel colors, small hand-drawn yellow emphasis lines, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A warm dining table in the evening: CARMEN (exactly as the woman in the attached reference: 80-year-old woman, short curly grey hair, no glasses, round kind face, rosy cheeks, small gold earrings, lilac knitted cardigan over a light pink top, light grey trousers) and ANTONIO (exactly as the man in the attached reference: 82-year-old man, thin grey hair receding on top, round dark-rimmed glasses, clean-shaven, slim build, blue sweater over a light collared shirt, dark trousers) eating grilled salmon with vegetables, smiling at each other. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
+```
+
+**`S12_5.png`**: Antonio đi bộ ngoài công viên, mặt trời, chim
+```
+Hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: loose sketchy dark grey pencil-and-ink outlines, soft colored-pencil hatching fills, gentle pastel colors, small hand-drawn yellow emphasis lines, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A sunny park path: ANTONIO (exactly as the man in the attached reference: 82-year-old man, thin grey hair receding on top, round dark-rimmed glasses, clean-shaven, slim build, blue sweater over a light collared shirt, dark trousers), light jacket, sneakers) walking briskly, birds in the trees, smiling. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
+```
+
+**`S12_6.png`**: Lớp tập ghế cho người cao tuổi: ngồi-đứng, giãn tay
+```
+Hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: loose sketchy dark grey pencil-and-ink outlines, soft colored-pencil hatching fills, gentle pastel colors, small hand-drawn yellow emphasis lines, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A community room: a small group of older adults including CARMEN (exactly as the woman in the attached reference: 80-year-old woman, short curly grey hair, no glasses, round kind face, rosy cheeks, small gold earrings, lilac knitted cardigan over a light pink top, light grey trousers) and ANTONIO (exactly as the man in the attached reference: 82-year-old man, thin grey hair receding on top, round dark-rimmed glasses, clean-shaven, slim build, blue sweater over a light collared shirt, dark trousers) doing chair exercises together: standing up from chairs and stretching arms, a friendly instructor. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
+```
+
+**`S12_7.png`**: Ông bà cười nói cùng bạn bè trong vườn (kết nối xã hội)
+```
+Hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: loose sketchy dark grey pencil-and-ink outlines, soft colored-pencil hatching fills, gentle pastel colors, small hand-drawn yellow emphasis lines, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A garden afternoon: CARMEN (exactly as the woman in the attached reference: 80-year-old woman, short curly grey hair, no glasses, round kind face, rosy cheeks, small gold earrings, lilac knitted cardigan over a light pink top, light grey trousers) and ANTONIO (exactly as the man in the attached reference: 82-year-old man, thin grey hair receding on top, round dark-rimmed glasses, clean-shaven, slim build, blue sweater over a light collared shirt, dark trousers) laughing and talking with two older friends around a garden table with tea and biscuits. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
+```
+
+**`S12_8.png`**: Hoàng hôn: hai ông bà ngồi ghế đá nhìn xa, bình yên
+```
+Hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: loose sketchy dark grey pencil-and-ink outlines, soft colored-pencil hatching fills, gentle pastel colors, small hand-drawn yellow emphasis lines, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A peaceful sunset park bench: CARMEN (exactly as the woman in the attached reference: 80-year-old woman, short curly grey hair, no glasses, round kind face, rosy cheeks, small gold earrings, lilac knitted cardigan over a light pink top, light grey trousers) and ANTONIO (exactly as the man in the attached reference: 82-year-old man, thin grey hair receding on top, round dark-rimmed glasses, clean-shaven, slim build, blue sweater over a light collared shirt, dark trousers) sitting side by side, her head on his shoulder, looking at the golden sky, serene. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
+```
