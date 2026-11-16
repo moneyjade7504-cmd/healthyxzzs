@@ -1,0 +1,42 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=0; window.END=C('punto1'); window.DURATION=window.END;
+
+// cold open: Carmen with the photo album
+FB(0,C('digame'),'S9_1','Alguien de <span class="hl">80 años</span>…',{enter:'none',capT:0.3,from:[.55,.4,1.12],to:[.5,.45,1.0],draw:(c,t)=>steam(c,t,{x:380,y:760,w:40,n:3,r:12,rise:90})});
+{const B=beats[beats.length-1]; Cap(B,'¿un padre? ¿un vecino? ¿usted?',{cx:960,cy:90,size:52,t0:C('padre'),pill:true});}
+// aged faster in 2-3 years?
+{const B=Beat(C('digame'),C('imaginando'),{enter:'zoom'}); Cut(B,'stiff_back',{cx:520,cy:1010,h:800,amp:3});
+ const s=Svg(B); Draw(B,s,'M900 750 C1100 740 1250 700 1350 600 C1420 520 1440 380 1460 260',{t0:C('rapido'),dur:1.2,stroke:'#e23b2e',w:10});
+ Draw(B,s,'M900 750 H1500 M900 750 V230',{t0:B.a+0.3,dur:0.5,stroke:'#3a3c52',w:6});
+ Cap(B,'¿Envejeció <span class="hl">más rápido</span>',{cx:1250,cy:150,size:64,t0:C('rapido')});
+ Cap(B,'en 2–3 años que en una década?',{cx:1250,cy:880,size:52,t0:C('rapido')+2,color:'#6a6f86'});}
+{const B=Side(C('imaginando'),C('salas'),'think',[['No lo está <span class="hl">imaginando</span>',null,76],['¿Por qué ocurre?',C('explicarle'),66,'#2f6fd6'],['¿Qué puede hacer?',C('frenarlo'),66,'#1f9d55']]);}
+{const B=Beat(C('salas'),C('precipicio'),{enter:'zoom'}); Cut(B,'ear_q',{cx:600,cy:860,h:460,amp:4});
+ Cap(B,'Información que <span class="hl">se comenta poco</span>',{cx:1350,cy:420,size:64,t0:B.a+0.3});
+ Cap(B,'en consultas y en la mesa familiar',{cx:1350,cy:560,size:52,t0:B.a+3,color:'#6a6f86'});}
+// the cliff
+FB(C('precipicio'),C('caminando'),'S9_2','Un <span class="hl">precipicio biológico</span> hacia los 80',{capT:0.4,from:[.3,.5,1.08],to:[.55,.5,1.0],draw:(c,t)=>{rays(c,t,{x:1530,y:120,r0:55,r1:85,lw:4});}});
+// walking, managing, stiffer mornings
+FB(C('caminando'),C('silencio'),'S9_3','Más despacio… <span class="hl">más rígido</span> por las mañanas',{capT:C('rigido')-C('caminando'),from:[.5,.5,1.0],to:[.4,.45,1.14],draw:(c,t)=>{sunrise(c,t,1560,230); if(t>C('rigido'))sparks(c,t,{x:440,y:400,s:1.6});}});
+// body changes the rules
+{const B=Beat(C('silencio'),C('canal'),{enter:'zoom'});
+ Cap(B,'En silencio, su cuerpo…',{cx:960,cy:320,size:72,t0:B.a+0.3,color:'#6a6f86'});
+ const st=mk('div','pill',B.L,'CAMBIA LAS REGLAS'); Object.assign(st.style,{left:'960px',top:'500px',fontSize:'96px',color:'#e23b2e',borderColor:'#e23b2e',borderWidth:'8px'}); Pop(B,st,{t0:B.a+3,rot:-5});
+ Cap(B,'no solo el ritmo: <span class="hl">las reglas mismas</span>',{cx:960,cy:690,size:62,t0:C('reglas')});
+ Cap(B,'una batalla que no sabía que empezó',{cx:960,cy:830,size:54,t0:C('batalla'),color:'#6a6f86'});}
+// 5 things
+{const B=Beat(C('canal'),C('severo'),{enter:'zoom'});
+ Cap(B,'<span class="hl">5 cambios</span> después de los 80',{cx:960,cy:150,size:84,t0:C('cinco')});
+ const ic=['muscle','m_sleep','scale','m_walk','m_think'];
+ ['Proteína','Sueño','Huesos','Equilibrio','Inflamación'].forEach((w,i)=>{const x=260+i*350, t0=C('cinco')+1+i*0.6; Num(B,i+1,{cx:x,cy:340,r:52,t0}); Cut(B,ic[i],{cx:x,cy:720,h:280,t0:t0+0.1,amp:3,phase:i}); Cap(B,w,{cx:x,cy:790,size:52,t0:t0+0.1});});}
+{const B=Beat(C('severo'),C('quedese'),{enter:'zoom'}); Cut(B,'m_point',{cx:520,cy:1000,h:720,amp:4});
+ Cap(B,'¿Qué tan severos?',{cx:1350,cy:330,size:72,t0:B.a+0.2}); Cap(B,'¿Cuánto afectan su vida?',{cx:1350,cy:460,size:62,t0:B.a+2.4,color:'#6a6f86'});
+ Cap(B,'Eso sigue <span class="hl">en sus manos</span>',{cx:1350,cy:640,size:80,t0:C('manos')});}
+{const B=Side(C('quedese'),C('nombre'),'m_point',[['Quédese conmigo:',null,70],['información <span class="hl">práctica</span> en cada punto',C('quedese')+2,58]]);}
+{const B=Beat(C('nombre'),C('punto1')); Cut(B,'wave',{cx:470,cy:1010,h:760,amp:5,period:1.6});
+ Cap(B,'💬 Escriba en los comentarios:',{cx:1300,cy:330,size:62,t0:B.a+0.3});
+ Cap(B,'su <span class="hl">nombre</span> y su <span class="hl">edad</span>',{cx:1300,cy:470,size:76,t0:B.a+1});
+ Cap(B,'y desde dónde nos ve 🌍',{cx:1300,cy:610,size:62,t0:C('donde'),color:'#2f6fd6'});}
+</script></body></html>

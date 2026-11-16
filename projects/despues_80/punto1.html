@@ -1,0 +1,63 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('punto1'); window.END=C('punto2'); window.DURATION=window.END;
+
+PTitle(C('punto1'),C('sorprende'),1,'La resistencia <span class="hl">anabólica</span>','la paradoja de la proteína',['chicken','muscle']);
+{const B=Side(C('sorprende'),C('cincuenta'),'m_think',[['Después de los 80…',null,70,'#6a6f86'],['el cuerpo <span class="hl">deja de responder</span>',C('sorprende')+5,64],['a la proteína como antes',C('sorprende')+6.5,64]]);}
+// at 50: food → muscle
+{const B=Beat(C('cincuenta'),C('cambia'));
+ Cap(B,'A los 50 años',{cx:960,cy:110,size:70,t0:B.a+0.2,color:'#2f6fd6'});
+ [['chicken',C('pollo')],['eggs',C('pollo')+1.5],['yogurt',C('pollo')+3]].forEach(([n,t0],i)=>Cut(B,n,{cx:280+i*290,cy:640,h:240,t0,amp:3,phase:i}));
+ const s=Svg(B); Draw(B,s,arrow(1050,520,1320,520,0),{t0:C('aminoacidos')-1,dur:0.5,stroke:'#22a35a',w:12});
+ Cut(B,'muscle',{cx:1580,cy:700,h:380,t0:C('aminoacidos')-0.5,amp:4});
+ Cap(B,'señal <span class="hl">fuerte y clara</span>',{cx:1180,cy:420,size:52,t0:C('aminoacidos')-1});
+ Cap(B,'repara y construye músculo',{cx:960,cy:900,size:58,t0:C('aminoacidos')+1});}
+// after 80: hard of hearing
+{const B=Beat(C('cambia'),C('academico'),{enter:'zoom'});
+ Cap(B,'Después de los 80: <span class="hl">resistencia anabólica</span>',{cx:960,cy:110,size:64,t0:C('llaman')});
+ Cut(B,'muscle',{cx:560,cy:740,h:400,amp:3}); Cut(B,'ear_q',{cx:900,cy:560,h:300,t0:C('duros'),amp:5});
+ Cap(B,'músculos <span class="hl">“duros de oído”</span>',{cx:1400,cy:380,size:62,t0:C('duros')});
+ const s=Svg(B); [['Señal más tenue',C('tenue')],['Menos respuesta',C('tenue')+2.3],['Reparación menos eficiente',C('tenue')+4.6]].forEach(([w,t0],i)=>{const y=540+i*110; Draw(B,s,'M1100 '+y+' l40 0',{t0,dur:0.2,stroke:'#e23b2e',w:9}); Cap(B,w,{cx:1420,cy:y,size:52,t0});});}
+// same protein at 80 = deficit
+{const B=Beat(C('academico'),C('capa'));
+ Card(B,{cx:560,cy:540,w:640,h:600,t0:B.a+0.3,border:'#22a35a'}); Card(B,{cx:1360,cy:540,w:640,h:600,t0:C('sesenta')+2,border:'#e23b2e'});
+ Cap(B,'60 años',{cx:560,cy:300,size:66,t0:B.a+0.4,color:'#1f9d55'}); Cap(B,'80 años',{cx:1360,cy:300,size:66,t0:C('sesenta')+2,color:'#e23b2e'});
+ Cut(B,'chicken',{cx:560,cy:560,h:200,t0:B.a+0.5,amp:3}); Cut(B,'chicken',{cx:1360,cy:560,h:200,t0:C('sesenta')+2.2,amp:3,phase:1});
+ Cap(B,'misma comida',{cx:960,cy:170,size:56,t0:C('sesenta')+3});
+ Cap(B,'músculo ✓',{cx:560,cy:740,size:58,t0:B.a+1,color:'#1f9d55'}); Cap(B,'<span class="red">menos efecto</span>',{cx:1360,cy:740,size:58,t0:C('comida')});
+ Cap(B,'→ pérdida muscular más rápida',{cx:960,cy:960,size:58,t0:C('perdida')});}
+// appetite
+FB(C('capa'),C('ecuacion'),'S9_5','Menos <span class="hl">apetito</span>',{capT:C('apetito')-C('capa'),from:[.5,.5,1.0],to:[.55,.6,1.14]});
+{const B=beats[beats.length-1]; Cap(B,'porciones más pequeñas · comer por obligación',{cx:960,cy:90,size:48,t0:C('atractiva'),pill:true});}
+// dangerous equation
+{const B=Beat(C('ecuacion'),C('quehacer'),{enter:'zoom'}); Cut(B,'scale',{cx:960,cy:760,h:460,amp:2,tilt:4});
+ Cap(B,'Necesita <span class="hl">más proteína</span>',{cx:500,cy:300,size:62,t0:B.a+0.5}); Cap(B,'…pero <span class="red">come menos</span>',{cx:1420,cy:300,size:62,t0:B.a+4.5});
+ Cap(B,'Una ecuación delicada',{cx:960,cy:960,size:60,t0:C('peligrosa'),color:'#e23b2e'});}
+// target protein
+{const B=Beat(C('quehacer'),C('distribuir'),{enter:'zoom'});
+ Cap(B,'1 · La meta de proteína',{cx:960,cy:110,size:66,t0:C('meta'),color:'#2f6fd6'});
+ Card(B,{cx:520,cy:520,w:620,h:520,t0:C('espen'),border:'#22a35a'}); Cut(B,'eggs',{cx:520,cy:690,h:200,t0:C('espen'),amp:3});
+ Cap(B,'1 – 1,2 g',{cx:520,cy:360,size:90,t0:C('espen')+0.2,color:'#1f9d55'}); Cap(B,'por kg al día',{cx:520,cy:460,size:48,t0:C('espen')+0.4});
+ Cap(B,'mayores de 65 sanos',{cx:520,cy:740,size:42,t0:C('espen')+1,color:'#6a6f86'});
+ Card(B,{cx:1400,cy:520,w:620,h:520,t0:C('uno5'),border:'#f7ad36'}); Cap(B,'1,2 – 1,5 g',{cx:1400,cy:360,size:84,t0:C('uno5')+0.2,color:'#b97a00'});
+ Cap(B,'con enfermedad aguda o crónica',{cx:1400,cy:470,size:42,t0:C('uno5')+0.4}); Cap(B,'⚠ ¿Riñón? Consulte antes',{cx:1400,cy:640,size:46,t0:C('uno5')+2,color:'#e23b2e'});
+ Cap(B,'(recomendación general: 0,8 g)',{cx:520,cy:820,size:40,t0:C('ochenta_g'),color:'#6a6f86'});
+ Src(B,'Fuente: ESPEN · grupo de expertos PROT-AGE');}
+// per meal
+FB(C('distribuir'),C('tipo'),'S9_4','<span class="hl">25–30 g</span> de proteína por comida principal',{capT:3.5,from:[.5,.5,1.0],to:[.45,.55,1.12]});
+{const B=beats[beats.length-1]; Cap(B,'Repartir en cada comida',{cx:960,cy:90,size:52,t0:C('distribuir'),pill:true});}
+// leucine
+{const B=Beat(C('tipo'),C('suero'));
+ Cap(B,'2 · El tipo importa: <span class="hl">leucina</span>',{cx:960,cy:110,size:64,t0:C('tipo')+1});
+ Row(B,[['eggs','Huevos',C('huevos'),'ok'],['milk','Lácteos',C('huevos')+0.9,'ok'],['salmon','Carnes y pescados',C('huevos')+1.8,'ok'],['whey','Suero de leche',C('huevos')+3,'ok']],{y:580,cardH:500});}
+FB(C('suero'),C('tercero'),'S9_8','¿Cuesta comer proteína? Un batido de suero puede ayudar',{capT:2,size:54,from:[.5,.5,1.0],to:[.5,.45,1.12]});
+{const B=beats[beats.length-1]; Cap(B,'coméntelo con su médico',{cx:960,cy:90,size:48,t0:C('suero')+6,pill:true});}
+// exercise
+FB(C('tercero'),C('listos'),'S9_6','3 · El <span class="hl">ejercicio de fuerza</span>',{capT:1.5,from:[.5,.5,1.0],to:[.5,.5,1.12]});
+FB(C('listos'),C('juntos'),'S9_7','Músculos “listos” aprovechan mejor la proteína',{capT:0.5,size:56,from:[.5,.5,1.0],to:[.45,.45,1.1]});
+{const B=Beat(C('juntos'),C('uno'),{enter:'zoom'}); Cut(B,'m_eat_protein',{cx:560,cy:860,h:440,amp:3}); Cut(B,'dumbbell_sit',{cx:1360,cy:1000,h:640,amp:3,phase:1});
+ Cap(B,'+',{cx:960,cy:620,size:140,t0:B.a+0.8,color:'#2f6fd6'}); Cap(B,'Nutrición + movimiento: <span class="hl">juntos</span>',{cx:960,cy:130,size:70,t0:B.a+0.3});}
+{const B=Beat(C('uno'),C('punto2'),{exit:'fade'}); Cut(B,'wave',{cx:470,cy:1010,h:760,amp:5,period:1.6});
+ Num(B,1,{cx:1300,cy:420,r:120,t0:B.a+0.4}); Cap(B,'Escriba <span class="hl">“1”</span> en los comentarios',{cx:1300,cy:640,size:64,t0:B.a+0.6});}
+</script></body></html>
