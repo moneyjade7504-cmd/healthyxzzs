@@ -1,0 +1,56 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('punto4'); window.END=C('punto5'); window.DURATION=window.END;
+
+PTitle(C('punto4'),C('cuarta'),4,'El colapso del <span class="hl">equilibrio</span>','cuando varios sistemas fallan a la vez',['cane','walker']);
+FB(C('cuarta'),C('solo4'),'S11_1','Varios sistemas <span class="hl">fallan a la vez</span>',{capT:C('simultaneo')-C('cuarta'),from:[.5,.5,1.0],to:[.55,.45,1.14]});
+// 4 channels
+{const B=Beat(C('solo4'),C('degradar'),{enter:'zoom'});
+ Cap(B,'El equilibrio = <span class="hl">4 canales</span>',{cx:960,cy:110,size:68,t0:B.a+0.3});
+ const ch=[['knee','Músculos y articulaciones'],['inner_ear','Oído interno'],['eye','Vista'],['brain_spark','Velocidad del cerebro']];
+ ch.forEach(([n,w],i)=>{const x=280+i*455, t0=C('cuatro')+1.5+i*1.6; Cut(B,n,{cx:x,cy:620,h:300,t0,amp:3,phase:i}); Cap(B,w,{cx:x,cy:700,size:Math.min(50,420/(w.length*0.48)),t0});});
+ const s=Svg(B); Draw(B,s,'M280 820 Q 960 980 1645 820',{t0:C('paso4'),dur:1,stroke:'#2f6fd6',w:6});
+ Cap(B,'trabajan juntos en cada paso',{cx:960,cy:960,size:54,t0:C('paso4')+1});}
+// all degrade together
+{const B=Beat(C('degradar'),C('cerebelo'));
+ Cap(B,'Después de los 80: <span class="red">se debilitan juntos</span>',{cx:960,cy:110,size:62,t0:B.a+0.3});
+ const it=[['inner_ear','Oído: menos preciso','oido'],['knee','Menos sentido de posición','propio'],['eye','Vista: cataratas…','vision'],['brain_spark','Respuestas más lentas','velocidad']];
+ const s=Svg(B);
+ it.forEach(([n,w,k],i)=>{const x=280+i*455; Cut(B,n,{cx:x,cy:600,h:280,t0:B.a+0.3,amp:2,phase:i});
+   B.fx.push(()=>{}); Cap(B,w,{cx:x,cy:690,size:Math.min(46,420/(w.length*0.48)),t0:C(k)});
+   Draw(B,s,'M'+(x-60)+' 790 l120 0',{t0:C(k),dur:0.3,stroke:'#e23b2e',w:10});});}
+// cerebellum resilient
+{const B=Beat(C('cerebelo'),C('tormenta'),{enter:'zoom'}); Cut(B,'brain',{cx:560,cy:860,h:520,amp:3});
+ Cap(B,'El <span class="hl">cerebelo</span> resiste mejor',{cx:1350,cy:300,size:66,t0:B.a+0.3});
+ Cap(B,'funciona bien incluso a los 80+',{cx:1350,cy:430,size:52,t0:C('elife')+4});
+ Cap(B,'el problema: <span class="red">señales más débiles</span>',{cx:1350,cy:580,size:56,t0:C('entradas')});
+ Cap(B,'Mejore las entradas → <span class="hl">ayuda a todo</span>',{cx:1350,cy:730,size:56,t0:C('corrija')});
+ Src(B,'Fuente: de Witte y cols., eLife');}
+FB(C('tormenta'),C('hacemos'),'S11_1','La “tormenta perfecta” para las <span class="red">caídas</span>',{capT:2,from:[.55,.5,1.15],to:[.5,.45,1.0]});
+{const B=beats[beats.length-1]; Cap(B,'Más de <span class="hl">1 de cada 4</span> mayores de 65 se cae cada año',{cx:960,cy:90,size:48,t0:C('uno3'),pill:true}); Src(B,'Fuente: CDC (EE. UU.)');}
+// balance training
+{const B=Beat(C('hacemos'),C('taichi'));
+ Cap(B,'<span class="hl">Entrene el equilibrio</span> cada día',{cx:960,cy:110,size:68,t0:C('entrenamiento')});
+ Row(B,[['one_foot','Un pie, sujeto a una silla',C('ejercicios'),'ok'],['heel_toe','Talón-punta junto a la pared',C('ejercicios')+3,'ok'],['taichi_pair','Taichí o yoga adaptado',C('ejercicios')+6,'ok']],{y:560,h:330});
+ Cap(B,'Se puede mejorar <span class="hl">a cualquier edad</span>',{cx:960,cy:970,size:56,t0:C('cualquier')});}
+FB(C('taichi'),C('meta24'),'S11_3','Taichí: <span class="hl">−55 %</span> caídas múltiples',{capT:C('ensayo')-C('taichi')+8,from:[.5,.5,1.0],to:[.5,.45,1.12],draw:(c,t)=>rays(c,t,{x:1600,y:60,r0:60,r1:95,lw:5})});
+{const B=beats[beats.length-1]; Cap(B,'256 personas de 70 a 92 años · 6 meses',{cx:960,cy:90,size:48,t0:C('ensayo')+2,pill:true}); Src(B,'Fuente: Li y cols. 2005');}
+{const B=Beat(C('meta24'),C('revision'),{enter:'zoom'}); Cut(B,'taichi_pair',{cx:560,cy:1000,h:640,amp:3});
+ Cap(B,'24 ensayos:',{cx:1350,cy:330,size:66,t0:B.a+0.3,color:'#2f6fd6'}); Cap(B,'el taichí <span class="hl">reduce las caídas</span>',{cx:1350,cy:460,size:62,t0:B.a+2});
+ Cap(B,'el ejercicio a priorizar',{cx:1350,cy:620,size:56,t0:C('priorizar')}); Src(B,'Fuente: Chen y cols., Frontiers in Public Health 2023');}
+FB(C('revision'),C('ajuste'),'S11_4','Pida una <span class="hl">revisión de sus medicamentos</span>',{capT:0.5,size:58});
+{const B=beats[beats.length-1]; Cap(B,'presión · dormir · antidepresivos · antihistamínicos · analgésicos',{cx:960,cy:90,size:40,t0:C('presion'),pill:true});}
+{const B=Beat(C('ajuste'),C('orgullo'),{enter:'zoom'}); Cut(B,'pills',{cx:600,cy:860,h:460,amp:3});
+ Cap(B,'Un ajuste <span class="hl">hecho por su médico</span>',{cx:1350,cy:380,size:60,t0:B.a+0.3});
+ Cap(B,'puede marcar la diferencia',{cx:1350,cy:500,size:56,t0:B.a+1.5});
+ Cap(B,'⚠ No los suspenda por su cuenta',{cx:1350,cy:660,size:52,t0:B.a+2.5,color:'#e23b2e'});}
+{const B=Beat(C('orgullo'),C('barras'));
+ Cap(B,'Que el orgullo <span class="red">no frene</span> su seguridad',{cx:960,cy:110,size:62,t0:B.a+0.3});
+ Row(B,[['cane_walk','¿Bastón? Úselo',C('baston'),'ok'],['walker_walk','¿Andador? Úselo',C('andador'),'ok']],{y:580,cardW:520});}
+FB(C('barras'),C('historia'),'S11_5','Barras de apoyo en el baño: <span class="hl">hoy</span>',{capT:0.5,size:60});
+{const B=beats[beats.length-1]; Cap(B,'herramientas para seguir independiente',{cx:960,cy:90,size:48,t0:C('debilidad'),pill:true});}
+{const B=Beat(C('historia'),C('punto5'),{exit:'fade'}); Cut(B,'wave',{cx:470,cy:1010,h:760,amp:5,period:1.6});
+ Cap(B,'Que una caída no le quite',{cx:1300,cy:270,size:58,t0:B.a+0.2}); Cap(B,'su <span class="hl">independencia</span>',{cx:1300,cy:370,size:66,t0:B.a+0.8});
+ Num(B,4,{cx:1300,cy:580,r:100,t0:C('cuatro_c')}); Cap(B,'Escriba <span class="hl">“4”</span> en los comentarios',{cx:1300,cy:760,size:58,t0:C('cuatro_c')+0.3});}
+</script></body></html>
