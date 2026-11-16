@@ -1,0 +1,50 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('punto3'); window.END=C('punto4'); window.DURATION=window.END;
+
+PTitle(C('punto3'),C('tercero3'),3,'La <span class="hl">microarquitectura</span> ósea','no se trata solo de la densidad',['bone_lattice','building']);
+{const B=Side(C('tercero3'),C('edificio'),'m_think',[['Los huesos no solo pierden',null,58,'#6a6f86'],['<span class="hl">densidad</span>…',C('tercero3')+5,72],['también <span class="red">estructura</span>',C('tercero3')+9,66]]);}
+{const B=Beat(C('edificio'),C('micro'),{enter:'zoom'}); Cut(B,'building',{cx:600,cy:900,h:600,amp:2});
+ Cap(B,'Imagine un edificio',{cx:1350,cy:260,size:66,t0:B.a+0.2});
+ Cap(B,'cemento y acero = <span class="hl">densidad</span>',{cx:1350,cy:420,size:58,t0:C('concreto')});
+ Cap(B,'cómo están las vigas = <span class="hl">estructura</span>',{cx:1350,cy:560,size:58,t0:C('vigas')});}
+{const B=Beat(C('micro'),C('trabeculas'),{enter:'zoom'}); Cut(B,'bone_lattice',{cx:600,cy:920,h:640,amp:2});
+ Cap(B,'= <span class="hl">microarquitectura</span>',{cx:1350,cy:380,size:72,t0:B.a+0.2});
+ Cap(B,'la densitometría estándar',{cx:1350,cy:540,size:54,t0:C('densitometria')+4,color:'#6a6f86'}); Cap(B,'no siempre la capta',{cx:1350,cy:620,size:54,t0:C('densitometria')+5,color:'#6a6f86'});}
+// trabeculae thinning (code-drawn lattice that breaks)
+{const B=Beat(C('trabeculas'),C('fractura'));
+ Cap(B,'Columna y cadera: red de <span class="hl">trabéculas</span>',{cx:960,cy:110,size:62,t0:B.a+0.3});
+ const s=Svg(B); const segs=[]; const pts=[];
+ for(let i=0;i<7;i++)for(let j=0;j<5;j++)pts.push([560+i*130+(j%2)*60,300+j*130]);
+ pts.forEach((p,i)=>pts.forEach((q,k)=>{if(k>i&&Math.hypot(p[0]-q[0],p[1]-q[1])<150){const l=sv('line',{x1:p[0],y1:p[1],x2:q[0],y2:q[1],stroke:'#c99a1c','stroke-width':12,'stroke-linecap':'round'},s);segs.push(l);}}));
+ B.fx.push(t=>{const thin=prog(t,C('adelgazan'),C('adelgazan')+5), gone=prog(t,C('desaparece')-1,C('desaparece')+2);
+   segs.forEach((l,i)=>{const r=rnd(i+3); l.style.opacity=prog(t,B.a+0.3+r*1.5,B.a+0.6+r*1.5)*(r<0.35?1-gone:1); l.setAttribute('stroke-width',12-7*thin*(0.5+r));});});
+ Cap(B,'soportan la carga',{cx:960,cy:960,size:56,t0:C('carga'),t1:C('adelgazan')-0.3});
+ Cap(B,'se adelgazan y <span class="red">desaparecen</span>',{cx:960,cy:960,size:58,t0:C('adelgazan'),t1:C('desaparece')-0.3});
+ Cap(B,'<span class="red">no se reconstruyen</span>',{cx:960,cy:960,size:62,t0:C('desaparece')});}
+{const B=Beat(C('fractura'),C('intestinal'),{enter:'zoom'});
+ const s=Svg(B); Draw(B,s,'M300 820 H1620 M300 820 V260',{t0:B.a+0.2,dur:0.4,stroke:'#3a3c52',w:6});
+ Draw(B,s,'M300 800 C 800 780, 1100 740, 1300 600 S 1550 320, 1600 260',{t0:B.a+0.8,dur:1.5,stroke:'#e23b2e',w:10});
+ Cap(B,'Riesgo de fractura',{cx:960,cy:170,size:62,t0:B.a+0.2}); Cap(B,'no sube en línea recta: <span class="hl">se acelera</span>',{cx:960,cy:930,size:60,t0:B.a+1.8});}
+// gut
+{const B=Beat(C('intestinal'),C('practica'));
+ Cut(B,'gut',{cx:560,cy:860,h:520,amp:3});
+ Cap(B,'El <span class="hl">intestino</span> también influye',{cx:1350,cy:300,size:64,t0:B.a+0.3});
+ Cap(B,'con la edad absorbe peor el calcio',{cx:1350,cy:450,size:52,t0:C('revestimiento')});
+ Cap(B,'la microbiota se relaciona',{cx:1350,cy:600,size:52,t0:C('jcem')+3,color:'#2f6fd6'}); Cap(B,'con la absorción y la osteoporosis',{cx:1350,cy:680,size:52,t0:C('jcem')+4,color:'#2f6fd6'});
+ Src(B,'Fuente: Journal of Clinical Endocrinology and Metabolism');}
+{const B=Beat(C('practica'),C('mecanica'));
+ Cap(B,'En la práctica:',{cx:960,cy:110,size:66,t0:B.a+0.2});
+ Row(B,[['milk','Calcio',C('calcio'),null],['vitd','Vitamina D',C('vitd'),'ok'],['yogurt_kefir','Yogur, kéfir, fermentados',C('yogur3'),'ok']],{y:570});
+ Cap(B,'Consulte antes de tomar suplementos',{cx:960,cy:970,size:50,t0:C('yogur3')+4,color:'#6a6f86'});}
+FB(C('mecanica'),C('deje'),'S10_7','La <span class="hl">carga de peso</span> mantiene la estructura',{capT:1.5,size:60,from:[.45,.5,1.0],to:[.5,.45,1.12],draw:(c,t)=>water(c,t,{x0:1180,y0:480,x1:1260,y1:760,spread:80,n:16})});
+{const B=Beat(C('deje'),C('caminata'),{enter:'zoom'});
+ Card(B,{cx:560,cy:540,w:640,h:560,t0:B.a+0.2,border:'#e23b2e'}); Cut(B,'stiff_back',{cx:560,cy:760,h:340,t0:B.a+0.3,amp:2});
+ Cap(B,'Sin caminar:',{cx:560,cy:330,size:58,t0:B.a+0.3,color:'#e23b2e'}); Cap(B,'ninguna señal',{cx:560,cy:400,size:46,t0:B.a+0.6});
+ Card(B,{cx:1360,cy:540,w:640,h:560,t0:C('empiece'),border:'#22a35a'}); Cut(B,'walk_man',{cx:1360,cy:800,h:400,t0:C('empiece')+0.1,amp:4});
+ Cap(B,'Caminando:',{cx:1360,cy:330,size:58,t0:C('empiece'),color:'#1f9d55'}); Cap(B,'el hueso se refuerza',{cx:1360,cy:400,size:46,t0:C('empiece')+0.3});}
+FB(C('caminata'),C('si3'),'S10_5','Caminar a diario ayuda… <span class="hl">fuerza y equilibrio</span> aún más',{capT:1,size:54});
+{const B=Beat(C('si3'),C('punto4'),{exit:'fade'}); Cut(B,'thumbs',{cx:470,cy:1010,h:760,amp:5});
+ Cap(B,'¿Le resulta útil?',{cx:1300,cy:360,size:70,t0:B.a+0.2}); Cap(B,'Escriba <span class="hl">“sí”</span> en los comentarios',{cx:1300,cy:520,size:64,t0:B.a+0.5});}
+</script></body></html>

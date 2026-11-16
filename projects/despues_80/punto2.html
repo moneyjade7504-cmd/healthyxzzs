@@ -1,0 +1,56 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('punto2'); window.END=C('punto3'); window.DURATION=window.END;
+const night=(c,t)=>{for(let i=0;i<10;i++){c.globalAlpha=0.5+0.5*Math.sin(t*2+i);c.fillStyle='#fff6c8';c.beginPath();c.arc(1300+((i*97)%330),60+((i*53)%300),2.5,0,7);c.fill();}c.globalAlpha=1;};
+
+PTitle(C('punto2'),C('segunda'),2,'El sistema <span class="hl">glinfático</span>','el turno de noche de su cerebro',['brain','moon']);
+{const B=Side(C('segunda'),C('limpieza'),'m_think',[['Lo segundo:',null,66,'#6a6f86'],['el sistema de <span class="hl">limpieza</span>',C('segunda')+5,72],['de su cerebro',C('segunda')+6,66]]);}
+{const B=Beat(C('limpieza'),C('duerme'),{enter:'zoom'}); Cut(B,'brain',{cx:620,cy:860,h:520,amp:4});
+ Cap(B,'Su cerebro tiene',{cx:1350,cy:360,size:62,t0:B.a+0.2,color:'#6a6f86'}); Cap(B,'un sistema de <span class="hl">limpieza</span>',{cx:1350,cy:480,size:72,t0:B.a+1});
+ Cap(B,'Sistema glinfático',{cx:1300,cy:640,size:62,t0:C('glinfa'),color:'#2f6fd6'});}
+FB(C('duerme'),C('liquido'),'S10_1','Durante el <span class="hl">sueño profundo</span>…',{capT:2,draw:(c,t)=>night(c,t)});
+{const B=Beat(C('liquido'),C('placas'),{enter:'zoom'}); Cut(B,'brain_wash',{cx:600,cy:880,h:560,amp:4});
+ Canvas(B,(c,t)=>water(c,t,{x0:600,y0:300,x1:620,y1:820,spread:300,n:24}));
+ Cap(B,'El líquido cefalorraquídeo',{cx:1380,cy:300,size:58,t0:B.a+0.3}); Cap(B,'<span class="hl">arrastra los desechos</span>',{cx:1380,cy:420,size:66,t0:B.a+2});
+ Cut(B,'plaques',{cx:1380,cy:900,h:340,t0:C('amiloide'),amp:3}); Cap(B,'beta amiloide',{cx:1380,cy:560,size:62,t0:C('amiloide')+2,color:'#e23b2e'});}
+{const B=Beat(C('placas'),C('problema2')); Cut(B,'plaques',{cx:620,cy:860,h:500,amp:3,shake:0.8});
+ Cap(B,'Las placas de beta amiloide',{cx:1350,cy:400,size:60,t0:B.a+0.2}); Cap(B,'son típicas del <span class="hl">Alzheimer</span>',{cx:1350,cy:530,size:66,t0:B.a+2.5});}
+FB(C('problema2'),C('neuron'),'S10_2','Con la edad: <span class="hl">menos sueño profundo</span>',{capT:2.5,draw:(c,t)=>night(c,t)});
+{const B=Beat(C('neuron'),C('etapa'),{enter:'zoom'}); Cut(B,'yawn',{cx:470,cy:1000,h:720,amp:3});
+ const s=Svg(B); Draw(B,s,'M900 820 H1700 M900 820 V300',{t0:B.a+0.3,dur:0.5,stroke:'#3a3c52',w:6});
+ const bars=[['Jóvenes',520,'#58a9e4'],['Mayores',290,'#f7ad36']];
+ bars.forEach(([lab,h,col],i)=>{const r=sv('rect',{x:1050+i*300,y:820,width:180,height:0,fill:col,rx:10},s); B.fx.push(t=>{const p=eo(prog(t,B.a+1+i*0.8,B.a+2+i*0.8)); r.setAttribute('y',820-h*p); r.setAttribute('height',h*p);}); Cap(B,lab,{cx:1140+i*300,cy:880,size:50,t0:B.a+1+i*0.8});});
+ Cap(B,'Sueño profundo de ondas lentas',{cx:1300,cy:200,size:58,t0:B.a+0.4});
+ Cap(B,'sobre todo en la zona frontal',{cx:1300,cy:970,size:46,t0:B.a+10,color:'#6a6f86'});
+ Src(B,'Fuente: Mander, Winer y Walker, Neuron 2017 (revisión)');}
+{const B=Beat(C('etapa'),C('teoria'));
+ Cut(B,'moon',{cx:400,cy:640,h:320,amp:4}); Cut(B,'brain_wash',{cx:960,cy:640,h:320,t0:C('menos'),amp:4}); Cut(B,'plaques',{cx:1520,cy:640,h:320,t0:C('acumulacion'),amp:4});
+ const s=Svg(B); Draw(B,s,arrow(560,500,800,500,0),{t0:C('menos')-0.3,dur:0.3,stroke:'#e23b2e',w:9}); Draw(B,s,arrow(1120,500,1360,500,0),{t0:C('acumulacion')-0.3,dur:0.3,stroke:'#e23b2e',w:9});
+ Cap(B,'Menos sueño profundo',{cx:400,cy:760,size:44,t0:B.a+0.3}); Cap(B,'menos limpieza',{cx:960,cy:760,size:44,t0:C('menos')}); Cap(B,'más acumulación',{cx:1520,cy:760,size:44,t0:C('acumulacion')});}
+{const B=Beat(C('teoria'),C('humanos'),{enter:'zoom'});
+ Card(B,{cx:560,cy:520,w:700,h:560,t0:C('framingham'),border:'#e23b2e'});
+ Cap(B,'+27 %',{cx:560,cy:400,size:130,t0:C('framingham')+1,color:'#e23b2e'}); Cap(B,'riesgo de demencia',{cx:560,cy:540,size:52,t0:C('framingham')+1.5});
+ Cap(B,'por cada punto % de sueño',{cx:560,cy:630,size:36,t0:C('framingham')+3,color:'#6a6f86'}); Cap(B,'profundo perdido al año',{cx:560,cy:680,size:36,t0:C('framingham')+3,color:'#6a6f86'});
+ Card(B,{cx:1360,cy:520,w:700,h:560,t0:C('nature'),border:'#2f6fd6'}); Cut(B,'sleep_man',{cx:1360,cy:560,h:200,t0:C('nature')+0.5,amp:3});
+ Cap(B,'39 personas',{cx:1360,cy:330,size:66,t0:C('nature')+0.5,color:'#2f6fd6'}); Cap(B,'sueño normal = <span class="hl">más limpieza</span>',{cx:1360,cy:680,size:44,t0:C('nature')+8});
+ Src(B,'Fuentes: Himali y cols., JAMA Neurology 2023 · Nature Communications (ensayo cruzado)');}
+{const B=Beat(C('humanos'),C('cuidadoso'),{enter:'zoom'});
+ Cut(B,'awake_night',{cx:560,cy:860,h:440,amp:3}); Cut(B,'plaques',{cx:1360,cy:860,h:380,t0:B.a+1,amp:3});
+ const s=Svg(B); Draw(B,s,'M760 480 C900 360 1100 360 1220 480 M1190 450 L1220 480 L1185 500',{t0:C('ciclo'),dur:0.5,stroke:'#e23b2e',w:8}); Draw(B,s,'M1220 920 C1100 1040 900 1040 760 920 M790 950 L760 920 L795 900',{t0:C('ciclo')+3,dur:0.5,stroke:'#e23b2e',w:8});
+ Cap(B,'Un ciclo que conviene <span class="hl">interrumpir</span>',{cx:960,cy:150,size:66,t0:C('ciclo')+5});}
+{const B=Beat(C('cuidadoso'),C('quehacer2'),{enter:'zoom'});
+ const st=mk('div','pill',B.L,'NO ES UN DIAGNÓSTICO'); Object.assign(st.style,{left:'960px',top:'300px',fontSize:'80px',color:'#e23b2e',borderColor:'#e23b2e',borderWidth:'8px'}); Pop(B,st,{t0:B.a+1,rot:-4});
+ Cap(B,'Dormir mal ≠ tener Alzheimer',{cx:960,cy:470,size:60,t0:B.a+3});
+ Cap(B,'El sueño es <span class="hl">mantenimiento del cerebro</span>',{cx:960,cy:660,size:66,t0:C('mantenimiento')});
+ Cap(B,'tan importante como la tensión arterial',{cx:960,cy:790,size:50,t0:C('mantenimiento')+3,color:'#6a6f86'});}
+FB(C('quehacer2'),C('higiene'),'S10_3','1 · Hable con su médico sobre <span class="hl">la calidad del sueño</span>',{capT:2.5,size:56});
+{const B=beats[beats.length-1]; Cap(B,'¿Ronca? ¿Se despierta cansado? → estudio del sueño',{cx:960,cy:90,size:44,t0:C('estudio2'),pill:true});}
+{const B=Beat(C('higiene'),C('actividad2'));
+ Cap(B,'2 · <span class="hl">Higiene del sueño</span>',{cx:960,cy:110,size:68,t0:B.a+0.2});
+ Row(B,[['moon','Horarios fijos',C('horarios'),'ok'],['m_sleep','Cuarto fresco y oscuro',C('habitacion'),'ok'],['phone_down','Sin pantallas 90 min antes',C('pantallas'),'ok']],{y:580});}
+FB(C('actividad2'),C('conectado'),'S10_5','3 · Actividad de día = <span class="hl">sueño más profundo</span>',{capT:1.5,size:58,from:[.5,.5,1.0],to:[.55,.45,1.12]});
+{const B=Beat(C('conectado'),C('punto3'),{exit:'fade'}); Cut(B,'wave',{cx:470,cy:1010,h:760,amp:5,period:1.6});
+ Cap(B,'Todo está <span class="hl">conectado</span>',{cx:1300,cy:330,size:76,t0:B.a+0.2});
+ Num(B,2,{cx:1300,cy:560,r:110,t0:C('dos')}); Cap(B,'Escriba <span class="hl">“2”</span> en los comentarios',{cx:1300,cy:760,size:60,t0:C('dos')+0.3});}
+</script></body></html>
