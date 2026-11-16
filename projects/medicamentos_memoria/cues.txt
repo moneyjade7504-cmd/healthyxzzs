@@ -1,0 +1,223 @@
+# INTRO
+carmen | Imagina por un momento a Carmen
+edad68 | Tiene 68 años
+abuela | Es abuela de tres nietos
+cumples | recordaba los cumpleaños
+vecino | El nombre del vecino nuevo
+receta | la receta exacta
+cambio | algo cambió
+cocina | Entra a la cocina
+llaves | Busca las llaves
+hija | Su hija le cuenta algo
+noche0 | Una noche sentada sola
+siempre | perder la memoria para siempre
+tu0 | Y quizá tú también
+lengua | la punta de la lengua
+conte | si ya te lo conté
+miedo | Es un miedo silencioso
+edad0 | simplemente la edad
+pocas | algo que muy pocas personas saben
+envejeciendo | no era su cerebro envejeciendo
+mesita | estaba en su mesita de noche
+frasco | un pequeño frasco de pastillas
+cuatro | cuatro tipos de medicamentos
+sinreceta | se venden sin receta
+claridad | la claridad mental
+final0 | quédate hasta el final
+nodebes | que no debes hacer nunca
+corazon | pedirte algo de corazón
+subs | suscríbete al canal
+campanita | activa la campanita
+# CONTEXTO
+ahorasi | Ahora sí empecemos
+procesa | procesa los medicamentos
+higado | El hígado y los riñones
+despacio | trabajan más despacio
+cuarenta | a los 40 años
+setenta | a los 70 puede quedarse
+sensible | más sensible a ciertas sustancias
+defensas | menos defensas
+nunca0 | un medicamento que nunca te dio
+otra | Hay otra razón
+varios | varios medicamentos al mismo tiempo
+presion | uno para la presión
+dormir0 | otro para dormir
+dolor | otro para el dolor
+vejiga0 | otro para la vejiga
+inofensivo | puede parecer inofensivo
+juntos | pero juntos pueden sumar
+cadamedico | porque cada médico
+sociedad | la sociedad americana de geriatría
+beers | los criterios de
+varios2 | varios de los que vamos a ver
+# GRUPO 1
+g1 | El primer grupo es quizás
+antihist | los antiestamínicos de primera generación
+difen | la difenidramina
+seguramente | Seguramente los conoce
+alergia | pastillas para la alergia
+jarabes | en jarabes para el resfriado
+pm | analgésicos
+te | tan suaves como un
+problema1 | El problema es la manera
+anticol | efecto anticolinergico
+acetil | sustancia del cerebro llamada
+mensajeros | uno de los mensajeros
+recuerdo1 | ayuda a que un recuerdo nuevo
+concentrarte | puedas concentrarte
+palabra | la palabra justa
+radio | como una radio con interferencias
+borrosa | la señal llega borrosa
+niebla | sensación de niebla mental
+boca | la boca seca
+investigadores | lo que más preocupa a los investigadores
+estudio | Un estudio publicado en 2015
+tresmil | más de 3
+demencia1 | riesgo mayor de desarrollar demencia
+ocasional | una pastilla ocasional
+diario | el uso diario y durante años
+caja | mira bien la caja
+llevala | llévala a tu próxima consulta
+alternativas | existen alternativas más seguras
+comenta | me encantaría leerte en los comentarios
+sabias | Sabías que estas pastillas
+cuentame | Cuéntame porque tu experiencia
+# GRUPO 2
+g2 | El segundo grupo de medicamentos
+benzo | Son las benzodiazepinas
+alpra | El alprazolam
+ansiedad | para la ansiedad
+insomnio2 | para el insomnio
+semanas | para unas semanas
+anos2 | todas las noches
+calmando | actuando calmando
+frena | frena la capacidad
+horas2 | unas horas antes
+mas2 | el efecto dura más tiempo
+somnolencia | aparecer somnolencia
+confusion2 | confusión
+caidas | equilibrio y caídas
+setenta2 | Una caída después de los 70
+rosa | Piensa en Rosa
+enviudo | cuando enviudó
+cinco | Pasaron cinco años
+repetia | repetía las mismas preguntas
+tristeza | Todos pensaron que era la tristeza
+reviso | su médico revisó con calma
+reduciendo | reduciendo la dosis
+meses | Meses después Rosa volvió
+notodos | No todos los casos terminan así
+detenerme | tengo que detenerme
+golpe | nunca la dejes de golpe
+convulsiones | incluso convulsiones
+lenta | tiene que ser lenta
+# GRUPO 3
+g3 | Pasemos ahora al tercer grupo
+vejiga | vejiga hiperactiva
+oxibu | la oxibutinina
+relajar | ayudan a relajar la vejiga
+barrera | atravesar la barrera
+olvidos3 | provocar olvidos
+lista3 | lista de precaución
+manana3 | por la mañana
+pmnoche | para dormir por la noche
+sumandose | sumándose día tras día
+carga | la carga
+corregir | más fáciles de corregir
+buena3 | La buena noticia
+like | regala un me gusta
+gesto | Parece un gesto pequeño
+# GRUPO 4
+g4 | Y llegamos al cuarto grupo
+farmacosz | conocidas como
+moderna | más moderna y más suave
+parecidos | problemas muy parecidos
+lagunas | lagunas de memoria
+bano | ir al baño
+llamativo | Hay algo todavía más llamativo
+medio | actividades medio dormidas
+caminar | caminar por la casa
+comer | comer
+fda | la FDA
+carino | con mucho cariño
+comun | es muy común
+causas4 | tiene causas
+preocupacion | La preocupación
+siesta | la siesta demasiado larga
+luz | la falta de luz natural
+banonoche | ir al baño por la noche
+algunas | puede ayudar algunas noches
+piensalo | Piénsalo así
+ordena | tu cerebro ordena
+cajon | en su cajón
+forzado | viene forzado por una pastilla
+ocho | duermen 8 horas
+cansadas | se levantan cansadas
+culpa | no es culpa tuya
+# QUÉ HACER
+entonces | Entonces qué puedes hacer
+primero | Lo primero y lo más importante
+nodejes | No dejes ningún medicamento
+razon | se receta por una razón
+peligroso | puede ser peligroso
+decision | La decisión siempre
+sencillo | algo muy sencillo
+bolsa | Busca una bolsa
+todos | Todos
+cardiologo | te recetó el cardiólogo
+farmacia | en la farmacia sin receta
+vitaminas | las vitaminas
+llevabolsa | Lleva esa bolsa completa
+tres | tres preguntas
+q1 | Sigo necesitando
+q2 | Alguno de ellos puede afectar
+q3 | Existe una alternativa
+sorprenderia | sorprendería saber
+padre | si tienes un padre
+acompanalo | acompáñalo a esa consulta
+atreve | no se atreve a preguntar
+presencia | Tu presencia
+# PISTAS
+pistas | presta atención a algunas pistas
+momento | La primera es el momento
+semanas2 | pocas semanas después
+anotalo | anótalo
+hora | La segunda es la hora del día
+torpe | especialmente torpe
+otros | La tercera es la compañía
+seca | boca seca
+mareos | mareos
+libreta | Escribe todo esto en una libreta
+valiosa | información muy valiosa
+repentino | el cambio es repentino
+confusa | se vuelve confusa
+mismodia | ese mismo día
+recuerdes | También quiero que recuerdes
+notodos2 | No todos los olvidos
+b12 | vitamina B12
+tiroides | en la tiroides
+dormirmal | en dormir mal
+tristeza2 | en la tristeza
+escuchar | escuchar peor
+solucion | muchas causas tienen solución
+# FINAL
+paso | Y qué pasó con Carmen
+domingo | Un domingo su nieta
+suave | algo suave para dormir
+leyo | Su nieta leyó la caja
+medico5 | la convenció de llevarla al médico
+reviso5 | revisaron todo lo que tomaba
+dia5 | No fue de un día para otro
+cumple5 | recordarle un cumpleaños
+rieron | las dos se rieron
+historia | Tu memoria es tu historia
+rostros | los rostros que amas
+canciones | las canciones de tu juventud
+dedicacion | con la misma dedicación
+botiquin | abrir el botiquín
+comparte | compártelo con alguien
+listamemoria | en la lista
+nosvemos | Nos vemos en el próximo
+cuidate | Cuídate mucho
+aviso | Este video es informativo
+nosuspendas | No suspendas ni modifiques

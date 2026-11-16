@@ -1,0 +1,154 @@
+[0.32 - 2.32] (w0-5) Imagina por un momento a Carmen.
+[2.46 - 4.26] (w6-8) Tiene 68 años.
+[4.40 - 10.24] (w9-26) Es abuela de tres nietos y toda su vida fue la persona que recordaba los cumpleaños de todos.
+[10.36 - 15.06] (w27-40) El nombre del vecino nuevo, la receta exacta de las empanadas de su madre.
+[15.32 - 18.36] (w41-47) Pero desde hace unos meses algo cambió.
+[18.56 - 21.48] (w48-57) Entra a la cocina y no sabe a qué fue.
+[21.64 - 23.84] (w58-65) Busca las llaves que tiene en la mano.
+[23.98 - 29.72] (w66-81) Su hija le cuenta algo por teléfono y al día siguiente Carmen ya no nos recuerda.
+[29.86 - 35.50] (w82-97) Una noche, sentada sola en el sofá, se hace la pregunta que tanto miedo le da.
+[35.60 - 39.16] (w98-107) ¿Será que estoy empezando a perder la memoria para siempre?
+[39.36 - 42.58] (w108-117) Y quizá tú también te has hecho esa misma pregunta.
+[42.78 - 49.24] (w118-138) Quizá has sentido ese pequeño escalofrío cuando una palabra se te queda en la punta de la lengua y no sale.
+[49.46 - 55.88] (w139-158) O cuando alguien te dice, pero si ya te lo conté, y tú no tienes ningún recuerdo de esa conversación.
+[56.10 - 67.30] (w159-191) Es un miedo silencioso, que muchas veces no compartimos con nadie, porque pensamos que es simplemente la edad, que no hay nada que hacer, que así es la vida después de los 60.
+[67.56 - 75.90] (w192-214) Pero hoy quiero contarte algo que muy pocas personas saben y que podría cambiar por completo la manera en que miras esos olvidos.
+[76.36 - 80.88] (w215-227) Porque en el caso de Carmen, el problema no era su cerebro envejeciendo.
+[81.04 - 92.98] (w228-262) El problema estaba en su mesita de noche, dentro de un pequeño frasco de pastillas que tomaba cada noche desde hacía casi un año sin imaginar que podía tener algo que ver con su memoria.
+[94.12 - 107.94] (w263-299) En este vídeo vamos a hablar de cuatro tipos de medicamentos muy comunes, algunos se venden sin receta en cualquier farmacia, que pueden afectar la memoria y la claridad mental, sobre todo después de los 60 años.
+[108.14 - 117.72] (w300-327) Y quédate hasta el final, porque te voy a explicar qué hacer si tomas alguno de ellos, y sobre todo, que no debes hacer nunca por tu cuenta.
+[117.96 - 120.36] (w328-335) Antes de empezar, quiero pedirte algo de corazón.
+[121.22 - 128.32] (w336-355) Si este tema te importa, o si piensas en alguien que necesite escucharlo, suscríbete al canal y activa la campanita.
+[128.52 - 134.30] (w356-370) Aquí hablamos cada semana de cómo cuidar tu cerebro con información clara y sin miedo.
+[134.54 - 137.40] (w371-377) Ahora sí, empecemos por entender algo importante.
+[138.34 - 142.36] (w378-390) Con los años, nuestro cuerpo cambia la manera en que procesa los medicamentos.
+[143.10 - 148.52] (w391-404) El hígado y los riñones, que son los encargados de eliminarlos, trabajan más despacio.
+[148.70 - 158.66] (w405-434) Eso significa que una misma pastilla que a los 40 años salía de tu cuerpo en pocas horas, a los 70 puede quedarse mucho más tiempo circulando por tu sangre.
+[159.08 - 165.66] (w435-452) Además, el cerebro se vuelve más sensible a ciertas sustancias, como si tuviera menos defensas frente a ellas.
+[165.84 - 172.62] (w453-470) Por eso, un medicamento que nunca te dio problemas puede empezar a afectarte sin que tú cambies nada.
+[172.80 - 176.22] (w471-481) Hay otra razón por la que este tema es tan importante.
+[176.40 - 187.02] (w482-507) Muchas personas mayores de 60 toman varios medicamentos al mismo tiempo, uno para la presión, otro para dormir, otro para el dolor, otro para la vejiga.
+[187.14 - 199.34] (w508-541) Cada uno, por separado, puede parecer inofensivo, pero juntos pueden sumar un efecto sobre el cerebro que nadie notó, porque cada médico recetó el suyo sin saber del todo lo que recetaba el otro.
+[200.24 - 216.14] (w542-584) Por eso la sociedad americana de geriatría mantiene desde hace años una lista, conocida como los criterios de BEARS, con medicamentos que conviene usar con mucha precaución en personas mayores, y varios de los que vamos a ver hoy aparecen en esa lista.
+[216.38 - 224.36] (w585-604) El primer grupo es, quizás, el más sorprendente, porque está en millones de casas y casi nadie sospecha de él.
+[224.52 - 231.80] (w605-619) Hablo de los antiestamínicos de primera generación, como la difenidramina, la doxilamina o la clorfeniramina.
+[231.98 - 234.52] (w620-626) Seguramente los conoce sin saber su nombre.
+[234.70 - 249.80] (w627-670) Están en muchas pastillas para la alergia, en jarabes para el resfriado que se toman de noche y, sobre todo, en esos analgésicos que llevan las letras PM en la caja, los que prometen quitar el dolor y ayudarte a dormir al mismo tiempo.
+[249.94 - 257.02] (w671-688) Mucha gente los toma cada noche durante meses, incluso años, pensando que son tan suaves como un T.
+[257.20 - 260.06] (w689-696) El problema es la manera en que funcionan.
+[260.28 - 269.92] (w697-716) Estos medicamentos tienen lo que los médicos llaman un efecto anticolinergico, es decir, bloquean una sustancia del cerebro llamada acetilcolina.
+[270.14 - 277.90] (w717-736) Y la acetilcolina es, dicho de forma sencilla, uno de los mensajeros más importantes para la memoria y la atención.
+[278.16 - 287.18] (w737-762) Es la que ayuda a que un recuerdo nuevo se guarde, a que puedas concentrarte en una conversación, a que encuentres la palabra justa cuando hablas.
+[287.36 - 292.90] (w763-776) Cuando la bloqueamos noche tras noche, el cerebro trabaja como una radio con interferencias.
+[293.10 - 296.04] (w777-782) Funciona, pero la señal llega borrosa.
+[296.16 - 307.50] (w783-812) Por eso muchas personas que los toman notan al día siguiente una sensación de niebla mental, de estar más lentas, más olvidadizas con la boca seca y los ojos cansados.
+[307.68 - 311.12] (w813-822) Y aquí viene lo que más preocupa a los investigadores.
+[311.26 - 330.34] (w823-867) Un estudio publicado en 2015 en la revista Yama Internal Medicine siguió durante varios años a más de 3 .000 personas mayores de 65 años, y encontró que quienes habían usado medicamentos anticolinergicos de forma intensa y prolongada tenían un riesgo mayor de desarrollar demencia.
+[330.56 - 337.60] (w868-889) Eso no significa que una pastilla ocasional vaya a causar un daño, ni que todos los que las tomaron vayan a enfermar.
+[337.84 - 344.56] (w890-909) Pero sí es una señal clara de que el uso diario y durante años merece una conversación con tu médico.
+[344.82 - 351.34] (w910-927) Así que si cada noche te tomas una pastilla para dormir comprada sin receta, mira bien la caja.
+[351.48 - 356.76] (w928-937) Si dice difenidramina o doxilamina, llévala a tu próxima consulta.
+[356.96 - 362.48] (w938-951) Muchas veces existen alternativas más seguras, tanto para la alergia como para el sueño.
+[362.66 - 367.46] (w952-963) Y ahora déjame preguntarte algo y me encantaría leerte en los comentarios.
+[367.74 - 372.00] (w964-973) ¿Sabías que estas pastillas tan comunes podían afectar la memoria?
+[372.18 - 378.34] (w974-989) Cuéntame, porque tu experiencia puede ayudar a otra persona que está viendo este video ahora mismo.
+[378.50 - 383.92] (w990-1003) El segundo grupo de medicamentos es más conocido, pero no por eso menos importante.
+[384.16 - 389.06] (w1004-1014) Son las benzodiazepinas que muchas personas conocen por su nombre comercial.
+[389.16 - 394.06] (w1015-1022) El alprazolam, el loracepam, el diacepam, el clonacepam.
+[394.44 - 401.92] (w1023-1043) Se recetan para la ansiedad, para los nervios, para el insomnio y en el momento adecuado pueden ser de gran ayuda.
+[402.06 - 411.46] (w1044-1069) El problema es que, con frecuencia, una receta que iba a hacer para unas semanas termina convirtiéndose en una pastilla de todas las noches durante años.
+[411.64 - 421.68] (w1070-1093) Estos medicamentos actúan calmando la actividad del cerebro, y esa misma calma que alivia la ansiedad también frena la capacidad de formar recuerdos nuevos.
+[421.84 - 428.22] (w1094-1110) Hay personas que, después de tomarlas, no recuerdan bien lo que hicieron o conversaron unas horas antes.
+[428.36 - 435.04] (w1111-1128) En las personas mayores, además, el efecto dura más tiempo en el cuerpo, porque se eliminan más despacio.
+[435.20 - 445.96] (w1129-1152) Por eso pueden aparecer somnolencia durante el día, dificultad para concentrarse, confusión y algo muy peligroso a esta edad, pérdida de equilibrio y caídas.
+[446.76 - 450.98] (w1153-1163) Una caída después de los 70 puede cambiar una vida entera.
+[451.16 - 461.02] (w1164-1189) Piensa en Rosa, una mujer de 72 años que empezó a tomar una de estas pastillas cuando enviudó para poder dormir en esas noches tan difíciles.
+[461.20 - 470.78] (w1190-1212) Pasaron cinco años, su familia empezó a notar que repetía las mismas preguntas, que se perdía en conversaciones, que ya no quería salir.
+[470.92 - 482.32] (w1213-1243) Todos pensaron que era la tristeza, o la edad, hasta que su médico revisó con calma todos sus medicamentos, y poco a poco, con un plan cuidadoso, fue reduciendo la dosis.
+[483.36 - 487.92] (w1244-1254) Meses después, Rosa volvió a reírse con sus amigas del barrio.
+[488.16 - 493.38] (w1255-1266) No todos los casos terminan así, pero muchas familias viven historias parecidas.
+[493.60 - 498.06] (w1267-1277) Y aquí tengo que detenerme para decirte algo muy, muy importante.
+[498.28 - 502.32] (w1278-1289) Si tomas una benzodiazepina, nunca la dejes de golpe por tu cuenta.
+[503.00 - 511.04] (w1290-1304) Suspenderla de repente puede provocar efectos graves, como ansiedad intensa, insomnio severo e incluso convulsiones.
+[511.30 - 515.68] (w1305-1316) La reducción siempre tiene que ser lenta y guiada por tu médico.
+[515.94 - 524.68] (w1317-1343) Pasemos ahora al tercer grupo, que casi nadie relaciona con la memoria, porque se receta para un problema que no tiene nada que ver con la cabeza.
+[525.00 - 535.82] (w1344-1369) Hablo de algunos medicamentos para la vejiga hiperactiva, esa necesidad urgente y frecuente de ir al baño que tantas personas mayores sufren en silencio, por vergüenza.
+[536.04 - 540.86] (w1370-1379) Entre ellos están la oxibutinina y la tólterodina, entre otros.
+[540.96 - 566.74] (w1380-1443) Son medicamentos que ayudan a relajar la vejiga, y para muchas personas significan poder salir de casa sin miedo, dormir sin levantarse cinco veces por la noche, recuperar algo de tranquilidad, pero muchos de ellos funcionan exactamente con el mismo mecanismo que vimos en el primer grupo, bloquean la acetilcolina y aunque el objetivo es la vejiga, ese bloqueo no se queda solo allí.
+[567.02 - 576.50] (w1444-1465) Algunos de estos medicamentos pueden atravesar la barrera que protege al cerebro y provocar olvidos, confusión o una sensación de lentitud mental.
+[576.66 - 583.70] (w1466-1485) La oxibutinina, en particular, es una de las que más se menciona en la lista de precaución para personas mayores.
+[583.98 - 592.02] (w1486-1510) Ahora imagina lo que pasa cuando alguien toma una pastilla para la vejiga por la mañana y una pastilla PM para dormir por la noche.
+[592.24 - 603.04] (w1511-1534) Son dos medicamentos con efecto anticolinergico sumándose día tras día, recetados o comprados en momentos distintos, sin que nadie haya hecho la cuenta completa.
+[603.20 - 613.74] (w1535-1562) Es lo que los especialistas llaman la carga anticicolinérgica, y es una de las razones más frecuentes y más fáciles de corregir de los olvidos en personas mayores.
+[613.90 - 622.76] (w1563-1586) La buena noticia es que hoy existen otros tratamientos para la vejiga que actúan de forma diferente y que tu médico puede valorar contigo.
+[622.96 - 626.84] (w1587-1596) Si este video te está sirviendo, regala un me gusta.
+[627.08 - 637.12] (w1597-1625) Parece un gesto pequeño, pero ayuda a que esta información llegue a más personas que quizá están viviendo lo mismo que Carmen o que Rosa, sin saber por qué.
+[637.30 - 643.40] (w1626-1644) Y llegamos al cuarto grupo, que está muy unido al segundo, porque también tiene que ver con el sueño.
+[643.62 - 651.44] (w1645-1661) Son las pastillas para dormir conocidas como Pharma Coseta, como el Solpidem, la Zopiclona o la Esopiclona.
+[651.56 - 662.18] (w1662-1689) Durante mucho tiempo se presentaron como una opción más moderna y más suave que las benzodiazepinas, y por eso muchas personas las toman cada noche con total confianza.
+[662.48 - 667.28] (w1690-1700) Sin embargo, en las personas mayores pueden causar problemas muy parecidos.
+[667.46 - 679.32] (w1701-1730) Somnolencia al día siguiente, dificultad para concentrarse, lagunas de memoria y, de nuevo, un riesgo mayor de caídas, sobre todo cuando uno se levanta de noche para ir al baño.
+[680.20 - 682.42] (w1731-1735) Hay algo todavía más llamativo.
+[682.64 - 694.10] (w1736-1761) Algunas personas, después de tomarlas, han realizado actividades medio dormidas, como caminar por la casa, comer, o incluso salir, sin recordar nada a la mañana siguiente.
+[694.78 - 704.00] (w1762-1785) Por eso, la Agencia de Medicamentos de Estados Unidos, la FDA, añadió en 2019 su advertencia más seria en el envase de estos medicamentos.
+[704.80 - 708.18] (w1786-1796) Y hay algo que me parece importante decirte con mucho cariño.
+[708.82 - 720.08] (w1797-1826) Dormir mal después de los 60 es muy común, y es comprensible querer una solución rápida, pero muchas veces el insomnio tiene causas que se pueden tratar de otra manera.
+[720.26 - 728.90] (w1827-1848) La preocupación, el dolor, la siesta demasiado larga, la falta de luz natural durante el día, ir al baño por la noche.
+[729.20 - 736.80] (w1849-1868) Una pastilla puede ayudar algunas noches, pero rara vez es la mejor respuesta para todas las noches de varios años.
+[737.06 - 738.10] (w1869-1870) Piénsalo así.
+[738.36 - 743.40] (w1871-1887) El sueño natural es el momento en que tu cerebro ordena lo que viviste durante el día.
+[743.66 - 752.88] (w1888-1907) Es como si, mientras duermes, alguien fuera guardando cada recuerdo en su cajón, con cuidado, para que mañana puedas encontrarlo.
+[753.32 - 764.08] (w1908-1935) Cuando ese sueño viene forzado por una pastilla, a veces el cuerpo descansa, pero ese trabajo silencioso de ordenar los recuerdos no siempre se hace igual de bien.
+[764.32 - 776.58] (w1936-1970) Por eso hay personas que duermen 8 horas con su pastilla y, aun así, se levantan cansadas, con la cabeza pesada y la sensación de que el día anterior se les escapó entre los dedos.
+[776.88 - 783.56] (w1971-1989) Si eso te suena familiar, no es culpa tuya, y tampoco es algo que tengas que aceptar para siempre.
+[784.10 - 790.24] (w1990-2007) Entonces, ¿qué puedes hacer tú a partir de hoy si te has reconocido en alguna de estas historias?
+[790.90 - 794.16] (w2008-2015) Lo primero, y lo más importante, es esto.
+[794.62 - 797.60] (w2016-2022) No dejes ningún medicamento por tu cuenta.
+[797.92 - 803.48] (w2023-2039) Ni siquiera después de ver este video, cada uno de estos fármacos se receta por una razón.
+[803.76 - 809.24] (w2040-2055) Y suspenderlo de golpe puede ser peligroso, o hacer que vuelva el problema que estaba tratando.
+[809.42 - 812.88] (w2056-2064) La decisión siempre se toma junto a tu médico.
+[813.12 - 817.86] (w2065-2077) Lo que sí puedes hacer es algo muy sencillo que muchos médicos recomiendan.
+[818.10 - 822.38] (w2078-2089) Busca una bolsa y mete en ella todos los medicamentos que tomas.
+[822.68 - 823.36] (w2090-2090) Todos.
+[823.56 - 835.68] (w2091-2122) Los que te recetó el cardiólogo, los del médico de cabecera, los que compraste en la farmacia sin receta, las pastillas para dormir, los jarabes, las vitaminas y hasta los suplementos naturales.
+[835.80 - 843.82] (w2123-2144) Lleva esa bolsa completa a tu próxima consulta y pídele a tu médico o a tu farmacéutico que los revise todos juntos.
+[843.90 - 846.66] (w2145-2150) Puedes hacerle tres preguntas muy simples.
+[846.86 - 849.14] (w2151-2154) ¿Sigo necesitando este medicamento?
+[849.34 - 852.10] (w2155-2161) ¿Alguno de ellos puede afectar mi memoria?
+[852.26 - 855.86] (w2162-2171) ¿Existe una alternativa más segura para alguien de mi edad?
+[856.04 - 864.42] (w2172-2190) ¿Te sorprendería saber cuántas veces esa conversación tan sencilla permite reducir o cambiar algo que llevaba años sin revisarse?
+[864.62 - 871.20] (w2191-2207) Y si tienes un padre, una madre, un abuelo que toma muchas pastillas, acompáñalo a esa consulta.
+[871.58 - 876.50] (w2208-2224) A veces la persona mayor no se atreve a preguntar, o no recuerda todo lo que toma.
+[876.80 - 880.20] (w2225-2231) Tu presencia puede marcar una diferencia enorme.
+[880.54 - 888.38] (w2232-2251) Y mientras llega esa consulta, presta atención a algunas pistas que pueden indicar que un medicamento está afectando tu memoria.
+[888.58 - 890.60] (w2252-2256) La primera es el momento.
+[890.68 - 898.66] (w2257-2276) Si los olvidos empezaron o empeoraron pocas semanas después de comenzar una pastilla nueva o de aumentar la dosis, anótalo.
+[898.80 - 901.10] (w2277-2283) La segunda es la hora del día.
+[901.20 - 908.78] (w2284-2302) Si te sientes especialmente torpe o confundido por la mañana, después de una pastilla nocturna, también es una señal.
+[908.92 - 918.24] (w2303-2322) La tercera es la compañía de otros síntomas, como boca seca, extrañimiento, visión borrosa, mareos o somnolencia durante el día.
+[918.38 - 924.44] (w2323-2338) Escribe todo esto en una libreta, con fechas, y llévala junto a tu bolsa de medicamentos.
+[924.58 - 929.74] (w2339-2351) Esos detalles que parecen pequeños le dan a tu médico información muy valiosa.
+[930.04 - 941.66] (w2352-2386) Y si alguna vez el cambio es repentino, si una persona mayor se vuelve confusa de un día para otro, no sabe dónde está o habla de forma extraña, no esperes a la próxima cita.
+[941.98 - 945.46] (w2387-2393) Eso necesita atención médica ese mismo día.
+[945.76 - 947.86] (w2394-2398) También quiero que recuerdes algo.
+[947.96 - 951.22] (w2399-2406) No todos los olvidos vienen de los medicamentos.
+[951.36 - 962.68] (w2407-2439) A veces la causa está en una falta de vitamina B12, en la tiroides, en dormir mal, en la tristeza o incluso en escuchar peor, como te expliqué en otro video del canal.
+[962.78 - 968.14] (w2440-2456) Lo importante es no quedarse con el miedo y no aceptar sin más que olvidar es normal.
+[968.82 - 973.12] (w2457-2466) Muchos olvidos tienen una causa y muchas causas tienen solución.
+[973.86 - 975.12] (w2467-2471) ¿Y qué pasó con Carmen?
+[975.82 - 980.68] (w2472-2488) Un domingo, su nieta la vio tomando su pastilla de cada noche y le preguntó qué era.
+[981.32 - 985.76] (w2489-2503) Carmen le dijo que era algo suave para dormir, que lo compraba en la farmacia.
+[985.90 - 990.88] (w2504-2518) Su nieta leyó la caja, buscó el nombre y la convenció de llevarla al médico.
+[991.08 - 997.46] (w2519-2534) Allí, con calma, revisaron todo lo que tomaba y buscaron otra manera de ayudarla a descansar.
+[997.72 - 1006.32] (w2535-2560) No fue de un día para otro, pero unas semanas después, Carmen volvió a llamar a su hija para recordarle un cumpleaños que ella había olvidado.
+[1006.48 - 1009.92] (w2561-2569) Y las dos se rieron por teléfono, como antes.
+[1010.10 - 1012.34] (w2570-2574) Tu memoria es tu historia.
+[1012.48 - 1020.30] (w2575-2595) Son los rostros que amas, las canciones de tu juventud, el camino de vuelta a casa, el nombre de cada nieto.
+[1020.50 - 1026.00] (w2596-2615) Merece que la cuides con la misma dedicación con la que tú has cuidado a los demás toda tu vida.
+[1026.48 - 1033.00] (w2616-2633) Y a veces, cuidarla en pieza por algo tan simple como abrir el botiquín y hacerse una pregunta.
+[1033.60 - 1041.54] (w2634-2655) Si este video te ha ayudado, compártelo con alguien que toma varios medicamentos, porque puede ser justo lo que necesita escuchar hoy.
+[1041.78 - 1049.60] (w2656-2677) Y si quieres seguir aprendiendo a proteger tu memoria, en la lista Memoria y Olvidos del canal, encontrarás más videos como este.
+[1049.80 - 1051.74] (w2678-2683) Nos vemos en el próximo video.
+[1051.88 - 1054.00] (w2684-2689) Cuídate mucho y cuida tu mente.
+[1054.82 - 1059.32] (w2690-2704) Este video es informativo y no sustituye la consulta con un profesional de la salud.
+[1059.60 - 1063.84] (w2705-2716) No suspendas ni modifiques ningún medicamento sin hablar antes con tu médico.

@@ -1,0 +1,50 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+// FINAL · Carmen + cierre + aviso
+let S;
+const END = 1065;
+S = Scene('paso', 'historia');
+Item(S, Txt('¿Y CARMEN?', { size: 90, color: K.pinkD }), { x: 960, y: 500, t: 'paso', out: 'domingo-0.3', enter: 'slam' });
+Item(S, Panel('c_box', 1050), { x: 600, y: 470, t: 'domingo-0.2', out: 'medico5-0.3', enter: 'fade', zoom: 0.04 });
+Item(S, Panel('c_doctor', 1050), { x: 600, y: 470, t: 'medico5-0.4', out: 'cumple5-0.3', enter: 'fade', zoom: 0.04 });
+Item(S, Panel('c_phone', 1050), { x: 600, y: 470, t: 'cumple5-0.4', enter: 'fade', zoom: 0.04 });
+Item(S, Chip('SU NIETA LEE LA CAJA', { size: 38 }), { x: 1500, y: 300, t: 'leyo', out: 'medico5-0.3', enter: 'r' });
+Item(S, Chip('REVISIÓN CON EL MÉDICO', { size: 36, color: K.blueD }), { x: 1500, y: 300, t: 'reviso5', out: 'dia5-0.3', enter: 'r' });
+Item(S, Chip('UNAS SEMANAS DESPUÉS…', { size: 36, fill: K.yellow }), { x: 1500, y: 300, t: 'dia5', enter: 'r' });
+Item(S, Chip('¡RECUERDA EL CUMPLEAÑOS!', { icon: 'check', color: K.green, size: 34 }), { x: 1500, y: 460, t: 'cumple5', enter: 'r' });
+Dram(S, 'domingo');
+
+S = Scene('historia', 'botiquin');
+Item(S, Panel('c_birthday', 1000), { x: 960, y: 520, zoom: 0.05 });
+Item(S, Txt('TU MEMORIA ES TU HISTORIA', { size: 72, color: K.pinkD }), { x: 960, y: 110, t: 'historia', enter: 'u' });
+
+S = Scene('botiquin', 'comparte');
+Item(S, Panel('s_cabinet', 1150), { x: 960, y: 450, zoom: 0.05 });
+Item(S, Pill('ABRE EL BOTIQUÍN Y PREGÚNTATE', { hi: 'PREGÚNTATE', size: 56 }), { y: 985, t: 'botiquin', enter: 'd' });
+
+S = Scene('comparte', 'aviso');
+Item(S, Img('wave', 480), { x: 480, y: 560 });
+Item(S, Txt('Cerebro y Bienestar', { size: 72, color: K.pinkD }), { x: 1260, y: 260, t: 'comparte+0.2', enter: 'u' });
+Item(S, Chip('COMPÁRTELO', { fill: K.yellow, size: 56 }), { x: 1260, y: 440, t: 'comparte+0.4', enter: 'slam' });
+Item(S, Chip('LISTA «MEMORIA Y OLVIDOS»', { size: 42, color: K.blueD }), { x: 1260, y: 600, t: 'listamemoria' });
+Item(S, Txt('CUÍDATE MUCHO, Y CUIDA TU MENTE', { size: 50, color: K.pinkD }), { x: 1260, y: 790, t: 'cuidate', enter: 'u' });
+
+S = Scene('aviso', END + 1);
+Item(S, Full(K.ink), { x: 960, y: 540, enter: 'fade', dur: 0.4 });
+Item(S, Txt('Este video es informativo y no sustituye', { size: 50, color: '#fff', weight: 700 }), { x: 960, y: 380, t: 'aviso', enter: 'fade' });
+Item(S, Txt('la consulta con un profesional de la salud.', { size: 50, color: '#fff', weight: 700 }), { x: 960, y: 450, t: 'aviso', enter: 'fade' });
+Item(S, Txt('NO SUSPENDAS NI MODIFIQUES NINGÚN MEDICAMENTO', { size: 48, color: K.yellow }), { x: 960, y: 620, t: 'nosuspendas', enter: 'fade' });
+Item(S, Txt('SIN HABLAR ANTES CON TU MÉDICO', { size: 48, color: K.yellow }), { x: 960, y: 690, t: 'nosuspendas', enter: 'fade' });
+
+Run(T('paso'), END);
+</script></body></html>

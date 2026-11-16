@@ -1,0 +1,78 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+// GRUPO 1 · antihistamínicos de primera generación
+let S;
+S = Scene('g1', 'seguramente');
+Item(S, Img('hold_pills', 540), { x: 430, y: 540 });
+Item(S, Kicker('GRUPO 1', 'ANTIHISTAMÍNICOS\nDE 1ª GENERACIÓN', { size: 92 }), { x: 1250, y: 420, t: 'g1', enter: 'slam' });
+Item(S, Chip('DIFENHIDRAMINA · DOXILAMINA · CLORFENIRAMINA', { size: 30, color: K.blueD }), { x: 1250, y: 830, t: 'difen' });
+
+S = Scene('seguramente', 'problema1');
+Item(S, Img('blister', 190), { x: 400, y: 420, t: 'alergia' });
+Item(S, Chip('ALERGIA', { size: 42 }), { x: 400, y: 640, t: 'alergia+0.2' });
+Item(S, Img('syrup', 230), { x: 960, y: 410, t: 'jarabes' });
+Item(S, Chip('JARABE DE NOCHE', { size: 42 }), { x: 960, y: 640, t: 'jarabes+0.2' });
+Item(S, Img('pm_box', 210), { x: 1520, y: 420, t: 'pm' });
+Item(S, Chip('«PM»: DOLOR + SUEÑO', { size: 42, color: K.red }), { x: 1520, y: 640, t: 'pm+0.3' });
+Item(S, Pill('«TAN SUAVE COMO UN TÉ»', { hi: 'UN TÉ', size: 56 }), { y: 900, t: 'te-1', enter: 'd' });
+
+S = Scene('problema1', 'radio');
+Item(S, Txt('ACETILCOLINA', { size: 84, color: K.pinkD }), { x: 860, y: 150, t: 'acetil', enter: 'slam' });
+Item(S, Synapse(T('anticol')), { x: 960, y: 480, t: 'problema1+0.4', enter: 'fade' });
+Item(S, Chip('BLOQUEO ANTICOLINÉRGICO', { color: K.red, size: 40 }), { x: 960, y: 270, t: 'anticol+0.6', out: 'acetil-0.2' });
+Item(S, Chip('MENSAJERO DE LA MEMORIA', { fill: K.yellow, size: 40 }), { x: 960, y: 720, t: 'mensajeros' });
+Item(S, Chip('GUARDAR RECUERDOS', { size: 36 }), { x: 480, y: 880, t: 'recuerdo1' });
+Item(S, Chip('CONCENTRARTE', { size: 36 }), { x: 960, y: 880, t: 'concentrarte' });
+Item(S, Chip('LA PALABRA JUSTA', { size: 36 }), { x: 1440, y: 880, t: 'palabra' });
+
+S = Scene('radio', 'niebla');
+Item(S, Img('radio', 340), { x: 760, y: 500, t: 'radio' });
+Item(S, g => {
+  const p = el('path', { fill: 'none', stroke: K.grey, 'stroke-width': 10, 'stroke-linecap': 'round' }, g);
+  return { draw(t) { let d = 'M0 0'; for (let i = 1; i <= 30; i++) d += ` L${i * 18} ${(Math.sin(i * 1.7 + t * 9) * 40 * Math.abs(Math.sin(i * 7.3 + Math.floor(t * 15)))).toFixed(1)}`; p.setAttribute('d', d); } };
+}, { x: 1000, y: 470, t: 'radio+0.4', enter: 'fade' });
+Item(S, Pill('LA SEÑAL LLEGA BORROSA', { hi: 'BORROSA', size: 58 }), { y: 900, t: 'borrosa', enter: 'd' });
+
+S = Scene('niebla', 'investigadores');
+Item(S, Img('dizzy_fog', 540), { x: 470, y: 560 });
+Item(S, Chip('NIEBLA MENTAL', { color: K.red }), { x: 1270, y: 300, t: 'niebla', enter: 'r' });
+Item(S, Chip('MÁS LENTO · MÁS OLVIDOS', { color: K.red, size: 44 }), { x: 1270, y: 460, t: 'niebla+3', enter: 'r' });
+Item(S, Chip('BOCA SECA · OJOS CANSADOS', { color: K.red, size: 42 }), { x: 1270, y: 620, t: 'boca', enter: 'r' });
+
+S = Scene('investigadores', 'caja');
+Item(S, Img('graduate', 480), { x: 330, y: 580 });
+Item(S, Txt('ESTUDIO · 2015', { size: 72 }), { x: 1180, y: 160, t: 'estudio', enter: 'u' });
+Item(S, Chip('+3.000 PERSONAS ≥ 65 AÑOS', { size: 42, color: K.blueD }), { x: 1180, y: 320, t: 'tresmil' });
+Item(S, Chip('USO INTENSO Y PROLONGADO', { size: 42, color: K.blueD }), { x: 1180, y: 460, t: 'demencia1-3' });
+Item(S, Chip('→ MÁS RIESGO DE DEMENCIA', { size: 44, color: K.red }), { x: 1180, y: 600, t: 'demencia1' });
+Item(S, StampB('NO POR UNA PASTILLA OCASIONAL', { size: 40, color: K.green }), { x: 1180, y: 770, t: 'ocasional', enter: 'slam' });
+Item(S, Pill('¿USO DIARIO? HABLA CON TU MÉDICO', { hi: 'HABLA CON TU MÉDICO', size: 46 }), { x: 1180, y: 940, t: 'diario', enter: 'd' });
+Item(S, Txt('Gray y cols., JAMA Intern Med 2015', { size: 26, color: K.grey, weight: 700 }), { x: 300, y: 1040, t: 'estudio+1', enter: 'fade' });
+
+S = Scene('caja', 'comenta');
+Item(S, Img('read_box', 540), { x: 470, y: 560 });
+Item(S, Img('pm_box', 230), { x: 1280, y: 330, t: 'caja' });
+Item(S, Ring(160), { x: 1280, y: 330, t: 'caja+0.5' });
+Item(S, Chip('DIFENHIDRAMINA · DOXILAMINA', { size: 40, color: K.red }), { x: 1280, y: 580, t: 'llevala-2' });
+Item(S, Chip('LLÉVALA A TU CONSULTA', { fill: K.yellow, size: 46 }), { x: 1280, y: 730, t: 'llevala', enter: 'slam' });
+Item(S, Chip('HAY ALTERNATIVAS MÁS SEGURAS', { icon: 'check', color: K.green, size: 40 }), { x: 1280, y: 880, t: 'alternativas' });
+
+S = Scene('comenta', T('g2') + 1);
+Item(S, Img('bubble_hold', 540), { x: 480, y: 560 });
+Item(S, Txt('¿LO SABÍAS?', { size: 100, color: K.pinkD }), { x: 1260, y: 330, t: 'sabias', enter: 'slam' });
+Item(S, Chip('CUÉNTALO EN LOS COMENTARIOS', { fill: K.yellow, size: 44 }), { x: 1260, y: 540, t: 'comenta+0.5' });
+Item(S, Chip('PRÓXIMO: GRUPO 2 →', { size: 44, color: K.blueD }), { x: 1260, y: 760, t: 'cuentame+2.5', enter: 'r' });
+
+Strip('g1', T('g2') + 1, t => 1, 4);
+Run(T('g1'), T('g2'));
+</script></body></html>

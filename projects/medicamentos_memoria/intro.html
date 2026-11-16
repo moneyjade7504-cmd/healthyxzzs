@@ -1,0 +1,69 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+// INTRO · Carmen
+let S;
+S = Scene(0, 'cambio', { cut: true });
+Item(S, Panel('c_birthday', 1150), { x: 690, y: 470, t: 0, enter: 'fade', dur: 0.3, zoom: 0.05 });
+Item(S, Chip('CARMEN · 68', { fill: K.yellow, size: 48 }), { x: 1600, y: 170, t: 'edad68', enter: 'r' });
+Item(S, Chip('CUMPLEAÑOS', { icon: 'check', color: K.green, size: 42 }), { x: 1600, y: 360, t: 'cumples', enter: 'r' });
+Item(S, Chip('NOMBRES', { icon: 'check', color: K.green, size: 42 }), { x: 1600, y: 510, t: 'vecino', enter: 'r' });
+Item(S, Chip('RECETAS', { icon: 'check', color: K.green, size: 42 }), { x: 1600, y: 660, t: 'receta', enter: 'r' });
+Dram(S, 0.5);
+
+S = Scene('cambio', 'noche0', { cut: true });
+Item(S, Panel('c_kitchen', 1250), { x: 960, y: 460, t: 'cambio', out: 'llaves-0.2', enter: 'fade', zoom: 0.05 });
+Item(S, Panel('c_keys', 1250), { x: 960, y: 460, t: 'llaves-0.2', enter: 'fade', zoom: 0.05 });
+Item(S, Pill('¿A QUÉ VINE?', { hi: '¿A QUÉ', size: 60 }), { y: 980, t: 'cocina', out: 'llaves-0.3', enter: 'd' });
+Item(S, Pill('¡LAS TIENE EN LA MANO!', { hi: 'EN LA MANO', size: 58 }), { y: 980, t: 'llaves', out: 'hija-0.3', enter: 'd' });
+Item(S, Pill('¿QUÉ ME CONTÓ MI HIJA?', { hi: 'MI HIJA', size: 58 }), { y: 980, t: 'hija', enter: 'd' });
+Dram(S, 'cambio');
+
+S = Scene('noche0', 'tu0');
+Item(S, Panel('c_night_sofa', 1250), { x: 960, y: 460, zoom: 0.06 });
+Item(S, Pill('¿ESTOY PERDIENDO LA MEMORIA?', { hi: 'MEMORIA', size: 56 }), { y: 980, t: 'siempre-1', enter: 'd' });
+
+S = Scene('tu0', 'pocas');
+Item(S, Img('confused', 540), { x: 470, y: 560 });
+Item(S, Chip('LA PALABRA NO SALE', { size: 46 }), { x: 1260, y: 260, t: 'lengua', enter: 'r' });
+Item(S, Chip('«¡SI YA TE LO CONTÉ!»', { size: 46, color: K.red }), { x: 1260, y: 410, t: 'conte', enter: 'r' });
+Item(S, Pill('UN MIEDO SILENCIOSO', { hi: 'SILENCIOSO', size: 58 }), { x: 1260, y: 600, t: 'miedo', enter: 'd' });
+Item(S, Chip('¿SOLO ES LA EDAD?', { icon: 'question', color: K.yellow, size: 46 }), { x: 1260, y: 790, t: 'edad0' });
+
+S = Scene('pocas', 'mesita');
+Item(S, Img('point_up', 540), { x: 470, y: 560 });
+Item(S, Txt('ALGO QUE POCOS SABEN', { size: 66 }), { x: 1250, y: 380, t: 'pocas', enter: 'u' });
+Item(S, StampB('NO ERA LA EDAD', { size: 66, color: K.green }), { x: 1250, y: 620, t: 'envejeciendo', enter: 'slam' });
+
+S = Scene('mesita', 'cuatro');
+Item(S, Panel('c_pill', 1150), { x: 690, y: 470, zoom: 0.07 });
+Item(S, Img('bottle', 240), { x: 1620, y: 400, t: 'frasco' });
+Item(S, Ring(150), { x: 1620, y: 400, t: 'frasco+0.5' });
+Item(S, Chip('CADA NOCHE · CASI 1 AÑO', { size: 40, fill: K.yellow }), { x: 1580, y: 680, t: 'frasco+3' });
+Dram(S, 'mesita');
+punchAt(S, 'frasco');
+
+S = Scene('cuatro', 'corazon');
+Item(S, Txt('4', { size: 320, color: K.pinkD }), { x: 460, y: 300, t: 'cuatro', enter: 'slam' });
+Item(S, Txt('TIPOS DE MEDICAMENTOS', { size: 72 }), { x: 1150, y: 320, t: 'cuatro+0.3', enter: 'r' });
+[['pm_box', 380], ['bottle', 760], ['organizer', 1150], ['blister', 1540]].forEach(([n, x], i) => Item(S, Img(n, 170), { x, y: 600, t: `cuatro+${(0.8 + i * 0.3).toFixed(1)}` }));
+Item(S, Chip('ALGUNOS, SIN RECETA', { color: K.red }), { x: 960, y: 790, t: 'sinreceta' });
+Item(S, Pill('QUÉ HACER… Y QUÉ NO HACER NUNCA', { hi: 'NO HACER NUNCA', size: 48 }), { y: 960, t: 'nodebes', enter: 'd' });
+
+S = Scene('corazon', T('ahorasi'));
+Item(S, Img('wave', 480), { x: 500, y: 560 });
+Item(S, Txt('Cerebro y Bienestar', { size: 72, color: K.pinkD }), { x: 1260, y: 280, t: 'corazon+0.3', enter: 'u' });
+Item(S, Subscribe(T('campanita')), { x: 1260, y: 500, t: 'subs-0.5' });
+Item(S, Chip('INFORMACIÓN CLARA, SIN MIEDO', { color: K.blueD, size: 40 }), { x: 1260, y: 740, t: 'campanita+2' });
+
+Run(0, T('ahorasi'));
+</script></body></html>

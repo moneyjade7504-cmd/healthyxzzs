@@ -1,0 +1,59 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+// GRUPO 3 · vejiga hiperactiva (video 2 ends before Grupo 4)
+let S;
+const END = T('g4');
+S = Scene('g3', 'relajar');
+Item(S, Img('urgent', 500), { x: 430, y: 560 });
+Item(S, Kicker('GRUPO 3', 'PARA LA VEJIGA\nHIPERACTIVA', { size: 100 }), { x: 1250, y: 400, t: 'g3', enter: 'slam' });
+Item(S, Chip('OXIBUTININA · TOLTERODINA', { size: 40, color: K.blueD }), { x: 1250, y: 800, t: 'oxibu' });
+
+S = Scene('relajar', 'relajar+10');
+Item(S, Panel('s_sunwalk', 1150), { x: 690, y: 470, zoom: 0.05 });
+Item(S, Chip('SALIR SIN MIEDO', { icon: 'check', color: K.green, size: 42 }), { x: 1600, y: 300, t: 'relajar+2', enter: 'r' });
+Item(S, Chip('DORMIR MEJOR', { icon: 'check', color: K.green, size: 42 }), { x: 1600, y: 450, t: 'relajar+4', enter: 'r' });
+Item(S, Chip('TRANQUILIDAD', { icon: 'check', color: K.green, size: 42 }), { x: 1600, y: 600, t: 'relajar+6.5', enter: 'r' });
+
+S = Scene('relajar+10', 'barrera');
+Item(S, Txt('EL MISMO MECANISMO', { size: 66 }), { x: 860, y: 150, t: 'relajar+10', enter: 'u' });
+Item(S, Synapse(T('relajar+13')), { x: 960, y: 500, t: 'relajar+10.3', enter: 'fade' });
+Item(S, Pill('BLOQUEAN LA ACETILCOLINA', { hi: 'ACETILCOLINA', size: 54 }), { y: 900, t: 'relajar+13', enter: 'd' });
+
+S = Scene('barrera', 'manana3');
+Item(S, Img('brain', 300), { x: 960, y: 420 });
+Item(S, g => { el('circle', { r: 230, fill: 'none', stroke: K.blueD, 'stroke-width': 10, 'stroke-dasharray': '18 14' }, g); }, { x: 960, y: 420, t: 'barrera' });
+Item(S, g => { const p = el('g', {}, g); el('rect', { x: -38, y: -18, width: 76, height: 36, rx: 18, fill: K.red, stroke: K.ink, 'stroke-width': 6 }, p); return { draw(t, t0) { const u = E.inOut(prog(t, t0, t0 + 1.4)); p.setAttribute('transform', `translate(${lerp(-560, -120, u)} 0) rotate(${u * 200})`); } }; }, { x: 960, y: 420, t: 'barrera+0.5', enter: 'fade' });
+Item(S, Txt('BARRERA DEL CEREBRO', { size: 40, color: K.blueD }), { x: 960, y: 700, t: 'barrera+0.3', enter: 'fade' });
+Item(S, Chip('OLVIDOS · CONFUSIÓN · LENTITUD', { size: 42, color: K.red }), { x: 960, y: 820, t: 'olvidos3' });
+Item(S, Chip('OXIBUTININA: EN LA LISTA DE PRECAUCIÓN', { size: 34, color: K.red, fill: K.redL }), { x: 960, y: 960, t: 'lista3' });
+
+S = Scene('manana3', 'like');
+Item(S, Img('sun', 160), { x: 330, y: 260, t: 'manana3' });
+Item(S, Img('bottle', 200), { x: 560, y: 300, t: 'manana3+0.3' });
+Item(S, Txt('+', { size: 120, color: K.ink }), { x: 960, y: 300, t: 'pmnoche', enter: 'slam' });
+Item(S, Img('moon', 150), { x: 1360, y: 260, t: 'pmnoche' });
+Item(S, Img('pm_box', 190), { x: 1590, y: 300, t: 'pmnoche+0.3' });
+Item(S, Bar('CARGA', t => 0.15 + 0.8 * E.inOut(prog(t, T('sumandose'), T('carga+1'))), { w: 900, color: K.red, size: 44 }), { x: 1060, y: 560, t: 'sumandose-0.5' });
+Item(S, Txt('CARGA ANTICOLINÉRGICA', { size: 48, color: K.red }), { x: 960, y: 670, t: 'carga', enter: 'fade' });
+Item(S, Chip('FÁCIL DE CORREGIR', { icon: 'check', color: K.green, size: 44 }), { x: 620, y: 860, t: 'corregir' });
+Item(S, Chip('HAY OTROS TRATAMIENTOS', { icon: 'check', color: K.green, size: 40 }), { x: 1330, y: 860, t: 'buena3' });
+
+S = Scene('like', END + 1);
+Item(S, Img('thumbs_heart', 520), { x: 480, y: 560 });
+Item(S, Chip('¿TE SIRVE? DALE ME GUSTA', { fill: K.yellow, size: 52 }), { x: 1260, y: 360, t: 'like', enter: 'slam' });
+Item(S, Chip('AYUDA A QUE LLEGUE A MÁS PERSONAS', { size: 36, color: K.blueD }), { x: 1260, y: 540, t: 'gesto' });
+Item(S, Chip('PRÓXIMO: GRUPO 4 →', { size: 44, color: K.blueD }), { x: 1260, y: 760, t: 'gesto+5', enter: 'r' });
+
+Strip('g3', END + 1, t => 3, 4);
+Run(T('g3'), END);
+</script></body></html>

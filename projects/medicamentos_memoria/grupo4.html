@@ -1,0 +1,55 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+// GRUPO 4 · fármacos Z
+let S;
+const START = T('g4');
+S = Scene(START, 'parecidos');
+Item(S, Img('sleep_cap', 500), { x: 430, y: 560, t: START });
+Item(S, Kicker('GRUPO 4', 'PASTILLAS «Z»\nPARA DORMIR', { size: 104 }), { x: 1250, y: 400, t: START, enter: 'slam' });
+Item(S, Chip('ZOLPIDEM · ZOPICLONA · ESZOPICLONA', { size: 36, color: K.blueD }), { x: 1250, y: 790, t: 'farmacosz' });
+Item(S, Chip('¿MÁS SUAVES?', { icon: 'question', color: K.yellow, size: 44 }), { x: 1250, y: 930, t: 'moderna' });
+
+S = Scene('parecidos', 'llamativo');
+Item(S, Img('yawn', 520), { x: 430, y: 560 });
+Item(S, Txt('PROBLEMAS PARECIDOS', { size: 64 }), { x: 1250, y: 160, t: 'parecidos', enter: 'u' });
+Item(S, Chip('SOMNOLENCIA AL DÍA SIGUIENTE', { color: K.red, size: 40 }), { x: 1250, y: 320, t: 'parecidos+1.2', enter: 'r' });
+Item(S, Chip('MENOS CONCENTRACIÓN', { color: K.red, size: 40 }), { x: 1250, y: 460, t: 'parecidos+3', enter: 'r' });
+Item(S, Chip('LAGUNAS DE MEMORIA', { color: K.red, size: 40 }), { x: 1250, y: 600, t: 'lagunas', enter: 'r' });
+Item(S, Chip('CAÍDAS AL IR AL BAÑO', { color: K.red, size: 40 }), { x: 1250, y: 740, t: 'bano', enter: 'r' });
+
+S = Scene('llamativo', 'carino');
+Item(S, Panel('s_sleepeat', 1150), { x: 690, y: 450, zoom: 0.05 });
+Item(S, Chip('CAMINAR', { size: 42 }), { x: 1600, y: 260, t: 'caminar', enter: 'r' });
+Item(S, Chip('COMER', { size: 42 }), { x: 1600, y: 400, t: 'comer', enter: 'r' });
+Item(S, Chip('SALIR', { size: 42 }), { x: 1600, y: 540, t: 'comer+1.2', enter: 'r' });
+Item(S, Chip('SIN RECORDARLO', { color: K.red, size: 40 }), { x: 1600, y: 690, t: 'comer+2.5', enter: 'slam' });
+Item(S, Pill('FDA 2019: SU ADVERTENCIA MÁS SERIA', { hi: 'FDA 2019', size: 48 }), { x: 690, y: 980, t: 'fda', enter: 'd' });
+Item(S, Txt('FDA, 2019 · zolpidem, eszopiclona, zaleplón', { size: 26, color: K.grey, weight: 700 }), { x: 1620, y: 1040, t: 'fda+0.5', enter: 'fade' });
+
+S = Scene('carino', 'piensalo');
+Item(S, Img('hand_heart', 500), { x: 420, y: 560 });
+Item(S, Txt('DORMIR MAL ES MUY COMÚN', { size: 60 }), { x: 1250, y: 170, t: 'comun', enter: 'u' });
+[['PREOCUPACIÓN', 'preocupacion', 1050, 340], ['DOLOR', 'preocupacion+1', 1500, 340], ['SIESTA LARGA', 'siesta', 1050, 480], ['POCA LUZ NATURAL', 'luz', 1500, 480], ['BAÑO DE NOCHE', 'banonoche', 1270, 620]].forEach(([s, t, x, y]) =>
+  Item(S, Chip(s, { size: 38, color: K.yellow }), { x, y, t }));
+Item(S, Pill('ALGUNAS NOCHES SÍ… AÑOS, NO', { hi: 'AÑOS, NO', size: 52 }), { x: 1250, y: 860, t: 'algunas', enter: 'd' });
+
+S = Scene('piensalo', T('entonces'));
+Item(S, Panel('s_dream', 1050), { x: 600, y: 450, zoom: 0.06 });
+Item(S, Chip('EL CEREBRO ORDENA RECUERDOS', { size: 30, fill: K.yellow }), { x: 1560, y: 260, t: 'ordena', enter: 'r' });
+Item(S, Chip('CON PASTILLA: NO SIEMPRE IGUAL', { size: 30, color: K.red }), { x: 1560, y: 400, t: 'forzado', enter: 'r' });
+Item(S, Img('yawn', 320), { x: 1560, y: 690, t: 'cansadas' });
+Item(S, Pill('NO ES CULPA TUYA', { hi: 'CULPA', size: 60 }), { x: 600, y: 990, t: 'culpa', enter: 'd' });
+
+Strip(START + 1, T('entonces') + 1, t => 4, 4);
+Run(START, T('entonces'));
+</script></body></html>

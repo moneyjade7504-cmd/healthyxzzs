@@ -1,0 +1,41 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+// PISTAS · urgencia · otras causas
+let S;
+S = Scene('pistas', 'repentino');
+Item(S, Img('notebook', 480), { x: 360, y: 600 });
+Item(S, Txt('3 PISTAS', { size: 84, color: K.pinkD }), { x: 1180, y: 150, t: 'pistas', enter: 'slam' });
+Item(S, Chip('1 · EMPEZÓ CON UNA PASTILLA NUEVA', { size: 38 }), { x: 1180, y: 310, t: 'momento', enter: 'r' });
+Item(S, Chip('2 · PEOR POR LA MAÑANA', { size: 38 }), { x: 1180, y: 450, t: 'hora', enter: 'r' });
+Item(S, Chip('3 · BOCA SECA, MAREOS, SUEÑO…', { size: 38 }), { x: 1180, y: 590, t: 'otros', enter: 'r' });
+Item(S, Img('notepad', 180), { x: 900, y: 820, t: 'libreta' });
+Item(S, Chip('ANÓTALO CON FECHAS', { fill: K.yellow, size: 44 }), { x: 1360, y: 820, t: 'libreta+0.3' });
+
+S = Scene('repentino', 'recuerdes');
+Item(S, Full(K.red), { x: 960, y: 540, enter: 'fade', dur: 0.4 });
+Item(S, Txt('CAMBIO REPENTINO', { size: 80, color: '#fff' }), { x: 960, y: 170, t: 'repentino', enter: 'fade' });
+Item(S, Chip('CONFUSIÓN DE UN DÍA PARA OTRO', { size: 46 }), { x: 960, y: 360, t: 'confusa' });
+Item(S, Chip('NO SABE DÓNDE ESTÁ', { size: 46 }), { x: 960, y: 510, t: 'confusa+2' });
+Item(S, Chip('HABLA DE FORMA EXTRAÑA', { size: 46 }), { x: 960, y: 660, t: 'confusa+4' });
+Item(S, Txt('→ ATENCIÓN MÉDICA HOY MISMO', { size: 70, color: K.yellow }), { x: 960, y: 860, t: 'mismodia', enter: 'slam' });
+
+S = Scene('recuerdes', T('paso'));
+Item(S, Txt('OTRAS CAUSAS DE OLVIDOS', { size: 64 }), { x: 860, y: 140, t: 'recuerdes', enter: 'u' });
+Item(S, Img('brain', 240), { x: 960, y: 500, t: 'recuerdes+0.3' });
+[['FALTA DE B12', 'b12', 520, 330], ['TIROIDES', 'tiroides', 1400, 330], ['DORMIR MAL', 'dormirmal', 450, 560], ['TRISTEZA', 'tristeza2', 1470, 560], ['OÍR PEOR', 'escuchar', 960, 760]].forEach(([s, t, x, y]) =>
+  Item(S, Chip(s, { size: 42, color: K.blueD }), { x, y, t }));
+Item(S, Pill('MUCHAS CAUSAS TIENEN SOLUCIÓN', { hi: 'SOLUCIÓN', size: 54 }), { y: 950, t: 'solucion', enter: 'd' });
+
+Strip('pistas', T('paso') + 1, t => 5, 4);
+Run(T('pistas'), T('paso'));
+</script></body></html>

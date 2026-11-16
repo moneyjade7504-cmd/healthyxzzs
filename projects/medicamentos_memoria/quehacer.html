@@ -1,0 +1,52 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+// QUÉ HACER · la bolsa de medicamentos
+let S;
+S = Scene('entonces', 'sencillo');
+Item(S, Img('point_up', 520), { x: 330, y: 600 });
+Item(S, Txt('LO MÁS IMPORTANTE', { size: 64 }), { x: 1150, y: 150, t: 'primero', enter: 'u' });
+Item(S, StampB('NO DEJES NINGÚN MEDICAMENTO POR TU CUENTA', { size: 40 }), { x: 1150, y: 330, t: 'nodejes', enter: 'slam' });
+Item(S, Chip('PUEDE SER PELIGROSO', { icon: 'cross', color: K.red, size: 42 }), { x: 1150, y: 540, t: 'peligroso' });
+Item(S, Chip('PUEDE VOLVER EL PROBLEMA', { icon: 'cross', color: K.red, size: 42 }), { x: 1150, y: 690, t: 'peligroso+2.5' });
+Item(S, Chip('DECIDE CON TU MÉDICO', { icon: 'check', color: K.green, size: 48 }), { x: 1150, y: 860, t: 'decision', enter: 'slam' });
+
+S = Scene('sencillo', 'llevabolsa');
+Item(S, Img('bag', 380), { x: 560, y: 450, t: 'bolsa' });
+Item(S, Txt('¡TODOS!', { size: 96, color: K.pinkD }), { x: 560, y: 800, t: 'todos', enter: 'slam' });
+Item(S, Chip('RECETADOS', { size: 44 }), { x: 1380, y: 230, t: 'cardiologo', enter: 'r' });
+Item(S, Chip('SIN RECETA', { size: 44 }), { x: 1380, y: 380, t: 'farmacia', enter: 'r' });
+Item(S, Chip('PARA DORMIR · JARABES', { size: 40 }), { x: 1380, y: 530, t: 'farmacia+1.5', enter: 'r' });
+Item(S, Chip('VITAMINAS · SUPLEMENTOS', { size: 40 }), { x: 1380, y: 680, t: 'vitaminas', enter: 'r' });
+
+S = Scene('llevabolsa', 'tres');
+Item(S, Panel('s_pharmacy', 1150), { x: 690, y: 450, zoom: 0.05 });
+Item(S, Chip('MÉDICO O FARMACÉUTICO', { size: 38, color: K.blueD }), { x: 1590, y: 330, t: 'llevabolsa+2', enter: 'r' });
+Item(S, Pill('QUE LOS REVISE TODOS JUNTOS', { hi: 'JUNTOS', size: 54 }), { x: 690, y: 990, t: 'llevabolsa+3', enter: 'd' });
+
+S = Scene('tres', 'padre');
+Item(S, Img('three_fingers', 520), { x: 360, y: 580 });
+Item(S, Txt('3 PREGUNTAS', { size: 84, color: K.pinkD }), { x: 1180, y: 160, t: 'tres', enter: 'slam' });
+Item(S, Chip('1 · ¿SIGO NECESITÁNDOLO?', { size: 46 }), { x: 1180, y: 340, t: 'q1', enter: 'r' });
+Item(S, Chip('2 · ¿AFECTA MI MEMORIA?', { size: 46 }), { x: 1180, y: 490, t: 'q2', enter: 'r' });
+Item(S, Chip('3 · ¿HAY ALGO MÁS SEGURO?', { size: 46 }), { x: 1180, y: 640, t: 'q3', enter: 'r' });
+Item(S, Chip('A VECES SE PUEDE REDUCIR O CAMBIAR', { icon: 'check', color: K.green, size: 36 }), { x: 1180, y: 830, t: 'sorprenderia' });
+
+S = Scene('padre', T('pistas'));
+Item(S, Panel('s_accompany', 1150), { x: 690, y: 450, zoom: 0.05 });
+Item(S, Img('arm_in_arm', 360), { x: 1620, y: 520, t: 'padre+1' });
+Item(S, Pill('ACOMPÁÑALO A LA CONSULTA', { hi: 'ACOMPÁÑALO', size: 54 }), { x: 690, y: 990, t: 'acompanalo', enter: 'd' });
+Item(S, Chip('TU PRESENCIA AYUDA', { fill: K.yellow, size: 40 }), { x: 1620, y: 830, t: 'presencia', enter: 'slam' });
+
+Strip('entonces+1', T('pistas') + 1, t => 5, 4);
+Run(T('entonces'), T('pistas'));
+</script></body></html>

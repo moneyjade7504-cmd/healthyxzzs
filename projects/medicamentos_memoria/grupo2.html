@@ -1,0 +1,58 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+// GRUPO 2 · benzodiacepinas (+ Rosa)
+let S;
+S = Scene('g2', 'calmando');
+Item(S, Img('sofa_sad', 460), { x: 430, y: 560 });
+Item(S, Kicker('GRUPO 2', 'BENZODIACEPINAS', { size: 92 }), { x: 1300, y: 380, t: 'g2', enter: 'slam' });
+Item(S, Chip('ALPRAZOLAM · LORAZEPAM · DIAZEPAM · CLONAZEPAM', { size: 28, color: K.blueD }), { x: 1250, y: 600, t: 'alpra' });
+Item(S, Chip('ANSIEDAD · NERVIOS · INSOMNIO', { size: 40 }), { x: 1250, y: 740, t: 'ansiedad' });
+Item(S, Pill('DE «UNAS SEMANAS»… A AÑOS', { hi: 'A AÑOS', size: 54 }), { x: 1250, y: 920, t: 'anos2-1', enter: 'd' });
+
+S = Scene('calmando', 'caidas');
+Item(S, Img('yawn', 420), { x: 330, y: 580, t: 'somnolencia-1' });
+Item(S, Img('brain', 260), { x: 1100, y: 330, t: 'calmando' });
+Item(S, g => { const c = el('circle', { r: 160, fill: 'none', stroke: K.blue, 'stroke-width': 10 }, g); return { draw(t) { const u = (t * 0.35) % 1; set(c, { r: (140 + u * 60).toFixed(1), opacity: (1 - u).toFixed(2) }); } }; }, { x: 1100, y: 330, t: 'calmando+0.4' });
+Item(S, Chip('FRENA LOS RECUERDOS NUEVOS', { color: K.red, size: 42 }), { x: 1100, y: 560, t: 'frena' });
+Item(S, Chip('EN MAYORES DURA MÁS', { color: K.red, size: 42 }), { x: 1100, y: 700, t: 'mas2' });
+Item(S, Chip('SOMNOLENCIA', { size: 40, color: K.yellow }), { x: 900, y: 860, t: 'somnolencia' });
+Item(S, Chip('CONFUSIÓN', { size: 40, color: K.yellow }), { x: 1300, y: 860, t: 'confusion2' });
+
+S = Scene('caidas', 'rosa');
+Item(S, Panel('s_slip', 1250), { x: 960, y: 450, zoom: 0.05 });
+Item(S, Pill('UNA CAÍDA PUEDE CAMBIAR UNA VIDA', { hi: 'CAÍDA', size: 54 }), { y: 985, t: 'setenta2', enter: 'd' });
+
+S = Scene('rosa', 'detenerme');
+Item(S, Panel('r_bed', 1150), { x: 690, y: 470, t: 'rosa', out: 'repetia-0.3', zoom: 0.04 });
+Item(S, Panel('r_repeat', 1150), { x: 690, y: 470, t: 'repetia-0.4', out: 'reviso-0.3', enter: 'fade', zoom: 0.04 });
+Item(S, Panel('r_taper', 1150), { x: 690, y: 470, t: 'reviso-0.4', out: 'meses-0.3', enter: 'fade', zoom: 0.04 });
+Item(S, Panel('r_cafe', 1150), { x: 690, y: 470, t: 'meses-0.4', enter: 'fade', zoom: 0.04 });
+Item(S, Chip('ROSA · 72', { fill: K.yellow, size: 48 }), { x: 1600, y: 170, t: 'rosa+0.3', enter: 'r' });
+Item(S, Chip('5 AÑOS DESPUÉS', { size: 42 }), { x: 1600, y: 340, t: 'cinco', enter: 'r' });
+Item(S, Chip('¿TRISTEZA? ¿EDAD?', { icon: 'question', color: K.yellow, size: 40 }), { x: 1590, y: 490, t: 'tristeza', enter: 'r' });
+Item(S, Chip('REDUCCIÓN POCO A POCO', { icon: 'check', color: K.green, size: 36 }), { x: 1580, y: 640, t: 'reduciendo', enter: 'r' });
+Item(S, Txt('No todos los casos terminan así', { size: 36, color: K.grey, weight: 700 }), { x: 690, y: 960, t: 'notodos', enter: 'fade' });
+Dram(S, 'rosa+0.5');
+
+S = Scene('detenerme', T('g3'));
+Item(S, Full(K.red), { x: 960, y: 540, enter: 'fade', dur: 0.4 });
+Item(S, Txt('¡MUY IMPORTANTE!', { size: 76, color: '#fff' }), { x: 960, y: 160, t: 'detenerme', enter: 'fade' });
+Item(S, Chip('NUNCA LA DEJES DE GOLPE', { size: 60 }), { x: 960, y: 330, t: 'golpe', enter: 'slam' });
+Item(S, Chip('ANSIEDAD INTENSA', { size: 40 }), { x: 430, y: 540, t: 'convulsiones-3.5' });
+Item(S, Chip('INSOMNIO SEVERO', { size: 40 }), { x: 960, y: 540, t: 'convulsiones-2' });
+Item(S, Chip('CONVULSIONES', { size: 40 }), { x: 1450, y: 540, t: 'convulsiones' });
+Item(S, Txt('→ REDUCCIÓN LENTA, CON TU MÉDICO', { size: 58, color: K.yellow }), { x: 960, y: 780, t: 'lenta', enter: 'u' });
+
+Strip('g2', T('g3') + 1, t => 2, 4);
+Run(T('g2'), T('g3'));
+</script></body></html>

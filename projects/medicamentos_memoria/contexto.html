@@ -1,0 +1,44 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+// CONTEXTO · por qué después de los 60
+let S;
+S = Scene('ahorasi', 'sensible');
+Item(S, Txt('CON LOS AÑOS…', { size: 66 }), { x: 860, y: 140, t: 'ahorasi', enter: 'u' });
+Item(S, Img('liver_kidneys', 300), { x: 470, y: 440, t: 'higado' });
+Item(S, Chip('ELIMINAN MÁS DESPACIO', { color: K.red, size: 42 }), { x: 470, y: 740, t: 'despacio' });
+Item(S, Txt('LA PASTILLA EN TU SANGRE', { size: 38, color: K.grey }), { x: 1330, y: 300, t: 'cuarenta-0.6', enter: 'fade' });
+Item(S, Bar('40 AÑOS', t => 0.25 * E.out(prog(t, T('cuarenta'), T('cuarenta+1'))), { w: 520, color: K.green }), { x: 1400, y: 430, t: 'cuarenta' });
+Item(S, Bar('70 AÑOS', t => 0.9 * E.out(prog(t, T('setenta'), T('setenta+1.5'))), { w: 520, color: K.red }), { x: 1400, y: 570, t: 'setenta' });
+
+S = Scene('sensible', 'otra');
+Item(S, Img('dizzy_fog', 540), { x: 470, y: 560 });
+Item(S, Chip('CEREBRO MÁS SENSIBLE', { color: K.red }), { x: 1260, y: 320, t: 'sensible', enter: 'r' });
+Item(S, Chip('MENOS DEFENSAS', { color: K.red }), { x: 1260, y: 480, t: 'defensas', enter: 'r' });
+Item(S, Pill('SIN QUE TÚ CAMBIES NADA', { hi: 'NADA', size: 56 }), { x: 1260, y: 760, t: 'nunca0', enter: 'd' });
+
+S = Scene('otra', 'sociedad');
+Item(S, Panel('s_doctors', 1150), { x: 690, y: 470, zoom: 0.05 });
+[['PRESIÓN', 'presion'], ['DORMIR', 'dormir0'], ['DOLOR', 'dolor'], ['VEJIGA', 'vejiga0']].forEach(([s, t], i) =>
+  Item(S, Chip(s, { size: 42, color: K.blueD }), { x: 1610, y: 220 + i * 150, t, enter: 'r' }));
+Item(S, Pill('JUNTOS SE SUMAN', { hi: 'SE SUMAN', size: 58 }), { x: 690, y: 990, t: 'juntos', enter: 'd' });
+
+S = Scene('sociedad', T('g1'));
+Item(S, Img('graduate', 520), { x: 420, y: 560 });
+Item(S, Txt('CRITERIOS DE BEERS®', { size: 70 }), { x: 1250, y: 260, t: 'beers-0.3', enter: 'u' });
+Item(S, Txt('Sociedad Americana de Geriatría', { size: 38, color: K.grey, weight: 700 }), { x: 1250, y: 340, t: 'sociedad', enter: 'fade' });
+Item(S, Chip('PRECAUCIÓN EN PERSONAS MAYORES', { color: K.red, size: 40 }), { x: 1250, y: 520, t: 'beers+1' });
+Item(S, Chip('VARIOS DE HOY ESTÁN EN LA LISTA', { fill: K.yellow, size: 42 }), { x: 1250, y: 720, t: 'varios2', enter: 'slam' });
+Item(S, Txt('AGS Beers Criteria®, 2023', { size: 28, color: K.grey, weight: 700 }), { x: 1680, y: 1040, t: 'beers+1', enter: 'fade' });
+
+Run(T('ahorasi'), T('g1'));
+</script></body></html>
