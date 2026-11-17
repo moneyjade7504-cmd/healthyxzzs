@@ -1,0 +1,83 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('seccion2'); window.END=C('seccion3'); window.DURATION=window.END;
+const night=(c,t)=>{for(let i=0;i<10;i++){c.globalAlpha=0.5+0.5*Math.sin(t*2+i);c.fillStyle='#fff6c8';c.beginPath();c.arc(1120+((i*97)%420),40+((i*53)%260),2.5,0,7);c.fill();}c.globalAlpha=1;};
+const drama=B=>{const d=mk('div','pill',B.L,'Dramatización');Object.assign(d.style,{left:'1760px',top:'60px',fontSize:'34px',borderColor:'#6a6f86',color:'#6a6f86'});};
+STitle(C('seccion2'),C('gerald'),2,'De las <span class="hl">piernas</span> a la vejiga','el camino que nadie le cuenta',['sock_marks','bladder_full']);
+{const B=FB(C('gerald'),C('probado'),'S2_1','Gerald · 71 años · ingeniero jubilado',{capT:0.5,size:58,from:[.5,.5,1.0],to:[.5,.6,1.15]}); drama(B);}
+{const B=Beat(C('probado'),C('aunasi'));
+ Row(B,[['pills','2 medicamentos',C('probado'),null],['water','Casi sin agua de noche',C('reducido'),null]],{y:560,cardW:560});
+ Cap(B,'Ya lo había probado:',{cx:960,cy:130,size:64,t0:B.a+0.2});}
+Side(C('aunasi'),C('pregunte'),'m_yawn_door',[['Aun así…',null,66,'#6a6f86'],['<span class="red">3 veces</span> cada noche',C('aunasi')+1,80]],{h:640,cy:960});
+{const B=FB(C('pregunte'),C('frase'),'S2_2','“Paso mucho tiempo <span class="hl">sentado</span>”',{capT:C('sentado')-C('pregunte'),size:62,from:[.5,.5,1.0],to:[.4,.5,1.12]}); drama(B);
+ Cap(B,'rompecabezas · noticias · lectura',{cx:960,cy:90,size:46,t0:C('rompecab'),pill:true});}
+Side(C('frase'),C('vertical'),'m_puzzle',[['Esa frase',null,62,'#6a6f86'],['lo dice <span class="hl">casi todo</span>',C('frase')+1,80]],{h:640,cy:960});
+// gravity pulls fluid down
+{const B=Beat(C('vertical'),C('joven2'),{enter:'zoom'}); Cut(B,'m_stand',{cx:560,cy:1020,h:820,amp:2,tilt:0.5});
+ const s=Svg(B); [440,680].forEach((x,i)=>Draw(B,s,arrow(x,330,x,820,0),{t0:C('gravedad')+i*0.4,dur:0.6,stroke:'#2f6fd6',w:10}));
+ Canvas(B,(c,t)=>{if(t<C('sangre2'))return; drops(c,t,{x:430,y:520,w:260,h:420,t0:C('sangre2'),n:14,s:1.3}); const p=prog(t,C('sur'),C('sur')+3); c.globalAlpha=0.45*p; c.fillStyle='#5aaee8'; c.beginPath(); c.ellipse(560,985,200*p+40,40*p+10,0,0,7); c.fill(); c.globalAlpha=1;});
+ Cap(B,'La <span class="hl">gravedad</span>',{cx:1380,cy:300,size:84,t0:C('gravedad')}); Cap(B,'tira de los líquidos hacia abajo',{cx:1380,cy:420,size:54,t0:C('gravedad')+1});
+ Cap(B,'sangre · linfa · líquido entre células',{cx:1380,cy:560,size:46,t0:C('sangre2'),color:'#2f6fd6'});
+ Cap(B,'→ tobillos y pies',{cx:1380,cy:680,size:60,t0:C('sur'),color:'#e23b2e'});}
+{const B=Beat(C('joven2'),C('pero60'));
+ Cap(B,'De joven: <span class="hl">todo funciona</span>',{cx:960,cy:120,size:66,t0:B.a+0.2,color:'#1f9d55'});
+ Row(B,[['vein_valves','Venas elásticas',C('venas'),'ok'],['vein_valves','Válvulas que cierran',C('valvulas'),'ok'],['calf_pump','Músculo = bomba',C('bombas'),'ok']],{y:580});}
+{const B=Beat(C('pero60'),C('filtra'),{enter:'zoom'});
+ Cap(B,'Después de los 60: <span class="red">se debilita</span>',{cx:960,cy:120,size:66,t0:B.a+0.2});
+ Row(B,[['vein_valves','Venas menos elásticas',C('paredes'),'no'],['vein_valves','Válvulas que sellan peor',C('nosellan'),'no'],['m_phone','Horas sentado: poca bomba',C('largos'),'no']],{y:580});}
+{const B=Beat(C('filtra'),C('senales')); Cut(B,'g_ankle',{cx:520,cy:1000,h:640,amp:3}); Cut(B,'ankle_swollen',{cx:1500,cy:900,h:420,t0:B.a+2,amp:3});
+ Canvas(B,(c,t)=>drops(c,t,{x:1380,y:300,w:240,h:240,t0:B.a+2.2,n:10,s:1.4}));
+ Cap(B,'El líquido sale de la sangre…',{cx:1100,cy:200,size:58,t0:B.a+0.3}); Cap(B,'…y se <span class="hl">acumula en las piernas</span>',{cx:1100,cy:320,size:62,t0:B.a+3});}
+{const B=FB(C('senales'),C('casualidad'),'S2_3','¿Reconoce las <span class="hl">señales</span>?',{capT:0.4,size:62,from:[.5,.5,1.0],to:[.4,.7,1.2]});
+ Cap(B,'Marcas de los calcetines',{cx:960,cy:90,size:50,t0:C('calcetines'),pill:true,t1:C('tobillos')-0.3});
+ Cap(B,'Tobillos hinchados al final del día',{cx:960,cy:90,size:50,t0:C('tobillos'),pill:true,t1:C('pesadas')-0.3});
+ Cap(B,'Piernas más pesadas por la tarde',{cx:960,cy:90,size:50,t0:C('pesadas'),pill:true});}
+// key piece: kidneys only filter blood
+{const B=Beat(C('casualidad'),C('acuesta'),{enter:'zoom'});
+ Cut(B,'ankle_swollen',{cx:330,cy:820,h:380,amp:3}); Cut(B,'blood_drop',{cx:960,cy:520,h:240,t0:C('solo'),amp:4}); Cut(B,'kidneys2',{cx:1600,cy:700,h:300,t0:C('clave'),amp:3});
+ const s=Svg(B); Draw(B,s,arrow(1080,470,1450,520,0.1),{t0:C('solo')+0.6,dur:0.4,stroke:'#22a35a',w:10});
+ Draw(B,s,'M470 620 Q 900 300 1450 600',{t0:C('invisible'),dur:0.6,stroke:'#b9bdcc',w:8}); Draw(B,s,cross(960,420,1),{t0:C('invisible')+0.8,dur:0.3,stroke:'#e23b2e',w:11});
+ Cap(B,'Los riñones solo filtran la <span class="hl">sangre</span>',{cx:960,cy:120,size:64,t0:C('solo')});
+ Cap(B,'el líquido de las piernas: <span class="red">invisible</span> de día',{cx:960,cy:960,size:56,t0:C('invisible')});}
+FB(C('acuesta'),C('nivel'),'S2_4','Al acostarse, la gravedad <span class="hl">se invierte</span>',{capT:C('invierte')-C('acuesta'),size:62,draw:night});
+{const B=Beat(C('nivel'),C('volumen')); Cut(B,'g_lie_flat',{cx:960,cy:760,h:300,amp:2,tilt:0.3});
+ const s=Svg(B); Draw(B,s,'M1500 560 C 1300 420, 900 420, 700 560',{t0:C('regreso'),dur:1.2,stroke:'#2f6fd6',w:10}); Draw(B,s,'M730 520 L700 560 L750 575',{t0:C('regreso')+1.1,dur:0.2,stroke:'#2f6fd6',w:10});
+ Canvas(B,(c,t)=>{if(t<C('regreso'))return; for(let i=0;i<8;i++){const ph=((t-C('regreso'))*0.35+i/8)%1; const x=1500-800*ph, y=560-Math.sin(ph*Math.PI)*140; c.globalAlpha=Math.sin(ph*Math.PI); drop(c,x,y,1.2); } c.globalAlpha=1;});
+ Cap(B,'Piernas al nivel del corazón',{cx:960,cy:150,size:64,t0:B.a+0.2}); Cap(B,'el líquido <span class="hl">vuelve a la sangre</span>',{cx:960,cy:950,size:60,t0:C('regreso')});}
+{const B=Beat(C('volumen'),C('asique2'));
+ Cap(B,'Más sangre → el corazón reacciona',{cx:960,cy:130,size:62,t0:B.a+0.2});
+ Chain(B,[['blood_drop','Más volumen',B.a+0.6],['heart','Corazón',C('corazon')],['kidneys2','Riñones: filtran más',C('filtren')]],{y:520,h:260});
+ Cap(B,'PNA: péptido natriurético auricular',{cx:960,cy:900,size:50,t0:C('pna'),pill:true});}
+{const B=Beat(C('asique2'),C('resultado'),{enter:'zoom'});
+ Cut(B,'adh_drop',{cx:330,cy:620,h:240,amp:3}); Cap(B,'ADH: freno débil',{cx:330,cy:690,size:46,t0:B.a+0.3,color:'#6a6f86'});
+ const s=Svg(B); Draw(B,s,cross(330,460,1),{t0:B.a+1.2,dur:0.3,stroke:'#e23b2e',w:11});
+ Cut(B,'heart',{cx:1590,cy:620,h:260,t0:C('aceleracion'),amp:4,shake:0.6}); Cap(B,'PNA: acelera',{cx:1590,cy:690,size:46,t0:C('aceleracion'),color:'#e23b2e'});
+ Cut(B,'kidneys2',{cx:960,cy:760,h:340,t0:B.a+0.5,amp:3,shake:1.3});
+ Cap(B,'Riñones a <span class="hl">toda marcha</span> de noche',{cx:960,cy:140,size:66,t0:C('aceleracion')+1});}
+{const B=Beat(C('resultado'),C('medianoche')); Cut(B,'bladder_full',{cx:600,cy:880,h:520,amp:4});
+ Canvas(B,(c,t)=>drops(c,t,{x:500,y:180,w:200,h:200,t0:B.a+0.4,n:10,s:1.6}));
+ Cap(B,'La vejiga <span class="hl">se llena</span>',{cx:1380,cy:380,size:78,t0:B.a+0.3});
+ Cap(B,'y no solo una vez:',{cx:1380,cy:510,size:56,t0:B.a+3});
+ Cap(B,'el líquido vuelve durante <span class="red">varias horas</span>',{cx:1380,cy:640,size:50,t0:C('varias')});}
+FB(C('medianoche'),C('dosam'),'S2_5','Medianoche: <span class="hl">1.ª vez</span>',{capT:0.3,size:62,draw:night,from:[.5,.5,1.0],to:[.5,.4,1.15]});
+{const B=Beat(C('dosam'),C('cuatroam'),{enter:'zoom'}); Cut(B,'shuffle_wall',{cx:480,cy:1000,h:640,amp:3});
+ BigClock(B,{cx:1320,cy:420,r:220,t0:B.a+0.1,from:[2,0]}); Cap(B,'2.ª vez',{cx:1320,cy:880,size:64,t0:B.a+1.2,color:'#e23b2e'});}
+FB(C('cuatroam'),C('trabajo')+2.5,'S2_6','4:00 a.m. · <span class="red">3.ª vez</span>',{capT:0.3,size:62,from:[.5,.5,1.0],to:[.65,.45,1.12]});
+{const B=Beat(C('trabajo')+2.5,C('cadena'),{enter:'zoom'}); Cut(B,'kidneys2',{cx:520,cy:740,h:320,amp:3}); Cut(B,'bladder_full',{cx:1400,cy:800,h:400,t0:B.a+0.8,amp:3});
+ const s=Svg(B); Draw(B,s,arrow(720,560,1180,600,0.1),{t0:B.a+1.2,dur:0.4,stroke:'#2f6fd6',w:10});
+ Cap(B,'La vejiga solo <span class="hl">hace su trabajo</span>',{cx:960,cy:150,size:66,t0:B.a+0.2}); Cap(B,'recibe lo que mandan los riñones',{cx:960,cy:960,size:52,t0:B.a+3});}
+{const B=Beat(C('cadena'),C('reducir'));
+ Cap(B,'La <span class="hl">reacción en cadena</span>',{cx:960,cy:140,size:72,t0:B.a+0.2});
+ const t=C('cadena'); Chain(B,[['sock_marks','Piernas',t+0.8],['blood_drop','Sangre',t+1.7],['heart','Corazón',t+2.6],['kidneys2','Riñones',t+3.4],['bladder_full','Vejiga',t+4.2],['toilet','3:00 a.m.',t+5.5]],{y:520,h:210});}
+{const B=Beat(C('reducir'),C('gerald2'),{enter:'zoom'}); Cut(B,'water',{cx:450,cy:800,h:400,amp:3});
+ const s=Svg(B); Draw(B,s,cross(450,580,1.6),{t0:B.a+2.5,dur:0.3,stroke:'#e23b2e',w:13});
+ Cut(B,'sock_marks',{cx:1480,cy:820,h:420,t0:C('acumulo'),amp:3});
+ Cap(B,'Beber menos de noche',{cx:960,cy:140,size:60,t0:B.a+0.3}); Cap(B,'<span class="red">no rompe</span> la cadena',{cx:960,cy:250,size:70,t0:B.a+2});
+ Cap(B,'el líquido viene de las piernas, desde la mañana',{cx:960,cy:980,size:50,t0:C('acumulo')});}
+{const B=FB(C('gerald2'),C('gerald2')+4.6,'S2_7','Gerald: de 3 veces… a <span class="hl">1 o ninguna</span>',{capT:0.8,size:62}); drama(B);}
+{const B=FB(C('gerald2')+4.6,C('numero2'),'S2_8','sin tocar la vejiga',{capT:0.4,size:62,draw:(c,t)=>rays(c,t,{x:1380,y:140,r0:70,r1:110,lw:5})}); drama(B);}
+{const B=Beat(C('numero2'),C('seccion3'),{exit:'fade'}); Cut(B,'w_thumbs',{cx:470,cy:1010,h:760,amp:5,period:1.6});
+ Cap(B,'¿Le está ayudando?',{cx:1300,cy:300,size:70,t0:B.a+0.2});
+ Num(B,2,{cx:1300,cy:530,r:110,t0:B.a+0.6}); Cap(B,'Escriba <span class="hl">“2”</span> en los comentarios',{cx:1300,cy:730,size:60,t0:B.a+1});}
+</script></body></html>

@@ -44,3 +44,59 @@ nombre | dígame su nombre
 sala | Quiero saber quién está
 todos | Cada comentario se lee
 seccion2 | Sección 2
+# PARTE 2 = sección 2
+conducto | El conducto de las piernas
+gerald | Quiero hablarle de un paciente
+probado | ya había probado dos medicamentos
+reducido | había reducido su consumo
+aunasi | Aún así se despertaba tres veces
+pregunte | Cuando le pregunté por su día
+sentado | paso mucho tiempo sentado
+rompecab | armo rompecabezas
+noticias | Veo algo de noticias
+frase | Esa es una frase
+fisiologia | Esta es la fisiología
+vertical | Cuando usted está en posición vertical
+gravedad | la gravedad está tirando
+sangre2 | La sangre el líquido
+sur | todo migra hacia el sur
+joven2 | Cuando usted es joven
+venas | Sus venas son elásticas
+valvulas | Las diminutas válvulas
+bombas | Los músculos de sus piernas actúan como bombas
+pero60 | Pero después de los 60 este sistema
+paredes | Las paredes de las venas
+nosellan | Las válvulas no sellan
+largos | Y si usted pasa largos periodos sentado
+filtra | Así que el líquido se filtra
+senales | Quizás reconozca las señales
+calcetines | marcas de los calcetines
+tobillos | tobillos que se sienten
+pesadas | piernas que se sienten más pesadas
+casualidad | Eso no es casualidad
+clave | Y esta es la pieza clave
+solo | Sus riñones solo pueden filtrar
+invisible | es en esencia invisible
+acuesta | Ahora usted se acuesta
+invierte | la ecuación de la gravedad se invierte
+nivel | Sus piernas quedan al nivel
+regreso | comienza a migrar de regreso
+volumen | Su volumen total de sangre
+corazon | Su corazón detecta el aumento
+pna | un péptido llamado
+filtren | que filtren más rápido
+asique2 | Así que sus riñones que ya no reciben
+aceleracion | señal activa de aceleración
+resultado | El resultado su vejiga se llena
+varias | a lo largo de varias horas
+medianoche | se despierta a medianoche
+dosam | Se despierta a las 2
+cuatroam | vuelve a estar despierto a las 4
+trabajo | La vejiga simplemente está haciendo su trabajo
+cadena | La cadena es piernas
+reducir | Y reducir su consumo de agua
+acumulo | Fue lo que se acumuló
+gerald2 | Gerald por cierto pasó
+numero2 | escriba el número 2
+segundos | Sólo le toma 2 segundos
+seccion3 | Sección 3
