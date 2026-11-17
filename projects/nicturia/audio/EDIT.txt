@@ -1,0 +1,13 @@
+voice.mp3 = voice_orig.mp3 minus (orig seconds):
+   22.04-   24.37  que veo, y he visto miles
+   27.85-   29.92  En los próximos 18 minutos
+   45.10-   49.65  confesión… médicos no hará
+   75.39-  113.11  77%/93% (cifras mal atribuidas)
+  125.05-  128.47  Si usted está en ese 77%
+  148.92-  151.59  Ni siquiera los especialistas lo dicen
+  280.54-  281.50  que vino a verme
+  296.21-  298.85  y esto lo escucho constantemente
+  548.96-  553.11  los próximos 7 signos…
+  680.28-  683.37  aproximadamente 108 mg/dL (falso)
+ 1212.30- 1221.74  las señales que estamos por cubrir…
+ 1362.30- 1363.35  de mis pacientes
