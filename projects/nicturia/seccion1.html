@@ -1,0 +1,62 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('seccion1'); window.END=C('seccion2'); window.DURATION=window.END;
+STitle(C('seccion1'),C('paciente'),1,'La <span class="hl">mentira</span> que le han contado','',['clock','bladder']);
+Side(C('paciente'),C('respuesta'),'wake_rub',[['“Me despierto',null,70],['3 o 4 veces',C('paciente')+3,84,'#e23b2e'],['para orinar”',C('paciente')+4.5,70]],{h:620,cy:900});
+{const B=Beat(C('respuesta'),C('tome'));
+ Cap(B,'La respuesta habitual:',{cx:960,cy:120,size:66,t0:B.a+0.2});
+ Row(B,[['bladder','Vejiga',C('respuesta')+3,null],['prostate','Próstata',C('respuesta')+4.5,null],['clock','La edad',C('respuesta')+6,null]],{y:580});}
+FB(C('tome'),C('erronea'),'S1_4','“Tome menos líquidos. Tome esta pastilla.”',{capT:0.2,size:56,from:[.5,.5,1.0],to:[.55,.4,1.12]});
+FB(C('erronea'),C('noes'),'S1_5','No es errónea… pero es <span class="red">incompleta</span>',{capT:1.5,size:60});
+{const B=Beat(C('noes'),C('rinones1'),{enter:'zoom'});
+ Row(B,[['bladder','No solo la vejiga',C('noes'),'no'],['prostate','No solo la próstata',C('noes')+2,'no']],{y:540,cardW:560});}
+{const B=Beat(C('rinones1'),C('incomoda'),{enter:'zoom'}); Cut(B,'kidneys',{cx:600,cy:860,h:520,amp:4,shake:1});
+ Cut(B,'moon',{cx:900,cy:420,h:200,t0:B.a+0.8,amp:4});
+ Cap(B,'Son sus <span class="hl">riñones</span>',{cx:1380,cy:360,size:80,t0:B.a+0.2}); Cap(B,'acelerando de noche',{cx:1380,cy:480,size:62,t0:B.a+1.2});
+ Cap(B,'Poliuria nocturna = mucha orina de noche',{cx:1380,cy:650,size:44,t0:B.a+2.2,pill:true});}
+{const B=Beat(C('incomoda'),C('presente'));
+ Cut(B,'pills',{cx:380,cy:700,h:280,t0:C('ningun'),amp:3}); Cut(B,'bladder',{cx:820,cy:700,h:280,t0:C('ningun')+0.6,amp:3});
+ Cut(B,'kidneys',{cx:1520,cy:700,h:300,t0:C('ningun')+3,amp:3,shake:0.8});
+ const s=Svg(B); Draw(B,s,arrow(480,380,740,380,0.15),{t0:C('ningun')+0.8,dur:0.3,stroke:'#6a6f86',w:8}); Draw(B,s,cross(1180,560,1.2),{t0:C('ningun')+3.6,dur:0.3,stroke:'#e23b2e',w:12});
+ Cap(B,'La verdad incómoda',{cx:960,cy:130,size:68,t0:B.a+0.2,color:'#e23b2e'});
+ Cap(B,'tratar solo la vejiga = <span class="hl">órgano equivocado</span>',{cx:960,cy:910,size:58,t0:C('ningun')+3});}
+Side(C('presente'),C('primero'),'mt_think',[['Hay una razón…',null,66,'#6a6f86'],['y empieza mucho más',C('temprano')-1,62],['<span class="hl">temprano</span> en el día',C('temprano'),76]],{h:760});
+Side(C('primero'),C('hormona'),'mt_point',[['Algo que',null,66,'#6a6f86'],['<span class="hl">casi nadie sabe</span>',C('primero')+1.2,84]],{h:780});
+{const B=Beat(C('hormona'),C('correcta'),{enter:'zoom'}); Cut(B,'brain',{cx:330,cy:620,h:320,amp:4}); Cut(B,'kidneys',{cx:1590,cy:700,h:340,t0:B.a+1,amp:3});
+ Cut(B,'moon',{cx:960,cy:240,h:180,t0:B.a+0.5,amp:4});
+ Fly(B,'adh_drop',{x0:420,y0:420,x1:1460,y1:480,h:190,t0:B.a+2,dur:2.2});
+ Cap(B,'Una hormona del cerebro',{cx:960,cy:830,size:62,t0:B.a+0.3}); Cap(B,'“Riñones: <span class="hl">tómense la noche libre</span>”',{cx:960,cy:950,size:60,t0:C('libre')});}
+FB(C('correcta'),C('nofunciona'),'S1_6','Si funciona: <span class="hl">7–8 horas</span> sin ir al baño',{capT:0.8,size:60,draw:(c,t)=>zzz(c,t,{x:760,y:300,s:1.5})});
+{const B=Beat(C('nofunciona'),C('adh'),{enter:'zoom'}); Cut(B,'brain',{cx:300,cy:600,h:280,amp:3});
+ const d=Fly(B,'adh_drop',{x0:380,y0:400,x1:640,y1:470,h:120,t0:B.a+0.8,dur:1.2,arc:-40,fade:0.35});
+ Cut(B,'kidneys',{cx:960,cy:720,h:330,t0:B.a+0.5,amp:3,shake:1.2}); Cut(B,'bladder',{cx:1580,cy:720,h:330,t0:C('siguen'),amp:3});
+ Canvas(B,(c,t)=>drops(c,t,{x:1500,y:240,w:160,h:200,t0:C('siguen'),n:10,s:1.6}));
+ Cap(B,'Después de los 60: a menudo <span class="red">falla</span>',{cx:960,cy:130,size:62,t0:B.a+0.3});
+ Cap(B,'los riñones no reciben el mensaje',{cx:960,cy:900,size:54,t0:C('mensaje'),t1:C('siguen')-0.2}); Cap(B,'siguen filtrando… y la vejiga <span class="hl">se llena</span>',{cx:960,cy:900,size:56,t0:C('siguen')});}
+{const B=Beat(C('adh'),C('maximos'),{enter:'zoom'}); Cut(B,'adh_drop',{cx:560,cy:840,h:460,amp:5});
+ Cap(B,'ADH',{cx:1340,cy:330,size:180,t0:B.a+0.2,color:'#2f6fd6'}); Cap(B,'hormona <span class="hl">antidiurética</span>',{cx:1340,cy:520,size:64,t0:B.a+1.2});
+ Cap(B,'(vasopresina)',{cx:1340,cy:630,size:54,t0:B.a+3.5,color:'#6a6f86'});}
+// ADH day/night chart: young night peak vs flattened rhythm
+{const B=Beat(C('maximos'),C('doscosas'));
+ const s=Svg(B); Draw(B,s,'M260 820 H1680 M260 820 V220',{t0:B.a+0.2,dur:0.4,stroke:'#3a3c52',w:6});
+ const night=sv('rect',{x:1000,y:220,width:680,height:600,fill:'#e9edfb'},s); s.insertBefore(night,s.firstChild);
+ Cap(B,'Día',{cx:620,cy:870,size:48,t0:B.a+0.3}); Cap(B,'Noche 🌙',{cx:1340,cy:870,size:48,t0:B.a+0.3});
+ Cap(B,'ADH',{cx:200,cy:240,size:46,t0:B.a+0.3,color:'#2f6fd6'});
+ Draw(B,s,'M270 700 C 600 690, 900 690, 1050 560 S 1250 270, 1340 270 S 1560 560, 1680 650',{t0:B.a+0.8,dur:1.6,stroke:'#2f6fd6',w:10});
+ Cap(B,'Joven: pico de noche',{cx:1340,cy:200,size:48,t0:B.a+2,color:'#2f6fd6',t1:C('aplanado')});
+ Draw(B,s,'M270 700 C 700 690, 1100 650, 1340 630 S 1600 650, 1680 660',{t0:C('aplanado')+0.5,dur:1.5,stroke:'#f95c00',w:10});
+ Cap(B,'Mayor: ritmo <span class="hl">aplanado</span>',{cx:1340,cy:200,size:52,t0:C('aplanado')+1,color:'#f95c00'});
+ Draw(B,s,cross(1340,300,1),{t0:C('pico')+2,dur:0.3,stroke:'#e23b2e',w:10});
+ Cap(B,'los riñones trabajan <span class="red">casi como de día</span>',{cx:960,cy:980,size:56,t0:C('pierden')});
+ Src(B,'La ADH nocturna suele disminuir con la edad');}
+{const B=Beat(C('doscosas'),C('mitad'),{enter:'zoom'});
+ Cap(B,'<span class="hl">Dos cosas</span> en su contra',{cx:960,cy:130,size:72,t0:B.a+0.2});
+ Card(B,{cx:560,cy:560,w:680,h:560,t0:C('renal'),border:'#e23b2e'}); Num(B,1,{cx:560,cy:310,r:50,t0:C('renal')}); Cut(B,'kidneys',{cx:560,cy:700,h:300,t0:C('renal')+0.1,amp:3,shake:0.8});
+ Cap(B,'Riñones trabajando de noche',{cx:560,cy:770,size:44,t0:C('renal')+0.2});
+ Card(B,{cx:1360,cy:560,w:680,h:560,t0:C('renal')+3.5,border:'#f7ad36'}); Num(B,2,{cx:1360,cy:310,r:50,t0:C('renal')+3.5}); Cut(B,'adh_drop',{cx:1360,cy:700,h:280,t0:C('renal')+3.6,amp:3});
+ Cap(B,'Señal hormonal débil',{cx:1360,cy:770,size:48,t0:C('renal')+3.7});}
+Side(C('mitad'),C('nombre'),'mt_think',[['…y esto es solo',null,64],['la <span class="hl">mitad</span> de la historia',C('mitad')+2,76]],{h:760});
+FB(C('nombre'),C('seccion2'),'S1_8','💬 Su nombre y desde dónde nos ve',{capT:0.4,size:60,exit:'fade'});
+{const B=beats[beats.length-1]; Cap(B,'Cada comentario se lee',{cx:960,cy:90,size:50,t0:C('todos'),pill:true});}
+</script></body></html>

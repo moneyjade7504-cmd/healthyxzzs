@@ -1,0 +1,21 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=0; window.END=C('seccion1'); window.DURATION=window.END;
+const night=(c,t)=>{for(let i=0;i<10;i++){c.globalAlpha=0.5+0.5*Math.sin(t*2+i);c.fillStyle='#fff6c8';c.beginPath();c.arc(1250+((i*97)%380),60+((i*53)%300),2.5,0,7);c.fill();}c.globalAlpha=1;};
+FB(0,C('arrastra'),'S1_1','<span class="red">2:47</span> de la madrugada',{capT:C('reloj')-0+0.3,from:[.5,.5,1.0],to:[.8,.65,1.25],draw:night});
+FB(C('arrastra'),C('vuelve'),'S1_2','Al baño… <span class="hl">medio dormido</span>',{capT:0.5,from:[.5,.5,1.0],to:[.35,.5,1.12]});
+FB(C('vuelve'),C('ocurrir'),'S1_3','De vuelta a la cama…',{capT:0.3,from:[.5,.5,1.0],to:[.45,.4,1.15],draw:night});
+{const B=Beat(C('ocurrir'),C('mayor'),{enter:'zoom'}); Cut(B,'wake_rub',{cx:470,cy:1000,h:640,amp:4});
+ BigClock(B,{cx:1300,cy:420,r:230,t0:B.a+0.1,from:[2,47],to:[4,15],dur:1.6}); Cap(B,'…y <span class="red">otra vez</span>',{cx:1300,cy:900,size:64,t0:B.a+2.2});}
+{const B=Side(C('mayor'),C('dijera'),'shuffle_wall',[['¿Es simplemente',null,62,'#6a6f86'],['<span class="hl">hacerse mayor</span>?',C('mayor')+1.2,84]]);}
+{const B=Beat(C('dijera'),C('mostrarle'),{enter:'zoom'}); Cut(B,'bladder',{cx:620,cy:860,h:520,amp:4});
+ const s=Svg(B); Draw(B,s,cross(620,600,2.4),{t0:C('vejiga0')+1.2,dur:0.4,stroke:'#e23b2e',w:16});
+ Cap(B,'En muchísimos casos…',{cx:1380,cy:380,size:60,t0:B.a+0.4,color:'#6a6f86'}); Cap(B,'la <span class="hl">vejiga</span> tiene',{cx:1380,cy:510,size:76,t0:C('vejiga0')});
+ Cap(B,'<span class="red">muy poco</span> que ver',{cx:1380,cy:630,size:76,t0:C('vejiga0')+1});}
+{const B=Beat(C('mostrarle'),C('seccion1'));
+ Cap(B,'La verdadera <span class="hl">reacción en cadena</span>',{cx:960,cy:150,size:72,t0:B.a+0.2});
+ const s=Chain(B,[['water','Líquido',B.a+0.8],['kidneys','Riñones',B.a+1.8],['bladder','Vejiga',B.a+2.8],['toilet','Despierto',B.a+3.8]],{y:520});
+ Draw(B,s,'M1010 380 L1130 640',{t0:C('interrumpirla')+0.6,dur:0.3,stroke:'#22a35a',w:14}); 
+ Cap(B,'…y cómo <span class="hl">interrumpirla</span> esta noche',{cx:960,cy:900,size:64,t0:C('interrumpirla')});}
+</script></body></html>

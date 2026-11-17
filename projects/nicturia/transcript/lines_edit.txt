@@ -1,0 +1,234 @@
+[0.24] (w0) Usted se despierta.
+[2.08] (w3) El reloj marca las 2 .47 de la madrugada.
+[5.54] (w12) Se arrastra al baño apenas consciente.
+[8.40] (w18) Vuelve a la cama.
+[9.82] (w22) Y entonces, vuelve a ocurrir a las 4 .15.
+[13.44] (w31) Y de alguna manera, usted ha estado llamando a esto simplemente hacerse mayor.
+[19.22] (w44) Pero, y si le dijera que en la mayoría de los la vejiga casi no tiene nada que ver con esto?
+[25.76] (w65) voy a mostrarle la verdadera reacción en cadena que lo despierta por la noche y exactamente cómo interrumpirla antes de que se vaya a dormir esta noche.
+[35.74] (w92) Sección 1.
+[38.22] (w94) La mentira que le han Cuando un paciente mayor de 60 años llega y dice, me despierto tres o cuatro veces por noche para orinar.
+[48.03] (w119) La respuesta habitual, casi de manera refleja, es problemas de vejiga, posiblemente la próstata, tal vez simplemente la edad.
+[56.95] (w138) Tome menos líquidos, tome esta pastilla, aceptelo.
+[61.07] (w145) Y esa respuesta no es del todo errónea, pero es peligrosamente es su vejiga reaccionando en exceso, no es su próstata portándose mal, son sus riñones acelerándose en el peor momento posible.
+[75.81] (w177) Y esta es la verdad incómoda.
+[78.45] (w183) ningún medicamento para la vejiga en el mundo lo solucionará por completo porque está tratando el órgano equivocado.
+[85.69] (w201) Ahora, quiero que tenga presente esto porque hay una razón por la que sus riñones están haciendo esto y comienza mucho más temprano en el día de lo que usted cree.
+[95.17] (w232) Pero primero, déjeme mostrarle algo que casi nadie sabe.
+[98.98] (w241) ¿Hay una hormona que su cerebro produce todas las noches?
+[102.62] (w251) O se supone que debe producir, cuya única función es decirles a sus riñones que básicamente se tomen la noche libre.
+[111.04] (w272) Cuando esta hormona funciona correctamente, usted puede dormir 7, incluso 8 horas sin una sola ida al baño.
+[118.80] (w290) Cuando no funciona y después de los 60, la investigación muestra que a menudo no funciona también.
+[125.14] (w307) Sus riñones nunca reciben el mensaje de reducir el ritmo.
+[129.14] (w317) Simplemente siguen filtrando, siguen produciendo y su vejiga sigue llenándose.
+[134.70] (w327) Esa hormona se llama ADH, la hormona antidiurética, también conocida como vasopresina, y durante la mayor parte de sus años jóvenes, su cuerpo la produjo de maravilla.
+[146.66] (w354) Los niveles máximos llegaban justo cuando usted se quedaba dormido, sus riñones reducían el ritmo.
+[153.04] (w369) Usted dormía toda la noche.
+[155.60] (w374) Pero esto es lo que la investigación realmente muestra.
+[158.96] (w383) La producción de ADH disminuye de manera natural con la edad.
+[163.42] (w394) Más específicamente, los adultos mayores muestran un ritmo circadiano aplanado de la ADH.
+[169.60] (w407) Es decir, que el pico nocturno que antes protegía su sueño se debilita o desaparece por completo.
+[176.44] (w424) Sus riñones pierden su señal y operan casi a niveles diurnos durante toda la noche.
+[182.34] (w439) Así que, desde ya, dos cosas están trabajando en su contra.
+[186.80] (w450) Un sistema renal que funciona cuando debería descansar, y una señal hormonal que se ha vuelto demasiado débil para detenerlo.
+[195.00] (w470) Ahora suena, aquí es donde se pone realmente interesante, porque esa es solo la mitad de la historia.
+[202.14] (w488) Pero antes de entrar en la lista, dígame su nombre y desde donde me está viendo en los comentarios de abajo.
+[208.08] (w509) Quiero saber quién está en esta sala conmigo hoy.
+[211.18] (w518) Cada comentario se lee.
+[213.10] (w522) Todos.
+[214.38] (w523) Sección 2.
+[215.68] (w525) El conducto de las piernas a la vejiga que nadie le cuenta.
+[220.26] (w537) Quiero hablarle de un paciente al que llamaré Gerald, de 71 años, ingeniero jubilado, lucido como pocos, porque ya había probado dos medicamentos diferentes para la vejiga y había reducido su consumo de agua por la noche a casi nada.
+[236.64] (w577) Aún así, se despertaba tres veces por noche.
+[240.22] (w585) Cuando le pregunté por su día, paso mucho tiempo sentado, estoy jubilado, armo rompecabezas.
+[247.78] (w599) Veo algo de noticias.
+[249.46] (w603) Leo.
+[250.44] (w604) Esa es una frase que me dijo casi todo.
+[253.80] (w613) Esta es la fisiología que lo cambia todo para personas como Gerald.
+[258.22] (w625) Cuando usted está en posición vertical, sentado, de pie, en movimiento, la gravedad está tirando constantemente de los líquidos de su cuerpo hacia abajo.
+[273.58] (w649) La sangre, el líquido ninfático, el líquido que se encuentra entre sus células, todo migra hacia el sur, hacia la parte baja de las piernas, los tobillos, los pies.
+[279.86] (w678) Cuando usted es joven, su cuerpo maneja esto de maravilla.
+[283.58] (w688) Sus venas son elásticas y fuertes.
+[286.22] (w694) Las diminutas válvulas unidireccionales que hay dentro de ellas cierran correctamente, empujando la sangre hacia arriba contra la gravedad.
+[294.62] (w713) Los músculos de sus piernas actúan como bombas cada vez que camina o cambia de peso.
+[300.14] (w729) Pero después de los 60, este sistema se debilita.
+[304.08] (w738) Las paredes de las venas pierden elasticidad.
+[307.08] (w745) Las válvulas no sellan con tanta eficiencia.
+[310.22] (w752) Y si usted pasa largos periodos sentado, como la mayoría de los adultos jubilados, hay mucho menos bombeo muscular.
+[317.72] (w771) Así que el líquido se filtra lentamente fuera del torrente sanguíneo y se acumula en el tejido de la parte baja de las piernas.
+[325.50] (w795) Quizás reconozca las señales sin haberlas relacionado con sus hidas nocturnas al baño, marcas de los calcetines que permanecen en la piel hasta tarde por la tarde, tobillos que se sienten ligeramente hinchados o tensos hacia la noche, piernas que se sienten más pesadas al final del día que al comienzo.
+[343.78] (w846) Eso no es casualidad, es líquido retenido fuera de su circulación y sus riñones no pueden tocarlo.
+[351.24] (w863) Y esta es la pieza clave.
+[353.52] (w869) Sus riñones solo pueden filtrar lo que está en su torrente sanguíneo.
+[357.76] (w881) Ese líquido acumulado en sus piernas es en esencia invisible para ellos durante el día.
+[363.36] (w896) Ahora usted se acuesta, se recuesta, y en el momento en que lo hace, la ecuación de la gravedad se invierte.
+[370.46] (w917) Sus piernas quedan al nivel de su corazón y ese líquido que pasó todo el día acumulándose comienza a migrar de regreso a su torrente sanguíneo, lentamente al principio, luego de manera más constante.
+[383.74] (w951) Su volumen total de sangre aumenta.
+[386.36] (w957) Su corazón detecta el aumento y libera su propia hormona, un péptido llamado PNA, el péptido natriurético auricular, que le indica directamente a sus riñones que filtren más rápido y excreten el exceso de líquido en forma de orina.
+[402.16] (w996) Así que sus riñones, que ya no reciben la señal de desaceleración de la ADH de la que hablamos, ahora reciben una señal activa de aceleración de parte de su corazón.
+[412.16] (w1027) El resultado, su vejiga se llena rápidamente y no ocurre solo una vez, porque ese líquido de las piernas no regresa a la circulación todo de golpe, sino que se filtra de vuelta a lo largo de varias horas.
+[425.42] (w1066) Así que usted se despierta a medianoche, vacía la vejiga, se vuelve a costar y se desplaza más líquido.
+[432.56] (w1085) Se despierta a las 2 AM, se vuelve a costar y se desplaza más líquido y vuelve a estar despierto a las 4 AM.
+[440.88] (w1109) La vejiga simplemente está haciendo su trabajo, está recibiendo lo que los riñones le envían y los riñones están respondiendo a lo que la circulación les entrega.
+[450.50] (w1136) La cadena es piernas, torrentes sanguíneo, corazón, riñones, vejiga, y usted despierto a las 3 AM.
+[459.44] (w1152) Y reducir su consumo de agua por la noche no toca esta cadena en ningún punto, porque el líquido que sus riñones están procesando no fue lo que usted debió después de la cena.
+[470.38] (w1186) Fue lo que se acumuló en sus piernas desde esta mañana.
+[473.82] (w1197) Gerald, por cierto, pasó de despertarse tres veces por noche a una, a veces ninguna, con cambios que no tenía nada que ver con su vejiga.
+[483.30] (w1223) Si esto le está ayudando hasta ahora, escriba el número 2 en los comentarios ahora mismo.
+[488.70] (w1239) Sólo le toma 2 segundos y me permite saber que sigue conmigo, No querrá perderse lo que viene.
+[495.45] (w1257) Sección 3.
+[496.89] (w1259) Los hábitos de la noche que alimentan silenciosamente el fuego.
+[501.69] (w1269) Déjeme preguntarle algo.
+[503.45] (w1272) ¿Qué comió anoche entre las 6 y las 9 pm?
+[507.11] (w1282) La mayoría de las personas no relaciona su cena con lo que ocurre a las 2 de la madrugada, pero el vínculo bioquímico es directo, y una vez que lo ve, ya no puede dejar de verlo.
+[518.99] (w1319) El sodio oculto es el primer culpable, y no es el salero lo que debe preocuparle.
+[524.97] (w1335) Es el sodio que se esconde a simple vista en la rebanada de pan, la pequeña porción de queso, la sopa ligera de lata, las galletas saladas empaquetadas, la fina capa de las carnes frías compradas en la tienda.
+[538.77] (w1374) Estos alimentos no saben particularmente salados, pero llevan cargas importantes de Esto es lo que sucede metabólicamente.
+[547.89] (w1391) Cuando usted consume sodio por la noche, su cuerpo, para mantener una concentración segura de sodio en la sangre, retiene agua.
+[555.87] (w1412) Saca agua de las células y los tejidos para diluir el sodio.
+[559.87] (w1424) Esto en realidad aumenta el volumen de líquido en sus tejidos, incluida sus piernas.
+[565.21] (w1438) Así que usted se acuesta con aún más líquido acumulado en la parte inferior del cuerpo, del que tendría de otro modo.
+[572.05] (w1460) Luego, sus riñones, encargados de eliminar ese sodio durante la noche, arrastran agua con él, porque el sodio y el agua siempre viajan juntos en el sistema de filtración de los riñones.
+[583.29] (w1492) Más sodio por eliminar significa más agua excretada, significa más orina, significa más viajes al baño.
+[591.87] (w1508) El segundo detonante de la noche, los picos de azúcar en la sangre.
+[596.67] (w1521) Un pequeño postre, una pieza de fruta, un té de la noche con miel.
+[601.51] (w1535) Estas cosas parecen inofensivas y de manera aislada para un metabolismo joven y sano en gran medida lo son.
+[608.79] (w1554) Pero esto es lo que hace un pico de azúcar nocturno en un cuerpo mayor de 60 años.
+[614.63] (w1572) Primero, la glucosa en la sangre sube.
+[617.75] (w1579) Los riñones tienen un por encima del cual la glucosa comienza a derramarse en la orina.
+[624.20] (w1595) Cuando la glucosa se derrama, arrastra agua con ella por osmosis.
+[628.64] (w1606) Esto se llama diuresis osmótica, y es el mismo mecanismo que impulsa la micción excesiva que se observa en la diabetes no controlada.
+[637.12] (w1629) Muchos adultos mayores de 60 años, en particular aquellos con prediabetes o resistencia temprana a la insulina, alcanzan o se acercan a ese umbral después de una carga de azúcar por la noche, sin saberlo siquiera.
+[651.06] (w1665) Así que lo que parece un postre inocente está desencadenando bioquímicamente un evento de excreción de agua programado para su sueño.
+[660.10] (w1686) Segundo, incluso si usted no alcanza ese umbral, hay un mecanismo separado que vale la pena entender.
+[667.14] (w1703) Una investigación publicada en diabetes estableció que la insulina, incluso a niveles fisiológicos normales, le indica activamente a los riñones que retengan sodio en lugar de excretarlo.
+[679.50] (w1730) Así que una carga de azúcar por la noche que desencadena una respuesta de insulina puede hacer que sus riñones retengan sodio temporalmente, y ese sodio retenido puede necesitar ser eliminado más tarde durante el sueño.
+[693.26] (w1766) La cadena directa desde el azúcar de la noche hasta la micción nocturna no se ha estudiado de forma aislada, pero la fisiología subyacente, la retención de sodio impulsada por la insulina, seguida de una excreción retrasada, está bien documentada y ofrece una vía contribuyente plausible.
+[711.56] (w1812) El tercer detonante, y este es importante porque se malinterpreta con mucha frecuencia, es el alcohol por la noche.
+[719.14] (w1831) Incluso una copa.
+[720.84] (w1834) El alcohol es un antagonista directo de la ADHD.
+[724.26] (w1843) Suprime activamente la hormona de la que hablamos antes, la que tiene la función de decirles a sus riñones que reduzcan el ritmo por la noche.
+[732.64] (w1869) Una sola bebida puede reducir de manera significativa la actividad de la ADHD durante varias horas.
+[739.40] (w1885) Así que justo cuando su cuerpo debería estar señalando a sus riñones que descansen, el alcohol está bloqueando esa señal.
+[746.90] (w1905) Al mismo tiempo, el alcohol fragmenta la arquitectura del sueño.
+[751.28] (w1915) Usted se duerme más rápido.
+[753.42] (w1920) La gente lo nota, pero pasa menos tiempo en sueño profundo de ondas lentas.
+[758.32] (w1934) Su umbral de despertar baja, así que se produce más orina en un sueño más ligero y más fácil de interrumpir.
+[765.20] (w1955) Esa combinación crea un ciclo que se siente casi imposible de romper.
+[770.24] (w1967) Ahora conecte los tres.
+[772.00] (w1971) El sodio oculto carga sus piernas con líquido extra.
+[775.46] (w1980) El azúcar de la noche desencadena una cascada diurética retardada.
+[779.80] (w1990) El alcohol bloquea la única hormona diseñada para proteger su sueño de sus riñones.
+[785.08] (w2004) Cualquiera de estos hace las cosas más difíciles.
+[788.44] (w2012) Con los tres juntos, despertarse dos o tres veces se vuelve casi inevitable, sin importar lo poco que beba después de las 6 pm.
+[797.26] (w2036) Ahora que entiende por qué está ocurriendo esto, es el momento de la parte que realmente cambia su vida.
+[804.12] (w2055) Porque existe una rutina específica antes de dormir construida en torno a la fisiología que acabamos de cubrir, que puede trasladar la mayor parte de este procesamiento de líquidos fuera de su sueño y de vuelta a sus horas de vigilia.
+[818.58] (w2096) Y comienza con algo que usted puede hacer esta noche, no dentro de un mes, no después de ver a un especialista, esta noche.
+[827.94] (w2120) Sección 4 El protocolo previo al sueño que lo restablece todo.
+[833.70] (w2131) Todo lo que voy a compartir está construido en torno a un principio central.
+[838.56] (w2145) Usted no puede evitar que su cuerpo procese líquidos, pero sí puede cambiar el momento en que lo hace.
+[845.26] (w2164) Ese es todo el juego.
+[846.96] (w2169) Trasladar el proceso de eliminación de líquidos a la noche temprano, mientras todavía está despierto, para que sus riñones no tengan que hacerlo a las 2 a .m.
+[856.14] (w2197) de la madrugada.
+[857.58] (w2200) Así es como se hace.
+[859.40] (w2205) Paso 1.
+[860.56] (w2207) Mueva sus piernas durante el día de manera estratégica.
+[864.16] (w2216) Cada vez que los músculos de sus pantorrillas se contraen, actúan como una bomba secundaria, empujando la sangre y el líquido hacia arriba contra la gravedad.
+[873.54] (w2242) Esto se llama la bomba muscular esquelética, y es uno de los mecanismos principales en los que su cuerpo se apoya para evitar que el líquido se acumule en la parte baja de las piernas.
+[884.32] (w2277) El hábito más eficaz aquí no es ir al gimnasio, es simplemente no permanecer sentado más de 60 a 90 minutos seguidos.
+[893.10] (w2299) Programe un recordatorio suave.
+[895.26] (w2303) Levántese, camine hasta la cocina, haga algunas elevaciones de talones, póngase de puntillas y baje los talones, 20 repeticiones.
+[904.44] (w2322) Este pequeño movimiento activa la bomba de la pantorrilla de manera significativa.
+[909.64] (w2334) Si hace esto de manera constante durante el día, llegará a la hora de dormir con mucho menos líquido acumulado en las piernas.
+[917.20] (w2357) Menos acumulación durante el día significa menos retorno a la circulación por la noche, significa menos carga para sus riñones mientras duerme.
+[926.86] (w2379) Paso 2.
+[928.06] (w2381) Adelante su consumo de líquidos.
+[930.70] (w2386) Este va en contra de lo que la mayoría de las personas hace intuitivamente.
+[935.22] (w2400) Muchos adultos mayores, preocupados por la mixión nocturna, inconscientemente posponen el beber agua para más tarde en el día, pensando que lo harán justo antes de dormir.
+[946.02] (w2427) Ese es exactamente el momento equivocado.
+[949.28] (w2433) Su objetivo es consumir la mayor parte de délíquidos antes de las 3 pm.
+[954.44] (w2447) Esto les da a sus riñones el mayor número posible de horas de vigilia para procesar lo que ha consumido.
+[960.70] (w2467) Para la noche, la mayor parte de ese procesamiento ya está hecho.
+[964.96] (w2479) Quedan menos líquidos sin procesar en su sistema a la hora de dormir.
+[969.20] (w2492) Esto no significa cero líquidos después de las 3 pm.
+[972.86] (w2502) Unos orvos con una cena temprana es también, pero usted quiere que sus riñones trabajen a toda marcha al medio día, no a media noche.
+[981.76] (w2527) Paso 3.
+[983.16] (w2529) Revise su plato de las 6 pm.
+[985.92] (w2536) Con base en lo que cubrimos, reduzca el sodio en la comida de la noche.
+[990.26] (w2551) Esto no requiere una dieta insípida.
+[992.60] (w2557) Elija proteínas frescas en lugar de empaquetadas.
+[995.74] (w2564) Cocine con hierbas y limón en lugar de mucha sal.
+[999.36] (w2574) Evite el pan, sopas enlatadas o los bocadillos procesados como alimento habitual de la noche.
+[1005.76] (w2589) Limite o elimine los postres dulces después de la cena.
+[1009.48] (w2599) Y si disfruta de una copa, cambiela a una hora más temprana o omítala en las noches en que la calidad del sueño sea lo más importante.
+[1018.46] (w2626) Paso 4.
+[1019.80] (w2628) Y este es el que más sorprende a la gente.
+[1022.64] (w2638) La ventana de elevación de piernas antes de dormir.
+[1026.12] (w2647) Aproximadamente de 60 a 90 minutos antes de la hora en que piensa dormir, recuérstese en el sofá o en la cama y eleve las piernas por encima del nivel del corazón, apoyadas contra la pared, sobre una pila de almohadas, sobre el brazo del sofá.
+[1041.94] (w2693) La posición exacta importa menos que el ángulo.
+[1045.14] (w2701) Piernas más altas que el corazón.
+[1047.74] (w2707) Permanezca allí de 20 a 30 minutos.
+[1050.98] (w2714) Lo que está haciendo es desencadenar deliberadamente el proceso de retorno de líquidos mientras todavía está despierto.
+[1058.40] (w2731) El líquido de sus piernas comienza a migrar de regreso a su torrente sanguíneo.
+[1063.12] (w2745) Su corazón detecta el aumento y le indica a sus riñones que filtren.
+[1067.52] (w2758) Sus riñones se ponen a trabajar.
+[1069.82] (w2764) Su vejiga se llena.
+[1071.76] (w2768) Luego, antes de irse a la cama, use el baño.
+[1075.24] (w2778) Deliberadamente.
+[1076.76] (w2779) Aunque la urgencia no sea abrumadora, usted acaba de trasladar la mayor carga de trabajo nocturna de los riñones a la hora previa al sueño.
+[1085.28] (w2804) Su vejiga comienza la noche lo más vacía posible.
+[1088.86] (w2813) Y como usted ha eliminado de manera proactiva gran parte de ese líquido almacenado en las piernas, hay significativamente menos regresando a su torrente sanguíneo a las 2 a .m.
+[1100.06] (w2843) Paso 5 La temperatura en la última hora Algo de lo que rara vez se habla Un ambiente de sueño más fresco reduce la vasodilatación general y disminuye la velocidad de movilización de líquidos durante el sueño temprano.
+[1116.50] (w2881) Mantenga su habitación del lado fresco.
+[1119.24] (w2887) Evite las duchas calientes inmediatamente antes de dormir, que causan una vasodilatación que acelera la redistribución de líquidos.
+[1127.26] (w2905) Una ducha tibia, 90 minutos antes de dormir, en cambio, ha demostrado mejorar la calidad del sueño al desencadenar la respuesta natural de descenso de temperatura del cuerpo.
+[1138.44] (w2933) Si esto todavía le hace sentido, escriba el número 4 en los comentarios ahora mismo.
+[1144.16] (w2948) Me encantaría ver quién sigue aquí conmigo.
+[1146.92] (w2955) Apenas vamos por la Sección 5 ¿Cuándo dejar de manejarlo por su cuenta y acudir al médico?
+[1154.92] (w2972) Ahora tengo que ser honesto con usted, porque este video trata de empoderarlo, no de reemplazar la atención médica.
+[1162.44] (w2991) El patrón que hemos descrito, el líquido que se acumula durante el día, se redistribuye por la noche.
+[1168.74] (w3009) Y los riñones que trabajan en exceso es común, está bien comprendido y responde muy bien a los ajustes de estilo de vida que acabamos de cubrir.
+[1177.64] (w3036) La mayoría de las personas que aplican estos cambios de manera constante ven una reducción significativa en una o dos semanas, pero hay situaciones en las que algo más serio está causando el mismo síntoma y usted necesita conocerlas.
+[1192.60] (w3075) Si tiene una hinchazón importante y persistente en las piernas, no solo marcas leves de los calcetines, sino una hinchazón visible que no se resuelve durante la noche, eso puede indicar insuficiencia cardíaca, enfermedad renal o insuficiencia venosa que requiere evaluación médica.
+[1210.40] (w3117) Si se despierta tres o más veces con una urgencia intensa, pero con la vejiga casi vacía, ese patrón que no cubrimos hoy apunta específicamente a una vejiga hiperactiva, una posible infección o en los hombres una patología de la próstata.
+[1225.90] (w3158) Ese grupo necesita una conversación completamente distinta.
+[1230.40] (w3165) Si tienes sede excesiva junto con la micción frecuente, esa combinación es una señal de alerta de diabetes no controlada y justifica una prueba inediata.
+[1240.36] (w3190) Si el protocolo que comentamos no produce ninguna mejoría en dos a tres semanas, eso es información.
+[1247.44] (w3207) Significa que probablemente haya un factor médico, hormonal, cardíaco o o renal que debe ser identificado.
+[1254.72] (w3223) No retrace esa conversación.
+[1257.02] (w3227) El enfoque de estilo de vida es poderoso, pero funciona mejor cuando aborda la causa correcta y saber de qué tipo es usted importa.
+[1265.90] (w3251) Su médico, con la información correcta, puede confirmarlo.
+[1269.68] (w3259) No le estoy diciendo que no vaya.
+[1271.68] (w3266) Le estoy diciendo que vaya informado, para que pueda tener una conversación más útil que simplemente decir, sigo despertándome por la noche.
+[1280.64] (w3288) Sección 6 La conexión con la apnea del sueño que nadie explica.
+[1286.50] (w3300) Esta es la parte que realmente sorprende a la y es la última pieza del rompecabezas.
+[1292.31] (w3316) Muchos adultos mayores de 60 años que se despiertan repetidamente por la noche tienen una condición que contribuye y que desconocen la apnea del sueño, no necesariamente la del romquido dramático y fuerte, aunque eso es común, sino a veces una respiración parcialmente obstruida y sutil, que mico despertares repetidos durante la noche.
+[1315.75] (w3369) Esto es lo que importa para la mixión en específico.
+[1318.93] (w3379) Cuando usted deja de respirar brevemente durante el sueño, incluso durante 10 a 15 segundos, la presión dentro de su pecho cae drásticamente.
+[1328.17] (w3402) Su corazón, al detectar esta presión negativa, la interpreta como una señal de que el volumen de sangre es demasiado alto.
+[1335.91] (w3423) Libera PNAA, esa misma hormona cardíaca de la que antes, que le indica a los riñones que aumenten la filtración y excreten más líquido.
+[1344.77] (w3447) Así que cada episodio de apnea envía, en esencia, una falsa señal de demasiado líquido a sus riñones, múltiples episodios por hora durante toda la noche.
+[1355.87] (w3473) El resultado?
+[1357.05] (w3475) Sus riñones producen mucha más orina de la que producirían de otro modo.
+[1361.61] (w3488) No porque usted haya bebido demasiado, no por la redistribución del líquido de las piernas, sino porque su corazón reside una señal de presión defectuosa cada vez que su vía aérea se cierra brevemente.
+[1374.27] (w3522) La investigación ha demostrado que tratar la apnea del sueño con CPAP reduce significativamente la micción nocturna en muchos pacientes.
+[1383.23] (w3542) No un medicamento para la vejiga, no una restricción de líquidos, sino una máquina que mantiene la vía aérea abierta y detiene la falsa señalización cardíaca.
+[1393.89] (w3568) Si usted ronca con regularidad, si su pareja nota que parece jadear o dejar de respirar, si se despierta sintiéndose sin descanso, incluso después de siete horas, vale la pena investigarlo.
+[1407.65] (w3599) Un estudio del sueño que ahora a menudo puede hacerse en casa puede confirmarlo o descartarlo.
+[1413.91] (w3615) Y para quienes tienen al mismo tiempo apnea del sueño y redistribución de líquidos, algo más común de lo que la mayoría de las personas imagina, ambos mecanismos alimentan el mismo síntoma.
+[1425.85] (w3647) Tratar solo uno aborda solo la mitad del problema.
+[1429.81] (w3656) Dejemos esto bien claro.
+[1431.69] (w3660) La micción nocturna después de los 60 suele ser causada por tres cosas.
+[1436.79] (w3673) Una producción debilitada de A de H, que deja a sus riñones funcionando durante D el líquido que se acumula en sus piernas durante todo el día y que inunda su sistema en el momento en que se recuesta.
+[1449.05] (w3712) Y los hábitos de la noche, sodio, azúcar, alcohol, que aceleran silenciosamente el proceso.
+[1456.43] (w3726) La solución no consiste en beber menos, sino en el momento.
+[1460.93] (w3737) Trasladar el procesamiento a sus horas de vigilia.
+[1464.23] (w3745) Eleve las piernas antes de dormir.
+[1466.71] (w3751) Adelante su consumo de líquidos.
+[1469.09] (w3756) Revise su plato de las 6 pm.
+[1471.59] (w3763) y si nada de eso mueve la aguja, hay una cosa más de la que todavía no hemos hablado.
+[1477.53] (w3782) Su propio sueño puede ser el saboteador.
+[1481.11] (w3789) En el próximo video voy a mostrarle exactamente cómo la mala calidad del sueño crea un entorno hormonal que empeora dramáticamente cada uno de los problemas de los que hablamos hoy.
+[1492.35] (w3820) ¿Y qué hacer al respecto?
+[1494.35] (w3825) Ese video podría ser la pieza que le falta a muchos de ustedes.
+[1498.45] (w3838) Nos vemos allá.
