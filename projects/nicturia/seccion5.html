@@ -1,0 +1,35 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('seccion5'); window.END=C('seccion6'); window.DURATION=window.END;
+STitle(C('seccion5'),C('honesto'),5,'¿Cuándo ir al <span class="hl">médico</span>?','cuando los hábitos no bastan',['stethoscope','notebook']);
+Side(C('honesto'),C('patron'),'mt_point',[['Este vídeo informa…',null,64],['<span class="hl">no sustituye</span> a su médico',C('honesto')+3,74]],{h:780});
+{const B=Beat(C('patron'),C('serio'));
+ Cap(B,'El patrón de hoy es <span class="hl">común</span>',{cx:960,cy:130,size:68,t0:C('comun')-1});
+ Chain(B,[['sock_marks','Líquido de día',B.a+0.6],['moon','Vuelve de noche',B.a+3],['kidneys2','Riñones a tope',C('comun')-1]],{y:500,h:240});
+ Cap(B,'Muchas personas notan mejoría en <span class="hl">pocas semanas</span>',{cx:960,cy:900,size:56,t0:C('mayoria5')});}
+{const B=Beat(C('serio'),C('hinchazon'),{enter:'zoom'}); Cut(B,'stethoscope',{cx:560,cy:860,h:480,amp:3});
+ Cap(B,'Pero a veces hay',{cx:1350,cy:420,size:62,t0:B.a+0.2}); Cap(B,'algo <span class="red">más serio</span>',{cx:1350,cy:550,size:80,t0:B.a+0.8});}
+// 4 red flags
+{const B=Beat(C('hinchazon'),C('urgencia'),{enter:'zoom'}); Num(B,1,{cx:200,cy:130,r:60,t0:B.a+0.1});
+ Cap(B,'Hinchazón <span class="red">importante y persistente</span>',{cx:1000,cy:130,size:62,t0:B.a+0.3});
+ Cut(B,'leg_swollen',{cx:1720,cy:960,h:460,t0:B.a+0.6,amp:3});
+ Cap(B,'que no baja durante la noche',{cx:960,cy:960,size:54,t0:B.a+6});
+ Row(B,[['heart2','Corazón',C('indicar'),null],['kidneys2','Riñones',C('indicar')+1,null],['vein_valves','Venas',C('indicar')+2,null]],{y:640,h:200,cardW:290,cardH:360});}
+{const B=FB(C('urgencia'),C('sed'),'S4_2','2 · Urgencia intensa… pero <span class="hl">orina muy poco</span>',{capT:0.3,size:56});
+ Cap(B,'vejiga hiperactiva · infección · próstata',{cx:960,cy:90,size:48,t0:C('hiperactiva'),pill:true});}
+{const B=Beat(C('sed'),C('protocolo'),{enter:'zoom'}); Num(B,3,{cx:200,cy:130,r:60,t0:B.a+0.1});
+ Cap(B,'<span class="hl">Mucha sed</span> + orinar a menudo',{cx:1000,cy:130,size:66,t0:B.a+0.3});
+ Cut(B,'w_drink',{cx:520,cy:1000,h:700,t0:B.a+0.4,amp:4}); Cut(B,'glucometer',{cx:1360,cy:760,h:380,t0:B.a+3,amp:3});
+ Cap(B,'posible diabetes: <span class="red">hágase un análisis</span>',{cx:1360,cy:400,size:54,t0:B.a+3});}
+{const B=Beat(C('protocolo'),C('enfoque'),{enter:'zoom'}); Num(B,4,{cx:200,cy:130,r:60,t0:B.a+0.1});
+ Cap(B,'Sin mejoría en <span class="hl">2–3 semanas</span>',{cx:1000,cy:130,size:66,t0:B.a+0.3});
+ Cut(B,'calendar',{cx:560,cy:820,h:440,t0:B.a+0.6,amp:3});
+ Cap(B,'eso también es información',{cx:1360,cy:400,size:54,t0:B.a+4}); Cap(B,'¿corazón? ¿riñón? ¿hormonas?',{cx:1360,cy:520,size:52,t0:C('factor'),color:'#2f6fd6'});
+ Cap(B,'<span class="red">No retrase</span> la consulta',{cx:1360,cy:660,size:64,t0:C('noretrase')});}
+{const B=FB(C('enfoque'),C('informado'),'S4_1','Su médico puede <span class="hl">confirmar la causa</span>',{capT:C('confirmarlo')-C('enfoque'),size:60});}
+{const B=Beat(C('informado'),C('seccion6'),{enter:'zoom'}); Cut(B,'g_notebook',{cx:520,cy:1000,h:620,amp:3}); Cut(B,'calendar',{cx:1600,cy:860,h:280,t0:B.a+2.5,amp:3});
+ Cap(B,'Vaya <span class="hl">informado</span>',{cx:1300,cy:300,size:80,t0:B.a+0.2});
+ Cap(B,'Anote 3 días: a qué hora orina y cuánto',{cx:1220,cy:450,size:48,t0:B.a+2,pill:true});
+ Cap(B,'mejor que “sigo despertándome de noche”',{cx:1220,cy:600,size:46,t0:B.a+5,color:'#6a6f86'});}
+</script></body></html>

@@ -1,0 +1,46 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('seccion6'); window.END=1499.2; window.DURATION=window.END;
+const night=(c,t)=>{for(let i=0;i<8;i++){c.globalAlpha=0.5+0.5*Math.sin(t*2+i);c.fillStyle='#fff6c8';c.beginPath();c.arc(1350+((i*97)%300),40+((i*53)%240),2.5,0,7);c.fill();}c.globalAlpha=1;};
+STitle(C('seccion6'),C('ultima'),6,'La conexión con la <span class="hl">apnea del sueño</span>','la última pieza del rompecabezas',['lungs','cpap_machine']);
+Side(C('ultima'),C('apnea'),'mt_think',[['La pieza que',null,64,'#6a6f86'],['sorprende a <span class="hl">mucha gente</span>',C('ultima')+1,74]],{h:780});
+{const B=FB(C('apnea'),C('importa6'),'S4_4','<span class="hl">Apnea del sueño</span>: muchos no lo saben',{capT:C('apnea')+8-C('apnea'),size:60,draw:(c,t)=>zzz(c,t,{x:720,y:200,s:1.6})});
+ Cap(B,'no siempre con ronquidos fuertes: a veces respiración parcialmente obstruida',{cx:960,cy:90,size:40,t0:C('ronquido'),pill:true});}
+// apnea → chest pressure → heart → false signal → kidneys
+{const B=Beat(C('importa6'),C('resultado6'));
+ Cap(B,'¿Por qué hace orinar más?',{cx:960,cy:120,size:66,t0:B.a+0.2});
+ Chain(B,[['lungs','Pausa al respirar',C('respirar')],['heart2','Corazón “confundido”',C('interpreta')],['kidneys2','Riñones: más orina',C('libera')+2]],{y:520,h:260});
+ Cap(B,'10–15 s sin respirar → cae la presión en el pecho',{cx:960,cy:860,size:48,t0:C('presion'),t1:C('interpreta')-0.2,pill:true});
+ Cap(B,'el corazón cree que hay demasiado volumen',{cx:960,cy:860,size:50,t0:C('interpreta'),t1:C('libera')-0.2,pill:true});
+ Cap(B,'libera PNA → los riñones eliminan más agua',{cx:960,cy:860,size:50,t0:C('libera'),t1:C('falsa')-0.2,pill:true});
+ Cap(B,'una <span class="red">falsa señal</span>, varias veces por hora',{cx:960,cy:960,size:58,t0:C('falsa')});}
+{const B=Beat(C('resultado6'),C('cpap'),{enter:'zoom'}); Cut(B,'bladder_full',{cx:300,cy:860,h:440,amp:3}); Canvas(B,(c,t)=>drops(c,t,{x:200,y:240,w:200,h:200,t0:B.a+0.4,n:10,s:1.6}));
+ Cap(B,'Mucha más orina…',{cx:960,cy:160,size:70,t0:B.a+0.3});
+ Row(B,[['water','No por beber',C('noporque'),'no'],['sock_marks','No por las piernas',C('noporque')+2.5,'no']],{y:620,h:200,cardW:360,cardH:380});}
+{const B=FB(C('cpap'),C('ronca'),'S4_6','Tratar la apnea con <span class="hl">CPAP</span> reduce las idas al baño',{capT:0.4,size:56,draw:night});
+ Cap(B,'una máquina que mantiene abierta la vía respiratoria',{cx:960,cy:90,size:46,t0:C('maquina')+3,pill:true});
+ Src(B,'Fuentes: metaanálisis Wang 2015 · Papadopoulos 2020');}
+{const B=Beat(C('ronca'),C('estudio'));
+ Cap(B,'Vale la pena consultarlo si…',{cx:960,cy:120,size:66,t0:B.a+0.2});
+ Row(B,[['snore','Ronca a menudo',C('ronca'),null],['w_ears','Su pareja nota pausas',C('ronca')+3,null],['m_yawn_door','Se despierta cansado',C('ronca')+7,null]],{y:580});}
+FB(C('estudio'),C('ambos'),'S4_5','Un <span class="hl">estudio del sueño</span>, a menudo en casa',{capT:0.3,size:60});
+{const B=Beat(C('ambos'),C('claro'),{enter:'zoom'});
+ Card(B,{cx:560,cy:540,w:620,h:520,t0:B.a+0.3}); Cut(B,'lungs',{cx:560,cy:660,h:300,t0:B.a+0.4,amp:3}); Cap(B,'Apnea',{cx:560,cy:740,size:54,t0:B.a+0.5});
+ Card(B,{cx:1360,cy:540,w:620,h:520,t0:B.a+1.2}); Cut(B,'sock_marks',{cx:1360,cy:660,h:300,t0:B.a+1.3,amp:3}); Cap(B,'Líquido en las piernas',{cx:1360,cy:740,size:48,t0:B.a+1.4});
+ Cap(B,'+',{cx:960,cy:540,size:120,t0:B.a+1,color:'#e23b2e'});
+ Cap(B,'Tratar solo uno = <span class="hl">la mitad</span> del problema',{cx:960,cy:930,size:60,t0:C('mitad6')});}
+// summary
+{const B=Beat(C('claro'),C('solucion'));
+ Cap(B,'En resumen: <span class="hl">3 causas</span>',{cx:960,cy:120,size:70,t0:B.a+0.2});
+ Row(B,[['adh_drop','Menos ADH de noche',C('uno_adh'),null],['sock_marks','Líquido de las piernas',C('uno_adh')+5,null],['wine','Sal, azúcar y alcohol',C('habitos6'),null]],{y:580});}
+{const B=Beat(C('solucion'),C('aguja'),{enter:'zoom'});
+ Cap(B,'No es beber menos: es <span class="hl">cambiar el momento</span>',{cx:960,cy:130,size:62,t0:B.a+0.2});
+ Row(B,[['g_legs_wall','Piernas elevadas',C('eleve'),'ok'],['g_drink','Líquidos antes de las 3',C('adelante6'),'ok'],['w_cook','Cena con poca sal',C('plato6'),'ok'],['cpap_machine','¿Ronca? Consulte',C('plato6')+1.2,'ok']],{y:580,h:260,cardH:460});}
+{const B=Beat(C('aguja'),C('proximo')); Cut(B,'g_notebook',{cx:520,cy:1000,h:600,amp:3}); Cut(B,'moon',{cx:1700,cy:330,h:200,t0:C('saboteador'),amp:4});
+ Cap(B,'¿Y si nada funciona?',{cx:1250,cy:360,size:70,t0:B.a+0.3}); Cap(B,'su propio <span class="hl">sueño</span> puede ser el saboteador',{cx:1250,cy:500,size:56,t0:C('saboteador')});
+ Cap(B,'Este vídeo es educativo y no sustituye a su médico',{cx:1250,cy:700,size:40,t0:B.a+1,color:'#6a6f86'});}
+{const B=FB(C('proximo'),C('pieza'),'S4_7','Próximo vídeo: <span class="hl">el sueño</span> y sus hormonas',{capT:0.4,size:60,draw:(c,t)=>rays(c,t,{x:1500,y:520,r0:70,r1:110,lw:5})});}
+Subscribe(C('pieza'),C('nosvemos'),{pose:'g_couple_wave',line:'Suscríbase para no perdérselo'});
+FB(C('nosvemos'),1499.2,'S4_8','¡Nos vemos allá!',{capT:0.1,size:66,exit:'fade'});
+</script></body></html>
