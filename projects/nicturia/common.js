@@ -35,7 +35,7 @@ const NS='http://www.w3.org/2000/svg';
 const sv=(tag,attrs,parent)=>{const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);parent.appendChild(e);return e;};
 const rnd=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x);};
 const C=k=>{if(!(k in CUE))throw new Error('missing cue '+k);return CUE[k]-0.15;};   // beat lands 0.15 s before the word
-const IMG={"S1_1":[1672,941],"S1_2":[1672,941],"S1_3":[1672,941],"S1_4":[1671,941],"S1_5":[1672,941],"S1_6":[1671,941],"S1_7":[1670,941],"S1_8":[1671,941],"S2_1":[1672,941],"S2_2":[1670,942],"S2_3":[1670,941],"S2_4":[1670,942],"S2_5":[1670,941],"S2_6":[1670,942],"S2_7":[1670,942],"S2_8":[1670,942],"adh_drop":[330,342],"ankle_swollen":[289,361],"bladder":[280,345],"bladder_full":[306,342],"blood_drop":[206,332],"brain":[333,346],"calf_pump":[315,398],"clock":[287,374],"g_ankle":[392,431],"g_lie_flat":[575,196],"g_stretch_back":[372,452],"g_walk":[319,448],"heart":[304,396],"kidneys":[357,341],"kidneys2":[371,303],"m_heel_raise":[363,495],"m_legs_up":[590,415],"m_phone":[406,404],"m_point":[287,433],"m_puzzle":[384,413],"m_stand":[247,494],"m_yawn_door":[466,426],"moon":[303,303],"mt_point":[318,456],"mt_think":[247,474],"mt_wave":[287,459],"pills":[287,304],"prostate":[313,314],"puzzle":[354,319],"remote":[253,348],"shuffle_wall":[383,467],"sleep_g":[501,412],"sock_marks":[271,389],"toilet":[280,344],"vein_valves":[210,402],"w_point":[294,456],"w_thumbs":[231,458],"wake_rub":[466,443],"water":[243,318]};
+const IMG={"S1_1":[1672,941],"S1_2":[1672,941],"S1_3":[1672,941],"S1_4":[1671,941],"S1_5":[1672,941],"S1_6":[1671,941],"S1_7":[1670,941],"S1_8":[1671,941],"S2_1":[1672,941],"S2_2":[1670,942],"S2_3":[1670,941],"S2_4":[1670,942],"S2_5":[1670,941],"S2_6":[1670,942],"S2_7":[1670,942],"S2_8":[1670,942],"S3_1":[1672,941],"S3_2":[1672,941],"S3_3":[1671,941],"S3_4":[1671,941],"S3_5":[1670,941],"S3_6":[1672,941],"S3_7":[1672,941],"S3_8":[1670,942],"adh_drop":[330,342],"ankle_swollen":[289,361],"bladder":[280,345],"bladder_full":[306,342],"blood_drop":[206,332],"brain":[333,346],"bread":[338,333],"cake":[365,329],"calf_pump":[315,398],"can":[248,345],"cheese":[299,285],"clock":[287,374],"coldcuts":[391,316],"crackers":[325,282],"g_ankle":[392,431],"g_drink":[395,479],"g_legs_wall":[633,541],"g_lie_flat":[575,196],"g_no_wine":[571,453],"g_stretch_back":[372,452],"g_walk":[319,448],"heart":[304,396],"kidneys":[357,341],"kidneys2":[371,303],"lemon_herbs":[381,282],"m_heel_raise":[363,495],"m_legs_up":[590,415],"m_phone":[406,404],"m_point":[287,433],"m_puzzle":[384,413],"m_stand":[247,494],"m_yawn_door":[466,426],"moon":[303,303],"mt_point":[318,456],"mt_think":[247,474],"mt_wave":[287,459],"pills":[287,304],"prostate":[313,314],"puzzle":[354,319],"remote":[253,348],"salt":[222,342],"shuffle_wall":[383,467],"sleep_g":[501,412],"sock_marks":[271,389],"tea_honey":[402,320],"toilet":[280,344],"vein_valves":[210,402],"w_cook":[444,447],"w_heel_raise":[391,486],"w_point":[294,456],"w_thumbs":[231,458],"w_wave":[384,454],"wake_rub":[466,443],"water":[243,318],"wine":[203,365]};
 
 // ---------- beats (layers) ----------
 const beats=[];
@@ -275,7 +275,7 @@ function STitle(a,b,n,l1,l2,props){const B=Beat(a,b,{enter:'zoom'}); Num(B,n,{cx
   Cap(B,'SECCIÓN '+n,{cx:960,cy:440,size:66,t0:a+0.3,color:'#2f6fd6'}); Cap(B,l1,{cx:960,cy:590,size:84,t0:a+0.7}); if(l2)Cap(B,l2,{cx:960,cy:730,size:60,t0:a+1.6});
   (props||[]).forEach((p,i)=>Cut(B,p,{cx:i?1700:220,cy:1060,h:300,t0:a+1.2+i*0.3,amp:5,phase:i})); return B;}
 // analog clock whose hands sweep from time A to time B (hours:minutes) with a digital readout
-function BigClock(B,{cx=960,cy=480,r=240,t0,dur=1.5,from=[2,47],to=null,col='#2f6fd6'}){
+function BigClock(B,{cx=960,cy=480,r=240,t0,dur=1.5,from=[2,47],to=null,col='#2f6fd6',suf=' a.m.'}){
   const s=Svg(B); t0=t0??B.a; const g=sv('g',{},s);
   sv('circle',{cx,cy,r,fill:'#fffdf4',stroke:col,'stroke-width':16},g);
   for(let i=0;i<12;i++){const a=i/12*2*Math.PI;sv('line',{x1:cx+Math.sin(a)*r*0.82,y1:cy-Math.cos(a)*r*0.82,x2:cx+Math.sin(a)*r*0.93,y2:cy-Math.cos(a)*r*0.93,stroke:'#3a3c52','stroke-width':i%3?5:10,'stroke-linecap':'round'},g);}
@@ -287,8 +287,8 @@ function BigClock(B,{cx=960,cy=480,r=240,t0,dur=1.5,from=[2,47],to=null,col='#2f
     g.setAttribute('transform',`translate(${cx} ${cy}) scale(${p<=0?0:back(p)}) translate(${-cx} ${-cy}) rotate(${wob} ${cx} ${cy})`);
     hh.setAttribute('transform',`rotate(${(m/60)%12*30} ${cx} ${cy})`); mh.setAttribute('transform',`rotate(${(m%60)*6} ${cx} ${cy})`);});
   const fmt=v=>`${Math.floor(v/60)}:${String(v%60).padStart(2,'0')}`;
-  Cap(B,fmt(m0)+' a.m.',{cx,cy:cy+r+90,size:76,t0:t0+0.3,t1:to?t0+0.6+dur*0.5:1e9,color:'#24263a'});
-  if(to)Cap(B,'<span class="red">'+fmt(m1)+' a.m.</span>',{cx,cy:cy+r+90,size:76,t0:t0+0.6+dur*0.6});
+  Cap(B,fmt(m0)+suf,{cx,cy:cy+r+90,size:76,t0:t0+0.3,t1:to?t0+0.6+dur*0.5:1e9,color:'#24263a'});
+  if(to)Cap(B,'<span class="red">'+fmt(m1)+suf+'</span>',{cx,cy:cy+r+90,size:76,t0:t0+0.6+dur*0.6});
   return s;
 }
 // cut-out that flies along a gentle arc from (x0,y0) to (x1,y1)

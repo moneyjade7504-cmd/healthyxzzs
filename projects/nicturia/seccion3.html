@@ -1,0 +1,69 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('seccion3'); window.END=C('seccion4'); window.DURATION=window.END;
+const night=(c,t)=>{for(let i=0;i<8;i++){c.globalAlpha=0.5+0.5*Math.sin(t*2+i);c.fillStyle='#fff6c8';c.beginPath();c.arc(1300+((i*97)%330),40+((i*53)%240),2.5,0,7);c.fill();}c.globalAlpha=1;};
+STitle(C('seccion3'),C('pregunt3'),3,'Los <span class="hl">hábitos</span> de la noche','que alimentan el problema en silencio',['salt','wine']);
+{const B=Beat(C('pregunt3'),C('relaciona'),{enter:'zoom'}); BigClock(B,{cx:560,cy:450,r:230,t0:B.a+0.1,from:[6,0],to:[9,0],dur:1.6,suf:' p.m.'});
+ Cap(B,'¿Qué cenó anoche',{cx:1380,cy:400,size:72,t0:C('comio')}); Cap(B,'entre las <span class="hl">6 y las 9</span>?',{cx:1380,cy:520,size:72,t0:C('comio')+1});}
+FB(C('relaciona'),C('sodio'),'S3_1','La cena… y las <span class="red">2 de la madrugada</span>',{capT:0.5,size:62,from:[.5,.5,1.0],to:[.5,.6,1.15]});
+{const B=Beat(C('sodio'),C('pan'),{enter:'zoom'}); Cut(B,'salt',{cx:600,cy:860,h:480,amp:4});
+ const s=Svg(B); Draw(B,s,cross(600,600,2),{t0:C('salero')+0.6,dur:0.4,stroke:'#e23b2e',w:14});
+ Cap(B,'1 · Sodio <span class="hl">oculto</span>',{cx:1380,cy:380,size:84,t0:B.a+0.2}); Cap(B,'no es el salero…',{cx:1380,cy:530,size:62,t0:C('salero')});}
+{const B=Beat(C('pan'),C('consume'));
+ Cap(B,'…es el sodio <span class="hl">escondido</span>',{cx:960,cy:120,size:68,t0:B.a+0.1});
+ Row(B,[['bread','Pan',C('pan'),null],['cheese','Queso',C('queso'),null],['can','Sopa de lata',C('lata'),null],['crackers','Galletas saladas',C('galletas'),null],['coldcuts','Embutidos',C('carnes'),null]],{y:520,h:230,cardH:420});
+ Cap(B,'No saben salados… pero llevan <span class="red">mucho sodio</span>',{cx:960,cy:930,size:56,t0:C('nosaben')});}
+{const B=Beat(C('consume'),C('arrastran'),{enter:'zoom'}); Cut(B,'salt',{cx:300,cy:640,h:300,amp:3}); Cut(B,'blood_drop',{cx:820,cy:640,h:300,t0:B.a+1,amp:3});
+ Cut(B,'ankle_swollen',{cx:1560,cy:860,h:440,t0:C('aumenta'),amp:3});
+ const s=Svg(B); Draw(B,s,arrow(420,480,700,480,0),{t0:B.a+1,dur:0.3,stroke:'#6a6f86',w:8}); Draw(B,s,arrow(960,480,1380,560,0.1),{t0:C('aumenta'),dur:0.4,stroke:'#2f6fd6',w:9});
+ Canvas(B,(c,t)=>drops(c,t,{x:1100,y:420,w:260,h:300,t0:C('saca'),n:10,s:1.3}));
+ Cap(B,'El cuerpo <span class="hl">retiene agua</span>',{cx:960,cy:130,size:68,t0:C('retiene')});
+ Cap(B,'más líquido en los tejidos… y en las piernas',{cx:960,cy:960,size:52,t0:C('aumenta'),t1:C('acuesta3')-0.2});
+ Cap(B,'se acuesta con <span class="red">más líquido acumulado</span>',{cx:960,cy:960,size:56,t0:C('acuesta3')});}
+{const B=Beat(C('arrastran'),C('azucar')); Cut(B,'kidneys2',{cx:560,cy:760,h:360,amp:3,shake:0.8});
+ Cut(B,'salt',{cx:300,cy:400,h:180,t0:B.a+0.4,amp:4}); Cut(B,'water',{cx:820,cy:400,h:180,t0:C('juntos'),amp:4});
+ Cap(B,'Sodio y agua <span class="hl">viajan juntos</span>',{cx:1380,cy:380,size:66,t0:C('juntos')});
+ Cap(B,'más sodio = más orina',{cx:1380,cy:520,size:58,t0:C('massodio')}); Cap(B,'= más viajes al baño',{cx:1380,cy:620,size:58,t0:C('massodio')+2.5,color:'#e23b2e'});
+ Cut(B,'toilet',{cx:1380,cy:960,h:240,t0:C('massodio')+2.5,amp:3});}
+{const B=FB(C('azucar'),C('glucosa'),'S3_2','2 · Picos de <span class="hl">azúcar</span> por la noche',{capT:0.3,size:62,draw:night});
+ Cap(B,'postre · fruta · té con miel',{cx:960,cy:90,size:48,t0:C('postre'),pill:true});}
+// glucose threshold chart (corrected value)
+{const B=Beat(C('glucosa'),C('prediab'));
+ const s=Svg(B); Draw(B,s,'M240 820 H1100 M240 820 V240',{t0:B.a+0.2,dur:0.4,stroke:'#3a3c52',w:6});
+ Draw(B,s,'M240 430 H1100',{t0:C('umbral'),dur:0.6,stroke:'#e23b2e',w:5});
+ Cap(B,'umbral renal ≈ 180 mg/dL',{cx:670,cy:390,size:42,t0:C('umbral')+0.4,color:'#e23b2e'});
+ Draw(B,s,'M250 720 C 450 700, 600 600, 700 420 S 900 300, 1000 360 S 1080 520, 1100 560',{t0:B.a+0.8,dur:2,stroke:'#2f6fd6',w:10});
+ Cap(B,'Glucosa en sangre',{cx:400,cy:230,size:44,t0:B.a+0.3,color:'#2f6fd6'});
+ Cut(B,'bladder_full',{cx:1500,cy:760,h:380,t0:C('derrama'),amp:3}); Canvas(B,(c,t)=>drops(c,t,{x:1420,y:220,w:180,h:180,t0:C('derrama'),n:10,s:1.5}));
+ Cap(B,'la glucosa pasa a la orina… y arrastra agua',{cx:960,cy:930,size:52,t0:C('derrama'),t1:C('osmotica')-0.2});
+ Cap(B,'diuresis osmótica (como en la diabetes mal controlada)',{cx:960,cy:930,size:46,t0:C('osmotica'),pill:true});}
+Warn(C('prediab'),C('segundo2'),'Sobre todo con prediabetes o diabetes',['El azúcar alto puede aumentar la orina nocturna','¿Se levanta mucho de noche? <span class="hl">Revise su glucosa</span>'],{keys:[C('prediab')+2,C('inocente')]});
+{const B=Beat(C('segundo2'),C('directa'),{enter:'zoom'}); Cut(B,'kidneys2',{cx:560,cy:820,h:400,amp:3}); Cut(B,'salt',{cx:860,cy:520,h:180,t0:C('insulina')+3,amp:4});
+ Cap(B,'Otro mecanismo: la <span class="hl">insulina</span>',{cx:960,cy:130,size:66,t0:B.a+0.3});
+ Cap(B,'hace que los riñones',{cx:1400,cy:420,size:58,t0:C('insulina')+2}); Cap(B,'<span class="hl">retengan sodio</span>',{cx:1400,cy:530,size:70,t0:C('insulina')+3});
+ Cut(B,'moon',{cx:1400,cy:860,h:200,t0:C('carga')+5,amp:4}); Cap(B,'…y lo eliminen más tarde, de noche',{cx:1400,cy:680,size:50,t0:C('carga')+5});
+ Src(B,'Fuente: DeFronzo y cols., Diabetologia');}
+{const B=Beat(C('directa'),C('alcohol'),{enter:'zoom'}); Card(B,{cx:960,cy:520,w:1300,h:440,t0:B.a+0.2,border:'#6a6f86'});
+ Cap(B,'Relación directa azúcar → orina nocturna:',{cx:960,cy:420,size:52,t0:B.a+0.4}); Cap(B,'<span class="grey">no estudiada por sí sola</span>',{cx:960,cy:520,size:60,t0:B.a+1.4});
+ Cap(B,'la fisiología la hace <span class="hl">plausible</span>',{cx:960,cy:630,size:56,t0:B.a+6});}
+FB(C('alcohol'),C('antagonista'),'S3_3','3 · El <span class="hl">alcohol</span>… incluso una copa',{capT:0.3,size:62,draw:(c,t)=>sparks(c,t,{x:1500,y:620,s:1.2})});
+{const B=Beat(C('antagonista'),C('fragmenta'),{enter:'zoom'}); Cut(B,'wine',{cx:420,cy:820,h:440,amp:3}); Cut(B,'adh_drop',{cx:980,cy:640,h:260,t0:B.a+0.6,amp:3});
+ const s=Svg(B); Draw(B,s,cross(980,520,1.4),{t0:B.a+1.4,dur:0.3,stroke:'#e23b2e',w:12});
+ Cap(B,'El alcohol <span class="hl">frena la ADH</span>',{cx:1450,cy:380,size:64,t0:B.a+0.4});
+ Cap(B,'durante varias horas',{cx:1450,cy:500,size:54,t0:C('bebida')});
+ Cap(B,'bloquea la señal de <span class="red">descanso</span>',{cx:1450,cy:620,size:54,t0:C('bloqueando')});}
+{const B=Beat(C('fragmenta'),C('ciclo'));
+ Cap(B,'Y además <span class="hl">fragmenta el sueño</span>',{cx:960,cy:120,size:66,t0:B.a+0.2});
+ const s=Svg(B); Draw(B,s,'M300 820 H1620',{t0:B.a+0.3,dur:0.3,stroke:'#3a3c52',w:6});
+ const bars=[['Sin alcohol',420,'#58a9e4'],['Con alcohol',200,'#f7ad36']];
+ bars.forEach(([lab,h,col],i)=>{const r=sv('rect',{x:560+i*560,y:820,width:240,height:0,fill:col,rx:12},s); const t0=C('profundo')+i*0.8; B.fx.push(t=>{const p=eo(prog(t,t0,t0+0.8)); r.setAttribute('y',820-h*p); r.setAttribute('height',h*p);}); Cap(B,lab,{cx:680+i*560,cy:880,size:48,t0});});
+ Cap(B,'se duerme rápido…',{cx:960,cy:260,size:56,t0:C('rapido')}); Cap(B,'…pero con <span class="red">menos sueño profundo</span>',{cx:960,cy:360,size:56,t0:C('profundo')});
+ Cap(B,'y se despierta más fácil',{cx:960,cy:970,size:52,t0:C('umbral2')});}
+Side(C('ciclo'),C('conecte'),'m_yawn_door',[['Un ciclo',null,70],['<span class="red">difícil de romper</span>',C('ciclo')+1,76]],{h:640,cy:960});
+{const B=Beat(C('conecte'),C('cambia'));
+ Cap(B,'Los <span class="hl">tres juntos</span>',{cx:960,cy:120,size:72,t0:B.a+0.2});
+ Row(B,[['salt','Sodio: más líquido en las piernas',C('c_sodio'),'no'],['cake','Azúcar: orina extra',C('c_azucar'),'no'],['wine','Alcohol: bloquea la ADH',C('c_alcohol'),'no']],{y:560,h:280,cardH:480});
+ Cap(B,'= 2 o 3 despertares casi seguros',{cx:960,cy:960,size:58,t0:C('juntos3'),color:'#e23b2e'});}
+Side(C('cambia'),C('seccion4'),'w_point',[['La buena noticia:',null,62,'#1f9d55'],['una <span class="hl">rutina</span> antes de dormir',C('rutina'),72],['que empieza <span class="hl">esta noche</span>',C('estanoche'),66]],{h:760});
+</script></body></html>
