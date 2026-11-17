@@ -1,0 +1,59 @@
+# Ảnh cần tạo: "¿Por qué se despierta a orinar de noche?" (Claves de la Longevidad)
+
+Style **2D Hand-Drawn Whiteboard Cartoon Illustration**, giống video "Después de los 80". **Mỗi lần tạo, đính kèm ảnh master** (`projects/nicturia/master/style_ref.webp`, chính là ảnh master bạn đã gửi: bà tóc xoăn trắng, áo len tím).
+Nhân vật: Carmen (bà tóc xoăn trắng) và Antonio (ông tóc thưa, kính tròn, áo len xanh). Antonio đóng vai bệnh nhân trong phần kể chuyện ("Dramatización").
+Ảnh **tràn khung, không viền**, không chữ, không số. **Đặt tên ảnh theo số `1.png` … `40.png`**, gửi theo từng phần.
+
+Chia **4 phần**: P1 = Mở đầu + Mục 1 · P2 = Mục 2 · P3 = Mục 3 + 4 · P4 = Mục 5 + 6 + Kết. Mỗi phần 10 ảnh (1 tấm tư thế + 1 tấm đồ vật + 8 cảnh).
+
+# PHẦN 4 · Mục 5 (khi nào đi khám) + Mục 6 (ngưng thở khi ngủ) + Kết
+
+**Ảnh 31** (`31.png`): 6 tư thế: Antonio ngủ ngáy há miệng; Carmen bịt tai khó chịu; Antonio ngủ đeo mặt nạ CPAP; Antonio ghi sổ; Carmen uống nước khát; hai ông bà vẫy tay
+```
+2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, plain pure white background. Characters: CARMEN (exactly as the woman in the attached reference: 72-year-old woman, fluffy curly white-grey hair, no glasses, round friendly face, simple dot-like eyes, lilac cardigan over a white collared shirt, dark grey trousers, white sneakers) and ANTONIO (same simple 2D style as the woman in the attached reference: 71-year-old man, thin white hair receding on top, round dark-rimmed glasses, clean-shaven, friendly face, blue sweater over a light collared shirt, dark trousers). Pose sheet: SIX separate full-body poses, same scale, two rows of three, widely spaced, nothing touching, no floor, no background: 1) Antonio in pyjamas sleeping on his back with mouth open, snoring (small zzz shapes, no letters); 2) Carmen in a nightgown covering her ears, annoyed; 3) Antonio in pyjamas sleeping peacefully wearing a CPAP nasal mask with a hose; 4) Antonio sitting writing in a small notebook with a pen; 5) Carmen drinking a big glass of water, thirsty; 6) Antonio and Carmen standing together waving at the viewer. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, 16:9, high resolution.
+```
+
+**Ảnh 32** (`32.png`): 10 đồ vật: máy CPAP; mặt nạ CPAP; cuốn sổ ghi chép; máy đo đường huyết; ống nghiệm nước tiểu; ống nghe; trái tim; phổi và đường thở; chân sưng to; lịch 3 ngày (không số)
+```
+2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, plain pure white background. Object sheet: TEN items drawn SEPARATELY, same scale, evenly spaced in two rows of five, nothing touching: 1) a small bedside CPAP machine; 2) a CPAP nasal mask with a hose; 3) a small notebook and pen (a diary); 4) a glucometer with a test strip; 5) a urine sample cup; 6) a stethoscope; 7) a friendly cartoon heart; 8) a pair of cartoon lungs with an airway; 9) a very swollen lower leg; 10) a simple calendar page with three ticked boxes and no digits. No text, no labels, no letters, no numbers, no logos, 16:9, high resolution.
+```
+
+**Ảnh 33** (`33.png`): Phòng khám: Antonio đưa cuốn sổ ghi chép cho bác sĩ
+```
+2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A bright clinic office: ANTONIO (same simple 2D style as the woman in the attached reference: 71-year-old man, thin white hair receding on top, round dark-rimmed glasses, clean-shaven, friendly face, blue sweater over a light collared shirt, dark trousers) showing a small notebook diary to a friendly middle-aged female doctor in a white coat with a stethoscope who reads it attentively; Carmen sitting beside him. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
+```
+
+**Ảnh 34** (`34.png`): Bác sĩ khám mắt cá chân sưng của Antonio
+```
+2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A clinic examination room: a friendly middle-aged female doctor in a white coat with a stethoscope gently pressing on ANTONIO (same simple 2D style as the woman in the attached reference: 71-year-old man, thin white hair receding on top, round dark-rimmed glasses, clean-shaven, friendly face, blue sweater over a light collared shirt, dark trousers)'s swollen ankle while he sits on the exam bed. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
+```
+
+**Ảnh 35** (`35.png`): Carmen khát nước ban đêm, uống ly to bên bồn rửa
+```
+2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A dark kitchen at night: CARMEN (exactly as the woman in the attached reference: 72-year-old woman, fluffy curly white-grey hair, round friendly face, in a lilac nightgown) drinking a big glass of water at the sink, very thirsty, moonlight through the window. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
+```
+
+**Ảnh 36** (`36.png`): Antonio ngáy, Carmen thức trắng bên cạnh
+```
+2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A night bedroom: ANTONIO (same simple 2D style as the woman in the attached reference: 71-year-old man, thin white hair receding on top, round dark-rimmed glasses, clean-shaven, friendly face, in light blue striped pyjamas) snoring loudly with mouth open (wavy zzz shapes, no letters) while CARMEN (exactly as the woman in the attached reference: 72-year-old woman, fluffy curly white-grey hair, round friendly face, in a lilac nightgown) lies awake beside him, worried. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
+```
+
+**Ảnh 37** (`37.png`): Thiết bị đo giấc ngủ tại nhà trên đầu giường
+```
+2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A bedroom in the evening: ANTONIO (same simple 2D style as the woman in the attached reference: 71-year-old man, thin white hair receding on top, round dark-rimmed glasses, clean-shaven, friendly face, in light blue striped pyjamas) sitting on the bed while Carmen helps him attach a small home sleep test device with a finger clip. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
+```
+
+**Ảnh 38** (`38.png`): Antonio ngủ yên với máy CPAP
+```
+2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A calm night bedroom: ANTONIO (same simple 2D style as the woman in the attached reference: 71-year-old man, thin white hair receding on top, round dark-rimmed glasses, clean-shaven, friendly face, in light blue striped pyjamas) sleeping peacefully on his side wearing a CPAP mask, a small CPAP machine on the nightstand, CARMEN (exactly as the woman in the attached reference: 72-year-old woman, fluffy curly white-grey hair, round friendly face, in a lilac nightgown) sleeping happily. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
+```
+
+**Ảnh 39** (`39.png`): Buổi sáng hai ông bà tỉnh dậy tươi tỉnh, mặt trời mọc
+```
+2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A sunny morning bedroom at sunrise: ANTONIO (same simple 2D style as the woman in the attached reference: 71-year-old man, thin white hair receding on top, round dark-rimmed glasses, clean-shaven, friendly face, in light blue striped pyjamas) and CARMEN (exactly as the woman in the attached reference: 72-year-old woman, fluffy curly white-grey hair, round friendly face, in a lilac nightgown) stretching and smiling, well rested. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
+```
+
+**Ảnh 40** (`40.png`): Hai ông bà đi dạo công viên, vẫy chào (kết)
+```
+2D hand-drawn whiteboard cartoon illustration, exactly matching the attached reference image: clean confident dark grey marker outlines, simple flat pastel fills with light hand-drawn texture, soft pale blue or green round shadow blobs behind figures, small yellow emphasis tick lines, mostly white background, minimal details, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A green park at golden hour: ANTONIO (same simple 2D style as the woman in the attached reference: 71-year-old man, thin white hair receding on top, round dark-rimmed glasses, clean-shaven, friendly face, blue sweater over a light collared shirt, dark trousers) and CARMEN (exactly as the woman in the attached reference: 72-year-old woman, fluffy curly white-grey hair, no glasses, round friendly face, simple dot-like eyes, lilac cardigan over a white collared shirt, dark grey trousers, white sneakers) walking arm in arm, waving goodbye to the viewer. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
+```
