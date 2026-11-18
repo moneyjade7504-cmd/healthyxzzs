@@ -7,7 +7,7 @@ Mỗi lần tạo: **đính kèm tấm nhân vật Brain Human**. Đặt tên `1
 |---|---|---|
 | 1 | Intro + Señal 1–3 | 1, 2, 5, 7 |
 | 2 | Señal 4–7 | 3, 4, 6 |
-| 3 | Kết: trấn an, nguyên nhân điều trị được, phòng ngừa | dùng lại ảnh 4, 5, 6 + thư viện |
+| 3 | Kết: trấn an, nguyên nhân điều trị được, phòng ngừa | 8, 9 (+ ảnh 4, 5, 6 và thư viện) |
 
 
 ---
@@ -61,6 +61,22 @@ Mỗi lần tạo: **đính kèm tấm nhân vật Brain Human**. Đặt tên `1
 2D minimalist brain character explainer style, the SAME mascot as the attached reference ("Brain Human"): a round white cartoon figure whose head top is a big exposed pink brain with simple fold lines, small black dot eyes, soft pink blush cheeks, a small open smiling mouth with a pink tongue, a small light-blue brain icon on its chest, round simple body, short thin arms and legs, rounded mitten hands, white fill, thick clean black outlines, small yellow accent strokes for emphasis, a soft pale blue oval shadow under the feet. Flat colors, no gradients, plain pure white background. Character pose sheet: SIX separate full-body poses of this same mascot, same size, arranged in two rows of three, widely spaced, nothing touching: 1) walking briskly and happily, small motion lines; 2) sitting and checking its blood pressure with a simple cuff and a small generic monitor (no numbers); 3) wearing a small beige behind-the-ear hearing aid, smiling, giving an OK sign; 4) wearing round reading glasses and reading an open book, curious; 5) holding a small globe of the world with both hands, cheerful; 6) hugging a big red heart, grateful smile. No text, no letters, no numbers, no logos, 16:9, high resolution.
 ```
 
+
+---
+
+# PHẦN 3 (Kết)
+
+## Ảnh 8 (`8.png`): trấn an và nguyên nhân điều trị được (4 cảnh): hít thở bình minh, xem kết quả xét nghiệm máu, ngủ với máy ngưng thở, khám mắt
+
+```
+2D minimalist brain character explainer style, the SAME mascot as the attached reference ("Brain Human"): a round white cartoon figure whose head top is a big exposed pink brain with simple fold lines, small black dot eyes, soft pink blush cheeks, a small open smiling mouth with a pink tongue, a small light-blue brain icon on its chest, round simple body, short thin arms and legs, rounded mitten hands, white fill, thick clean black outlines, small yellow accent strokes for emphasis. Other people: simple round white figures without a visible brain, with simple hair and colored clothes. Flat colors, no gradients, minimal simple line-drawn backgrounds with lots of white space. A 2x2 grid of four separate panels, each framed by a thin black rounded border, with white gaps between panels. Panel 1: early morning, the mascot sits calmly on a sofa by a window with a soft sunrise, eyes closed, breathing slowly, a warm cup of tea in its hands. Panel 2: a friendly doctor in a white coat shows the mascot a simple blood test sheet with a few colored bars and check marks (no numbers), a small test tube on the desk, both relieved. Panel 3: at night, the mascot sleeps peacefully in bed wearing a simple sleep apnea mask with a small tube to a bedside machine, a small moon in the window. Panel 4: at an eye check, the mascot reads a chart made only of simple shapes (circles, stars, hearts) while an eye specialist points at it. No text, no letters, no numbers, no logos, 16:9, high resolution.
+```
+
+## Ảnh 9 (`9.png`): phòng ngừa và kết (4 cảnh): bước đầu tiên, gọi video gia đình, học cùng bạn bè, ôm cả nhà
+
+```
+2D minimalist brain character explainer style, the SAME mascot as the attached reference ("Brain Human"): a round white cartoon figure whose head top is a big exposed pink brain with simple fold lines, small black dot eyes, soft pink blush cheeks, a small open smiling mouth with a pink tongue, a small light-blue brain icon on its chest, round simple body, short thin arms and legs, rounded mitten hands, white fill, thick clean black outlines, small yellow accent strokes for emphasis. Other people: simple round white figures without a visible brain, with simple hair and colored clothes. Flat colors, no gradients, minimal simple line-drawn backgrounds with lots of white space. A 2x2 grid of four separate panels, each framed by a thin black rounded border, with white gaps between panels. Panel 1: the mascot takes the first happy step onto a path of round stepping stones leading toward a bright sunrise, small yellow sparkles. Panel 2: the mascot video-calls its family on a tablet, everyone waving and smiling, small hearts floating. Panel 3: a small group of older friends, including the mascot, learn something new together at a community class, one plays chess, one paints, all smiling. Panel 4: a warm family hug: the mascot hugs its grandchildren and adult children, soft floating photo frames and hearts around them. No text, no letters, no numbers, no logos, 16:9, high resolution.
+```
 
 ---
 
