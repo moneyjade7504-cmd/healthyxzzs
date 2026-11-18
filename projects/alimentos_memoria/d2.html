@@ -1,0 +1,39 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#1D202B;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+S = Scene('d2', 'practicos');
+Item(S, Img('refuse_snacks', 540), { x: 430, y: 560 });
+Item(S, Kicker('DAÑINO 2', 'ULTRA-\nPROCESADOS', { size: 116, tagColor: K.red }), { x: 1260, y: 380, t: 'd2', enter: 'slam' });
+['salami', 'cookies', 'chips', 'burger'].forEach((n, i) => Item(S, Img(n, 120), { x: 1020 + i * 160, y: 830, t: `d2+${(4 + i * 0.8).toFixed(1)}` }));
+S = Scene('practicos', 'brasil');
+Item(S, Panel('b_super', 1050), { x: 620, y: 450, zoom: 0.05 });
+Item(S, Chip('DISEÑADOS PARA COMER MÁS', { size: 32, color: K.red }), { x: 1540, y: 260, t: 'practicos+3', enter: 'r' });
+Item(S, Chip('SAL · GRASAS · AZÚCAR', { size: 36, color: K.red }), { x: 1540, y: 410, t: 'sal', enter: 'r' });
+Item(S, Chip('POCOS NUTRIENTES', { size: 36, color: K.red }), { x: 1540, y: 560, t: 'sal+4', enter: 'r' });
+S = Scene('brasil', 'solucion');
+Item(S, Panel('b_fastfood', 900), { x: 500, y: 450, zoom: 0.05 });
+Item(S, Txt('ESTUDIO EN BRASIL', { size: 50 }), { x: 1420, y: 220, t: 'brasil', enter: 'u' });
+Item(S, Chip('> 1/5 DE LAS CALORÍAS', { size: 40, fill: K.yellow }), { x: 1420, y: 370, t: 'brasil+4' });
+Item(S, Txt('+28 %', { size: 100, color: K.red }), { x: 1420, y: 540, t: 'brasil+8', enter: 'slam' });
+Item(S, Txt('DETERIORO MÁS RÁPIDO', { size: 40, color: K.red }), { x: 1420, y: 640, t: 'brasil+8.3', enter: 'fade' });
+Item(S, Chip('CARNES PROCESADAS → + RIESGO', { size: 32, color: K.red }), { x: 1420, y: 800, t: 'carnes' });
+Item(S, Txt('Gomes Gonçalves y cols., JAMA Neurol 2022', { size: 26, color: K.grey, weight: 700 }), { x: 1600, y: 1040, t: 'brasil+1', enter: 'fade' });
+S = Scene('solucion', T('d3'));
+Item(S, Img('chef', 500), { x: 430, y: 560 });
+Item(S, Txt('VUELVE A LA COCINA DE SIEMPRE', { size: 52, color: K.green }), { x: 1260, y: 240, t: 'guisos', enter: 'u' });
+Item(S, Chip('GUISOS · LEGUMBRES · HUEVOS', { size: 36 }), { x: 1260, y: 420, t: 'guisos+2' });
+Item(S, Chip('PESCADO · VERDURAS DE TEMPORADA', { size: 32 }), { x: 1260, y: 570, t: 'guisos+5' });
+Item(S, Pill('INGREDIENTES QUE SE RECONOCEN', { hi: 'SE RECONOCEN', size: 44 }), { x: 1260, y: 780, t: 'madres', enter: 'd' });
+Strip('d2', T('d3') + 1, t => 7, 8);
+Run(T('d2'), T('d3'));
+</script></body></html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#1D202B;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+S = Scene('f5', 'polifenoles');
+Item(S, Panel('n_grove', 1100), { x: 660, y: 450, zoom: 0.06 });
+Item(S, Chip('PROTECTOR 5', { fill: K.green, size: 44 }), { x: 1620, y: 220, t: 'f5', enter: 'r' });
+Item(S, Txt('ACEITE DE OLIVA', { size: 52, color: K.yellow }), { x: 1620, y: 380, t: 'f5+0.5', enter: 'fade' });
+Item(S, Txt('VIRGEN EXTRA', { size: 52, color: K.yellow }), { x: 1620, y: 450, t: 'f5+0.8', enter: 'fade' });
+Item(S, Img('olive_oil', 220), { x: 1620, y: 680, t: 'generaciones' });
+S = Scene('polifenoles', 'lugar');
+Item(S, Img('olive_oil', 300), { x: 420, y: 480 });
+Item(S, Chip('POLIFENOLES', { fill: K.yellow, size: 46 }), { x: 1260, y: 200, t: 'polifenoles' });
+Item(S, Chip('MENOS INFLAMACIÓN · VASOS PROTEGIDOS', { size: 32, color: K.green }), { x: 1260, y: 330, t: 'polifenoles+4' });
+Item(S, Txt('HARVARD · 92.000 ADULTOS · 28 AÑOS', { size: 40 }), { x: 1260, y: 500, t: 'harvard', enter: 'fade' });
+Item(S, Chip('> MEDIA CUCHARADA AL DÍA', { size: 40, color: K.blueD }), { x: 1260, y: 640, t: 'harvard+6' });
+Item(S, Txt('−28 %', { size: 100, color: K.green }), { x: 1260, y: 800, t: 'harvard+10', enter: 'slam' });
+Item(S, Txt('RIESGO DE MORIR POR DEMENCIA', { size: 34, color: K.green }), { x: 1260, y: 900, t: 'harvard+10.3', enter: 'fade' });
+Item(S, Txt('Tessier y cols., JAMA Netw Open 2024', { size: 26, color: K.grey, weight: 700 }), { x: 1640, y: 1040, t: 'harvard+1', enter: 'fade' });
+S = Scene('lugar', T('d0'));
+Item(S, Panel('n_toast', 1000), { x: 600, y: 450, zoom: 0.05 });
+Item(S, Chip('EN LUGAR DE MANTEQUILLA', { size: 34, color: K.green }), { x: 1500, y: 230, t: 'lugar', enter: 'r' });
+Item(S, Chip('VERDURAS · TOSTADA · FUEGO SUAVE', { size: 28 }), { x: 1500, y: 380, t: 'chorrito', enter: 'r' });
+Item(S, Chip('ELIGE VIRGEN EXTRA', { fill: K.yellow, size: 38 }), { x: 1500, y: 530, t: 'virgen', enter: 'r' });
+Item(S, Chip('MUY CALÓRICO: CON MODERACIÓN', { size: 30, color: K.red }), { x: 1500, y: 680, t: 'calorico', enter: 'r' });
+Strip('f5', T('d0') + 1, t => 5, 8);
+Run(T('f5'), T('d0'));
+</script></body></html>

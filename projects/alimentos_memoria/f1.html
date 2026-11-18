@@ -1,0 +1,36 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#1D202B;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+S = Scene('ap13', 'sardina');
+Item(S, Img('show_fish', 520), { x: 430, y: 560 });
+Item(S, Kicker('PROTECTOR 1', 'PESCADO\nAZUL', { size: 130, tagColor: K.green }), { x: 1260, y: 420, t: 'f1-0.3', enter: 'slam' });
+S = Scene('sardina', 'omega');
+Item(S, Panel('g_market', 1100), { x: 660, y: 450, zoom: 0.05 });
+['SARDINA', 'CABALLA', 'SALMÓN', 'ARENQUE', 'BOQUERÓN'].forEach((s, i) => Item(S, Chip(s, { size: 40, color: K.blueD }), { x: 1610, y: 200 + i * 140, t: `sardina+${(i * 0.9).toFixed(1)}`, enter: 'r' }));
+S = Scene('omega', 'estudios1');
+Item(S, Img('sardines', 280), { x: 420, y: 430 });
+Item(S, Img('salmon', 260), { x: 420, y: 720, t: 'omega+0.5' });
+Item(S, Txt('OMEGA 3 · DHA', { size: 88, color: K.yellow }), { x: 1260, y: 260, t: 'dha', enter: 'slam' });
+Item(S, Img('brain', 260), { x: 1260, y: 540, t: 'membranas' });
+Item(S, Chip('PARTE DE TUS NEURONAS', { size: 42, color: K.pinkD }), { x: 1260, y: 760, t: 'membranas+0.5' });
+Item(S, Chip('MEJOR COMUNICACIÓN', { icon: 'check', color: K.green, size: 42 }), { x: 1260, y: 900, t: 'radio' });
+S = Scene('estudios1', T('f2'));
+Item(S, Img('show_fish', 480), { x: 420, y: 560 });
+Item(S, Chip('MEJOR FUNCIÓN COGNITIVA', { icon: 'check', color: K.green, size: 40 }), { x: 1260, y: 230, t: 'estudios1+2' });
+Item(S, Txt('2 RACIONES / SEMANA', { size: 72, color: K.yellow }), { x: 1260, y: 420, t: 'dos', enter: 'slam' });
+Item(S, Txt('¿MERCURIO?', { size: 52, color: K.grey }), { x: 1260, y: 580, t: 'mercurio', enter: 'fade' });
+Item(S, Chip('PESCADO PEQUEÑO', { icon: 'check', color: K.green, size: 40 }), { x: 1060, y: 730, t: 'pequenos' });
+Item(S, Chip('PEZ ESPADA, ATÚN ROJO', { icon: 'cross', color: K.red, size: 36 }), { x: 1460, y: 870, t: 'pequenos+2.5' });
+Strip('ap13', T('f2') + 1, t => 1, 8);
+Run(T('ap13'), T('f2'));
+</script></body></html>

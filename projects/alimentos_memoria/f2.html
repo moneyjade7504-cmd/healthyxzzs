@@ -1,0 +1,43 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#1D202B;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+S = Scene('f2', 'folato');
+Item(S, Img('show_greens', 520), { x: 430, y: 560 });
+Item(S, Kicker('PROTECTOR 2', 'VERDURAS DE\nHOJA VERDE', { size: 110, tagColor: K.green }), { x: 1260, y: 400, t: 'verduras-0.3', enter: 'slam' });
+Item(S, Img('spinach', 150), { x: 1060, y: 840, t: 'espinacas' });
+Item(S, Img('broccoli', 150), { x: 1460, y: 840, t: 'espinacas+2' });
+S = Scene('folato', 'imaginalo');
+Item(S, Panel('g_garden', 1000), { x: 600, y: 450, zoom: 0.05 });
+Item(S, Chip('FOLATO · VITAMINA K · LUTEÍNA', { size: 32, color: K.green }), { x: 1500, y: 220, t: 'folato', enter: 'r' });
+Item(S, Txt('ESTUDIO EN CHICAGO', { size: 48 }), { x: 1500, y: 400, t: 'chicago', enter: 'fade' });
+Item(S, Chip('≈ 1 RACIÓN AL DÍA', { fill: K.yellow, size: 42 }), { x: 1500, y: 540, t: 'racion', enter: 'r' });
+Item(S, Txt('≈ 11 AÑOS', { size: 90, color: K.green }), { x: 1500, y: 720, t: 'racion+4', enter: 'slam' });
+Item(S, Txt('MÁS JOVEN', { size: 46, color: K.green }), { x: 1500, y: 820, t: 'racion+4.3', enter: 'fade' });
+Item(S, Txt('Morris y cols., Neurology 2018', { size: 26, color: K.grey, weight: 700 }), { x: 1650, y: 1040, t: 'chicago+1', enter: 'fade' });
+S = Scene('imaginalo', 'importante2');
+Item(S, Img('chef', 520), { x: 470, y: 560 });
+Item(S, Chip('ESPINACAS CON AJO', { size: 42 }), { x: 1260, y: 330, t: 'salteadas', enter: 'r' });
+Item(S, Chip('ENSALADA FRESCA', { size: 42 }), { x: 1260, y: 480, t: 'salteadas+2', enter: 'r' });
+Item(S, Chip('CREMA DE VERDURAS', { size: 42 }), { x: 1260, y: 630, t: 'salteadas+3.5', enter: 'r' });
+S = Scene('importante2', 'pregunto');
+Item(S, Txt('¿TOMAS WARFARINA?', { size: 80, color: K.yellow }), { x: 960, y: 260, t: 'warfarina', enter: 'slam' });
+Item(S, Chip('LA VITAMINA K PUEDE INTERFERIR', { size: 44, color: K.red }), { x: 960, y: 440, t: 'warfarina+2' });
+Item(S, Chip('NO DEJES LAS VERDURAS', { icon: 'check', color: K.green, size: 44 }), { x: 960, y: 600, t: 'nodejar' });
+Item(S, Chip('CANTIDAD CONSTANTE · HABLA CON TU MÉDICO', { size: 36, fill: K.yellow }), { x: 960, y: 760, t: 'nodejar+2' });
+S = Scene('pregunto', T('f3'));
+Item(S, Panel('k_mother', 950), { x: 560, y: 450, zoom: 0.05 });
+Item(S, Txt('¿TU PLATO DE VERDURAS FAVORITO?', { size: 44 }), { x: 1440, y: 360, t: 'platoverduras', enter: 'fade' });
+Item(S, Chip('ESCRÍBELO EN LOS COMENTARIOS', { fill: K.yellow, size: 38 }), { x: 1440, y: 520, t: 'comentarios', enter: 'slam' });
+Strip('f2', T('f3') + 1, t => 2, 8);
+Run(T('f2'), T('f3'));
+</script></body></html>

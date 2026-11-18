@@ -1,0 +1,42 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#1D202B;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+const START = 359.6;
+S = Scene(START, 'nueces');
+Item(S, Img('walnut_oil', 520), { x: 430, y: 560, t: START });
+Item(S, Kicker('PROTECTOR 4', 'NUECES Y\nFRUTOS SECOS', { size: 104, tagColor: K.green }), { x: 1260, y: 380, t: START + 0.2, enter: 'slam' });
+Item(S, Img('walnuts', 160), { x: 1080, y: 820, t: 'nuez' });
+Item(S, Img('brain', 160), { x: 1440, y: 820, t: 'semejanza' });
+Item(S, Txt('≈', { size: 90 }), { x: 1260, y: 820, t: 'semejanza+0.3', enter: 'pop' });
+S = Scene('nueces', 'palma');
+Item(S, Img('walnuts', 230), { x: 420, y: 380 });
+Item(S, Img('almonds', 230), { x: 420, y: 720, t: 'almendras' });
+Item(S, Chip('OMEGA 3 VEGETAL', { size: 42, color: K.green }), { x: 1260, y: 200, t: 'nueces+2' });
+Item(S, Chip('VITAMINA E · POLIFENOLES · FIBRA', { size: 34, color: K.green }), { x: 1260, y: 330, t: 'nueces+4' });
+Item(S, Chip('DIETA MEDITERRÁNEA', { fill: K.yellow, size: 42 }), { x: 1260, y: 480, t: 'almendras+4' });
+Item(S, Txt('ESTUDIO PREDIMED', { size: 60 }), { x: 1260, y: 660, t: 'predimed', enter: 'slam' });
+Item(S, Chip('MEJOR MEMORIA QUE DIETA BAJA EN GRASAS', { size: 30, color: K.green }), { x: 1260, y: 800, t: 'predimed+4' });
+Item(S, Txt('Valls-Pedret y cols., JAMA Intern Med 2015', { size: 26, color: K.grey, weight: 700 }), { x: 1600, y: 1040, t: 'predimed+1', enter: 'fade' });
+S = Scene('palma', 'like');
+Item(S, Panel('n_handful', 900), { x: 500, y: 400, t: 'palma', enter: 'l' });
+Item(S, Panel('n_grind', 900), { x: 1420, y: 400, t: 'masticar', enter: 'r' });
+Item(S, Chip('UN PUÑADO AL DÍA', { fill: K.yellow, size: 40 }), { x: 500, y: 760, t: 'palma+1' });
+Item(S, Chip('SIN SAL · SIN AZÚCAR · NO FRITOS', { size: 30, color: K.red }), { x: 500, y: 890, t: 'sinsal' });
+Item(S, Chip('¿CUESTA MASTICAR? MUÉLELOS', { size: 34, color: K.green }), { x: 1420, y: 760, t: 'masticar+1' });
+S = Scene('like', T('f5'));
+Item(S, Img('apple_choice', 500), { x: 480, y: 560 });
+Item(S, Chip('¿TE GUSTA? DALE ME GUSTA', { fill: K.yellow, size: 48 }), { x: 1260, y: 400, t: 'like', enter: 'slam' });
+Item(S, Chip('LLEGA A MÁS PERSONAS', { size: 40, color: K.blueD }), { x: 1260, y: 580, t: 'gesto' });
+Strip(START + 0.5, T('f5') + 1, t => 4, 8);
+Run(START, T('f5'));
+</script></body></html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#1D202B;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+const END = 772.4;
+S = Scene('d3', 'toxica');
+Item(S, Img('refuse_wine', 520), { x: 430, y: 560 });
+Item(S, Txt('SE DISFRAZA DE INOFENSIVO…', { size: 50, color: K.grey }), { x: 1260, y: 420, t: 'd3+1', out: 'd3+5', enter: 'fade' });
+Item(S, Kicker('DAÑINO 3', 'EL\nALCOHOL', { size: 130, tagColor: K.red }), { x: 1260, y: 400, t: 'd3+5.2', enter: 'slam' });
+Item(S, Chip('¿«UNA COPITA ES BUENA»?', { icon: 'question', color: K.yellow, size: 40 }), { x: 1260, y: 830, t: 'copita' });
+Item(S, StampB('LA CIENCIA ES MÁS PRUDENTE', { size: 44 }), { x: 1260, y: 830, t: 'prudente', enter: 'slam' });
+S = Scene('toxica', 'celebracion');
+Item(S, Panel('b_wine', 1000), { x: 600, y: 450, zoom: 0.05 });
+Item(S, Chip('TÓXICO PARA LAS NEURONAS', { size: 32, color: K.red }), { x: 1500, y: 210, t: 'toxica', enter: 'r' });
+Item(S, Chip('MENOS VOLUMEN CEREBRAL', { size: 32, color: K.red }), { x: 1500, y: 340, t: 'toxica+4', enter: 'r' });
+Item(S, Chip('COMISIÓN LANCET: MODIFICABLE', { size: 28, fill: K.yellow }), { x: 1500, y: 470, t: 'lancet', enter: 'r' });
+Item(S, Chip('DESPUÉS DE LOS 60: MÁS EFECTO', { size: 28, color: K.red }), { x: 1500, y: 600, t: 'despacio', enter: 'r' });
+Item(S, Chip('MEDICAMENTOS · CAÍDAS', { size: 34, color: K.red }), { x: 1500, y: 730, t: 'medicamentos', enter: 'r' });
+S = Scene('celebracion', END + 1);
+Item(S, Img('lemon_water', 480), { x: 430, y: 560 });
+Item(S, Chip('UNA COPA EN UNA FIESTA: SIN CULPA', { icon: 'check', color: K.green, size: 34 }), { x: 1260, y: 330, t: 'celebracion' });
+Item(S, Chip('¿HÁBITO DIARIO? REDÚCELO POCO A POCO', { size: 32, color: K.red }), { x: 1260, y: 500, t: 'habito' });
+Item(S, Chip('HÁBLALO CON TU MÉDICO', { fill: K.yellow, size: 42 }), { x: 1260, y: 660, t: 'habito+4', enter: 'slam' });
+Strip('d3', END + 1, t => 8, 8);
+Run(T('d3'), END);
+</script></body></html>

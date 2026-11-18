@@ -1,0 +1,41 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#1D202B;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+const START = 772.4;
+S = Scene(START, 'modernos');
+Item(S, Panel('e_grandma', 900), { x: 500, y: 400, t: START, enter: 'fade' });
+Item(S, Panel('e_berries', 900), { x: 1420, y: 400, t: 'viernes+4', enter: 'r' });
+Item(S, Chip('NI EXÓTICOS NI CAROS', { icon: 'check', color: K.green, size: 38 }), { x: 500, y: 760, t: 'exoticos' });
+Item(S, Chip('NI CÁPSULAS MILAGROSAS', { icon: 'check', color: K.green, size: 36 }), { x: 500, y: 890, t: 'exoticos+2.5' });
+Item(S, Chip('LA COCINA DE NUESTRAS ABUELAS', { size: 34, fill: K.yellow }), { x: 1420, y: 760, t: 'viernes+6' });
+S = Scene('modernos', 'recuerdes');
+Item(S, Img('refuse_snacks', 480), { x: 430, y: 560 });
+Item(S, Chip('LOS QUE DAÑAN: INVENTOS RECIENTES', { size: 34, color: K.red }), { x: 1260, y: 360, t: 'modernos' });
+Item(S, Pill('ABUELAS + CIENCIA = LO MISMO', { hi: 'LO MISMO', size: 50 }), { x: 1260, y: 600, t: 'sabiduria', enter: 'd' });
+S = Scene('recuerdes', 'sencillo');
+Item(S, Img('apple_choice', 480), { x: 430, y: 560 });
+Item(S, Txt('LO QUE CUENTA ES EL CONJUNTO', { size: 50, color: K.yellow }), { x: 1260, y: 260, t: 'conjunto', enter: 'slam' });
+Item(S, Chip('UN CUMPLEAÑOS NO TE DAÑA', { icon: 'check', color: K.green, size: 36 }), { x: 1260, y: 440, t: 'cumple' });
+Item(S, Chip('UN PUÑADO DE ARÁNDANOS NO TE SALVA', { icon: 'cross', color: K.red, size: 32 }), { x: 1260, y: 590, t: 'cumple+4' });
+S = Scene('sencillo', T('parte'));
+Item(S, Panel('e_calendar', 1050), { x: 620, y: 450, zoom: 0.05 });
+Item(S, Chip('NO TODO DE GOLPE', { icon: 'cross', color: K.red, size: 38 }), { x: 1550, y: 220, t: 'golpe', enter: 'r' });
+Item(S, Chip('UN CAMBIO ESTA SEMANA', { fill: K.yellow, size: 36 }), { x: 1550, y: 360, t: 'uno', enter: 'slam' });
+Item(S, Img('sardines', 120), { x: 1400, y: 520, t: 'uno+0.8' });
+Item(S, Img('lemon_water', 140), { x: 1550, y: 520, t: 'uno+2.5' });
+Item(S, Img('walnuts', 120), { x: 1700, y: 520, t: 'uno+4.5' });
+Item(S, Chip('COSTUMBRE → AÑADE OTRO', { size: 34, color: K.green }), { x: 1550, y: 690, t: 'costumbre', enter: 'r' });
+Item(S, Pill('PASO A PASO', { hi: 'PASO', size: 58 }), { x: 620, y: 990, t: 'paso', enter: 'd' });
+Strip(START + 1, T('parte') + 1, t => 9, 8);
+Run(START, T('parte'));
+</script></body></html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#1D202B;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+S = Scene(0, 'cafe', { cut: true });
+Item(S, Panel('k_mother', 1250), { x: 960, y: 460, t: 0, enter: 'fade', dur: 0.4, zoom: 0.06 });
+Item(S, Pill('LA COCINA DE TU INFANCIA', { hi: 'INFANCIA', size: 56 }), { y: 985, t: 'infancia', enter: 'd' });
+S = Scene('cafe', 'tresveces', { cut: true });
+Item(S, Panel('k_grandpa', 1250), { x: 960, y: 460, zoom: 0.06 });
+Item(S, Pill('RECUERDOS QUE SIGUEN VIVOS', { hi: 'VIVOS', size: 56 }), { y: 985, t: 'recuerdos0', enter: 'd' });
+S = Scene('tresveces', 'sesenta');
+Item(S, Panel('k_energy', 1000), { x: 600, y: 450, zoom: 0.05 });
+Item(S, Chip('3 VECES AL DÍA', { fill: K.yellow, size: 46 }), { x: 1520, y: 240, t: 'tresveces', enter: 'r' });
+Item(S, Chip('≈ 1,5 KG', { size: 46 }), { x: 1520, y: 400, t: 'kilo', enter: 'r' });
+Item(S, Chip('≈ 20 % DE LA ENERGÍA', { size: 40, color: K.red }), { x: 1520, y: 560, t: 'veinte', enter: 'slam' });
+Item(S, Chip('UN ÓRGANO HAMBRIENTO', { size: 38, color: K.blueD }), { x: 1520, y: 720, t: 'hambriento', enter: 'r' });
+Item(S, Pill('ALIMENTA… O DESGASTA', { hi: 'DESGASTA', size: 56 }), { x: 600, y: 990, t: 'desgasta', enter: 'd' });
+S = Scene('sesenta', 'cinco');
+Item(S, Txt('DESPUÉS DE LOS 60…', { size: 70 }), { x: 860, y: 150, t: 'sesenta', enter: 'u' });
+Item(S, Img('brain', 280), { x: 960, y: 470 });
+Item(S, Chip('INFLAMACIÓN', { size: 44, color: K.red }), { x: 420, y: 330, t: 'inflamacion', enter: 'l' });
+Item(S, Chip('ESTRÉS OXIDATIVO', { size: 44, color: K.red }), { x: 1500, y: 330, t: 'oxidativo', enter: 'r' });
+Item(S, Chip('CIRCULACIÓN', { size: 44, color: K.red }), { x: 960, y: 720, t: 'circul', enter: 'u' });
+Item(S, Pill('LA COMIDA PUEDE PROTEGER', { hi: 'PROTEGER', size: 54 }), { y: 880, t: 'buena', out: 'magico-0.2', enter: 'd' });
+Item(S, StampB('NO HAY ALIMENTOS MÁGICOS', { size: 52 }), { x: 960, y: 880, t: 'magico', enter: 'slam' });
+S = Scene('cinco', 'subs');
+Item(S, Txt('5', { size: 260, color: K.green }), { x: 480, y: 300, t: 'cinco', enter: 'slam' });
+Item(S, Txt('QUE PROTEGEN', { size: 60, color: K.green }), { x: 480, y: 470, t: 'cinco+0.4', enter: 'fade' });
+Item(S, Txt('3', { size: 260, color: K.red }), { x: 1440, y: 300, t: 'tres', enter: 'slam' });
+Item(S, Txt('QUE DAÑAN', { size: 60, color: K.red }), { x: 1440, y: 470, t: 'tres+0.4', enter: 'fade' });
+['sardines', 'spinach', 'blueberries', 'walnuts', 'olive_oil'].forEach((n, i) => Item(S, Img(n, 140), { x: 180 + i * 150, y: 650, t: `cinco+${(0.8 + i * 0.2).toFixed(1)}` }));
+['soda', 'burger', 'wine'].forEach((n, i) => Item(S, Img(n, 150), { x: 1260 + i * 180, y: 650, t: `tres+${(0.6 + i * 0.2).toFixed(1)}` }));
+Item(S, Chip('UNO SE DISFRAZA DE INOFENSIVO', { fill: K.yellow, size: 40 }), { x: 960, y: 880, t: 'final+3' });
+S = Scene('subs', T('ap13'));
+Item(S, Img('show_greens', 480), { x: 480, y: 560 });
+Item(S, Txt('Cerebro y Bienestar', { size: 72, color: K.pink }), { x: 1260, y: 330, t: 'subs+0.2', enter: 'u' });
+Item(S, Subscribe(T('subs+2')), { x: 1260, y: 540, t: 'subs+0.4' });
+Item(S, Chip('CON CARIÑO Y CON CIENCIA', { size: 38, color: K.blueD }), { x: 1260, y: 760, t: 'subs+5' });
+Run(0, T('ap13'));
+</script></body></html>

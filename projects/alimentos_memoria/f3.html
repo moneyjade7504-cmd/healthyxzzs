@@ -1,0 +1,41 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#1D202B;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+const END = 359.6;
+S = Scene('f3', 'flavonoides');
+Item(S, Img('hold_berries', 520), { x: 430, y: 560 });
+Item(S, Kicker('PROTECTOR 3', 'FRUTOS\nROJOS', { size: 130, tagColor: K.green }), { x: 1260, y: 400, t: 'frutos-0.3', enter: 'slam' });
+Item(S, Img('blueberries', 150), { x: 1060, y: 840, t: 'arandanos' });
+Item(S, Img('strawberries', 150), { x: 1460, y: 840, t: 'arandanos+0.8' });
+S = Scene('flavonoides', 'enfermeras');
+Item(S, Img('brain', 280), { x: 960, y: 520 });
+Item(S, g => { const c = el('circle', { r: 230, fill: 'none', stroke: K.blue, 'stroke-width': 14 }, g); return { draw(t) { c.setAttribute('stroke-dasharray', `${(1440 * Math.min(1, (t % 100) / 1)).toFixed(0)} 2000`); } }; }, { x: 960, y: 520, t: 'flavonoides+1' });
+Item(S, Txt('FLAVONOIDES · ANTOCIANINAS', { size: 54, color: K.pink }), { x: 960, y: 160, t: 'flavonoides', enter: 'u' });
+Item(S, Chip('UN ESCUDO', { fill: K.yellow, size: 46 }), { x: 960, y: 840, t: 'flavonoides+3', enter: 'slam' });
+Item(S, Chip('INFLAMACIÓN', { icon: 'cross', color: K.red, size: 40 }), { x: 420, y: 520, t: 'enemigos-2', enter: 'l' });
+Item(S, Chip('ESTRÉS OXIDATIVO', { icon: 'cross', color: K.red, size: 40 }), { x: 1500, y: 520, t: 'enemigos-1', enter: 'r' });
+S = Scene('enfermeras', 'caros');
+Item(S, Img('yogurt', 480), { x: 420, y: 560 });
+Item(S, Txt('MILES DE ENFERMERAS', { size: 56 }), { x: 1260, y: 240, t: 'enfermeras', enter: 'u' });
+Item(S, Txt('HASTA 2,5 AÑOS', { size: 96, color: K.green }), { x: 1260, y: 450, t: 'enfermeras+6', enter: 'slam' });
+Item(S, Txt('MÁS DE MEMORIA', { size: 50, color: K.green }), { x: 1260, y: 570, t: 'enfermeras+6.5', enter: 'fade' });
+Item(S, Chip('NOMBRES · CONVERSACIONES · CANCIONES', { size: 32, color: K.blueD }), { x: 1260, y: 760, t: 'anos' });
+Item(S, Txt('Devore y cols., Ann Neurol 2012', { size: 26, color: K.grey, weight: 700 }), { x: 1650, y: 1040, t: 'enfermeras+1', enter: 'fade' });
+S = Scene('caros', END + 1);
+Item(S, Panel('g_breakfast', 1100), { x: 660, y: 450, zoom: 0.05 });
+Item(S, Chip('SIN SUPLEMENTOS', { icon: 'check', color: K.green, size: 40 }), { x: 1590, y: 260, t: 'caros', enter: 'r' });
+Item(S, Chip('UN PUÑADO AL DESAYUNO', { size: 34, fill: K.yellow }), { x: 1590, y: 410, t: 'punado', enter: 'r' });
+Item(S, Chip('CONGELADOS: ¡TAMBIÉN!', { icon: 'check', color: K.green, size: 34 }), { x: 1590, y: 560, t: 'congelados', enter: 'r' });
+Strip('f3', END + 1, t => 3, 8);
+Run(T('f3'), END);
+</script></body></html>

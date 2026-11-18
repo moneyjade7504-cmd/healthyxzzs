@@ -1,0 +1,35 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#1D202B;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+const END = 973;
+S = Scene('parte', 'comparte');
+Item(S, Img('basket', 480), { x: 430, y: 560 });
+Item(S, Txt('LA COMIDA ES UNA PARTE', { size: 54 }), { x: 1260, y: 200, t: 'parte', enter: 'u' });
+['CAMINAR', 'DORMIR BIEN', 'PRESIÓN ARTERIAL', 'CONVERSAR', 'APRENDER'].forEach((s, i) => Item(S, Chip(s, { size: 36, color: K.green }), { x: 1260, y: 330 + i * 110, t: `caminar+${(i * 1.6).toFixed(1)}` }));
+Item(S, Chip('¿DIABETES, RIÑÓN, MEDICAMENTOS? → MÉDICO', { size: 28, fill: K.yellow }), { x: 1260, y: 940, t: 'enfermedad', enter: 'slam' });
+S = Scene('comparte', 'regalado');
+Item(S, Panel('e_share', 1050), { x: 620, y: 450, zoom: 0.05 });
+Item(S, Chip('COMPÁRTELO', { fill: K.yellow, size: 48 }), { x: 1550, y: 260, t: 'comparte', enter: 'r' });
+Item(S, Chip('EL GRUPO DE LA FAMILIA', { size: 34, color: K.blueD }), { x: 1550, y: 410, t: 'grupo', enter: 'r' });
+Item(S, Chip('¿CUÁL YA COMES? ¿CUÁL EMPIEZAS?', { size: 28, color: K.pinkD }), { x: 1550, y: 560, t: 'cuentame', enter: 'r' });
+S = Scene('regalado', 'aviso');
+Item(S, Panel('g_dinner', 1000), { x: 600, y: 440, zoom: 0.05 });
+Item(S, Txt('Cerebro y Bienestar', { size: 56, color: K.pink }), { x: 1530, y: 300, t: 'subs2-0.3', enter: 'u' });
+Item(S, Subscribe(T('subs2+2')), { x: 1530, y: 480, t: 'subs2', s: 0.75 });
+Item(S, Pill('ALIMÉNTALO CON CARIÑO', { hi: 'CARIÑO', size: 50 }), { x: 600, y: 980, t: 'gracias0', enter: 'd' });
+Item(S, Txt('¡GRACIAS! CUÍDATE MUCHO', { size: 44, color: K.yellow }), { x: 1530, y: 700, t: 'gracias', enter: 'fade' });
+S = Scene('aviso', END + 1);
+Item(S, Txt('Contenido educativo e informativo.', { size: 52, weight: 700 }), { x: 960, y: 470, t: 'aviso', enter: 'fade' });
+Item(S, Txt('No sustituye el diagnóstico ni el consejo de un profesional de la salud.', { size: 40, color: K.yellow, weight: 700 }), { x: 960, y: 570, t: 'aviso', enter: 'fade' });
+Run(T('parte'), END);
+</script></body></html>
