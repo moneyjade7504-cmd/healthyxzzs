@@ -1,0 +1,126 @@
+[0.20 - 4.32] (w0-12) Cierra los ojos un momento y piensa en la cocina de tu infancia.
+[4.46 - 12.84] (w13-37) Quizá era pequeña, con una ventana por donde entraba la luz de la mañana, y en el fuego siempre había algo cocinándose a fuego lento.
+[13.02 - 21.04] (w38-65) Tal vez recuerdas el olor de un guiso de tu madre, el pan recién hecho o el café que tu abuelo preparaba antes de que saliera el sol.
+[21.20 - 26.08] (w66-79) Esos recuerdos siguen vivos dentro de ti, guardados en un rincón de tu cerebro.
+[26.56 - 36.76] (w80-112) Y es curioso pensar que esa misma cocina, la de entonces y la de ahora, tiene mucho que ver con lo bien que tu mente podrá seguir recordando en los años que vienen.
+[37.04 - 46.06] (w113-134) Porque cada día, tres veces al día, tomamos una decisión que afecta directamente a nuestro cerebro, y casi nunca nos damos cuenta.
+[46.30 - 53.72] (w135-154) El cerebro pesa apenas un kilo y medio, pero consume alrededor del 20 % de toda la energía del cuerpo.
+[53.90 - 58.80] (w155-167) Es un órgano hambriento, delicado y muy sensible a lo que le damos.
+[58.90 - 73.26] (w168-205) Lo que pones en tu plato no solo alimenta tus músculos o tu corazón, también alimenta, o desgasta, los miles de millones de neuronas que guardan tus recuerdos, tus nombres queridos, y tu manera de ver el mundo.
+[73.62 - 78.16] (w206-216) Después de los 60, esta relación se vuelve todavía más importante.
+[78.26 - 84.36] (w217-234) El cerebro se vuelve más vulnerable a la inflamación, al estrés oxidativo y a los problemas de circulación.
+[85.04 - 89.84] (w235-249) Y la buena noticia es que la alimentación puede ayudarnos a proteger contra los tres.
+[90.74 - 108.30] (w250-294) No existe un alimento mágico que impida el envejecimiento y desconfía de quién te lo prometa, pero sí existen alimentos que la ciencia ha relacionado una y otra vez con un cerebro más fuerte y otros que, consumidos con frecuencia, lo van debilitando en silencio.
+[108.66 - 114.04] (w295-312) Hoy te voy a hablar de cinco alimentos que protegen tu memoria y de tres que la dañan.
+[114.32 - 124.24] (w313-342) Y quiero que te quedes hasta el final, porque uno de esos tres alimentos peligrosos está en la mesa de casi todas las familias y se disfraza de algo inofensivo.
+[124.52 - 133.98] (w343-367) Si aún no lo has hecho, suscríbete a Cerebro y Bienestar, porque aquí aprendemos juntos a cuidar la mente con cariño y conciencia, sin complicaciones.
+[134.18 - 140.90] (w368-382) Alimentos protectores 1 a 3 El primer alimento que protege tu memoria viene del mar.
+[141.04 - 142.42] (w383-385) El pescado azul.
+[142.72 - 147.58] (w386-398) Hablo de la sardina, la caballa, el salmón, el arenque o el boquerón.
+[147.74 - 153.98] (w399-416) Esos pescados humildes que nuestras abuelas compraban en el mercado y preparaban a la plancha o en escabeche.
+[154.10 - 164.12] (w417-439) Su secreto está en los ácidos grasos Omega 3, especialmente uno llamado DHA, que es literalmente parte de la estructura de tu cerebro.
+[164.30 - 177.10] (w440-478) Una gran parte de las grasas que forman las membranas de tus neuronas son de este tipo, y cuando hay suficiente, las células se comunican mejor, como si las conexiones de una vieja radio volvieran a sonar con claridad.
+[177.32 - 187.00] (w479-505) Diversos estudios han observado que las personas mayores que comen pescado de forma regular tienden a conservar mejor sus funciones cognitivas que quienes casi nunca lo prueban.
+[187.98 - 190.28] (w506-512) No hace falta comerlo todos los días.
+[190.44 - 195.02] (w513-528) Con dos raciones a la semana ya le estás haciendo un gran regalo a tu cerebro.
+[195.22 - 205.76] (w529-559) Y si te preocupa el mercurio, elige pescados pequeños, como la sardina o la caballa, que suelen tener mucho menos que los grandes como el pez espada o el atún rojo.
+[205.88 - 213.64] (w560-583) El segundo alimento probablemente ya está en tu huerto o en tu mercado de confianza, y muchas veces lo dejamos olvidado en el plato.
+[213.92 - 216.02] (w584-588) Las verduras de hoja verde.
+[216.24 - 221.56] (w589-594) Espinacas, acelgas, lechuga, kale, brócoli, berros.
+[221.78 - 229.10] (w595-612) Son ricas en folato, vitamina K, luteína y otros compuestos que ayudan a proteger las neuronas del desgaste.
+[229.26 - 245.56] (w613-660) En un estudio muy conocido realizado en Chicago con cientos de personas mayores, quienes comían alrededor de una ración de verduras de hoja verde al día, mostraron un deterioro cognitivo mucho más lento que quienes casi no las comían, como si su cerebro fuera varios años más joven.
+[246.44 - 257.72] (w661-690) Imagínalo por un momento, algo tan sencillo como un plato de espinacas salteadas con ajo, una ensalada fresca o una crema de verduras podría estar regalándote años de claridad mental.
+[258.70 - 261.86] (w691-698) Eso sí, hay algo importante que debes saber.
+[262.00 - 268.86] (w699-716) Si tomas un anticoagulante como la guarfarina, la vitamina K de estas verduras puede interferir con el medicamento.
+[269.02 - 276.34] (w717-737) No significa que debas dejar de comerlas, sino que debes hablar con tu médico para mantener una cantidad constante y segura.
+[276.50 - 279.28] (w738-744) Y ahora te pregunto algo con curiosidad.
+[279.32 - 284.64] (w745-763) ¿Cuál es ese plato de verduras que te recuerda a tu casa, a tu madre o a tu infancia?
+[284.80 - 285.84] (w764-767) Escríbelo en los comentarios.
+[286.52 - 294.18] (w768-788) Me encantaría leer las recetas de todos ustedes, y seguro que más de uno se inspira para prepararla esta misma semana.
+[294.32 - 298.42] (w789-796) El tercer alimento es pequeño, colorido y delicioso.
+[298.54 - 300.30] (w797-799) Los frutos rojos.
+[300.46 - 304.14] (w800-803) Arándanos, fresas, moras, frambuesas.
+[304.24 - 315.12] (w804-830) Su color intenso se debe a unas sustancias llamadas flavonoides, en especial las antocyaninas, que funcionan como un escudo protector contra la inflamación y el estrés oxidativo.
+[315.46 - 319.12] (w831-843) Dos de los grandes enemigos del cerebro con el paso de los años.
+[319.40 - 330.68] (w844-876) Un estudio de largo plazo con miles de enfermeras en Estados Unidos encontró que las mujeres que comían más arándanos y fresas, retrasaban su deterioro de memoria hasta en dos años y medio.
+[330.92 - 340.56] (w877-906) Dos años y medio más de recordar con nitidez los nombres de los nietos, las conversaciones con los amigos o la letra de esa canción que bailaste en tu juventud.
+[340.72 - 343.96] (w907-913) No necesitas comprar productos caros ni suplementos.
+[344.14 - 350.16] (w914-931) Un puñado de frutos rojos en el desayuno, mezclados con un yogur natural o con avena, es suficiente.
+[350.70 - 359.54] (w932-955) Y si en tus zonas son difíciles de conseguir o salen caros, los congelados conservan muy bien sus propiedades y suelen ser más económicos.
+[359.80 - 369.00] (w956-973) Alimentos protectores 4 y 5 El cuarto alimento tiene, curiosamente, la forma de un pequeño cerebro, la nuez.
+[369.54 - 377.00] (w974-997) Y aunque esa semejanza sea solo una coincidencia de la naturaleza, lo que guarda en su interior sí es muy valioso para tu mente.
+[377.80 - 387.06] (w998-1021) Las nueces son uno de los pocos frutos secos ricos en 1 ,3M de origen vegetal, y además aportan vitamina E, polifenoles y fibra.
+[387.82 - 401.20] (w1022-1053) Junto con las almendras, las avellanas y otros frutos secos naturales forman parte de la dieta mediterránea, ese estilo de alimentación tradicional que tantos estudios han relacionado con un envejecimiento más saludable.
+[401.32 - 416.02] (w1054-1091) En el famoso estudio español Predimed, las personas mayores que siguieron una dieta mediterránea enriquecida con un puñado diario de frutos secos, mostraron mejores resultados en algunas pruebas de memoria que quienes siguieron una dieta baja en grasas.
+[416.18 - 421.26] (w1092-1109) Un puñado al día, más o menos lo que cabe en la palma de tu mano, es suficiente.
+[421.36 - 427.80] (w1110-1124) Elige siempre frutos secos naturales o tostados sin sal, nunca fritos ni cubiertos de azúcar.
+[427.90 - 435.54] (w1125-1145) Y si tienes dificultad para masticarlos, puedes molerlos y añadirlos a la avena, al yogur o a una crema de verduras.
+[435.76 - 441.00] (w1146-1160) Antes de seguir, si esta información te está gustando, dale un me gusta al vídeo.
+[441.12 - 450.06] (w1161-1184) Es un gesto de un segundo, pero ayuda muchísimo a que estos consejos lleguen a otras personas mayores que también quieren cuidar su memoria.
+[450.24 - 456.70] (w1185-1200) El quinto alimento es el oro líquido de nuestras cocinas, el aceite de oliva virgen extra.
+[456.84 - 464.56] (w1201-1218) Durante generaciones ha estado presente en las mesas de España, Italia, Grecia y muchos países de América Latina.
+[464.80 - 469.42] (w1219-1231) Y la ciencia moderna no deja de confirmar lo que nuestros abuelos intuían.
+[469.64 - 484.54] (w1232-1268) Este aceite es rico en grasas saludables y en polifenoles, unos compuestos antioxidantes que ayudan a reducir la inflamación y a proteger los vasos sanguíneos, incluidos los pequeños vasos que llevan oxígeno y nutrientes a tu cerebro.
+[484.74 - 501.02] (w1269-1315) Un estudio de la Universidad de Harvard que siguió a decenas de miles de adultos durante casi tres décadas, encontró que quienes consumían algo más de media cucharada de aceite de oliva al día, tenían menor riesgo de morir por demencia que quienes casi nunca lo usaban.
+[501.16 - 507.00] (w1316-1332) La clave está en usarlo en lugar de la mantequilla, la margarina o los aceites muy refinados.
+[507.44 - 514.00] (w1333-1352) Un chorrito sobre las verduras, sobre una tostada de pan integral por la mañana o para cocinar a fuego suave.
+[514.38 - 519.00] (w1353-1365) Eso sí, elige el virgen extra, que es el que conserva más antioxidantes.
+[519.70 - 527.06] (w1366-1384) Y recuerda que, aunque sea saludable, sigue siendo muy calórico, así que la moderación también es parte del cuidado.
+[528.26 - 531.34] (w1385-1391) Los tres alimentos que dañan la memoria.
+[531.70 - 548.16] (w1392-1436) Ahora llegamos a la parte que quizá cueste un poco más escuchar, pero que es igual de importante, porque cuidar el cerebro no consiste solo en añadir cosas buenas, sino también en reducir aquellas que, día tras día, lo van desgastando sin que lo notemos.
+[548.28 - 550.76] (w1437-1443) Y quiero que escuches esto sin culpa.
+[550.88 - 560.12] (w1444-1470) No se trata de prohibirte nada ni de que vivas con miedo a cada vocado, sino de que conozcas la verdad para que puedas decidir con libertad.
+[560.22 - 570.24] (w1471-1497) El primer alimento que daña tu memoria es el azúcar añadido, sobre todo el que se esconden los refrescos, los humos embasados, los dulces y la bollería.
+[570.54 - 577.68] (w1498-1518) Cuando comemos mucho azúcar de forma habitual, los niveles de glucosa en la sangre suben y bajan como una montaña rusa.
+[578.12 - 587.20] (w1519-1544) Y con el tiempo, eso puede favorecer la resistencia a la insulina, la inflamación y el daño de los pequeños vasos sanguíneos que alimentan el cerebro.
+[587.50 - 593.24] (w1545-1561) No es casualidad que la diabetes tipo 2 se asocie con un mayor riesgo de deterioro cognitivo.
+[593.50 - 601.22] (w1562-1582) Algunos investigadores incluso han estudiado la relación entre la resistencia a la insulina en el cerebro y la enfermedad de Alzheimer.
+[601.36 - 605.84] (w1583-1595) Lo más traicionero es que gran parte de este azúcar no lo vemos.
+[606.12 - 612.76] (w1596-1617) Está en un vaso de sumo que parece saludable, en un yogur de sabores o en una salsa de tomate de bote.
+[612.96 - 617.12] (w1618-1627) Por eso, un pequeño cambio puede marcar una gran diferencia.
+[617.34 - 627.56] (w1628-1658) Cambiar el refresco por agua con limón, el sumo por la fruta entera y el postre dulce de cada día por una pieza de fruta o un puñado de frutos rojos.
+[627.80 - 644.70] (w1659-1696) El segundo alimento dañino son los ultra procesados y aquí incluyo las carnes procesadas como las salchichas, el bacon o muchos embutidos, las galletas industriales, los snacks salados, la comida rápida y los platos preparados llenos de aditivos.
+[644.92 - 662.00] (w1697-1733) Son productos prácticos, baratos y muy sabrosos diseñados precisamente para que queramos comer más, pero suelen estar cargados de sal, grasas de mala calidad, azúcares y conservantes y muy pobres en los nutrientes que el cerebro necesita.
+[662.16 - 674.50] (w1734-1766) Un estudio realizado en Brasil con miles de adultos encontró que quienes obtenían más de una quinta parte de sus calorías diarias de ultraprocesados presentaban un deterioro cognitivo más rápido con los años.
+[674.76 - 681.68] (w1767-1783) Y otras investigaciones han relacionado el consumo frecuente de carnes procesadas con un mayor riesgo de demencia.
+[682.04 - 685.64] (w1784-1791) La solución no es complicada, aunque requiere voluntad.
+[685.82 - 694.44] (w1792-1815) Volver a la cocina de siempre, a los guisos caseros, a las legumbres, a los huevos, al pescado y a las verduras de temporada.
+[694.58 - 703.02] (w1816-1836) La comida que cocinaban nuestras madres, con ingredientes que se reconocen a simple vista, es mucho más amable con nuestra memoria.
+[703.22 - 711.74] (w1837-1859) Y el tercer alimento es el que te prometía al principio, el que se disfraza de algo inofensivo e incluso saludable, el alcohol.
+[711.90 - 718.64] (w1860-1880) Durante años escuchamos que una copita de vino al día era buena para el corazón, y muchas personas lo siguen creyendo.
+[719.36 - 722.90] (w1881-1889) Pero la ciencia más reciente es mucho más prudente.
+[723.04 - 735.62] (w1890-1922) El alcohol es una sustancia tóxica para las neuronas, y su consumo excesivo está claramente asociado con la pérdida de volumen cerebral, con problemas de memoria y con un mayor riesgo de demencia.
+[735.76 - 742.28] (w1923-1939) La Comisión Lancet incluye el consumo excesivo de alcohol entre los factores de riesgo que podemos modificar.
+[742.64 - 752.50] (w1940-1967) Además, después de los 60, el cuerpo procesa el alcohol más despacio, así que la misma copa de siempre tiene hoy un efecto mayor que hace 20 años.
+[752.80 - 759.34] (w1968-1984) Y no olvidemos que el alcohol interactúa con muchos medicamentos comunes y aumenta el riesgo de caídas.
+[759.48 - 764.56] (w1985-1998) Si disfrutas de una copa en una celebración especial, no tienes que sentirte culpable.
+[764.82 - 772.34] (w1999-2020) pero si se ha vuelto un hábito diario, quizás sea el momento de reducirlo poco a poco y hablarlo con tu médico.
+[772.54 - 777.80] (w2021-2034) Si miras con atención todo lo que hemos visto hoy, descubrirás algo muy bonito.
+[777.94 - 784.26] (w2035-2050) Los alimentos que protegen tu memoria no son exóticos ni caros, ni vienen en cápsulas milagrosas.
+[784.46 - 799.48] (w2051-2092) Son las sardinas que tu madre preparaba los viernes, las espinacas del huerto, las moras que recogías de niño al borde del camino, el puñado de nueces del invierno y ese chorrito de aceite de oliva que lo hacía todo más sabroso.
+[799.64 - 811.16] (w2093-2126) En cambio, los que la dañan son, en su mayoría, inventos recientes de la vida moderna, productos que llegaron con prisa a nuestras mesas y que nos alejaron de la cocina sencilla de siempre.
+[811.94 - 818.68] (w2127-2148) Es como si la sabiduría de nuestras abuelas y la ciencia de hoy se hubieran puesto de acuerdo para decirnos lo mismo.
+[818.84 - 821.26] (w2149-2154) Y quiero que recuerdes algo importante.
+[821.38 - 826.16] (w2155-2165) Ningún alimento, por sí solo, puede proteger el cerebro ni destruirlo.
+[826.26 - 832.38] (w2166-2182) Lo que cuenta es el conjunto, lo que comes la mayoría de los días, semana tras semana.
+[832.56 - 843.20] (w2183-2214) Una comida especial en un cumpleaños no va a dañar tu memoria, y un puñado de arándanos tampoco la va a salvar si el resto de tu alimentación está llena de ultraprocesados.
+[843.42 - 845.68] (w2215-2220) Por eso te propongo algo sencillo.
+[845.78 - 848.40] (w2221-2226) No intentes cambiarlo todo de golpe.
+[848.50 - 850.70] (w2227-2232) Elige un solo cambio esta semana.
+[850.86 - 858.22] (w2233-2252) Quizá añadir pescado dos veces, o cambiar el refresco por agua, o poner un puñado de nueces en tu resayuno.
+[858.38 - 862.16] (w2253-2261) Cuando ese cambio se convierta en costumbre, añade otro.
+[862.48 - 869.34] (w2262-2277) Así, paso a paso, sin sacrificios imposibles, le estarás regalando a tu cerebro años de claridad.
+[869.60 - 873.34] (w2278-2288) Recuerda también que la comida es sólo una parte del cuidado.
+[873.48 - 884.28] (w2289-2314) Caminar cada día, dormir bien, mantener la presión arterial bajo control, conversar con las personas que quieres y seguir aprendiendo cosas nuevas son igual de importantes.
+[884.42 - 899.00] (w2315-2357) Y si tienes alguna enfermedad, como diabetes, problemas de riñón o tomas medicamentos de forma habitual, consultas siempre con tu médico o con un nutricionista antes de hacer cambios grandes en tu alimentación para que todo encaje de forma segura con tu salud.
+[900.04 - 904.00] (w2358-2370) Si este video te ha servido, compártelo con alguien a quien quieras cuidar.
+[904.46 - 911.94] (w2371-2394) Puede ser tu hermana, un amigo de toda la vida, o tus hijos, que también se beneficiarán de empezar a comer mejor desde ahora.
+[912.10 - 918.52] (w2395-2416) A veces un mensaje sencillo en el grupo de la familia puede cambiar lo que todos ponen en su plato esa semana.
+[918.80 - 927.50] (w2417-2446) Y antes de irte, cuéntame en los comentarios cuál de estos cinco alimentos ya forma parte de tu mesa, y cuál vas a empezar a comer a partir de hoy.
+[927.68 - 930.96] (w2447-2454) Leer sus respuestas siempre me llena de alegría.
+[931.06 - 940.40] (w2455-2477) Tu cerebro te ha regalado toda una vida de recuerdos, de sabores, de rostros queridos y de momentos que no cambiarías por nada.
+[940.54 - 944.60] (w2478-2487) Alimentarlo con cariño es una forma de darle las gracias.
+[945.06 - 958.92] (w2488-2523) Si quieres seguir aprendiendo a cuidarlo, suscríbete a Cerebro y Bienestar y activa la campanita, porque cada semana compartimos información clara y útil para que divas esta etapa con más energía, más lucidez y más alegría.
+[959.34 - 961.32] (w2524-2529) Gracias por acompañarme hasta el final.
+[961.42 - 964.62] (w2530-2538) Cuídate mucho y nos vemos en el próximo video.
+[964.82 - 971.00] (w2539-2558) Este contenido es educativo e informativo y no sustituye el diagnóstico ni el consejo de un profesional de la salud.
