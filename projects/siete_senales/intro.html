@@ -1,0 +1,55 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+S = Scene(0, 'escalofrio', { cut: true });
+Item(S, Img('confused', 520), { x: 470, y: 560, t: 0 });
+Item(S, Img('keys', 150), { x: 1150, y: 320, t: 'llaves' });
+Item(S, Ico('question', 0.9), { x: 1450, y: 330, t: 'nombre' });
+Item(S, Chip('¿A QUÉ VINE A LA COCINA?', { size: 40 }), { x: 1300, y: 560, t: 'cocina' });
+Item(S, Pill('¿EL PRIMER AVISO ES OLVIDAR?', { hi: 'OLVIDAR', size: 54 }), { y: 950, t: 0.4, enter: 'd' });
+
+S = Scene('escalofrio', 'claridad', { cut: true });
+Item(S, Img('surprised', 540), { x: 620, y: 560 });
+Item(S, Txt('¿YA ESTÁ EMPEZANDO?', { size: 76, color: K.pinkD }), { x: 1300, y: 500, t: 'empezando', enter: 'slam' });
+punchAt(S, 'empezando');
+
+S = Scene('claridad', 'quieres');
+Item(S, Img('point_up', 520), { x: 430, y: 560 });
+Item(S, StampB('NO SIEMPRE EMPIEZA EN LA MEMORIA', { size: 46, color: K.green }), { x: 1260, y: 300, t: 'nomemoria', enter: 'slam' });
+Item(S, Txt('…SINO EN PEQUEÑOS DETALLES', { size: 52 }), { x: 1260, y: 520, t: 'discretos', enter: 'fade' });
+Item(S, Chip('«ES CANSANCIO» · «ES SU CARÁCTER» · «ES LA EDAD»', { size: 30, color: K.grey }), { x: 1260, y: 700, t: 'cansancio' });
+
+S = Scene('quieres', 'siete');
+Item(S, Panel('c_birthday', 980), { x: 560, y: 450, zoom: 0.04 });
+Item(S, Chip('YA NO DISFRUTA', { size: 42 }), { x: 1520, y: 240, t: 'disfrutaba', enter: 'r' });
+Item(S, Chip('SE ENREDA CON UNA FACTURA', { size: 36 }), { x: 1520, y: 380, t: 'factura', enter: 'r' });
+Item(S, Chip('SE PIERDE CONDUCIENDO', { size: 38 }), { x: 1520, y: 520, t: 'perdio', enter: 'r' });
+Item(S, Pill('CUANDO SE VUELVE UN PATRÓN…', { hi: 'PATRÓN', size: 54 }), { x: 960, y: 980, t: 'patron', enter: 'd' });
+
+S = Scene('siete', 'final');
+Item(S, Txt('7', { size: 320, color: K.pinkD }), { x: 460, y: 300, t: 'siete', enter: 'slam' });
+Item(S, Txt('SEÑALES TEMPRANAS', { size: 74 }), { x: 1100, y: 280, t: 'siete+0.3', enter: 'r' });
+Item(S, Txt('QUE NO SON OLVIDOS', { size: 56, color: K.grey }), { x: 1100, y: 370, t: 'siete+0.8', enter: 'fade' });
+for (let i = 0; i < 7; i++) Item(S, g => { el('circle', { cx: 6, cy: 8, r: 62, fill: K.ink }, g); el('circle', { r: 62, fill: [K.pink, K.yellow, K.blue][i % 3], stroke: K.ink, 'stroke-width': 7 }, g); Text(g, String(i + 1), { x: 0, y: 3, size: 62 }); }, { x: 360 + i * 200, y: 620, t: `siete+${(1 + i * 0.2).toFixed(1)}` });
+Item(S, Chip('SIN MIEDO', { icon: 'check', color: K.green, size: 44 }), { x: 640, y: 840, t: 'asustarte' });
+Item(S, Chip('TIEMPO PARA ACTUAR', { icon: 'check', color: K.green, size: 44 }), { x: 1280, y: 840, t: 'tiempo' });
+Item(S, Pill('MUCHAS CAUSAS SE PUEDEN TRATAR', { hi: 'TRATAR', size: 50 }), { y: 990, t: 'tratar', enter: 'd' });
+
+S = Scene('final', T('s13'));
+Item(S, Img('wave', 480), { x: 480, y: 560 });
+Item(S, Chip('LA SEÑAL 7 ES LA QUE MÁS SORPRENDE', { fill: K.yellow, size: 38 }), { x: 1260, y: 230, t: 'ultima' });
+Item(S, Txt('Cerebro y Bienestar', { size: 72, color: K.pinkD }), { x: 1260, y: 400, t: 'subs-0.3', enter: 'u' });
+Item(S, Subscribe(T('subs+2')), { x: 1260, y: 600, t: 'subs' });
+Item(S, Chip('CARIÑO · CIENCIA · SIN COMPLICACIONES', { size: 34, color: K.blueD }), { x: 1260, y: 820, t: 'carino' });
+Run(0, T('s13'));
+</script></body></html>

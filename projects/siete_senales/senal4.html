@@ -1,0 +1,40 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+const START = 367.3;
+S = Scene(START, 'lengua');
+Item(S, Img('think', 520), { x: 430, y: 560, t: START });
+Item(S, Kicker('SEÑALES 4 A 7', 'SEÑAL 4\nCAMBIA SU LENGUAJE', { size: 92 }), { x: 1250, y: 420, t: START + 0.2, enter: 'slam' });
+
+S = Scene('lengua', 'detiene');
+Item(S, Img('confused', 480), { x: 440, y: 560 });
+Item(S, Chip('«LA TENGO EN LA PUNTA DE LA LENGUA»', { size: 34 }), { x: 1260, y: 330, t: 'lengua' });
+Item(S, Chip('NORMAL A CUALQUIER EDAD', { icon: 'check', color: K.green, size: 40 }), { x: 1260, y: 490, t: 'normal' });
+Item(S, Chip('PERO HAY UNA DIFERENCIA…', { fill: K.yellow, size: 42 }), { x: 1260, y: 660, t: 'diferencia' });
+
+S = Scene('detiene', 'menos');
+Item(S, Panel('l_remote', 1100), { x: 660, y: 450, zoom: 0.05 });
+Item(S, Chip('SE DETIENE A MITAD DE FRASE', { size: 32 }), { x: 1590, y: 240, t: 'detiene', enter: 'r' });
+Item(S, Chip('«LA COSA ESA»', { size: 40, color: K.red }), { x: 1590, y: 380, t: 'cosa', enter: 'r' });
+Item(S, Chip('«EL APARATO»', { size: 40, color: K.red }), { x: 1590, y: 510, t: 'aparato', enter: 'r' });
+Item(S, Chip('PIERDE EL HILO', { size: 40 }), { x: 1590, y: 650, t: 'hilo', enter: 'r' });
+Item(S, Chip('REPITE LA IDEA', { size: 40 }), { x: 1590, y: 790, t: 'repite', enter: 'r' });
+
+S = Scene('menos', T('s5'));
+Item(S, Panel('l_dinner', 1100), { x: 660, y: 450, zoom: 0.05 });
+Item(S, Chip('HABLA CADA VEZ MENOS', { size: 36, color: K.red }), { x: 1580, y: 330, t: 'menos', enter: 'r' });
+Item(S, Chip('¿TIMIDEZ?', { icon: 'question', color: K.yellow, size: 40 }), { x: 1580, y: 490, t: 'timidez', enter: 'r' });
+Item(S, Pill('LUCHA POR ENCONTRAR LAS PALABRAS', { hi: 'LAS PALABRAS', size: 46 }), { x: 660, y: 990, t: 'luchando', enter: 'd' });
+Strip(START + 0.5, T('s5') + 1, t => 4, 7);
+Run(START, T('s5'));
+</script></body></html>

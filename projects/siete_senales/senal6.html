@@ -1,0 +1,43 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+S = Scene('s6', 'imagina6');
+Item(S, Img('chair_quiet', 500), { x: 430, y: 560 });
+Item(S, Kicker('SEÑAL 6', 'TE AÍSLAS', { size: 120 }), { x: 1250, y: 380, t: 's6', enter: 'slam' });
+Item(S, Img('ear', 160), { x: 1250, y: 680, t: 'audicion6' });
+Item(S, Chip('Y LA AUDICIÓN', { fill: K.yellow, size: 44 }), { x: 1250, y: 850, t: 'audicion6+0.3' });
+
+S = Scene('imagina6', 'retiro');
+Item(S, Panel('l_dinner', 1100), { x: 660, y: 450, zoom: 0.05 });
+Item(S, Chip('ANTES: PARTICIPABA', { size: 38, color: K.green }), { x: 1590, y: 300, t: 'participaba', enter: 'r' });
+Item(S, Chip('AHORA: SONRÍE Y CALLA', { size: 36, color: K.red }), { x: 1590, y: 450, t: 'callado', enter: 'r' });
+Item(S, Chip('EVITA LAS REUNIONES', { size: 38, color: K.red }), { x: 1590, y: 600, t: 'evitar6', enter: 'r' });
+
+S = Scene('retiro', 'lancet6');
+Item(S, Txt('UN CÍRCULO QUE SE ALIMENTA', { size: 60 }), { x: 860, y: 150, t: 'circulo-1', enter: 'u' });
+Item(S, Loop({ r: 190, color: K.red, width: 24, speed: 0.25 }), { x: 960, y: 560, t: 'circulo' });
+Item(S, Chip('OYE PEOR', { size: 40 }), { x: 960, y: 300, t: 'circulo+0.5' });
+Item(S, Chip('SE AÍSLA', { size: 40 }), { x: 1270, y: 650, t: 'circulo+1' });
+Item(S, Chip('MENOS ESTÍMULOS', { size: 40 }), { x: 640, y: 650, t: 'estimulos' });
+
+S = Scene('lancet6', T('s7'));
+Item(S, Img('hearing_aid', 500), { x: 430, y: 560 });
+Item(S, Txt('COMISIÓN LANCET', { size: 70 }), { x: 1260, y: 230, t: 'lancet6', enter: 'u' });
+Item(S, Chip('AUDICIÓN NO TRATADA', { size: 42, color: K.red }), { x: 1260, y: 390, t: 'lancet6+5' });
+Item(S, Chip('AISLAMIENTO SOCIAL', { size: 42, color: K.red }), { x: 1260, y: 530, t: 'lancet6+7' });
+Item(S, Txt('FACTORES MODIFICABLES', { size: 44, color: K.green }), { x: 1260, y: 650, t: 'lancet6+9', enter: 'fade' });
+Item(S, Chip('REVISA LA AUDICIÓN · USA AUDÍFONOS', { fill: K.yellow, size: 38 }), { x: 1260, y: 820, t: 'audifonos', enter: 'slam' });
+Item(S, Txt('Livingston y cols., The Lancet 2024', { size: 26, color: K.grey, weight: 700 }), { x: 1650, y: 1040, t: 'lancet6+1', enter: 'fade' });
+Strip('s6', T('s7') + 1, t => 6, 7);
+Run(T('s6'), T('s7'));
+</script></body></html>

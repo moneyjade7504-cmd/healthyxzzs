@@ -1,0 +1,46 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+const END = 648.4;
+S = Scene('s7', 'prudente');
+Item(S, Img('surprised', 520), { x: 430, y: 560 });
+Item(S, Kicker('SEÑAL 7', 'CAMBIA SU\nJUICIO', { size: 120 }), { x: 1250, y: 420, t: 'juicio-0.4', enter: 'slam' });
+Item(S, Txt('LA QUE MÁS SORPRENDE', { size: 54, color: K.grey }), { x: 1250, y: 420, t: 's7+0.3', out: 'juicio-0.6', enter: 'fade' });
+punchAt(S, 'juicio');
+
+S = Scene('prudente', 'frontal');
+Item(S, Panel('j_scam', 900), { x: 500, y: 400, t: 'prudente', enter: 'l', zoom: 0.04 });
+Item(S, Panel('j_winter', 900), { x: 1420, y: 400, t: 'verano', enter: 'r', zoom: 0.04 });
+Item(S, Chip('COMPRAS IMPULSIVAS', { size: 30, color: K.red }), { x: 270, y: 760, t: 'compras' });
+Item(S, Chip('LLAMADA FRAUDULENTA', { size: 30, color: K.red }), { x: 730, y: 760, t: 'fraudulenta' });
+Item(S, Chip('ROPA DE VERANO EN INVIERNO', { size: 32, color: K.red }), { x: 1420, y: 760, t: 'verano+0.5' });
+Item(S, Chip('DESCUIDA LA HIGIENE', { size: 34, color: K.red }), { x: 1420, y: 890, t: 'higiene' });
+
+S = Scene('frontal', 'delicadeza');
+Item(S, Img('brain', 340), { x: 640, y: 470 });
+Item(S, Ring(90, K.red), { x: 520, y: 430, t: 'frontal' });
+Item(S, Chip('PARTE FRONTAL', { size: 44, color: K.red }), { x: 640, y: 760, t: 'frontal+0.3' });
+Item(S, Chip('EVALUAR RIESGOS', { size: 40 }), { x: 1360, y: 330, t: 'frontal-6' });
+Item(S, Chip('FRENAR IMPULSOS', { size: 40 }), { x: 1360, y: 470, t: 'frontal-4' });
+Item(S, Chip('LA PERSONA NO LO NOTA', { size: 38, color: K.red }), { x: 1360, y: 640, t: 'enfado-3' });
+Item(S, Chip('PUEDE ENFADARSE', { size: 38, color: K.red }), { x: 1360, y: 780, t: 'enfado' });
+
+S = Scene('delicadeza', END + 1);
+Item(S, Panel('j_bank', 1100), { x: 660, y: 450, zoom: 0.05 });
+Item(S, Chip('CON DELICADEZA', { fill: K.yellow, size: 44 }), { x: 1590, y: 260, t: 'delicadeza', enter: 'r' });
+Item(S, Chip('SIN QUITAR SU INDEPENDENCIA', { size: 30, color: K.green }), { x: 1580, y: 400, t: 'independencia', enter: 'r' });
+Item(S, Chip('REVISAR JUNTOS LAS CUENTAS', { size: 30, color: K.green }), { x: 1580, y: 540, t: 'juntos', enter: 'r' });
+Item(S, Chip('LÍMITES A TRANSFERENCIAS', { size: 32, color: K.green }), { x: 1580, y: 680, t: 'juntos+2', enter: 'r' });
+Strip('s7', END + 1, t => 7, 7);
+Run(T('s7'), END);
+</script></body></html>

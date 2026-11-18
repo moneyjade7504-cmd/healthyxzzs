@@ -1,0 +1,43 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+const END = 367.3;
+S = Scene('s3', 'ejecutivas');
+Item(S, Img('bills_stack', 520), { x: 430, y: 560 });
+Item(S, Kicker('SEÑAL 3', 'LE CUESTA\nPLANIFICAR', { size: 116 }), { x: 1250, y: 400, t: 's3', enter: 'slam' });
+[['bills', 'cuentas'], ['recipe', 'receta'], ['organizer', 'medicamentos'], ['calculator', 'dinero']].forEach(([n, t], i) => Item(S, Img(n, 130), { x: 960 + i * 190, y: 820, t }));
+
+S = Scene('ejecutivas', 'cansarse');
+Item(S, Img('baton', 330), { x: 520, y: 470 });
+Item(S, Txt('FUNCIONES EJECUTIVAS', { size: 68 }), { x: 1260, y: 260, t: 'ejecutivas', enter: 'u' });
+Item(S, Chip('EL DIRECTOR DE ORQUESTA', { fill: K.yellow, size: 44 }), { x: 1260, y: 420, t: 'director' });
+Item(S, Chip('1 · 2 · 3: ORDENA LOS PASOS', { size: 40, color: K.blueD }), { x: 1260, y: 570, t: 'pasos' });
+Item(S, Chip('AVISA SI ALGO NO CUADRA', { size: 40, color: K.blueD }), { x: 1260, y: 720, t: 'cuadra' });
+
+S = Scene('cansarse', 'desapercibidos');
+Item(S, Panel('p_bills', 900), { x: 500, y: 400, t: 'cansarse', enter: 'l', zoom: 0.04 });
+Item(S, Panel('p_recipe', 900), { x: 1420, y: 400, t: 'cocina3', enter: 'r', zoom: 0.04 });
+Item(S, Chip('CONFUNDE FECHAS', { size: 34, color: K.red }), { x: 290, y: 760, t: 'fechas' });
+Item(S, Chip('PAGA DOS VECES', { size: 34, color: K.red }), { x: 730, y: 760, t: 'dosveces' });
+Item(S, Chip('RECETA A MEDIAS', { size: 38, color: K.red }), { x: 1420, y: 760, t: 'medias' });
+
+S = Scene('desapercibidos', END + 1);
+Item(S, Img('notebook', 460), { x: 430, y: 580 });
+Item(S, Chip('LO CORRIGE O LO ESCONDE', { size: 40 }), { x: 1260, y: 260, t: 'desapercibidos' });
+Item(S, Img('bills', 170), { x: 1260, y: 420, t: 'recibos' });
+Item(S, Chip('OBSÉRVALO UNAS SEMANAS', { icon: 'check', color: K.green, size: 40 }), { x: 1260, y: 620, t: 'semanas' });
+Item(S, Chip('¿SE REPITE? → AL MÉDICO', { fill: K.yellow, size: 44 }), { x: 1260, y: 780, t: 'medico3', enter: 'slam' });
+Item(S, Txt('Nicholas y cols., JAMA Intern Med 2021', { size: 26, color: K.grey, weight: 700 }), { x: 1640, y: 1040, t: 'recibos', enter: 'fade' });
+Strip('s3', END + 1, t => 3, 7);
+Run(T('s3'), END);
+</script></body></html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+S = Scene('s5', 'estudios');
+Item(S, Img('sniff_coffee', 520), { x: 430, y: 560 });
+Item(S, Kicker('SEÑAL 5', 'PIERDES EL\nOLFATO', { size: 116 }), { x: 1250, y: 420, t: 's5', enter: 'slam' });
+Item(S, Img('nose', 150), { x: 1250, y: 840, t: 'olfato' });
+
+S = Scene('estudios', 'diagnostico5');
+Item(S, Img('nose', 220), { x: 420, y: 480, t: 'estudios-2' });
+Item(S, Arrow(380, 0, { color: K.pinkD }), { x: 580, y: 480, t: 'conectado' });
+Item(S, Img('brain', 280), { x: 1160, y: 470, t: 'conectado+0.5' });
+Item(S, Chip('MEMORIA Y EMOCIONES', { size: 40, color: K.pinkD }), { x: 1160, y: 680, t: 'conectado+1.5' });
+Item(S, Pill('MENOS OLFATO ↔ MÁS RIESGO COGNITIVO', { hi: 'MÁS RIESGO', size: 46 }), { y: 900, t: 'estudios+2', enter: 'd' });
+
+S = Scene('diagnostico5', 'comida');
+Item(S, Img('point_up', 500), { x: 420, y: 560 });
+Item(S, StampB('NO ES UN DIAGNÓSTICO', { size: 56 }), { x: 1250, y: 260, t: 'diagnostico5-1', enter: 'slam' });
+Item(S, Txt('TAMBIÉN PUEDE SER…', { size: 44, color: K.grey }), { x: 1250, y: 430, t: 'sinusitis-0.6', enter: 'fade' });
+Item(S, Chip('SINUSITIS', { size: 40, color: K.yellow }), { x: 1060, y: 570, t: 'sinusitis' });
+Item(S, Chip('UN VIRUS', { size: 40, color: K.yellow }), { x: 1440, y: 570, t: 'viral' });
+Item(S, Chip('TABACO', { size: 40, color: K.yellow }), { x: 1060, y: 710, t: 'tabaco' });
+Item(S, Chip('MEDICAMENTOS', { size: 40, color: K.yellow }), { x: 1440, y: 710, t: 'ciertos' });
+
+S = Scene('comida', 'like');
+Item(S, Panel('l_coffee', 900), { x: 500, y: 400, t: 'comida', enter: 'l', zoom: 0.04 });
+Item(S, Panel('l_pan', 900), { x: 1420, y: 400, t: 'quemando', enter: 'r', zoom: 0.04 });
+Item(S, Chip('EL CAFÉ YA NO HUELE', { size: 40 }), { x: 500, y: 760, t: 'cafe' });
+Item(S, Chip('NO NOTA QUE ALGO SE QUEMA', { size: 36, color: K.red }), { x: 1420, y: 760, t: 'quemando+0.3' });
+Item(S, Pill('COMÉNTALO EN TU PRÓXIMA CONSULTA', { hi: 'CONSULTA', size: 48 }), { y: 960, t: 'cuadro', enter: 'd' });
+
+S = Scene('like', T('s6'));
+Item(S, Img('thumbs_heart', 520), { x: 480, y: 560 });
+Item(S, Chip('¿TE ESTÁ SIRVIENDO? DALE ME GUSTA', { fill: K.yellow, size: 44 }), { x: 1260, y: 380, t: 'like', enter: 'slam' });
+Item(S, Chip('LLEGA A MÁS PERSONAS', { size: 40, color: K.blueD }), { x: 1260, y: 560, t: 'gesto' });
+Strip('s5', T('s6') + 1, t => 5, 7);
+Run(T('s5'), T('s6'));
+</script></body></html>

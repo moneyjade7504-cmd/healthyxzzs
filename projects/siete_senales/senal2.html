@@ -1,0 +1,45 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+S = Scene('s2', 'irritables');
+Item(S, Img('arms_crossed', 520), { x: 430, y: 560 });
+Item(S, Kicker('SEÑAL 2', 'CAMBIA SU\nCARÁCTER', { size: 116 }), { x: 1250, y: 440, t: 's2', enter: 'slam' });
+
+S = Scene('irritables', 'apatia');
+Item(S, Panel('p_irritable', 900), { x: 500, y: 400, t: 'irritables', enter: 'l', zoom: 0.04 });
+Item(S, Panel('p_garden', 900), { x: 1420, y: 400, t: 'apagan', enter: 'r', zoom: 0.04 });
+Item(S, Chip('IRRITABLE · DESCONFIADO · ANSIOSO', { size: 34, color: K.red }), { x: 500, y: 760, t: 'irritables+1' });
+Item(S, Chip('SE APAGA POCO A POCO', { size: 38, color: K.blueD }), { x: 1420, y: 760, t: 'apagan+0.3' });
+Item(S, Chip('AMIGAS · DOMINGO · JARDÍN', { size: 34 }), { x: 1420, y: 890, t: 'jardin' });
+
+S = Scene('apatia', 'peor');
+Item(S, Img('chair_quiet', 500), { x: 430, y: 560 });
+Item(S, Txt('APATÍA', { size: 120, color: K.pinkD }), { x: 1250, y: 260, t: 'apatia', enter: 'slam' });
+Item(S, Chip('NO ES PEREZA NI FALTA DE CARIÑO', { size: 36, color: K.green }), { x: 1250, y: 430, t: 'pereza' });
+Item(S, Chip('PERDER LA CHISPA', { size: 42, fill: K.yellow }), { x: 1250, y: 570, t: 'chispa' });
+Item(S, Chip('PUEDE APARECER AÑOS ANTES', { size: 38, color: K.red }), { x: 1250, y: 710, t: 'anos' });
+Item(S, Chip('¿DEPRESIÓN? TIENE TRATAMIENTO', { size: 36, color: K.blueD }), { x: 1250, y: 860, t: 'depresion' });
+
+S = Scene('peor', 'detenerme');
+Item(S, Img('arm_in_arm', 460), { x: 440, y: 560 });
+Item(S, Chip('«PON DE TU PARTE»', { icon: 'cross', color: K.red, size: 46 }), { x: 1250, y: 380, t: 'peor+1.5', enter: 'r' });
+Item(S, Chip('ACOMPAÑARLE A BUSCAR AYUDA', { icon: 'check', color: K.green, size: 42 }), { x: 1250, y: 580, t: 'mejor', enter: 'r' });
+
+S = Scene('detenerme', T('s3'));
+Item(S, Img('bubble_hold', 520), { x: 480, y: 560 });
+Item(S, Txt('¿LO HAS NOTADO?', { size: 90, color: K.pinkD }), { x: 1260, y: 330, t: 'notado', enter: 'slam' });
+Item(S, Chip('ESCRÍBELO EN LOS COMENTARIOS', { fill: K.yellow, size: 44 }), { x: 1260, y: 540, t: 'comentarios' });
+Item(S, Chip('AUNQUE SEA UNA PALABRA', { size: 38, color: K.blueD }), { x: 1260, y: 700, t: 'comentarios+2' });
+Strip('s2', T('s3') + 1, t => 2, 7);
+Run(T('s2'), T('s3'));
+</script></body></html>

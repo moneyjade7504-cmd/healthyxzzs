@@ -1,0 +1,45 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+const START = 648.4;
+S = Scene(START, 'ninguna');
+Item(S, Panel('k_breathe', 1150), { x: 690, y: 460, t: START, zoom: 0.05 });
+Item(S, Img('breathe', 380), { x: 1640, y: 560, t: 'respira' });
+Item(S, Pill('RESPIRA CONMIGO', { hi: 'RESPIRA', size: 58 }), { x: 690, y: 985, t: 'respira', enter: 'd' });
+
+S = Scene('ninguna', 'algomas');
+Item(S, Img('hand_heart', 500), { x: 420, y: 560 });
+Item(S, Txt('NINGUNA SEÑAL, POR SÍ SOLA,\nES UN DIAGNÓSTICO', { size: 50, color: K.green }), { x: 1250, y: 260, t: 'ninguna', enter: 'slam' });
+Item(S, Chip('TODOS TENEMOS DÍAS MALOS', { icon: 'check', color: K.green, size: 38 }), { x: 1250, y: 450, t: 'todos' });
+Item(S, Txt('LO QUE IMPORTA ES UN CAMBIO QUE…', { size: 40, color: K.grey }), { x: 1250, y: 590, t: 'importa', enter: 'fade' });
+Item(S, Chip('SE MANTIENE', { size: 40, color: K.red }), { x: 990, y: 720, t: 'importa+3' });
+Item(S, Chip('VA A MÁS', { size: 40, color: K.red }), { x: 1290, y: 720, t: 'importa+5' });
+Item(S, Chip('ES DISTINTO', { size: 40, color: K.red }), { x: 1560, y: 720, t: 'importa+7' });
+
+S = Scene('algomas', 'paso');
+Item(S, Panel('k_blood', 900), { x: 500, y: 380, t: 'solucion', enter: 'l' });
+Item(S, Panel('k_apnea', 900), { x: 1420, y: 380, t: 'apnea', enter: 'r' });
+Item(S, Txt('MUCHAS CAUSAS TIENEN SOLUCIÓN', { size: 52, color: K.green }), { x: 960, y: 700, t: 'solucion', enter: 'fade' });
+[['B12', 'b12'], ['TIROIDES', 'tiroides'], ['DEPRESIÓN', 'depresion2'], ['APNEA DEL SUEÑO', 'apnea'], ['AUDICIÓN', 'apnea+1.5'], ['MEDICAMENTOS', 'apnea+3']].forEach(([s, t], i) =>
+  Item(S, Chip(s, { size: 34, color: K.blueD }), { x: 560 + (i % 3) * 400, y: i < 3 ? 800 : 900, t }));
+Item(S, Pill('LA MENTE PUEDE RECUPERAR CLARIDAD', { hi: 'CLARIDAD', size: 44 }), { y: 1010, t: 'recupera', enter: 'd' });
+
+S = Scene('paso', T('esperanza'));
+Item(S, Panel('j_doctor', 1000), { x: 580, y: 460, zoom: 0.05 });
+Item(S, Chip('NO BUSQUES CON MIEDO EN INTERNET', { size: 28, color: K.red }), { x: 1500, y: 260, t: 'paso+1.5', enter: 'r' });
+Item(S, Chip('PIDE UNA CITA', { fill: K.yellow, size: 44 }), { x: 1500, y: 410, t: 'cita', enter: 'r' });
+Item(S, Chip('EJEMPLOS CONCRETOS', { size: 36, color: K.green }), { x: 1500, y: 550, t: 'cita+2', enter: 'r' });
+Item(S, Chip('VE ACOMPAÑADO', { size: 40, color: K.green }), { x: 1500, y: 690, t: 'cita+5', enter: 'r' });
+Strip(START + 1, T('esperanza') + 1, t => 8, 7);
+Run(START, T('esperanza'));
+</script></body></html>

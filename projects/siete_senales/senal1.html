@@ -1,0 +1,47 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+S = Scene('s13', 'super');
+Item(S, Kicker('SEÑALES 1 A 3', 'SEÑAL 1\nTE DESORIENTAS', { size: 104 }), { x: 1250, y: 420, t: 's1-0.3', enter: 'slam' });
+Item(S, Img('map_confused', 520), { x: 430, y: 560, t: 's13' });
+Item(S, Img('compass', 170), { x: 1250, y: 860, t: 'orientarnos' });
+
+S = Scene('super', 'entorrinal');
+Item(S, Panel('o_super', 600), { x: 330, y: 420, t: 'super', enter: 'l' });
+Item(S, Panel('o_street', 600), { x: 960, y: 420, t: 'barrio', enter: 'r' });
+Item(S, Panel('o_drive', 600), { x: 1590, y: 420, t: 'conduciendo1', enter: 'r' });
+Item(S, Chip('NO OLVIDÓ LA DIRECCIÓN', { size: 38, fill: K.yellow }), { x: 640, y: 820, t: 'direccion' });
+Item(S, Chip('EL MAPA NO SE ARMA', { size: 38, color: K.red }), { x: 1280, y: 820, t: 'iguales' });
+
+S = Scene('entorrinal', 'verguenza');
+Item(S, Img('brain_pin', 420), { x: 620, y: 470 });
+Item(S, Ring(80), { x: 640, y: 450, t: 'entorrinal+0.4' });
+Item(S, Txt('CORTEZA ENTORRINAL', { size: 66, color: K.pinkD }), { x: 1300, y: 360, t: 'entorrinal', enter: 'r' });
+Item(S, Chip('JUNTO AL HIPOCAMPO', { size: 42, color: K.blueD }), { x: 1300, y: 500, t: 'entorrinal+2.5' });
+Item(S, Chip('EL «GPS» DEL CEREBRO', { fill: K.yellow, size: 48 }), { x: 1300, y: 660, t: 'gps', enter: 'slam' });
+punchAt(S, 'gps');
+
+S = Scene('verguenza', 'reducir');
+Item(S, Panel('o_door', 1100), { x: 660, y: 460, zoom: 0.05 });
+Item(S, Chip('«ESTABA DISTRAÍDA»', { size: 40 }), { x: 1590, y: 300, t: 'distraida', enter: 'r' });
+Item(S, Chip('EVITA CONDUCIR DE NOCHE', { size: 34, color: K.red }), { x: 1580, y: 460, t: 'evitar', enter: 'r' });
+Item(S, Chip('NO SALE SOLA', { size: 40, color: K.red }), { x: 1590, y: 610, t: 'evitar+2', enter: 'r' });
+
+S = Scene('reducir', T('s2'));
+Item(S, Img('hand_heart', 500), { x: 440, y: 560 });
+Item(S, Txt('SI SU MUNDO SE HACE PEQUEÑO…', { size: 56 }), { x: 1260, y: 340, t: 'reducir', enter: 'u' });
+Item(S, Chip('CONVERSACIÓN TRANQUILA', { icon: 'check', color: K.green, size: 44 }), { x: 1260, y: 540, t: 'regano-1.5' });
+Item(S, Chip('NO UN REGAÑO', { icon: 'cross', color: K.red, size: 44 }), { x: 1260, y: 690, t: 'regano' });
+Strip('s1', T('s2') + 1, t => 1, 7);
+Run(T('s13'), T('s2'));
+</script></body></html>

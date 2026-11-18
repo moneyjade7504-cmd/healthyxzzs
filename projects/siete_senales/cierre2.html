@@ -1,0 +1,60 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+const END = 854;
+S = Scene('esperanza', 'caminar');
+Item(S, Img('globe', 500), { x: 430, y: 560 });
+Item(S, Txt('COMISIÓN LANCET', { size: 64 }), { x: 1260, y: 230, t: 'mitad-1', enter: 'u' });
+Item(S, g => {
+  el('circle', { r: 150, fill: K.greyL, stroke: K.ink, 'stroke-width': 8 }, g);
+  const p = el('path', { fill: K.green, stroke: K.ink, 'stroke-width': 8 }, g);
+  return { draw(t, t0) { const u = 0.45 * E.inOut(prog(t, t0, t0 + 1.2)), a = u * 2 * Math.PI, x = 150 * Math.sin(a), y = -150 * Math.cos(a); p.setAttribute('d', `M0 0 L0 -150 A150 150 0 ${a > Math.PI ? 1 : 0} 1 ${x.toFixed(1)} ${y.toFixed(1)} Z`); } };
+}, { x: 1260, y: 520, t: 'mitad' });
+Item(S, Txt('≈ 45 %', { size: 70, color: K.green }), { x: 1260, y: 760, t: 'mitad+1', enter: 'slam' });
+Item(S, Chip('FACTORES QUE SE PUEDEN MODIFICAR', { size: 36, color: K.green }), { x: 1260, y: 880, t: 'mitad+2' });
+Item(S, Txt('Livingston y cols., The Lancet 2024', { size: 26, color: K.grey, weight: 700 }), { x: 1650, y: 1040, t: 'mitad', enter: 'fade' });
+
+S = Scene('caminar', 'padre');
+Item(S, Txt('LO QUE HACES CADA DÍA IMPORTA', { size: 56 }), { x: 800, y: 110, t: 'caminar-2', enter: 'u' });
+[['walk', 'CAMINAR', 'caminar'], ['sleep_cap', 'DORMIR BIEN', 'dormir'], ['bp', 'PRESIÓN Y AZÚCAR', 'presion'], ['hearing_aid', 'OÍDO Y VISTA', 'vista'], ['phone_laugh', 'AMIGOS Y FAMILIA', 'contacto'], ['reading', 'APRENDER', 'aprendiendo']].forEach(([n, l, t], i) => {
+  const x = 330 + (i % 3) * 630, y = i < 3 ? 360 : 730;
+  Item(S, Img(n, 270), { x, y, t });
+  Item(S, Chip(l, { size: 32, color: K.green }), { x, y: y + 170, t: `${t}+0.2` });
+});
+Item(S, Pill('UN PEQUEÑO PASO HOY', { hi: 'HOY', size: 50 }), { y: 1020, t: 'pequeno', enter: 'd' });
+
+S = Scene('padre', 'acompanado');
+Item(S, Panel('k_video', 900), { x: 500, y: 400, t: 'padre', enter: 'l' });
+Item(S, Panel('k_class', 900), { x: 1420, y: 400, t: 'conversacion', enter: 'r' });
+Item(S, Chip('COMPÁRTELO CON QUIEN QUIERES', { fill: K.yellow, size: 40 }), { x: 500, y: 760, t: 'comparte' });
+Item(S, Chip('¿DESDE QUÉ PAÍS NOS VES?', { size: 40, color: K.blueD }), { x: 1420, y: 760, t: 'pais' });
+Item(S, Chip('¿QUÉ SEÑAL TE SORPRENDIÓ MÁS?', { size: 36, color: K.blueD }), { x: 1420, y: 890, t: 'pais+3' });
+
+S = Scene('acompanado', 'gracias');
+Item(S, Panel('k_hug', 1000), { x: 600, y: 450, zoom: 0.05 });
+Item(S, Txt('Cerebro y Bienestar', { size: 60, color: K.pinkD }), { x: 1530, y: 300, t: 'subs2-0.3', enter: 'u' });
+Item(S, Subscribe(T('subs2+2')), { x: 1530, y: 480, t: 'subs2', s: 0.75 });
+Item(S, Pill('ESCÚCHALO CON CARIÑO', { hi: 'CARIÑO', size: 52 }), { x: 600, y: 980, t: 'escucharlo', enter: 'd' });
+
+S = Scene('gracias', 'aviso');
+Item(S, Img('wave', 480), { x: 480, y: 560 });
+Item(S, Txt('¡GRACIAS POR QUEDARTE!', { size: 70, color: K.pinkD }), { x: 1260, y: 420, t: 'gracias', enter: 'slam' });
+Item(S, Txt('CUÍDATE MUCHO', { size: 56 }), { x: 1260, y: 580, t: 'cuidate', enter: 'u' });
+
+S = Scene('aviso', END + 1);
+Item(S, Full(K.ink), { x: 960, y: 540, enter: 'fade', dur: 0.4 });
+Item(S, Txt('Contenido educativo e informativo.', { size: 52, color: '#fff', weight: 700 }), { x: 960, y: 470, t: 'aviso', enter: 'fade' });
+Item(S, Txt('No sustituye el diagnóstico ni el consejo de un profesional de la salud.', { size: 40, color: K.yellow, weight: 700 }), { x: 960, y: 570, t: 'aviso', enter: 'fade' });
+Strip('esperanza', T('gracias'), t => 8, 7);
+Run(T('esperanza'), END);
+</script></body></html>
