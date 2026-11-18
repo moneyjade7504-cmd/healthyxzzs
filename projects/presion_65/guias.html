@@ -1,0 +1,34 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('s2017'); window.END=C('hagamoslo'); window.DURATION=window.END;
+STitle(C('s2017'),C('emitieron')+2,2,'Las <span class="hl">guías</span> y lo que no se dice','SPRINT · HYVET',['guide2','target']);
+FB(C('emitieron')+2,C('basado'),'S2_1','2017: meta general <span class="hl">&lt; 130/80</span>',{capT:C('redujeron')-C('emitieron')-1,size:62});
+{const B=beats[beats.length-1]; Cap(B,'Colegio Americano de Cardiología · Asociación Americana del Corazón',{cx:960,cy:90,size:40,t0:B.a+0.3,pill:true});}
+FB(C('basado'),C('beneficios'),'S2_2','Ensayo <span class="hl">SPRINT</span>',{capT:C('sprint')-C('basado'),size:66});
+{const B=beats[beats.length-1]; Cap(B,'meta &lt; 140  vs  meta intensiva &lt; 120',{cx:960,cy:90,size:50,t0:C('comparo'),pill:true});}
+{const B=Beat(C('beneficios'),C('excluyo'),{enter:'zoom'});
+ Cap(B,'El tratamiento intensivo redujo:',{cx:960,cy:120,size:60,t0:B.a+0.3});
+ Row(B,[['heart','Eventos cardiovasculares graves',B.a+1.5,'ok'],['heart','Insuficiencia cardíaca',B.a+3,'ok'],['guide2','Mortalidad',B.a+4.5,'ok']],{y:560});
+ Src(B,'Infarto e ictus por separado: sin diferencia significativa. Fuente: SPRINT, NEJM 2015');}
+{const B=Beat(C('excluyo'),C('hyvet'));
+ Cap(B,'Pero… ¿a quién <span class="red">no</span> incluyó?',{cx:960,cy:120,size:64,t0:B.a+0.2});
+ Row(B,[['pill_bottle','Diabetes',B.a+1.5,'no'],['brain','Ictus previo',B.a+2.5,'no'],['brain','Demencia',B.a+3.5,'no'],['walker','Residencias',B.a+5,'no']],{y:540,h:250,cardH:440});
+ Cap(B,'Edad media: <span class="hl">unos 68 años</span>',{cx:960,cy:930,size:58,t0:C('promedio')});
+ Cap(B,'En los ≥75 años que participaron el beneficio se mantuvo, pero con más mareos y alteraciones renales',{cx:960,cy:1020,size:30,t0:C('promedio')+4,color:'#6a6f86'});}
+FB(C('hyvet'),C('meta150'),'S2_3','Ensayo <span class="hl">HYVET</span>: mayores de 80',{capT:0.5,size:62});
+{const B=beats[beats.length-1]; Cap(B,'menos ictus, insuficiencia cardíaca y mortalidad',{cx:960,cy:90,size:48,t0:C('encontro80'),pill:true});}
+{const B=Beat(C('meta150'),C('intensidad'),{enter:'zoom'});
+ const s=Svg(B); Draw(B,s,'M300 820 H1620',{t0:B.a+0.2,dur:0.3,stroke:'#3a3c52',w:6});
+ [['HYVET (≥80)',150,'#1f9d55'],['Guía 2017',130,'#f7ad36'],['SPRINT intensiva',120,'#e23b2e']].forEach(([l,v,col],i)=>{const h=(v-80)*7, r=sv('rect',{x:450+i*400,y:820,width:220,height:0,fill:col,rx:12},s), t0=B.a+0.6+i*0.8;
+   B.fx.push(t=>{const p=eo(prog(t,t0,t0+0.7)); r.setAttribute('y',820-h*p); r.setAttribute('height',h*p);}); Cap(B,v,{cx:560+i*400,cy:820-h-50,size:60,t0:t0+0.6,color:col}); Cap(B,l,{cx:560+i*400,cy:880,size:44,t0});});
+ Cap(B,'Meta sistólica',{cx:960,cy:110,size:62,t0:B.a+0.2});
+ Cap(B,'La presión <span class="hl">importa</span> a los 80, y mucho',{cx:960,cy:990,size:52,t0:C('implicacion')});}
+FB(C('intensidad'),C('decide'),'S2_4','La intensidad debe <span class="hl">ajustarse a la persona</span>',{capT:1.5,size:58});
+{const B=Beat(C('decide'),C('numero2'),{enter:'zoom'}); Cut(B,'t_paper',{cx:440,cy:1000,h:720,amp:4});
+ Cap(B,'¿Quién decide <span class="hl">su meta</span>?',{cx:1300,cy:200,size:72,t0:B.a+0.2});
+ Cap(B,'a menudo: la guía, casi sin ajustar',{cx:1300,cy:320,size:50,t0:C('primaria'),color:'#6a6f86'});
+ Cap(B,'Lo que debería contar:',{cx:1300,cy:450,size:52,t0:C('caidas2')-1,color:'#2f6fd6'});
+ ['riesgo de caídas','función de los riñones','memoria','la medida escondida…'].forEach((w,i)=>Cap(B,'✓ '+w,{cx:1300,cy:540+i*85,size:48,t0:C('caidas2')+i*1.4,color:'#1f9d55'}));}
+{const B=FB(C('numero2'),C('hagamoslo'),'S2_8','¿Le ayuda? Escriba <span class="hl">“2”</span> en los comentarios',{capT:0.3,size:58,exit:'fade'});}
+</script></body></html>

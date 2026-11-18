@@ -1,0 +1,44 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('hagamoslo'); window.END=C('mananas'); window.DURATION=window.END;
+// BP readout: big systolic / diastolic numbers, optional gap bracket
+function BP(B,{cx=1300,cy=480,sys,dia,t0,gapT,col='#24263a'}){Card(B,{cx,cy,w:560,h:560,t0,border:'#2f6fd6'});
+ Cap(B,sys,{cx,cy:cy-120,size:150,t0:t0+0.2,color:col}); const s=Svg(B); Draw(B,s,`M${cx-170} ${cy} H${cx+170}`,{t0:t0+0.4,dur:0.3,stroke:'#3a3c52',w:7});
+ Cap(B,dia,{cx,cy:cy+110,size:150,t0:t0+0.5,color:col});
+ if(gapT){Draw(B,s,`M${cx+230} ${cy-170} h30 V${cy+160} h-30`,{t0:gapT,dur:0.5,stroke:'#e23b2e',w:8}); Cap(B,'= '+(sys-dia),{cx:cx+370,cy,size:80,t0:gapT+0.4,color:'#e23b2e'});}}
+STitle(C('hagamoslo'),C('enfermera'),3,'La medida <span class="hl">escondida</span>','la presión de pulso',['bp_monitor','magnifier']);
+{const B=Beat(C('enfermera'),C('tercer')); Cut(B,'w_point',{cx:420,cy:1010,h:720,amp:3});
+ BP(B,{sys:148,dia:74,t0:B.a+1}); Cap(B,'el médico mira el 148…',{cx:1300,cy:900,size:52,t0:C('habla148'),color:'#6a6f86'});}
+{const B=Beat(C('tercer'),C('importa'),{enter:'zoom'}); BP(B,{cx:760,sys:148,dia:74,t0:B.a+0.2,gapT:C('resta')});
+ Cap(B,'un <span class="hl">tercer número</span>',{cx:960,cy:110,size:68,t0:B.a+0.3});
+ Cap(B,'Presión de pulso = arriba − abajo',{cx:960,cy:940,size:56,t0:C('pulso'),pill:true});}
+{const B=Beat(C('importa'),C('mas60'));
+ const s=Svg(B); Draw(B,s,'M300 860 H1620',{t0:B.a+0.2,dur:0.3,stroke:'#3a3c52',w:6});
+ const bar=(x,top,bot,col,t0,lab)=>{const r=sv('rect',{x,y:top,width:200,height:0,fill:col,rx:14,opacity:0.85},s); B.fx.push(t=>{const p=eo(prog(t,t0,t0+0.8)); r.setAttribute('height',(bot-top)*p);}); Cap(B,lab,{cx:x+100,cy:910,size:44,t0});};
+ bar(520,380,560,'#58a9e4',B.a+0.8,'Arterias jóvenes'); Cap(B,'≈ 40',{cx:620,cy:330,size:66,t0:C('normal40'),color:'#1f9d55'});
+ bar(1180,240,640,'#e23b2e',C('endurecen')+1,'Arterias rígidas'); Cap(B,'60+',{cx:1280,cy:190,size:66,t0:C('amplia'),color:'#e23b2e'});
+ Cap(B,'arriba ↑  ·  abajo = o ↓',{cx:1280,cy:720,size:46,t0:C('sube'),color:'#6a6f86'});
+ Cap(B,'La diferencia <span class="hl">se amplía</span>',{cx:960,cy:110,size:66,t0:C('amplia')});}
+{const B=Beat(C('mas60'),C('medicamento'),{enter:'zoom'}); Cut(B,'artery_stiff',{cx:560,cy:820,h:460,amp:3});
+ Cap(B,'Más de ~60 en mayores:',{cx:1350,cy:330,size:60,t0:B.a+0.3}); Cap(B,'señal de <span class="hl">rigidez arterial</span>',{cx:1350,cy:450,size:64,t0:B.a+2});
+ Cap(B,'y más riesgo cardiovascular',{cx:1350,cy:570,size:54,t0:B.a+5,color:'#e23b2e'});}
+{const B=Beat(C('medicamento'),C('teorico')); Cut(B,'t_pill',{cx:430,cy:1000,h:700,amp:3});
+ Cap(B,'En arterias rígidas, al bajar la de arriba…',{cx:1250,cy:300,size:52,t0:B.a+0.3});
+ Cap(B,'…a veces la de abajo <span class="red">también baja</span>',{cx:1250,cy:420,size:56,t0:B.a+5});
+ Cap(B,'Vigile <span class="hl">los dos números</span>',{cx:1250,cy:600,size:70,t0:C('empeora')});}
+{const B=Beat(C('teorico'),C('piensen2'),{enter:'zoom'}); Cut(B,'brain',{cx:540,cy:800,h:440,amp:3});
+ Cap(B,'Presión de pulso alta durante años',{cx:1330,cy:280,size:52,t0:C('jacc')+3});
+ Cap(B,'→ deterioro cognitivo <span class="red">más rápido</span>',{cx:1330,cy:390,size:56,t0:C('jacc')+8});
+ Cap(B,'→ más riesgo de demencia',{cx:1330,cy:490,size:56,t0:C('jacc')+12});
+ Cap(B,'Baltimore: peor memoria y aprendizaje',{cx:1330,cy:640,size:48,t0:C('baltimore'),color:'#2f6fd6'});
+ Src(B,'Fuentes: Li y cols., J Am Coll Cardiol 2022 · Estudio Longitudinal de Baltimore sobre el Envejecimiento');}
+{const B=Beat(C('piensen2'),C('alarmar')); Cut(B,'t_confused',{cx:420,cy:1000,h:640,amp:3});
+ BP(B,{cx:1150,sys:128,dia:58,t0:C('ejemplo'),gapT:C('ejemplo')+6,col:'#1f9d55'});
+ const st=mk('div','pill',B.L,'✓ en la meta'); Object.assign(st.style,{left:'1150px',top:'110px',fontSize:'52px',color:'#1f9d55',borderColor:'#1f9d55'}); Pop(B,st,{t0:C('ejemplo')+3});
+ Cap(B,'…pero merece una conversación',{cx:1150,cy:870,size:50,t0:C('ejemplo')+9,color:'#e23b2e'});}
+{const B=Beat(C('alarmar'),C('mananas'),{enter:'zoom',exit:'fade'}); Cut(B,'w_think',{cx:440,cy:1000,h:720,amp:3});
+ Cap(B,'No es para alarmarse:',{cx:1300,cy:300,size:62,t0:B.a+0.2,color:'#6a6f86'});
+ Cap(B,'su lectura tiene',{cx:1300,cy:420,size:62,t0:C('nounico')}); Cap(B,'<span class="hl">más información</span>',{cx:1300,cy:530,size:72,t0:C('nounico')+1.5});
+ Cap(B,'no solo la cifra de arriba',{cx:1300,cy:670,size:54,t0:C('individual')});}
+</script></body></html>
