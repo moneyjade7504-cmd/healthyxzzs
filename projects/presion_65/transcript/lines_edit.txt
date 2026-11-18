@@ -1,0 +1,204 @@
+[0.22] (w0) Déjeme preguntarle algo.
+[1.98] (w3) Si su médico entrara hoy al consultorio, mirara su lectura de presión arterial y le dijera, buenas noticias, ¿está en la meta?
+[10.06] (w25) ¿Se sentiría aliviado?
+[11.86] (w28) La mayoría de las personas sí.
+[14.14] (w34) Pero esto es lo que quiero que piense por un segundo antes de que termine este video.
+[18.72] (w51) Y si esa meta nunca se construyó realmente para usted, no para su edad, no para sus arterias, no para el cuerpo en el que vive a los 68, a los 73 o a los 81 años.
+[31.06] (w88) Y si el número impreso en la guía fue diseñado en torno a alguien 20 años más joven, y luego se le entregó a usted como si fuera una verdad universal.
+[40.02] (w119) Porque eso no es una hipótesis, eso es en muchos casos exactamente lo que ocurrió, y las consecuencias de ese desajuste se están manifestando en silencio en millones de adultos mayores en este momento, en el mareo matutino que atribuyen simplemente a hacerse mayores.
+[57.34] (w163) En la niebla mental, que suponen que es envejecimiento normal y en caídas que no tenían por qué ocurrir.
+[64.18] (w182) Este canal existe con un solo propósito, darles a los adultos mayores de 60 años el tipo de información de salud clara y basada en la evidencia que una consulta de 15 minutos simplemente no puede abarcar.
+[77.72] (w219) Si es nuevo por aquí, suscríbase antes de que termine este vídeo, porque cubrimos las cosas que la mayoría de los médicos quisieran contarle, pero realmente no tienen tiempo de hacerlo.
+[88.84] (w250) Hoy vamos a profundizar en la presión arterial después de los 65 años.
+[94.02] (w263) No la versión superficial que ha escuchado 100 veces, la versión que incluye lo que la investigación realmente dice, incluidas las partes de esa investigación que rara vez llegan a la conversación en el consultorio de su médico.
+[107.50] (w301) Al final de este video, usted entenderá tres cosas que cambiarán de verdad la manera en que mira sus cifras de presión arterial.
+[115.08] (w324) ¿Qué preguntas hacer en su próxima consulta?
+[117.62] (w331) ¿Y por qué la meta?
+[119.42] (w336) Nunca ha sido perseguir la lectura más baja posible.
+[122.80] (w345) Siempre ha ha sido encontrar su número.
+[125.52] (w352) Comencemos.
+[127.26] (w353) Antes de empezar, todo lo que se dice en este video es únicamente con fines educativos.
+[132.70] (w369) No sustituye el consejo de su propio médico, quien conoce su historial médico completo.
+[138.20] (w383) Antes de continuar, dígame su nombre y su edad en los comentarios.
+[141.94] (w395) Me encantaría saber desde dónde me está viendo y con quién estoy hablando hoy.
+[147.14] (w409) Esto es algo que casi nadie explica con claridad y que importa enormemente.
+[152.18] (w422) La presión arterial no envejece igual en todas las personas.
+[156.42] (w432) Cambia en su estructura, en su patrón y en lo que los números realmente significan.
+[161.70] (w447) Y esos cambios se aceleran de manera significativa después de su cumpleaños número 65.
+[167.82] (w461) Piensen sus arterias a los 30 años como mangueras de jardín hechas de caucho, flexibles.
+[173.76] (w476) Cuando su corazón empujaba la sangre, esas paredes se expandían ligeramente, absorbían parte de la fuerza y suavizaban el flujo.
+[182.28] (w496) Su lectura de presión arterial reflejaba un sistema sano y elástico, haciendo exactamente lo que fue diseñado para hacer.
+[190.28] (w515) Ahora piensen lo que le sucede a una manguera de caucho que ha estado afuera bajo el sol durante 30 años.
+[196.42] (w536) No se agrieta de la noche a la mañana, se endurece gradualmente y ese endurecimiento cambia la física.
+[203.72] (w554) Hacia finales de los 60 y y los 70, sus arterias principales han experimentado cambios estructurales medibles.
+[210.94] (w571) Las flexibles fibras de elastina que les daban su elasticidad son reemplazadas gradualmente por colágenen más rígido.
+[218.46] (w588) Se acumulan depósitos de calcio en las paredes arteriales.
+[222.00] (w597) El resultado es un sistema cardiovascular fundamentalmente menos tolerante a la variación de la presión en ambas direcciones.
+[230.00] (w615) Esto es lo que significa en la práctica.
+[232.28] (w623) Cuando su corazón se contrae, las paredes arteriales endurecidas no pueden absorber la presión como lo hacía en las arterias más jóvenes.
+[240.38] (w645) Por eso, el número de arriba, su presión systólica, tiende a ser más alto por una cuestión de biología, no necesariamente de enfermedad, pero esta es la parte que casi no recibe atención en una conversación estándar sobre la presión arterial.
+[255.10] (w686) Esas mismas arterias rígidas tienen dificultad para mantener la presión entre un latido y otro, y eso afecta a su diastólica, el número de abajo, de maneras que importan enormemente para cómo llega la sangre a su corazón, a su cerebro y a sus riñones.
+[271.84] (w731) Por eso el enfoque de un solo número en el tratamiento de la presión arterial, bájela de tal cifra.
+[277.94] (w750) Pasa por alto algo crítico.
+[280.14] (w755) Usted no está tratando un número.
+[282.50] (w761) Está manejando un sistema circulatorio presurizado que ha estado funcionando durante siete u ocho décadas y que tiene su propia historia individual, sus propias compensaciones y sus propias vulnerabilidades.
+[295.16] (w790) Y esto es lo que nadie le cuenta sobre esas vulnerabilidades.
+[298.86] (w801) En realidad, una medición escondida dentro de su lectura de presión arterial que la mayoría de las personas nunca ha oído mencionar y puede ser más importante que cualquiera de los dos números por sí solo.
+[310.96] (w837) Le diré cuál es en un momento, pero primero déjeme explicarle por qué las guías actuales han creado un problema tan extendido de talla única para los adultos mayores.
+[321.14] (w866) En 2017, el Colegio estadounidense de Cardiología y la Asociación Estadounidense del Corazón emitieron guías actualizadas de presión arterial que redujeron la meta general a menos de 130 sobre 80 para la mayoría de los adultos con riesgo cardiovascular.
+[338.08] (w905) Esto se basó en gran medida en los resultados de un ensayo histórico de gran tamaño llamado SPRINT, que comparó el tratamiento hacia una meta por debajo de 140 frente a una meta intensiva por debajo de 120.
+[352.08] (w943) Y ese ensayo sí encontró beneficios reales, menos infartos, menos derrames cerebrales, menos hospitalizaciones por insuficiencia cardíaca, pero hay un problema de contexto y es grande.
+[364.94] (w969) El ensayo Sprint excluyó a los adultos con diabetes, derrame cerebral previo, demencia y de manera crítica a muchos de los pacientes de edad avanzada físicamente más vulnerables.
+[377.18] (w997) La edad promedio de los participantes fue de unos 68 años y una parte significativa del análisis se centró en adultos relativamente sanos y de mayor funcionalidad.
+[388.21] (w1024) Luego está el ensayo Hibet, y este trata específicamente del tratamiento de la presión arterial en adultos mayores de 80 años, no de 65, mayores de 80, y los resultados fueron realmente notables.
+[402.93] (w1057) El J -Bet encontró que tratar la hipertensión en adultos mayores de 80 años sí redujo el riesgo de derrame cerebral, pero las metas utilizadas en ese ensayo, y esta es la parte que vale la pena tener presente, fueron considerablemente más conservadoras que las guías estadounidenses posteriores a 2017.
+[422.53] (w1107) El ensayo utilizó una metas histórica de 150, no de 130, y los resultados aún así mejoraron de manera significativa.
+[432.45] (w1127) La implicación no es que la presión arterial no importe en sus 80, importa absolutamente.
+[438.57] (w1142) La implicación es que la intensidad de ese tratamiento debe corresponder a la fisiología de la persona que se está tratando, no a la guía escrita para un hipotético promedio de 55 años.
+[451.13] (w1175) Entonces, ¿quién decide realmente su meta?
+[454.17] (w1181) En la mayoría de los entornos de atención primaria, es la guía aplicada de manera amplia, ajustada mínimamente por la edad y casi nunca por las variables individuales que cambiarían todo el cálculo, como el riesgo de caídas, la trayectoria de la función renal, el estado cognitivo o la medición oculta que prometí explicar.
+[474.49] (w1235) Si sigue viendo el video y esto le está ayudando, escriba el número 2 en los comentarios para saber que está aquí conmigo.
+[482.33] (w1258) Hagámoslo ahora.
+[483.91] (w1260) Cuando una enfermera registra su presión arterial como 148 sobre 74, usted escucha dos números.
+[491.61] (w1275) Su médico habla del 148.
+[494.21] (w1280) Quizás escriba una receta para bajarlo.
+[496.73] (w1286) Pero enterrado en esa lectura, hay un tercer número que la mayoría de las personas nunca calcula y y que casi ninguna conversación de rutina aborda.
+[506.23] (w1312) Se llama presión de pulso, y es simplemente la diferencia entre su número de arriba y el de abajo.
+[512.95] (w1331) 148 menos 74 es igual a 74.
+[517.65] (w1338) Su presión de pulso es 74.
+[520.79] (w1344) Ahora, ¿esto es por qué importa?
+[523.65] (w1350) En arterias sanas, flexibles y más jóvenes, la presión systólica y la diastólica se mantienen relativamente cercanas.
+[531.89] (w1367) Una presión de pulso de 40 o menos se considera normal.
+[536.03] (w1378) A medida que las arterias se endurecen con la edad, sucede algo interesante.
+[540.97] (w1391) El número de arriba sube, mientras que el de abajo se mantiene estable o bajo ciertas condiciones, baja.
+[547.91] (w1409) La diferencia se amplía.
+[550.05] (w1413) Una presión de pulso amplia, generalmente por encima de 60 o 65 en adultos mayores, se reconoce hoy en la investigación cardiovascular como un marcador independiente de rigidez arterial y de riesgo cardiovascular elevado.
+[564.57] (w1447) Es una señal de que las paredes de sus arterias no están absorbiendo la presión como deberían, pero aquí es donde se conecta directamente con el tratamiento.
+[573.69] (w1474) Cuando se usa un medicamento para bajar la presión systólica de alguien, en particular en un sistema arterial ya rígido, puede hacer descender aún más la diastólica sin querer, mientras afecta solo de manera modesta a la systólica.
+[587.65] (w1512) La diferencia se amplía, la presión de pulso aumenta y la misma métrica que señala el envejecimiento vascular empeora, incluso cuando la cifra principal parece mejorar.
+[599.47] (w1538) Esto no es teórico.
+[601.19] (w1542) Las investigaciones de múltiples estudios grandes, incluido un análisis importante publicado en el Journal of the American College of Cardiology, han encontrado que una presión de pulso acumulada elevada se asocia de manera independiente con un deterioro cognitivo acelerado y un mayor riesgo de demencia en los adultos mayores, de forma separada de los valores absolutos de presión arterial.
+[624.71] (w1601) El estudio longitudinal de Baltimore sobre el envejecimiento reforzó este hallazgo.
+[630.13] (w1612) Una presión de pulso más alta predijo un declive en el aprendizaje verbal, la memoria no verbal y la memoria de trabajo antes, incluso de que se desarrollara la demencia.
+[641.59] (w1642) Piensen lo que eso significa.
+[643.91] (w1647) Usted podría tener una presión arterial de 128 sobre 58, técnicamente en la meta según las guías actuales, mientras que su presión de pulso de 70 está señalando algo que merece una conversación mucho más cuidadosa.
+[659.15] (w1683) El punto no es alarmarlo.
+[661.23] (w1688) El punto es este.
+[663.09] (w1692) El número hacia el cual su médico está manejando su tratamiento no es el único número de su lectura que contiene información significativa sobre su salud cardiovascular.
+[672.93] (w1719) Y una conversación verdaderamente individualizada sobre la presión arterial tiene en cuenta esa diferencia, no solo la cifra de arriba.
+[682.23] (w1739) Ahora hablemos de algo que afecta su presión arterial todas las mañanas, de maneras que muchas personas y muchos médicos subestiman de forma dramática.
+[691.57] (w1763) Aquí va una pregunta.
+[693.21] (w1767) ¿Cuándo cree usted que ocurre la mayoría de los infartos y derrame cerebrales?
+[698.59] (w1780) La mayoría de las personas adivina al azar, quizás por la noche, cuando se ha acumulado el estrés del día o durante el esfuerzo.
+[707.11] (w1804) La investigación cuenta una historia diferente.
+[710.41] (w1810) La ventana de mayor incidencia de eventos cardiovasculares es la mañana, específicamente las primeras 4 a 6 horas después de despertar.
+[720.01] (w1831) Y la razón es un fenómeno llamado el aumento matutino de la presión arterial.
+[725.59] (w1845) Cuando usted duerme, su presión arterial baja de manera natural, normalmente entre un 10 y un 20 %.
+[732.81] (w1863) Esto se llama descenso nocturno y es protector.
+[736.53] (w1871) Le da a su sistema cardiovascular un verdadero ciclo de descanso cada noche.
+[741.81] (w1884) Cuando usted despierta, se desencadena casi al mismo tiempo una cascada de cambios fisiológicos.
+[748.31] (w1898) Su sistema nervioso se activa, el cortisol se dispara, su frecuencia cardíaca aumenta, sus vasos sanguíneos se contraen y su presión arterial sube rápidamente, a veces 30, 40 o incluso más puntos en los primeros 30 a 60 minutos después de despertar.
+[766.25] (w1940) En adultos más jóvenes con arterias elásticas, este aumento es manejable.
+[771.05] (w1951) En adultos mayores con paredes arteriales más rígidas, ese aumento matutino golpea a un sistema menos tolerante.
+[778.75] (w1968) La combinación de un aumento rápido de la presión y una flexibilidad vascular reducida es un factor importante de los eventos cardiovasculares matutinos.
+[788.37] (w1991) Ahora, este es el problema clínico.
+[791.05] (w1997) La mayoría de las lecturas de presión arterial en los consultorios médicos y en la mayoría de los protocolos de monitoreo en casa se toman a media mañana o por la tarde.
+[800.85] (w2029) Mucho después de que el aumento haya alcanzado su punto máximo y haya cedido, la lectura se ve controlada.
+[807.77] (w2048) La ventana de riesgo real, ese pico de la madrugada nunca se registra.
+[813.09] (w2061) El estudio J -Hop, el estudio japonés del aumento matutino de la presión arterial en el hogar.
+[819.35] (w2078) Un estudio a nivel nacional con más de 4 .300 adultos japoneses con riesgo cardiovascular encontró que las lecturas matutinas de presión arterial en casa fueron un preditor más fuerte de eventos cardiovasculares y de derrame cerebral que las lecturas del consultorio tomadas más tarde en el día Esa asociación matutina se mantuvo con claridad para el riesgo de derrame cerebral, mientras que ni las lecturas de la clínica, ni las lecturas vespertinas en casa, mostraron el mismo poder predictivo.
+[849.17] (w2158) La conclusión práctica aquí es algo que usted realmente puede aplicar si está monitoreando su presión arterial en casa, algo que le explicaré exactamente cómo hacer en un momento.
+[859.89] (w2187) Tome una de sus dos lecturas diarias dentro de la primera hora después de despertar.
+[865.09] (w2202) Antes del café, antes del esfuerzo, antes de cualquier otra cosa.
+[869.89] (w2213) Esa lectura le dice algo que su medición de clínica simplemente no puede, y hay una dimensión oculta más de su presión arterial que necesito explicarle antes de llegar al protocolo práctico.
+[880.93] (w2245) Se llama hipertensión enmascarada, y puede ser la condición de presión arterial menos diagnosticada en los adultos mayores.
+[888.65] (w2263) Si sigue viendo el BDO y esto le está ayudando, escriba el número 4 en los comentarios para saber que está aquí conmigo.
+[896.33] (w2286) Probablemente haya oído hablar de la hipertensión de de bata blanca.
+[900.17] (w2297) Es cuando su presión arterial es más alta en la clínica, porque el ambiente mismo, el consultorio, la enfermera, la anticipación desencadena una respuesta de estrés que eleva la lectura.
+[911.49] (w2327) Es real, es común y la mayoría de los médicos al menos la conocen.
+[916.43] (w2341) Pero la hipertensión enmascarada es lo contrario y se discute mucho menos.
+[921.69] (w2353) La hipertensión enmascarada es cuando su presión arterial se lee normal o controlada en el entorno clínico, pero se mantiene significativamente elevada en la vida diaria, especialmente por la mañana y durante la actividad normal.
+[935.89] (w2388) Usted sale del consultorio con tranquilidad.
+[938.47] (w2394) Su carga cardiovascular real a lo largo del día cuenta una historia completamente diferente.
+[944.61] (w2408) Las investigaciones estiman de manera consistente que la hipertensión enmascarada afecta aproximadamente a entre el 10 y 30 por ciento de los adultos que parecen controlados con las lecturas del consultorio.
+[957.02] (w2439) En los adultos mayores, en particular aquellos con lecturas de consultorio normales altas, la prevalencia puede ser aún mayor.
+[965.06] (w2458) Y esto importa, porque la hipertensión enmascarada conlleva casi el mismo riesgo cardiovascular que la hipertensión sostenida no controlada.
+[974.04] (w2477) Si su presión arterial real, la que ocurre a las 6 .45 de la mañana, cuando usted prepara el café y sus arterias están en pleno aumento, está significativamente La única manera de detectarla es mediante el monitoreo en casa sistemático constante y con el horario correcto.
+[992.67] (w2524) Por eso quiero darle un protocolo preciso de monitoreo en casa, no una sugerencia vaga de revisarla de vez en cuando.
+[1000.15] (w2545) Si ha llegado hasta aquí y le está resultando útil, escriba así en los comentarios de abajo.
+[1006.07] (w2562) Realmente me encantaría saber quién se está beneficiando de esto.
+[1010.11] (w2572) Y leo cada comentario.
+[1012.37] (w2576) Esta es exactamente la manera de monitorear su presión arterial para que usted y su médico obtengan información verdaderamente útil.
+[1020.75] (w2596) Paso 1.
+[1021.93] (w2598) Consiga el equipo adecuado.
+[1024.11] (w2602) Use un monitor validado de brazalete para la parte superior del brazo, no un monitor de muñeca.
+[1030.33] (w2619) Los monitores de muñecas son convenientes, pero significativamente menos precisos, en particular en los adultos mayores.
+[1038.53] (w2635) Busque en la lista de dispositivos validados de la HA o de la Sociedad Británica e Irlandesa de hipertensión.
+[1045.56] (w2654) Revise el tamaño del brazalete.
+[1047.82] (w2659) Un brazalete que no le queda bien, producto sistemáticamente erróneas.
+[1053.22] (w2669) Paso 2.
+[1054.36] (w2671) Tome lecturas en dos momentos específicos cada día.
+[1058.18] (w2679) La lectura de la mañana.
+[1059.94] (w2684) Dentro de los 60 minutos posteriores a despertar antes del café, antes de los medicamentos, antes de cualquier actividad importante.
+[1068.54] (w2704) Siéntese en silencio durante 5 minutos completos.
+[1072.40] (w2711) Primero, la lectura de la noche entre las 7 y las 900 PM de nuevo.
+[1077.84] (w2726) Después de 5 minutos sentado en silencio, tome 2 lecturas con 60 segundos de diferencia.
+[1084.00] (w2741) Anote el promedio de las 2.
+[1086.36] (w2747) Paso 3.
+[1087.66] (w2749) Siga este protocolo durante 2 semanas antes de su próxima cita.
+[1092.22] (w2760) Dos semanas de lecturas dos veces al día.
+[1095.00] (w2768) Le dan a su médico aproximadamente 28 datos.
+[1098.66] (w2776) Eso es un patrón significativo.
+[1100.86] (w2781) Una sola lectura de consultorio es una instantánea.
+[1104.04] (w2789) Su registro en casa es una película.
+[1107.22] (w2796) Paso 4.
+[1108.60] (w2798) Registre las presiones sentado y de pie una vez por semana.
+[1112.58] (w2809) Síntese durante cinco minutos.
+[1114.80] (w2813) Tome una lectura.
+[1116.12] (w2816) Póngase de pie de inmediato y tome una segunda lectura.
+[1119.88] (w2826) Dos minutos después de ponerse de pie.
+[1122.46] (w2833) Una caída de 20 o más puntos en la systólica o de 10 o más en la viastólica después de ponerse de pie es la definición clínica de hipotensión ortostática.
+[1133.04] (w2863) Si usted siente mareo al levantarse, esta prueba puede captar exactamente el porqué.
+[1138.68] (w2876) Lleve estas cifras de manera explícita a su médico.
+[1142.50] (w2885) Paso 5.
+[1143.90] (w2887) Anote con cuidado sus lecturas de la mañana.
+[1147.32] (w2895) Si sus lecturas matutinas son constantemente de 15 a 20 puntos más altas que las de la tarde o de la noche, señálelo explícitamente.
+[1156.50] (w2919) Ese patrón es clínicamente significativo y vale la pena discutirlo como un fenómeno específico.
+[1162.74] (w2933) No simplemente promediarlo hasta hacerlo desaparecer.
+[1166.50] (w2939) Lleve ese registro a su cita y pídale a su médico que lo revise antes de hablar de su meta.
+[1172.20] (w2959) El patrón a lo largo de esas lecturas es más informativo que cualquier cifra aislada del consultorio.
+[1178.74] (w2976) Dejeme darle las preguntas específicas para llevar a su próxima cita.
+[1183.02] (w2987) Pregúntele a su médico cuál es mi meta específica de presión arterial y cómo se fijó para mi edad y mi perfil de riesgo.
+[1190.42] (w3011) Usted merece una respuesta específica, no una referencia a una guía.
+[1195.18] (w3022) Pregunte cuál es la tendencia de mi presión de pulso y la diferencia entre mi número de arriba y el de abajo es motivo de preocupación.
+[1203.00] (w3048) La mayoría de los médicos no lo mencionará a menos que se les pregunte.
+[1207.38] (w3062) Preguntar lo pone sobre la mesa.
+[1210.04] (w3068) Pregunte.
+[1211.30] (w3069) Mis medicamentos para la presión afectan mi aumento matutino y los estoy tomando a la hora correcta del día?
+[1217.86] (w3088) La investigación sobre la cronoterapia, es decir, programar los medicamentos en sintonía con el ritmo biológico de su cuerpo, muestra que en ciertos pacientes, en particular aquellos con hipertensión nocturna no controlada o con lecturas matutinas constantemente altas, la dosis nocturna puede reducir mejor ese pico de presión de la madrugada.
+[1238.96] (w3139) La evidencia general sobre si esto se traduce en menos eventos cardiovasculares es mixta, y la orientación actual es que la constancia importa más que la hora del reloj.
+[1249.82] (w3168) Pero si sus lecturas de la mañana son regularmente altas, vale la pena plantear la pregunta del horario de manera específica.
+[1257.54] (w3189) Pregunte ¿Alguien me ha evaluado de manera sistemática para detectar hipotensión ortostática?
+[1263.82] (w3201) ¿No cree que la tengo?
+[1265.44] (w3206) Pida la prueba real de presión arterial de pie.
+[1268.58] (w3215) Y si usted tiene más de 75 años, está con una meta intensiva y experimenta fatiga inexplicable, niebla mental o mareos frecuentes al ponerse de pie, pregunte directamente si la intensidad de su manejo actual podría estar contribuyendo.
+[1284.56] (w3253) Esa no es una pregunta irrazonable.
+[1287.02] (w3259) Está respaldada por la investigación de la medicina geriátrica y hacerla no es contradecir a su médico.
+[1293.52] (w3276) Es el tipo de colaboración informada que le da una mejor atención.
+[1297.88] (w3288) Esto es lo que quiero que se lleve hoy.
+[1300.22] (w3297) Sus cifras de presión arterial contienen más información de la que la mayoría de las conversaciones les reconoce.
+[1306.68] (w3315) El número de arriba importa.
+[1308.58] (w3320) El número de abajo importa, la diferencia entre ellos importa, la hora del día en que se miden importa, y las circunstancias individuales de la persona a quien pertenecen esos números importan más que cualquiera de esos valores por separado.
+[1324.20] (w3360) La meta no es el número más bajo, la meta es su número calibrado a su fisiología, a su historia y a la vida que usted está viviendo activamente.
+[1334.56] (w3389) Quiero saber de usted en los comentarios.
+[1336.96] (w3396) Deje una de tres respuestas.
+[1339.14] (w3401) Escriba mis números.
+[1341.16] (w3404) Si quiere compartir cómo ha estado su presión arterial y qué meta le han dado, escriba.
+[1346.34] (w3420) Se lo preguntaré a mi médico si va a llevar estas preguntas a su próxima cita.
+[1350.62] (w3436) O escriba algo, anda mal.
+[1353.10] (w3441) Si ha tenido síntomas, mareo, fatiga, niebla mental, que ahora sospecha que podrían merecer una segunda mirada, leo cada comentario personalmente.
+[1363.66] (w3462) Si este vídeo le dio algo útil, compártalo con una persona mayor de 65 años, que maneje su presión arterial y que nunca haya tenido esta conversación específica.
+[1373.92] (w3490) Un solo compartido puede importar más de lo que imagina.
+[1377.66] (w3500) Suscríbase para no perderse el vídeo de la próxima semana.
+[1381.08] (w3510) Vamos a cubrir la prueba de función renal, que los medicamentos para la presión arterial pueden afectar silenciosamente a lo largo de los años, y los números específicos de sus análisis de laboratorio que usted necesita vigilar.
+[1394.06] (w3547) Nos vemos entonces.

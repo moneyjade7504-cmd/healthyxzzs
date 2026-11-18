@@ -1,0 +1,8 @@
+voice.mp3 = voice_orig.mp3 minus (orig seconds):
+  387.94-  409.99  SPRINT frágiles: beneficios menores/daños mayores (falso)
+  858.96-  861.62  J-HOP en mayores de 80 (no es así)
+  897.22-  898.58  de las 10 será el trame (lectura mal)
+  977.74-  978.25  el 7 (lectura mal)
+ 1011.92- 1015.33  cita de las 11 a miendo (lectura mal)
+ 1075.28- 1079.59  marcas comerciales
+ 1429.70- 1430.31  ¡M!
