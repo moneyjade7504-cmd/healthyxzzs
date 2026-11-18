@@ -1,0 +1,33 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=0; window.END=C('nadie'); window.DURATION=window.END;
+FB(0,C('mayoria'),'S1_1','“Buenas noticias: <span class="hl">está en la meta</span>”',{capT:C('medico')+3,size:60,from:[.5,.5,1.0],to:[.35,.45,1.15]});
+{const B=beats[beats.length-1]; Cap(B,'¿Se sentiría aliviado?',{cx:960,cy:90,size:52,t0:C('aliviado'),pill:true});}
+Side(C('mayoria'),C('meta'),'t_relief',[['La mayoría, <span class="hl">sí</span>',null,74],['pero piense un segundo…',C('piense'),60,'#6a6f86']],{h:700,cy:960});
+{const B=Beat(C('meta'),C('guia'),{enter:'zoom'}); Cut(B,'guide_book',{cx:520,cy:820,h:420,amp:3});
+ Cap(B,'¿Y si esa meta no se pensó',{cx:1350,cy:300,size:60,t0:B.a+0.3}); Cap(B,'<span class="hl">para usted</span>?',{cx:1350,cy:410,size:76,t0:B.a+1.2});
+ ['su edad','sus arterias','su cuerpo a los 68, 73 u 81'].forEach((w,i)=>Cap(B,'✗ no para '+w,{cx:1350,cy:560+i*95,size:50,t0:[C('edad'),C('arterias0'),C('anos')][i],color:'#e23b2e'}));}
+{const B=Beat(C('guia'),C('mareo'));
+ Cut(B,'t_confused',{cx:420,cy:1000,h:600,amp:3}); Cut(B,'t_relief',{cx:1500,cy:1000,h:560,t0:C('joven'),amp:3});
+ Cap(B,'Cifras de estudios con personas',{cx:960,cy:150,size:58,t0:B.a+0.3}); Cap(B,'<span class="hl">más jóvenes o más sanas</span>…',{cx:960,cy:260,size:66,t0:C('joven')});
+ Cap(B,'…aplicadas a todos',{cx:960,cy:380,size:58,t0:C('universal'),color:'#e23b2e'});}
+FB(C('mareo'),C('niebla'),'S1_2','Mareo por la mañana',{capT:0.3,size:64,from:[.5,.5,1.0],to:[.5,.4,1.15]});
+FB(C('niebla'),C('caidas'),'S1_3','Niebla mental',{capT:0.2,size:64,from:[.5,.5,1.0],to:[.5,.35,1.15]});
+FB(C('caidas'),C('canal'),'S1_4','Caídas que <span class="red">no tenían por qué ocurrir</span>',{capT:0.3,size:58});
+{const B=Beat(C('canal'),C('hoy'),{enter:'zoom'}); Cut(B,'w_point',{cx:470,cy:1010,h:760,amp:4});
+ Cap(B,'Claves de la Longevidad',{cx:1300,cy:280,size:70,t0:B.a+0.3,color:'#2f6fd6'});
+ Cap(B,'información clara y basada en la evidencia',{cx:1300,cy:400,size:46,t0:B.a+1.5});
+ Cap(B,'para mayores de 60',{cx:1300,cy:480,size:52,t0:B.a+2.5});
+ const p=mk('div','pill',B.L,'▶ SUSCRÍBASE'); Object.assign(p.style,{left:'1300px',top:'660px',fontSize:'64px',background:'#e23b2e',color:'#fff',borderColor:'#b8231a'}); Pop(B,p,{t0:C('suscribase'),rot:-2});}
+{const B=Beat(C('hoy'),C('educativo'));
+ Cut(B,'bp_monitor',{cx:330,cy:640,h:300,amp:4});
+ Cap(B,'La presión arterial',{cx:1150,cy:160,size:66,t0:B.a+0.2}); Cap(B,'<span class="hl">después de los 65</span>',{cx:1150,cy:270,size:76,t0:B.a+1.5});
+ Cap(B,'Hoy entenderá:',{cx:1150,cy:420,size:52,t0:C('tres'),color:'#2f6fd6'});
+ Cap(B,'1 · qué dicen de verdad sus cifras',{cx:1150,cy:520,size:46,t0:C('tres')+2});
+ Cap(B,'2 · qué preguntar a su médico',{cx:1150,cy:610,size:46,t0:C('preguntas')});
+ Cap(B,'3 · por qué la meta no es “lo más bajo”',{cx:1150,cy:700,size:46,t0:C('baja')});
+ Cap(B,'…sino <span class="hl">su número</span>',{cx:1150,cy:830,size:64,t0:C('sunumero')});}
+Warn(C('educativo'),C('nombre'),'Vídeo educativo',['No sustituye el consejo de su médico','que conoce su historial completo'],{color:'#f7ad36'});
+{const B=FB(C('nombre'),C('nadie'),'S1_5','💬 Su nombre y su edad en los comentarios',{capT:0.3,size:56,exit:'fade'});}
+</script></body></html>

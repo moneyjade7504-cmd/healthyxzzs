@@ -1,0 +1,38 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('nadie'); window.END=C('s2017'); window.DURATION=window.END;
+// pulsing artery ring: flexible expands, stiff barely moves
+const ring=(c,t,x,y,r,flex,col)=>{const b=(Math.sin(t*6.3)+1)/2, rr=r*(1+flex*b*b*b); c.lineWidth=flex>0.05?22:44; c.strokeStyle=col; c.beginPath(); c.arc(x,y,rr,0,7); c.stroke();
+  if(flex<0.05){c.fillStyle='#fffbe8';for(let i=0;i<7;i++){const a=i*0.9; c.beginPath(); c.arc(x+Math.cos(a)*(r+4),y+Math.sin(a)*(r+4),9,0,7); c.fill();}}};
+STitle(C('nadie'),C('manguera'),1,'Lo que les pasa a las <span class="hl">arterias</span>','después de los 65',['artery_ok','artery_stiff']);
+{const B=beats[beats.length-1]; Cap(B,'no envejecen igual en todas las personas',{cx:960,cy:860,size:48,t0:C('noenvejece'),pill:true});}
+FB(C('manguera'),C('sol'),'S1_6','A los 30: como una <span class="hl">manguera flexible</span>',{capT:0.3,size:58,draw:(c,t)=>sparks(c,t,{x:1300,y:400,s:0.8})});
+{const B=beats[beats.length-1]; Cap(B,'se expande y amortigua cada latido',{cx:960,cy:90,size:48,t0:C('empujaba'),pill:true});}
+FB(C('sol'),C('finales'),'S1_7','30 años al sol… <span class="red">se endurece</span>',{capT:C('endurece')-C('sol'),size:60,draw:(c,t)=>rays(c,t,{x:1440,y:100,r0:80,r1:130,lw:6})});
+{const B=Beat(C('finales'),C('practica'),{enter:'zoom'});
+ Cap(B,'Con los años, dentro de la arteria:',{cx:960,cy:120,size:62,t0:B.a+0.3});
+ Row(B,[['artery_ok','Elastina flexible',C('elastina'),'ok'],['artery_stiff','→ colágeno rígido',C('elastina')+2.5,'no'],['artery_stiff','+ depósitos de calcio',C('calcio'),'no']],{y:560});
+ Cap(B,'menos tolerancia a los cambios de presión',{cx:960,cy:960,size:52,t0:C('tolerante')});}
+{const B=Beat(C('practica'),C('diastolica'));
+ Canvas(B,(c,t)=>{ring(c,t,560,520,150,0.22,'#e8706a'); ring(c,t,1360,520,150,0.0,'#c98e86');});
+ Cap(B,'Arteria flexible',{cx:560,cy:790,size:52,t0:B.a+0.2,color:'#1f9d55'}); Cap(B,'Arteria rígida',{cx:1360,cy:790,size:52,t0:B.a+0.6,color:'#e23b2e'});
+ Cap(B,'Al latir, la pared rígida <span class="hl">no amortigua</span>',{cx:960,cy:120,size:60,t0:C('contrae')});
+ Cap(B,'↑ sube el número de arriba (sistólica)',{cx:960,cy:930,size:56,t0:C('sistolica'),color:'#e23b2e'});}
+{const B=Beat(C('diastolica'),C('unnumero'),{enter:'zoom'});
+ const s=Svg(B); Draw(B,s,'M200 640 H1720',{t0:B.a+0.2,dur:0.4,stroke:'#cfd3df',w:4});
+ Draw(B,s,'M200 520 C 300 330, 380 330, 440 470 S 560 520, 640 520 C 740 330, 820 330, 880 470 S 1000 520, 1080 520 C 1180 330, 1260 330, 1320 470 S 1440 520, 1520 520 C 1600 330, 1660 330, 1720 470',{t0:B.a+0.5,dur:2,stroke:'#2f6fd6',w:8});
+ Draw(B,s,'M200 600 C 300 200, 380 200, 440 450 S 560 610, 640 610 C 740 200, 820 200, 880 450 S 1000 610, 1080 610 C 1180 200, 1260 200, 1320 450 S 1440 610, 1520 610 C 1600 200, 1660 200, 1720 450',{t0:B.a+3,dur:2,stroke:'#e23b2e',w:8});
+ Cap(B,'— arterias jóvenes',{cx:560,cy:720,size:42,t0:B.a+2,color:'#2f6fd6'}); Cap(B,'— arterias rígidas',{cx:1360,cy:720,size:42,t0:B.a+3.5,color:'#e23b2e'});
+ Cap(B,'Picos más altos… y el número de abajo <span class="hl">cuesta mantenerlo</span>',{cx:960,cy:110,size:52,t0:B.a+4});
+ [['heart','Corazón'],['brain','Cerebro'],['kidneys','Riñones']].forEach(([n,l],i)=>{const x=560+i*400,t0=C('llega')+i*0.6; Cut(B,n,{cx:x-90,cy:1020,h:150,t0,amp:3,phase:i}); Cap(B,l,{cx:x+80,cy:960,size:46,t0});});}
+{const B=Beat(C('unnumero'),C('nadiecuenta'));
+ Cut(B,'w_point',{cx:460,cy:1010,h:740,amp:4});
+ Cap(B,'“Bájela de tal cifra”',{cx:1300,cy:260,size:62,t0:B.a+0.3,color:'#6a6f86'});
+ Cap(B,'deja fuera algo <span class="red">crítico</span>',{cx:1300,cy:380,size:66,t0:C('critico')});
+ Cap(B,'Usted no es un número:',{cx:1300,cy:540,size:60,t0:C('notrata')}); Cap(B,'es un sistema con <span class="hl">7–8 décadas</span> de historia',{cx:1300,cy:650,size:52,t0:C('decadas')});}
+{const B=Beat(C('nadiecuenta'),C('s2017'),{enter:'zoom',exit:'fade'}); Cut(B,'magnifier',{cx:560,cy:820,h:460,amp:4}); Cut(B,'bp_monitor',{cx:520,cy:640,h:200,t0:B.a+0.5,amp:3});
+ Cap(B,'Una medida <span class="hl">escondida</span>',{cx:1350,cy:350,size:76,t0:C('escondida')});
+ Cap(B,'dentro de su lectura de presión',{cx:1350,cy:470,size:54,t0:C('escondida')+1.5});
+ Cap(B,'se la explico en un momento…',{cx:1350,cy:640,size:50,t0:C('momento'),color:'#6a6f86'});}
+</script></body></html>
