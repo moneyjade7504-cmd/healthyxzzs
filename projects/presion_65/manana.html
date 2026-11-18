@@ -1,0 +1,44 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('mananas'); window.END=C('batablanca'); window.DURATION=window.END;
+const stars=(c,t)=>{for(let i=0;i<10;i++){c.globalAlpha=0.5+0.5*Math.sin(t*2+i);c.fillStyle='#fff6c8';c.beginPath();c.arc(1250+((i*97)%380),60+((i*53)%300),2.5,0,7);c.fill();}c.globalAlpha=1;};
+STitle(C('mananas'),C('pregunta3'),4,'El <span class="hl">pico de la mañana</span>','lo que pasa al despertar',['alarm','sunrise_icon']);
+{const B=Beat(C('pregunta3'),C('historia'),{enter:'zoom'}); Cut(B,'w_idea',{cx:460,cy:1010,h:740,amp:4});
+ Cap(B,'¿Cuándo ocurren más',{cx:1300,cy:330,size:66,t0:C('cuando')}); Cap(B,'infartos e ictus?',{cx:1300,cy:440,size:72,t0:C('cuando')+1});
+ Cap(B,'¿de noche? ¿con esfuerzo?',{cx:1300,cy:600,size:52,t0:C('azar'),color:'#6a6f86'});}
+{const B=Beat(C('historia'),C('duerme'));
+ Cut(B,'sunrise_icon',{cx:560,cy:640,h:300,amp:4}); Cut(B,'alarm',{cx:860,cy:620,h:240,t0:B.a+1,amp:4,shake:1});
+ Cap(B,'Más riesgo: <span class="hl">por la mañana</span>',{cx:1350,cy:420,size:62,t0:C('ventana')});
+ Cap(B,'primeras horas tras despertar',{cx:1350,cy:540,size:50,t0:C('ventana')+3});
+ Cap(B,'= aumento matutino de la presión',{cx:960,cy:900,size:56,t0:C('aumento'),pill:true});}
+// 24-h BP curve: dip at night, surge at dawn
+{const B=Beat(C('duerme'),C('jovenes3'));
+ const s=Svg(B); const night=sv('rect',{x:700,y:200,width:600,height:620,fill:'#e9edfb'},s);
+ Draw(B,s,'M200 820 H1720',{t0:B.a+0.2,dur:0.3,stroke:'#3a3c52',w:6});
+ Cap(B,'Día',{cx:430,cy:870,size:46,t0:B.a+0.3}); Cap(B,'Noche 🌙',{cx:1000,cy:870,size:46,t0:B.a+0.3}); Cap(B,'Despertar ☀',{cx:1500,cy:870,size:46,t0:B.a+0.3});
+ Draw(B,s,'M220 400 C 450 390, 600 400, 700 470 S 900 600, 1000 600 S 1200 590, 1300 520',{t0:B.a+0.6,dur:1.8,stroke:'#2f6fd6',w:10});
+ Cap(B,'baja 10–20 %',{cx:1000,cy:660,size:48,t0:C('descenso')-1.5,color:'#2f6fd6'}); Cap(B,'descenso nocturno = descanso',{cx:1000,cy:250,size:44,t0:C('descenso'),color:'#1f9d55'});
+ Draw(B,s,'M1300 520 C 1360 420, 1400 300, 1460 260 S 1600 300, 1700 340',{t0:C('despierta')+1,dur:1.2,stroke:'#e23b2e',w:12});
+ const L=[['nervios activados',C('nervioso')],['cortisol ↑',C('cortisol')],['pulso ↑',C('frecuencia')],['vasos contraídos',C('vasos')]];
+ L.forEach(([w,t0],i)=>Cap(B,w,{cx:1580,cy:520+i*62,size:40,t0,color:'#e23b2e'}));}
+{const B=Beat(C('jovenes3'),C('clinico'),{enter:'zoom'});
+ Row(B,[['artery_ok','Arteria flexible: lo absorbe',C('jovenes3'),'ok'],['artery_stiff','Arteria rígida: golpe al sistema',C('mayores3'),'no']],{y:540,cardW:600});
+ Cap(B,'subida rápida + arterias rígidas = <span class="red">riesgo matutino</span>',{cx:960,cy:960,size:52,t0:C('combinacion')});}
+FB(C('clinico'),C('jhop'),'S3_1','La consulta mide <span class="hl">cuando el pico ya pasó</span>',{capT:C('cedido')-C('clinico'),size:56});
+{const B=beats[beats.length-1]; Cap(B,'el riesgo real de la mañana no se registra',{cx:960,cy:90,size:46,t0:C('nunca'),pill:true});}
+{const B=Beat(C('jhop'),C('practica3'),{enter:'zoom'}); Cut(B,'bp2',{cx:540,cy:820,h:420,amp:3}); Cut(B,'sunrise_icon',{cx:760,cy:440,h:180,t0:B.a+1,amp:4});
+ Cap(B,'Estudio japonés <span class="hl">J-HOP</span>',{cx:1350,cy:300,size:66,t0:B.a+0.3});
+ Cap(B,'más de 4.300 personas',{cx:1350,cy:420,size:54,t0:C('nacional')});
+ Cap(B,'la presión de la mañana <span class="hl">en casa</span>',{cx:1350,cy:560,size:52,t0:C('nacional')+5});
+ Cap(B,'predijo mejor el riesgo de ictus',{cx:1350,cy:650,size:52,t0:C('nacional')+8});
+ Cap(B,'que la medida en consulta',{cx:1350,cy:740,size:48,t0:C('nacional')+10,color:'#6a6f86'});
+ Src(B,'Fuente: Kario y cols., estudio J-HOP (Japón)');}
+{const B=FB(C('practica3'),C('clinica10'),'S3_4','1.ª hora tras despertar: <span class="hl">mida antes del café</span>',{capT:C('primerahora')-C('practica3'),size:56});
+ Cap(B,'antes del café · antes del esfuerzo · antes de todo',{cx:960,cy:90,size:46,t0:C('antescafe'),pill:true});}
+{const B=Beat(C('clinica10'),C('numero4'),{enter:'zoom'}); Cut(B,'mask',{cx:560,cy:820,h:440,amp:4});
+ Cap(B,'y hay algo más escondido:',{cx:1350,cy:360,size:56,t0:B.a+3,color:'#6a6f86'});
+ Cap(B,'hipertensión <span class="hl">enmascarada</span>',{cx:1350,cy:480,size:68,t0:C('enmascarada')});
+ Cap(B,'de las menos diagnosticadas',{cx:1350,cy:600,size:50,t0:C('enmascarada')+3});}
+FB(C('numero4'),C('batablanca'),'S2_8','¿Le ayuda? Escriba <span class="hl">“4”</span> en los comentarios',{capT:0.3,size:58,exit:'fade'});
+</script></body></html>

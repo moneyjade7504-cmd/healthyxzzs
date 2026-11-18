@@ -103,3 +103,48 @@ alarmar | El punto no es alarmarlo
 nounico | El número hacia el cual
 individual | Y una conversación verdaderamente
 mananas | Ahora hablemos de algo que afecta
+# PARTE 3 = mañana + enmascarada
+pregunta3 | Aquí va una pregunta
+cuando | Cuándo cree usted que ocurre
+azar | La mayoría de las personas adivina
+historia | La investigación cuenta una historia
+ventana | La ventana de mayor incidencia
+aumento | Y la razón es un fenómeno
+duerme | Cuando usted duerme
+descenso | Esto se llama descenso nocturno
+despierta | Cuando usted despierta
+nervioso | Su sistema nervioso se activa
+cortisol | el cortisol se dispara
+frecuencia | su frecuencia cardíaca aumenta
+vasos | sus vasos sanguíneos se contra
+jovenes3 | En adultos más jóvenes con arterias
+mayores3 | En adultos mayores con paredes
+combinacion | La combinación de un aumento
+clinico | este es el problema clínico
+lecturas | La mayoría de las lecturas de presión
+cedido | Mucho después de que el aumento
+nunca | La ventana de riesgo real
+jhop | El estudio J
+nacional | Un estudio a nivel nacional
+practica3 | La conclusión práctica aquí
+primerahora | Tome una de sus dos lecturas diarias
+antescafe | Antes del café antes del esfuerzo
+clinica10 | Esa lectura le dice algo
+enmascarada | Se llama hipertensión enmascarada
+numero4 | escriba el número 4
+batablanca | Probablemente haya oído hablar
+nervios | Es cuando su presión arterial es más alta
+real | Es real es común
+contrario | Pero la hipertensión enmascarada es lo contrario
+definicion | La hipertensión enmascarada es cuando
+sale | Usted sale del consultorio
+carga | Su carga cardiovascular real
+estiman | Las investigaciones estiman
+mayores30 | En los adultos mayores en particular
+riesgo3 | Y esto importa porque
+seis45 | Si su presión arterial real
+unica | La única manera de detectarla
+protocolo | Por eso quiero darle un protocolo
+si | escriba así en los comentarios
+leo | Y leo cada comentario
+paso_intro | Esta es exactamente la manera
