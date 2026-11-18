@@ -1,0 +1,38 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('preguntas4'); window.END=1395.3; window.DURATION=window.END;
+STitle(C('preguntas4'),C('q1'),6,'Preguntas para <span class="hl">su médico</span>','lleve esta lista a la próxima cita',['question','notebook']);
+{const B=FB(C('q1'),C('q2'),'S4_5','1 · ¿Cuál es <span class="hl">mi meta</span> y cómo se fijó para mí?',{capT:0.3,size:54});
+ Cap(B,'una respuesta para usted, no solo “lo dice la guía”',{cx:960,cy:90,size:44,t0:C('q1')+7,pill:true});}
+{const B=Beat(C('q2'),C('q3'),{enter:'zoom'}); Cut(B,'t_raise',{cx:460,cy:1000,h:700,amp:4});
+ Cap(B,'2 · ¿Cómo está mi',{cx:1300,cy:330,size:62,t0:B.a+0.2}); Cap(B,'<span class="hl">presión de pulso</span>?',{cx:1300,cy:440,size:72,t0:B.a+1});
+ Cap(B,'(la diferencia entre arriba y abajo)',{cx:1300,cy:560,size:46,t0:B.a+3,color:'#6a6f86'});
+ Cap(B,'preguntar lo pone sobre la mesa',{cx:1300,cy:700,size:50,t0:B.a+11,color:'#2f6fd6'});}
+{const B=FB(C('q3'),C('q4'),'S4_6','3 · ¿Mis pastillas controlan el <span class="hl">pico de la mañana</span>?',{capT:0.3,size:52});
+ Cap(B,'algunos estudios: dosis nocturna en ciertos casos',{cx:960,cy:90,size:44,t0:C('crono'),pill:true,t1:C('mixta')-0.2});
+ Cap(B,'grandes estudios: sin menos infartos · lo clave es la constancia',{cx:960,cy:90,size:42,t0:C('mixta'),pill:true});
+ Src(B,'No cambie la hora sin hablarlo con su médico');}
+{const B=Beat(C('q4'),C('mayor75'),{enter:'zoom'}); Cut(B,'t_dizzy',{cx:460,cy:1000,h:660,amp:3});
+ Cap(B,'4 · ¿Me han evaluado la',{cx:1300,cy:360,size:60,t0:B.a+0.2}); Cap(B,'<span class="hl">hipotensión ortostática</span>?',{cx:1300,cy:470,size:64,t0:B.a+1.5});
+ Cap(B,'pida la prueba de presión de pie',{cx:1300,cy:620,size:50,t0:B.a+7,color:'#2f6fd6'});}
+{const B=Beat(C('mayor75'),C('llevese'));
+ Cap(B,'Más de 75 + meta intensiva + …',{cx:960,cy:120,size:60,t0:B.a+0.3});
+ Row(B,[['t_confused','Cansancio',B.a+3,null],['t_confused','Niebla mental',B.a+4,null],['t_dizzy','Mareos al levantarse',B.a+5,null]],{y:540});
+ Cap(B,'pregunte si el tratamiento podría estar influyendo',{cx:960,cy:910,size:50,t0:B.a+8});
+ Cap(B,'preguntar no es contradecir: es <span class="hl">colaborar</span>',{cx:960,cy:1000,size:50,t0:C('colabora')-3,color:'#1f9d55'});}
+{const B=Beat(C('llevese'),C('meta_final'),{enter:'zoom'});
+ Cap(B,'Lo que importa:',{cx:960,cy:120,size:66,t0:B.a+0.2});
+ [['El número de arriba',C('arriba')],['El número de abajo',C('abajo')],['La diferencia entre ellos',C('abajo')+2.5],['La hora en que se mide',C('hora')],['Y sobre todo: <span class="hl">usted</span>',C('hora')+4]].forEach(([w,t0],i)=>Cap(B,'✓ '+w,{cx:960,cy:270+i*130,size:58,t0,color:i<4?'#24263a':'#1f9d55'}));}
+{const B=Beat(C('meta_final'),C('comentarios'),{enter:'zoom'}); Cut(B,'target',{cx:520,cy:800,h:420,amp:4});
+ Cap(B,'La meta no es',{cx:1330,cy:330,size:62,t0:B.a+0.2}); Cap(B,'<span class="red">el número más bajo</span>',{cx:1330,cy:440,size:66,t0:B.a+0.8});
+ Cap(B,'es <span class="hl">su número</span>',{cx:1330,cy:600,size:84,t0:B.a+2.5});
+ Cap(B,'ajustado a su cuerpo, su historia y su vida',{cx:1330,cy:730,size:46,t0:B.a+4});}
+{const B=Beat(C('comentarios'),C('comparta'));
+ Cap(B,'💬 Deje una de estas 3 respuestas:',{cx:960,cy:130,size:60,t0:B.a+0.2});
+ [['“mis números”',C('r1')],['“se lo preguntaré a mi médico”',C('r2')],['“algo anda mal”',C('r3')]].forEach(([w,t0],i)=>{Num(B,i+1,{cx:420,cy:340+i*190,r:55,t0}); Cap(B,w,{cx:1000,cy:340+i*190,size:62,t0,color:'#2f6fd6'});});
+ Cap(B,'Contenido educativo · no sustituye a su médico',{cx:960,cy:960,size:40,t0:C('r3')+3,color:'#6a6f86'});}
+FB(C('comparta'),C('suscribase4'),'S4_7','Compártalo con alguien mayor de 65',{capT:0.5,size:60});
+Subscribe(C('suscribase4'),C('nosvemos'),{pose:'tw_wave',line:'Próximo vídeo: análisis de función renal'});
+FB(C('nosvemos'),1395.3,'S4_8','¡Nos vemos!',{capT:0.1,size:66,exit:'fade'});
+</script></body></html>

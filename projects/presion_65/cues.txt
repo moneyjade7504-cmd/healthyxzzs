@@ -148,3 +148,53 @@ protocolo | Por eso quiero darle un protocolo
 si | escriba así en los comentarios
 leo | Y leo cada comentario
 paso_intro | Esta es exactamente la manera
+# PARTE 4 = protocolo + preguntas + cierre
+paso1 | Paso 1
+brazo | Use un monitor validado
+muneca | Los monitores de muñecas
+lista | Busque en la lista
+tamano | Revise el tamaño del brazalete
+paso2 | Paso 2
+manana4 | La lectura de la mañana
+dentro60 | Dentro de los 60 minutos
+silencio | Siéntese en silencio
+noche4 | la lectura de la noche
+dos | tome 2 lecturas
+anote | Anote el promedio
+paso3 | Paso 3
+semanas | Siga este protocolo durante
+datos | Le dan a su médico aproximadamente
+foto | Una sola lectura de consultorio
+pelicula | Su registro en casa es una película
+paso4 | Paso 4
+depie | Registre las presiones sentado y de pie
+pongase | Póngase de pie de inmediato
+caida | Una caída de 20 o más
+mareo4 | Si usted siente mareo al levantarse
+lleve | Lleve estas cifras
+paso5 | Paso 5
+matutinas | Si sus lecturas matutinas
+promediar | No simplemente promediarlo
+registro | Lleve ese registro a su cita
+preguntas4 | Dejeme darle las preguntas
+q1 | Pregúntele a su médico cuál es mi meta
+q2 | Pregunte cuál es la tendencia de mi presión de pulso
+q3 | Mis medicamentos para la presión afectan
+crono | La investigación sobre la cronoterapia
+mixta | La evidencia general sobre si esto
+q4 | Alguien me ha evaluado de manera sistemática
+mayor75 | Y si usted tiene más de 75 años
+colabora | Es el tipo de colaboración
+llevese | Esto es lo que quiero que se lleve hoy
+arriba | El número de arriba importa
+abajo | El número de abajo importa
+hora | la hora del día en que se miden
+meta_final | La meta no es el número más bajo
+comentarios | Quiero saber de usted en los comentarios
+r1 | Escriba mis números
+r2 | Se lo preguntaré a mi médico
+r3 | O escriba algo anda mal
+comparta | Si este vídeo le dio algo útil
+suscribase4 | Suscríbase para no perderse
+renal | Vamos a cubrir la prueba de función renal
+nosvemos | Nos vemos entonces

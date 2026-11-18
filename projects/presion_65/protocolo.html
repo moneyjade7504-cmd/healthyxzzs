@@ -1,0 +1,34 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('paso_intro'); window.END=C('preguntas4'); window.DURATION=window.END;
+const PasoT=(B,n,txt,t0)=>{Num(B,n,{cx:200,cy:120,r:62,t0}); Cap(B,txt,{cx:1000,cy:120,size:64,t0:t0+0.2});};
+STitle(C('paso_intro'),C('paso1'),5,'Cómo medir la presión <span class="hl">en casa</span>','5 pasos',['arm_monitor','notebook']);
+{const B=Beat(C('paso1'),C('paso2'),{enter:'zoom'}); PasoT(B,1,'El <span class="hl">equipo adecuado</span>',B.a);
+ Row(B,[['arm_monitor','De brazo, validado',C('brazo'),'ok'],['wrist_monitor','De muñeca: menos preciso',C('muneca'),'no'],['cuffs','Brazalete de su talla',C('tamano'),'ok']],{y:560});
+ Cap(B,'busque un modelo en las listas de aparatos validados',{cx:960,cy:960,size:46,t0:C('lista'),color:'#6a6f86'});}
+{const B=Beat(C('paso2'),C('silencio'),{enter:'zoom'}); PasoT(B,2,'Mida <span class="hl">2 veces al día</span>',B.a);
+ Cut(B,'sunrise_icon',{cx:520,cy:640,h:260,t0:C('manana4'),amp:3});
+ Cap(B,'☀ Por la mañana',{cx:1300,cy:330,size:64,t0:C('manana4'),color:'#b97a00'});
+ Cap(B,'en la 1.ª hora tras despertar',{cx:1300,cy:460,size:52,t0:C('dentro60')});
+ Cap(B,'antes del café y de las pastillas',{cx:1300,cy:560,size:52,t0:C('dentro60')+3});}
+FB(C('silencio'),C('noche4'),'S4_1','5 min sentado en silencio · espalda apoyada · brazo a la altura del corazón',{capT:0.2,size:40});
+{const B=FB(C('noche4'),C('paso3'),'S4_2','🌙 Y por la noche, antes de cenar o de acostarse',{capT:0.2,size:50});
+ Cap(B,'2 lecturas con 1 minuto de diferencia · anote las dos',{cx:960,cy:90,size:44,t0:C('dos'),pill:true});}
+{const B=Beat(C('paso3'),C('paso4'),{enter:'zoom'}); PasoT(B,3,'<span class="hl">1–2 semanas</span> antes de la cita',B.a);
+ Cut(B,'calendar14',{cx:560,cy:760,h:420,t0:B.a+0.6,amp:3});
+ Cap(B,'1 lectura en la consulta = una <span class="hl">foto</span>',{cx:1350,cy:420,size:52,t0:C('foto')}); Cut(B,'film',{cx:1350,cy:860,h:200,t0:C('pelicula'),amp:4});
+ Cap(B,'su registro en casa = una <span class="hl">película</span>',{cx:1350,cy:560,size:52,t0:C('pelicula')});}
+{const B=FB(C('paso4'),C('caida'),'S4_3','4 · Una vez por semana: <span class="hl">sentado y de pie</span>',{capT:0.3,size:56});
+ Cap(B,'mida al minuto 1 y al minuto 3 de levantarse · con alguien cerca',{cx:960,cy:90,size:42,t0:C('pongase'),pill:true});}
+{const B=Beat(C('caida'),C('paso5'),{enter:'zoom'}); Cut(B,'t_dizzy',{cx:460,cy:1000,h:680,amp:3});
+ Cap(B,'Al ponerse de pie, una caída de:',{cx:1300,cy:260,size:54,t0:B.a+0.2});
+ Cap(B,'≥ 20 en la de arriba',{cx:1300,cy:380,size:66,t0:B.a+1,color:'#e23b2e'}); Cap(B,'o ≥ 10 en la de abajo',{cx:1300,cy:490,size:66,t0:B.a+3,color:'#e23b2e'});
+ Cap(B,'= hipotensión ortostática',{cx:1300,cy:620,size:56,t0:B.a+5,pill:true});
+ Cap(B,'¿se marea al levantarse? <span class="hl">llévelo al médico</span>',{cx:1300,cy:790,size:48,t0:C('mareo4')});}
+{const B=Beat(C('paso5'),C('preguntas4'),{exit:'fade'}); PasoT(B,5,'Vigile las lecturas <span class="hl">de la mañana</span>',B.a);
+ Cut(B,'t_cuff',{cx:480,cy:960,h:560,amp:3});
+ Cap(B,'¿15–20 puntos más altas',{cx:1320,cy:380,size:56,t0:C('matutinas')}); Cap(B,'que por la noche?',{cx:1320,cy:470,size:56,t0:C('matutinas')+1});
+ Cap(B,'dígaselo a su médico: <span class="hl">no lo esconda en un promedio</span>',{cx:1320,cy:610,size:44,t0:C('promediar')});
+ Cap(B,'lleve el registro a la cita',{cx:1320,cy:760,size:52,t0:C('registro'),color:'#1f9d55'});}
+</script></body></html>
