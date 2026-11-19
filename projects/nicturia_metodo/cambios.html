@@ -1,0 +1,45 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('cambios50'); window.END=C('protocolo'); window.DURATION=window.END;
+const stars=(c,t)=>{for(let i=0;i<10;i++){c.globalAlpha=0.5+0.5*Math.sin(t*2+i);c.fillStyle='#fff6c8';c.beginPath();c.arc(1250+((i*97)%380),60+((i*53)%300),2.5,0,7);c.fill();}c.globalAlpha=1;};
+STitle(C('cambios50'),C('c1'),2,'<span class="hl">3 cambios</span> después de los 50','mecanismos reales, no explicaciones vagas',['kidneys','bladder']);
+{const B=Beat(C('c1'),C('jovenes'),{enter:'zoom'}); Num(B,1,{cx:200,cy:130,r:62,t0:B.a});
+ Cap(B,'El ritmo de la <span class="hl">ADH</span> se aplana',{cx:1000,cy:130,size:66,t0:B.a+0.2});
+ Cut(B,'adh',{cx:560,cy:760,h:420,t0:B.a+0.5,amp:5});
+ Cap(B,'hormona antidiurética',{cx:1350,cy:450,size:56,t0:C('adh')}); Cap(B,'“riñones: retengan agua de noche”',{cx:1350,cy:570,size:48,t0:C('adh')+3,color:'#2f6fd6'});}
+FB(C('jovenes'),C('pero50'),'S2_1','De joven: la ADH sube al dormir → <span class="hl">menos orina</span>',{capT:0.3,size:52,draw:stars});
+// day/night ADH chart
+{const B=Beat(C('pero50'),C('central'));
+ const s=Svg(B); const n=sv('rect',{x:1000,y:220,width:680,height:600,fill:'#e9edfb'},s); s.insertBefore(n,s.firstChild);
+ Draw(B,s,'M260 820 H1680 M260 820 V220',{t0:B.a+0.2,dur:0.4,stroke:'#3a3c52',w:6});
+ Cap(B,'Día',{cx:620,cy:870,size:46,t0:B.a+0.3}); Cap(B,'Noche 🌙',{cx:1340,cy:870,size:46,t0:B.a+0.3}); Cap(B,'ADH',{cx:200,cy:240,size:44,t0:B.a+0.3,color:'#2f6fd6'});
+ Draw(B,s,'M270 700 C 600 690, 900 690, 1050 560 S 1250 270, 1340 270 S 1560 560, 1680 650',{t0:B.a+0.6,dur:1.5,stroke:'#2f6fd6',w:10});
+ Cap(B,'joven: pico de noche',{cx:1340,cy:200,size:44,t0:B.a+1.5,color:'#2f6fd6',t1:C('pico')});
+ Draw(B,s,'M270 700 C 700 690, 1100 650, 1340 630 S 1600 650, 1680 660',{t0:C('pico'),dur:1.5,stroke:'#f95c00',w:10});
+ Cap(B,'con nicturia: pico <span class="hl">débil o ausente</span>',{cx:1300,cy:200,size:48,t0:C('pico')+1,color:'#f95c00'});
+ Cap(B,'los riñones producen orina <span class="red">casi como de día</span>',{cx:960,cy:980,size:52,t0:C('constante')});}
+{const B=Beat(C('central'),C('c2'),{enter:'zoom'}); Cut(B,'w_idea',{cx:470,cy:1010,h:740,amp:4});
+ Cap(B,'No es el tamaño de la vejiga',{cx:1300,cy:380,size:56,t0:C('central')+5}); Cap(B,'ni la <span class="hl">fuerza de voluntad</span>',{cx:1300,cy:500,size:64,t0:C('central')+7});}
+{const B=Beat(C('c2'),C('tobillos'),{enter:'zoom'}); Num(B,2,{cx:200,cy:130,r:62,t0:B.a});
+ Cap(B,'Los líquidos <span class="hl">se redistribuyen</span>',{cx:1000,cy:130,size:66,t0:B.a+0.2});
+ Cut(B,'t_tv',{cx:500,cy:960,h:560,t0:B.a+0.5,amp:3});
+ const s=Svg(B); [0,1].forEach(i=>Draw(B,s,arrow(860+i*120,380,860+i*120,780,0),{t0:C('gravedad')+i*0.4,dur:0.6,stroke:'#2f6fd6',w:10}));
+ Cap(B,'de día: líquido en las piernas',{cx:1350,cy:420,size:48,t0:C('gravedad')+2});}
+FB(C('tobillos'),C('acuesta'),'S2_3','Tobillos hinchados, piernas pesadas por la tarde',{capT:0.3,size:54});
+{const B=FB(C('acuesta'),C('ensayos'),'S2_4','Al acostarse, el líquido <span class="hl">vuelve a la sangre</span>',{capT:C('horizontal')-C('acuesta'),size:54,draw:stars});
+ Cap(B,'los riñones lo convierten en orina… de noche',{cx:960,cy:90,size:46,t0:C('rinones2'),pill:true});}
+{const B=Beat(C('ensayos'),C('c3'));
+ Cap(B,'Mecanismo bien estudiado',{cx:960,cy:120,size:62,t0:B.a+0.2});
+ Chain(B,[['sock_leg','Piernas',B.a+1],['blood','Sangre',B.a+2],['kidneys','Riñones',B.a+3],['bladder_full','Vejiga',B.a+4]],{y:520,h:250});
+ Cap(B,'sobre todo con piernas hinchadas o mala circulación',{cx:960,cy:930,size:48,t0:C('redistrib')+4,color:'#6a6f86'});}
+{const B=Beat(C('c3'),C('hiper'),{enter:'zoom'}); Num(B,3,{cx:200,cy:130,r:62,t0:B.a});
+ Cap(B,'La vejiga: una <span class="hl">alarma más sensible</span>',{cx:1000,cy:130,size:62,t0:B.a+0.2});
+ Cut(B,'bladder_full',{cx:560,cy:760,h:420,t0:C('receptores'),amp:3}); Cut(B,'alarm',{cx:1350,cy:680,h:300,t0:C('senal'),amp:4,shake:1});
+ Cap(B,'“¡Es hora de ir!”',{cx:1350,cy:900,size:56,t0:C('hora'),color:'#e23b2e'});}
+{const B=Beat(C('hiper'),C('despierta'));
+ Row(B,[['bladder_full','Vejiga elástica: avisa tarde',C('hiper'),'ok'],['bladder_tense','Vejiga más rígida: avisa antes',C('colageno'),'no']],{y:540,cardW:600});
+ Cap(B,'con los años, la señal llega <span class="red">antes y con más urgencia</span>',{cx:960,cy:960,size:50,t0:C('antes')});}
+FB(C('despierta'),C('clave'),'S2_6','Mucha urgencia… <span class="hl">poca orina</span>',{capT:0.3,size:60});
+{const B=FB(C('clave'),C('protocolo'),'S2_7','No luchamos contra el cuerpo: <span class="hl">trabajamos con él</span>',{capT:C('contra')-C('clave'),size:54,exit:'fade'});}
+</script></body></html>
