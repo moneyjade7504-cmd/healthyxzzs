@@ -1,0 +1,47 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F7F1E3;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+S = Scene(0, 'letra', { cut: true });
+Item(S, LivePanel('i_mirror', 1250, { pan: 'r', fx: 'sparkle' }), { x: 960, y: 460, enter: 'zoomin', dur: 0.6 });
+Item(S, Pill('LOS OJOS, ESPEJO DEL ALMA', { hi: 'ESPEJO', size: 56 }), { y: 985, t: 'espejo', out: 'cerebro0-0.3', enter: 'd' });
+Item(S, Pill('…Y DE TU CEREBRO', { hi: 'CEREBRO', size: 60 }), { y: 985, t: 'cerebro0', enter: 'd' });
+Item(S, Chip('AÑOS ANTES', { fill: K.yellow, size: 44 }), { x: 1620, y: 150, t: 'anos0', enter: 'slam' });
+S = Scene('letra', 'razon');
+Item(S, LivePanel('i_package', 900, { pan: 'l', fx: 'dots' }), { x: 500, y: 400, t: 'letra', enter: 'l' });
+Item(S, LivePanel('i_night', 900, { pan: 'r', fx: 'flash' }), { x: 1420, y: 400, t: 'luces', enter: 'r' });
+Item(S, Chip('¿LA EDAD?', { icon: 'question', color: K.yellow, size: 40 }), { x: 420, y: 790, t: 'edad0' });
+Item(S, Chip('¿GAFAS NUEVAS?', { icon: 'question', color: K.yellow, size: 40 }), { x: 960, y: 790, t: 'gafas0' });
+Item(S, Chip('¿CANSANCIO?', { icon: 'question', color: K.yellow, size: 40 }), { x: 1500, y: 790, t: 'gafas0+1.5' });
+Item(S, Pill('¿O ALGO MÁS?', { hi: 'ALGO MÁS', size: 60 }), { y: 960, t: 'algomas', enter: 'd' });
+S = Scene('razon', 'subs');
+Item(S, Img('eye_brain', 380), { x: 560, y: 430, t: 'retina' });
+Item(S, Ring(70), { x: 470, y: 430, t: 'retina+0.5' });
+Item(S, Txt('LA RETINA', { size: 80 }), { x: 1340, y: 230, t: 'retina', enter: 'u' });
+Item(S, Chip('MISMO TEJIDO QUE EL CEREBRO', { size: 38, fill: K.yellow }), { x: 1340, y: 380, t: 'tejido' });
+Item(S, Txt('«UNA VENTANA AL CEREBRO»', { size: 54, color: K.pinkD }), { x: 1340, y: 540, t: 'ventana', enter: 'slam' });
+Item(S, LivePanel('i_doctor', 760, { pan: 'u', fx: 'sparkle' }), { x: 1340, y: 820, t: 'unico', enter: 'flip', s: 0.7 });
+Item(S, Chip('NEURONAS Y VASOS, SIN ABRIR NADA', { size: 34, color: K.green }), { x: 560, y: 760, t: 'vasos' });
+S = Scene('subs', 'siete');
+Item(S, Img('wave', 480), { x: 480, y: 560 });
+Item(S, Txt('Cerebro y Bienestar', { size: 72, color: K.pinkD }), { x: 1260, y: 300, t: 'subs', enter: 'u' });
+Item(S, Subscribe(T('subs+2')), { x: 1260, y: 500, t: 'subs+0.3' });
+Item(S, Chip('CON CALMA Y CON CARIÑO', { size: 40, color: K.blueD }), { x: 1260, y: 720, t: 'semana' });
+S = Scene('siete', T('s13'));
+Item(S, Txt('7', { size: 300, color: K.pinkD }), { x: 480, y: 300, t: 'siete', enter: 'slam' });
+Item(S, Txt('SEÑALES EN LA VISTA', { size: 70 }), { x: 1140, y: 300, t: 'siete+0.3', enter: 'r' });
+for (let i = 0; i < 7; i++) Item(S, g => { el('circle', { cx: 6, cy: 8, r: 60, fill: K.ink }, g); el('circle', { r: 60, fill: i === 4 ? K.red : [K.pink, K.yellow, K.blue][i % 3], stroke: K.ink, 'stroke-width': 7 }, g); Text(g, String(i + 1), { x: 0, y: 3, size: 60, color: i === 4 ? '#fff' : K.ink }); }, { x: 360 + i * 200, y: 580, t: `siete+${(1 + i * 0.25).toFixed(2)}` });
+Item(S, Chip('LA 5ª: EMERGENCIA', { fill: K.redL, color: K.red, size: 42 }), { x: 1160, y: 760, t: 'quinta', enter: 'slam' });
+Item(S, Img('calm', 320), { x: 400, y: 840, t: 'tranquilidad' });
+Item(S, Pill('SIN MIEDO · CON ATENCIÓN', { hi: 'ATENCIÓN', size: 50 }), { x: 1160, y: 930, t: 'ninguna', enter: 'd' });
+Run(0, T('s13'));
+</script></body></html>

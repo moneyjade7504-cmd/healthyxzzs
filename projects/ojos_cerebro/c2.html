@@ -1,0 +1,31 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F7F1E3;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+const END = 936;
+S = Scene('subs2', 'volviendo');
+Item(S, Img('cheer', 480), { x: 480, y: 560 });
+Item(S, Txt('Cerebro y Bienestar', { size: 72, color: K.pinkD }), { x: 1260, y: 300, t: 'subs2', enter: 'u' });
+Item(S, Subscribe(T('subs2+2.5')), { x: 1260, y: 500, t: 'subs2+0.3' });
+Item(S, Chip('CONOCIMIENTO, SIN MIEDO', { size: 40, color: K.blueD }), { x: 1260, y: 720, t: 'subs2+8' });
+S = Scene('volviendo', 'gracias');
+Item(S, LivePanel('e_sunset', 1150, { pan: 'u', fx: 'sparkle' }), { x: 690, y: 450, t: 'volviendo', enter: 'zoomin' });
+Item(S, Pill('MENSAJEROS FIELES DE TU CEREBRO', { hi: 'MENSAJEROS', size: 46 }), { x: 690, y: 985, t: 'mensajeros', out: 'mejores-0.3', enter: 'd' });
+Item(S, Pill('LO MEJOR PUEDE ESTAR POR DELANTE', { hi: 'POR DELANTE', size: 46 }), { x: 690, y: 985, t: 'mejores', enter: 'd' });
+Item(S, LivePanel('e_walk', 520, { pan: 'r', fx: 'sparkle' }), { x: 1620, y: 640, t: 'amanecer', enter: 'flip' });
+S = Scene('gracias', END + 1);
+Item(S, Img('wave', 500), { x: 480, y: 560 });
+Item(S, Txt('¡GRACIAS POR QUEDARTE!', { size: 70, color: K.pinkD }), { x: 1260, y: 420, t: 'gracias', enter: 'slam' });
+Item(S, Txt('CUÍDATE MUCHO, CUIDA TU MENTE', { size: 46 }), { x: 1260, y: 560, t: 'cuidate', enter: 'u' });
+Item(S, Txt('Contenido educativo. No sustituye la consulta con un profesional.', { size: 28, color: K.grey, weight: 700 }), { x: 960, y: 1030, t: 'cuidate+1', enter: 'fade' });
+Run(T('subs2'), END);
+</script></body></html>

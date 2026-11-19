@@ -1,0 +1,44 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F7F1E3;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+const START = 740.7;
+S = Scene(START, 'primero');
+Item(S, Img('explain', 520), { x: 430, y: 560, t: START });
+Item(S, Txt('¿QUÉ PUEDES HACER?', { size: 84, color: K.green }), { x: 1260, y: 380, t: 'hacer', enter: 'slam' });
+Item(S, Chip('TUS OJOS TE DAN UNA OPORTUNIDAD', { size: 34, fill: K.yellow }), { x: 1260, y: 560, t: 'hacer+5' });
+S = Scene('primero', 'segundo');
+Item(S, LivePanel('e_retina', 1000, { pan: 'r', fx: 'sparkle' }), { x: 600, y: 440, t: 'primero' });
+Item(S, Chip('1 · REVISA TU VISTA', { fill: K.yellow, size: 40 }), { x: 1540, y: 200, t: 'primero', enter: 'r' });
+Item(S, Chip('CADA AÑO (O LO QUE DIGA TU ESPECIALISTA)', { size: 22 }), { x: 1540, y: 320, t: 'anual', enter: 'r' });
+Item(S, Chip('FONDO DE OJO · PRESIÓN · RETINA', { size: 26, color: K.blueD }), { x: 1540, y: 440, t: 'fondo', enter: 'r' });
+Item(S, LivePanel('c_list', 560, { pan: 'u', fx: 'dots' }), { x: 1540, y: 720, t: 'callado', enter: 'flip', s: 0.85 });
+S = Scene('segundo', 'tercero');
+Item(S, LivePanel('v_clear', 1000, { pan: 'l', fx: 'sparkle' }), { x: 600, y: 440, t: 'segundo' });
+Item(S, Chip('2 · NO TE RESIGNES', { fill: K.yellow, size: 40 }), { x: 1540, y: 200, t: 'segundo', enter: 'r' });
+Item(S, Chip('CATARATAS: NO LO POSPONGAS', { size: 28, color: K.green }), { x: 1540, y: 330, t: 'operar', enter: 'r' });
+Item(S, Chip('GAFAS VIEJAS: REVÍSALAS', { size: 30, color: K.green }), { x: 1540, y: 460, t: 'gafas', enter: 'r' });
+Item(S, Img('new_glasses', 320), { x: 1540, y: 750, t: 'regalando' });
+S = Scene('tercero', 'cuarto');
+Item(S, Img('eye_brain', 330), { x: 960, y: 260, t: 'tercero' });
+Item(S, Chip('3 · CUIDA TUS VASOS', { fill: K.yellow, size: 44 }), { x: 960, y: 450, t: 'tercero' });
+Item(S, LivePanel('c_bp', 560, { pan: 'r', fx: 'dots' }), { x: 360, y: 760, t: 'presion', enter: 'flip' });
+Item(S, LivePanel('c_sleep', 560, { pan: 'l', fx: 'stars' }), { x: 960, y: 760, t: 'presion+4', enter: 'flip' });
+Item(S, LivePanel('e_food', 560, { pan: 'u', fx: 'sparkle' }), { x: 1560, y: 760, t: 'comer', enter: 'flip' });
+S = Scene('cuarto', T('subs2'));
+Item(S, LivePanel('c_family', 1000, { pan: 'r', fx: 'sparkle' }), { x: 600, y: 440, t: 'cuarto' });
+Item(S, Chip('4 · HABLA', { fill: K.yellow, size: 48 }), { x: 1540, y: 220, t: 'cuarto', enter: 'r' });
+Item(S, Chip('NO TE LO GUARDES', { size: 36, color: K.green }), { x: 1540, y: 360, t: 'guardes', enter: 'r' });
+Item(S, Chip('ES CUIDARSE', { icon: 'check', color: K.green, size: 38 }), { x: 1540, y: 500, t: 'cuidarse', enter: 'r' });
+Item(S, Chip('PÉRDIDA REPENTINA → EMERGENCIAS', { size: 26, color: K.red, fill: K.redL }), { x: 1530, y: 660, t: 'repentina', enter: 'slam' });
+Run(START, T('subs2'));
+</script></body></html>

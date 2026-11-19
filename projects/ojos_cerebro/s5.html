@@ -1,0 +1,41 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F7F1E3;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+S = Scene('s5', 'unojo');
+Item(S, Img('sudden_eye', 520), { x: 430, y: 560 });
+Item(S, Kicker('SEÑAL 5', '¡EMERGENCIA!', { size: 120, tagColor: K.red }), { x: 1260, y: 420, t: 's5', enter: 'slam' });
+Item(S, Chip('NO SE DEJA PARA MAÑANA', { size: 42, color: K.red }), { x: 1260, y: 760, t: 's5+3' });
+S = Scene('unojo', 'minutos');
+Item(S, LivePanel('v_half', 1050, { pan: 'r', fx: 'halfdark', fxAt: 6 }), { x: 620, y: 450, t: 'unojo' });
+Item(S, Chip('VISIÓN PERDIDA EN UN OJO', { size: 30, color: K.red }), { x: 1590, y: 260, t: 'unojo', enter: 'r' });
+Item(S, Chip('VISIÓN DOBLE', { size: 38, color: K.red }), { x: 1590, y: 400, t: 'doble', enter: 'r' });
+Item(S, Chip('FALTA LA MITAD', { size: 38, color: K.red }), { x: 1590, y: 540, t: 'mitad', enter: 'r' });
+Item(S, Pill('PUEDE SER UN ICTUS', { hi: 'ICTUS', size: 56 }), { x: 620, y: 985, t: 'ictus', enter: 'd' });
+S = Scene('minutos', 'noesperes');
+Item(S, Full(K.red), { x: 960, y: 540, enter: 'fade', dur: 0.4 });
+Item(S, Txt('AUNQUE DURE MINUTOS…', { size: 66, color: '#fff' }), { x: 960, y: 160, t: 'minutos', enter: 'fade' });
+Item(S, Chip('UN AVISO SERIO', { size: 52 }), { x: 960, y: 320, t: 'aviso' });
+Item(S, Chip('BRAZO DÉBIL', { size: 42 }), { x: 520, y: 500, t: 'brazo' });
+Item(S, Chip('HABLA RARA', { size: 42 }), { x: 960, y: 500, t: 'brazo+1' });
+Item(S, Chip('BOCA TORCIDA', { size: 42 }), { x: 1400, y: 500, t: 'brazo+2' });
+Item(S, Img('emergency', 260), { x: 960, y: 740, t: 'brazo+3.5' });
+Item(S, Txt('→ LLAMA A EMERGENCIAS', { size: 80, color: '#fff' }), { x: 960, y: 950, t: 'brazo+4', enter: 'slam' });
+S = Scene('noesperes', T('s6'));
+Item(S, LivePanel('v_ambulance', 1050, { pan: 'l', fx: 'sparkle' }), { x: 620, y: 450, t: 'noesperes' });
+Item(S, Chip('NO ESPERES', { icon: 'cross', color: K.red, size: 40 }), { x: 1590, y: 260, t: 'noesperes', enter: 'r' });
+Item(S, Chip('NO TE ACUESTES', { icon: 'cross', color: K.red, size: 38 }), { x: 1590, y: 400, t: 'noesperes+2', enter: 'r' });
+Item(S, Chip('NO CONDUZCAS', { icon: 'cross', color: K.red, size: 38 }), { x: 1590, y: 540, t: 'noesperes+3.8', enter: 'r' });
+Item(S, Pill('CADA MINUTO CUENTA', { hi: 'CADA MINUTO', size: 56 }), { x: 620, y: 985, t: 'cadaminuto', enter: 'd' });
+Strip('s5', T('s6') + 1, t => 5, 7);
+Run(T('s5'), T('s6'));
+</script></body></html>

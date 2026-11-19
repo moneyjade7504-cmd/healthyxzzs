@@ -1,0 +1,44 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F7F1E3;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+S = Scene('s2', 'escalera');
+Item(S, Img('stairs_unsure', 520), { x: 430, y: 560 });
+Item(S, Kicker('SEÑAL 2', 'DISTANCIAS\nY ESPACIO', { size: 116 }), { x: 1260, y: 420, t: 's2', enter: 'slam' });
+S = Scene('escalera', 'profundidad');
+Item(S, LivePanel('a_stairs', 600, { pan: 'd', fx: 'dots' }), { x: 330, y: 420, t: 'escalera', enter: 'flip' });
+Item(S, LivePanel('a_park', 600, { pan: 'r', fx: 'sparkle' }), { x: 960, y: 420, t: 'estacionar', enter: 'flip' });
+Item(S, Img('pour_miss', 420), { x: 1590, y: 470, t: 'agua' });
+Item(S, Chip('¿DESPISTE? ¿CANSANCIO?', { icon: 'question', color: K.yellow, size: 42 }), { x: 960, y: 870, t: 'despiste' });
+S = Scene('profundidad', 'torpeza');
+Item(S, Img('brain', 300), { x: 560, y: 430 });
+Item(S, Ring(80, K.red), { x: 660, y: 450, t: 'posteriores' });
+Item(S, Chip('ZONAS POSTERIORES', { size: 40, color: K.red }), { x: 560, y: 720, t: 'posteriores+0.3' });
+Item(S, Img('eye', 150), { x: 1180, y: 300, t: 'profundidad+1' });
+Item(S, Img('eye', 150), { x: 1440, y: 300, t: 'profundidad+1.3' });
+Item(S, Arrow(0, 160, { color: K.blueD }), { x: 1310, y: 400, t: 'posteriores' });
+Item(S, Chip('IMAGEN EN 3D', { fill: K.yellow, size: 42 }), { x: 1310, y: 640, t: 'tres' });
+Item(S, Pill('OJOS SANOS… CEREBRO QUE FALLA', { hi: 'CEREBRO', size: 46 }), { y: 950, t: 'fallar', enter: 'd' });
+S = Scene('torpeza', 'respeto');
+Item(S, LivePanel('b_door', 900, { pan: 'l', fx: 'dots' }), { x: 500, y: 400, t: 'choca-12', enter: 'l' });
+Item(S, LivePanel('b_cup', 900, { pan: 'r', fx: 'dots' }), { x: 1420, y: 400, t: 'choca-12', enter: 'r' });
+Item(S, Chip('ANTES QUE LOS OLVIDOS', { size: 40, color: K.red }), { x: 960, y: 770, t: 'torpeza-6' });
+Item(S, StampB('NO ES TORPEZA', { size: 62, color: K.green }), { x: 960, y: 930, t: 'torpeza', enter: 'slam' });
+S = Scene('respeto', T('s3'));
+Item(S, Img('calm', 480), { x: 430, y: 560 });
+Item(S, Pill('NO ES TORPEZA', { hi: 'TORPEZA', size: 66 }), { x: 1260, y: 300, t: 'notorpeza', enter: 'd' });
+Item(S, Chip('SIN VERGÜENZA', { icon: 'check', color: K.green, size: 44 }), { x: 1260, y: 470, t: 'notorpeza+1.2' });
+Item(S, Chip('HÁBLALO CON TU MÉDICO', { fill: K.yellow, size: 44 }), { x: 1260, y: 630, t: 'medico2', enter: 'slam' });
+Item(S, Chip('SI VA EN AUMENTO', { size: 38, color: K.red }), { x: 1260, y: 780, t: 'medico2+3.5' });
+Strip('s2', T('s3') + 1, t => 2, 7);
+Run(T('s2'), T('s3'));
+</script></body></html>

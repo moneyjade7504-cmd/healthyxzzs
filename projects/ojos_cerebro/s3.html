@@ -1,0 +1,39 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F7F1E3;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+const END = 439.1;
+S = Scene('s3', 'circuitos');
+Item(S, Img('read_lost', 520), { x: 430, y: 560 });
+Item(S, Kicker('SEÑAL 3', 'PIERDES\nEL RENGLÓN', { size: 116 }), { x: 1260, y: 400, t: 's3', enter: 'slam' });
+Item(S, LivePanel('a_read', 560, { pan: 'r', fx: 'dots' }), { x: 1260, y: 860, t: 'linea', enter: 'flip', s: 0.8 });
+S = Scene('circuitos', 'cansancio3');
+Item(S, LivePanel('b_ball', 900, { pan: 'r', fx: 'sparkle' }), { x: 500, y: 420, t: 'circuitos-5', enter: 'l' });
+Item(S, Img('brain', 250), { x: 1420, y: 320, t: 'circuitos' });
+Item(S, g => {
+  const words = [], dot = el('circle', { r: 16, fill: K.pinkD, stroke: K.ink, 'stroke-width': 4 }, g);
+  for (let i = 0; i < 5; i++) words.push(el('rect', { x: -260 + i * 110, y: -14, width: 80, height: 28, rx: 14, fill: K.grey }, g));
+  return { draw(t) { const i = Math.floor((t * 2.5) % 5); set(dot, { cx: -220 + i * 110, cy: -40 }); words.forEach((w, j) => w.setAttribute('fill', j === i ? K.blueD : K.grey)); } };
+}, { x: 1420, y: 600, t: 'saltos' });
+Item(S, Txt('SALTOS RÁPIDOS', { size: 40 }), { x: 1420, y: 700, t: 'saltos+0.3', enter: 'fade' });
+S = Scene('cansancio3', 'like');
+Item(S, LivePanel('b_glasses', 900, { pan: 'l', fx: 'dots' }), { x: 500, y: 420, t: 'cansancio3', enter: 'l' });
+Item(S, Chip('CANSANCIO · SUEÑO · MEDICAMENTOS · GAFAS', { size: 28 }), { x: 1440, y: 280, t: 'cansancio3+2' });
+Item(S, Chip('PARKINSON · DEMENCIA', { size: 38, color: K.red }), { x: 1440, y: 440, t: 'parkinson' });
+Item(S, Chip('GAFAS NUEVAS Y SIGUE IGUAL → MÉDICO', { size: 28, fill: K.yellow }), { x: 1440, y: 600, t: 'lucha', enter: 'slam' });
+S = Scene('like', END + 1);
+Item(S, Img('like', 500), { x: 480, y: 560 });
+Item(S, Chip('¿TE SIRVE? DALE ME GUSTA', { fill: K.yellow, size: 48 }), { x: 1260, y: 400, t: 'like', enter: 'slam' });
+Item(S, Chip('LLEGA A MÁS PERSONAS', { size: 40, color: K.blueD }), { x: 1260, y: 580, t: 'gesto' });
+Strip('s3', END + 1, t => 3, 7);
+Run(T('s3'), END);
+</script></body></html>

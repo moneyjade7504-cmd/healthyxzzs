@@ -1,0 +1,39 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F7F1E3;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+S = Scene('s13', 'taza');
+Item(S, Img('find_cup', 520), { x: 430, y: 560 });
+Item(S, Kicker('SEÑALES 1 A 3', 'SEÑAL 1\nCONTRASTES', { size: 112 }), { x: 1260, y: 420, t: 's1', enter: 'slam' });
+Item(S, Img('cup', 150), { x: 1260, y: 840, t: 'contrastes' });
+S = Scene('taza', 'sinembargo');
+Item(S, LivePanel('a_cup', 900, { pan: 'r', fx: 'clear2blur', fxAt: 1.5 }), { x: 500, y: 400, t: 'taza', enter: 'l' });
+Item(S, LivePanel('a_stairs', 900, { pan: 'd', fx: 'dots' }), { x: 1420, y: 400, t: 'escalones', enter: 'r' });
+Item(S, Chip('TAZA BLANCA, MANTEL CLARO', { size: 32 }), { x: 500, y: 770, t: 'taza+1' });
+Item(S, Chip('ESCALONES = RAMPA', { size: 38, color: K.red }), { x: 1420, y: 770, t: 'escalones+0.5' });
+Item(S, Pill('EN EL EXAMEN «LEE BIEN»… Y NADIE PREGUNTA', { hi: 'NADIE PREGUNTA', size: 40 }), { y: 950, t: 'examen', enter: 'd' });
+S = Scene('sinembargo', 'pregunta1');
+Item(S, Img('surprised', 460), { x: 380, y: 580 });
+Item(S, Txt('ESTUDIO BRITÁNICO', { size: 64 }), { x: 1230, y: 200, t: 'britanico', enter: 'u' });
+Item(S, Chip('8.623 ADULTOS', { size: 44, color: K.blueD }), { x: 1230, y: 340, t: 'britanico+2' });
+Item(S, Chip('VELOCIDAD VISUAL MÁS LENTA', { size: 38, color: K.red }), { x: 1230, y: 480, t: 'lento' });
+Item(S, Chip('→ MÁS RIESGO DE DEMENCIA', { size: 40, color: K.red }), { x: 1230, y: 620, t: 'demencia1' });
+Item(S, Img('eye_brain', 260), { x: 1230, y: 800, t: 'explicacion' });
+Item(S, Pill('EL CEREBRO AVISA POR LOS OJOS', { hi: 'POR LOS OJOS', size: 48 }), { x: 1230, y: 975, t: 'avisa', enter: 'd' });
+Item(S, Txt('Begde y cols., Sci Rep 2024', { size: 26, color: K.grey, weight: 700 }), { x: 1700, y: 1045, t: 'britanico+1', enter: 'fade' });
+S = Scene('pregunta1', T('s2'));
+Item(S, Img('bubble', 520), { x: 480, y: 560 });
+Item(S, Txt('¿TE HA PASADO?', { size: 90, color: K.pinkD }), { x: 1260, y: 360, t: 'claro-1', enter: 'slam' });
+Item(S, Chip('ESCRÍBELO EN LOS COMENTARIOS', { fill: K.yellow, size: 44 }), { x: 1260, y: 560, t: 'comenta' });
+Strip('s1', T('s2') + 1, t => 1, 7);
+Run(T('s13'), T('s2'));
+</script></body></html>

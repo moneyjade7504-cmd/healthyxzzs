@@ -1,0 +1,41 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F7F1E3;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+const END = 740.7;
+S = Scene('s7', 'figuras');
+Item(S, Img('ghost_cat', 520), { x: 430, y: 560 });
+Item(S, Kicker('SEÑAL 7', 'VER COSAS\nQUE NO ESTÁN', { size: 110 }), { x: 1260, y: 420, t: 'noestan-0.3', enter: 'slam' });
+S = Scene('figuras', 'tranquilizarte');
+Item(S, LivePanel('p_ghost', 600, { pan: 'r', fx: 'stars' }), { x: 330, y: 420, t: 'figuras', enter: 'flip' });
+Item(S, LivePanel('h_animals', 600, { pan: 'l', fx: 'dots' }), { x: 960, y: 420, t: 'figuras+4', enter: 'flip' });
+Item(S, LivePanel('h_coat', 600, { pan: 'u', fx: 'stars' }), { x: 1590, y: 420, t: 'figuras+6.5', enter: 'flip' });
+Item(S, Chip('MUCHOS NO LO CUENTAN POR VERGÜENZA', { size: 34, color: K.blueD }), { x: 960, y: 860, t: 'verguenza' });
+S = Scene('tranquilizarte', 'lewy');
+Item(S, LivePanel('h_macula', 1000, { pan: 'r', fx: 'dots' }), { x: 600, y: 450, t: 'tranquilizarte' });
+Item(S, Txt('SÍNDROME DE CHARLES BONNET', { size: 34, color: K.pinkD }), { x: 1540, y: 280, t: 'macular+4', enter: 'fade' });
+Item(S, Chip('EL CEREBRO RELLENA LOS HUECOS', { size: 28, fill: K.yellow }), { x: 1540, y: 400, t: 'macular+6', enter: 'r' });
+Item(S, StampB('NO ES LOCURA', { size: 48, color: K.green }), { x: 1540, y: 580, t: 'locura', enter: 'slam' });
+S = Scene('lewy', 'cuentanos');
+Item(S, LivePanel('h_night', 1000, { pan: 'l', fx: 'stars' }), { x: 600, y: 450, t: 'lewy' });
+Item(S, Chip('CON BUENA VISTA +', { size: 34 }), { x: 1540, y: 230, t: 'lewy+3', enter: 'r' });
+Item(S, Chip('CONFUSIÓN QUE VA Y VIENE', { size: 30, color: K.red }), { x: 1540, y: 360, t: 'lewy+6', enter: 'r' });
+Item(S, Chip('SUEÑO · RIGIDEZ', { size: 34, color: K.red }), { x: 1540, y: 490, t: 'lewy+8', enter: 'r' });
+Item(S, Txt('DEMENCIA CON CUERPOS DE LEWY', { size: 30, color: K.red }), { x: 1540, y: 620, t: 'lewy+11', enter: 'fade' });
+Item(S, Pill('HÁBLALO SIN MIEDO: HAY AYUDA', { hi: 'SIN MIEDO', size: 46 }), { x: 600, y: 985, t: 'hablarlo', enter: 'd' });
+S = Scene('cuentanos', END + 1);
+Item(S, Img('bubble', 500), { x: 480, y: 560 });
+Item(S, Chip('¿QUÉ SEÑAL TE SORPRENDIÓ MÁS?', { fill: K.yellow, size: 40 }), { x: 1260, y: 420, t: 'cuentanos', enter: 'slam' });
+Item(S, Chip('CUÉNTALO EN LOS COMENTARIOS', { size: 38, color: K.blueD }), { x: 1260, y: 580, t: 'cuentanos+2' });
+Strip('s7', END + 1, t => 7, 7);
+Run(T('s7'), END);
+</script></body></html>

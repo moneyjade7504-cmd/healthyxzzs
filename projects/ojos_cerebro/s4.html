@@ -1,0 +1,42 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#F7F1E3;overflow:hidden}svg{display:block}text{font-family:Inter,sans-serif}</style>
+<script src="../../.claude/skills/health-video/flat/lib.js"></script>
+<script src="../../.claude/skills/health-video/flat/kit.js"></script>
+<script src="cues.js"></script>
+<script src="sizes.js"></script>
+</head><body>
+<svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script src="common.js"></script>
+<script src="med.js"></script>
+<script>
+let S;
+const START = 439.1;
+S = Scene(START, 'nublando');
+Item(S, Img('foggy_glasses', 520), { x: 430, y: 560, t: START });
+Item(S, Kicker('SEÑALES 4 A 7', 'SEÑAL 4\nVISTA SIN TRATAR', { size: 100 }), { x: 1260, y: 420, t: START + 0.2, enter: 'slam' });
+Item(S, Chip('LA QUE MÁS PODEMOS CAMBIAR', { fill: K.greenL, color: K.green, size: 38 }), { x: 1260, y: 830, t: START + 4 });
+S = Scene('nublando', 'llevar');
+Item(S, LivePanel('v_blurry', 1050, { pan: 'r', fx: 'clear2blur' }), { x: 620, y: 450, t: 'nublando' });
+Item(S, Img('cataract', 220), { x: 1600, y: 280, t: 'cataratas' });
+Item(S, Chip('DEJAN DE LEER', { size: 34, color: K.red }), { x: 1600, y: 460, t: 'nietos-4', enter: 'r' });
+Item(S, Chip('DEJAN DE SALIR', { size: 34, color: K.red }), { x: 1600, y: 590, t: 'nietos-2.5', enter: 'r' });
+Item(S, Chip('NO VEN A SUS NIETOS', { size: 32, color: K.red }), { x: 1600, y: 720, t: 'nietos', enter: 'r' });
+S = Scene('llevar', 'buena');
+Item(S, Img('explain', 500), { x: 420, y: 560 });
+Item(S, Txt('COMISIÓN LANCET · 2024', { size: 58 }), { x: 1260, y: 200, t: 'comision', enter: 'u' });
+Item(S, Chip('VISIÓN NO TRATADA = RIESGO MODIFICABLE', { size: 30, fill: K.yellow }), { x: 1260, y: 340, t: 'comision+5', enter: 'slam' });
+['LEE MENOS', 'CONVERSA MENOS', 'SALE MENOS', 'SE AÍSLA'].forEach((s, i) => Item(S, Chip(s, { size: 36, color: K.red }), { x: 1260, y: 480 + i * 110, t: `estimulo+${(1 + i * 1.6).toFixed(1)}`, enter: 'r' }));
+Item(S, Txt('Livingston y cols., The Lancet 2024', { size: 26, color: K.grey, weight: 700 }), { x: 1650, y: 1045, t: 'comision+1', enter: 'fade' });
+S = Scene('buena', 'alguien');
+Item(S, LivePanel('v_clear', 1050, { pan: 'l', fx: 'blur2clear' }), { x: 620, y: 450, t: 'buena' });
+Item(S, Img('new_glasses', 380), { x: 1600, y: 520, t: 'operacion+4' });
+Item(S, Pill('¡LA BUENA NOTICIA ES ENORME!', { hi: 'ENORME', size: 50 }), { x: 620, y: 985, t: 'buena', enter: 'd' });
+Item(S, Chip('CATARATAS: RÁPIDO Y COMÚN', { icon: 'check', color: K.green, size: 32 }), { x: 1580, y: 200, t: 'operacion', enter: 'r' });
+S = Scene('alguien', T('s5'));
+Item(S, Img('blurry_photo', 500), { x: 430, y: 560 });
+Item(S, Chip('¿ALGUIEN QUE NO VA AL OCULISTA?', { size: 38 }), { x: 1260, y: 330, t: 'alguien+3' });
+Item(S, Chip('COMPÁRTELE ESTE VÍDEO', { fill: K.yellow, size: 48 }), { x: 1260, y: 520, t: 'comparte', enter: 'slam' });
+Strip(START + 0.5, T('s5') + 1, t => 4, 7);
+Run(START, T('s5'));
+</script></body></html>
