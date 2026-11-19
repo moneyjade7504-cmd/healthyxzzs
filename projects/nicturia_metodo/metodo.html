@@ -1,0 +1,58 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('protocolo'); window.END=C('p5'); window.DURATION=window.END;
+const PasoT=(B,n,txt,t0)=>{Num(B,n,{cx:200,cy:120,r:62,t0}); Cap(B,txt,{cx:1000,cy:120,size:62,t0:t0+0.2});};
+STitle(C('protocolo'),C('p1'),3,'El método de <span class="hl">hidratación circadiana</span>','beber según el reloj del cuerpo · 5 partes',['jug','clock']);
+{const B=beats[beats.length-1]; Cap(B,'cada parte responde a uno de los 3 cambios',{cx:960,cy:860,size:46,t0:C('cada3'),pill:true});}
+// Parte 1
+{const B=Beat(C('p1'),C('primera'),{enter:'zoom'}); PasoT(B,1,'Empiece <span class="hl">fuerte por la mañana</span>',B.a);
+ Cut(B,'t_sip',{cx:480,cy:1000,h:640,t0:B.a+0.5,amp:3});
+ Cap(B,'Muchos beben <span class="red">poco de día</span>…',{cx:1300,cy:380,size:58,t0:C('deshidrat')});
+ Cap(B,'…y mucho por la tarde y la noche',{cx:1300,cy:500,size:54,t0:C('retienen')});}
+{const B=FB(C('primera'),C('meta'),'S3_1','Al despertar: un <span class="hl">vaso grande de agua</span> antes del café',{capT:C('vaso')-C('primera'),size:52});
+ Cap(B,'≈ 250 ml · dentro de los 30 minutos',{cx:960,cy:90,size:48,t0:C('vaso')+3,pill:true});}
+{const B=FB(C('meta'),C('p2'),'S3_2','Si de día casi no bebe… la sed llega <span class="red">de noche</span>',{capT:0.3,size:52});
+ Cap(B,'la mayor parte del agua: <span class="hl">antes de media tarde</span>',{cx:960,cy:90,size:46,t0:C('antes3'),pill:true}); Src(B,'Dramatización');}
+// Parte 2
+{const B=Beat(C('p2'),C('sed'),{enter:'zoom'}); PasoT(B,2,'Reduzca <span class="hl">desde la tarde</span>',B.a);
+ const s=Svg(B);
+ const segs=[['Mañana',270,'#2f6fd6'],['Mediodía',270,'#2f6fd6'],['Tarde',150,'#58a9e4'],['Noche',50,'#cfe3f7']];
+ segs.forEach(([l,h,col],i)=>{const x=260+i*360; const r=sv('rect',{x,y:700,width:320,height:0,fill:col,rx:14},s); const t0=B.a+0.8+i*0.5; B.fx.push(t=>{const p=eo(prog(t,t0,t0+0.6)); r.setAttribute('y',700-h*p); r.setAttribute('height',h*p);}); Cap(B,l,{cx:x+160,cy:760,size:46,t0});});
+ Draw(B,s,'M980 330 V740',{t0:C('apartir'),dur:0.4,stroke:'#e23b2e',w:6}); Cap(B,'3–4 p.m.',{cx:980,cy:290,size:46,t0:C('apartir'),color:'#e23b2e'});
+ Cap(B,'riñones a pleno <span class="hl">de día</span>, no justo antes del “turno de noche”',{cx:960,cy:870,size:44,t0:C('planta')});
+ Cap(B,'por la noche: solo sorbos (y para las pastillas)',{cx:960,cy:960,size:44,t0:C('entre4'),color:'#6a6f86'});}
+{const B=FB(C('sed'),C('num2'),'S3_4','Por la noche: <span class="hl">pequeños sorbos</span>',{capT:0.3,size:58});
+ Cap(B,'¿sed de noche? suele ser poca agua de día',{cx:960,cy:90,size:46,t0:C('sednoche'),pill:true});
+ Src(B,'¿Le indicaron una cantidad de líquidos por el corazón o el riñón? Siga a su médico.');}
+FB(C('num2'),C('p3'),'S2_8','¿Le sirve? Escriba <span class="hl">“2”</span> en los comentarios',{capT:0.3,size:58});
+// Parte 3
+{const B=FB(C('p3'),C('vida'),'S3_5','3 · La ventana de la <span class="hl">cafeína</span>',{capT:0.3,size:60});
+ Cap(B,'la cafeína hace producir más orina',{cx:960,cy:90,size:48,t0:C('cafeina'),pill:true});}
+{const B=Beat(C('vida'),C('alcohol'),{enter:'zoom'}); Cut(B,'coffee',{cx:420,cy:780,h:380,amp:4});
+ BigClock(B,{cx:1250,cy:420,r:200,t0:C('dospm'),from:[14,0],to:[20,0],dur:2,suf:''});
+ Cap(B,'vida media ≈ <span class="hl">5 horas</span>',{cx:1250,cy:120,size:60,t0:B.a+0.5});
+ Cap(B,'último café: <span class="hl">hacia el mediodía</span> (o la 1 p.m.)',{cx:960,cy:980,size:52,t0:C('recom')});}
+{const B=Beat(C('alcohol'),C('pasel'),{enter:'zoom'}); Cut(B,'wine',{cx:420,cy:820,h:420,amp:3}); Cut(B,'adh',{cx:860,cy:560,h:220,t0:C('suprime'),amp:3});
+ const s=Svg(B); Draw(B,s,cross(860,440,1.2),{t0:C('suprime')+1.5,dur:0.3,stroke:'#e23b2e',w:11});
+ Cap(B,'El alcohol <span class="hl">frena la ADH</span>',{cx:1400,cy:380,size:62,t0:C('suprime')});
+ Cap(B,'quita uno de los pocos frenos nocturnos',{cx:1400,cy:500,size:46,t0:C('frenos')});}
+FB(C('pasel'),C('p4'),'S3_6','La copa, <span class="hl">mejor con el almuerzo</span>',{capT:0.3,size:60});
+// Parte 4 sodium
+{const B=Beat(C('p4'),C('estudio19'),{enter:'zoom'}); PasoT(B,4,'El cambio del <span class="hl">sodio</span>',B.a);
+ Cap(B,'el consejo prometido',{cx:1000,cy:220,size:46,t0:C('prometi'),color:'#2f6fd6'});
+ Chain(B,[['soy','Comida salada',C('salada')],['blood','Más líquido en la sangre',C('salada')+2.5],['kidneys','Los riñones lo eliminan… horas después',C('salada')+5]],{y:560,h:240});}
+{const B=Beat(C('estudio19'),C('cena630'));
+ const s=Svg(B); Draw(B,s,'M560 820 H1360',{t0:B.a+0.3,dur:0.3,stroke:'#3a3c52',w:6});
+ [[2.3,'Antes','#e23b2e'],[1.4,'Con menos sal','#22a35a']].forEach(([v,l,col],i)=>{const h=v*190,x=640+i*400,t0=C('redujeron')+i*1.5; const r=sv('rect',{x,y:820,width:220,height:0,fill:col,rx:12},s);
+   B.fx.push(t=>{const p=eo(prog(t,t0,t0+0.8)); r.setAttribute('y',820-h*p); r.setAttribute('height',h*p);}); Cap(B,String(v).replace('.',','),{cx:x+110,cy:820-h-55,size:70,t0:t0+0.7,color:col}); Cap(B,l,{cx:x+110,cy:880,size:46,t0});});
+ Cap(B,'Idas nocturnas al baño (media)',{cx:960,cy:120,size:56,t0:B.a+0.3});
+ Src(B,'Fuente: Matsuo y cols., Neurourology and Urodynamics 2019 (personas con nicturia y mucha sal)');}
+{const B=FB(C('cena630'),C('traslade'),'S1_3','Cena salada = riñones trabajando <span class="red">mientras duerme</span>',{capT:0.3,size:52});
+ Cap(B,'aunque beba poco por la noche',{cx:960,cy:90,size:46,t0:C('porEso'),pill:true});}
+{const B=FB(C('traslade'),C('cena'),'S3_7','Lo más salado, <span class="hl">al almuerzo</span>',{capT:0.3,size:60});
+ Cap(B,'sopa · salsa de soja · embutidos · queso · conservas',{cx:960,cy:90,size:44,t0:C('soya'),pill:true});}
+{const B=FB(C('cena'),C('p5'),'S3_8','Cena <span class="hl">ligera y con poca sal</span>',{capT:0.3,size:60,exit:'fade'});
+ Cap(B,'verduras · proteína magra · hierbas · limón · especias',{cx:960,cy:90,size:44,t0:C('verduras'),pill:true});
+ Cap(B,'Pruébelo una semana',{cx:960,cy:180,size:48,t0:C('semana1'),pill:true});}
+</script></body></html>
