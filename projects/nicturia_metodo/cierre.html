@@ -1,0 +1,32 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('honesto'); window.END=1504.1; window.DURATION=window.END;
+STitle(C('honesto'),C('diureticos'),4,'Cuándo <span class="hl">ir al médico</span>','a veces hay otras causas',['stethoscope','notebook']);
+{const B=Beat(C('diureticos'),C('prostata'),{enter:'zoom'}); Cut(B,'t_pill',{cx:470,cy:1000,h:640,amp:3});
+ Cap(B,'Algunos medicamentos:',{cx:1300,cy:330,size:58,t0:B.a+0.3}); Cap(B,'los <span class="hl">diuréticos</span>',{cx:1300,cy:440,size:70,t0:B.a+1.5});
+ Cap(B,'¿lo toma de noche? pregunte si puede tomarlo por la mañana',{cx:1300,cy:600,size:38,t0:C('sobre')});
+ Cap(B,'no cambie la hora por su cuenta',{cx:1300,cy:680,size:46,t0:C('sobre')+2,color:'#e23b2e'});}
+{const B=Beat(C('prostata'),C('apnea'));
+ Cap(B,'Otras causas posibles',{cx:960,cy:120,size:62,t0:B.a+0.2});
+ Row(B,[['prostate','Próstata (hombres)',C('prostata'),null],['bladder','Suelo pélvico (mujeres)',C('suelo'),null],['glucometer','Azúcar alto en sangre',C('azucar'),null]],{y:570});}
+{const B=FB(C('apnea'),C('ronca'),'S4_6','<span class="hl">Apnea del sueño</span>',{capT:0.3,size:62});
+ Cap(B,'la vía aérea se cierra → el corazón libera PNA → más orina',{cx:960,cy:90,size:44,t0:C('pna'),pill:true});}
+{const B=Beat(C('ronca'),C('semanas'),{enter:'zoom'}); Cut(B,'t_snore',{cx:520,cy:900,h:440,amp:3});
+ Cap(B,'¿Ronca? ¿Se despierta cansado',{cx:1350,cy:360,size:54,t0:B.a+0.3}); Cap(B,'o con dolor de cabeza?',{cx:1350,cy:450,size:54,t0:B.a+2});
+ Cap(B,'pregunte por un <span class="hl">estudio del sueño</span>',{cx:1350,cy:600,size:58,t0:B.a+6});}
+{const B=FB(C('semanas'),C('cierre'),'S4_5','¿2–3 semanas y sigue con 3 o más? <span class="hl">Consulte</span>',{capT:0.3,size:52});
+ Cap(B,'usted merece una evaluación completa',{cx:960,cy:90,size:46,t0:C('completa'),pill:true});}
+{const B=Beat(C('cierre'),C('sistema'));
+ Cap(B,'Las <span class="hl">5 partes</span> del método',{cx:960,cy:110,size:66,t0:B.a+0.2});
+ [['Agua al inicio del día',C('r1')],['Reducir desde la tarde',C('r2')],['Cafeína y alcohol, temprano',C('r3')],['La sal, al almuerzo',C('r4')],['Ritual antes de dormir',C('r5')]].forEach(([w,t0],i)=>{Num(B,i+1,{cx:520,cy:260+i*150,r:48,t0}); Cap(B,w,{cx:1040,cy:260+i*150,size:56,t0});});}
+{const B=FB(C('sistema'),C('directo'),'S4_8','Funcionan juntas, <span class="hl">como un sistema</span>',{capT:0.3,size:58});}
+{const B=FB(C('directo'),C('desafio'),'S4_7','Usted merece <span class="hl">noches completas</span>',{capT:C('merece')-C('directo'),size:60});}
+{const B=Beat(C('desafio'),C('comparta'),{enter:'zoom'}); Cut(B,'calendar7',{cx:520,cy:800,h:400,amp:3});
+ Cap(B,'El desafío: <span class="hl">7 días</span>',{cx:1330,cy:300,size:70,t0:B.a+0.2}); Cap(B,'con constancia, no perfección',{cx:1330,cy:420,size:50,t0:B.a+2});
+ Cap(B,'💬 cuéntenos: antes → después',{cx:1330,cy:580,size:54,t0:C('escriba'),color:'#2f6fd6'});
+ Cap(B,'Este vídeo es educativo y no sustituye a su médico',{cx:1330,cy:760,size:36,t0:B.a+3,color:'#6a6f86'});}
+FB(C('comparta'),C('suscribase4'),'S4_4','Compártalo con alguien que lo necesite',{capT:0.5,size:58});
+Subscribe(C('suscribase4'),C('cuidese'),{pose:'tw_wave',line:'Próximo vídeo: el sueño después de los 60'});
+FB(C('cuidese'),1504.1,'S4_8','Cuídese mucho · ¡su mejor noche de sueño!',{capT:0.2,size:58,exit:'fade'});
+</script></body></html>

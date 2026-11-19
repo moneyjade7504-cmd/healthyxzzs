@@ -1,0 +1,32 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('p5'); window.END=C('honesto'); window.DURATION=window.END;
+const PasoT=(B,n,txt,t0)=>{Num(B,n,{cx:200,cy:120,r:62,t0}); Cap(B,txt,{cx:1000,cy:120,size:62,t0:t0+0.2});};
+{const B=Beat(C('p5'),C('paso1'),{enter:'zoom'}); PasoT(B,5,'El <span class="hl">ritual antes de dormir</span>',B.a);
+ Cut(B,'sock_leg',{cx:520,cy:820,h:420,amp:3});
+ Cap(B,'para el líquido de las piernas',{cx:1300,cy:400,size:54,t0:C('aborda')});
+ Cap(B,'45–60 min antes de acostarse',{cx:1300,cy:540,size:60,t0:C('rutina'),color:'#2f6fd6'});}
+{const B=FB(C('paso1'),C('guias'),'S4_1','Paso 1 · <span class="hl">piernas elevadas</span> 20–30 min',{capT:0.3,size:58});
+ Cap(B,'por encima del corazón, en el sofá o un sillón reclinable',{cx:960,cy:90,size:44,t0:C('eleve')+1,pill:true,t1:C('reabsorba')-0.2});
+ Cap(B,'el líquido se procesa antes de dormir, no durante',{cx:960,cy:90,size:44,t0:C('reabsorba'),pill:true});}
+{const B=Beat(C('guias'),C('paso2'),{enter:'zoom'}); Cut(B,'m_legsup',{cx:540,cy:900,h:420,amp:3});
+ Cap(B,'Recomendado para personas con',{cx:1350,cy:360,size:52,t0:B.a+0.3}); Cap(B,'<span class="hl">piernas hinchadas</span>',{cx:1350,cy:460,size:66,t0:B.a+1});
+ Cap(B,'⚠ ¿Problema de corazón o le falta el aire al acostarse?',{cx:1350,cy:650,size:38,t0:B.a+3,color:'#e23b2e'});
+ Cap(B,'consulte antes con su médico',{cx:1350,cy:720,size:44,t0:B.a+3.5,color:'#e23b2e'});}
+{const B=FB(C('paso2'),C('paso3'),'S4_2','Paso 2 · <span class="hl">camine despacio</span> 5 minutos',{capT:0.3,size:58});}
+{const B=FB(C('paso3'),C('resonando'),'S4_3','Paso 3 · <span class="hl">vacíe la vejiga</span> justo antes de acostarse',{capT:0.3,size:52});
+ Cap(B,'sin prisas · siéntese, relájese, espere unos segundos más',{cx:960,cy:90,size:44,t0:C('sientese'),pill:true});}
+{const B=Beat(C('resonando'),C('dia'),{enter:'zoom'}); Cut(B,'w_wave2',{cx:470,cy:1010,h:740,amp:4});
+ const p=mk('div','pill',B.L,'▶ SUSCRÍBASE'); Object.assign(p.style,{left:'1300px',top:'330px',fontSize:'64px',background:'#e23b2e',color:'#fff',borderColor:'#b8231a'}); Pop(B,p,{t0:C('suscr'),rot:-2});
+ Cap(B,'💬 ¿Cuántas veces se levanta ahora?',{cx:1300,cy:540,size:54,t0:C('numero')}); Cap(B,'solo el número',{cx:1300,cy:640,size:50,t0:C('numero')+5,color:'#2f6fd6'});}
+// full day timeline
+{const B=Beat(C('dia'),C('rigida'));
+ Cap(B,'Un día con el método',{cx:960,cy:90,size:60,t0:B.a+0.2});
+ const s=Svg(B); Draw(B,s,'M140 560 H1780',{t0:B.a+0.5,dur:0.8,stroke:'#3a3c52',w:6});
+ const items=[['glass_small','Al despertar: agua',C('despertar')],['coffee','Café o té',C('cafe7')],['jug','Sorbos constantes',C('ocho')],['soup','Almuerzo más salado',C('almuerzo')],['clock','Último café ~1 p.m.',C('ultimacaf')],['glass_small','3–4 p.m.: reducir',C('tres4')],['lemon','Cena ligera',C('cenaligera')],['pillows','Piernas arriba',C('piernas8')],['toilet','Vaciar y a la cama',C('vaciado')]];
+ items.forEach(([n,l,t0],i)=>{const x=200+i*190, up=i%2===0; Cut(B,n,{cx:x,cy:up?470:780,h:140,t0,amp:3,phase:i}); Cap(B,l,{cx:x,cy:up?260:850,size:30,t0});
+   const d=sv('circle',{cx:x,cy:560,r:0,fill:'#2f6fd6'},s); B.fx.push(t=>d.setAttribute('r',14*eo(prog(t,t0,t0+0.3))));});}
+{const B=FB(C('rigida'),C('honesto'),'S4_4','No tiene que ser perfecto: <span class="hl">la mayoría de los días</span>',{capT:0.3,size:52,exit:'fade'});
+ Cap(B,'muchas personas notan mejoría en 1–2 semanas',{cx:960,cy:90,size:46,t0:C('ochenta')+3,pill:true});}
+</script></body></html>
