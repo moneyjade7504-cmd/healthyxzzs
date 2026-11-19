@@ -3,19 +3,19 @@
 import json, pathlib
 D = pathlib.Path(__file__).parent
 
-STY = ("Clean 2D cartoon illustration, exactly matching the attached reference image: smooth dark brown outlines, soft flat colours with gentle "
-       "cel shading, warm friendly expressions, simple rounded shapes, clean white background, ")
+STY = ("Clean flat 2D cartoon illustration, exactly matching the attached reference image: smooth dark outlines, soft flat muted colours with gentle "
+       "shading, warm cream background tones, friendly rounded faces, simple shapes, ")
 SHEET = STY + "plain pure white background. "
 SCENE = STY + "simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. "
 END = " Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution."
 ENDS = " No text, no labels, no letters, no numbers, no logos, 16:9, high resolution."
-CAR = ("MARTA, Tomás's wife (same clean cartoon style as the attached reference: 70-year-old woman, short wavy silver-grey hair, round thin glasses, "
-       "kind face, soft lilac cardigan over a white blouse, grey trousers, brown shoes)")
-ANT = ("TOMÁS (exactly the man in the attached reference: 70-year-old man, wavy silver-grey hair, round thin-rimmed glasses, friendly face, "
-       "teal green cardigan over a cream collared shirt, brown belt, beige trousers, brown shoes)")
-ANTP = ("TOMÁS (exactly the man in the attached reference: 70-year-old man, wavy silver-grey hair, round thin-rimmed glasses, friendly face, "
+CAR = ("MARTA, Tomás's wife (same flat cartoon style as the attached reference: 70-year-old woman, short wavy grey hair, no glasses, kind round face, "
+       "dusty-rose cardigan over a light blouse, grey trousers, grey slippers)")
+ANT = ("TOMÁS (exactly the man in the attached reference: about 70 years old, short wavy grey hair, NO glasses, round friendly face, "
+       "teal V-neck sweater over a light blue collared shirt, navy blue trousers, grey slippers)")
+ANTP = ("TOMÁS (exactly the man in the attached reference: about 70 years old, short wavy grey hair, NO glasses, round friendly face, "
         "in light blue striped pyjamas)")
-CARP = ("MARTA, Tomás's wife (same clean cartoon style: 70-year-old woman, short wavy silver-grey hair, round thin glasses, in a lilac nightgown)")
+CARP = ("MARTA, Tomás's wife (same flat cartoon style: 70-year-old woman, short wavy grey hair, no glasses, in a soft pink nightgown)")
 DOC = "a friendly middle-aged male doctor with short brown hair, white coat, blue tie and a stethoscope, exactly like the doctor in the attached reference"
 CLOCK = "a simple glowing bedside clock with plain hands and NO digits"
 
@@ -137,7 +137,7 @@ PARTS = [
 ]
 nums, out = {}, []
 head = ("# Ảnh cần tạo: \"Nicturia: el método de hidratación circadiana\" (Claves de la Longevidad)\n\n"
-        "Cùng style ông **Tomás** và bà **Marta** như video huyết áp. **Mỗi lần tạo, đính kèm ảnh master** `projects/nicturia_metodo/master/style_ref.webp`.\n"
+        "Style theo **ảnh master mới** (ông **Tomás**: tóc bạc gợn sóng, **không đeo kính**, áo len cổ tim xanh lục, sơ mi xanh nhạt, quần xanh đậm, dép xám) và vợ **Marta**. **Mỗi lần tạo, đính kèm ảnh master** `projects/nicturia_metodo/master/style_ref.webp`.\n"
         "Ảnh **tràn khung, không viền**, không chữ, không số. **Đặt tên ảnh theo số `1.png` … `40.png`**, gửi theo từng phần.\n\n"
         "Tạm chia **4 phần** theo nội dung (thời gian chính xác sẽ có khi bạn gửi giọng đọc). Mỗi phần 10 ảnh (1 tấm tư thế + 1 tấm đồ vật + 8 cảnh).\n")
 n = 0
