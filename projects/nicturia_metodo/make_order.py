@@ -16,7 +16,7 @@ ANT = ("TOMÁS (exactly the man in the attached reference: about 70 years old, s
 ANTP = ("TOMÁS (exactly the man in the attached reference: about 70 years old, short wavy grey hair, NO glasses, round friendly face, "
         "in light blue striped pyjamas)")
 CARP = ("MARTA, Tomás's wife (same flat cartoon style: 70-year-old woman, short wavy grey hair, no glasses, in a soft pink nightgown)")
-DOC = "a friendly middle-aged male doctor with short brown hair, white coat, blue tie and a stethoscope, exactly like the doctor in the attached reference"
+DOC = "a friendly middle-aged male doctor with short brown hair, white coat, blue tie and a stethoscope, same flat cartoon style"
 CLOCK = "a simple glowing bedside clock with plain hands and NO digits"
 
 def poses(lst):
