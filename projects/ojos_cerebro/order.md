@@ -1,12 +1,12 @@
 # Ảnh cần tạo: "7 señales en la vista…": **style nền tối** (Brain Human)
 
-Mỗi lần tạo: **đính kèm ảnh mẫu nền tối** (`characters/brain_human_dark/style_sheet.webp`). Đặt tên `1.png` … `8.png`.
+Mỗi lần tạo: **đính kèm ảnh mẫu nền tối** (`characters/brain_human_dark/style_sheet.webp`). Đặt tên `1.png` … `12.png`.
 
 | Phần (đề xuất) | Nội dung | Ảnh |
 |---|---|---|
-| 1 | Intro + Señal 1–3 | 1, 2, 3, 4 |
-| 2 | Señal 4–7 | 6, 7, 5 |
-| 3 | Kết: nên làm gì, tạm biệt | 8 |
+| 1 | Intro + Señal 1–3 | 1, 2, 3, 4, 9, 10 |
+| 2 | Señal 4–7 | 6, 7, 5, 11 |
+| 3 | Kết: nên làm gì, tạm biệt | 8, 12 |
 
 
 ---
@@ -71,6 +71,34 @@ Mỗi lần tạo: **đính kèm ảnh mẫu nền tối** (`characters/brain_hu
 2D minimalist brain character explainer style, the SAME mascot as the attached reference: a round white cartoon figure whose head top is a big exposed pink brain with simple fold lines, small black dot eyes, a small open smiling mouth with a pink tongue, round simple body, short thin arms and legs, rounded mitten hands, white fill, very thick clean black outlines, small bright yellow accent strokes for emphasis, bold flat saturated colors on objects, a soft blue-grey oval shadow under the feet. Flat colors, no gradients. Solid DARK NAVY background, color #1D202B, the same as the attached reference. Other people: simple round white figures without a visible brain, with simple hair and colored clothes, same thick black outlines. A 2x2 grid of four separate panels, each panel a rounded rectangle with a thin light-grey border on the dark navy background, wide gaps between panels; inside each panel a simple, minimal, dark-toned scene with few objects. Panel 1: a yearly eye exam: the mascot rests its chin on a retinal camera machine while a specialist looks at a screen showing a round orange retina with red vessels (no numbers). Panel 2: a healthy plate with leafy greens, colorful fruits and fish, the mascot giving a thumbs up. Panel 3: the mascot walks happily on a path at sunrise, a big warm sun. Panel 4: the mascot sits with its family on a bench watching a beautiful sunset, everyone smiling, small hearts. No text, no letters, no numbers, no logos, no brand names, 16:9, high resolution.
 ```
 
+
+---
+
+# ẢNH THÊM (9–12)
+
+## Ảnh 9 (`9.png`): 6 tư thế C (dẫn chuyện): chỉ tay giải thích, suy nghĩ, ngạc nhiên, reo vui, cầm bong bóng bình luận, giơ ngón cái like
+
+```
+2D minimalist brain character explainer style, the SAME mascot as the attached reference: a round white cartoon figure whose head top is a big exposed pink brain with simple fold lines, small black dot eyes, a small open smiling mouth with a pink tongue, round simple body, short thin arms and legs, rounded mitten hands, white fill, very thick clean black outlines, small bright yellow accent strokes for emphasis, bold flat saturated colors on objects, a soft blue-grey oval shadow under the feet. Flat colors, no gradients. Solid DARK NAVY background, color #1D202B, the same as the attached reference. Character pose sheet: SIX separate full-body poses of this same mascot, same size, arranged in two rows of three, widely spaced, nothing touching: 1) presenter pose, pointing up with one finger, explaining, friendly smile; 2) thinking with one hand on the chin, a small yellow question mark; 3) surprised, both hands on its cheeks, mouth open; 4) cheering with both arms up, very happy; 5) holding up a large empty white speech bubble like a sign, cheerful; 6) giving a big thumbs up with a small red heart above. No text, no letters, no numbers, no logos, no brand names, 16:9, high resolution.
+```
+
+## Ảnh 10 (`10.png`): 4 cảnh Señal 2–3 thêm: va vào khung cửa, đặt cốc hụt mép bàn, mắt không theo kịp quả bóng, kính mới vẫn không giúp
+
+```
+2D minimalist brain character explainer style, the SAME mascot as the attached reference: a round white cartoon figure whose head top is a big exposed pink brain with simple fold lines, small black dot eyes, a small open smiling mouth with a pink tongue, round simple body, short thin arms and legs, rounded mitten hands, white fill, very thick clean black outlines, small bright yellow accent strokes for emphasis, bold flat saturated colors on objects, a soft blue-grey oval shadow under the feet. Flat colors, no gradients. Solid DARK NAVY background, color #1D202B, the same as the attached reference. Other people: simple round white figures without a visible brain, with simple hair and colored clothes, same thick black outlines. A 2x2 grid of four separate panels, each panel a rounded rectangle with a thin light-grey border on the dark navy background, wide gaps between panels; inside each panel a simple, minimal, dark-toned scene with few objects. Panel 1: the mascot bumps its shoulder into a door frame while walking through a doorway, small impact stars, surprised. Panel 2: the mascot tries to put a cup on a table but misjudges the edge, the cup falls, small motion lines. Panel 3: a ball flies past and the mascot's eyes lag behind it, dashed lines showing the ball path, puzzled face. Panel 4: the mascot tries on several pairs of glasses at an optician's table and still squints at a book, frustrated. No text, no letters, no numbers, no logos, no brand names, 16:9, high resolution.
+```
+
+## Ảnh 11 (`11.png`): 4 cảnh Señal 7 thêm: tầm nhìn có đốm mờ giữa (thoái hóa điểm vàng), thấy động vật nhỏ trên sàn, nhầm áo treo thành người, lú lẫn ban đêm
+
+```
+2D minimalist brain character explainer style, the SAME mascot as the attached reference: a round white cartoon figure whose head top is a big exposed pink brain with simple fold lines, small black dot eyes, a small open smiling mouth with a pink tongue, round simple body, short thin arms and legs, rounded mitten hands, white fill, very thick clean black outlines, small bright yellow accent strokes for emphasis, bold flat saturated colors on objects, a soft blue-grey oval shadow under the feet. Flat colors, no gradients. Solid DARK NAVY background, color #1D202B, the same as the attached reference. Other people: simple round white figures without a visible brain, with simple hair and colored clothes, same thick black outlines. A 2x2 grid of four separate panels, each panel a rounded rectangle with a thin light-grey border on the dark navy background, wide gaps between panels; inside each panel a simple, minimal, dark-toned scene with few objects. Panel 1: the mascot's point of view: a living room with a blurry dark spot in the center of vision (macular degeneration), the mascot rubbing its eyes in a small inset. Panel 2: the mascot looks at the floor where faint transparent small cartoon animals seem to walk, the mascot calm but curious. Panel 3: in a dim hallway, a coat on a coat rack looks like a standing person, the mascot startled, a small dashed outline showing it is only a coat. Panel 4: night: the mascot sits up in bed confused, a small swirl above its head, a clock on the wall, the moon in the window. No text, no letters, no numbers, no logos, no brand names, 16:9, high resolution.
+```
+
+## Ảnh 12 (`12.png`): 4 cảnh kết thêm: kể triệu chứng với gia đình, mang danh sách câu hỏi tới bác sĩ mắt, đo huyết áp, ngủ ngon và bỏ thuốc lá
+
+```
+2D minimalist brain character explainer style, the SAME mascot as the attached reference: a round white cartoon figure whose head top is a big exposed pink brain with simple fold lines, small black dot eyes, a small open smiling mouth with a pink tongue, round simple body, short thin arms and legs, rounded mitten hands, white fill, very thick clean black outlines, small bright yellow accent strokes for emphasis, bold flat saturated colors on objects, a soft blue-grey oval shadow under the feet. Flat colors, no gradients. Solid DARK NAVY background, color #1D202B, the same as the attached reference. Other people: simple round white figures without a visible brain, with simple hair and colored clothes, same thick black outlines. A 2x2 grid of four separate panels, each panel a rounded rectangle with a thin light-grey border on the dark navy background, wide gaps between panels; inside each panel a simple, minimal, dark-toned scene with few objects. Panel 1: the mascot talks openly with its family at the kitchen table, everyone listening kindly. Panel 2: the mascot hands a small notebook with a checklist (tick marks only, no words) to an eye specialist, who smiles. Panel 3: the mascot checks its blood pressure with a simple cuff and a generic monitor (no numbers), calm. Panel 4: the mascot sleeps peacefully in bed; on the nightstand a broken cigarette in a crossed-out circle symbol, a small moon. No text, no letters, no numbers, no logos, no brand names, 16:9, high resolution.
+```
 
 ---
 
