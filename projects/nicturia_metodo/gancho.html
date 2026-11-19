@@ -1,0 +1,24 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=0; window.END=C('materia'); window.DURATION=window.END;
+const stars=(c,t)=>{for(let i=0;i<10;i++){c.globalAlpha=0.5+0.5*Math.sin(t*2+i);c.fillStyle='#fff6c8';c.beginPath();c.arc(1250+((i*97)%380),60+((i*53)%300),2.5,0,7);c.fill();}c.globalAlpha=1;};
+{const B=Beat(0,C('presion'),{enter:'zoom'}); BigClock(B,{cx:960,cy:430,r:240,t0:0.1,from:[1,47]});
+ Cap(B,'Por fin… <span class="hl">sueño profundo</span>',{cx:960,cy:870,size:60,t0:C('sueno')}); Canvas(B,(c,t)=>zzz(c,t,{x:1260,y:300,s:1.6}));}
+FB(C('presion'),C('camina'),'S1_1','…y la vejiga <span class="red">llama</span>',{capT:1,size:62,from:[.5,.5,1.0],to:[.35,.55,1.18],draw:stars});
+FB(C('camina'),C('otra')-2.5,'S1_2','Al baño a oscuras…',{capT:0.3,size:62,from:[.5,.5,1.0],to:[.6,.5,1.12]});
+{const B=Beat(C('otra')-2.5,C('suena'),{enter:'zoom'}); Cut(B,'t_wake',{cx:480,cy:960,h:560,amp:3});
+ BigClock(B,{cx:1320,cy:420,r:220,t0:B.a+0.1,from:[1,47],to:[3,20],dur:1.5}); Cap(B,'…<span class="red">otra vez</span>',{cx:1320,cy:880,size:64,t0:C('otra')});}
+{const B=Beat(C('suena'),C('problema')); Cut(B,'w_point',{cx:470,cy:1010,h:740,amp:4});
+ Cap(B,'¿Le suena?',{cx:1300,cy:330,size:80,t0:B.a+0.2}); Cap(B,'Quédese: esto pocas veces se explica',{cx:1300,cy:480,size:50,t0:B.a+3});
+ Cap(B,'en una consulta de 15 minutos',{cx:1300,cy:560,size:50,t0:B.a+4,color:'#6a6f86'});}
+{const B=Beat(C('problema'),C('entender'),{enter:'zoom'}); Cut(B,'water',{cx:450,cy:800,h:380,amp:3});
+ const s=Svg(B); Draw(B,s,cross(450,600,1.5),{t0:B.a+2.5,dur:0.3,stroke:'#e23b2e',w:12});
+ Cap(B,'No es solo cuánta agua bebe…',{cx:1300,cy:330,size:56,t0:B.a+0.3});
+ Cap(B,'es algo que cambia en su cuerpo',{cx:1300,cy:460,size:56,t0:B.a+5}); Cap(B,'desde los <span class="hl">50 años</span>',{cx:1300,cy:580,size:72,t0:C('cambiar')});
+ Cap(B,'no es falta de voluntad',{cx:1300,cy:720,size:50,t0:C('cambiar')+5,color:'#6a6f86'});}
+Side(C('entender'),C('consejo5'),'m_water',[['Entender el <span class="hl">por qué</span>',null,70],['hace que los resultados',C('duren'),56,'#6a6f86'],['<span class="hl">duren</span>',C('duren')+1.5,72]],{h:760});
+{const B=FB(C('consejo5'),C('nombre'),'S1_3','Quédese hasta el <span class="hl">consejo n.º 5</span>',{capT:0.3,size:60,draw:stars});
+ Cap(B,'lo que hace su cuerpo cada noche en la cama',{cx:960,cy:90,size:46,t0:C('cama'),pill:true});}
+FB(C('nombre'),C('materia'),'S1_7','💬 Su nombre y desde dónde nos ve',{capT:0.3,size:60,exit:'fade'});
+</script></body></html>
