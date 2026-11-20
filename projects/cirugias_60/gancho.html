@@ -1,0 +1,55 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=0; window.END=C('s1'); window.DURATION=window.END;
+// 1. the office
+{const B=FB(0,C('almost'),'S1_1','“I think surgery is your <span class="hl">best option</span>.”',{capT:C('eye')-0.0,size:60,from:[.5,.45,1.0],to:[.3,.45,1.16],enter:'zoom'});
+ Cap(B,'a calm, confident surgeon',{cx:960,cy:90,size:46,t0:C('calm'),pill:true,t1:C('eye')});}
+// 2. what most people do
+{const B=Beat(C('almost'),C('trust')); Cut(B,'d_sign',{cx:470,cy:1020,h:720,amp:3});
+ Cap(B,'Almost everyone… <span class="hl">nods</span>',{cx:1290,cy:200,size:68,t0:C('nod')}); const s=Svg(B);
+ [['What if I say <span class="red">no</span>?',C('sayno')],['Is there <span class="red">another path</span>?',C('path')],['How many times has this surgeon<br>done it, at <span class="red">my age</span>?',C('howmany')]].forEach(([h,t0],i)=>{
+   Cap(B,h,{cx:1330,cy:390+i*190,size:i==2?46:54,t0}); Draw(B,s,cross(880,390+i*190,0.7),{t0:t0+0.6,dur:0.3,stroke:'#e23b2e',w:10});});
+ Cap(B,'(questions they never ask)',{cx:1290,cy:960,size:40,t0:C('howmany')+3,color:'#6a6f86'});}
+// 3. trust + sign
+FB(C('trust'),C('justified'),'S1_2','They trust the white coat… and <span class="red">sign</span>',{capT:0.2,size:62,from:[.5,.5,1.0],to:[.6,.75,1.2]});
+// 4. but surgery saves lives
+{const B=FB(C('justified'),C('brochures'),'S1_3','Surgery <span class="hl">saves lives</span>',{capT:C('saves')-C('justified'),size:66,from:[.5,.4,1.0],to:[.45,.3,1.14],draw:(c,t)=>rays(c,t,{x:1500,y:90,r0:70,r1:120,lw:6})});
+ Cap(B,'That trust is often <span class="green">justified</span>',{cx:960,cy:90,size:52,t0:B.a+0.2,pill:true});
+ Cap(B,'stronger · freer from pain',{cx:1500,cy:820,size:50,t0:C('people')+1.5,pill:true});}
+// 5. what brochures don't show
+{const B=Beat(C('brochures'),C('alternatives'),{enter:'zoom'}); Cut(B,'d_paper',{cx:470,cy:1020,h:740,amp:3}); Cut(B,'pen_form',{cx:1650,cy:1040,h:240,amp:3,t0:C('brochures')+0.5});
+ Cap(B,'What brochures &amp; consent forms rarely show',{cx:1250,cy:200,size:48,t0:C('brochures')+0.3});
+ Cap(B,'After <span class="hl">60</span>, some common surgeries',{cx:1250,cy:360,size:60,t0:C('over60')});
+ Cap(B,'carry risks that <span class="red">grow with age</span>',{cx:1250,cy:460,size:60,t0:C('over60')+2.5});
+ Cap(B,'hard to explain fully in a',{cx:1250,cy:640,size:52,t0:C('risks')+2,color:'#6a6f86'});
+ const s=Svg(B); clockIcon(B,s,{cx:960,cy:760,r:62,t0:C('risks')+3.5}); Cap(B,'15-minute visit',{cx:1340,cy:760,size:64,t0:C('risks')+3.5});}
+// 6. alternatives
+{const B=Beat(C('alternatives'),C('channel')); Cut(B,'d_ask',{cx:1450,cy:1020,h:740,amp:4});
+ Cut(B,'question',{cx:700,cy:640,h:300,amp:6,t0:B.a+0.3});
+ Cap(B,'Often there are',{cx:640,cy:770,size:56,t0:B.a+1.5}); Cap(B,'<span class="hl">evidence-based alternatives</span>',{cx:640,cy:870,size:62,t0:B.a+3});
+ Cap(B,'…that never reach the table',{cx:640,cy:970,size:46,t0:B.a+5.5,color:'#6a6f86'});}
+// 7. channel
+{const B=Beat(C('channel'),C('today'),{enter:'zoom'}); Cut(B,'m_wave',{cx:440,cy:1020,h:740,amp:5});
+ Cap(B,'Claves de la Longevidad',{cx:1250,cy:300,size:76,t0:B.a+0.3,color:'#2f6fd6'});
+ Cap(B,'health after 60,',{cx:1250,cy:440,size:58,t0:B.a+1.5}); Cap(B,'explained with <span class="hl">the research</span>',{cx:1250,cy:540,size:58,t0:B.a+3});
+ Card(B,{cx:1250,cy:800,w:1080,h:250,t0:B.a+4.5,border:'#f7ad36',bg:'#fffaf0'});
+ Cap(B,'⚠ Educational video · not medical advice',{cx:1250,cy:760,size:44,t0:B.a+4.6,color:'#b97a00'});
+ Cap(B,'Never refuse a surgery your doctor calls <span class="red">urgent</span>',{cx:1250,cy:840,size:40,t0:B.a+5.2});}
+// 8. five surgeries
+{const B=Beat(C('today'),C('stay'),{enter:'up'}); Cap(B,'<span class="hl">5 surgeries</span> often recommended after 60',{cx:960,cy:120,size:64,t0:B.a+0.2});
+ [['neck_artery','Carotid surgery'],['question','Spinal cord stimulator'],['pillbottle','Prostate removal'],['d_ask','Both knees at once'],['plaque','Aortic aneurysm repair']].forEach(([c,l],i)=>{
+  const x=230+i*365, t0=B.a+1.5+i*0.9; Card(B,{cx:x,cy:560,w:330,h:520,t0}); Num(B,i+1,{cx:x,cy:330,r:46,t0:t0+0.1});
+  if(i!==1&&i!==3)Cut(B,c,{cx:x,cy:720,h:260,t0:t0+0.15,amp:3,phase:i});
+  Cap(B,l.replace(' ','<br>'),{cx:x,cy:i==1||i==3?560:780,size:42,t0:t0+0.2});});
+ Cap(B,'the risks · the evidence · the questions to ask',{cx:960,cy:940,size:50,t0:B.a+8,pill:true});}
+// 9. stay to the end
+{const B=Beat(C('stay'),C('name'),{enter:'zoom'}); Cut(B,'d_paper',{cx:1500,cy:1020,h:740,amp:3});
+ Cut(B,'question',{cx:620,cy:600,h:380,amp:8,t0:B.a+0.3});
+ Cap(B,'Stay to the end:',{cx:620,cy:200,size:62,t0:B.a+0.2}); Cap(B,'<span class="hl">1 simple question</span>',{cx:620,cy:720,size:66,t0:B.a+1.8});
+ Cap(B,'that can change the whole conversation',{cx:640,cy:840,size:44,t0:B.a+4,color:'#6a6f86'});}
+// 10. comments
+{const B=Beat(C('name'),C('s1')); Cut(B,'d_ask',{cx:470,cy:1020,h:740,amp:4}); Cut(B,'m_point',{cx:1700,cy:1020,h:560,amp:4,t0:B.a+0.6});
+ Cap(B,'💬 Your <span class="hl">name</span> and <span class="hl">age</span>',{cx:1060,cy:380,size:70,t0:B.a+0.3});
+ Cap(B,'in the comments',{cx:1060,cy:500,size:58,t0:B.a+1.2}); Cap(B,'Let’s begin!',{cx:1060,cy:700,size:66,t0:C('begin'),color:'#2f6fd6'});}
+</script></body></html>

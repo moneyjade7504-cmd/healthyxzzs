@@ -1,0 +1,76 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('s1'); window.END=C('s2'); window.DURATION=window.END;
+STitle(C('s1'),C('everyyear'),1,'Carotid endarterectomy','surgery on the neck arteries',['neck_artery','plaque']);
+// narrowing → stroke risk
+{const B=Beat(C('everyyear'),C('called'),{enter:'zoom'}); Cut(B,'neck_artery',{cx:520,cy:950,h:620,amp:3});
+ Canvas(B,(c,t)=>{if(t<B.a+1)return; c.globalAlpha=0.5+0.5*Math.sin(t*5); c.strokeStyle='#e23b2e'; c.lineWidth=8; c.beginPath(); c.arc(505,690,70+6*Math.sin(t*5),0,7); c.stroke(); c.globalAlpha=1;});
+ Cap(B,'Narrowing in the <span class="hl">carotid arteries</span>',{cx:1330,cy:250,size:56,t0:B.a+1});
+ Cut(B,'plaque',{cx:1080,cy:640,h:200,t0:B.a+4,amp:3}); const s=Svg(B); Draw(B,s,arrow(1250,560,1430,560),{t0:B.a+6,stroke:'#e23b2e'});
+ Cut(B,'brain',{cx:1600,cy:680,h:250,t0:B.a+6.3,amp:4,shake:1}); Cap(B,'stroke risk',{cx:1600,cy:760,size:52,t0:B.a+6.5,color:'#e23b2e'});
+ Cap(B,'“Surgery can fix this.”',{cx:1330,cy:900,size:58,t0:C('fix'),pill:true});}
+// the operation
+{const B=Beat(C('called'),C('complicated')); Cap(B,'The operation: <span class="hl">endarterectomy</span>',{cx:960,cy:130,size:62,t0:B.a+0.2});
+ Chain(B,[['neck_artery','Open the artery',C('opens')+0.5],['plaque','Remove the plaque',C('opens')+2.8],['pen_form','Close it again',C('opens')+5.5],['brain','Less stroke risk',C('reduces')]],{y:520,h:280});
+ Cap(B,'in the <span class="green">right patient</span>',{cx:960,cy:930,size:56,t0:C('right'),pill:true});}
+// it gets complicated
+{const B=Beat(C('complicated'),C('benefit'),{enter:'up'}); Cut(B,'d_neck',{cx:520,cy:1020,h:760,amp:3});
+ Cap(B,'But here it gets',{cx:1300,cy:380,size:64,t0:B.a+0.2}); Cap(B,'<span class="red">complicated</span>',{cx:1300,cy:500,size:90,t0:B.a+0.8});
+ Cap(B,'(the part few people hear)',{cx:1300,cy:660,size:46,t0:C('complicated')+3.4,color:'#6a6f86'});}
+// symptoms?
+{const B=FB(C('benefit'),C('tia'),'S1_6','The benefit depends on one thing: <span class="hl">symptoms?</span>',{capT:0.4,size:56,from:[.5,.4,1.0],to:[.5,.3,1.12],draw:(c,t)=>rays(c,t,{x:1540,y:110,r0:70,r1:115,lw:6})});
+ Cap(B,'This is everything',{cx:960,cy:90,size:50,t0:C('distinction'),pill:true});}
+// TIA
+{const B=FB(C('tia'),C('research'),'S1_5','Mini-stroke (TIA)',{capT:0.3,size:64,from:[.5,.5,1.0],to:[.55,.6,1.14],draw:(c,t)=>{const k=Math.max(0,Math.sin(t*3)); c.globalAlpha=k*0.6; sparks(c,t,{x:620,y:300,s:2}); c.globalAlpha=1;}});
+ [['sudden arm weakness',C('tia')+3.5],['slurred speech',C('tia')+5],['brief vision loss',C('tia')+6.3]].forEach(([h,t0],i)=>Cap(B,h,{cx:1560,cy:150+i*110,size:44,t0,pill:true,t1:C('tia')+12.5}));
+ Cap(B,'+ narrowing <span class="hl">over 70%</span>',{cx:1560,cy:150,size:50,t0:C('tia')+12.8,pill:true});
+ Cap(B,'= surgery is clearly <span class="green">supported</span>',{cx:1500,cy:270,size:50,t0:C('nascet'),pill:true});
+ Src(B,'NASCET trial · New England Journal of Medicine, 1991');}
+// NASCET bars
+{const B=Beat(C('research'),C('nosym'),{enter:'zoom'}); Cap(B,'With symptoms + severe narrowing: stroke within 2 years',{cx:960,cy:110,size:48,t0:B.a+0.2});
+ Bars(B,[['medicines only',26,'#f7ad36',B.a+1.2],['surgery',9,'#22a35a',B.a+2.4]],{x:820,base:860,maxH:560});
+ Cut(B,'d_ask',{cx:1640,cy:1020,h:560,amp:4,t0:B.a+0.5}); Cap(B,'surgery <span class="hl">helps</span>',{cx:1500,cy:300,size:60,t0:C('population')});
+ Src(B,'NASCET, NEJM 1991 (severe stenosis, ~2 years)');}
+// no symptoms
+{const B=FB(C('nosym'),C('sobering'),'S1_4','No symptoms… just an <span class="hl">ultrasound finding</span>?',{capT:0.3,size:56,from:[.5,.5,1.0],to:[.62,.4,1.18],
+  draw:(c,t)=>{c.strokeStyle='rgba(120,220,255,0.8)';c.lineWidth=3;const x=700+((t*120)%300);c.beginPath();c.moveTo(x,150);c.lineTo(x,370);c.stroke();}});
+ Cap(B,'…and a surgical recommendation',{cx:960,cy:90,size:46,t0:C('routine')+3,pill:true});}
+// ACST-1
+{const B=Beat(C('sobering'),C('community'),{enter:'zoom'});
+ Cap(B,'ACST-1 · The Lancet, 2004 · <span class="hl">no symptoms</span>',{cx:960,cy:100,size:52,t0:C('acst')});
+ Cap(B,'stroke in 5 years',{cx:620,cy:200,size:44,t0:C('acst')+3,color:'#6a6f86'});
+ Bars(B,[['medicines',11.8,'#f7ad36',C('acst')+3.5],['surgery',6.4,'#22a35a',C('acst')+5]],{x:620,base:850,maxH:520,dec:1,bw:200,gap:100});
+ Card(B,{cx:1430,cy:420,w:760,h:330,t0:C('fiveyear'),border:'#22a35a'});
+ Cap(B,'≈ <span class="hl">5 points</span> fewer strokes',{cx:1430,cy:340,size:56,t0:C('fiveyear')+0.2});
+ Cap(B,'✔ already counting the risk',{cx:1430,cy:440,size:44,t0:C('fiveyear')+1.5,color:'#1f9d55'}); Cap(B,'of the operation itself',{cx:1430,cy:510,size:44,t0:C('fiveyear')+1.8,color:'#1f9d55'});
+ Card(B,{cx:1430,cy:790,w:760,h:250,t0:C('periop'),border:'#e23b2e'});
+ Cap(B,'Stroke or death around surgery:',{cx:1430,cy:740,size:42,t0:C('periop')+0.2}); Cap(B,'<span class="red">≈ 3.1%</span> (expert centres)',{cx:1430,cy:830,size:56,t0:C('periop')+2.5});
+ Src(B,'ACST-1, Lancet 2004 · net benefit includes perioperative risk');}
+// hospital volume
+{const B=Beat(C('community'),C('translate')); Cut(B,'diploma',{cx:520,cy:760,h:340,amp:3});
+ Cap(B,'Hospitals that do <span class="hl">fewer</span> of these operations',{cx:1230,cy:340,size:52,t0:B.a+1});
+ Cap(B,'→ <span class="red">more complications</span>',{cx:1230,cy:460,size:66,t0:B.a+6}); const s=Svg(B);
+ Draw(B,s,arrow(1650,760,1650,560),{t0:B.a+7,stroke:'#e23b2e',w:14});
+ Src(B,'Birkmeyer et al., New England Journal of Medicine, 2002');}
+// 3 in 100
+{const B=Beat(C('translate'),C('changed'),{enter:'zoom'}); Cut(B,'d_paper',{cx:420,cy:1020,h:700,amp:3});
+ Cap(B,'In plain language:',{cx:1300,cy:90,size:52,t0:B.a+0.2}); Dots(B,{cx:1300,cy:560,k:3,t0:C('three')});
+ Cap(B,'≈ <span class="red">3 in 100</span>: the very event it should prevent',{cx:1240,cy:1010,size:44,t0:C('three')+3});}
+// medical treatment improved
+{const B=FB(C('changed'),C('statin'),'S1_7','Medical treatment has <span class="hl">improved a lot</span>',{capT:0.4,size:62,from:[.5,.5,1.0],to:[.55,.45,1.15]});
+ Cap(B,'what many patients never hear',{cx:960,cy:90,size:46,t0:B.a+2,pill:true});}
+{const B=Beat(C('statin'),C('refuse'),{enter:'up'});
+ Cap(B,'The medical route',{cx:960,cy:110,size:66,t0:B.a+0.2});
+ Row(B,[['pillbottle','Statins',B.a+0.6,'ok'],['bp_monitor','Blood pressure',B.a+3,'ok'],['pills','Aspirin / clopidogrel',B.a+5.5,'ok']],{y:500,cardH:500});
+ Cap(B,'For many without symptoms: a <span class="hl">reasonable option</span>',{cx:960,cy:860,size:52,t0:C('many')});
+ Cap(B,'new trials are comparing both strategies now',{cx:960,cy:960,size:42,t0:C('many')+4,color:'#6a6f86'});}
+// questions
+{const B=FB(C('refuse'),C('symq'),'S1_8','Not “refuse surgery” — <span class="hl">ask &amp; write it down</span>',{capT:0.3,size:56,from:[.5,.5,1.0],to:[.4,.4,1.15]});}
+{const B=Beat(C('symq'),C('s2'),{enter:'zoom'}); Cut(B,'d_paper',{cx:330,cy:1020,h:640,amp:3});
+ Card(B,{cx:1150,cy:420,w:1380,h:470,t0:B.a+0.1,border:'#2f6fd6'});
+ Cap(B,'Two questions for the surgeon',{cx:1150,cy:240,size:50,t0:B.a+0.2,color:'#2f6fd6'});
+ QList(B,[['Am I <span class="hl">symptomatic</span> or asymptomatic?',B.a+0.4],['What is the complication rate<br>for this procedure, <span class="hl">at this hospital</span>?',C('rate')]],{x:1250,nx:540,y0:360,gap:170,size:46});
+ Cap(B,'A confident surgeon answers <span class="green">both</span>, directly',{cx:1150,cy:780,size:52,t0:C('confident')});
+ Cap(B,'Evasion? <span class="red">That is information too.</span>',{cx:1150,cy:900,size:52,t0:C('evasion')+1});}
+</script></body></html>
