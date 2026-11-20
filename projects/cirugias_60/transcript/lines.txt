@@ -1,0 +1,309 @@
+[0.34 - 3.36] (w0-7) Picture this, you're sitting in a clean office.
+[3.48 - 5.28] (w8-11) Diplomas cover the walls.
+[5.50 - 8.98] (w12-22) There is a calm, confident surgeon across the desk from you.
+[9.20 - 13.52] (w23-38) And they look you in the eye and say, I think surgery is your best option.
+[13.78 - 17.04] (w39-49) And almost every person in that chair does the same thing.
+[17.26 - 18.02] (w50-51) They nod.
+[18.22 - 20.38] (w52-60) They don't ask what happens if they say no.
+[20.50 - 22.38] (w61-67) They don't ask whether there's another path.
+[22.60 - 29.30] (w68-88) They don't ask how many times this surgeon has performed this specific procedure on someone their age with their health history.
+[29.42 - 32.20] (w89-99) They trust the white coat in the room and they sign.
+[32.74 - 35.00] (w100-109) Now, I want to be honest with you right away.
+[35.12 - 38.14] (w110-115) That trust is often completely justified.
+[38.22 - 41.08] (w116-120) Surgery saves lives, real lives.
+[41.28 - 47.58] (w121-138) People who walk back into their lives better, stronger, freer from pain because of an operation they needed.
+[47.72 - 53.72] (w139-158) But here's the thing I have seen over and over that the brochures and consent forms almost never show you.
+[53.82 - 60.76] (w159-176) For adults over 60, some of the most commonly recommended surgeries carry risks that compound dramatically with age.
+[60.96 - 67.96] (w177-192) Risks that are statistically documented, clinically significant, and routinely under -explained in a 15 -minute consultation.
+[68.16 - 75.60] (w193-213) And in many of these cases, there are alternatives, real, evidence -based alternatives that nobody bothered to put on the table.
+[75.88 - 76.62] (w214-217) My name is Dr.
+[76.76 - 85.42] (w218-241) Elias, and this channel is dedicated to senior health education, helping older adults understand the research behind the medical decisions they face every day.
+[86.00 - 98.64] (w242-286) Today, I'm going to walk you through five surgeries that are frequently recommended to people over 60, tell you the truth about their real risk profiles, and give you the specific questions you need to ask before you ever agree to go under the knife.
+[99.22 - 110.30] (w287-321) Stay with me to the end, because the last thing, I share a simple forward question, has the potential to change the entire trajectory of a surgical conversation, and you've probably never heard it before.
+[110.90 - 113.68] (w322-334) Before we move on, drop your name and your age in the comments.
+[114.12 - 116.06] (w335-343) I'd love to know who I'm talking to today.
+[116.56 - 117.36] (w344-345) Let's begin.
+[117.94 - 120.72] (w346-349) Surgery one, coratid endarctomy.
+[121.34 - 131.34] (w350-381) Every year, hundreds of thousands of seniors are told that they have narrowing in the arteries in their neck, the coratid arteries, and that this narrowing puts them at risk for stroke.
+[131.56 - 134.32] (w382-389) And then, they're told surgery can fix this.
+[134.44 - 137.50] (w390-396) The operation is called a coratid endartomy.
+[137.60 - 144.58] (w397-418) The surgeon opens the artery in your neck, physically removes the plaque buildup inside the vessel wall, and closes it back up.
+[144.72 - 150.00] (w419-433) In the right patient, under the right circumstances, this procedure does exactly what it promises.
+[150.40 - 152.00] (w434-437) It reduces stroke risk.
+[152.48 - 154.00] (w438-444) But here is where it gets complicated.
+[154.92 - 159.00] (w445-458) And this is the part that most people sitting in those consultations never hear.
+[159.34 - 164.76] (w459-472) The benefit of this surgery depends almost entirely on whether you've already had symptoms.
+[165.06 - 167.04] (w473-476) This distinction is everything.
+[167.30 - 167.16] (w477-488) If you've had a transient ischemic attack, sometimes This distinction is everything.
+[167.30 - 189.22] (w489-547) If you've had a transient ischemic attack, sometimes called a min stroke involving sudden arm weakness, slurred speech, or temporary vision loss that resolved within 24 hours, and your curateed is more than 70 % blocked, the evidence from a landmark study called the NASCAT trial strongly supports surgery, published in the New England Journal of Medicine in 1991.
+[189.42 - 196.48] (w548-564) That research showed a meaningful, significant reduction in subsequent stroke risk for symptomatic patients with severe stenosis.
+[196.62 - 200.08] (w565-572) In that population, surgery does what it promises.
+[200.32 - 202.56] (w573-579) But what if you haven't had symptoms?
+[202.78 - 208.76] (w580-596) What if a routine ultrasound just found narrowing and suddenly there's a surgical recommendation on the table?
+[209.16 - 212.30] (w597-604) Here is where the research becomes genuinely sobering.
+[212.52 - 228.80] (w605-641) For asymptomatic patients, people who feel completely fine, the asymptomatic coratid surgery trial known as ACST -1 published in the Lancet in 2004 found that the absolute risk reduction from surgery while statistically real requires careful reading.
+[228.98 - 238.42] (w642-668) The five -year gross reduction in stroke risk was about 5 .4 percentage points, but the surgery itself carries a paroperative cost that directly offsets that number.
+[239.02 - 251.08] (w669-700) The ACST1 trial reported that the paroperative stroke and death rate in the surgery group was approximately 3 .1 percent and that was across expert centers participating in a controlled clinical trial.
+[251.24 - 255.26] (w701-708) In routine community hospitals, published research by Dr.
+[255.38 - 265.04] (w709-733) John Birkmeyer and colleagues in the New England Journal of Medicine demonstrated that complication rates for coratid surgery climb measurably higher at lower volume centers.
+[265.34 - 267.72] (w734-741) So let me translate that into plain language.
+[267.92 - 275.26] (w742-765) The surgery carries roughly a 3 % risk of causing the very event it's designed to prevent on the day of the procedure itself.
+[275.46 - 286.74] (w766-796) When you subtract that perioperative cost from the gross five -year benefit, the net advantage for an asymptomatic patient, particularly outside of an expert surgical center, can become very small indeed.
+[287.46 - 293.60] (w797-816) And here is something that has changed significantly in recent years, that most patients never hear in a surgical consultation.
+[294.38 - 299.00] (w817-827) Modern non -surgical management of coratid artery disease has advanced substantially.
+[299.54 - 311.66] (w828-858) High -intensity statin therapy, optimized blood pressure control, and anti -platelet medications like aspirin or cli -pitagel have been shown to meaningfully reduce stroke risk in patients who are properly managed.
+[311.78 - 322.40] (w859-882) For many asymptomatic seniors, particularly those with other conditions that elevate surgical risk, this medical therapy route is now considered a genuinely comparable strategy.
+[322.56 - 324.96] (w883-890) I'm not telling you to refuse this surgery.
+[325.16 - 328.28] (w891-901) I am telling you to ask this and write it down.
+[328.44 - 329.98] (w902-906) Am I symptomatic or asymptomatic?
+[325.14 - 328.30] (w907-917) I am telling you to ask this and write it down.
+[328.44 - 330.82] (w918-922) Am I symptomatic or asymptomatic?
+[331.00 - 336.42] (w923-937) And what is the peroperative complication rate at this specific hospital for this specific procedure?
+[336.62 - 341.78] (w938-950) A confident experienced vascular surgeon will answer both parts of that question directly.
+[341.98 - 348.10] (w951-965) If either part creates visible discomfort or evasion, that is critical information worth acting on.
+[348.46 - 349.66] (w966-967) Surgery 2.
+[349.82 - 351.68] (w968-971) Spinal Cord Stimulator Implantation.
+[352.48 - 361.02] (w972-996) Chronic back pain and nerve pain in the legs is one of the most debilitating conditions that shadows people through their 60s, 70s and beyond.
+[361.20 - 368.36] (w997-1020) If you've been living with it, you know what it does to your sleep, your mood, your independence, your sense of who you are.
+[368.58 - 375.14] (w1021-1039) And when the injections stop working and physical therapy feels like running in place, a new option gets introduced.
+[375.28 - 377.28] (w1040-1043) A spinal cord stimulator.
+[377.60 - 379.96] (w1044-1049) Electrodes placed near your spinal cord.
+[380.10 - 384.70] (w1050-1063) A small battery -powered generator implanted under the skin of your back or abdomen.
+[384.94 - 391.36] (w1064-1078) Electrical pulses precisely calibrated, designed to interrupt the pain signals before they reach your brain.
+[391.60 - 398.10] (w1079-1095) No more opioids, no repeated injections, just a device that keeps working while you live your life.
+[398.24 - 400.98] (w1096-1102) And for some patients, it genuinely helps.
+[401.12 - 402.68] (w1103-1106) I won't pretend otherwise.
+[402.84 - 410.18] (w1107-1129) But here is what the clinic brochures and the 20 -minute Implanting Physician Consultation often leave out when it comes to elderly patients.
+[410.56 - 419.34] (w1130-1152) This is a medical device, a sophisticated battery -powered device implanted into a human body that is moving, aging, and changing every day.
+[419.80 - 422.80] (w1153-1159) And like all implanted devices, it fails.
+[423.06 - 441.00] (w1160-1201) The American Society of Regional Anesthesia, reviewing the published literature, reports that complications from spinal cord stimulators, including lead migration, lead fracture, device malfunction and battery failure requiring replacement, are estimated to range from 20 to 40 percent over the device's lifetime.
+[441.18 - 443.96] (w1202-1208) That range applies to older generation devices.
+[444.08 - 450.64] (w1209-1227) More modern systems show lower rates, though long -term data beyond three years remains limited for the newest technology.
+[450.82 - 457.90] (w1228-1248) A meaningful percentage of seniors who receive this device will need at least one additional procedure to address a hardware problem.
+[458.06 - 466.00] (w1249-1269) For an elderly body, every additional surgical procedure adds cumulative stress to systems that may already be operating with reduced capacity.
+[466.86 - 470.00] (w1270-1277) Any implanted foreign object creates a colonization risk.
+[470.64 - 482.00] (w1278-1306) Infection at the implant site, while not the majority of cases, can be serious and difficult to treat, particularly in elderly patients with diabetes, compromised immunity, or reduced circulation.
+[482.92 - 487.08] (w1307-1316) When an infected device requires removal, that is another surgery.
+[487.26 - 492.16] (w1317-1333) And post removal, the patient is left without the pain management they had come to rely on.
+[492.34 - 502.58] (w1334-1358) The long -term data on spinal cord stimulators, particularly for the most common indication in elderly patients, failed back surgery syndrome, shows highly variable outcomes.
+[502.78 - 509.02] (w1359-1373) Two patients with nearly identical diagnoses can have dramatically different responses to the same device.
+[509.50 - 515.74] (w1374-1389) And the current science cannot reliably predict which category you'll be in before the implantation happens.
+[516.08 - 518.70] (w1390-1399) Here's the part I want you to hear most carefully.
+[518.98 - 525.58] (w1400-1416) In many cases, a spinal cord stimulator is being recommended because a previous spinal surgery didn't work.
+[525.78 - 530.42] (w1417-1430) You had the fusion, the decompression, the hardware, and the pain is still there.
+[530.64 - 531.70] (w1431-1433) Or it changed.
+[531.92 - 533.08] (w1434-1436) Or it's worse.
+[533.52 - 538.66] (w1437-1452) Now, a device is being offered as a solution to the problem the earlier surgery created.
+[538.88 - 544.50] (w1453-1468) If that's your situation, you are being asked to respond to a complication with another procedure.
+[544.60 - 547.94] (w1469-1479) The crucial question to ask is what does the evidence show?
+[548.10 - 556.00] (w1480-1500) Not just immediately after implantation, but at two years and five years for someone with my specific diagnosis and age profile.
+[556.26 - 560.00] (w1501-1510) Early post -implantation results are when patients feel most hopeful.
+[560.60 - 563.00] (w1511-1518) Long term is where the real picture lives.
+[563.36 - 567.00] (w1519-1527) There are also non -implant alternatives deserving serious discussion.
+[567.62 - 579.62] (w1528-1549) Structured interdisciplinary pain rehabilitation programs, radio frequency ablation for specific identifiable pain generators and pain neuroscience education combined with targeted physical therapy.
+[579.84 - 588.28] (w1550-1574) These approaches don't make the news, but for many seniors, they offer meaningful quality of life improvement without putting a permanent device in the spine.
+[588.44 - 594.60] (w1575-1597) If you're still watching and this is helping you, type the number 2 in the comments so I know you're here with me.
+[594.84 - 604.70] (w1598-1622) Surgery 3 – Radical Prostatomy in Elderly Men This section is for every man over 60 watching this, and for every woman who loves one.
+[604.88 - 609.40] (w1623-1634) The moment a doctor says prostate cancer, something happens in the room.
+[609.46 - 610.88] (w1635-1637) The air changes.
+[610.98 - 614.36] (w1638-1644) The instinct kicks in immediately and powerfully.
+[614.52 - 615.34] (w1645-1647) Take it out.
+[615.58 - 616.30] (w1648-1649) Remove it.
+[616.44 - 617.64] (w1650-1653) Get rid of it.
+[617.90 - 626.32] (w1654-1680) I understand that the word cancer carries weight that few other words in medicine carry and I will never dismiss the fear that comes with hearing it.
+[626.48 - 638.00] (w1681-1710) But here is what the research, specifically two landmark trials that followed men for nearly two decades, actually found about elderly men with low to intermediate grade localized prostate cancer.
+[638.14 - 645.94] (w1711-1730) The Pioti trial, published in the New England Journal of Medicine in 2012, followed 731 men for over a decade.
+[646.18 - 650.90] (w1731-1741) Half received radical prostatectomy, full surgical removal of the prostate gland.
+[651.16 - 653.58] (w1742-1747) Half were managed with careful observation.
+[653.70 - 654.62] (w1748-1749) The result?
+[654.82 - 668.52] (w1750-1780) In men with low -risk prostate cancer, surgery provided no statistically significant reduction in overall mortality or prostate cancer specific mortality compared to watchful weighting, and that finding held across time.
+[668.70 - 678.50] (w1781-1810) In 27, the same research team published an updated follow -up in the New England Journal of Medicine, this time covering nearly 20 years of data on the same men.
+[678.62 - 680.48] (w1811-1815) The conclusion was the same.
+[680.72 - 688.50] (w1816-1834) After nearly 20 years, surgery was not associated with significantly lower all -cause or prostate cancer mortality than observation.
+[688.94 - 700.50] (w1835-1870) Where a benefit of surgery appeared at all in longer follow -up, it was concentrated in men with intermediate and higher risk cancer, not in the low -risk group most commonly diagnosed through routine PSA screening.
+[701.12 - 711.88] (w1871-1894) Then came the PROTECTEE trial in 2016, which followed over 1600 men for 10 years across three groups, active monitoring, radical prostatomy, and radiation.
+[712.02 - 717.62] (w1895-1908) Prostate cancer mortality at 10 years was approximately 1 % across all three groups.
+[717.70 - 725.04] (w1909-1925) The differences between groups were not statistically significant, and yet, surgery carries consequences that monitoring does not.
+[725.32 - 729.60] (w1926-1933) Urinary incontinence following radical prostatomy is well documented.
+[729.86 - 740.50] (w1934-1965) The PROTECT -E trial showed that at six months post -surgery, nearly half of the surgery patients reported using absorbent pads daily compared to a small fraction of the active monitoring group.
+[740.68 - 752.02] (w1966-1992) At 12 months, rates improve, but clinically significant persistent incontinence at one year is estimated between 10 and 30 % depending on surgical technique and patient age.
+[752.24 - 754.92] (w1993-1997) Early rates are substantially higher.
+[755.04 - 761.70] (w1998-2012) Erectile dysfunction in men over 65 following prostatomy is even more prevalent across multiple studies.
+[761.82 - 766.48] (w2013-2027) For a 72 -year -old man, these are not minor footnotes in a consent form.
+[766.64 - 772.24] (w2028-2042) They represent a fundamental daily change in how he experiences his body and his life.
+[772.46 - 775.22] (w2043-2051) Here is the misconception I want to correct directly.
+[775.52 - 777.96] (w2052-2057) Active surveillance is not giving up.
+[778.10 - 790.00] (w2058-2082) It is a structured evidence -based clinical protocol involving regular PSA testing, periodic biopsies, MRI imaging, and clearly defined criteria for when treatment becomes necessary.
+[790.52 - 795.00] (w2083-2094) Many men on active surveillance never require surgery or radiation at all.
+[795.32 - 802.00] (w2095-2117) Others move to treatment when the data shows progression, and by then, the decision is far better informed than it was at diagnosis.
+[802.72 - 806.94] (w2118-2126) The prostate cancer conversation is not surgery versus surrender.
+[807.16 - 813.52] (w2127-2142) If you or someone you love receives a prostate cancer diagnosis, please ask this question directly.
+[813.60 - 820.64] (w2143-2161) Based on my Gleason score, my PSA trajectory, and my overall health, am I a candidate for active surveillance?
+[820.88 - 823.64] (w2162-2170) And what would that monitoring protocol actually look like?
+[824.38 - 829.92] (w2171-2182) Prostate cancer in elderly men, particularly low and intermediate grade, grows slowly.
+[830.08 - 834.76] (w2183-2194) A calm, informed decision almost always serves better than a fast one.
+[834.94 - 839.80] (w2195-2207) Do not let urgency be manufactured where the biology does not require it.
+[839.94 - 846.16] (w2208-2227) If this is the kind of information you want before a doctor's appointment, not after, subscribe and hit the bell.
+[846.44 - 852.94] (w2228-2245) Every day I break down exactly what the research says in plain language so you walk in informed.
+[853.16 - 854.38] (w2246-2247) Surgery 4.
+[854.48 - 860.86] (w2248-2260) Simultaneous Bilateral Joint Replacement Let me say something clearly before this section begins.
+[861.02 - 868.98] (w2261-2284) Hip and knee replacements done thoughtfully and one at a time are among the most genuinely successful surgeries in the history of modern medicine.
+[869.10 - 878.72] (w2285-2312) The right patient, the right timing, the right rehabilitation and the outcome is a person who moves freely, sleeps without pain and keeps living the life they love.
+[879.00 - 880.64] (w2313-2316) That isn't in question.
+[880.72 - 886.90] (w2317-2335) What is in question is a specific version of this surgery that's becoming more common in busy orthopedic centers.
+[887.10 - 892.00] (w2336-2351) A version that has a logical appeal on the surface and a hidden cost underneath it.
+[892.24 - 894.70] (w2352-2355) Simultaneous bilateral joint replacement.
+[894.94 - 901.00] (w2356-2371) Both knees or both hips in one operating room under one anesthetic event in one hospitalization.
+[901.72 - 903.78] (w2372-2376) The pitch makes intuitive sense.
+[903.94 - 905.76] (w2377-2381) One anesthesia instead of two.
+[905.94 - 907.78] (w2382-2386) One recovery instead of two.
+[907.94 - 910.20] (w2387-2393) Get it all done and move forward.
+[910.32 - 919.18] (w2394-2414) For a 74 -year -old patient with hypertension, type 2 diabetes and any degree of cardiovascular disease, the arithmetic changes completely.
+[919.34 - 920.48] (w2415-2417) Here is why.
+[920.58 - 928.20] (w2418-2435) Blood loss in simultaneous bilateral joint replacement is substantially higher than in stage procedures, operations done months apart.
+[928.70 - 936.20] (w2436-2455) For an elderly body managing cardiovascular disease or any degree of anemia, that additional blood loss isn't just an inconvenience.
+[936.66 - 946.08] (w2456-2478) It places simultaneous strain on the heart, kidneys and circulatory system at the exact moment they're already responding to anesthesia and surgical trauma.
+[946.18 - 948.42] (w2479-2483) The clotting risk compounds this.
+[948.66 - 959.56] (w2484-2512) Deep vein thrombosis clots forming in the legs and pulmonary embolism when those clots travel to the lungs are consistently elevated in bilateral procedures compared to single -joint operations.
+[959.88 - 979.66] (w2513-2561) A study by Mudus and colleagues analyzing over 4 million total knee arthroplasty discharges and published in clinical orthopedics and related research, showed that bilateral procedures carried higher in -hosp complications and mortality compared to unilateral procedures, with the risk most pronounced in patients with pre -existing co -orbidities.
+[979.88 - 995.32] (w2562-2598) A separate journal of arthroplasty study confirmed that the bilateral group showed a 2 .1 times greater overall complication rate and patients over 70 exhibited significantly higher complication rates than younger patients undergoing the same bilateral approach.
+[995.78 - 997.88] (w2599-2604) Now, it's worth being precise here.
+[998.02 - 1008.00] (w2605-2626) In lower risk patients without significant co -orbidities, large -scale analyses show the mortality gap between bilateral and unilateral procedures narrows considerably.
+[1008.14 - 1017.04] (w2627-2649) The concern is specifically for elderly patients who carry co -orbidities, and that is exactly the population most often facing joint replacement decisions.
+[1017.88 - 1021.50] (w2650-2659) And here's something almost nobody discusses at the consent stage.
+[1021.74 - 1023.12] (w2660-2661) Rehabilitation capacity.
+[1024.04 - 1028.40] (w2662-2670) After bilateral joint replacement, both legs are affected simultaneously.
+[1028.60 - 1033.82] (w2671-2683) Both hurt, both need support, both are being rehabilitated at the same time.
+[1034.04 - 1050.82] (w2684-2721) For a patient who lives alone, has limited family support nearby, or has any cognitive vulnerability, the rehabilitation environment after bilateral surgery can become genuinely hazardous, increasing fall risk, pressure injury risk, and the probability of hospital readmission.
+[1051.48 - 1057.98] (w2722-2739) Before agreeing to bilateral joint replacement in a single procedure, I want you to ask three specific questions.
+[1058.44 - 1066.60] (w2740-2759) What does the complication data show for bilateral versus stage procedures in patients over 70 with my specific health conditions.
+[1066.86 - 1069.50] (w2760-2765) What is the realistic rehabilitation plan?
+[1069.64 - 1075.28] (w2766-2785) Not the generic plan, but the actual plan, given where I live and who will be available to help me.
+[1075.50 - 1081.60] (w2786-2802) What are the risks and benefits of staging these procedures six months apart specifically for my body?
+[1081.78 - 1089.42] (w2803-2822) You may still choose bilateral surgery, but that choice should be yours made with full information, not made by default.
+[1089.54 - 1096.36] (w2823-2848) If you've made it this far and you're getting value from this, type the number 4 in the comments so I know you're here with me.
+[1096.66 - 1097.78] (w2849-2850) Surgery 5.
+[1098.22 - 1099.04] (w2851-2852) EVAR vs.
+[1099.30 - 1100.80] (w2853-2855) Open Aortic Repair.
+[1101.10 - 1102.50] (w2856-2859) Short -term Safety vs.
+[1102.72 - 1103.60] (w2860-2862) Long -term Commitment.
+[1104.54 - 1112.52] (w2863-2885) An abdominal aortic aneurysm, a bulge in the body's main artery, is one of the most serious vascular diagnoses a person can receive.
+[1112.92 - 1117.00] (w2886-2895) If a large aneurysm ruptures, the mortality rate is catastrophic.
+[1118.02 - 1119.56] (w2896-2899) Surgery to prevent rupture.
+[1120.08 - 1123.84] (w2900-2910) In the right patient, at the right time, genuinely saves lives.
+[1124.38 - 1130.98] (w2911-2930) But within this condition lives a decision point that affects outcomes in ways most patients are never fully told about.
+[1131.24 - 1137.16] (w2931-2948) There are two ways to repair an aortic aneurysm, and the difference between them is not simply cosmetic.
+[1137.50 - 1141.84] (w2949-2960) One procedure opens your entire abdomen and takes weeks to recover from.
+[1142.04 - 1146.64] (w2961-2976) The other goes in through small incisions in the groin and sends you home in days.
+[1146.80 - 1161.34] (w2977-3011) The EVAR Trial 1, whose 30 -day results were published in the Lancet in 2004, demonstrated that EVAR carried dramatically lower short -term mortality, 1 .7 % compared to 4 .7 % for open repair.
+[1161.56 - 1168.62] (w3012-3031) That early survival advantage is real and it matters enormously for any elderly patient about to enter an operating room.
+[1168.84 - 1174.02] (w3032-3047) But here is the part that the clinic brochure for endovascular repair very rarely shows you.
+[1174.20 - 1184.78] (w3048-3078) The 15 -year follow -up of that same EVAR trial 1 published in the Lancet in 2016 arrived at a conclusion that fundamentally changes how we should talk about this procedure.
+[1184.98 - 1194.84] (w3079-3118) While EVAR carries a clear early survival benefit, the researchers found it carries an inferior While EVAR carries a clear early survival benefit, the researchers found it carries an inferior late survival compared to open repair beyond approximately eight years.
+[1195.16 - 1206.08] (w3119-3146) After that point, aneurysm -related mortality was actually higher in the EVAR group, driven primarily by secondary sac rupture in patients whose device had developed endolacs over time.
+[1206.60 - 1211.80] (w3147-3158) A systematic review published in 2019 confirmed this finding across multiple studies.
+[1212.32 - 1222.10] (w3159-3185) EVAR is associated with higher long -term all -cause mortality, higher re -intervention rates, and higher secondary rupture rates compared to open repair over the long term.
+[1222.82 - 1224.50] (w3186-3190) So, which approach is right?
+[1225.04 - 1232.88] (w3191-3213) This is where age and life expectancy genuinely matter in the calculation, and where the conversation needs to become very specific to you.
+[1233.14 - 1242.32] (w3214-3239) For an elderly patient in their late 70s or 80s with other health conditions, EVAR's powerful short -term advantage is likely the most clinically relevant factor.
+[1242.58 - 1253.74] (w3240-3272) The eight -year crossover point where open repair begins to show better long -term survival may not be the primary concern for a patient whose most immediate risk is surviving the operation itself.
+[1253.98 - 1259.04] (w3273-3286) EVAR gets them through the repair with far less physiological burden, and that matters.
+[1259.24 - 1272.26] (w3287-3326) For a patient in their mid to late 60 seconds who may realistically live another 20 years, the long -term durability picture favors open repair, provided they can tolerate the operative burden and have the reserve to recover from it.
+[1272.44 - 1276.42] (w3327-3338) And critically, EVAR is not a one -time fix and walk away.
+[1276.56 - 1282.44] (w3339-3351) It requires lifelong surveillance through annual imaging to detect endolacks and device complications.
+[1282.62 - 1285.82] (w3352-3359) That commitment to ongoing monitoring is not optional.
+[1285.96 - 1290.12] (w3360-3371) It is essential and must be clearly understood before choosing this path.
+[1290.24 - 1295.96] (w3372-3389) The question to ask your vascular surgeon is not simply, can I have EVAR instead of open surgery?
+[1296.12 - 1307.08] (w3390-3417) The right question is, given my age, my life expectancy, and my ability to tolerate each approach, which procedures risk profile is actually better matched to my situation?
+[1307.32 - 1311.84] (w3418-3431) And what does the long -term surveillance commitment for EVAR look like in practice?
+[1312.08 - 1313.32] (w3432-3436) One more thing on this.
+[1313.50 - 1317.38] (w3437-3443) Not every diagnosed aneurysm requires immediate intervention.
+[1317.64 - 1326.08] (w3444-3462) Current clinical guidelines generally recommend repair when an abdominal aortic aneurysm reaches or exceeds 5 .5 cm in diameter.
+[1326.42 - 1335.52] (w3463-3485) Below that threshold in most patients, regular ultrasound surveillance every 6 to 12 months, combined with blood pressure optimization, is the appropriate strategy.
+[1335.82 - 1346.14] (w3486-3513) If you have been diagnosed with an aneurysm under 5 cm and surgery is being recommended urgently, ask clearly what specific characteristic puts you in a different category.
+[1346.36 - 1349.26] (w3514-3520) That answer should be specific, not general.
+[1349.42 - 1360.20] (w3521-3553) If you have a parent, a spouse, a sibling, or a close friend who is facing any kind of surgical decision right now, please share this video with them before that consultation happens.
+[1360.38 - 1362.38] (w3554-3556) Not after, before.
+[1362.60 - 1368.00] (w3557-3572) Five minutes of the right information at the right moment can change everything about that conversation.
+[1368.38 - 1370.00] (w3573-3576) We've covered five surgeries.
+[1370.42 - 1373.64] (w3577-3586) Now, let's talk about how you actually use this information.
+[1374.02 - 1377.00] (w3587-3596) Because knowledge that stays in your head doesn't protect you.
+[1377.50 - 1382.00] (w3597-3610) Knowledge that you walk into a consultation with written down ready to ask, does.
+[1382.62 - 1387.92] (w3611-3626) Before any major surgery, here are four questions I want you to ask every single time.
+[1388.12 - 1392.72] (w3627-3641) Question one, what happens if I don't have this surgery in the next six months?
+[1393.02 - 1396.88] (w3642-3652) This is the most important question that most patients never ask.
+[1397.02 - 1402.56] (w3653-3666) A good surgeon, a confident, honest surgeon, will give you a specific, clear answer.
+[1402.72 - 1407.78] (w3667-3682) If the answer is that nothing becomes medically urgent in the near term, you have time.
+[1407.92 - 1414.60] (w3683-3700) Time to get a second opinion, time to explore alternatives, time to optimize your health before any procedure.
+[1414.76 - 1421.16] (w3701-3715) If a surgeon seems visibly uncomfortable with this question, that discomfort is itself important data.
+[1421.42 - 1426.06] (w3716-3726) Question two, is there a less invasive or non -surgical alternative?
+[1426.26 - 1429.96] (w3727-3737) And what does the evidence show for someone my age specifically?
+[1430.22 - 1431.48] (w3738-3741) Note the second part.
+[1431.58 - 1434.52] (w3742-3749) You're not asking whether alternatives exist in theory.
+[1434.68 - 1440.14] (w3750-3763) You're asking about the evidence for your demographic, your age group, your health profile.
+[1440.28 - 1446.72] (w3764-3785) The answer for a 45 -year -old and a 75 -year -old are frequently different, and you deserve the age -appropriate answer.
+[1447.74 - 1448.70] (w3786-3787) Question 3.
+[1448.92 - 1454.40] (w3788-3803) What does realistic recovery look like for someone with my health conditions and my living situation?
+[1454.68 - 1458.48] (w3804-3812) Not the textbook recovery, not the brochure recovery, yours.
+[1459.30 - 1463.84] (w3813-3826) If you live alone, what support will you realistically need and for how long?
+[1464.14 - 1467.74] (w3827-3835) If that conversation hasn't happened yet, start it yourself.
+[1468.14 - 1471.00] (w3836-3845) Question 4, and this is the one most people skip.
+[1471.68 - 1476.72] (w3846-3859) What is your personal outcome data for this specific procedure in patients over 70?
+[1477.18 - 1478.78] (w3860-3864) Four words to lead with.
+[1479.06 - 1480.00] (w3865-3868) What are your numbers?
+[1480.58 - 1482.00] (w3869-3872) Surgeons track their outcomes.
+[1482.68 - 1489.06] (w3873-3889) High -volume experienced surgeons know their personal complication rates and will give them to you without hesitation.
+[1489.22 - 1496.58] (w3890-3907) If that question is met with deflection, vagueness or visible discomfort, seek a second opinion before signing anything.
+[1496.78 - 1499.50] (w3908-3917) You are not being difficult when you ask these questions.
+[1499.64 - 1505.46] (w3918-3932) You are being exactly the kind of engaged, informed patient that good medicine depends on.
+[1505.80 - 1507.52] (w3933-3940) I want to tell you about a patient.
+[1507.66 - 1509.10] (w3941-3944) I'll call him Raymond.
+[1509.44 - 1519.16] (w3945-3972) Raymond was 74 years old, retired, sharp, the kind of man who still read the newspaper front to back every morning and had opinions about all of it.
+[1519.36 - 1525.88] (w3973-3991) He came to me after a routine coratid ultrasound showed 65 % narrowing in one of his neck arteries.
+[1526.04 - 1532.00] (w3992-4006) No symptoms, no thanks in advance, no episodes, nothing, just a number on a scan.
+[1532.14 - 1535.60] (w4007-4016) But the referral letter from his primary physician was direct.
+[1535.68 - 1538.62] (w4017-4020) Vascular surgery consultation recommended.
+[1538.76 - 1543.56] (w4021-4036) When Raymond sat across from me, he had printed out three papers from peer -reviewed journals.
+[1543.70 - 1544.90] (w4037-4040) He had highlighted them.
+[1545.06 - 1547.30] (w4041-4049) He asked if we could go through them together.
+[1547.52 - 1549.88] (w4050-4056) We spent 45 minutes in that room.
+[1550.04 - 1560.78] (w4057-4080) We reviewed his specific situation, his asymptomatic status, his excellent cardiovascular risk management, his surgical risk profile, given his kidney function and current medications.
+[1561.00 - 1568.70] (w4081-4101) And together, based on the evidence, we concluded that optimizing his medical therapy was the appropriate path for his specific profile.
+[1568.78 - 1575.84] (w4102-4118) We adjusted his statin, refined his blood pressure management, and reinforced lifestyle habits he already maintained well.
+[1576.04 - 1577.80] (w4119-4123) That was six years ago.
+[1578.20 - 1580.16] (w4124-4128) Raymond sends me notes occasionally.
+[1580.36 - 1585.64] (w4129-4149) Last year, he wrote to tell me he had finally finished a memoir he'd been working on for nearly a decade.
+[1586.04 - 1588.74] (w4150-4158) He said something I've thought about many times since.
+[1589.14 - 1590.88] (w4159-4163) You didn't give me surgery.
+[1590.94 - 1592.20] (w4164-4167) You gave me time.
+[1592.38 - 1594.34] (w4168-4174) And I used every bit of it.
+[1594.76 - 1597.32] (w4175-4181) That is what informed medicine looks like.
+[1597.54 - 1600.56] (w4182-4189) Not medicine that reflexively avoids the operating room.
+[1600.86 - 1603.76] (w4190-4198) Not medicine that reflexively runs toward it it either.
+[1604.12 - 1615.60] (w4199-4230) Medicine that stops, asks the right questions, looks at the whole person, and chooses the path that is actually right for this specific human being at this specific moment in their life.
+[1615.72 - 1618.72] (w4231-4237) A surgical recommendation is not a verdict.
+[1618.86 - 1621.94] (w4238-4249) It is not a test of how seriously you take your health.
+[1622.12 - 1630.32] (w4250-4271) It is the beginning of a conversation, and you have every right to be an active, questioning, unhurried participant in that conversation.
+[1630.58 - 1635.22] (w4272-4284) You hold more power in that consultation room than most patients ever realize.
+[1635.52 - 1635.76] (w4285-4286) Use it.
+[1636.62 - 1638.16] (w4287-4292) Let me bring it all together.
+[1638.36 - 1640.66] (w4293-4298) None of this means avoid surgery.
+[1640.90 - 1644.86] (w4299-4309) It means be the most informed person in that consultation room.
+[1645.10 - 1646.72] (w4310-4313) Ask the hard questions.
+[1646.88 - 1648.44] (w4314-4316) Request the evidence.
+[1648.58 - 1652.56] (w4317-4327) Seek a second opinion when your instinct says something isn't complete.
+[1652.70 - 1654.84] (w4328-4333) Your age is not a weakness.
+[1654.98 - 1657.40] (w4334-4339) Your questions are not an inconvenience.
+[1657.62 - 1661.88] (w4340-4349) Your full, honest participation in medical decisions is not optional.
+[1662.04 - 1663.32] (w4350-4352) It is essential.
+[1663.80 - 1671.30] (w4353-4370) Now, everything I've shared today is general educational information based on published medical research and preventive health principles.
+[1671.42 - 1675.02] (w4371-4383) It is not personal medical advice, and it was never meant to be.
+[1675.28 - 1677.50] (w4384-4388) Every person's situation is unique.
+[1677.68 - 1684.82] (w4389-4408) Before making any decision about surgery or treatment, please have a thorough, direct conversation with your own doctor or specialist.
+[1685.00 - 1686.26] (w4409-4412) They know your history.
+[1686.36 - 1687.10] (w4413-4416) They know your body.
+[1687.56 - 1693.34] (w4417-4429) And that conversation, informed, unhurried, and honest, is exactly where good medicine begins.
+[1693.90 - 1700.68] (w4430-4452) If this video gave you one question you'll actually ask, or one conversation you'll actually have, share it with someone you care about.
+[1701.22 - 1703.08] (w4453-4460) That share might matter more than you know.
+[1703.62 - 1704.58] (w4461-4464) Take care of yourselves.
+[1705.06 - 1707.08] (w4465-4474) Stay curious, and I'll see you in the next one.

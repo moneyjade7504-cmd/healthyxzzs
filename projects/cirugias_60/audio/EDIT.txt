@@ -1,0 +1,18 @@
+voice.mp3 = voice_orig.mp3 minus (orig seconds):
+   48.33-   50.20  I have seen over and over (xưng bác sĩ)
+   75.60-   77.26  My name is Dr. Elias (xưng bác sĩ)
+  233.83-  238.87  trừ rủi ro mổ khỏi lợi ích (sai phép tính)
+  275.33-  287.29  trừ rủi ro mổ (sai phép tính)
+  419.72-  427.73  it fails · ASRA (không xác minh)
+  846.10-  852.88  Every day I break down
+  979.70-  995.62  2,1 lần (không xác minh)
+ 1337.82- 1339.24  dưới 5 cm (mâu thuẫn ngưỡng)
+ 1505.71- 1507.55  about a patient
+ 1519.28- 1520.12  came to me
+ 1538.60- 1540.36  sat across from me
+ 1544.92- 1561.85  we went through them / 45 minutes
+ 1563.06- 1564.05  we concluded
+ 1568.70- 1575.85  we adjusted
+ 1578.12- 1580.26  sends me notes
+ 1580.86- 1581.74  wrote to tell me
+ 1585.92- 1589.00  I've thought about
