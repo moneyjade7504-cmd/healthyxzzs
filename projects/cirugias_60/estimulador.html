@@ -1,0 +1,53 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('s2'); window.END=C('s3'); window.DURATION=window.END;
+STitle(C('s2'),C('chronic'),2,'Spinal cord stimulator','an implanted device for chronic pain',['spine','stimulator']);
+{const B=FB(C('chronic'),C('injections'),'S2_1','Chronic back &amp; leg pain',{capT:0.4,size:64,from:[.5,.5,1.0],to:[.6,.5,1.15],
+  draw:(c,t)=>{const k=0.5+0.5*Math.sin(t*6); c.globalAlpha=k; c.fillStyle='rgba(255,60,40,0.25)'; c.beginPath(); c.arc(1000,430,90+20*k,0,7); c.fill(); c.globalAlpha=1;}});
+ [['sleep',0],['mood',1.2],['independence',2.4]].forEach(([h,d],i)=>Cap(B,h,{cx:620+i*340,cy:90,size:48,t0:C('living')+2+d,pill:true}));}
+{const B=Beat(C('injections'),C('scs'),{enter:'up'}); Cut(B,'d_backpain',{cx:520,cy:1020,h:740,amp:3,shake:1.5});
+ Cap(B,'Injections stop working…',{cx:1320,cy:360,size:62,t0:B.a+0.2}); Cap(B,'physio feels like running in place',{cx:1320,cy:480,size:46,t0:B.a+2,color:'#6a6f86'});
+ Cap(B,'→ a <span class="hl">new option</span>',{cx:1320,cy:660,size:72,t0:B.a+4.5});}
+// how it works
+{const B=Beat(C('scs'),C('helps'),{enter:'zoom'}); Cut(B,'spine',{cx:430,cy:1030,h:900,amp:2,tilt:.4});
+ Canvas(B,(c,t)=>{if(t<C('pulses'))return; for(let i=0;i<4;i++){const ph=((t-C('pulses'))*0.8+i/4)%1, y=980-ph*800; c.globalAlpha=Math.sin(ph*Math.PI); sparks(c,t+i,{x:470,y,s:1.6});} c.globalAlpha=1;});
+ Cap(B,'A <span class="hl">spinal cord stimulator</span>',{cx:1260,cy:110,size:62,t0:B.a+0.2});
+ [['electrodes near the spinal cord',C('electrodes')],['a battery generator under the skin',C('generator')],['pulses that block pain signals',C('pulses')]].forEach(([h,t0],i)=>{Num(B,i+1,{cx:820,cy:280+i*150,r:40,t0}); Cap(B,h,{cx:1260,cy:280+i*150,size:46,t0:t0+0.1});});
+ Cut(B,'stimulator',{cx:1100,cy:950,h:300,amp:4,t0:C('generator')}); Cut(B,'bolt',{cx:1540,cy:930,h:260,amp:6,t0:C('pulses')+1});
+ Cap(B,'the promise: no opioids, no injections',{cx:1260,cy:720,size:46,t0:C('opioids'),pill:true});}
+{const B=FB(C('helps'),C('device'),'S2_2','For some patients, it <span class="green">genuinely helps</span>',{capT:0.3,size:60,from:[.5,.5,1.0],to:[.55,.35,1.16],
+  draw:(c,t)=>sparks(c,t,{x:930,y:290,s:1.2})});
+ Cap(B,'but what does the brochure leave out?',{cx:960,cy:90,size:46,t0:C('leaveout')+1,pill:true});}
+// complications
+{const B=Beat(C('device'),C('additional'),{enter:'zoom'}); Cap(B,'An implanted device <span class="red">can fail</span>',{cx:960,cy:110,size:62,t0:B.a+0.3});
+ Row(B,[['stimulator','Wires move',C('compl')+1.5,'no'],['bolt','Wires break',C('compl')+2.8,'no'],['question','Device faults',C('compl')+4.2,'no'],['battery','Battery replacement',C('compl')+5.6,'no']],{y:430,cardH:440,h:240});
+ Card(B,{cx:960,cy:860,w:1300,h:230,t0:C('compl')+8,border:'#e23b2e'});
+ Cap(B,'≈ <span class="red">20–40%</span> have some complication over time',{cx:960,cy:820,size:54,t0:C('compl')+8.2});
+ Cap(B,'newer systems: lower rates · long-term data still limited',{cx:960,cy:910,size:40,t0:C('modern2'),color:'#6a6f86'});
+ Src(B,'Published reviews · estimates vary by study and device generation');}
+{const B=Beat(C('additional'),C('foreign')); Cut(B,'d_sit',{cx:500,cy:1020,h:700,amp:3});
+ Cap(B,'Many will need',{cx:1300,cy:330,size:58,t0:B.a+0.3}); Cap(B,'<span class="hl">at least one more</span> procedure',{cx:1300,cy:450,size:64,t0:B.a+1.5});
+ Cap(B,'and every procedure adds stress',{cx:1300,cy:640,size:48,t0:C('cumulative'),color:'#6a6f86'}); Cap(B,'to an older body',{cx:1300,cy:720,size:48,t0:C('cumulative')+1,color:'#6a6f86'});}
+Warn(C('foreign'),C('variable'),'Infection',['not common — but can be <span class="red">serious</span>','higher risk: diabetes · poor circulation','infected device removed = <span class="red">another surgery</span>','…and the pain relief is gone'],{panel:'S2_1',keys:[C('infection'),C('infection')+5,C('removal'),C('postremoval')]});
+{const B=Beat(C('variable'),C('carefully'),{enter:'up'}); Cap(B,'Results <span class="hl">vary a lot</span>',{cx:960,cy:110,size:66,t0:B.a+0.3});
+ Cut(B,'d_cane',{cx:480,cy:960,h:620,amp:4,t0:C('twopat')}); Cut(B,'d_backpain',{cx:1440,cy:960,h:620,amp:3,t0:C('twopat')+1,shake:1});
+ Cap(B,'same diagnosis…',{cx:960,cy:330,size:50,t0:C('twopat')+1.5}); Cut(B,'question',{cx:960,cy:760,h:300,amp:8,t0:C('predict')});
+ Cap(B,'we can’t predict who will benefit',{cx:960,cy:960,size:48,t0:C('predict')+1,pill:true});}
+{const B=Beat(C('carefully'),C('crucial')); Cap(B,'Often offered when a <span class="hl">back surgery didn’t work</span>',{cx:960,cy:120,size:56,t0:C('previous')});
+ Chain(B,[['spine','Back surgery',C('previous')+1],['d_backpain','Pain still there',C('fusion')],['stimulator','Device offered',C('offered')]],{y:470,h:300});
+ Cap(B,'a complication answered with <span class="red">another procedure</span>',{cx:960,cy:930,size:52,t0:C('situation')+1,pill:true});}
+{const B=Beat(C('crucial'),C('alts'),{enter:'zoom'}); Cut(B,'d_paper',{cx:330,cy:1020,h:640,amp:3});
+ Card(B,{cx:1150,cy:330,w:1340,h:300,t0:B.a+0.2,border:'#2f6fd6'});
+ Cap(B,'Ask: what does the evidence show',{cx:1150,cy:270,size:50,t0:B.a+0.4,color:'#2f6fd6'});
+ Cap(B,'at <span class="hl">2 and 5 years</span>, for my diagnosis and age?',{cx:1150,cy:370,size:52,t0:C('twoyears')+1});
+ const s=Svg(B); Draw(B,s,'M560 760 L1760 760',{t0:C('hopeful'),dur:1.2,stroke:'#3a3c52',w:8});
+ Cap(B,'first months:<br><span class="green">hopeful</span>',{cx:740,cy:860,size:44,t0:C('hopeful')+0.5}); Cut(B,'hourglass',{cx:1150,cy:740,h:200,amp:4,t0:C('hopeful')+1});
+ Cap(B,'long term:<br><span class="hl">the real picture</span>',{cx:1560,cy:860,size:44,t0:C('longterm')});}
+{const B=FB(C('alts'),C('news'),'S2_3','Alternatives <span class="hl">without an implant</span>',{capT:0.3,size:60,from:[.5,.5,1.0],to:[.4,.55,1.14]});
+ [['structured pain rehabilitation',C('structured')],['radiofrequency ablation',C('structured')+3.5],['physio + pain education',C('structured')+7]].forEach(([h,t0],i)=>Cap(B,h,{cx:1650,cy:90+i*95,size:40,t0,pill:true}));}
+FB(C('news'),C('two'),'S2_4','Better quality of life — <span class="green">no device in the spine</span>',{capT:1,size:56,from:[.5,.5,1.0],to:[.5,.4,1.12],draw:(c,t)=>rays(c,t,{x:1500,y:120,r0:60,r1:100,lw:5})});
+{const B=Beat(C('two'),C('s3'),{enter:'zoom'}); Cut(B,'m_thumbs',{cx:500,cy:1020,h:740,amp:5});
+ Cap(B,'Helping you?',{cx:1300,cy:300,size:66,t0:B.a+0.3}); const n=mk('div','num',B.L,'2'); Object.assign(n.style,{left:'1300px',top:'560px',width:'260px',height:'260px',fontSize:'190px'}); Pop(B,n,{t0:B.a+1});
+ Cap(B,'💬 type it in the comments',{cx:1300,cy:820,size:54,t0:B.a+1.6});}
+</script></body></html>

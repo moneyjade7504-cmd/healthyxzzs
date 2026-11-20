@@ -1,0 +1,55 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('s3'); window.END=C('s4'); window.DURATION=window.END;
+{const B=STitle(C('s3'),C('moment'),3,'Radical prostatectomy','removing the prostate',['prostate','hourglass']);
+ Cap(B,'for every man over 60 — and everyone who loves one',{cx:960,cy:860,size:42,t0:C('s3')+4,color:'#6a6f86'});}
+{const B=FB(C('moment'),C('twotrials'),'S2_5','“Prostate cancer.”',{capT:0.3,size:66,from:[.5,.5,1.0],to:[.35,.4,1.18]});
+ Cap(B,'Take it out! Remove it!',{cx:960,cy:90,size:56,t0:C('takeit'),pill:true,t1:C('understand')});
+ Cap(B,'the fear is <span class="hl">real</span>',{cx:960,cy:90,size:56,t0:C('understand')+0.4,pill:true});}
+{const B=Beat(C('twotrials'),C('pivot')); Cut(B,'d_sit',{cx:480,cy:1020,h:700,amp:3});
+ Cap(B,'What <span class="hl">2 large trials</span> found',{cx:1300,cy:340,size:62,t0:B.a+0.3}); Cap(B,'men followed for up to ~20 years',{cx:1300,cy:470,size:46,t0:B.a+3,color:'#6a6f86'});
+ Cap(B,'localized, lower-risk cancer',{cx:1300,cy:620,size:52,t0:B.a+6,pill:true});}
+// PIVOT
+{const B=Beat(C('pivot'),C('update'),{enter:'zoom'}); Cap(B,'PIVOT · New England Journal of Medicine, 2012 · <span class="hl">731 men</span>',{cx:960,cy:100,size:48,t0:B.a+0.3});
+ Card(B,{cx:560,cy:450,w:620,h:380,t0:C('half'),border:'#e23b2e'}); Cut(B,'prostate',{cx:560,cy:610,h:200,t0:C('half')+0.2,amp:3}); Cap(B,'½ surgery',{cx:560,cy:310,size:60,t0:C('half')+0.2});
+ Card(B,{cx:1360,cy:450,w:620,h:380,t0:C('observ'),border:'#2f6fd6'}); Cut(B,'calendar',{cx:1360,cy:610,h:200,t0:C('observ')+0.2,amp:3}); Cap(B,'½ observation',{cx:1360,cy:310,size:60,t0:C('observ')+0.2});
+ const e=mk('div','num',B.L,'≈'); Object.assign(e.style,{left:'960px',top:'450px',width:'150px',height:'150px',fontSize:'110px',background:'#22a35a',boxShadow:'0 6px 0 #157a40'}); Pop(B,e,{t0:C('lowrisk')+1});
+ Cap(B,'Surgery: no significant reduction',{cx:960,cy:780,size:54,t0:C('lowrisk')+1.5}); Cap(B,'in overall deaths or prostate-cancer deaths',{cx:960,cy:870,size:46,t0:C('lowrisk')+3,color:'#6a6f86'});}
+{const B=Beat(C('update'),C('protect')); Cut(B,'hourglass',{cx:420,cy:860,h:520,amp:4});
+ Cap(B,'2017 update · <span class="hl">~20 years</span>',{cx:1250,cy:260,size:64,t0:B.a+0.3}); Cap(B,'the same result',{cx:1250,cy:390,size:58,t0:C('same')});
+ Card(B,{cx:1250,cy:700,w:1050,h:260,t0:C('benefitint'),border:'#f7ad36',bg:'#fffaf0'});
+ Cap(B,'any possible benefit: <span class="hl">intermediate-risk</span>',{cx:1250,cy:660,size:48,t0:C('benefitint')+0.3}); Cap(B,'not the low-risk cancers found by routine PSA',{cx:1250,cy:750,size:40,t0:C('benefitint')+3,color:'#6a6f86'});
+ Src(B,'PIVOT, NEJM 2012 and 2017');}
+// ProtecT
+{const B=Beat(C('protect'),C('incont'),{enter:'zoom'}); Cap(B,'ProtecT · 2016 · <span class="hl">1,643 men</span> · 10 years',{cx:960,cy:100,size:52,t0:B.a+0.3});
+ [['calendar','Active monitoring'],['prostate','Surgery'],['bolt','Radiation']].forEach(([c,l],i)=>{const x=480+i*480, t0=B.a+3+i*1.2; Card(B,{cx:x,cy:480,w:420,h:460,t0}); Cut(B,c,{cx:x,cy:570,h:190,t0:t0+0.1,amp:3,phase:i}); Cap(B,l,{cx:x,cy:310,size:46,t0:t0+0.15});
+  const v=Cap(B,'',{cx:x,cy:640,size:66,t0:C('onepct'),color:'#1f9d55'}); B.fx.push(t=>{v.innerHTML='≈ '+(eo(prog(t,C('onepct'),C('onepct')+1.2))*1).toFixed(1)+'%';});});
+ Cap(B,'died of prostate cancer — about the <span class="hl">same</span> in all 3',{cx:960,cy:790,size:48,t0:C('onepct')+1});
+ Cap(B,'monitoring had more progression → it must be done carefully',{cx:960,cy:900,size:40,t0:C('consequences')+2,color:'#b97a00'});
+ Src(B,'ProtecT trial, NEJM 2016');}
+// pads
+{const B=Beat(C('incont'),C('erectile'),{enter:'up'}); Cap(B,'Daily pads for urine leakage · <span class="hl">6 months</span> after',{cx:960,cy:100,size:52,t0:C('pads')});
+ Bars(B,[['surgery',46,'#e23b2e',C('pads')+3],['monitoring',4,'#2f6fd6',C('pads')+5]],{x:760,base:850,maxH:560});
+ Cut(B,'pad',{cx:1550,cy:560,h:300,amp:4,t0:C('pads')+1});
+ Cap(B,'improves over time —',{cx:1550,cy:780,size:46,t0:C('twelve')}); Cap(B,'<span class="red">not for everyone</span>',{cx:1550,cy:860,size:52,t0:C('twelve')+1.5});
+ Src(B,'ProtecT, NEJM 2016 (patient-reported outcomes)');}
+{const B=Beat(C('erectile'),C('misconception')); Cut(B,'d_sit',{cx:480,cy:1020,h:700,amp:3}); Cut(B,'m_comfort',{cx:1660,cy:1020,h:600,amp:4,t0:B.a+1});
+ Cap(B,'Erection problems:',{cx:1080,cy:300,size:56,t0:B.a+0.3}); Cap(B,'<span class="red">even more common</span>',{cx:1080,cy:400,size:62,t0:B.a+1.5});
+ Cap(B,'At 72, these aren’t footnotes:',{cx:1080,cy:600,size:50,t0:C('seventytwo')}); Cap(B,'they change <span class="hl">daily life</span>',{cx:1080,cy:700,size:58,t0:C('daily')});}
+// active surveillance
+{const B=Beat(C('misconception'),C('protocol'),{enter:'zoom'}); Cut(B,'d_cane',{cx:480,cy:1020,h:720,amp:4});
+ Cap(B,'Active surveillance',{cx:1280,cy:380,size:72,t0:B.a+0.4,color:'#2f6fd6'}); Cap(B,'is <span class="red">NOT</span> giving up',{cx:1280,cy:520,size:72,t0:C('notgivingup')+0.4});}
+{const B=Beat(C('protocol'),C('never'),{enter:'up'}); Cap(B,'A <span class="hl">structured plan</span>',{cx:960,cy:110,size:62,t0:B.a+0.3});
+ Row(B,[['tube','Regular PSA',B.a+2,'ok'],['calendar','Biopsies when needed',B.a+4,'ok'],['mri','MRI',B.a+5.5,'ok'],['hourglass','Clear rules for when to treat',B.a+7.5,'ok']],{y:540,cardH:520,h:260});}
+{const B=FB(C('never'),C('surrender'),'S2_7','Many <span class="green">never need</span> surgery or radiation',{capT:0.3,size:58,from:[.5,.5,1.0],to:[.65,.4,1.14]});
+ Cap(B,'others treat when needed — better informed',{cx:960,cy:90,size:46,t0:C('others'),pill:true});}
+{const B=FB(C('surrender'),C('gleason'),'S2_6','Not “surgery versus surrender”',{capT:0.3,size:62,from:[.5,.5,1.0],to:[.5,.5,1.15]});
+ Cap(B,'ask this, directly:',{cx:960,cy:90,size:50,t0:C('diagnosis')+1,pill:true});}
+{const B=Beat(C('gleason'),C('slowly'),{enter:'zoom'}); Cut(B,'d_paper',{cx:330,cy:1020,h:640,amp:3});
+ Card(B,{cx:1150,cy:470,w:1380,h:560,t0:B.a+0.1,border:'#2f6fd6'}); Cap(B,'Questions for your doctor',{cx:1150,cy:240,size:50,t0:B.a+0.2,color:'#2f6fd6'});
+ QList(B,[['With my Gleason score, PSA and health:<br>am I a candidate for <span class="hl">active surveillance</span>?',B.a+0.4],['What would that <span class="hl">monitoring</span> look like?',C('monitorq')]],{x:1250,nx:540,y0:390,gap:230,size:46});}
+{const B=FB(C('slowly'),C('subscribe'),'S2_8','Low-risk prostate cancer usually <span class="hl">grows slowly</span>',{capT:0.3,size:56,from:[.5,.5,1.0],to:[.45,.4,1.12],draw:(c,t)=>leaves(c,t,{w:1672,h:941})});
+ Cap(B,'a calm, informed decision beats a rushed one',{cx:960,cy:90,size:48,t0:C('calm'),pill:true,t1:C('urgency')}); Cap(B,'don’t let urgency be manufactured',{cx:960,cy:90,size:48,t0:C('urgency')+0.3,pill:true});}
+Subscribe(C('subscribe'),C('s4'),{pose:'m_thumbs',line:'Get this <span class="hl">before</span> your appointment'});
+</script></body></html>
