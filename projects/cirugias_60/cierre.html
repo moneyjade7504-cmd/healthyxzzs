@@ -5,14 +5,14 @@ window.START=C('raymond'); window.END=1619.0; window.DURATION=window.END;
 const dram=B=>{const p=mk('div','pill',B.L,'DRAMATIZATION'); Object.assign(p.style,{left:'1700px',top:'60px',fontSize:'34px',borderColor:'#6a6f86',color:'#6a6f86'}); Pop(B,p,{t0:B.a+0.2});};
 {const B=FB(C('raymond'),C('scan'),'S4_4','Let’s call him <span class="hl">Raymond</span>, 74',{capT:0.2,size:62,from:[.5,.5,1.0],to:[.45,.4,1.14],draw:(c,t)=>steam(c,t,{x:300,y:620,w:50,n:5,r:12,rise:110})}); dram(B);
  Cap(B,'reads the newspaper front to back',{cx:760,cy:90,size:46,t0:C('r74')+3,pill:true});}
-{const B=Beat(C('scan'),C('referral'),{enter:'zoom'}); dram(B); Cut(B,'neck_artery',{cx:500,cy:950,h:600,amp:3});
+{const B=Beat(C('scan'),C('referral'),{enter:'zoom'}); dram(B); Cut(B,'plaque',{cx:520,cy:700,h:300,amp:3}); Cut(B,'probe',{cx:420,cy:1000,h:240,amp:4,t0:B.a+0.4});
  Cap(B,'routine ultrasound:',{cx:1280,cy:280,size:56,t0:B.a+0.3}); const v=Cap(B,'',{cx:1280,cy:430,size:110,t0:B.a+1,color:'#e23b2e'});
  B.fx.push(t=>{v.innerHTML=Math.round(65*eo(prog(t,B.a+1,B.a+2.5)))+'% narrowing';});
  Cap(B,'no symptoms · nothing',{cx:1280,cy:620,size:56,t0:C('nosym4'),pill:true});}
-{const B=Beat(C('referral'),C('basedev')); dram(B); Cut(B,'d_news',{cx:460,cy:1080,h:620,amp:3});
- Cap(B,'Referral: <span class="hl">vascular surgery</span>',{cx:1280,cy:260,size:58,t0:B.a+0.3});
- Fly(B,'papers',{x0:1000,y0:900,x1:1300,y1:620,h:300,t0:C('printed'),dur:1.4});
- Cap(B,'he printed 3 studies… and highlighted them',{cx:1280,cy:900,size:46,t0:C('printed')+1});}
+{const B=Beat(C('referral'),C('basedev')); dram(B); Panel(B,'S4_4',{x:520,y:600,w:860,from:[.5,.5,1],to:[.6,.6,1.12]});
+ Cap(B,'Referral: <span class="hl">vascular surgery</span>',{cx:1400,cy:260,size:58,t0:B.a+0.3});
+ Fly(B,'papers',{x0:1100,y0:900,x1:1450,y1:600,h:300,t0:C('printed'),dur:1.4});
+ Cap(B,'he printed 3 studies… and highlighted them',{cx:1420,cy:880,size:42,t0:C('printed')+1});}
 {const B=FB(C('basedev'),C('quote'),'S4_5','Together: <span class="hl">stronger medical treatment</span>',{capT:0.3,size:58,from:[.5,.5,1.0],to:[.5,.45,1.14]}); dram(B);
  [['statin',0],['blood pressure',1.2],['habits',2.4]].forEach(([h,d],i)=>Cap(B,h,{cx:560+i*380,cy:90,size:46,t0:B.a+2+d,pill:true}));
  Cap(B,'6 years later…',{cx:960,cy:200,size:52,t0:C('sixago'),pill:true});}
