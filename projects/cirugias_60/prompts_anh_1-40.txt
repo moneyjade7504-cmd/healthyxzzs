@@ -1,6 +1,6 @@
 # Image prompts: "5 surgeries after 60" (Claves de la Longevidad)
 
-Nhân vật chính mới: ông **Daniel** (tóc xám vuốt ngược, kính gọng đen chữ nhật, sơ mi xanh lục xắn tay, quần xanh đậm, đồng hồ) theo ảnh master bạn gửi; vợ **Marta**. 7 tư thế trong ảnh master đã được cắt dùng luôn. **Mỗi lần tạo, đính kèm ảnh master** `projects/cirugias_60/master/style_ref.webp`.
+Nhân vật chính mới: ông **Daniel** (tóc xám vuốt ngược, kính gọng đen chữ nhật, sơ mi xanh lục xắn tay, quần xanh đậm, đồng hồ) theo ảnh master bạn gửi; vợ **Marta**. **Mỗi lần tạo, đính kèm ảnh master** `projects/cirugias_60/master/style_ref.webp`.
 Ảnh **tràn khung, không viền**, không chữ, không số. **Đặt tên ảnh theo số `1.png` … `40.png`**, gửi theo từng phần.
 
 Tạm chia **4 phần** theo nội dung (thời gian chính xác sẽ có khi bạn gửi giọng đọc). Mỗi phần 10 ảnh (1 tấm tư thế + 1 tấm đồ vật + 8 cảnh).
