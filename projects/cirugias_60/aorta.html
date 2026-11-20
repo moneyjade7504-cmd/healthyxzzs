@@ -22,13 +22,13 @@ STitle(C('s5'),C('aaa'),5,'Aortic aneurysm: EVAR or open repair?','short-term sa
  const s=Svg(B); const X=y=>260+y*95, Y=v=>860-v*5.6;
  Draw(B,s,`M${X(0)} 860 L${X(15)} 860`,{t0:C('fifteen'),dur:0.6,stroke:'#3a3c52',w:6});
  [0,4,8,12,15].forEach(y=>Cap(B,y+' y',{cx:X(y),cy:910,size:36,t0:C('fifteen')+0.3,color:'#6a6f86'}));
- const ev=[[0,98],[2,90],[4,78],[6,66],[8,55],[10,42],[12,31],[15,18]], op=[[0,95],[2,86],[4,75],[6,64],[8,55],[10,46],[12,37],[15,27]];
+ const ev=[[0,99],[2,93],[4,82],[6,68],[8,56],[10,42],[12,31],[15,18]], op=[[0,96],[2,85],[4,74],[6,64],[8,56],[10,47],[12,38],[15,28]];
  const path=a=>a.map(([x,v],i)=>(i?'L':'M')+X(x)+' '+Y(v)).join(' ');
  Draw(B,s,path(op),{t0:C('inferior'),dur:3,stroke:'#2f6fd6',w:10}); Draw(B,s,path(ev),{t0:C('inferior')+0.3,dur:3,stroke:'#22a35a',w:10});
  Cap(B,'EVAR',{cx:X(15)+90,cy:Y(18),size:46,t0:C('inferior')+3,color:'#1f9d55'}); Cap(B,'open',{cx:X(15)+90,cy:Y(27),size:46,t0:C('inferior')+3,color:'#2f6fd6'});
- Draw(B,s,`M${X(8)} 200 L${X(8)} 860`,{t0:C('inferior')+4,dur:0.6,stroke:'#e23b2e',w:5});
+ Draw(B,s,`M${X(8)} 250 L${X(8)} 860`,{t0:C('inferior')+4,dur:0.6,stroke:'#e23b2e',w:5});
  Cap(B,'after ~8 years: open repair does <span class="hl">better</span>',{cx:X(8),cy:190,size:46,t0:C('inferior')+4.5});
- Cap(B,'late stent problems · late ruptures',{cx:1300,cy:330,size:42,t0:C('afterpoint'),pill:true});
+ Cap(B,'late stent problems · late ruptures',{cx:1500,cy:380,size:42,t0:C('afterpoint'),pill:true});
  Src(B,'Patel et al., Lancet 2016 (EVAR-1, ~15 years) · illustrative curves');}
 {const B=Beat(C('review'),C('which'),{enter:'up'}); Cap(B,'Over the long term, EVAR had more…',{cx:960,cy:120,size:58,t0:B.a+0.3});
  Row(B,[['stent','Repeat procedures',C('higher')+1,'no'],['aneurysm','Late ruptures',C('higher')+3.5,'no'],['calendar','Lifelong check-ups',C('higher')+6,null]],{y:530,cardH:500,h:260});}

@@ -16,7 +16,7 @@ STitle(C('s4'),C('hipknee'),4,'Both knees (or hips) at once','one operation, one
 {const B=Beat(C('blood'),C('clotting')); Cut(B,'blood_drop',{cx:420,cy:780,h:440,amp:4});
  Canvas(B,(c,t)=>drops(c,t,{x:250,y:780,w:340,h:200,n:8,t0:B.a+1,s:1.4,fill:'#e23b2e',stroke:'#8f1d14',speed:0.5}));
  Cap(B,'More <span class="red">blood loss</span>',{cx:1250,cy:240,size:72,t0:B.a+0.4}); Cap(B,'than operations months apart',{cx:1250,cy:350,size:46,t0:B.a+3,color:'#6a6f86'});
- Cut(B,'heart',{cx:1100,cy:800,h:280,amp:5,t0:C('strain'),period:0.9}); Cap(B,'strain on the heart, kidneys',{cx:1350,cy:530,size:50,t0:C('strain')+0.5});
+ Cut(B,'heart',{cx:1350,cy:1010,h:280,amp:5,t0:C('strain'),period:0.9}); Cap(B,'strain on the heart, kidneys',{cx:1350,cy:530,size:50,t0:C('strain')+0.5});
  Cap(B,'and circulation — <span class="hl">all at once</span>',{cx:1350,cy:620,size:50,t0:C('strain')+2});}
 {const B=Beat(C('clotting'),C('memts'),{enter:'up'}); Cap(B,'Higher risk of <span class="red">blood clots</span>',{cx:960,cy:120,size:64,t0:B.a+0.3});
  Chain(B,[['clot','Clot in the leg',C('dvt')],['lungs','…travels to the lungs',C('dvt')+3.5]],{y:520,h:300});
