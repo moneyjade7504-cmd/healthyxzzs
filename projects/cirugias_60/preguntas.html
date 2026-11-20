@@ -1,0 +1,41 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('covered'); window.END=C('raymond'); window.DURATION=window.END;
+{const B=Beat(C('covered'),C('fourq'),{enter:'zoom'}); Cut(B,'m_notes',{cx:470,cy:1020,h:700,amp:4});
+ Cap(B,'5 surgeries covered ✔',{cx:1280,cy:200,size:58,t0:B.a+0.2,color:'#1f9d55'});
+ Cap(B,'Knowledge in your head',{cx:1280,cy:380,size:56,t0:C('head')}); Cap(B,'doesn’t protect you',{cx:1280,cy:470,size:56,t0:C('head')+1.2,color:'#e23b2e'});
+ Cut(B,'qlist',{cx:1280,cy:900,h:280,amp:4,t0:C('walkin')}); Cap(B,'written down → <span class="hl">it does</span>',{cx:1280,cy:600,size:62,t0:C('walkin')+2});}
+{const B=Beat(C('fourq'),C('qone'),{enter:'zoom'}); Cap(B,'<span class="hl">4 questions</span>',{cx:960,cy:300,size:96,t0:B.a+0.3}); Cap(B,'before any major surgery',{cx:960,cy:430,size:60,t0:B.a+1.2});
+ [1,2,3,4].forEach(i=>Num(B,i,{cx:420+i*216,cy:680,r:80,t0:B.a+1.8+i*0.4}));}
+// Q1
+{const B=Beat(C('qone'),C('goodsurg')); Num(B,1,{cx:200,cy:200,r:80,t0:B.a+0.1});
+ Cap(B,'What happens if I <span class="hl">don’t</span> have this surgery',{cx:1000,cy:200,size:60,t0:B.a+0.3}); Cap(B,'in the next <span class="hl">6 months</span>?',{cx:1000,cy:300,size:66,t0:B.a+1.5});
+ Cut(B,'wallclock',{cx:700,cy:760,h:320,amp:4,t0:B.a+2}); Cut(B,'cal6',{cx:1200,cy:780,h:330,amp:4,t0:B.a+2.5});
+ Cap(B,'the question I promised',{cx:960,cy:960,size:48,t0:C('mostimp'),pill:true});}
+FB(C('goodsurg'),C('nothing'),'S4_2','A good surgeon gives a <span class="hl">clear answer</span>',{capT:0.3,size:60,from:[.5,.5,1.0],to:[.4,.45,1.15]});
+{const B=Beat(C('nothing'),C('qtwo'),{enter:'up'}); Cap(B,'Nothing urgent? → <span class="green">you have time</span>',{cx:960,cy:120,size:64,t0:B.a+0.3});
+ Row(B,[['stetho','A second opinion',C('time2'),'ok'],['signpost','Alternatives',C('time2')+1.5,'ok'],['heart','Prepare your body',C('time2')+3,'ok']],{y:500,cardH:480,h:240});
+ Cap(B,'urgent? then you’ll understand <span class="hl">why</span>',{cx:960,cy:900,size:52,t0:C('uncomf'),pill:true});}
+// Q2
+{const B=Beat(C('qtwo'),C('qthree')); Num(B,2,{cx:200,cy:200,r:80,t0:B.a+0.1});
+ Cap(B,'Is there a <span class="hl">less invasive</span> or non-surgical option?',{cx:1020,cy:200,size:54,t0:B.a+0.3});
+ Cap(B,'What does the evidence show <span class="hl">for my age</span>?',{cx:1020,cy:310,size:58,t0:C('evidence2')});
+ Cut(B,'signpost',{cx:520,cy:880,h:400,amp:4,t0:B.a+1}); Cap(B,'not “in theory”',{cx:1300,cy:520,size:52,t0:C('theory'),color:'#6a6f86'});
+ Cap(B,'45 years old',{cx:1050,cy:720,size:60,t0:C('age45'),color:'#2f6fd6'}); Cap(B,'≠',{cx:1300,cy:720,size:80,t0:C('age45')+1,color:'#e23b2e'}); Cap(B,'75 years old',{cx:1550,cy:720,size:60,t0:C('age45')+1.5,color:'#b97a00'});
+ Cap(B,'you deserve the <span class="hl">age-appropriate</span> answer',{cx:1300,cy:880,size:50,t0:C('age45')+4});}
+// Q3
+{const B=Beat(C('qthree'),C('startit')); Num(B,3,{cx:200,cy:200,r:80,t0:B.a+0.1});
+ Cap(B,'What will recovery <span class="hl">realistically</span> look like',{cx:1020,cy:200,size:56,t0:B.a+0.6}); Cap(B,'with my health and my living situation?',{cx:1020,cy:300,size:50,t0:B.a+2});
+ Cut(B,'house',{cx:520,cy:880,h:380,amp:4,t0:B.a+1}); Cap(B,'not the textbook · not the brochure · <span class="hl">yours</span>',{cx:1250,cy:560,size:48,t0:C('textbook')});
+ Cap(B,'Live alone? What help, and for how long?',{cx:1250,cy:740,size:50,t0:C('livealone')});}
+FB(C('startit'),C('qfour'),'S4_1','No one asked yet? <span class="hl">Start the conversation yourself</span>',{capT:0.2,size:48,from:[.5,.5,1.0],to:[.6,.6,1.14],draw:(c,t)=>steam(c,t,{x:560,y:700,w:60,n:5,r:12,rise:110})});
+// Q4
+{const B=Beat(C('qfour'),C('deflect')); Num(B,4,{cx:200,cy:200,r:80,t0:B.a+0.1});
+ Cap(B,'the one most people skip',{cx:1020,cy:150,size:46,t0:B.a+0.4,color:'#6a6f86'});
+ Cap(B,'What are your results with this',{cx:1020,cy:250,size:54,t0:C('personal')}); Cap(B,'procedure in patients <span class="hl">over 70</span>?',{cx:1020,cy:340,size:54,t0:C('personal')+1.5});
+ Cut(B,'barchart',{cx:520,cy:900,h:360,amp:4,t0:C('personal')}); Cap(B,'“What are your <span class="hl">numbers</span>?”',{cx:1250,cy:600,size:76,t0:C('numbers')});
+ Cap(B,'experienced surgeons know their results',{cx:1250,cy:780,size:48,t0:C('highvol'),color:'#1f9d55'});}
+FB(C('deflect'),C('difficult'),'S4_3','Vague answer? A <span class="hl">second opinion</span> is reasonable',{capT:0.3,size:56,from:[.5,.5,1.0],to:[.55,.6,1.15]});
+Side(C('difficult'),C('raymond'),'d_shake',[['You’re not being <span class="red">difficult</span>',null,62],['you’re the <span class="hl">informed patient</span>',C('difficult')+3,58],['good medicine depends on',C('difficult')+4.5,50,'#6a6f86']],{h:720,cy:1080});
+</script></body></html>

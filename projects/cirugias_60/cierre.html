@@ -1,0 +1,35 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('raymond'); window.END=1619.0; window.DURATION=window.END;
+const dram=B=>{const p=mk('div','pill',B.L,'DRAMATIZATION'); Object.assign(p.style,{left:'1700px',top:'60px',fontSize:'34px',borderColor:'#6a6f86',color:'#6a6f86'}); Pop(B,p,{t0:B.a+0.2});};
+{const B=FB(C('raymond'),C('scan'),'S4_4','Let’s call him <span class="hl">Raymond</span>, 74',{capT:0.2,size:62,from:[.5,.5,1.0],to:[.45,.4,1.14],draw:(c,t)=>steam(c,t,{x:300,y:620,w:50,n:5,r:12,rise:110})}); dram(B);
+ Cap(B,'reads the newspaper front to back',{cx:760,cy:90,size:46,t0:C('r74')+3,pill:true});}
+{const B=Beat(C('scan'),C('referral'),{enter:'zoom'}); dram(B); Cut(B,'neck_artery',{cx:500,cy:950,h:600,amp:3});
+ Cap(B,'routine ultrasound:',{cx:1280,cy:280,size:56,t0:B.a+0.3}); const v=Cap(B,'',{cx:1280,cy:430,size:110,t0:B.a+1,color:'#e23b2e'});
+ B.fx.push(t=>{v.innerHTML=Math.round(65*eo(prog(t,B.a+1,B.a+2.5)))+'% narrowing';});
+ Cap(B,'no symptoms · nothing',{cx:1280,cy:620,size:56,t0:C('nosym4'),pill:true});}
+{const B=Beat(C('referral'),C('basedev')); dram(B); Cut(B,'d_news',{cx:460,cy:1080,h:620,amp:3});
+ Cap(B,'Referral: <span class="hl">vascular surgery</span>',{cx:1280,cy:260,size:58,t0:B.a+0.3});
+ Fly(B,'papers',{x0:1000,y0:900,x1:1300,y1:620,h:300,t0:C('printed'),dur:1.4});
+ Cap(B,'he printed 3 studies… and highlighted them',{cx:1280,cy:900,size:46,t0:C('printed')+1});}
+{const B=FB(C('basedev'),C('quote'),'S4_5','Together: <span class="hl">stronger medical treatment</span>',{capT:0.3,size:58,from:[.5,.5,1.0],to:[.5,.45,1.14]}); dram(B);
+ [['statin',0],['blood pressure',1.2],['habits',2.4]].forEach(([h,d],i)=>Cap(B,h,{cx:560+i*380,cy:90,size:46,t0:B.a+2+d,pill:true}));
+ Cap(B,'6 years later…',{cx:960,cy:200,size:52,t0:C('sixago'),pill:true});}
+{const B=FB(C('quote'),C('informed'),'S4_6','“You didn’t give me surgery. You gave me <span class="hl">time</span>.”',{capT:0,size:54,from:[.5,.5,1.0],to:[.5,.4,1.14],draw:(c,t)=>rays(c,t,{x:1500,y:120,r0:60,r1:100,lw:5})}); dram(B);
+ Cap(B,'his memoir — finished',{cx:760,cy:90,size:46,t0:B.a-4,pill:true});}
+{const B=Beat(C('informed'),C('verdict'),{enter:'zoom'}); Cap(B,'Informed medicine',{cx:960,cy:140,size:76,t0:B.a+0.3,color:'#2f6fd6'}); const s=Svg(B);
+ Cap(B,'always avoids the operating room',{cx:1060,cy:360,size:52,t0:C('avoids')}); Draw(B,s,cross(560,360,0.7),{t0:C('avoids')+0.6,stroke:'#e23b2e',w:10});
+ Cap(B,'always runs toward it',{cx:1060,cy:500,size:52,t0:C('runs')}); Draw(B,s,cross(560,500,0.7),{t0:C('runs')+0.6,stroke:'#e23b2e',w:10});
+ Cap(B,'asks the right questions',{cx:1060,cy:680,size:56,t0:C('stops')}); Draw(B,s,tick(560,680,1),{t0:C('stops')+0.5,stroke:'#22a35a',w:12});
+ Cap(B,'right for <span class="hl">this person, at this moment</span>',{cx:1060,cy:820,size:56,t0:C('stops')+4}); Draw(B,s,tick(560,820,1),{t0:C('stops')+4.5,stroke:'#22a35a',w:12});}
+Side(C('verdict'),C('together'),'d_list',[['A recommendation is <span class="red">not a verdict</span>',null,58],['it’s the <span class="hl">beginning of a conversation</span>',C('beginning'),52],['you have more power than you think',C('power'),48,'#6a6f86'],['<span class="hl">Use it.</span>',C('useit'),72]],{h:720,cy:1080});
+{const B=Beat(C('together'),C('disclaimer'),{enter:'up'}); Cap(B,'Not “avoid surgery” — be the <span class="hl">most informed</span> person in the room',{cx:960,cy:130,size:50,t0:C('noneavoid')});
+ Row(B,[['qlist','Ask the hard questions',C('hard'),'ok'],['papers','Request the evidence',C('request'),'ok'],['stetho','A second opinion if needed',C('second'),'ok']],{y:500,cardH:480,h:230});
+ Cap(B,'Your age is not a weakness · your questions are not a burden',{cx:960,cy:900,size:46,t0:C('weakness'),pill:true});}
+Warn(C('disclaimer'),C('sharev'),'Educational information',['<span class="red">not</span> personal medical advice','every situation is unique','before any surgery: talk to <span class="hl">your own doctor</span>','they know your history and your body'],{keys:[C('notadvice'),C('unique'),C('before'),C('history')]});
+{const B=FB(C('sharev'),C('takecare'),'S4_7','One question you’ll ask? <span class="hl">Share it</span> with someone you love',{capT:0.3,size:52,from:[.5,.5,1.0],to:[.5,.45,1.12]});
+ const sp=mk('div','pill',B.L,'↗ SHARE'); Object.assign(sp.style,{left:'960px',top:'100px',fontSize:'60px',background:'#2f6fd6',color:'#fff',borderColor:'#1d4fa3'}); Pop(B,sp,{t0:B.a+2,rot:-2});}
+{const B=FB(C('takecare'),1619.0,'S4_8','Take care · stay curious',{capT:0.2,size:64,from:[.5,.5,1.0],to:[.5,.45,1.1],exit:'fade',draw:(c,t)=>rays(c,t,{x:1500,y:120,r0:60,r1:100,lw:5})});
+ const p=mk('div','pill',B.L,'▶ SUBSCRIBE'); Object.assign(p.style,{left:'960px',top:'110px',fontSize:'60px',background:'#e23b2e',color:'#fff',borderColor:'#b8231a'}); Pop(B,p,{t0:B.a+0.6,rot:-2});}
+</script></body></html>
