@@ -1,0 +1,44 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('s4'); window.END=C('s5'); window.DURATION=window.END;
+STitle(C('s4'),C('hipknee'),4,'Both knees (or hips) at once','one operation, one anesthesia',['knee_impl','hip_impl']);
+{const B=FB(C('hipknee'),C('inquestion'),'S3_1','Hip &amp; knee replacements: among the <span class="hl">most successful</span> surgeries',{capT:0.4,size:50,from:[.5,.45,1.0],to:[.5,.35,1.12],draw:(c,t)=>rays(c,t,{x:1500,y:110,r0:60,r1:100,lw:5})});
+ [['moves freely',0],['sleeps without pain',1.3],['keeps living',2.6]].forEach(([h,d],i)=>Cap(B,h,{cx:560+i*400,cy:90,size:46,t0:C('rightpat')+3+d,pill:true}));}
+{const B=Beat(C('inquestion'),C('bothknees'),{enter:'up'}); Cut(B,'d_kneepain',{cx:500,cy:1020,h:700,amp:3});
+ Cap(B,'What deserves a careful look:',{cx:1300,cy:330,size:56,t0:B.a+0.3}); Cap(B,'one <span class="hl">specific version</span>',{cx:1300,cy:450,size:66,t0:B.a+2});
+ Cap(B,'logical on the surface…',{cx:1300,cy:640,size:50,t0:C('logical')}); Cap(B,'a <span class="red">hidden cost</span> underneath',{cx:1300,cy:740,size:56,t0:C('logical')+2.5});}
+{const B=FB(C('bothknees'),C('seventyfour'),'S3_2','<span class="hl">Both</span> knees in <span class="hl">one</span> operation',{capT:0.3,size:62,from:[.5,.5,1.0],to:[.55,.55,1.16]});
+ Cap(B,'✔ one anesthesia',{cx:700,cy:90,size:50,t0:C('oneanest'),pill:true}); Cap(B,'✔ one recovery',{cx:1220,cy:90,size:50,t0:C('onerec'),pill:true});}
+{const B=Beat(C('seventyfour'),C('blood'),{enter:'zoom'}); Cap(B,'Age 74 with…',{cx:960,cy:120,size:62,t0:B.a+0.3});
+ Row(B,[['bp_monitor','High blood pressure',B.a+1.5,null],['tube','Diabetes',B.a+3,null],['heart','Heart disease',B.a+4.5,null]],{y:500,cardH:480,h:240});
+ Cap(B,'→ the math <span class="red">changes</span>',{cx:960,cy:900,size:66,t0:B.a+6.5});}
+{const B=Beat(C('blood'),C('clotting')); Cut(B,'blood_drop',{cx:420,cy:780,h:440,amp:4});
+ Canvas(B,(c,t)=>drops(c,t,{x:250,y:780,w:340,h:200,n:8,t0:B.a+1,s:1.4,fill:'#e23b2e',stroke:'#8f1d14',speed:0.5}));
+ Cap(B,'More <span class="red">blood loss</span>',{cx:1250,cy:240,size:72,t0:B.a+0.4}); Cap(B,'than operations months apart',{cx:1250,cy:350,size:46,t0:B.a+3,color:'#6a6f86'});
+ Cut(B,'heart',{cx:1100,cy:800,h:280,amp:5,t0:C('strain'),period:0.9}); Cap(B,'strain on the heart, kidneys',{cx:1350,cy:530,size:50,t0:C('strain')+0.5});
+ Cap(B,'and circulation — <span class="hl">all at once</span>',{cx:1350,cy:620,size:50,t0:C('strain')+2});}
+{const B=Beat(C('clotting'),C('memts'),{enter:'up'}); Cap(B,'Higher risk of <span class="red">blood clots</span>',{cx:960,cy:120,size:64,t0:B.a+0.3});
+ Chain(B,[['clot','Clot in the leg',C('dvt')],['lungs','…travels to the lungs',C('dvt')+3.5]],{y:520,h:300});
+ Cap(B,'more common when both are done at once',{cx:960,cy:920,size:50,t0:C('dvt')+7,pill:true});}
+{const B=Beat(C('memts'),C('precise'),{enter:'zoom'}); Cap(B,'Memtsoudis &amp; colleagues · <span class="hl">millions</span> of hospital records',{cx:960,cy:110,size:52,t0:B.a+0.3});
+ Card(B,{cx:560,cy:520,w:600,h:520,t0:B.a+3,border:'#22a35a'}); Cap(B,'One knee',{cx:560,cy:320,size:58,t0:B.a+3.2}); Cut(B,'knee_impl',{cx:560,cy:700,h:300,amp:3,t0:B.a+3.3});
+ Card(B,{cx:1360,cy:520,w:600,h:520,t0:B.a+5,border:'#e23b2e'}); Cap(B,'Both knees at once',{cx:1360,cy:320,size:54,t0:B.a+5.2});
+ Cut(B,'knee_impl',{cx:1260,cy:700,h:300,amp:3,t0:B.a+5.3}); Cut(B,'knee_impl',{cx:1460,cy:700,h:300,amp:3,t0:B.a+5.5,phase:1});
+ Cap(B,'↑ in-hospital complications',{cx:1360,cy:860,size:42,t0:B.a+9,color:'#e23b2e'}); Cap(B,'↑ deaths in hospital',{cx:1360,cy:930,size:42,t0:B.a+10,color:'#e23b2e'});
+ Cap(B,'especially with other health conditions',{cx:960,cy:1010,size:42,t0:B.a+14,pill:true});
+ Src(B,'Memtsoudis et al., Clinical Orthopaedics and Related Research');}
+{const B=Beat(C('precise'),C('rehab')); Cut(B,'d_kneebend',{cx:480,cy:1020,h:680,amp:4});
+ Cap(B,'Younger &amp; healthier:',{cx:1300,cy:300,size:58,t0:C('lowerrisk')}); Cap(B,'the difference is <span class="green">much smaller</span>',{cx:1300,cy:400,size:56,t0:C('lowerrisk')+2});
+ Cap(B,'Older, with other conditions:',{cx:1300,cy:620,size:56,t0:C('concern')}); Cap(B,'that’s where the <span class="red">concern</span> is',{cx:1300,cy:720,size:56,t0:C('concern')+2});}
+{const B=FB(C('rehab'),C('alone'),'S3_3','Rehab: <span class="hl">both legs</span> hurt at the same time',{capT:C('bothlegs')-C('rehab'),size:56,from:[.5,.5,1.0],to:[.6,.65,1.15]});
+ Cap(B,'what almost nobody discusses',{cx:960,cy:90,size:46,t0:B.a+0.4,pill:true});}
+FB(C('alone'),C('threeq'),'S3_4','Living alone? ↑ <span class="red">falls</span> · ↑ <span class="red">readmissions</span>',{capT:2,size:58,from:[.5,.5,1.0],to:[.45,.5,1.14]});
+{const B=Beat(C('threeq'),C('choice'),{enter:'zoom'}); Cut(B,'d_paper',{cx:300,cy:1020,h:620,amp:3});
+ Card(B,{cx:1150,cy:500,w:1400,h:720,t0:B.a+0.1,border:'#2f6fd6'}); Cap(B,'3 questions before agreeing',{cx:1150,cy:200,size:52,t0:B.a+0.3,color:'#2f6fd6'});
+ QList(B,[['Both at once vs one at a time:<br>what do the data show <span class="hl">for my age &amp; conditions</span>?',C('q1')],['What is my <span class="hl">real</span> rehab plan —<br>where I live, with who can help?',C('q2')],['What about doing them<br><span class="hl">months apart</span>?',C('q3')]],{x:1220,nx:520,y0:340,gap:200,size:44});}
+FB(C('choice'),C('four'),'S3_5','Your choice — made with <span class="hl">full information</span>',{capT:0.3,size:60,from:[.5,.5,1.0],to:[.5,.45,1.12]});
+{const B=Beat(C('four'),C('s5'),{enter:'zoom'}); Cut(B,'m_thumbs',{cx:500,cy:1020,h:740,amp:5});
+ Cap(B,'Getting value from this?',{cx:1300,cy:300,size:60,t0:B.a+0.3}); const n=mk('div','num',B.L,'4'); Object.assign(n.style,{left:'1300px',top:'560px',width:'260px',height:'260px',fontSize:'190px'}); Pop(B,n,{t0:B.a+1});
+ Cap(B,'💬 type it in the comments',{cx:1300,cy:820,size:54,t0:B.a+1.6});}
+</script></body></html>

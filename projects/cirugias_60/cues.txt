@@ -131,4 +131,71 @@ slowly | Prostate cancer in elderly men particularly
 calm | A calm informed decision
 urgency | Do not let urgency
 subscribe | If this is the kind of information
+# PART 3
 s4 | Surgery 4
+hipknee | Hip and knee replacements done
+rightpat | The right patient the right timing
+inquestion | What is in question
+logical | A version that has a logical
+simult | Simultaneous bilateral joint replacement
+bothknees | Both knees or both hips
+pitch | The pitch makes intuitive
+oneanest | One anesthesia instead
+onerec | One recovery instead
+seventyfour | For a 74 year old patient
+why | Here is why
+blood | Blood loss in simultaneous
+anemia | For an elderly body managing
+strain | It places simultaneous strain
+clotting | The clotting risk compounds
+dvt | Deep vein thrombosis
+memts | A study by Mudus
+precise | Now it's worth being precise
+lowerrisk | In lower risk patients
+concern | The concern is specifically
+rehab | And here's something almost nobody
+bothlegs | After bilateral joint replacement both
+alone | For a patient who lives alone
+threeq | Before agreeing to bilateral
+q1 | What does the complication data
+q2 | What is the realistic rehabilitation
+q3 | What are the risks and benefits of staging
+choice | You may still choose
+four | If you've made it this far
+s5 | Surgery 5
+aaa | An abdominal aortic aneurysm
+rupture | If a large aneurysm ruptures
+prevent | Surgery to prevent rupture
+decision | But within this condition
+twoways | There are two ways to repair
+opens5 | One procedure opens your entire
+groin | The other goes in through
+evar1 | The EVAR Trial 1
+earlyadv | That early survival advantage
+brochure5 | But here is the part that the clinic
+fifteen | The 15 year follow up
+inferior | While EVAR carries a clear
+afterpoint | After that point aneurysm
+review | A systematic review published
+higher | EVAR is associated with higher
+which | So which approach is right
+agematters | This is where age and life
+elderly | For an elderly patient in their late
+crossover | The eight year crossover
+burden | EVAR gets them through
+sixties | For a patient in their mid
+notonetime | And critically EVAR is not
+lifelong | It requires lifelong surveillance
+notoptional | That commitment to ongoing
+askvasc | The question to ask your vascular
+rightq | The right question is given
+survq | And what does the long term surveillance
+onemore | One more thing on this
+notevery | Not every diagnosed aneurysm
+guidelines | Current clinical guidelines
+below | Below that threshold
+diagnosed | If you have been diagnosed with an
+specific | That answer should be specific
+share | If you have a parent a spouse
+fivemin | Five minutes of the right
+covered | We've covered five surgeries

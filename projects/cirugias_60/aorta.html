@@ -1,0 +1,54 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('s5'); window.END=C('covered'); window.DURATION=window.END;
+STitle(C('s5'),C('aaa'),5,'Aortic aneurysm: EVAR or open repair?','short-term safety vs long-term durability',['aneurysm','stent']);
+{const B=Beat(C('aaa'),C('decision'),{enter:'zoom'}); const E=Cut(B,'aneurysm',{cx:480,cy:1020,h:880,amp:2,tilt:.3});
+ Canvas(B,(c,t)=>{const k=0.5+0.5*Math.sin(t*5); c.globalAlpha=0.35*k; c.fillStyle='#e23b2e'; c.beginPath(); c.arc(480,640,120+18*k,0,7); c.fill(); c.globalAlpha=1;});
+ Cap(B,'A <span class="hl">bulge</span> in the body’s main artery',{cx:1300,cy:300,size:56,t0:B.a+0.4});
+ Cap(B,'a large one that ruptures: often <span class="red">fatal</span>',{cx:1300,cy:470,size:50,t0:C('rupture')});
+ Cap(B,'repaired at the right time → <span class="green">saves lives</span>',{cx:1300,cy:640,size:50,t0:C('prevent')+1});
+ Cap(B,'but there’s a decision most patients never hear about',{cx:1300,cy:820,size:40,t0:C('decision')-0.5,color:'#6a6f86'});}
+{const B=Beat(C('decision'),C('evar1')); Cap(B,'<span class="hl">Two ways</span> to repair it',{cx:960,cy:110,size:64,t0:C('twoways')});
+ Card(B,{cx:540,cy:540,w:740,h:580,t0:C('opens5'),border:'#2f6fd6'}); Cap(B,'Open surgery',{cx:540,cy:320,size:60,t0:C('opens5')+0.2,color:'#2f6fd6'});
+ Cut(B,'aneurysm',{cx:540,cy:720,h:300,amp:3,t0:C('opens5')+0.3}); Cap(B,'through the abdomen · weeks to recover',{cx:540,cy:790,size:36,t0:C('opens5')+1});
+ Card(B,{cx:1380,cy:540,w:740,h:580,t0:C('groin'),border:'#22a35a'}); Cap(B,'EVAR (stent graft)',{cx:1380,cy:320,size:58,t0:C('groin')+0.2,color:'#1f9d55'});
+ Cut(B,'stent',{cx:1380,cy:720,h:300,amp:3,t0:C('groin')+0.3}); Cap(B,'small cuts in the groin · home in days',{cx:1380,cy:790,size:36,t0:C('groin')+1});}
+{const B=Beat(C('evar1'),C('brochure5'),{enter:'zoom'}); Cap(B,'EVAR-1 · The Lancet, 2004 · <span class="hl">death within 30 days</span>',{cx:960,cy:110,size:50,t0:B.a+0.3});
+ Bars(B,[['open repair',4.7,'#2f6fd6',B.a+4],['EVAR',1.7,'#22a35a',B.a+5.5]],{x:760,base:860,maxH:560,dec:1});
+ Cut(B,'stent',{cx:1550,cy:700,h:340,amp:4,t0:B.a+2}); Cap(B,'early advantage: <span class="green">real</span>',{cx:1550,cy:820,size:50,t0:C('earlyadv')});
+ Src(B,'EVAR trial 1, Lancet 2004');}
+{const B=Beat(C('brochure5'),C('review')); Cap(B,'Long-term follow-up (Lancet, 2016): survival over time',{cx:960,cy:100,size:48,t0:C('fifteen')});
+ const s=Svg(B); const X=y=>260+y*95, Y=v=>860-v*5.6;
+ Draw(B,s,`M${X(0)} 860 L${X(15)} 860`,{t0:C('fifteen'),dur:0.6,stroke:'#3a3c52',w:6});
+ [0,4,8,12,15].forEach(y=>Cap(B,y+' y',{cx:X(y),cy:910,size:36,t0:C('fifteen')+0.3,color:'#6a6f86'}));
+ const ev=[[0,98],[2,90],[4,78],[6,66],[8,55],[10,42],[12,31],[15,18]], op=[[0,95],[2,86],[4,75],[6,64],[8,55],[10,46],[12,37],[15,27]];
+ const path=a=>a.map(([x,v],i)=>(i?'L':'M')+X(x)+' '+Y(v)).join(' ');
+ Draw(B,s,path(op),{t0:C('inferior'),dur:3,stroke:'#2f6fd6',w:10}); Draw(B,s,path(ev),{t0:C('inferior')+0.3,dur:3,stroke:'#22a35a',w:10});
+ Cap(B,'EVAR',{cx:X(15)+90,cy:Y(18),size:46,t0:C('inferior')+3,color:'#1f9d55'}); Cap(B,'open',{cx:X(15)+90,cy:Y(27),size:46,t0:C('inferior')+3,color:'#2f6fd6'});
+ Draw(B,s,`M${X(8)} 200 L${X(8)} 860`,{t0:C('inferior')+4,dur:0.6,stroke:'#e23b2e',w:5});
+ Cap(B,'after ~8 years: open repair does <span class="hl">better</span>',{cx:X(8),cy:190,size:46,t0:C('inferior')+4.5});
+ Cap(B,'late stent problems · late ruptures',{cx:1300,cy:330,size:42,t0:C('afterpoint'),pill:true});
+ Src(B,'Patel et al., Lancet 2016 (EVAR-1, ~15 years) · illustrative curves');}
+{const B=Beat(C('review'),C('which'),{enter:'up'}); Cap(B,'Over the long term, EVAR had more…',{cx:960,cy:120,size:58,t0:B.a+0.3});
+ Row(B,[['stent','Repeat procedures',C('higher')+1,'no'],['aneurysm','Late ruptures',C('higher')+3.5,'no'],['calendar','Lifelong check-ups',C('higher')+6,null]],{y:530,cardH:500,h:260});}
+{const B=FB(C('which'),C('sixties'),'S3_7','Which is right? It depends on <span class="hl">age &amp; life expectancy</span>',{capT:0.3,size:52,from:[.5,.5,1.0],to:[.55,.5,1.14]});
+ Cap(B,'older, with other conditions → EVAR’s early safety often decides',{cx:960,cy:90,size:42,t0:C('elderly'),pill:true});}
+Side(C('sixties'),C('notonetime'),'d_cane',[['Healthier, in the 60s,',null,56],['many years ahead:',null,56],['open repair may <span class="hl">last better</span>',C('sixties')+5,60],['if they can tolerate the operation',C('sixties')+9,44,'#6a6f86']],{h:740});
+{const B=FB(C('notonetime'),C('askvasc'),'S3_8','EVAR is not “fix it and forget it”',{capT:0.3,size:58,from:[.5,.5,1.0],to:[.6,.45,1.14]});
+ Cap(B,'lifelong imaging check-ups',{cx:960,cy:90,size:50,t0:C('lifelong'),pill:true});}
+{const B=Beat(C('askvasc'),C('onemore'),{enter:'zoom'}); Cut(B,'d_paper',{cx:300,cy:1020,h:620,amp:3});
+ Card(B,{cx:1150,cy:470,w:1400,h:560,t0:B.a+0.1,border:'#2f6fd6'}); Cap(B,'Ask your vascular surgeon',{cx:1150,cy:240,size:52,t0:B.a+0.3,color:'#2f6fd6'});
+ QList(B,[['Given my age, life expectancy and health:<br>which option <span class="hl">fits me</span> better?',C('rightq')],['What will EVAR’s <span class="hl">lifelong check-ups</span><br>look like in practice?',C('survq')]],{x:1220,nx:520,y0:390,gap:220,size:44});}
+{const B=Beat(C('onemore'),C('below'),{enter:'up'}); Cut(B,'tape',{cx:480,cy:800,h:360,amp:4});
+ Cap(B,'Not every aneurysm needs <span class="hl">immediate</span> surgery',{cx:960,cy:120,size:56,t0:C('notevery')});
+ Cap(B,'Repair usually from about:',{cx:1300,cy:400,size:52,t0:C('guidelines')});
+ Cap(B,'<span class="hl">5.5 cm</span> in men',{cx:1300,cy:530,size:72,t0:C('guidelines')+3}); Cap(B,'<span class="hl">5.0 cm</span> in women',{cx:1300,cy:660,size:72,t0:C('guidelines')+4.5});
+ Src(B,'Typical guideline thresholds (e.g. ESVS 2024, SVS 2018)');}
+{const B=FB(C('below'),C('share'),'S3_6','Below that: <span class="hl">ultrasound checks</span> + blood pressure control',{capT:0.3,size:52,from:[.5,.5,1.0],to:[.6,.6,1.14]});
+ Cap(B,'urgent surgery below that size? ask <span class="hl">why</span> you’re different',{cx:960,cy:90,size:44,t0:C('diagnosed'),pill:true});}
+{const B=Beat(C('share'),C('covered'),{enter:'zoom'}); Cut(B,'m_wave',{cx:450,cy:1020,h:740,amp:5});
+ Cap(B,'Someone facing a surgical decision?',{cx:1280,cy:300,size:56,t0:B.a+0.3});
+ const sp=mk('div','pill',B.L,'↗ SHARE THIS VIDEO'); Object.assign(sp.style,{left:'1280px',top:'480px',fontSize:'70px',background:'#2f6fd6',color:'#fff',borderColor:'#1d4fa3'}); Pop(B,sp,{t0:B.a+2,rot:-2});
+ Cap(B,'<span class="hl">before</span> the consultation — not after',{cx:1280,cy:660,size:56,t0:B.a+8});}
+</script></body></html>
