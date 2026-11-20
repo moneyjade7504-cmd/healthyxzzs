@@ -123,7 +123,7 @@ Clean 2D cartoon illustration, exactly matching the attached reference image: bo
 
 **Ảnh 23** (`23.png`): Daniel đi bộ thoải mái sau thay một khớp gối
 ```
-Clean 2D cartoon illustration, exactly matching the attached reference image: bold clean dark outlines, soft flat colours with gentle cel shading, warm expressive faces, simple rounded shapes, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A sunny garden path: DANIEL (exactly the man in the attached reference: about 65 years old, short swept-back grey hair, black rectangular glasses, friendly face, teal button-up shirt with sleeves rolled up, brown belt, dark navy trousers, brown shoes, a wristwatch) walking freely and happily with one knee bandage visible over his trousers removed, pain-free, smiling. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
+Clean 2D cartoon illustration, exactly matching the attached reference image: bold clean dark outlines, soft flat colours with gentle cel shading, warm expressive faces, simple rounded shapes, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A sunny garden path: DANIEL (exactly the man in the attached reference: about 65 years old, short swept-back grey hair, black rectangular glasses, friendly face, teal button-up shirt with sleeves rolled up, brown belt, dark navy trousers, brown shoes, a wristwatch) walking freely and happily some weeks after a single knee replacement, pain-free, smiling. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
 ```
 
 **Ảnh 24** (`24.png`): Phòng mổ: bác sĩ giải thích 'cả hai gối cùng lúc'
@@ -188,17 +188,17 @@ Clean 2D cartoon illustration, exactly matching the attached reference image: bo
 Clean 2D cartoon illustration, exactly matching the attached reference image: bold clean dark outlines, soft flat colours with gentle cel shading, warm expressive faces, simple rounded shapes, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A different bright clinic: DANIEL (exactly the man in the attached reference: about 65 years old, short swept-back grey hair, black rectangular glasses, friendly face, teal button-up shirt with sleeves rolled up, brown belt, dark navy trousers, brown shoes, a wristwatch) and MARTA, Daniel's wife (same clean cartoon style as the attached reference: about 65 years old, short wavy grey hair, small round glasses, kind face, soft lilac cardigan over a white blouse, grey trousers, brown shoes) greeting a friendly middle-aged male doctor with short brown hair, white coat, blue tie and a stethoscope, same flat cartoon style with a handshake, a second-opinion visit. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
 ```
 
-**Ảnh 36** (`36.png`): Ông Ramón (74 tuổi) đọc báo buổi sáng, đánh dấu bài báo (Dramatización)
+**Ảnh 36** (`36.png`): Ông Raymond (74 tuổi) đọc báo buổi sáng, đánh dấu bài báo (Dramatización)
 ```
 Clean 2D cartoon illustration, exactly matching the attached reference image: bold clean dark outlines, soft flat colours with gentle cel shading, warm expressive faces, simple rounded shapes, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A sunny breakfast table: a sharp 74-year-old man with white short hair and a white moustache, in a brown cardigan, reading a newspaper and highlighting printed papers; same flat cartoon style as the attached reference. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
 ```
 
-**Ảnh 37** (`37.png`): Ông Ramón ngồi với bác sĩ, cùng đọc các bài nghiên cứu (Dramatización)
+**Ảnh 37** (`37.png`): Ông Raymond ngồi với bác sĩ, cùng đọc các bài nghiên cứu (Dramatización)
 ```
 Clean 2D cartoon illustration, exactly matching the attached reference image: bold clean dark outlines, soft flat colours with gentle cel shading, warm expressive faces, simple rounded shapes, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A consultation office: the 74-year-old man with white short hair, white moustache and brown cardigan going through highlighted printed papers together with a friendly middle-aged male doctor with short brown hair, white coat, blue tie and a stethoscope, same flat cartoon style, collaborative. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
 ```
 
-**Ảnh 38** (`38.png`): Ông Ramón viết xong hồi ký, vui vẻ bên máy tính (Dramatización)
+**Ảnh 38** (`38.png`): Ông Raymond viết xong hồi ký, vui vẻ bên máy tính (Dramatización)
 ```
 Clean 2D cartoon illustration, exactly matching the attached reference image: bold clean dark outlines, soft flat colours with gentle cel shading, warm expressive faces, simple rounded shapes, simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. A cozy study: the 74-year-old man with white short hair, white moustache and brown cardigan happily holding a freshly printed manuscript next to his laptop, bookshelves behind. Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution.
 ```
