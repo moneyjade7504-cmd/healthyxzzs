@@ -1,0 +1,55 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('deshid'); window.END=1364.5; window.DURATION=window.END;
+const stars=(c,t)=>{for(let i=0;i<12;i++){c.globalAlpha=0.5+0.5*Math.sin(t*2+i);c.fillStyle='#fff6c8';c.beginPath();c.arc(1250+((i*97)%380),40+((i*53)%260),2.5,0,7);c.fill();}c.globalAlpha=1;};
+// hydration
+{const B=Beat(C('deshid'),C('vaso'),{enter:'zoom'}); Cap(B,'¿Y la deshidratación nocturna?',{cx:960,cy:110,size:58,t0:B.a+0.2});
+ Card(B,{cx:520,cy:520,w:640,h:500,t0:C('nomucha'),border:'#e23b2e'}); Cut(B,'jug',{cx:520,cy:600,h:240,amp:3,t0:C('nomucha')+0.1});
+ Cap(B,'mucha agua antes de dormir',{cx:520,cy:360,size:42,t0:C('nomucha')+0.2}); const s=Svg(B); Draw(B,s,cross(520,560,1.6),{t0:C('nomucha')+2,stroke:'#e23b2e',w:14});
+ Cap(B,'→ al baño de noche',{cx:520,cy:740,size:40,t0:C('nomucha')+3,color:'#e23b2e'});
+ Card(B,{cx:1360,cy:520,w:740,h:500,t0:C('tarde'),border:'#22a35a'}); Cap(B,'bebe bien durante el día',{cx:1360,cy:360,size:44,t0:C('tarde')+0.2});
+ Cap(B,'y ve bajando por la tarde',{cx:1360,cy:440,size:44,t0:C('tarde')+2}); const ck=Svg(B); clockIcon(B,ck,{cx:1080,cy:620,r:60,t0:C('siete')}); Cap(B,'lo principal, hacia las <span class="hl">7</span>',{cx:1420,cy:620,size:42,t0:C('siete')});}
+{const B=FB(C('vaso'),C('rinon'),'S2_8','Un vaso pequeño en la mesilla: <span class="hl">por la mañana, antes de levantarte</span>',{capT:0.2,size:46,from:[.5,.5,1.0],to:[.4,.4,1.14],draw:(c,t)=>rays(c,t,{x:1500,y:180,r0:60,r1:100,lw:5})});
+ Cap(B,'unos 120–180 ml',{cx:960,cy:90,size:48,t0:B.a+3,pill:true});}
+Warn(C('rinon'),C('ambiente'),'Importante',['¿enfermedad del riñón o del corazón?','¿te han limitado los líquidos?','sigue lo que te indique <span class="hl">tu médico</span>'],{keys:[C('rinon'),C('rinon')+2,C('rinon')+4]});
+// room
+{const B=FB(C('ambiente'),C('pantallas'),'S4_3','Una habitación <span class="hl">fresca</span>: 18–19 °C',{capT:C('grados18')-C('ambiente'),size:58,from:[.5,.5,1.0],to:[.55,.45,1.14],
+  draw:(c,t)=>{for(let i=0;i<6;i++){const ph=(t*0.4+i/6)%1; c.globalAlpha=Math.sin(ph*Math.PI)*0.7; c.strokeStyle='#dff1ff'; c.lineWidth=4; c.beginPath(); c.moveTo(1400-ph*700,300+i*40); c.quadraticCurveTo(1300-ph*700,280+i*40,1200-ph*700,300+i*40); c.stroke();} c.globalAlpha=1;}});
+ Cap(B,'el cuerpo necesita enfriarse para el sueño profundo',{cx:960,cy:90,size:44,t0:C('temperatura')+2,pill:true,t1:C('caliente')});
+ Cap(B,'habitación caliente → sueño ligero',{cx:960,cy:90,size:44,t0:C('caliente'),pill:true});}
+{const B=FB(C('pantallas'),C('ruido'),'S4_4','Pantallas fuera después de las 9',{capT:0.2,size:58,from:[.5,.5,1.0],to:[.35,.6,1.14]});
+ Cap(B,'la luz azul retrasa la melatonina',{cx:960,cy:90,size:46,t0:B.a+2,pill:true});}
+{const B=Beat(C('ruido'),C('tambien'),{enter:'up'}); Cut(B,'heart2',{cx:440,cy:700,h:340,amp:6,period:0.6});
+ Canvas(B,(c,t)=>{for(let i=0;i<3;i++){const ph=((t*0.8)+i/3)%1; c.globalAlpha=1-ph; c.strokeStyle='#e23b2e'; c.lineWidth=5; c.beginPath(); c.arc(440,600,120+ph*160,-0.8,0.8); c.stroke();} c.globalAlpha=1;});
+ Cap(B,'El ruido, aunque no te despierte:',{cx:1300,cy:230,size:50,t0:B.a+0.3}); Cap(B,'pequeñas <span class="red">descargas de estrés</span>',{cx:1300,cy:320,size:54,t0:B.a+3});
+ Cap(B,'corazón · cortisol · vasos',{cx:1300,cy:420,size:44,t0:C('ruido')+7,color:'#6a6f86'});
+ Cut(B,'whitenoise',{cx:1120,cy:800,h:200,amp:3,t0:C('blanco')}); Cut(B,'earplugs',{cx:1480,cy:800,h:200,amp:3,t0:C('blanco')+1});
+ Cap(B,'ruido blanco · tapones',{cx:1300,cy:960,size:46,t0:C('blanco')+1.5,color:'#1f9d55'});}
+// tools
+{const B=FB(C('tambien'),C('libreta'),'S4_5','Un pulsioxímetro: <span class="hl">orientativo</span>',{capT:C('pulsi')-C('tambien'),size:56,from:[.5,.5,1.0],to:[.65,.45,1.16]});
+ Cap(B,'¿baja a menudo del 92%? coméntalo con tu médico',{cx:960,cy:90,size:44,t0:C('noventa'),pill:true});}
+{const B=Beat(C('libreta'),C('patrones'),{enter:'zoom'}); Cut(B,'notebook2',{cx:470,cy:780,h:440,amp:3});
+ Cap(B,'Una libreta: cada mañana apunta…',{cx:1280,cy:180,size:50,t0:B.a+0.3});
+ [['cómo te levantas',1.5],['dolor de cabeza',3],['mareo al ponerte de pie',4.5],['hormigueo · cabeza espesa',6.5]].forEach(([h,d],i)=>{Cap(B,'✔ '+h,{cx:1280,cy:330+i*110,size:46,t0:B.a+d});});
+ Cap(B,'patrones que un análisis no ve',{cx:1280,cy:820,size:46,t0:B.a+12,color:'#2f6fd6'});}
+{const B=FB(C('patrones'),C('porque'),'S4_6','Lleva tus notas a tu médico, <span class="hl">con fechas</span>',{capT:0.2,size:54,from:[.5,.5,1.0],to:[.45,.45,1.14]});
+ Cap(B,'no sustituyen al médico: le ayudan a ayudarte',{cx:960,cy:90,size:44,t0:C('nosustituyen'),pill:true});}
+{const B=Beat(C('porque'),C('elige'),{enter:'zoom'}); Cut(B,'m_think',{cx:460,cy:1020,h:720,amp:4});
+ Cap(B,'¿Por qué tu médico no te lo ha contado?',{cx:1260,cy:170,size:50,t0:B.a+0.2});
+ Cap(B,'la postura no tiene <span class="hl">receta</span>',{cx:1260,cy:330,size:54,t0:C('receta')});
+ Cap(B,'nadie ve tus 8 horas de sueño',{cx:1260,cy:430,size:46,t0:C('receta')+3,color:'#6a6f86'});
+ const s=Svg(B); clockIcon(B,s,{cx:930,cy:580,r:56,t0:C('consulta')}); Cap(B,'consultas de 15 minutos',{cx:1320,cy:580,size:46,t0:C('consulta')});
+ Card(B,{cx:1260,cy:800,w:880,h:220,t0:C('teoria'),border:'#22a35a'}); Cap(B,'pero la investigación es <span class="green">sólida</span>',{cx:1260,cy:770,size:46,t0:C('teoria')+0.2});
+ Cap(B,'limpieza cerebral · pico de tensión · apnea',{cx:1260,cy:840,size:38,t0:C('teoria')+4,color:'#6a6f86'});}
+{const B=Beat(C('elige'),C('cuentame'),{enter:'up'}); Cap(B,'Elige <span class="hl">una sola cosa</span>',{cx:960,cy:110,size:66,t0:B.a+0.2});
+ Row(B,[['bodypillow','Dormir de lado esta noche',C('op1'),'ok'],['stetho2','Pedir un estudio del sueño',C('op2'),'ok'],['glass2','Vaso en la mesilla · pantallas fuera',C('op3'),'ok']].map(x=>x[0]==='stetho2'?['oximeter2',x[1],x[2],x[3]]:x),{y:520,cardH:500,h:230});
+ Cap(B,'1 cambio · 7 días · fíjate cada mañana',{cx:960,cy:930,size:52,t0:C('uncambio'),pill:true});}
+{const B=Beat(C('cuentame'),C('suscr')); Cut(B,'d_phone',{cx:430,cy:1010,h:760,amp:5});
+ Cap(B,'💬 ¿Con qué cambio empiezas?',{cx:1260,cy:260,size:56,t0:B.a+0.2});
+ const sp=mk('div','pill',B.L,'↗ COMPARTE'); Object.assign(sp.style,{left:'1260px',top:'480px',fontSize:'66px',background:'#2f6fd6',color:'#fff',borderColor:'#1d4fa3'}); Pop(B,sp,{t0:C('alguien'),rot:-2});
+ Cap(B,'con alguien de más de 60 que',{cx:1260,cy:640,size:44,t0:C('alguien')+1}); Cap(B,'ronca · tiene la tensión alta · se levanta con dolor de cabeza',{cx:1260,cy:720,size:34,t0:C('alguien')+2,color:'#6a6f86'});
+ Card(B,{cx:1260,cy:900,w:900,h:120,t0:C('alguien')+6,border:'#f7ad36',bg:'#fffaf0'}); Cap(B,'⚠ Vídeo educativo: no sustituye a tu médico',{cx:1260,cy:900,size:40,t0:C('alguien')+6.2,color:'#b97a00'});}
+{const B=Subscribe(C('suscr'),C('descanses'),{pose:'m_wave',line:'Próximo vídeo: <span class="hl">minerales</span> y derrame cerebral'});}
+FB(C('descanses'),1364.5,'S4_8','Que descanses bien · <span class="hl">tu cerebro cuenta con ello</span>',{capT:0.1,size:54,from:[.5,.5,1.0],to:[.5,.45,1.1],exit:'fade',draw:(c,t)=>rays(c,t,{x:960,y:330,r0:70,r1:120,lw:6})});
+</script></body></html>
