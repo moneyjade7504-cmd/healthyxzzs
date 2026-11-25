@@ -1,0 +1,39 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('n2'); window.END=C('n1'); window.DURATION=window.END;
+const stars=(c,t)=>{for(let i=0;i<12;i++){c.globalAlpha=0.5+0.5*Math.sin(t*2+i);c.fillStyle='#fff6c8';c.beginPath();c.arc(1250+((i*97)%380),40+((i*53)%260),2.5,0,7);c.fill();}c.globalAlpha=1;};
+const dram=B=>{const p=mk('div','pill',B.L,'Dramatización'); Object.assign(p.style,{left:'1720px',top:'60px',fontSize:'34px',borderColor:'#6a6f86',color:'#6a6f86'}); Pop(B,p,{t0:B.a+0.2});};
+{const B=STitle(C('n2'),C('sana'),2,'Plano boca arriba','con la tensión alta',['ds_flat','bpmon']);}
+{const B=FB(C('sana'),C('pero2'),'S3_1','Boca arriba y plano: <span class="green">para mucha gente, bien</span>',{capT:0.3,size:54,from:[.5,.5,1.0],to:[.4,.5,1.12],draw:stars});
+ Cap(B,'columna alineada · peso repartido',{cx:960,cy:90,size:46,t0:B.a+2,pill:true});}
+{const B=Beat(C('pero2'),C('medicacion'),{enter:'zoom'}); Cut(B,'ds_flat2',{cx:560,cy:760,h:300,amp:2});
+ Cap(B,'Con <span class="hl">tensión alta</span>, después de los 60',{cx:1300,cy:200,size:54,t0:B.a+0.3});
+ Cap(B,'en horizontal, la sangre de la cabeza',{cx:1300,cy:380,size:46,t0:C('horizontal')}); Cap(B,'ya no tiene la ayuda de la gravedad',{cx:1300,cy:450,size:46,t0:C('horizontal')+2});
+ const s=Svg(B); Draw(B,s,arrow(380,520,380,420),{t0:C('presion'),stroke:'#e23b2e',w:10}); Cap(B,'presión en la cabeza: <span class="red">sube un poco</span>',{cx:1300,cy:620,size:50,t0:C('presion')});
+ Cap(B,'vasos sanos: sin problema',{cx:1300,cy:800,size:44,t0:C('sanos'),color:'#1f9d55'}); Cap(B,'con arterias estrechas: un factor más',{cx:1300,cy:880,size:44,t0:C('sanos')+5,color:'#e23b2e'});}
+{const B=FB(C('medicacion'),C('matutino'),'S3_3','La medicación para la tensión <span class="hl">protege</span>',{capT:0.3,size:54,from:[.5,.5,1.0],to:[.45,.35,1.14]});
+ Cap(B,'nunca cambies la hora por tu cuenta',{cx:960,cy:90,size:46,t0:B.a+4,pill:true});}
+{const B=Beat(C('matutino'),C('hombre'),{enter:'up'}); Cap(B,'El <span class="hl">pico matutino</span> de tensión',{cx:960,cy:110,size:62,t0:B.a+0.3});
+ const s=Svg(B); const X=h=>220+h*62, Y=v=>820-v*4.2;
+ Draw(B,s,`M${X(0)} 820 L${X(24)} 820`,{t0:B.a+0.4,dur:0.5,stroke:'#3a3c52',w:6});
+ [[0,'0 h'],[6,'6 h'],[9,'9 h'],[12,'12 h'],[18,'18 h'],[24,'24 h']].forEach(([h,l])=>Cap(B,l,{cx:X(h),cy:870,size:34,t0:B.a+0.6,color:'#6a6f86'}));
+ const pts=[[0,40],[2,32],[4,30],[5,34],[6,55],[7,82],[8,95],[9,92],[12,85],[15,80],[18,78],[21,62],[24,42]];
+ Draw(B,s,pts.map(([h,v],i)=>(i?'L':'M')+X(h)+' '+Y(v)).join(' '),{t0:B.a+1,dur:3,stroke:'#e23b2e',w:10});
+ const sh=sv('rect',{x:X(6),y:Y(110),width:X(12)-X(6),height:Y(0)-Y(110),fill:'#ffe14d',opacity:0},s); B.fx.push(t=>sh.setAttribute('opacity',0.35*prog(t,B.a+4,B.a+5)));
+ Cap(B,'+ derrames cerebrales en esta franja',{cx:X(9),cy:330,size:44,t0:B.a+5,color:'#e23b2e'});
+ Card(B,{cx:1560,cy:270,w:540,h:180,t0:C('asocia'),border:'#f7ad36',bg:'#fffaf0'});
+ Cap(B,'pico muy marcado =',{cx:1560,cy:240,size:42,t0:C('asocia')+0.2}); Cap(B,'+ riesgo en mayores',{cx:1560,cy:305,size:42,t0:C('asocia')+0.6,color:'#e23b2e'});
+ Src(B,'Kario y cols., Circulation 2003 · monitorización de 24 h · curva ilustrativa');}
+{const B=FB(C('hombre'),C('comentar'),'S3_2','Hombre de 71 años · dolor en la nuca a las 5:30',{capT:0.3,size:52,from:[.5,.5,1.0],to:[.6,.35,1.16]}); dram(B);
+ Cap(B,'tensión bien controlada',{cx:400,cy:120,size:42,t0:C('controlada'),pill:true});}
+{const B=Beat(C('comentar'),C('c2'),{enter:'zoom'}); Cut(B,'ds_neck2',{cx:500,cy:1000,h:640,amp:3});
+ Card(B,{cx:1300,cy:420,w:900,h:340,t0:B.a+0.2,border:'#f7ad36',bg:'#fffaf0'});
+ Cap(B,'⚠ Dolor de cabeza al despertar',{cx:1300,cy:330,size:50,t0:B.a+0.3,color:'#b97a00'});
+ Cap(B,'coméntalo <span class="hl">siempre</span> con tu médico',{cx:1300,cy:430,size:50,t0:B.a+1});
+ Cap(B,'puede deberse a la tensión o a la apnea',{cx:1300,cy:510,size:40,t0:B.a+2,color:'#6a6f86'});
+ Cap(B,'Tensión alta + dormir plano: <span class="red">tómatelo en serio</span>',{cx:1300,cy:760,size:48,t0:C('serio')});}
+{const B=Beat(C('c2'),C('n1'),{enter:'zoom'}); Cut(B,'m_wave',{cx:500,cy:1020,h:740,amp:5});
+ Cap(B,'¿Te está ayudando?',{cx:1300,cy:300,size:62,t0:B.a+0.3}); const n=mk('div','num',B.L,'2'); Object.assign(n.style,{left:'1300px',top:'560px',width:'260px',height:'260px',fontSize:'190px'}); Pop(B,n,{t0:B.a+1});
+ Cap(B,'💬 escríbelo en los comentarios',{cx:1300,cy:820,size:52,t0:B.a+1.6});}
+</script></body></html>

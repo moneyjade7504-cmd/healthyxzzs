@@ -1,0 +1,32 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('n1'); window.END=C('ahora'); window.DURATION=window.END;
+const stars=(c,t)=>{for(let i=0;i<12;i++){c.globalAlpha=0.5+0.5*Math.sin(t*2+i);c.fillStyle='#fff6c8';c.beginPath();c.arc(1250+((i*97)%380),40+((i*53)%260),2.5,0,7);c.fill();}c.globalAlpha=1;};
+{const B=STitle(C('n1'),C('combin'),1,'Boca arriba + ronquidos','o apnea del sueño sin diagnosticar',['ds_snore','cpap']);}
+{const B=FB(C('combin'),C('garganta'),'S3_5','Juntos: la combinación <span class="red">más peligrosa</span>',{capT:0.3,size:56,from:[.5,.5,1.0],to:[.3,.45,1.16],draw:(c,t)=>{stars(c,t);zzz(c,t,{x:700,y:300,s:1.3});}});}
+{const B=Beat(C('garganta'),C('critico'),{enter:'zoom'}); Cut(B,'airway',{cx:520,cy:900,h:600,amp:2,tilt:.3});
+ Canvas(B,(c,t)=>{const k=0.5+0.5*Math.sin(t*5); c.globalAlpha=0.3+0.5*k; c.strokeStyle='#e23b2e'; c.lineWidth=8; c.beginPath(); c.arc(560,780,70+8*k,0,7); c.stroke(); c.globalAlpha=1;});
+ Cap(B,'Boca arriba, la garganta',{cx:1320,cy:220,size:52,t0:B.a+0.3}); Cap(B,'se cierra <span class="red">con más facilidad</span>',{cx:1320,cy:310,size:56,t0:B.a+1.5});
+ Cap(B,'hasta el <span class="hl">doble</span> de pausas en algunas personas',{cx:1320,cy:480,size:46,t0:C('doble')});
+ Cap(B,'la lengua cae hacia atrás',{cx:1320,cy:650,size:50,t0:C('lengua')});
+ Card(B,{cx:1320,cy:850,w:620,h:180,t0:C('delado'),border:'#22a35a'}); Cut(B,'ds_side',{cx:1200,cy:900,h:110,t0:C('delado')+0.1,amp:2}); Cap(B,'de lado: <span class="green">mucho menos</span>',{cx:1430,cy:850,size:42,t0:C('delado')+0.2});}
+{const B=Beat(C('critico'),C('cruce'),{enter:'up'}); Cap(B,'La apnea del sueño: un ciclo que se repite',{cx:960,cy:100,size:54,t0:B.a+0.3});
+ Chain(B,[['airway','La garganta se cierra',C('apnea')],['sweat','El oxígeno cae',C('oxigeno')],['brain2','Alarma: adrenalina',C('adrenalina')],['heart2','Corazón y tensión se disparan',C('acelera')]],{y:380,h:220});
+ const s=Svg(B); Draw(B,s,'M1650 560 Q960 760 270 560',{t0:C('acelera')+3,dur:1,stroke:'#e23b2e',w:7}); Draw(B,s,arrow(320,590,270,560),{t0:C('acelera')+3.9,dur:0.2,stroke:'#e23b2e',w:7});
+ const cnt=Cap(B,'',{cx:960,cy:760,size:90,t0:C('ciclo'),color:'#e23b2e'}); B.fx.push(t=>{cnt.innerHTML='×'+Math.round(100*eo(prog(t,C('ciclo'),C('ciclo')+2.5)));});
+ Cap(B,'a veces más de 100 por noche',{cx:960,cy:860,size:38,t0:C('ciclo')+1});
+ Cap(B,'10 · 20 · hasta 40 s sin respirar',{cx:960,cy:1000,size:42,t0:C('apnea')+4,pill:true,t1:C('recordar')}); Cap(B,'…y normalmente no lo recuerdas',{cx:960,cy:1000,size:42,t0:C('recordar'),pill:true});}
+{const B=FB(C('cruce'),C('relacion2'),'S3_6','Boca arriba <span class="red">empeora</span> la apnea',{capT:C('empeora')-C('cruce'),size:58,from:[.5,.5,1.0],to:[.35,.5,1.16],draw:stars});
+ Cap(B,'todas las noches',{cx:960,cy:90,size:48,t0:C('repetidas')+6,pill:true});}
+{const B=Beat(C('relacion2'),C('preocupa2'),{enter:'zoom'}); Cap(B,'Apnea moderada o grave y derrame cerebral',{cx:960,cy:110,size:54,t0:B.a+0.3});
+ Bars(B,[['sin apnea',1,'#2f6fd6',C('miles')+1],['moderada/grave',2,'#f7ad36',C('miles')+2],['grave',3,'#e23b2e',C('miles')+3]],{x:820,base:860,maxH:520,unit:'×',bw:200,gap:140,size:40});
+ Cap(B,'≈ el doble · hasta ~3 veces',{cx:1600,cy:420,size:46,t0:C('miles')+7,color:'#e23b2e'}); Cap(B,'aun teniendo en cuenta',{cx:1600,cy:520,size:40,t0:C('miles')+10}); Cap(B,'peso · tensión · tabaco',{cx:1600,cy:580,size:40,t0:C('miles')+11});
+ Src(B,'Yaggi, NEJM 2005 · Redline, AJRCCM 2010 · algunos estudios encuentran cifras mayores');}
+{const B=Beat(C('preocupa2'),C('cita')); Cut(B,'ms_ears',{cx:480,cy:1010,h:620,amp:3});
+ Cap(B,'≈ <span class="red">8 de cada 10</span>',{cx:1300,cy:300,size:80,t0:C('mayoria')}); Cap(B,'personas con apnea moderada o grave',{cx:1300,cy:420,size:44,t0:C('mayoria')+1}); Cap(B,'<span class="hl">no están diagnosticadas</span>',{cx:1300,cy:500,size:54,t0:C('mayoria')+2});
+ Cap(B,'roncan · su pareja se queja · se levantan cansados',{cx:1300,cy:700,size:40,t0:C('pareja'),color:'#6a6f86'});
+ Src(B,'Young y cols., Sleep 1997');}
+{const B=FB(C('cita'),C('encasa'),'S3_7','¿Roncas o dejas de respirar? <span class="hl">Pide cita esta semana</span>',{capT:0.3,size:50,from:[.5,.5,1.0],to:[.6,.4,1.14]});}
+{const B=FB(C('encasa'),C('ahora'),'S3_8','Un <span class="hl">estudio del sueño en casa</span>: una prueba sencilla',{capT:0.2,size:52,from:[.5,.5,1.0],to:[.5,.45,1.14],draw:stars});}
+</script></body></html>
