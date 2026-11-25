@@ -33,7 +33,7 @@ NURSE = "a friendly middle-aged female nurse in light blue scrubs"
 CLOCK = "a simple bedside clock with plain hands and NO digits"
 SURG = "a calm middle-aged female surgeon with dark hair in a bun, white coat over light green scrubs, same flat cartoon style"
 
-BED = "a cozy bedroom at night, soft moonlight through the window, a bedside lamp, a bed with a light blue sheet and blanket and plump white pillows like the attached sleep pose sheet"
+BED = "A cozy bedroom at night, soft moonlight through the window, a bedside lamp, a bed with a light blue sheet and blanket and plump white pillows like the attached sleep pose sheet"
 PARTS = [
  ("PARTE 1 · Gancho + Número 5: brazos por encima de la cabeza", [
   ("P1", "6 tư thế (mặc đồ ngủ): Daniel nằm ngửa giơ hai tay qua đầu; Daniel ngồi mép giường vẩy hai bàn tay tê; Daniel chạm xương đòn; Daniel cầm điện thoại gõ bình luận; Marta vẫy chào; Marta suy nghĩ",
@@ -48,7 +48,7 @@ PARTS = [
   ("S1_1", "Buổi tối: Daniel lên giường, tắt đèn, bình yên",
    scene(f"{BED}: {ANTP} pulling back the covers and getting into bed, reaching to switch off the bedside lamp, calm and relaxed.")),
   ("S1_2", "Đêm khuya: hai ông bà ngủ say, ánh trăng",
-   scene(f"{BED}, wide shot: {ANTP} and {CARP} sound asleep in a double bed, peaceful, a {CLOCK} on the nightstand.")),
+   scene(f"{BED}, wide shot: {ANTP} and {CARP} sound asleep in a double bed, peaceful, {CLOCK} on the nightstand.")),
   ("S1_3", "Daniel ngồi trên giường buổi sáng gõ bình luận trên điện thoại",
    scene(f"A bright bedroom in the morning: {ANTP} sitting on the edge of the bed, smiling and typing on his smartphone.")),
   ("S1_4", "Daniel ngủ ngửa, hai tay giơ qua đầu",
@@ -82,7 +82,7 @@ PARTS = [
   ("S2_5", "Vài tuần sau: Marta ngủ nghiêng thoải mái",
    scene(f"{BED}: {CARP} sleeping peacefully on her side with a pillow between her knees, a gentle smile.")),
   ("S2_6", "Đêm: Daniel ngủ, ly nước trên bàn đầu giường đã cạn",
-   scene(f"{BED}: {ANTP} asleep, mouth slightly open, an empty glass on the nightstand next to a {CLOCK}.")),
+   scene(f"{BED}: {ANTP} asleep, mouth slightly open, an empty glass on the nightstand next to {CLOCK}.")),
   ("S2_7", "Buổi tối: Marta đưa nước, Daniel từ chối vì sợ đi tiểu đêm",
    scene(f"A living room in the evening: {CAR} offering a glass of water to {ANT}, who politely refuses with a raised hand, thinking about the bathroom at night.")),
   ("S2_8", "Sáng sớm: Daniel ngồi mép giường uống ly nước nhỏ trước khi đứng dậy",
@@ -100,7 +100,7 @@ PARTS = [
   ("S3_1", "Daniel ngủ ngửa phẳng, không gối cao",
    scene(f"{BED}: {ANTP} asleep completely flat on his back on a thin flat pillow.")),
   ("S3_2", "5:30 sáng: Daniel tỉnh dậy ôm gáy đau đầu (Dramatización)",
-   scene(f"A dark bedroom at dawn, faint blue light at the window: {ANTP} sitting up in bed holding the back of his head, in pain, a {CLOCK}.")),
+   scene(f"A dark bedroom at dawn, faint blue light at the window: {ANTP} sitting up in bed holding the back of his head, in pain, {CLOCK}.")),
   ("S3_3", "Buổi tối: Daniel uống thuốc huyết áp",
    scene(f"A bathroom in the evening: {ANTP} taking a pill with a glass of water, a pill organizer on the counter.")),
   ("S3_4", "Daniel ngủ trên gối nêm, nửa trên hơi cao",
