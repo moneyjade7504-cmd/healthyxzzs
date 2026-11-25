@@ -1,0 +1,38 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('ahora'); window.END=C('deshid'); window.DURATION=window.END;
+const stars=(c,t)=>{for(let i=0;i<12;i++){c.globalAlpha=0.5+0.5*Math.sin(t*2+i);c.fillStyle='#fff6c8';c.beginPath();c.arc(1250+((i*97)%380),40+((i*53)%260),2.5,0,7);c.fill();}c.globalAlpha=1;};
+{const B=Beat(C('ahora'),C('comodidad'),{enter:'zoom'}); const p=mk('div','pill',B.L,'✔ POSTURA 1'); Object.assign(p.style,{left:'960px',top:'200px',fontSize:'70px',background:'#22a35a',color:'#fff',borderColor:'#157a40'}); Pop(B,p,{t0:C('p1')});
+ Cap(B,'Ahora: qué hacer en su lugar',{cx:960,cy:90,size:50,t0:B.a+0.2,t1:C('p1')});
+ Cut(B,'ds_side2',{cx:960,cy:850,h:360,amp:2,t0:C('p1')+0.3}); Cap(B,'De lado, <span class="hl">bien colocado</span>',{cx:960,cy:330,size:66,t0:C('p1')+0.5});
+ Cap(B,'para muchos, mejor del lado izquierdo',{cx:960,cy:1030,size:46,t0:C('izquierdo'),pill:true});}
+{const B=Beat(C('comodidad'),C('especial'));
+ Cap(B,'De lado, la garganta se cierra <span class="green">mucho menos</span>',{cx:960,cy:140,size:54,t0:C('menos')});
+ Row(B,[['airway','Menos pausas',C('pausas'),'ok'],['sweat','Menos caídas de oxígeno',C('pausas')+1.5,'ok'],['heart2','Menos subidas de tensión',C('pausas')+3,'ok']],{y:520,cardH:460,h:220}); 
+ Cap(B,'lado izquierdo: ayuda con la <span class="hl">acidez y el reflujo</span>',{cx:960,cy:930,size:48,t0:C('reflujo')});}
+{const B=FB(C('especial'),C('estudio15'),'S4_2','El <span class="hl">sistema glinfático</span>: la limpieza nocturna del cerebro',{capT:C('glinfatico')-C('especial'),size:48,from:[.5,.5,1.0],to:[.55,.3,1.16],
+  draw:(c,t)=>{for(let i=0;i<16;i++){const ph=(t*0.25+i/16)%1; c.globalAlpha=Math.sin(ph*Math.PI)*0.9; c.fillStyle=i%3?'#bfe3ff':'#fff6c8'; c.beginPath(); c.arc(560+ph*700,260+Math.sin(ph*8+i)*60,4+(i%3),0,7); c.fill();} c.globalAlpha=1;}});
+ Cap(B,'arrastra desechos: beta-amiloide y tau',{cx:960,cy:90,size:46,t0:C('amiloide'),pill:true});}
+{const B=Beat(C('estudio15'),C('acumulando'),{enter:'zoom'}); Cut(B,'brain2',{cx:430,cy:760,h:420,amp:4});
+ Cap(B,'Journal of Neuroscience, 2015',{cx:1280,cy:150,size:48,t0:B.a+0.3,color:'#2f6fd6'}); Cap(B,'Stony Brook y Rochester',{cx:1280,cy:230,size:42,t0:B.a+2,color:'#6a6f86'});
+ [['ds_side','de lado','#22a35a',3.5],['ds_flat','boca arriba','#f7ad36',5],['ds_prone','boca abajo','#f7ad36',6]].forEach(([c,l,col,d],i)=>{const x=880+i*400, t0=B.a+d; Card(B,{cx:x,cy:520,w:360,h:300,t0,border:col}); Cut(B,c,{cx:x,cy:560,h:150,t0:t0+0.1,amp:2}); Cap(B,l,{cx:x,cy:620,size:40,t0:t0+0.2});});
+ const s=Svg(B); Draw(B,s,tick(1000,410,1),{t0:B.a+9,stroke:'#22a35a',w:12}); Cap(B,'limpieza <span class="green">más eficaz</span> de lado',{cx:1280,cy:770,size:50,t0:B.a+9});
+ Card(B,{cx:1280,cy:910,w:980,h:120,t0:C('animales'),border:'#f7ad36',bg:'#fffaf0'}); Cap(B,'⚠ estudio en animales · en personas, aún en estudio',{cx:1280,cy:910,size:34,t0:C('animales')+0.2,color:'#b97a00'});
+ Src(B,'Lee y cols., J Neurosci 2015');}
+{const B=FB(C('acumulando'),C('practica'),'S4_1','Lo que no se limpia se va acumulando… <span class="hl">durante años</span>',{capT:0.2,size:50,from:[.5,.5,1.0],to:[.6,.4,1.14],draw:stars});}
+{const B=Beat(C('practica'),C('vuelta'),{enter:'up'}); Cap(B,'Cómo colocarte de lado',{cx:960,cy:110,size:62,t0:B.a+0.2});
+ Row(B,[['bodypillow','Almohada larga delante',B.a+0.6,'ok'],['kneepillow','Almohada entre las rodillas',C('rodillas'),'ok'],['ds_side2','Hombro de abajo un poco adelantado',C('hombro'),'ok']],{y:540,cardH:520,h:240});}
+{const B=Beat(C('vuelta'),C('p2'),{enter:'zoom'}); Cut(B,'ds_hug',{cx:520,cy:800,h:360,amp:2});
+ Cap(B,'¿Te das la vuelta por la noche?',{cx:1300,cy:300,size:54,t0:B.a+0.2}); Cap(B,'<span class="green">es normal</span>',{cx:1300,cy:400,size:66,t0:B.a+1.8});
+ Cap(B,'objetivo: <span class="hl">la mayor parte</span> de la noche de lado',{cx:1300,cy:560,size:46,t0:C('objetivo')});
+ Card(B,{cx:1300,cy:780,w:820,h:180,t0:C('cardiologo'),border:'#f7ad36',bg:'#fffaf0'}); Cap(B,'¿Enfermedad del corazón?',{cx:1300,cy:750,size:42,t0:C('cardiologo')+0.2,color:'#b97a00'}); Cap(B,'pregunta a tu cardiólogo de qué lado',{cx:1300,cy:815,size:40,t0:C('cardiologo')+0.6});}
+{const B=Beat(C('p2'),C('elevacion'),{enter:'zoom'}); const p=mk('div','pill',B.L,'✔ POSTURA 2'); Object.assign(p.style,{left:'960px',top:'110px',fontSize:'64px',background:'#22a35a',color:'#fff',borderColor:'#157a40'}); Pop(B,p,{t0:B.a+0.1});
+ Cap(B,'Boca arriba, pero <span class="hl">elevado</span>',{cx:960,cy:240,size:60,t0:B.a+0.6}); Cap(B,'si no puedes dormir de lado (hombro, cadera…)',{cx:960,cy:330,size:42,t0:C('artrosis'),color:'#6a6f86'});
+ Cut(B,'ds_wedge2',{cx:760,cy:780,h:360,amp:2,t0:C('clave')}); Cap(B,'elevado, <span class="red">no plano</span>',{cx:1450,cy:520,size:56,t0:C('clave')});
+ Cap(B,'cuña firme: todo el tronco',{cx:1450,cy:640,size:46,t0:C('cuna')});
+ const s=Svg(B); Draw(B,s,'M560 840 L900 840 M560 840 L860 720',{t0:C('grados'),dur:0.6,stroke:'#e23b2e',w:6}); Cap(B,'15–20°',{cx:1450,cy:760,size:80,t0:C('grados'),color:'#e23b2e'});}
+{const B=FB(C('elevacion'),C('deshid'),'S3_4','Menos presión en la cabeza · <span class="green">menos pausas</span> que plano',{capT:0.2,size:50,from:[.5,.5,1.0],to:[.45,.45,1.12],draw:stars});
+ Cap(B,'+ almohada o toalla bajo las rodillas',{cx:960,cy:90,size:44,t0:C('toalla'),pill:true,t1:C('esosi')});
+ Cap(B,'Apnea moderada o grave: <span class="hl">de lado sigue siendo mejor</span>',{cx:960,cy:90,size:44,t0:C('esosi')+0.3,pill:true});}
+</script></body></html>

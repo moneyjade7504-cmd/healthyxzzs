@@ -135,3 +135,70 @@ ruido | No saben que ese ruido
 cita | Si roncas o si tu pareja
 encasa | Un estudio del sueño en casa
 ahora | Ahora vamos a ver qué hacer
+# PARTE 4
+p1 | Postura 1 dormir de lado
+izquierdo | Y para muchas personas mejor del lado
+comodidad | Dormir de lado no es solo
+menos | Primero como acabamos de ver
+pausas | Así que hay menos pausas
+reflujo | Y además dormir sobre el lado izquierdo
+especial | Pero esto es lo que hace que dormir
+glinfatico | Tu cerebro tiene un sistema llamado
+limpieza | Es básicamente el servicio
+liquido | Durante el sueño profundo el líquido
+amiloide | Entre ellos la beta
+estudio15 | Un estudio de 2015
+animales | El estudio se hizo en animales
+muestran | Lo que muestran los datos
+acumulando | Y las proteínas que no se limpian
+practica | En la práctica pon una almohada
+rodillas | Coloca otra almohada entre las rodillas
+hombro | Y adelanta un poco el hombro
+vuelta | Por la noche te vas a dar
+objetivo | El objetivo es pasar la mayor
+cardiologo | Si tienes alguna enfermedad del corazón diagnosticada
+p2 | Postura 2
+artrosis | Hay personas con artrosis
+valida | Para ellas dormir boca arriba
+clave | La palabra clave es elevado
+cuna | Lo ideal es una almohada en cuña
+grados | Unos 15 o 20 grados
+elevacion | Esa elevación ayuda
+toalla | Pon además una almohada pequeña
+esosi | Eso sí
+leves | Pero para quienes tienen
+deshid | Y sobre la deshidratación nocturna
+nomucha | El objetivo no es beber mucha
+tarde | La estrategia es beber bien
+siete | Intenta terminar de beber
+vaso | Después deja un vaso pequeño
+rinon | Si tienes alguna enfermedad del riñón
+ambiente | Y ni la mejor postura del mundo
+temperatura | La temperatura importa
+grados18 | Una habitación entre 18
+caliente | En una habitación caliente
+pantallas | Las pantallas después de las nueve
+ruido | Y el ruido incluso
+blanco | Un ambiente de sonido constante
+tambien | También puedes saber lo que hace
+pulsi | Un pulsióximetro
+noventa | Si bajas a menudo del 92
+libreta | Y una libreta sencilla
+patrones | Patrones que cuando se los llevas
+nosustituyen | Estas herramientas no sustituyen
+porque | Por qué tu médico no te ha contado
+receta | La postura al dormir no tiene
+consulta | Y en una consulta de 15 minutos
+teoria | Eso no significa que esta
+delante | Tú sabiéndolo ahora
+elige | Elige una sola cosa
+op1 | Puede ser empezar a dormir de lado
+op2 | Puede ser llamar a tu médico
+op3 | Puede ser dejar un vaso
+uncambio | Un cambio
+cuentame | Cuéntame en los comentarios
+alguien | Y si en tu vida hay alguien
+suscr | Si todavía no estás suscrito hazlo
+minerales | Muy pronto voy a hablar
+campanita | Suscríbete y activa la campanita
+descanses | Que descanses bien
