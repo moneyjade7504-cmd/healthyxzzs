@@ -3,7 +3,7 @@
 import json, pathlib
 D = pathlib.Path(__file__).parent
 
-STY = ("Clean 2D cartoon illustration, exactly matching the attached reference image: bold clean dark outlines, soft flat colours with gentle "
+STY = ("Clean 2D cartoon illustration, exactly matching the attached reference images: bold clean dark outlines, soft flat colours with gentle "
        "cel shading, warm expressive faces, simple rounded shapes, ")
 SHEET = STY + "plain pure white background. "
 SCENE = STY + "simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. "
@@ -13,8 +13,8 @@ CAR = ("MARTA, Daniel's wife (same clean cartoon style as the attached reference
        "kind face, soft lilac cardigan over a white blouse, grey trousers, brown shoes)")
 ANT = ("DANIEL (exactly the man in the attached reference: about 65 years old, short swept-back grey hair, black rectangular glasses, friendly face, "
        "teal button-up shirt with sleeves rolled up, brown belt, dark navy trousers, brown shoes, a wristwatch)")
-ANTP = ("DANIEL (exactly the man in the attached reference: about 65 years old, short swept-back grey hair, black rectangular glasses, in light blue striped pyjamas)")
-CARP = ("MARTA, Daniel's wife (same clean cartoon style: short wavy grey hair, small round glasses, in a lilac nightgown)")
+ANTP = ("DANIEL (exactly the man in the attached references: about 65 years old, short swept-back grey hair, black rectangular glasses, wearing dark teal long-sleeve button pyjamas with thin white piping on the collar, cuffs and pocket, barefoot or navy slippers, exactly as in the attached sleep pose sheet)")
+CARP = ("MARTA, Daniel's wife (same clean cartoon style: about 65 years old, short wavy grey hair, small round glasses, wearing soft lilac long-sleeve button pyjamas with thin white piping, matching Daniel's pyjama style)")
 DOC = "a friendly middle-aged male doctor with short brown hair, white coat, blue tie and a stethoscope, same flat cartoon style"
 CLOCK = "a simple glowing bedside clock with plain hands and NO digits"
 
@@ -33,11 +33,11 @@ NURSE = "a friendly middle-aged female nurse in light blue scrubs"
 CLOCK = "a simple bedside clock with plain hands and NO digits"
 SURG = "a calm middle-aged female surgeon with dark hair in a bun, white coat over light green scrubs, same flat cartoon style"
 
-BED = "a cozy bedroom at night, soft moonlight through the window, a bedside lamp"
+BED = "a cozy bedroom at night, soft moonlight through the window, a bedside lamp, a bed with a light blue sheet and blanket and plump white pillows like the attached sleep pose sheet"
 PARTS = [
  ("PARTE 1 · Gancho + Número 5: brazos por encima de la cabeza", [
   ("P1", "6 tư thế (mặc đồ ngủ): Daniel nằm ngửa giơ hai tay qua đầu; Daniel ngồi mép giường vẩy hai bàn tay tê; Daniel chạm xương đòn; Daniel cầm điện thoại gõ bình luận; Marta vẫy chào; Marta suy nghĩ",
-   (SHEET + f"Characters: {CARP} and {ANTP}. Pose sheet: SIX separate poses, same scale, two rows of three, widely spaced, nothing touching, no bed, no background: "
+   (SHEET + f"Characters: {CARP} and {ANTP}. Pose sheet: SIX separate poses, same scale, two rows of three, widely spaced, nothing touching, each lying pose drawn like the attached sleep pose sheet with only a white pillow and a light blue sheet under the body, no room background: "
     "1) Daniel lying on his back seen from the side, both arms stretched up above his head, eyes closed; 2) Daniel sitting, shaking both hands as if they are numb and tingling; "
     "3) Daniel standing, touching his collarbone with one hand, slightly hunched upper back; 4) Daniel standing, typing on a smartphone with a smile; "
     "5) Marta standing, smiling and waving at the viewer; 6) Marta standing, hand on chin, thinking." + END.replace(" high resolution.", " 16:9, high resolution."))),
@@ -64,7 +64,7 @@ PARTS = [
  ]),
  ("PARTE 2 · Número 4: boca abajo + Número 3: deshidratación", [
   ("P2", "6 tư thế: Daniel nằm sấp quay đầu sang bên; Daniel xoa cổ cứng; Marta ôm đầu đau; Marta chóng mặt khi đứng dậy; Daniel uống ly nước nhỏ; Marta đưa ly nước",
-   (SHEET + f"Characters: {CARP} and {ANTP}. Pose sheet: SIX separate poses, same scale, two rows of three, widely spaced, nothing touching, no bed, no background: "
+   (SHEET + f"Characters: {CARP} and {ANTP}. Pose sheet: SIX separate poses, same scale, two rows of three, widely spaced, nothing touching, each lying pose drawn like the attached sleep pose sheet with only a white pillow and a light blue sheet under the body, no room background: "
     "1) Daniel lying face down seen from the side, head turned fully to one side, eyes closed; 2) Daniel sitting, rubbing his stiff neck with one hand, grimacing; "
     "3) Marta sitting, holding her head with a headache; 4) Marta standing up slowly, a little dizzy, one hand out for balance; "
     "5) Daniel sitting, drinking a small glass of water; 6) Marta standing, offering a glass of water with a smile." + END.replace(" high resolution.", " 16:9, high resolution."))),
@@ -90,7 +90,7 @@ PARTS = [
  ]),
  ("PARTE 3 · Número 2: plano boca arriba + Número 1: boca arriba con apnea", [
   ("P3", "6 tư thế: Daniel nằm ngửa phẳng không gối; Daniel nằm ngửa ngáy há miệng; Daniel ôm gáy đau đầu; Daniel uống thuốc; Marta bịt tai; Marta lo lắng nhìn",
-   (SHEET + f"Characters: {CARP} and {ANTP}. Pose sheet: SIX separate poses, same scale, two rows of three, widely spaced, nothing touching, no bed, no background: "
+   (SHEET + f"Characters: {CARP} and {ANTP}. Pose sheet: SIX separate poses, same scale, two rows of three, widely spaced, nothing touching, each lying pose drawn like the attached sleep pose sheet with only a white pillow and a light blue sheet under the body, no room background: "
     "1) Daniel lying completely flat on his back seen from the side, arms by his sides; 2) Daniel lying on his back snoring with his mouth open; "
     "3) Daniel sitting, holding the back of his head with a headache; 4) Daniel standing, taking a pill with a glass of water; "
     "5) Marta sitting, covering her ears, tired; 6) Marta leaning forward, looking worried." + END.replace(" high resolution.", " 16:9, high resolution."))),
@@ -116,7 +116,7 @@ PARTS = [
  ]),
  ("PARTE 4 · Las dos posturas + hidratación + habitación + cierre", [
   ("P4", "6 tư thế: Daniel nằm nghiêng gối kẹp giữa hai gối; Daniel ôm gối dài; Daniel nằm trên gối nêm; Daniel kẹp máy đo oxy; Marta viết sổ; hai ông bà vẫy tay",
-   (SHEET + f"Characters: {CARP} and {ANTP}. Pose sheet: SIX separate poses, same scale, two rows of three, widely spaced, nothing touching, no bed, no background: "
+   (SHEET + f"Characters: {CARP} and {ANTP}. Pose sheet: SIX separate poses, same scale, two rows of three, widely spaced, nothing touching, each lying pose drawn like the attached sleep pose sheet with only a white pillow and a light blue sheet under the body, no room background: "
     "1) Daniel lying on his side seen from the side, a pillow between his knees, eyes closed; 2) Daniel lying on his side hugging a long body pillow; "
     "3) Daniel lying back on a foam wedge pillow with a small pillow under his knees; 4) Daniel sitting, looking at a pulse oximeter clipped on his finger; "
     "5) Marta sitting, writing in a small notebook; 6) Daniel and Marta standing together, waving at the viewer." + END.replace(" high resolution.", " 16:9, high resolution."))),
@@ -143,7 +143,7 @@ PARTS = [
 ]
 nums, out = {}, []
 head = ("# Image prompts: \"Posturas al dormir\" (Claves de la Longevidad)\n\n"
-        "Nhân vật chính: ông **Daniel** (giống video trước) (tóc xám vuốt ngược, kính gọng đen chữ nhật, sơ mi xanh lục xắn tay, quần xanh đậm, đồng hồ) ; vợ **Marta**. Cảnh ngủ: Daniel mặc pyjama xanh sọc, Marta váy ngủ tím nhạt. **Mỗi lần tạo, đính kèm ảnh master** `projects/posturas_dormir/master/style_ref.webp`.\n"
+        "Nhân vật chính: ông **Daniel** (giống video trước) (tóc xám vuốt ngược, kính gọng đen chữ nhật, sơ mi xanh lục xắn tay, quần xanh đậm, đồng hồ) ; vợ **Marta**. Cảnh ngủ theo **ảnh style bạn gửi**: Daniel pyjama xanh lục viền trắng, ga giường xanh nhạt, gối trắng; Marta pyjama tím nhạt viền trắng. **Mỗi lần tạo, đính kèm CẢ 2 ảnh**: ảnh master Daniel `master/style_ref.webp` và ảnh style ngủ `master/style_sleep.webp`.\n"
         "Ảnh **tràn khung, không viền**, không chữ, không số. **Đặt tên ảnh theo số `1.png` … `40.png`**, gửi theo từng phần.\n\n"
         "Tạm chia **4 phần** theo nội dung (thời gian chính xác sẽ có khi bạn gửi giọng đọc). Mỗi phần 10 ảnh (1 tấm tư thế + 1 tấm đồ vật + 8 cảnh).\n")
 n = 0
