@@ -61,6 +61,16 @@ function Panel(B,name,{x=960,y=520,w=1560,from=[.5,.5,1],to=[.5,.5,1.1],t0}={}){
     const fc=mk('canvas','',cam); fc.width=1280; fc.height=Math.round(1280*ih/iw); const fx=fc.getContext('2d'); still.style.visibility='hidden';
     B.fx.push(t=>{ // play the real motion clip from the beat start; hold the last frame if the beat is longer
       const k=Math.max(0,Math.min(nClip-1,Math.floor((t-t0)*24))); const im=frames[k]; if(im.complete)fx.drawImage(im,0,0,fc.width,fc.height);});}
+  // living characters: feathered copies of each character region gently breathe / sway
+  ((typeof BODY!=='undefined'&&BODY[name])||[]).forEach(([x0,y0,x1,y1],k)=>{
+    const L=mk('div','',cam); Object.assign(L.style,{position:'absolute',inset:0});
+    const im=mk('img','',L); im.src='cut/'+name+'.png'; Object.assign(im.style,{position:'absolute',left:0,top:0,width:'100%',height:'100%'});
+    const cx=(x0+x1)/2*100, cy=(y0+y1)/2*100, rx=(x1-x0)/2*100*1.1, ry=(y1-y0)/2*100*1.1;
+    const m=`radial-gradient(ellipse ${rx}% ${ry}% at ${cx}% ${cy}%, #000 62%, transparent 100%)`; L.style.webkitMaskImage=m; L.style.maskImage=m;
+    L.style.transformOrigin=`${cx}% ${y1*100}%`;
+    B.fx.push(t=>{const ph=(t-t0)*2.0+k*1.7, b=Math.sin(ph), sw=Math.sin((t-t0)*0.9+k);
+      L.style.transform=`translate(${sw*1.6}px,0) rotate(${sw*0.35}deg) scale(${1-0.004*b},${1+0.014*b})`;});
+  });
   const cv=mk('canvas','',cam); cv.width=iw*2; cv.height=ih*2; const ctx=cv.getContext('2d'); ctx.scale(2,2);
   const o={P,ctx,iw,ih,draw:null};
   B.fx.push(t=>{const p=eio(prog(t,t0,B.b+0.4));
@@ -327,3 +337,13 @@ function QList(B,items,{x=1150,nx=null,y0=330,gap=170,size=54}={}){items.forEach
 // pulsing blood flow particles along a horizontal artery band (canvas, stage px)
 function flow(ctx,t,{x0,x1,y,h=40,n=30,col='#e23b2e',speed=0.35,narrow=null}){for(let i=0;i<n;i++){const ph=(t*speed+rnd(i))%1, x=x0+(x1-x0)*ph;
   let off=(rnd(i+9)-0.5)*h; if(narrow&&Math.abs(x-narrow[0])<narrow[1])off*=0.35; ctx.globalAlpha=0.9; ctx.fillStyle=col; ctx.beginPath(); ctx.ellipse(x,y+off,9,6,0,0,7); ctx.fill();} ctx.globalAlpha=1;}
+
+// character regions in each scene still (fractions x0,y0,x1,y1) for the living-character effect
+const BODY={S1_1:[[.3,0,.65,.6]],S1_2:[[.2,.25,.85,.8]],S1_3:[[.35,0,.7,.8]],S1_4:[[.2,0,.75,.85]],S1_5:[[.3,0,.75,.85]],
+ S1_6:[[.1,0,.45,1],[.55,0,.95,.9]],S1_7:[[.05,0,.4,.9],[.6,0,1,.95]],S1_8:[[.3,0,.7,.8],[.75,0,1,.8]],
+ S2_1:[[0,.1,.95,.75]],S2_2:[[.3,0,.75,.95]],S2_3:[[.3,0,.75,.9]],S2_4:[[.05,0,.5,1],[.5,0,.9,1]],S2_5:[[.05,.15,1,.9]],S2_6:[[.2,.1,.75,1]],
+ S2_7:[[0,0,.4,1],[.45,.1,.85,1]],S2_8:[[.2,0,.65,1]],
+ S3_1:[[0,.3,1,.85]],S3_2:[[.25,0,.8,1]],S3_3:[[.2,0,.65,1]],S3_4:[[.05,.15,1,.85]],S3_5:[[.15,.2,.7,1],[.55,.1,.95,.7]],S3_6:[[.05,.2,.75,1],[.55,0,.95,.8]],
+ S3_7:[[.05,0,.4,1],[.3,.1,.65,1],[.65,.1,.98,.9]],S3_8:[[.25,0,.8,1]],
+ S4_1:[[0,.2,.85,.9]],S4_2:[[.1,.25,.75,.9]],S4_3:[[.1,.2,.65,1]],S4_4:[[.2,0,.85,1]],S4_5:[[.25,0,.75,1]],S4_6:[[0,0,.5,1],[.5,0,.9,1]],
+ S4_7:[[0,0,.55,1],[.5,.05,.95,1]],S4_8:[[.05,0,.4,1],[.6,.05,.95,1]]};
