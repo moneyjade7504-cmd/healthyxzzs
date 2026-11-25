@@ -1,0 +1,26 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('n5'); window.END=C('n4'); window.DURATION=window.END;
+const stars=(c,t)=>{for(let i=0;i<12;i++){c.globalAlpha=0.5+0.5*Math.sin(t*2+i);c.fillStyle='#fff6c8';c.beginPath();c.arc(1250+((i*97)%380),40+((i*53)%260),2.5,0,7);c.fill();}c.globalAlpha=1;};
+{const B=STitle(C('n5'),C('despiertas'),5,'Los brazos por encima de la cabeza','',['ds_armsup','pillow']);}
+FB(C('despiertas'),C('pero5'),'S1_4','¿Duermes con los brazos <span class="hl">arriba</span>?',{capT:0.2,size:62,from:[.5,.5,1.0],to:[.5,.3,1.16],draw:(c,t)=>{stars(c,t);zzz(c,t,{x:1150,y:420,s:1.2});}});
+{const B=Beat(C('pero5'),C('clavicula'),{enter:'zoom'}); Cut(B,'d_armsup',{cx:500,cy:900,h:560,amp:3});
+ Cap(B,'Parece inofensivo…',{cx:1320,cy:330,size:62,t0:B.a-4}); Cap(B,'pero varias horas así',{cx:1320,cy:470,size:54,t0:B.a+0.5});
+ Cap(B,'los especialistas del sueño',{cx:1320,cy:620,size:48,t0:B.a+4,color:'#6a6f86'}); Cap(B,'le prestan <span class="hl">cada vez más atención</span>',{cx:1320,cy:700,size:52,t0:B.a+5});}
+{const B=Beat(C('clavicula'),C('encorvando')); Cut(B,'shoulder',{cx:560,cy:900,h:640,amp:2,tilt:.3});
+ Canvas(B,(c,t)=>{const k=0.5+0.5*Math.sin(t*4); c.globalAlpha=0.35+0.4*k; c.strokeStyle='#e23b2e'; c.lineWidth=8; c.beginPath(); c.ellipse(600,560,110+8*k,70+6*k,-0.5,0,7); c.stroke(); c.globalAlpha=1;});
+ Cap(B,'Entre la <span class="hl">clavícula</span> y la 1.ª costilla',{cx:1330,cy:260,size:50,t0:B.a+0.5});
+ Cap(B,'un paso estrecho',{cx:1330,cy:360,size:56,t0:B.a+3});
+ [['nervios','#d9a400'],['arterias','#e23b2e'],['venas','#2f6fd6']].forEach(([h,col],i)=>Cap(B,h,{cx:1100+i*240,cy:520,size:50,t0:B.a+5+i*0.6,color:col,pill:true}));
+ Cap(B,'= el <span class="hl">desfiladero torácico</span>',{cx:1330,cy:720,size:56,t0:C('desfiladero')});}
+{const B=FB(C('encorvando'),C('patron'),'S1_6','Con los años, la espalda alta se encorva: <span class="hl">el paso se estrecha</span>',{capT:0.3,size:48,from:[.5,.5,1.0],to:[.6,.45,1.15]});
+ Cap(B,'+ horas con los brazos arriba = <span class="red">compresión</span>',{cx:960,cy:90,size:46,t0:C('levantados'),pill:true});}
+{const B=FB(C('patron'),C('compresion'),'S1_5','Manos dormidas · <span class="red">hormigueo</span> al despertar',{capT:C('manos')-C('patron'),size:56,from:[.5,.5,1.0],to:[.5,.4,1.16],
+  draw:(c,t)=>{sparks(c,t,{x:520,y:420,s:1.6});sparks(c,t+1,{x:1150,y:420,s:1.6});}});
+ Cap(B,'“cosas de la edad”',{cx:960,cy:90,size:50,t0:C('sacude')+1,pill:true,t1:C('pregunta')}); Cap(B,'¿cómo duerme? → <span class="hl">brazos arriba</span>',{cx:960,cy:90,size:50,t0:C('pregunta')+1,pill:true});}
+{const B=FB(C('compresion'),C('solucion'),'S1_7','Compresión postural del <span class="hl">desfiladero torácico</span>',{capT:0.2,size:54,from:[.5,.5,1.0],to:[.6,.45,1.14]});
+ Cap(B,'¿Te pasa a menudo? <span class="hl">coméntalo con tu médico</span>',{cx:960,cy:90,size:46,t0:B.a+2,pill:true});}
+{const B=FB(C('solucion'),C('ahora4'),'S1_2','La solución es <span class="hl">sencilla</span>: después de la lista',{capT:0.2,size:56,from:[.5,.5,1.0],to:[.4,.45,1.14]});}
+{const B=Beat(C('ahora4'),C('n4'),{enter:'zoom'}); Cut(B,'ds_prone',{cx:620,cy:760,h:420,amp:2}); Cap(B,'Ahora, el <span class="hl">número 4</span>',{cx:1400,cy:420,size:70,t0:B.a+0.2}); Cap(B,'sorprende a mucha gente',{cx:1400,cy:560,size:52,t0:B.a+1.5});}
+</script></body></html>

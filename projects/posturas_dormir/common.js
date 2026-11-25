@@ -35,7 +35,7 @@ const NS='http://www.w3.org/2000/svg';
 const sv=(tag,attrs,parent)=>{const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);parent.appendChild(e);return e;};
 const rnd=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x);};
 const C=k=>{if(!(k in CUE))throw new Error('missing cue '+k);return CUE[k]-0.15;};   // beat lands 0.15 s before the word
-const IMG={"S1_1":[1672,941],"S1_2":[1672,941],"S1_3":[1672,941],"brain":[364,312],"clock":[283,318],"d_armsup":[500,457],"d_collar":[310,468],"d_phone":[377,477],"d_tingle":[501,469],"ds_armsup":[421,359],"ds_drink":[402,553],"ds_flat":[347,349],"ds_prone":[463,280],"ds_side":[613,257],"ds_snore":[384,333],"ds_wedge":[717,312],"glass":[217,297],"heart":[333,404],"m_think":[343,467],"m_wave":[415,465],"neckspine":[326,355],"notebook":[338,361],"oximeter":[293,321],"pillow":[346,247],"shoulder":[357,353],"wedge":[359,229]};
+const IMG={"S1_1":[1672,941],"S1_2":[1672,941],"S1_3":[1672,941],"S1_4":[1672,941],"S1_5":[1672,941],"S1_6":[1672,941],"S1_7":[1672,941],"S1_8":[1672,941],"brain":[364,312],"clock":[283,318],"d_armsup":[500,457],"d_collar":[310,468],"d_phone":[377,477],"d_tingle":[501,469],"ds_armsup":[421,359],"ds_drink":[402,553],"ds_flat":[347,349],"ds_prone":[463,280],"ds_side":[613,257],"ds_snore":[384,333],"ds_wedge":[717,312],"glass":[217,297],"heart":[333,404],"m_think":[343,467],"m_wave":[415,465],"neckspine":[326,355],"notebook":[338,361],"oximeter":[293,321],"pillow":[346,247],"shoulder":[357,353],"wedge":[359,229]};
 
 // ---------- beats (layers) ----------
 const beats=[];

@@ -1,0 +1,37 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=0; window.END=C('n5'); window.DURATION=window.END;
+const stars=(c,t)=>{for(let i=0;i<12;i++){c.globalAlpha=0.5+0.5*Math.sin(t*2+i);c.fillStyle='#fff6c8';c.beginPath();c.arc(1180+((i*97)%440),40+((i*53)%260),2.5,0,7);c.fill();}c.globalAlpha=1;};
+{const B=FB(0,C('pero'),'S1_1','Anoche te fuiste a la cama <span class="hl">completamente bien</span>',{capT:0.3,size:54,from:[.5,.5,1.0],to:[.35,.45,1.16],enter:'zoom',draw:stars});
+ [['sin dolor en el pecho',2.5],['sin mareos',4],['sin ninguna alarma',5.3]].forEach(([h,d],i)=>Cap(B,'✔ '+h,{cx:1560,cy:440+i*90,size:40,t0:d,pill:true,t1:C('sabanas')}));}
+{const B=FB(C('pero'),C('llevo'),'S1_2','Tu <span class="hl">postura al dormir</span>…',{capT:0.3,size:62,from:[.5,.5,1.0],to:[.45,.55,1.18],draw:(c,t)=>{stars(c,t);zzz(c,t,{x:760,y:330,s:1.2});}});
+ Cap(B,'¿afecta a tu cerebro y a tu circulación?',{cx:960,cy:90,size:48,t0:C('forma')+3,pill:true});}
+{const B=Beat(C('llevo'),C('preocupa'),{enter:'zoom'}); Cut(B,'brain',{cx:480,cy:640,h:340,amp:4}); Cut(B,'heart',{cx:480,cy:1010,h:300,amp:5,period:0.9,t0:B.a+0.5});
+ Cap(B,'Años de estudios sobre',{cx:1280,cy:250,size:52,t0:B.a+0.3}); Cap(B,'corazón · cerebro · envejecimiento',{cx:1280,cy:340,size:50,t0:B.a+1.5,color:'#2f6fd6'});
+ Cap(B,'el sueño y los problemas',{cx:1280,cy:520,size:56,t0:C('relacion')}); Cap(B,'<span class="hl">vasculares silenciosos</span>',{cx:1280,cy:620,size:66,t0:C('relacion')+2});
+ Cap(B,'sin aviso · noche tras noche',{cx:1280,cy:800,size:48,t0:C('silencio'),color:'#e23b2e'});}
+{const B=Beat(C('preocupa'),C('quedate')); Cut(B,'ds_snore',{cx:520,cy:900,h:520,amp:2,tilt:.3});
+ Canvas(B,(c,t)=>zzz(c,t,{x:700,y:420,s:1.4}));
+ Cap(B,'Una situación <span class="hl">muy frecuente</span>',{cx:1320,cy:280,size:58,t0:C('unapostura')}); Cap(B,'después de los 60',{cx:1320,cy:380,size:52,t0:C('unapostura')+1.5});
+ Cap(B,'+ riesgo de <span class="red">derrame cerebral</span>',{cx:1320,cy:560,size:62,t0:C('unapostura')+6});
+ Cap(B,'datos de estudios con miles de personas',{cx:1320,cy:720,size:42,t0:C('datos'),color:'#6a6f86'});
+ const q=mk('div','num',B.L,'?'); Object.assign(q.style,{left:'1320px',top:'900px',width:'150px',height:'150px',fontSize:'110px',background:'#e23b2e',boxShadow:'0 6px 0 #8f1d14'}); Pop(B,q,{t0:C('datos')+3});}
+{const B=Beat(C('quedate'),C('antes'),{enter:'up'}); Cap(B,'Lo que vamos a ver',{cx:960,cy:110,size:62,t0:B.a+0.3});
+ const s=Svg(B); [5,4,3,2,1].forEach((n,i)=>{Num(B,n,{cx:300+i*240,cy:360,r:80,t0:C('cinco')+0.3+i*0.35});});
+ Draw(B,s,arrow(240,500,1300,500),{t0:C('cinco')+2.2,dur:0.8,stroke:'#e23b2e',w:10});
+ Cap(B,'de menos a más preocupante',{cx:770,cy:580,size:46,t0:C('cinco')+2.6});
+ Card(B,{cx:1600,cy:450,w:420,h:440,t0:C('dos'),border:'#22a35a'}); Cap(B,'+ 2 posturas',{cx:1600,cy:300,size:52,t0:C('dos')+0.2,color:'#1f9d55'}); Cap(B,'que protegen',{cx:1600,cy:370,size:46,t0:C('dos')+0.4});
+ Cut(B,'ds_side',{cx:1600,cy:560,h:150,t0:C('dos')+0.8,amp:2}); Cut(B,'ds_wedge',{cx:1600,cy:650,h:110,t0:C('dos')+1.2,amp:2});
+ Cap(B,'una hace algo sorprendente en tu <span class="hl">cerebro</span>',{cx:960,cy:860,size:50,t0:C('una'),pill:true});}
+{const B=Beat(C('antes'),C('canal')); Cut(B,'d_phone',{cx:470,cy:1020,h:740,amp:4});
+ Cap(B,'💬 Escribe en los comentarios:',{cx:1300,cy:200,size:54,t0:C('escribe')});
+ [['ds_flat','boca arriba'],['ds_side','de lado'],['ds_prone','boca abajo']].forEach(([c,l],i)=>{const x=980+i*320,t0=C('dime')+i*0.8; Card(B,{cx:x,cy:520,w:290,h:330,t0}); Cut(B,c,{cx:x,cy:560,h:150,t0:t0+0.1,amp:2,phase:i}); Cap(B,l,{cx:x,cy:640,size:40,t0:t0+0.2});});
+ Cap(B,'…o “voy cambiando”',{cx:1300,cy:780,size:46,t0:C('dime')+3}); Cap(B,'¿estás en un grupo de riesgo?',{cx:1300,cy:900,size:46,t0:C('dime')+6,color:'#e23b2e'});}
+{const B=Beat(C('canal'),C('empecemos'),{enter:'zoom'}); Cut(B,'m_wave',{cx:440,cy:1020,h:740,amp:5});
+ Cap(B,'Claves de la Longevidad',{cx:1250,cy:260,size:74,t0:B.a+0.3,color:'#2f6fd6'});
+ Cap(B,'corazón · cerebro · longevidad',{cx:1250,cy:390,size:52,t0:B.a+1.5}); Cap(B,'para mayores de 50',{cx:1250,cy:480,size:52,t0:B.a+2.5});
+ Card(B,{cx:1250,cy:780,w:1000,h:200,t0:C('vagos')+2,border:'#f7ad36',bg:'#fffaf0'});
+ Cap(B,'⚠ Vídeo educativo: no sustituye a tu médico',{cx:1250,cy:780,size:42,t0:C('vagos')+2.2,color:'#b97a00'});}
+{const B=FB(C('empecemos'),C('n5'),'S1_8','¡Empecemos con la lista!',{capT:0.1,size:64,from:[.5,.5,1.0],to:[.5,.45,1.1],draw:(c,t)=>rays(c,t,{x:1500,y:120,r0:60,r1:100,lw:5})});}
+</script></body></html>
