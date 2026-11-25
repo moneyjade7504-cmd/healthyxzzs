@@ -1,0 +1,34 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('n4'); window.END=C('n3'); window.DURATION=window.END;
+const stars=(c,t)=>{for(let i=0;i<12;i++){c.globalAlpha=0.5+0.5*Math.sin(t*2+i);c.fillStyle='#fff6c8';c.beginPath();c.arc(1250+((i*97)%380),40+((i*53)%260),2.5,0,7);c.fill();}c.globalAlpha=1;};
+const dram=B=>{const p=mk('div','pill',B.L,'Dramatización'); Object.assign(p.style,{left:'1720px',top:'60px',fontSize:'34px',borderColor:'#6a6f86',color:'#6a6f86'}); Pop(B,p,{t0:B.a+0.2});};
+STitle(C('n4'),C('probablemente'),4,'Dormir boca abajo','',['ds_prone','pillow']);
+{const B=FB(C('probablemente'),C('cuello'),'S2_1','La postura que muchos médicos <span class="hl">desaconsejan</span>',{capT:0.3,size:54,from:[.5,.5,1.0],to:[.3,.45,1.18],draw:(c,t)=>{stars(c,t);zzz(c,t,{x:620,y:330,s:1.1});}});
+ Cap(B,'una cadena de problemas',{cx:960,cy:90,size:48,t0:C('cadena'),pill:true});}
+{const B=Beat(C('cuello'),C('vertebrales'),{enter:'zoom'}); Cut(B,'ds_prone2',{cx:560,cy:760,h:340,amp:2});
+ Num(B,1,{cx:1080,cy:200,r:60,t0:B.a+0.1}); Cap(B,'Primero, <span class="hl">el cuello</span>',{cx:1400,cy:200,size:62,t0:B.a+0.3});
+ Cap(B,'para respirar: cabeza girada del todo',{cx:1300,cy:400,size:48,t0:C('girar')});
+ const s=Svg(B); Draw(B,s,'M1100 620 A160 160 0 0 1 1420 620',{t0:C('maximo'),dur:0.8,stroke:'#e23b2e',w:10}); Draw(B,s,arrow(1380,560,1420,620),{t0:C('maximo')+0.7,dur:0.2,stroke:'#e23b2e',w:10});
+ Cap(B,'casi al máximo · durante horas',{cx:1260,cy:720,size:50,t0:C('maximo')+0.5,color:'#e23b2e'});}
+{const B=Beat(C('vertebrales'),C('otracosa')); Cut(B,'neckspine',{cx:520,cy:960,h:760,amp:2,tilt:.3});
+ Canvas(B,(c,t)=>{for(let i=0;i<10;i++){const ph=(t*0.35+i/10)%1; c.globalAlpha=0.9; c.fillStyle='#e23b2e'; c.beginPath(); c.arc(560+Math.sin(ph*6)*6,900-ph*620,7,0,7); c.fill();} c.globalAlpha=1;});
+ Cap(B,'Arterias <span class="hl">vertebrales</span>',{cx:1330,cy:240,size:62,t0:B.a+0.3}); Cap(B,'→ parte de atrás del cerebro',{cx:1330,cy:340,size:48,t0:B.a+2});
+ Cap(B,'cuello girado al máximo:',{cx:1330,cy:520,size:50,t0:C('doppler')}); Cap(B,'el flujo <span class="red">puede bajar</span> en algunas personas',{cx:1330,cy:610,size:48,t0:C('doppler')+3});
+ Cap(B,'sobre todo con arterias más rígidas',{cx:1330,cy:760,size:44,t0:C('endurecidas'),color:'#6a6f86'});
+ Src(B,'Estudios con ecografía Doppler · efecto variable según la persona');}
+{const B=Beat(C('otracosa'),C('caso'),{enter:'up'}); Cut(B,'ds_prone',{cx:560,cy:780,h:360,amp:2});
+ Canvas(B,(c,t)=>{if(t<C('peso'))return; for(let i=0;i<3;i++){const y=380+((t*60+i*40)%120); c.globalAlpha=0.8; c.strokeStyle='#e23b2e'; c.lineWidth=7; c.beginPath(); c.moveTo(460+i*100,y); c.lineTo(460+i*100,y+50); c.moveTo(440+i*100,y+30); c.lineTo(460+i*100,y+50); c.lineTo(480+i*100,y+30); c.stroke();} c.globalAlpha=1;});
+ Num(B,2,{cx:1080,cy:200,r:60,t0:B.a+0.3}); Cap(B,'Además…',{cx:1380,cy:200,size:62,t0:B.a+0.5});
+ Cap(B,'todo el peso sobre <span class="hl">pecho y abdomen</span>',{cx:1300,cy:400,size:50,t0:C('peso')});
+ Cut(B,'lungs',{cx:1300,cy:720,h:280,amp:3,t0:C('pulmones')}); Cap(B,'cuello y lumbares forzados',{cx:1300,cy:950,size:44,t0:C('pulmones')+1,color:'#6a6f86'});}
+{const B=FB(C('caso'),C('medicos'),'S2_3','Mujer de 67 años, maestra jubilada',{capT:C('mujer')-C('caso'),size:56,from:[.5,.5,1.0],to:[.5,.3,1.16]}); dram(B);
+ [['dolor de cabeza al despertar',0],['cuello rígido',1.5],['sensación de mareo',3]].forEach(([h,d],i)=>Cap(B,h,{cx:330,cy:120+i*90,size:40,t0:C('dolores')+d,pill:true}));}
+{const B=FB(C('medicos'),C('asi'),'S2_4','Nadie le había preguntado <span class="hl">cómo duerme</span>',{capT:0.2,size:56,from:[.5,.5,1.0],to:[.65,.45,1.15]}); dram(B);}
+{const B=FB(C('asi'),C('c4'),'S2_5','Cambiar de postura puede <span class="green">ayudar mucho</span>',{capT:0.2,size:56,from:[.5,.5,1.0],to:[.4,.45,1.12],draw:stars}); dram(B);
+ Cap(B,'y el número 3… casi nadie habla de él',{cx:960,cy:200,size:44,t0:C('n3pre'),pill:true});}
+{const B=Beat(C('c4'),C('n3'),{enter:'zoom'}); Cut(B,'m_wave',{cx:500,cy:1020,h:740,amp:5});
+ Cap(B,'¿Te está sirviendo?',{cx:1300,cy:300,size:62,t0:B.a+0.3}); const n=mk('div','num',B.L,'4'); Object.assign(n.style,{left:'1300px',top:'560px',width:'260px',height:'260px',fontSize:'190px'}); Pop(B,n,{t0:B.a+1});
+ Cap(B,'💬 escríbelo en los comentarios',{cx:1300,cy:820,size:52,t0:B.a+1.6});}
+</script></body></html>

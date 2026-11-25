@@ -1,0 +1,40 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('n3'); window.END=C('n2'); window.DURATION=window.END;
+const stars=(c,t)=>{for(let i=0;i<12;i++){c.globalAlpha=0.5+0.5*Math.sin(t*2+i);c.fillStyle='#fff6c8';c.beginPath();c.arc(1250+((i*97)%380),40+((i*53)%260),2.5,0,7);c.fill();}c.globalAlpha=1;};
+STitle(C('n3'),C('nadie'),3,'Dormir deshidratado','sin darte cuenta',['glass2','sweat']);
+{const B=FB(C('nadie'),C('agua'),'S2_6','Cada noche pierdes <span class="hl">unos cientos de ml</span>',{capT:C('pierdes')-C('nadie'),size:56,from:[.5,.5,1.0],to:[.65,.5,1.16],
+  draw:(c,t)=>{stars(c,t); drops(c,t,{x:500,y:150,w:300,h:220,n:6,t0:C('pierdes'),s:0.8,speed:0.35,fill:'#cfe6fb',stroke:'#7fb2e5'});}});
+ Cap(B,'al respirar y por la piel',{cx:960,cy:90,size:46,t0:C('pierdes')+2,pill:true});}
+{const B=Beat(C('agua'),C('conexion'),{enter:'zoom'}); Cut(B,'blooddrop',{cx:420,cy:700,h:380,amp:4});
+ Cap(B,'La sangre es en gran parte <span class="hl">agua</span>',{cx:1250,cy:200,size:56,t0:B.a+0.2});
+ Cut(B,'rbc',{cx:1000,cy:560,h:200,amp:3,t0:C('espesa')}); const s=Svg(B); Draw(B,s,arrow(1150,500,1300,500),{t0:C('espesa')+1,stroke:'#e23b2e'});
+ Cut(B,'clot',{cx:1480,cy:560,h:200,amp:3,t0:C('espesa')+1.3}); Cap(B,'más <span class="red">espesa</span>',{cx:1480,cy:720,size:52,t0:C('espesa')+1.5});
+ Cut(B,'vessel',{cx:780,cy:960,h:230,amp:2,t0:C('pequenas')}); Cap(B,'circula peor por los vasos pequeños',{cx:1360,cy:880,size:44,t0:C('pequenas')+0.5});
+ Cut(B,'heart',{cx:420,cy:1040,h:200,amp:5,period:0.8,t0:C('fuerza')});}
+{const B=Beat(C('conexion'),C('manana')); Cut(B,'ds_flat',{cx:480,cy:880,h:460,amp:2});
+ Cap(B,'Al dormir, la tensión <span class="green">baja</span> de forma natural',{cx:1300,cy:260,size:48,t0:C('baja')});
+ Cap(B,'eso es sano',{cx:1300,cy:360,size:46,t0:C('sano'),color:'#1f9d55'});
+ Cap(B,'tensión baja + sangre espesa',{cx:1300,cy:560,size:54,t0:C('combinacion')+2});
+ Cap(B,'= <span class="red">menos sangre</span> al cerebro, o un coágulo',{cx:1300,cy:670,size:50,t0:C('combinacion')+7});
+ Cut(B,'clot',{cx:1300,cy:900,h:180,amp:3,t0:C('combinacion')+8});}
+{const B=Beat(C('manana'),C('problema'),{enter:'up'}); Cut(B,'sun',{cx:430,cy:620,h:320,amp:4});
+ 
+ Cap(B,'Los derrames son <span class="hl">más frecuentes</span>',{cx:1280,cy:260,size:54,t0:B.a+0.3}); Cap(B,'entre las 6 y el mediodía',{cx:1280,cy:360,size:56,t0:B.a+2,color:'#e23b2e'});
+ Card(B,{cx:1280,cy:620,w:820,h:220,t0:C('pico'),border:'#f7ad36',bg:'#fffaf0'});
+ Cap(B,'una de las posibles causas:',{cx:1280,cy:590,size:42,t0:C('pico')+0.2}); Cap(B,'sangre algo más espesa por la mañana',{cx:1280,cy:660,size:44,t0:C('pico')+0.6});
+ Src(B,'Elliott, Stroke 1998: pico matutino de ictus (metaanálisis)');}
+{const B=FB(C('problema'),C('forma3'),'S2_7','Beber menos por la tarde para no ir al baño…',{capT:0.2,size:52,from:[.5,.5,1.0],to:[.65,.35,1.15]});
+ Cap(B,'¿un intercambio que conviene?',{cx:960,cy:90,size:46,t0:C('entiendo')+3,pill:true});}
+{const B=FB(C('forma3'),C('antes21'),'S2_8','Hay una forma de manejarlo: <span class="hl">en las soluciones</span>',{capT:0.2,size:52,from:[.5,.5,1.0],to:[.4,.4,1.14],draw:(c,t)=>rays(c,t,{x:1500,y:120,r0:60,r1:100,lw:5})});}
+{const B=Beat(C('antes21'),C('megusta'),{enter:'zoom'}); Cut(B,'m_think',{cx:460,cy:1020,h:720,amp:4});
+ Cap(B,'¿Esto es nuevo para ti?',{cx:1300,cy:300,size:60,t0:C('nueva')}); Cap(B,'<span class="hl">no es culpa tuya</span>',{cx:1300,cy:420,size:66,t0:C('nueva')+6});
+ const s=Svg(B); clockIcon(B,s,{cx:940,cy:640,r:62,t0:C('quince')}); Cap(B,'no cabe en 15 minutos',{cx:1360,cy:640,size:52,t0:C('quince')});
+ Cap(B,'puede cambiar tu salud en los próximos 10 años',{cx:1300,cy:820,size:42,t0:C('diez'),color:'#6a6f86'});}
+{const B=Beat(C('megusta'),C('n2')); Cut(B,'d_phone',{cx:430,cy:1010,h:760,amp:5});
+ const l=mk('div','pill',B.L,'👍 ME GUSTA'); Object.assign(l.style,{left:'1260px',top:'300px',fontSize:'70px',background:'#2f6fd6',color:'#fff',borderColor:'#1d4fa3'}); Pop(B,l,{t0:B.a+0.4,rot:-2});
+ const p=mk('div','pill',B.L,'▶ SUSCRÍBETE'); Object.assign(p.style,{left:'1260px',top:'500px',fontSize:'80px',background:'#e23b2e',color:'#fff',borderColor:'#b8231a'}); Pop(B,p,{t0:C('suscrito'),rot:-2});
+ const s=Svg(B); bellIcon(B,s,{cx:1660,cy:490,s:1.2,t0:C('suscrito')+0.6});
+ Cap(B,'antes del número 1',{cx:1260,cy:700,size:56,t0:C('suscrito')+1.5}); Cap(B,'Claves de la Longevidad',{cx:1260,cy:830,size:62,t0:C('suscrito')+2.5,color:'#2f6fd6'});}
+</script></body></html>
