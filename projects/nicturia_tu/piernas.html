@@ -1,0 +1,42 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('tuberia'); window.END=C('cama'); window.DURATION=window.END;
+const DR=(B)=>Cap(B,'DRAMATIZACIÓN',{cx:230,cy:60,size:32,t0:B.a+0.3,pill:true});
+// fluid drops sliding down a leg (x,y top → bottom)
+const fall=(c,t,{x,y0,y1,n=8,col='rgba(70,150,235,.85)'})=>{for(let i=0;i<n;i++){const p=((t*0.35)+i/n)%1;drop(c,x+Math.sin(i*2.1)*30,y0+(y1-y0)*p,0.9);}};
+{const B=Beat(C('tuberia'),C('caso'),{enter:'zoom'}); Cut(B,'leg',{cx:420,cy:860,h:560,amp:3}); Cut(B,'bladderfull',{cx:1500,cy:760,h:400,amp:3,t0:B.a+1.2});
+ const s=Svg(B); Draw(B,s,arrow(620,560,1290,560,-0.15),{t0:B.a+1.5,dur:1,stroke:'#2f6fd6',w:12});
+ Cap(B,'La tubería: <span class="hl">de tus piernas a tu vejiga</span>',{cx:960,cy:150,size:60,t0:B.a+0.3}); Cap(B,'algo de lo que casi nadie habla',{cx:960,cy:960,size:48,t0:C('casi'),pill:true});}
+{const B=FB(C('caso'),C('probado'),'S2_1','Hombre de 71 años, <span class="hl">ingeniero jubilado</span>',{capT:C('hombre')-C('caso'),from:[.5,.5,1.0],to:[.5,.4,1.14]}); DR(B);}
+{const B=FB(C('probado'),C('preguntas'),'S2_2','2 medicamentos para la vejiga · <span class="hl">casi sin agua por la tarde</span>',{capT:0.4,size:52,from:[.5,.5,1.0],to:[.35,.45,1.14]}); DR(B);
+ Cap(B,'…y aún así: <span class="red">3 veces cada noche</span>',{cx:960,cy:90,size:54,t0:C('aunasi'),pill:true});}
+{const B=Beat(C('preguntas'),C('frase')); Cap(B,'“Paso mucho tiempo <span class="hl">sentado</span>”',{cx:960,cy:140,size:64,t0:C('sentado')});
+ Row(B,[['ds_cross','crucigramas',C('cruci')],['ds_tv','noticias',C('noticias')],['ds_read','leo',C('leo')]],{y:600,h:380,cardH:560});}
+{const B=Beat(C('frase'),C('gravedad'),{enter:'zoom'}); Cut(B,'armchair',{cx:620,cy:820,h:460,amp:2}); Cap(B,'Esa frase',{cx:1340,cy:420,size:72,t0:B.a+0.2}); Cap(B,'lo explica <span class="hl">casi todo</span>',{cx:1340,cy:540,size:72,t0:B.a+1});}
+{const B=Beat(C('gravedad'),C('joven2')); Cut(B,'leg',{cx:520,cy:1000,h:820,amp:2,tilt:.2}); Canvas(B,(c,t)=>fall(c,t,{x:470,y0:240,y1:880,n:9}));
+ const s=Svg(B); Draw(B,s,arrow(820,260,820,820),{t0:B.a+1,dur:0.8,stroke:'#2f6fd6',w:14});
+ Cap(B,'De pie o sentado,',{cx:1380,cy:240,size:56,t0:B.a+0.3}); Cap(B,'la <span class="hl">gravedad</span> tira hacia abajo',{cx:1380,cy:340,size:56,t0:B.a+2});
+ ['sangre','linfa','líquido entre células'].forEach((h,i)=>Cap(B,h,{cx:1380,cy:500+i*95,size:46,t0:C('sangre2')+i*1.2,pill:true}));
+ Cap(B,'→ pantorrillas · tobillos · pies',{cx:1380,cy:830,size:48,t0:C('baja'),color:'#2f6fd6'});}
+{const B=Beat(C('joven2'),C('debilita'),{enter:'up'}); Cap(B,'De joven, todo funciona',{cx:960,cy:120,size:60,t0:B.a+0.2,color:'#1f9d55'}); const s=Svg(B);
+ [['valve1','venas elásticas',C('venas')],['valve1','válvulas que cierran bien',C('venas')+2],['calfpump','músculos = bombas',C('bombas')]].forEach(([c,l,t0],i)=>{const x=420+i*540;
+  Card(B,{cx:x,cy:580,w:460,h:640,t0,border:'#22a35a'}); Cut(B,c,{cx:x,cy:780,h:420,t0:t0+0.1,amp:i==2?6:2,period:i==2?0.9:3}); Cap(B,l,{cx:x,cy:840,size:38,t0:t0+0.2});
+  Draw(B,s,tick(x+170,310,0.8),{t0:t0+0.4,dur:0.3,stroke:'#22a35a',w:12});});}
+{const B=Beat(C('debilita'),C('escapando')); Cap(B,'Después de los 60, <span class="red">se debilita</span>',{cx:960,cy:120,size:60,t0:B.a+0.2}); const s=Svg(B);
+ [['valve2','venas menos elásticas',C('paredes')],['valve2','válvulas que<br>no cierran tan bien',C('valvulas')],['ds_cross','horas sentado<br>= menos bombeo',C('horas')]].forEach(([c,l,t0],i)=>{const x=420+i*540;
+  Card(B,{cx:x,cy:580,w:460,h:640,t0,border:'#e23b2e',bg:'#fff6f4'}); Cut(B,c,{cx:x,cy:780,h:420,t0:t0+0.1,amp:2}); Cap(B,l,{cx:x,cy:840,size:36,t0:t0+0.2});
+  if(i<2)Draw(B,s,arrow(x,420,x,640),{t0:t0+0.6,dur:0.5,stroke:'#e23b2e',w:10});});}
+{const B=Beat(C('escapando'),C('senales'),{enter:'zoom'}); Cut(B,'leg',{cx:560,cy:1000,h:820,amp:2,tilt:.2});
+ Canvas(B,(c,t)=>{const k=Math.min(1,(t-C('escapando'))/5); c.globalAlpha=0.35; c.fillStyle='#4e9be6'; c.beginPath(); c.ellipse(560,820,150*k+20,90*k+10,0,0,7); c.fill(); c.globalAlpha=1; fall(c,t,{x:520,y0:300,y1:780,n:6});});
+ Cap(B,'El líquido se escapa',{cx:1360,cy:380,size:62,t0:B.a+0.3}); Cap(B,'de la sangre…',{cx:1360,cy:480,size:58,t0:B.a+1.5}); Cap(B,'y se <span class="hl">acumula</span> abajo',{cx:1360,cy:620,size:62,t0:B.a+3.5});}
+FB(C('senales'),C('tobillos'),'S2_4','Marcas del calcetín <span class="hl">a media tarde</span>',{capT:C('calcetin')-C('senales'),from:[.5,.5,1.0],to:[.4,.65,1.2]});
+{const B=FB(C('tobillos'),C('casualidad'),'S2_3','Tobillos hinchados · <span class="hl">piernas pesadas</span> al final del día',{capT:0.3,size:52,from:[.5,.5,1.0],to:[.4,.7,1.18]});}
+{const B=Beat(C('casualidad'),C('clave'),{enter:'up'}); Cut(B,'ankle',{cx:480,cy:860,h:520,amp:2}); Cut(B,'kidneys2',{cx:1500,cy:820,h:300,amp:3,t0:B.a+3}); const s=Svg(B);
+ Cap(B,'No es casualidad:',{cx:1250,cy:240,size:56,t0:B.a+0.2}); Cap(B,'líquido <span class="red">fuera</span> de tu circulación',{cx:1250,cy:350,size:56,t0:B.a+1});
+ Draw(B,s,cross(1500,700,1.5),{t0:B.a+4,dur:0.4,stroke:'#e23b2e',w:14}); Cap(B,'los riñones no pueden tocarlo',{cx:1250,cy:1000,size:46,t0:B.a+4.5,pill:true});}
+{const B=Beat(C('clave'),C('cama'),{enter:'zoom'}); Cap(B,'La pieza clave',{cx:960,cy:120,size:66,t0:B.a+0.2,color:'#e23b2e'});
+ Cut(B,'kidneys2',{cx:520,cy:640,h:320,amp:3,t0:C('filtrar')}); Cut(B,'drop',{cx:820,cy:560,h:170,amp:4,t0:C('filtrar')+0.5}); Cap(B,'solo filtran lo que está <span class="hl">en la sangre</span>',{cx:660,cy:820,size:44,t0:C('filtrar')+1});
+ Cut(B,'ankle',{cx:1400,cy:640,h:330,amp:2,t0:C('invisible')}); Cut(B,'sun',{cx:1700,cy:380,h:180,amp:3,t0:C('invisible')+0.5});
+ Cap(B,'líquido de las piernas: <span class="hl">invisible</span><br>para ellos durante el día',{cx:1400,cy:860,size:42,t0:C('invisible')+1});}
+</script></body></html>

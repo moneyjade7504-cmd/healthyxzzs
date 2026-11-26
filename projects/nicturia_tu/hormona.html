@@ -5,7 +5,7 @@ window.START=C('primero'); window.END=C('tuberia'); window.DURATION=window.END;
 const stars=(c,t)=>{for(let i=0;i<10;i++){c.globalAlpha=0.5+0.5*Math.sin(t*2+i);c.fillStyle='#fff6c8';c.beginPath();c.arc(160+((i*97)%400),40+((i*53)%260),2.5,0,7);c.fill();}c.globalAlpha=1;};
 FB(C('primero'),C('hormona'),'S1_7','Algo que <span class="hl">casi nadie</span> te cuenta',{capT:0.3,from:[.5,.5,1.0],to:[.5,.4,1.14],draw:stars});
 {const B=Beat(C('hormona'),C('funciona'),{enter:'zoom'}); Cut(B,'brain',{cx:420,cy:640,h:420,amp:4}); Cut(B,'kidneys',{cx:1500,cy:760,h:360,amp:3,t0:B.a+3});
- Cut(B,'moon',{cx:960,cy:260,h:170,amp:3,t0:B.a+1}); const s=Svg(B); Draw(B,s,arrow(600,520,1300,560,-90),{t0:B.a+3.5,dur:0.8,stroke:'#f7ad36',w:12});
+ Cut(B,'moon',{cx:960,cy:260,h:170,amp:3,t0:B.a+1}); const s=Svg(B); Draw(B,s,arrow(600,520,1300,560,-0.12),{t0:B.a+3.5,dur:0.8,stroke:'#f7ad36',w:12});
  Canvas(B,(c,t)=>{const k=0.5+0.5*Math.sin(t*5);c.globalAlpha=0.3+0.5*k;c.fillStyle='#ffd23f';c.beginPath();c.arc(420,640,26+10*k,0,7);c.fill();c.globalAlpha=1;});
  Cap(B,'Tu cerebro fabrica cada noche <span class="hl">una hormona</span>',{cx:960,cy:930,size:52,t0:B.a+0.3,pill:true,t1:C('libre')});
  Cap(B,'“riñones: <span class="hl">tomaos la noche libre</span>”',{cx:960,cy:930,size:56,t0:C('libre'),pill:true});}
