@@ -35,7 +35,7 @@ const NS='http://www.w3.org/2000/svg';
 const sv=(tag,attrs,parent)=>{const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);parent.appendChild(e);return e;};
 const rnd=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x);};
 const C=k=>{if(!(k in CUE))throw new Error('missing cue '+k);return CUE[k]-0.15;};   // beat lands 0.15 s before the word
-const IMG={"S1_1":[1672,941],"S1_2":[1672,941],"S1_3":[1672,941],"S1_4":[1672,941],"S1_5":[1672,941],"S1_6":[1672,941],"S1_7":[1672,941],"S1_8":[1672,941],"S2_1":[1672,941],"S2_2":[1672,941],"S2_3":[1672,941],"S2_4":[1671,941],"S2_5":[1672,941],"S2_6":[1672,941],"S2_7":[1672,941],"S2_8":[1672,941],"S3_1":[1672,941],"S3_2":[1671,941],"S3_3":[1672,941],"S3_4":[1672,941],"S3_5":[1672,941],"S3_6":[1671,941],"S3_7":[1672,941],"S3_8":[1671,941],"S4_1":[1672,941],"S4_2":[1672,941],"S4_3":[1671,941],"S4_4":[1671,941],"S4_5":[1670,941],"S4_6":[1670,941],"S4_7":[1670,941],"S4_8":[1670,942],"airway":[348,363],"blooddrop":[222,329],"bluephone":[315,350],"bodypillow":[427,412],"bpmon":[347,339],"brain":[364,312],"brain2":[390,325],"clock":[283,318],"clot":[334,268],"cpap":[318,332],"d_armsup":[500,457],"d_collar":[310,468],"d_phone":[377,477],"d_pill":[379,499],"d_tingle":[501,469],"dm_wave":[612,526],"ds_armsup":[421,359],"ds_drink":[402,553],"ds_drink2":[483,517],"ds_flat":[347,349],"ds_flat2":[652,294],"ds_hug":[536,323],"ds_neck":[494,421],"ds_neck2":[471,497],"ds_oxi":[521,513],"ds_prone":[463,280],"ds_prone2":[587,303],"ds_side":[613,257],"ds_side2":[555,316],"ds_snore":[384,333],"ds_snore2":[486,322],"ds_wedge":[717,312],"ds_wedge2":[606,346],"earplugs":[238,260],"glass":[217,297],"glass2":[223,287],"heart":[333,404],"heart2":[344,317],"jug":[337,394],"kneepillow":[308,258],"lungs":[376,349],"m_dizzy":[522,523],"m_offer":[336,507],"m_think":[343,467],"m_wave":[415,465],"moon":[240,275],"ms_ears":[503,484],"ms_headache":[504,409],"ms_notes":[511,507],"ms_worry":[429,455],"neckspine":[326,355],"notebook":[338,361],"notebook2":[371,370],"oximeter":[293,321],"oximeter2":[299,288],"pillow":[346,247],"pills":[204,338],"rbc":[323,283],"shoulder":[357,353],"sleeptest":[358,271],"sun":[362,295],"sunrise":[329,250],"sweat":[188,317],"thermo":[151,402],"toilet":[288,386],"towel":[332,306],"vessel":[331,324],"wedge":[359,229],"wedge2":[369,250],"wedge3":[413,321],"whitenoise":[321,288]};
+const IMG={"S1_1":[1672,941],"S1_2":[1672,941],"S1_3":[1672,941],"S1_4":[1672,941],"S1_5":[1672,941],"S1_6":[1672,941],"S1_7":[1672,941],"S1_8":[1672,941],"bladder":[309,336],"brain":[337,354],"clock":[299,361],"d_drink":[222,486],"d_heel":[320,494],"d_shuffle":[409,461],"ds_awake":[556,372],"ds_calf":[291,432],"ds_legsup":[650,347],"ds_phone":[410,478],"ds_read":[339,462],"ds_rub":[449,467],"ds_sleep":[569,342],"ds_sleep0":[496,314],"ds_tired":[425,447],"glass":[242,328],"kidneys":[394,332],"m_wave":[258,476],"moon":[285,316],"pills":[282,342],"prostate":[240,241],"sun":[381,370],"toilet":[326,409]};
 
 // ---------- beats (layers) ----------
 const beats=[];
@@ -114,7 +114,7 @@ function Cap(B,html,{cx,cy,size=84,t0,pill=false,color,t1=1e9}){
     hls.forEach(h=>h.style.setProperty('--hl',eo(prog(t,t0+0.55,t0+0.9))));});
   return E;
 }
-function Svg(B){return sv('svg',{class:'ov',viewBox:'0 0 1920 1080'},B.L);}
+function Svg(B){const s=sv('svg',{class:'ov',viewBox:'0 0 1920 1080'},B.L);s.style.zIndex=40;return s;}
 function Draw(B,svg,d,{t0,dur=0.5,stroke='#e23b2e',w=9,fill='none'}){
   const p=sv('path',{d,fill,stroke,'stroke-width':w,'stroke-linecap':'round','stroke-linejoin':'round'},svg);
   const len=p.getTotalLength()||1; p.style.strokeDasharray=len;
@@ -339,11 +339,5 @@ function flow(ctx,t,{x0,x1,y,h=40,n=30,col='#e23b2e',speed=0.35,narrow=null}){fo
   let off=(rnd(i+9)-0.5)*h; if(narrow&&Math.abs(x-narrow[0])<narrow[1])off*=0.35; ctx.globalAlpha=0.9; ctx.fillStyle=col; ctx.beginPath(); ctx.ellipse(x,y+off,9,6,0,0,7); ctx.fill();} ctx.globalAlpha=1;}
 
 // character regions in each scene still (fractions x0,y0,x1,y1) for the living-character effect
-const BODY={S1_1:[[.3,0,.65,.6]],S1_2:[[.2,.25,.85,.8]],S1_3:[[.35,0,.7,.8]],S1_4:[[.2,0,.75,.85]],S1_5:[[.3,0,.75,.85]],
- S1_6:[[.1,0,.45,1],[.55,0,.95,.9]],S1_7:[[.05,0,.4,.9],[.6,0,1,.95]],S1_8:[[.3,0,.7,.8],[.75,0,1,.8]],
- S2_1:[[0,.1,.95,.75]],S2_2:[[.3,0,.75,.95]],S2_3:[[.3,0,.75,.9]],S2_4:[[.05,0,.5,1],[.5,0,.9,1]],S2_5:[[.05,.15,1,.9]],S2_6:[[.2,.1,.75,1]],
- S2_7:[[0,0,.4,1],[.45,.1,.85,1]],S2_8:[[.2,0,.65,1]],
- S3_1:[[0,.3,1,.85]],S3_2:[[.25,0,.8,1]],S3_3:[[.2,0,.65,1]],S3_4:[[.05,.15,1,.85]],S3_5:[[.15,.2,.7,1],[.55,.1,.95,.7]],S3_6:[[.05,.2,.75,1],[.55,0,.95,.8]],
- S3_7:[[.05,0,.4,1],[.3,.1,.65,1],[.65,.1,.98,.9]],S3_8:[[.25,0,.8,1]],
- S4_1:[[0,.2,.85,.9]],S4_2:[[.1,.25,.75,.9]],S4_3:[[.1,.2,.65,1]],S4_4:[[.2,0,.85,1]],S4_5:[[.25,0,.75,1]],S4_6:[[0,0,.5,1],[.5,0,.9,1]],
- S4_7:[[0,0,.55,1],[.5,.05,.95,1]],S4_8:[[.05,0,.4,1],[.6,.05,.95,1]]};
+const BODY={S1_1:[[.05,.3,.33,.75],[.33,.15,.75,.8]],S1_2:[[.25,.05,.67,.98]],S1_3:[[.33,.03,.66,.98]],
+ S1_4:[[0,.05,.42,1],[.55,.05,.95,.7]],S1_5:[[.1,0,.5,.8],[.6,0,1,1]],S1_6:[[.35,.2,.72,.8]],S1_7:[[.25,.2,.7,.95]],S1_8:[[.08,.1,.45,.95],[.6,0,.95,.9]]};

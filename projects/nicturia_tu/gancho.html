@@ -1,0 +1,44 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=0; window.END=C('primero'); window.DURATION=window.END;
+const stars=(c,t)=>{for(let i=0;i<10;i++){c.globalAlpha=0.5+0.5*Math.sin(t*2+i);c.fillStyle='#fff6c8';c.beginPath();c.arc(160+((i*97)%420),40+((i*53)%240),2.5,0,7);c.fill();}c.globalAlpha=1;};
+{const B=Beat(0,C('bano'),{enter:'zoom'}); BigClock(B,{cx:640,cy:470,r:260,t0:0.1,from:[2,47],dur:0});
+ Cut(B,'ds_awake',{cx:1420,cy:760,h:340,amp:2,tilt:.3}); Cap(B,'Te despiertas…',{cx:1420,cy:300,size:70,t0:0.3});}
+FB(C('bano'),C('vuelves'),'S1_2','Al baño, <span class="hl">casi dormido</span>',{capT:0.3,from:[.5,.5,1.0],to:[.45,.5,1.14]});
+{const B=FB(C('vuelves'),C('mayor'),'S1_1','…y a las <span class="red">4:15</span>, otra vez',{capT:C('vuelves')>0?2.2:0,from:[.5,.5,1.0],to:[.75,.55,1.18],draw:stars});}
+FB(C('mayor'),C('pero'),'S1_3','¿Simplemente <span class="hl">hacerse mayor</span>?',{capT:0.3,from:[.5,.5,1.0],to:[.5,.4,1.14],draw:stars});
+{const B=Beat(C('pero'),C('llevo'),{enter:'zoom'}); Cut(B,'bladder',{cx:560,cy:820,h:520,amp:4}); const s=Svg(B);
+ Draw(B,s,cross(560,560,2.2),{t0:C('vejiga')+0.6,dur:0.4,stroke:'#e23b2e',w:16});
+ Cap(B,'En la mayoría de los casos…',{cx:1330,cy:400,size:56,t0:B.a+0.3}); Cap(B,'la <span class="hl">vejiga</span> tiene',{cx:1330,cy:520,size:66,t0:C('vejiga')}); Cap(B,'muy poco que ver',{cx:1330,cy:630,size:66,t0:C('vejiga')+0.8,color:'#e23b2e'});}
+{const B=Beat(C('llevo'),C('mentira'));
+ Cap(B,'Años de investigación sobre',{cx:960,cy:140,size:54,t0:B.a+0.3}); Cap(B,'el sueño y la salud <span class="hl">después de los 60</span>',{cx:960,cy:230,size:56,t0:B.a+1.2});
+ Cap(B,'La verdadera <span class="red">reacción en cadena</span>',{cx:960,cy:370,size:62,t0:C('cadena')-0.4});
+ Chain(B,[['moon','noche',C('cadena')+0.3],['kidneys','riñones',C('cadena')+0.9],['bladder','vejiga',C('cadena')+1.5],['toilet','al baño',C('cadena')+2.1]],{y:560,h:200});
+ Cap(B,'…y cómo <span class="hl">cortarla</span> esta misma noche',{cx:960,cy:860,size:56,t0:C('cortarla'),pill:true});
+ Card(B,{cx:960,cy:1000,w:1060,h:90,t0:C('cortarla')+2.5,border:'#f7ad36',bg:'#fffaf0'}); Cap(B,'⚠ Vídeo educativo: no sustituye a tu médico',{cx:960,cy:1000,size:38,t0:C('cortarla')+2.6,color:'#b97a00'});}
+{const B=Beat(C('mentira'),C('consulta'),{enter:'up'}); Cut(B,'ds_tired',{cx:560,cy:1000,h:640,amp:3});
+ Cap(B,'Lo que te han contado…',{cx:1340,cy:520,size:72,t0:B.a+0.2});}
+{const B=FB(C('consulta'),C('respuesta'),'S1_4','“Me levanto <span class="hl">3 o 4 veces</span> cada noche”',{capT:0.4,from:[.5,.5,1.0],to:[.3,.45,1.15]});}
+{const B=FB(C('respuesta'),C('incompleta'),'S1_5','La respuesta habitual, <span class="hl">casi automática</span>',{capT:0.2,from:[.5,.5,1.0],to:[.65,.45,1.14]});
+ [['vejiga',C('problemas')],['próstata',C('problemas')+1.4],['la edad',C('problemas')+2.6]].forEach(([h,d],i)=>Cap(B,h,{cx:560+i*400,cy:90,size:50,t0:d,pill:true,t1:C('bebe')}));
+ [['bebe menos',C('bebe')],['tómate esta pastilla',C('bebe')+1.2],['acéptalo',C('bebe')+2.6]].forEach(([h,d],i)=>Cap(B,h,{cx:480+i*480,cy:90,size:48,t0:d,pill:true}));}
+{const B=Beat(C('incompleta'),C('dato'),{enter:'zoom'}); const s=Svg(B);
+ Card(B,{cx:560,cy:520,w:700,h:420,t0:B.a+0.3,border:'#22a35a'}); Draw(B,s,tick(560,420,1.4),{t0:B.a+0.8,dur:0.3,stroke:'#22a35a',w:14}); Cap(B,'No es del todo falsa',{cx:560,cy:620,size:52,t0:B.a+0.6});
+ Card(B,{cx:1360,cy:520,w:700,h:420,t0:B.a+2,border:'#e23b2e',bg:'#fff4f2'}); Cap(B,'⚠',{cx:1360,cy:420,size:110,t0:B.a+2.3,color:'#e23b2e'}); Cap(B,'pero <span class="red">peligrosamente incompleta</span>',{cx:1360,cy:620,size:46,t0:B.a+2.2});}
+{const B=Beat(C('dato'),C('poliuria')); Cut(B,'kidneys',{cx:520,cy:800,h:460,amp:4,period:1.4}); Cut(B,'moon',{cx:820,cy:380,h:220,amp:3,t0:C('noche1')});
+ Canvas(B,(c,t)=>{if(t>C('estudios')+2)drops(c,t,{x:430,y:830,w:180,h:200,n:10,t0:C('estudios')+2,s:1.1});});
+ Cap(B,'Los estudios muestran:',{cx:1350,cy:300,size:56,t0:C('estudios')}); Cap(B,'en la <span class="hl">mayoría</span>,',{cx:1350,cy:410,size:58,t0:C('estudios')+1.4});
+ Cap(B,'los riñones fabrican',{cx:1350,cy:520,size:58,t0:C('estudios')+3.5}); Cap(B,'<span class="red">demasiada orina</span>',{cx:1350,cy:630,size:66,t0:C('estudios')+5}); Cap(B,'justo <span class="hl">de noche</span>',{cx:1350,cy:740,size:62,t0:C('noche1')});}
+{const B=Beat(C('poliuria'),C('noesvejiga'),{enter:'zoom'}); Cut(B,'moon',{cx:400,cy:500,h:300,amp:4}); Cut(B,'kidneys',{cx:1520,cy:640,h:340,amp:4,period:1.2});
+ Cap(B,'POLIURIA',{cx:960,cy:430,size:120,t0:B.a+0.2,color:'#2f6fd6'}); Cap(B,'NOCTURNA',{cx:960,cy:580,size:110,t0:B.a+0.5,color:'#2f6fd6'});}
+{const B=Beat(C('noesvejiga'),C('incomoda'));
+ Row(B,[['bladder','vejiga',C('noesvejiga'),'no'],['prostate','próstata',C('prostata'),'no'],['kidneys','riñones',C('rinones')+0.8,'ok']],{y:500});
+ Cap(B,'trabajando a toda máquina <span class="red">en el peor momento</span>',{cx:960,cy:900,size:50,t0:C('rinones')+2,pill:true});}
+{const B=Beat(C('incomoda'),C('quedate'),{enter:'up'}); Cut(B,'pills',{cx:520,cy:740,h:420,amp:3}); const s=Svg(B);
+ Cap(B,'La verdad incómoda',{cx:1320,cy:260,size:66,t0:B.a+0.2,color:'#e23b2e'});
+ Cap(B,'Un medicamento para la vejiga,',{cx:1320,cy:420,size:52,t0:C('medicamento')+1}); Cap(B,'por sí solo,',{cx:1320,cy:510,size:52,t0:C('medicamento')+2.8});
+ Cap(B,'difícilmente lo resuelve',{cx:1320,cy:600,size:56,t0:C('medicamento')+3.8}); Cap(B,'→ <span class="hl">el órgano equivocado</span>',{cx:1320,cy:760,size:58,t0:C('medicamento')+6.5});}
+{const B=Beat(C('quedate'),C('primero'),{enter:'zoom'}); Cut(B,'sun',{cx:520,cy:700,h:420,amp:4,tilt:3}); Cut(B,'kidneys',{cx:1500,cy:760,h:300,amp:4,t0:B.a+1});
+ Cap(B,'Hay una razón…',{cx:1050,cy:300,size:66,t0:B.a+0.3}); Cap(B,'y empieza <span class="hl">mucho antes</span>',{cx:1050,cy:420,size:62,t0:B.a+3.5}); Cap(B,'de lo que imaginas',{cx:1050,cy:520,size:56,t0:B.a+4.5});}
+</script></body></html>
