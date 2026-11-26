@@ -1,0 +1,23 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('cuarto'); window.END=C('medico'); window.DURATION=window.END;
+{const B=Beat(C('cuarto'),C('horaantes'),{enter:'zoom'}); Num(B,4,{cx:180,cy:140,r:70,t0:B.a+0.1}); Cap(B,'Sube las piernas <span class="hl">antes de dormir</span>',{cx:960,cy:140,size:62,t0:B.a+0.3});
+ Cut(B,'ds_wall',{cx:560,cy:860,h:440,amp:2}); Cut(B,'ds_pillows',{cx:1380,cy:860,h:400,amp:2,t0:B.a+1}); Cap(B,'el paso que más sorprende',{cx:960,cy:980,size:46,t0:C('sorprende'),pill:true});}
+{const B=FB(C('horaantes'),C('provocando'),'S4_1','<span class="hl">Piernas más altas que el corazón</span>',{capT:C('postura')-C('horaantes'),from:[.5,.5,1.0],to:[.55,.45,1.1]});
+ Cap(B,'1 – 1,5 h antes de acostarte',{cx:520,cy:90,size:46,t0:B.a+0.5,pill:true}); Cap(B,'pared · cojines · brazo del sofá',{cx:1400,cy:90,size:44,t0:B.a+6,pill:true,t1:C('quedate2')});
+ Cap(B,'⏱ 20 – 30 minutos',{cx:1400,cy:90,size:52,t0:C('quedate2'),pill:true});}
+{const B=Beat(C('provocando'),C('banio')); Cut(B,'ankle',{cx:330,cy:620,h:260,amp:2}); Cut(B,'heart',{cx:820,cy:620,h:260,amp:6,period:0.8,t0:B.a+2}); Cut(B,'kidneys2',{cx:1260,cy:620,h:240,amp:5,period:0.8,t0:B.a+4}); Cut(B,'bladderfull',{cx:1660,cy:640,h:260,amp:3,t0:B.a+6});
+ Canvas(B,(c,t)=>flow(c,t,{x0:440,x1:1600,y:500,h:40,n:22,col:'#4e9be6',speed:0.3}));
+ Cap(B,'provocas la vuelta del líquido…',{cx:960,cy:180,size:58,t0:B.a+0.3}); Cap(B,'<span class="hl">mientras sigues despierto</span>',{cx:960,cy:280,size:62,t0:B.a+2.5});}
+{const B=Beat(C('banio'),C('aviso'),{enter:'zoom'}); Cut(B,'toilet',{cx:480,cy:800,h:440,amp:3}); Cut(B,'bladder',{cx:1500,cy:780,h:360,amp:3,t0:C('vacia')});
+ Cap(B,'y antes de acostarte: <span class="hl">al baño</span>',{cx:960,cy:150,size:62,t0:B.a+0.2}); Cap(B,'a propósito, aunque no tengas ganas',{cx:960,cy:250,size:46,t0:C('proposito')});
+ Cap(B,'la vejiga empieza la noche <span class="hl">lo más vacía posible</span>',{cx:960,cy:950,size:48,t0:C('vacia'),pill:true,t1:C('vacia')+5});
+ Cap(B,'menos líquido volverá a las 2 de la madrugada',{cx:960,cy:950,size:48,t0:C('vacia')+5,pill:true});}
+{const B=Warn(C('aviso'),C('quinto'),'Aviso importante',['¿enfermedad del corazón o del riñón?','¿te falta el aire al tumbarte?','<span class="hl">consulta antes con tu médico</span>'],{color:'#e23b2e',bg:'#fff4f2',keys:[C('aviso')+2,C('aviso')+4.5,C('aviso')+7]});}
+{const B=FB(C('quinto'),C('cuatro'),'S4_3','Dormitorio fresco: <span class="hl">18 – 20 °C</span>',{capT:C('fresco')-C('quinto')+1,from:[.5,.5,1.0],to:[.45,.4,1.1]}); Num(B,5,{cx:150,cy:140,r:70,t0:B.a+0.1});
+ Cap(B,'✗ ducha muy caliente justo antes',{cx:1450,cy:90,size:44,t0:C('calientes'),pill:true,t1:C('templado')});
+ Cap(B,'✔ ducha templada 1–2 h antes',{cx:1450,cy:90,size:46,t0:C('templado'),pill:true}); Src(B,'Haghayegh et al., Sleep Med Rev 2019');}
+{const B=Beat(C('cuatro'),C('medico'),{enter:'zoom'}); Cut(B,'ds_phone',{cx:520,cy:1000,h:680,amp:3}); Num(B,4,{cx:1360,cy:440,r:140,t0:B.a+0.3});
+ Cap(B,'💬 Escribe un <span class="hl">4</span> en los comentarios',{cx:1360,cy:700,size:54,t0:B.a+0.6});}
+</script></body></html>
