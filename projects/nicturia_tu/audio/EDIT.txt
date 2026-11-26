@@ -1,0 +1,10 @@
+voice.mp3 = voice_orig.mp3 minus (orig seconds):
+   40.02-   42.65  la mentira que te han contado (acusa a los médicos)
+  206.25-  207.11  Todos. (promesa)
+  442.30-  443.68  en ningún punto (absoluto)
+  452.31-  462.47  de tres veces a una o ninguna (sin datos)
+  565.74-  567.26  una pieza de fruta (no demonizar la fruta)
+  601.95-  613.45  prediabetes llega al límite tras un postre (exagerado)
+  670.13-  673.02  menos sueño profundo (impreciso)
+  709.26-  713.12  da igual lo poco que bebas (absoluto)
+  812.10-  817.25  eso significa trabajo para tus riñones (frase rota)
