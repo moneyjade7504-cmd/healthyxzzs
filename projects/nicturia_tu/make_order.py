@@ -3,19 +3,19 @@
 import json, pathlib
 D = pathlib.Path(__file__).parent
 
-STY = ("Clean 2D cartoon illustration, exactly matching the attached reference images: bold clean dark outlines, soft flat colours with gentle "
-       "cel shading, warm expressive faces, simple rounded shapes, ")
+STY = ("Soft 2D cartoon storybook illustration, exactly matching the attached reference image: clean dark brown outlines, soft muted colours with gentle "
+       "shading, warm friendly faces with rosy cheeks, slightly rounded proportions, cozy homely look, ")
 SHEET = STY + "plain pure white background. "
-SCENE = STY + "simple suggested background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. "
+SCENE = STY + "simple cozy background, single full-frame edge-to-edge 16:9 scene, NO border, NO frame, NO rounded corners. "
 END = " Correct anatomy, five fingers per hand. No text, no letters, no numbers, no logos, high resolution."
 ENDS = " No text, no labels, no letters, no numbers, no logos, 16:9, high resolution."
-CAR = ("MARTA, Daniel's wife (same clean cartoon style as the attached reference: about 65 years old, short wavy grey hair, small round glasses, "
-       "kind face, soft lilac cardigan over a white blouse, grey trousers, brown shoes)")
-ANT = ("DANIEL (exactly the man in the attached reference: about 65 years old, short swept-back grey hair, black rectangular glasses, friendly face, "
-       "teal button-up shirt with sleeves rolled up, brown belt, dark navy trousers, brown shoes, a wristwatch)")
-ANTP = ("DANIEL (exactly the man in the attached references: about 65 years old, short swept-back grey hair, black rectangular glasses, wearing dark teal long-sleeve button pyjamas with thin white piping on the collar, cuffs and pocket, barefoot or navy slippers, exactly as in the attached sleep pose sheet)")
-CARP = ("MARTA, Daniel's wife (same clean cartoon style: about 65 years old, short wavy grey hair, small round glasses, wearing soft lilac long-sleeve button pyjamas with thin white piping, matching Daniel's pyjama style)")
-DOC = "a friendly middle-aged male doctor with short brown hair, white coat, blue tie and a stethoscope, same flat cartoon style"
+ANT = ("DANIEL (exactly the man in the attached reference image: about 70 years old, thick wavy grey hair, dark round-rectangular glasses, kind wrinkled face, "
+       "dark teal cardigan over a light blue button shirt, grey trousers, dark grey slippers)")
+ANTP = ANT  # owner's reference keeps the same outfit, also in bed
+CAR = ("MARTA, Daniel's wife (same soft cartoon style as the attached reference: about 68 years old, short wavy white-grey hair, small round glasses, "
+       "kind face, soft lilac cardigan over a cream blouse, grey trousers, grey slippers)")
+CARP = CAR
+DOC = "a friendly middle-aged male doctor with short brown hair, white coat, blue tie and a stethoscope, same soft cartoon style"
 CLOCK = "a simple glowing bedside clock with plain hands and NO digits"
 
 def poses(lst):
@@ -31,11 +31,11 @@ def scene(s): return SCENE + s + END
 
 NURSE = "a friendly middle-aged female nurse in light blue scrubs"
 CLOCK = "a simple bedside clock with plain hands and NO digits"
-SURG = "a calm middle-aged female surgeon with dark hair in a bun, white coat over light green scrubs, same flat cartoon style"
+SURG = "a calm middle-aged female surgeon with dark hair in a bun, white coat over light green scrubs, same soft cartoon style"
 
-BED = "A cozy bedroom at night, soft moonlight through the window, a bedside lamp, a bed with a light blue sheet and blanket and plump white pillows like the attached sleep pose sheet"
+BED = "A cozy bedroom at night, soft moonlight through the window, a warm bedside lamp on a wooden nightstand, a wooden bed with a white sheet, a dusty blue blanket and plump white pillows like the attached reference"
 BATH = "a softly lit small bathroom at night, a dim night light near the floor"
-PSH = (SHEET + f"Characters: {CARP} and {ANTP}. Pose sheet: SIX separate poses, same scale, two rows of three, widely spaced, nothing touching, each lying pose drawn like the attached sleep pose sheet with only a white pillow and a light blue sheet under the body, no room background: ")
+PSH = (SHEET + f"Characters: {CARP} and {ANTP}. Pose sheet: SIX separate poses, same scale, two rows of three, widely spaced, nothing touching, each lying pose with only a white pillow and a dusty blue blanket, no room background: ")
 PSD = (SHEET + f"Characters: {CAR} and {ANT}. Pose sheet: SIX separate full-body poses, same scale, two rows of three, widely spaced, nothing touching, no floor, no background: ")
 PE = END.replace(" high resolution.", " 16:9, high resolution.")
 PARTS = [
@@ -58,17 +58,17 @@ PARTS = [
   ("S1_5", "Bác sĩ đưa vỉ thuốc, Daniel cầm mà vẫn băn khoăn",
    scene(f"A clinic office: {DOC} handing a small box of pills to {ANT}, who takes it with a doubtful, unconvinced face.")),
   ("S1_6", "Daniel trẻ (khoảng 35 tuổi) ngủ say một mạch tới sáng",
-   scene(f"{BED}: a younger version of Daniel, about 35 years old, dark hair, same black rectangular glasses on the nightstand, wearing the same dark teal pyjamas, sleeping deeply and peacefully, moonlight.")),
+   scene(f"{BED}: a younger version of Daniel, about 35 years old, thick wavy dark brown hair, same dark glasses and same teal cardigan outfit, sleeping deeply and peacefully, moonlight.")),
   ("S1_7", "Daniel hiện tại nằm thao thức, ánh trăng",
    scene(f"{BED}, blue moonlight: {ANTP} lying awake on his back, eyes open, staring at the ceiling, {CLOCK} glowing on the nightstand.")),
   ("S1_8", "Sáng: Daniel ngồi bàn bếp gõ bình luận trên điện thoại, Marta mang cà phê",
    scene(f"A sunny kitchen in the morning: {ANT} sitting at the table smiling and typing on his smartphone, {CAR} bringing two cups of coffee.")),
  ]),
  ("PARTE 2 · De las piernas a la vejiga (Dramatización: hombre de 71 años)", [
-  ("P2", "6 tư thế (đồ thường): Daniel ngồi ghế bành giải ô chữ; Daniel xem TV; Daniel đọc báo; Daniel đi bộ; Daniel kéo tất xem vết hằn ở mắt cá; Daniel xoa bắp chân nặng",
+  ("P2", "6 tư thế (đồ thường): Daniel ngồi ghế bành giải ô chữ; Daniel xem TV; Daniel ngáp trên ghế; Daniel đi bộ; Daniel kéo tất xem vết hằn ở mắt cá; Daniel ấn ngón tay vào mắt cá sưng",
    PSD + "1) Daniel sitting in an armchair doing a crossword in a newspaper with a pen; 2) Daniel sitting in an armchair holding a TV remote, watching; "
-   "3) Daniel sitting reading a book; 4) Daniel walking briskly, arms swinging; 5) Daniel sitting, pulling down his sock to look at a red sock mark on his ankle; "
-   "6) Daniel sitting, rubbing his heavy, tired calf with both hands." + PE),
+   "3) Daniel sitting in an armchair yawning, eyes half closed; 4) Daniel walking briskly, arms swinging; 5) Daniel sitting, pulling down his sock to look at a red sock mark on his ankle; "
+   "6) Daniel sitting, pressing a finger into his slightly swollen ankle, curious." + PE),
   ("O2", "10 đồ vật: chân có tĩnh mạch và van; tĩnh mạch van đóng; tĩnh mạch van hở; bắp chân như cái bơm; mắt cá sưng có vết tất; giọt dịch xanh; tim; thận; bàng quang đầy; ghế bành",
    items(["a simple cartoon lower leg showing a blue vein running up it", "a close-up of a vein with a small valve closed (two little flaps meeting)",
           "a close-up of a vein with a small valve not closing well (flaps apart)", "a cartoon calf muscle squeezing a vein like a pump, with an upward arrow shape made of flowing blood (no text)",
@@ -92,8 +92,8 @@ PARTS = [
    scene(f"A sunny park path in the morning: {ANT} walking briskly, smiling, trees and benches around.")),
  ]),
  ("PARTE 3 · Los hábitos de la noche + rutina pasos 1–3", [
-  ("P3", "6 tư thế: Daniel nhón gót vịn lưng ghế; Daniel đứng dậy khỏi ghế; Daniel uống nước buổi sáng; Marta nấu ăn với rau thơm và chanh; Daniel từ chối ly rượu; Daniel chỉ vào đồng hồ",
-   PSD + "1) Daniel standing behind a sturdy chair, holding its backrest, rising up on his toes (heel raise); 2) Daniel getting up from an armchair, hands on the armrests; "
+  ("P3", "6 tư thế: Daniel đi về phía bếp; Daniel đứng dậy khỏi ghế; Daniel uống nước buổi sáng; Marta nấu ăn với rau thơm và chanh; Daniel từ chối ly rượu; Daniel chỉ vào đồng hồ",
+   PSD + "1) Daniel walking toward the kitchen, relaxed, arms swinging; 2) Daniel getting up from an armchair, hands on the armrests; "
    "3) Daniel drinking a big glass of water; 4) Marta cooking, sprinkling fresh herbs and squeezing a lemon over a pan; "
    "5) Daniel politely refusing a glass of red wine with a raised palm; 6) Daniel pointing at a wall clock with plain hands and no digits." + PE),
   ("O3", "10 đồ vật: lát bánh mì; miếng phô mai; súp gói; bánh quy mặn; giăm bông thái lát; bát tráng miệng ngọt; tách trà mật ong; ly rượu vang; lọ muối; chanh và rau thơm",
@@ -117,8 +117,8 @@ PARTS = [
    scene(f"A kitchen in the early evening: {CAR} cooking a fresh fish fillet with vegetables, lemon and herbs, {ANT} setting the table, warm light.")),
  ]),
  ("PARTE 4 · Rutina pasos 4–5 + cuándo ir al médico + apnea + cierre", [
-  ("P4", "6 tư thế: Daniel nằm gác chân lên tường; Daniel nằm gác chân lên gối trên sofa; Daniel ngáy há miệng; Daniel đeo mặt nạ CPAP ngủ; Marta lo lắng; Daniel và Marta vẫy chào",
-   PSH + "1) Daniel lying on his back on a pillow with his legs raised and resting up against a wall, relaxed; 2) Daniel lying on his back with his legs raised on two cushions, higher than his heart; "
+  ("P4", "6 tư thế: Daniel nằm gác chân lên tường; Daniel nằm trên giường gác chân lên chồng gối đọc sách; Daniel ngáy há miệng; Daniel đeo mặt nạ CPAP ngủ; Marta lo lắng; Daniel và Marta vẫy chào",
+   PSH + "1) Daniel lying on his back on a pillow with his legs raised and resting up against a wall, relaxed; 2) Daniel lying on a bed with his legs raised high on a stack of pillows, reading a book; "
    "3) Daniel lying on his back snoring with his mouth open; 4) Daniel sleeping on his side wearing a CPAP mask with a hose, peaceful; "
    "5) Marta sitting up, worried, hand on her chest; 6) Daniel and Marta standing together in day clothes, waving at the viewer." + PE),
   ("O4", "10 đồ vật: nhiệt kế phòng; vòi sen nước ấm; ống nghiệm máu; que thử đường huyết; mặt cắt họng bị hẹp; máy CPAP và mặt nạ; bộ đo giấc ngủ tại nhà; ly nước có giọt; sổ tay và bút; gối tựa",
@@ -145,8 +145,8 @@ PARTS = [
 ]
 nums, out = {}, []
 head = ("# Prompt ảnh: \"Levantarse a orinar de noche\" (Claves de la Longevidad)\n\n"
-        "Nhân vật giống video trước: ông **Daniel** (tóc xám vuốt ngược, kính gọng đen chữ nhật, sơ mi xanh lục xắn tay, quần xanh đậm, đồng hồ) và vợ **Marta** (tóc xám xoăn ngắn, kính tròn, áo len tím). Cảnh ban đêm: Daniel pyjama xanh lục viền trắng, Marta pyjama tím nhạt viền trắng, ga giường xanh nhạt.\n"
-        "**Mỗi lần tạo, đính kèm CẢ 2 ảnh** (ảnh master Daniel và ảnh style ngủ của video trước).\n"
+        "Style và nhân vật theo **ảnh mẫu mới bạn gửi**: ông **Daniel** (tóc xám dày gợn sóng, kính gọng sẫm, áo len cardigan xanh lục đậm, sơ mi xanh nhạt, quần xám, dép xám). Vợ **Marta** cùng style (tóc trắng xám xoăn ngắn, kính tròn, áo len tím nhạt). Giữ nguyên trang phục như ảnh mẫu kể cả khi ngủ, chăn xanh xám như ảnh mẫu.\n"
+        "**Mỗi lần tạo, đính kèm ảnh mẫu** (ảnh 7 tư thế bạn vừa gửi). 7 tư thế trong ảnh mẫu mình sẽ cắt ra dùng luôn.\n"
         "Ảnh **tràn khung, không viền**, không chữ, không số. **Đặt tên ảnh theo số `1.png` … `40.png`**, gửi mỗi lần 5 ảnh.\n\n"
         "Tạm chia **4 phần** theo nội dung (thời gian chính xác sẽ có khi bạn gửi giọng đọc). Mỗi phần 10 ảnh: 1 tấm tư thế + 1 tấm đồ vật + 8 cảnh.\n")
 n = 0
