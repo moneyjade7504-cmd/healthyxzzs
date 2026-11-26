@@ -1,15 +1,7 @@
 #!/usr/bin/env python3
 """Cut doctor-claim / wrong-number phrases out of the voice; snap cuts to quiet points; shift transcript."""
 import json, subprocess, numpy as np
-CUTS = [(40.00,42.60,'la mentira que te han contado (acusa a los médicos)'),
- (206.32,207.12,'Todos. (promesa)'),
- (442.30,443.68,'en ningún punto (absoluto)'),
- (452.40,462.55,'de tres veces a una o ninguna (sin datos)'),
- (565.74,567.26,'una pieza de fruta (no demonizar la fruta)'),
- (601.95,613.45,'prediabetes llega al límite tras un postre (exagerado)'),
- (670.18,673.06,'menos sueño profundo (impreciso)'),
- (709.26,713.12,'da igual lo poco que bebas (absoluto)'),
- (812.10,817.25,'eso significa trabajo para tus riñones (frase rota)')]
+CUTS = []  # owner chose to keep the original voice uncut
 SR = 48000
 pcm = subprocess.run(['ffmpeg','-v','error','-i','audio/voice_orig.mp3','-ac','1','-ar',str(SR),'-f','f32le','-'],capture_output=True).stdout
 x = np.frombuffer(pcm, np.float32); hop = SR//100
