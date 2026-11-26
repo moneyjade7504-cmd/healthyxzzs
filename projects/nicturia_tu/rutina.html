@@ -1,0 +1,39 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="cues.js"></script><script src="clips.js"></script><script src="common.js"></script>
+<script>
+window.START=C('rutina'); window.END=C('cuarto'); window.DURATION=window.END;
+{const B=Beat(C('rutina'),C('idea'),{enter:'zoom'}); Cut(B,'moon',{cx:360,cy:620,h:300,amp:4}); Cut(B,'d_walk2',{cx:1560,cy:1000,h:620,amp:4});
+ Cap(B,'Una rutina concreta',{cx:900,cy:300,size:72,t0:C('concreta')}); Cap(B,'antes de dormir',{cx:900,cy:410,size:62,t0:C('concreta')+1});
+ Cap(B,'que <span class="hl">lo reajusta todo</span>',{cx:900,cy:520,size:60,t0:C('vamosrut')}); Cap(B,'empieza <span class="hl">esta noche</span>',{cx:900,cy:700,size:56,t0:C('estanoche'),pill:true});}
+{const B=Beat(C('idea'),C('asi')); const s=Svg(B); Cap(B,'Una sola idea',{cx:960,cy:120,size:66,t0:B.a+0.2,color:'#2f6fd6'});
+ Cap(B,'no puedes impedir que tu cuerpo procese líquidos…',{cx:960,cy:240,size:46,t0:C('impedir')}); Cap(B,'pero sí puedes cambiar <span class="hl">CUÁNDO</span>',{cx:960,cy:330,size:58,t0:C('impedir')+3});
+ sv('line',{x1:200,y1:720,x2:1720,y2:720,stroke:'#3a3c52','stroke-width':6},s);
+ Cut(B,'sun',{cx:520,cy:660,h:180,amp:3,t0:C('secreto')}); Cut(B,'moon',{cx:1400,cy:660,h:170,amp:3,t0:C('secreto')});
+ Cap(B,'tarde (despierto)',{cx:520,cy:780,size:42,t0:C('secreto')}); Cap(B,'2:00 a.m.',{cx:1400,cy:780,size:42,t0:C('secreto')});
+ Draw(B,s,arrow(1300,880,640,880,-0.15),{t0:C('llevar'),dur:1,stroke:'#22a35a',w:12}); Cap(B,'mueve la eliminación de líquidos',{cx:960,cy:1000,size:44,t0:C('llevar')+1,pill:true});}
+{const B=Beat(C('asi'),C('gimnasio')); Num(B,1,{cx:180,cy:140,r:70,t0:B.a+0.4}); Cap(B,'Mueve las piernas durante el día',{cx:960,cy:140,size:60,t0:C('paso1')});
+ Cut(B,'calfpump',{cx:620,cy:900,h:560,amp:6,period:0.9,t0:C('pantorrilla')});
+ Cap(B,'la pantorrilla = <span class="hl">segunda bomba</span>',{cx:1320,cy:500,size:54,t0:C('pantorrilla')+1}); Cap(B,'empuja sangre y líquido hacia arriba',{cx:1320,cy:610,size:42,t0:C('pantorrilla')+3});
+ Cap(B,'evita que se acumule en las piernas',{cx:1320,cy:760,size:42,t0:C('mecanismos'),pill:true});}
+{const B=FB(C('gimnasio'),C('levantate'),'S3_6','No más de <span class="hl">1 – 1,5 h</span> seguidas sentado',{capT:2.5,from:[.5,.5,1.0],to:[.45,0.05,1.06]});
+ Cap(B,'no hace falta gimnasio',{cx:1500,cy:90,size:44,t0:B.a+0.4,pill:true});}
+{const B=FB(C('levantate'),C('alolargo'),'S3_5','Elevaciones de talones: <span class="hl">unas 20 veces</span>, despacio',{capT:3,size:54,from:[.5,.5,1.0],to:[.45,0.05,1.06]});
+ Cap(B,'¿equilibrio? agárrate a una silla<br>firme o a la encimera',{cx:1480,cy:110,size:40,t0:C('equilibrio'),pill:true});}
+{const B=Beat(C('alolargo'),C('paso2'),{enter:'zoom'}); Cut(B,'d_heel',{cx:520,cy:1000,h:700,amp:5,period:1}); Cut(B,'leg',{cx:1500,cy:900,h:440,amp:2});
+ Cap(B,'a lo largo del día…',{cx:1100,cy:260,size:56,t0:B.a+0.3}); Cap(B,'llegas a la noche con',{cx:1100,cy:360,size:52,t0:B.a+1.5}); Cap(B,'<span class="hl">mucho menos líquido</span> en las piernas',{cx:1100,cy:460,size:54,t0:B.a+2.5});}
+{const B=Beat(C('paso2'),C('las3')); Num(B,2,{cx:180,cy:140,r:70,t0:B.a+0.1}); Cap(B,'Adelanta lo que bebes',{cx:960,cy:140,size:64,t0:B.a+0.2});
+ Cut(B,'glass',{cx:1400,cy:800,h:340,amp:3}); Cut(B,'moon',{cx:1700,cy:460,h:180,amp:3,t0:C('muchas2')}); const s=Svg(B); Draw(B,s,cross(1400,620,1.4),{t0:C('equivocado'),dur:0.4,stroke:'#e23b2e',w:12});
+ Cap(B,'mucha gente deja el agua',{cx:700,cy:440,size:50,t0:C('muchas2')}); Cap(B,'para la tarde y la noche',{cx:700,cy:530,size:50,t0:C('muchas2')+1.5}); Cap(B,'= <span class="red">el momento equivocado</span>',{cx:700,cy:660,size:54,t0:C('equivocado')});}
+{const B=FB(C('las3'),C('ojo'),'S3_7','La mayor parte del agua <span class="hl">antes de las 3 de la tarde</span>',{capT:0.3,size:54,from:[.5,.5,1.0],to:[.4,.4,1.12],draw:(c,t)=>rays(c,t,{x:1500,y:90,r0:60,r1:100,lw:5})});
+ Cap(B,'más horas despierto para procesarla',{cx:960,cy:90,size:46,t0:C('procesarla'),pill:true});}
+{const B=Beat(C('ojo'),C('diureticos'),{enter:'up'}); Cut(B,'d_drink',{cx:480,cy:1000,h:640,amp:3}); const s=Svg(B);
+ Cap(B,'⚠ Ojo:',{cx:1300,cy:220,size:62,t0:B.a+0.2,color:'#b97a00'});
+ Cap(B,'<span class="red">no</span> es beber menos en total',{cx:1300,cy:340,size:52,t0:B.a+1}); Cap(B,'unos sorbos en la cena: bien',{cx:1300,cy:450,size:48,t0:C('sorbos')});
+ Cap(B,'repartir mejor, <span class="hl">no deshidratarte</span>',{cx:1300,cy:570,size:52,t0:C('repartir')});
+ Cap(B,'riñones: fuerte al <span class="hl">mediodía</span>, no a medianoche',{cx:1300,cy:740,size:44,t0:C('mediodia'),pill:true});}
+{const B=Warn(C('diureticos'),C('paso3'),'¿Tomas diuréticos u otra medicación?',['No cambies la hora por tu cuenta','<span class="hl">Coméntalo antes con tu médico</span>'],{keys:[C('diureticos')+2,C('comentalo')]});}
+{const B=FB(C('paso3'),C('copa'),'S3_8','Revisa tu plato de la cena',{capT:0.3,from:[.5,.5,1.0],to:[.35,.45,1.12]}); Num(B,3,{cx:150,cy:140,r:70,t0:B.a+0.1});
+ [['menos sal',C('reduce')],['proteínas frescas',C('proteinas')],['hierbas y limón',C('hierbas')],['pocos envasados',C('evita')],['menos postres dulces',C('postres')]].forEach(([h,t0],i)=>Cap(B,'✔ '+h,{cx:1640,cy:250+i*95,size:40,t0,pill:true}));}
+{const B=Beat(C('copa'),C('cuarto'),{enter:'zoom'}); Cut(B,'ds_nowine',{cx:620,cy:1000,h:640,amp:3});
+ Cap(B,'¿Una copa?',{cx:1350,cy:380,size:66,t0:B.a+0.3}); Cap(B,'<span class="hl">adelántala</span> o sáltatela',{cx:1350,cy:500,size:58,t0:B.a+2}); Cap(B,'las noches que dormir bien importa más',{cx:1350,cy:620,size:42,t0:B.a+3.5});}
+</script></body></html>
